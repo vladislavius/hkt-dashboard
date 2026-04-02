@@ -85,6 +85,7 @@ MAP_C = {
 }
 
 CAP = {'319':140,'320':180,'321':220,'332':280,'333':320,'339':350,'359':325,'388':525,'737':180,'738':189,'739':220,'73J':220,'772':314,'773':365,'77W':396,'77L':314,'788':250,'789':290,'78J':330,'32A':180,'32B':186,'32N':186,'32Q':186,'E90':100,'E95':120,'CR9':90,'DH4':78,'AT7':70,'CRJ':90,'32S':180}
+LOAD_FACTOR = 0.82  # средняя загрузка международных рейсов в Таиланд
 
 ICT = pytz.timezone('Asia/Bangkok')
 
@@ -125,7 +126,7 @@ def analyze(flights, direction):
             if (direction=="arrival" and dep in DOMESTIC) or (direction=="departure" and arr in DOMESTIC): continue
             cnt += 1
             ac_iata = (f.get("aircraft") or {}).get("iata", "")
-            flight_pax = CAP.get(ac_iata, 180)
+            flight_pax = int(CAP.get(ac_iata, 180) * LOAD_FACTOR)
             pax += flight_pax
             country = MAP_C.get(dep if direction=="arrival" else arr, f"Other({dep if direction=='arrival' else arr})")
             ctry[country]["flights"] += 1

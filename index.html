@@ -367,11 +367,23 @@
       color: var(--ivory);
     }
     .rank-count {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1px;
+      flex-shrink: 0;
+    }
+    .rc-flights {
       font-family: 'DM Mono', monospace;
       font-size: 0.82rem;
       font-weight: 500;
       color: var(--muted-2);
-      text-align: right;
+    }
+    .rc-pax {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.2px;
     }
 
     /* ── States ── */
@@ -513,12 +525,18 @@
         const bar   = make('div', 'rank-bar');
         bar.style.width = Math.round(flights / max * 100) + '%';
         const numCls = i === 0 ? 'rank-num rn-1' : i === 1 ? 'rank-num rn-2' : i === 2 ? 'rank-num rn-3' : 'rank-num rn-n';
+        const pax     = x.pax ?? 0;
+        const countEl = make('div', 'rank-count');
+        ap(countEl,
+          txt(make('span', 'rc-flights'), String(flights) + ' ✈'),
+          txt(make('span', 'rc-pax'), '~' + pax.toLocaleString('ru') + ' чел.')
+        );
         ap(li,
           bar,
           txt(make('div', numCls), String(i + 1)),
           txt(make('span', 'rank-flag'), FLAGS[x.name] || '🌍'),
           txt(make('span', 'rank-name'), x.name),
-          txt(make('span', 'rank-count'), String(flights))
+          countEl
         );
         ul.appendChild(li);
       });
