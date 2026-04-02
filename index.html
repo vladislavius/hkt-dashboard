@@ -29,7 +29,7 @@
     .rank-item:last-child { border-bottom: none; }
     .rank-left { display: flex; align-items: center; gap: 10px; }
     .rank-num { width: 22px; height: 22px; background: var(--accent2); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #fff; }
-    .rank-flag { font-size: 1.1rem; }
+    .rank-flag { font-size: 1.2rem; line-height: 1; }
     .rank-count { font-weight: 600; color: var(--muted); }
     .chart-wrap { height: 220px; margin-top: 10px; }
     .loading { text-align: center; padding: 60px; color: var(--muted); font-size: 1.1rem; }
@@ -50,11 +50,29 @@
     </div>
     <div id="app">
       <div class="loading">⏳ Загрузка статистики...</div>
-      <div class="error" id="err">⚠️ Не удалось загрузить данные. Убедитесь, что файл dashboard.json существует.</div>
+      <div class="error" id="err">⚠️ Не удалось загрузить данные.</div>
     </div>
   </div>
   <script>
-    const FLAGS = {Russia:'🇷🇺',China:'🇨🇳',India:'🇮',UAE:'🇦🇪',Singapore:'🇸',Malaysia:'🇲🇾',Indonesia:'🇮🇩',Thailand:'🇹🇭',Vietnam:'🇻🇳','South Korea':'🇰🇷',Japan:'🇯🇵',Australia:'🇦🇺','New Zealand':'🇳🇿',UK:'🇬🇧',Germany:'🇩',France:'🇫🇷',Italy:'🇮🇹',Spain:'🇪',Netherlands:'🇳🇱',Turkey:'🇹🇷','Saudi Arabia':'🇸🇦',Qatar:'🇶',Kuwait:'🇼',Oman:'🇴🇲',Bahrain:'🇧🇭',Jordan:'🇯🇴',Israel:'🇮',Kazakhstan:'🇿',Uzbekistan:'🇺🇿',Azerbaijan:'🇦🇿',Armenia:'🇦',Georgia:'🇬🇪',Kyrgyzstan:'🇰🇬',Tajikistan:'🇹🇯',Turkmenistan:'🇹🇲',Pakistan:'🇵🇰',Bangladesh:'🇧','Sri Lanka':'🇱🇰',Nepal:'🇳',Cambodia:'🇰🇭',Myanmar:'🇲',Laos:'🇱🇦',Brunei:'🇧🇳','Hong Kong':'🇭',Taiwan:'🇹🇼',Macau:'🇲🇴',Maldives:'🇲🇻',Greece:'🇬🇷',Poland:'🇵🇱',Czechia:'🇨',Austria:'🇦🇹',Hungary:'🇭🇺',Latvia:'🇱🇻',Estonia:'🇪🇪',Finland:'🇫',Sweden:'🇸',Norway:'🇴',Denmark:'🇰',Switzerland:'🇨🇭',Portugal:'🇵🇹',Ukraine:'🇺🇦',Belarus:'🇧🇾',Lithuania:'🇱',Moldova:'🇩',Bulgaria:'🇧🇬',Romania:'🇷🇴',Serbia:'🇷🇸',Croatia:'🇭🇷',Slovenia:'🇸🇮',Slovakia:'🇸',Luxembourg:'🇺',Ireland:'🇮🇪',Iceland:'🇮🇸',Cyprus:'🇨🇾',Malta:'🇲🇹'};
+    // ✅ Полный словарь флагов (ключи точно совпадают с Python)
+    const FLAGS = {
+       'Russia': '🇷🇺', 'China': '🇨🇳', 'India': '🇮🇳', 'UAE': '🇦🇪', 'Singapore': '🇸🇬',
+    'Malaysia': '🇲🇾', 'Indonesia': '🇮🇩', 'Thailand': '🇹🇭', 'Vietnam': '🇻🇳', 'South Korea': '🇰🇷',
+    'Japan': '🇯🇵', 'Australia': '🇦🇺', 'New Zealand': '🇳🇿', 'UK': '🇬🇧', 'Germany': '🇩🇪',
+    'France': '🇫🇷', 'Italy': '🇮🇹', 'Spain': '🇪🇸', 'Netherlands': '🇳🇱', 'Turkey': '🇹🇷',
+    'Saudi Arabia': '🇸🇦', 'Qatar': '🇶🇦', 'Kuwait': '🇰🇼', 'Oman': '🇴🇲', 'Bahrain': '🇧🇭',
+    'Jordan': '🇯🇴', 'Israel': '🇮🇱', 'Kazakhstan': '🇰🇿', 'Uzbekistan': '🇺🇿', 'Azerbaijan': '🇦🇿',
+    'Armenia': '🇦🇲', 'Georgia': '🇬🇪', 'Kyrgyzstan': '🇰🇬', 'Tajikistan': '🇹🇯', 'Turkmenistan': '🇹🇲',
+    'Pakistan': '🇵🇰', 'Bangladesh': '🇧🇩', 'Sri Lanka': '🇱🇰', 'Nepal': '🇳🇵', 'Cambodia': '🇰🇭',
+    'Myanmar': '🇲🇲', 'Laos': '🇱🇦', 'Brunei': '🇧🇳', 'Hong Kong': '🇭🇰', 'Taiwan': '🇹🇼',
+    'Macau': '🇲🇴', 'Maldives': '🇲🇻', 'Greece': '🇬🇷', 'Poland': '🇵🇱', 'Czechia': '🇨🇿',
+    'Austria': '🇦🇹', 'Hungary': '🇭🇺', 'Latvia': '🇱🇻', 'Estonia': '🇪🇪', 'Finland': '🇫🇮',
+    'Sweden': '🇸🇪', 'Norway': '🇳🇴', 'Denmark': '🇩🇰', 'Switzerland': '🇨🇭', 'Portugal': '🇵🇹',
+    'Ukraine': '🇺🇦', 'Belarus': '🇧🇾', 'Lithuania': '🇱🇹', 'Moldova': '🇲🇩', 'Bulgaria': '🇧🇬',
+    'Romania': '🇷🇴', 'Serbia': '🇷🇸', 'Croatia': '🇭🇷', 'Slovenia': '🇸🇮', 'Slovakia': '🇸🇰',
+    'Luxembourg': '🇱🇺', 'Ireland': '🇮🇪', 'Iceland': '🇮🇸', 'Cyprus': '🇨🇾', 'Malta': '🇲🇹',
+    };
+
     let data = null, charts = {};
     const app = document.getElementById('app');
     const tabs = document.querySelectorAll('.tab');
@@ -67,10 +85,12 @@
 
     async function init() {
       try {
-        const res = await fetch('./data/dashboard.json');
+        // Добавляем timestamp чтобы избежать кеширования Vercel
+        const res = await fetch(`./data/dashboard.json?t=${Date.now()}`);
         if (!res.ok) throw new Error();
         data = await res.json();
-        document.getElementById('updated').textContent = `Последнее обновление: ${new Date(data.updated).toLocaleString('ru-RU', {timeZone:'Asia/Bangkok'})}`;
+        const dt = new Date(data.updated);
+        document.getElementById('updated').textContent = `Последнее обновление: ${dt.toLocaleString('ru-RU', {timeZone:'Asia/Bangkok', hour:'2-digit', minute:'2-digit', day:'2-digit', month:'2-digit'})} (ICT)`;
         document.querySelector('.loading').style.display = 'none';
         render('today');
       } catch(e) {
