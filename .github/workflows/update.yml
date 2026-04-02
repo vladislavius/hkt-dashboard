@@ -2,11 +2,11 @@ name: Update HKT Data
 
 on:
   schedule:
-    - cron: '58 16 * * *'  # 23:58 ICT = 16:58 UTC
-  workflow_dispatch:       # Кнопка ручного запуска
+    - cron: '58 16 * * *'
+  workflow_dispatch:
 
 permissions:
-  contents: write          # 🔑 Разрешаем записывать в репозиторий
+  contents: write
 
 jobs:
   update:
@@ -15,7 +15,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          persist-credentials: false  # ⚠️ Отключаем стандартные креды, чтобы использовать наш токен
+          persist-credentials: false
           fetch-depth: 0
 
       - name: Set up Python
@@ -36,7 +36,6 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add data/dashboard.json data/accumulated_*.json
-          # Если есть изменения — коммитим и пушим с токеном
           if ! git diff --staged --quiet; then
             git commit -m "auto: update flight data $(date '+%Y-%m-%d %H:%M ICT')"
             git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
