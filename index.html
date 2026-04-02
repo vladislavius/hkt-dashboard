@@ -412,14 +412,96 @@
       to   { opacity:1; transform:translateY(0); }
     }
 
+    /* ── Tablet ── */
     @media (max-width: 1000px) {
       .main-grid     { grid-template-columns: 1fr 1fr; }
       .metrics-strip { grid-template-columns: repeat(2, 1fr); }
     }
-    @media (max-width: 600px) {
-      .wrap          { padding: 28px 16px 48px; }
-      .main-grid     { grid-template-columns: 1fr; }
-      .header-ghost  { font-size: 80px; }
+
+    /* ── Mobile L (≤768px) ── */
+    @media (max-width: 768px) {
+      .wrap          { padding: 22px 14px 48px; }
+
+      /* Header */
+      .header-ghost  { display: none; }
+      header         { margin-bottom: 28px; padding-bottom: 24px; }
+      .header-row    { flex-direction: column; align-items: flex-start; gap: 14px; }
+      .header-eyebrow{ font-size: 0.62rem; letter-spacing: 2.5px; margin-bottom: 6px; }
+      .header-title  { font-size: 2rem; }
+      .header-meta   { font-size: 0.7rem; }
+      .live-badge    { font-size: 0.65rem; padding: 6px 12px; gap: 6px; }
+      .live-dot      { width: 6px; height: 6px; }
+
+      /* Tabs — full width, scroll */
+      .tabs-wrap     { margin-bottom: 22px; }
+      .tabs          { width: 100%; max-width: 100%; }
+      .tab           { flex: 1; text-align: center; padding: 8px 8px; font-size: 0.75rem; }
+
+      /* Metrics 2×2 */
+      .metrics-strip { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px; }
+      .m-card        { padding: 16px 16px 14px; border-radius: 14px; }
+      .m-label       { font-size: 0.6rem; letter-spacing: 1.8px; margin-bottom: 8px; }
+      .m-value       { font-size: 1.8rem; letter-spacing: -1px; }
+      .m-icon        { font-size: 1.6rem; bottom: 10px; right: 14px; }
+
+      /* Cards */
+      .main-grid     { grid-template-columns: 1fr; gap: 12px; }
+      .card          { padding: 18px; border-radius: 16px; }
+      .card-title    { font-size: 1rem; margin-bottom: 16px; gap: 8px; }
+      .card-icon     { width: 26px; height: 26px; font-size: 0.75rem; border-radius: 7px; }
+
+      /* Chart — shrink donut */
+      .chart-container { max-width: 180px; }
+      .chart-center-val{ font-size: 1.3rem; }
+      .chart-legend  { gap: 16px; margin-top: 14px; }
+      .leg-item      { font-size: 0.72rem; }
+
+      /* Rank list */
+      .rank-item     { gap: 7px; padding: 7px 0; }
+      .rank-num      { width: 20px; height: 20px; font-size: 0.58rem; }
+      .rank-flag     { font-size: 0.9rem; }
+      .rank-name     { font-size: 0.8rem; }
+      .rc-flights    { font-size: 0.76rem; }
+      .rc-pax        { font-size: 0.63rem; }
+    }
+
+    /* ── Mobile M (≤480px) ── */
+    @media (max-width: 480px) {
+      .wrap          { padding: 16px 12px 40px; }
+      .header-title  { font-size: 1.75rem; }
+      .header-eyebrow{ letter-spacing: 2px; }
+
+      /* Tabs — smaller */
+      .tab           { padding: 7px 6px; font-size: 0.7rem; border-radius: 8px; }
+
+      /* Metrics — tighter */
+      .metrics-strip { gap: 8px; }
+      .m-card        { padding: 14px 14px 12px; }
+      .m-value       { font-size: 1.55rem; }
+      .m-label       { font-size: 0.58rem; letter-spacing: 1.5px; }
+
+      /* Cards */
+      .card          { padding: 16px; border-radius: 14px; }
+      .card-title    { font-size: 0.95rem; margin-bottom: 14px; }
+
+      /* Chart */
+      .chart-container { max-width: 160px; }
+      .chart-center-val{ font-size: 1.2rem; }
+
+      /* Rank — tightest */
+      .rank-item     { grid-template-columns: 18px 1.2rem 1fr auto; gap: 5px; }
+      .rank-num      { width: 18px; height: 18px; border-radius: 5px; font-size: 0.55rem; }
+      .rank-name     { font-size: 0.76rem; }
+      .rc-flights    { font-size: 0.72rem; }
+      .rc-pax        { font-size: 0.6rem; }
+    }
+
+    /* ── Mobile S (≤375px — iPhone SE etc.) ── */
+    @media (max-width: 375px) {
+      .wrap          { padding: 14px 10px 36px; }
+      .m-value       { font-size: 1.4rem; }
+      .tab           { font-size: 0.65rem; padding: 7px 4px; }
+      .rank-name     { font-size: 0.72rem; }
     }
   </style>
 </head>
