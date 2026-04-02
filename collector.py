@@ -1,6 +1,6 @@
 import requests, json, datetime, pytz
 from pathlib import Path
-from collections import Counter
+from collections import Counter, defaultdict
 
 API_KEYS = [
     "07deba653b969abc059382a133349e8f",
