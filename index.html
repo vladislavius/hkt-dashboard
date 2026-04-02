@@ -3,197 +3,709 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HKT Flight Analytics</title>
+  <title>HKT · Flight Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<style>
-  :root { --bg: #0b1120; --card: rgba(30, 41, 59, 0.6); --accent: #38bdf8; --accent2: #818cf8; --text: #f8fafc; --muted: #94a3b8; --border: rgba(255,255,255,0.08); }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 20px; background-image: radial-gradient(circle at 10% 20%, rgba(56,189,248,0.15) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(129,140,248,0.15) 0%, transparent 40%); }
-  .container { max-width: 1100px; margin: 0 auto; }
-  header { text-align: center; margin-bottom: 30px; }
-  h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
-  .meta { color: var(--muted); font-size: 0.9rem; }
-  
-  .tabs { 
-    display: flex; 
-    gap: 8px; 
-    justify-content: center; 
-    margin-bottom: 24px; 
-    overflow-x: auto; 
-    padding: 0 10px;
-    flex-wrap: nowrap;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
-  }
-  .tabs::-webkit-scrollbar { display: none; /* Chrome/Safari */ }
-  
-  .tab { 
-    padding: 10px 16px; 
-    border-radius: 12px; 
-    cursor: pointer; 
-    background: var(--card); 
-    border: 1px solid var(--border); 
-    backdrop-filter: blur(8px); 
-    transition: 0.2s; 
-    font-weight: 500;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .tab:hover { background: rgba(56,189,248,0.1); }
-  .tab.active { background: var(--accent); color: #0b1120; border-color: var(--accent); box-shadow: 0 4px 12px rgba(56,189,248,0.3); }
-  
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; backdrop-filter: blur(10px); }
-  .card h3 { font-size: 1.1rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-  .metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
-  .metric-box { background: rgba(255,255,255,0.03); padding: 12px; border-radius: 10px; text-align: center; }
-  .val { font-size: 1.6rem; font-weight: 700; color: var(--accent); }
-  .lbl { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
-  .rank-list { list-style: none; }
-  .rank-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); }
-  .rank-item:last-child { border-bottom: none; }
-  .rank-left { display: flex; align-items: center; gap: 10px; }
-  .rank-num { width: 22px; height: 22px; background: var(--accent2); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #fff; }
-  .rank-flag { font-size: 1.2rem; line-height: 1; }
-  .rank-count { font-weight: 600; color: var(--muted); }
-  .chart-wrap { height: 220px; margin-top: 10px; }
-  .loading { text-align: center; padding: 60px; color: var(--muted); font-size: 1.1rem; }
-  .error { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: #fca5a5; padding: 16px; border-radius: 12px; text-align: center; margin-top: 20px; display: none; }
-  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .metrics { grid-template-columns: 1fr; } }
-</style>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #05080F;
+      --surface:     rgba(10, 15, 28, 0.9);
+      --gold:        #C8A96E;
+      --gold-light:  #E2C891;
+      --gold-faint:  rgba(200, 169, 110, 0.07);
+      --gold-border: rgba(200, 169, 110, 0.18);
+      --sky:         #5BB8F5;
+      --amber:       #E8A462;
+      --ivory:       #EDE8DF;
+      --muted:       #4E4A45;
+      --muted-2:     #8A8480;
+      --border:      rgba(255, 255, 255, 0.05);
+      --border-card: rgba(255, 255, 255, 0.06);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ivory);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(200,169,110,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 90% 100%, rgba(91,184,245,0.04) 0%, transparent 50%),
+        linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+      background-size: 100%, 100%, 52px 52px, 52px 52px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 48px 28px 72px;
+    }
+
+    /* ── Header ── */
+    header {
+      position: relative;
+      margin-bottom: 44px;
+      padding-bottom: 36px;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-border) 30%, var(--gold-border) 70%, transparent);
+    }
+    .header-ghost {
+      position: absolute;
+      top: -28px; left: -8px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(100px, 14vw, 180px);
+      font-weight: 700;
+      color: rgba(200, 169, 110, 0.035);
+      letter-spacing: -8px;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .header-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .header-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 600;
+      color: var(--ivory);
+      line-height: 1.05;
+      letter-spacing: -0.5px;
+    }
+    .header-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .header-meta {
+      font-size: 0.78rem;
+      color: var(--muted-2);
+      letter-spacing: 0.5px;
+      margin-top: 8px;
+      font-weight: 300;
+    }
+    .live-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold-faint);
+      border: 1px solid var(--gold-border);
+      border-radius: 100px;
+      padding: 8px 18px;
+      font-size: 0.72rem;
+      color: var(--gold-light);
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    .live-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 6px var(--gold);
+      animation: live-pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes live-pulse {
+      0%,100% { opacity:1; box-shadow:0 0 6px var(--gold); }
+      50%      { opacity:.35; box-shadow:0 0 2px var(--gold); }
+    }
+
+    /* ── Tabs ── */
+    .tabs-wrap { margin-bottom: 36px; }
+    .tabs {
+      display: flex;
+      gap: 3px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 4px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      width: fit-content;
+      max-width: 100%;
+    }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab {
+      padding: 9px 22px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--muted-2);
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+    .tab:hover:not(.active) { color: var(--ivory); background: rgba(255,255,255,0.04); }
+    .tab.active {
+      background: var(--gold);
+      color: #09100A;
+      font-weight: 700;
+      box-shadow: 0 2px 18px rgba(200,169,110,0.28);
+    }
+
+    /* ── Metrics strip ── */
+    .metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .m-card {
+      background: var(--surface);
+      border: 1px solid var(--border-card);
+      border-radius: 18px;
+      padding: 22px 24px 20px;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      transition: border-color 0.25s, transform 0.25s;
+      animation: fade-up 0.45s ease both;
+    }
+    .m-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 16px; right: 16px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
+    }
+    .m-card:hover { border-color: var(--gold-border); transform: translateY(-3px); }
+    .m-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--muted-2);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .m-value {
+      font-family: 'DM Mono', monospace;
+      font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -1.5px;
+    }
+    .col-ivory { color: var(--ivory); }
+    .col-gold  { color: var(--gold); }
+    .col-sky   { color: var(--sky); }
+    .col-amber { color: var(--amber); }
+    .m-icon {
+      position: absolute;
+      bottom: 14px; right: 18px;
+      font-size: 2rem;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    /* ── Main Grid ── */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border-card);
+      border-radius: 20px;
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s;
+      animation: fade-up 0.5s ease both;
+    }
+    .card:hover { border-color: var(--gold-border); }
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ivory);
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card-icon {
+      width: 30px; height: 30px;
+      background: var(--gold-faint);
+      border: 1px solid var(--gold-border);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    /* ── Chart ── */
+    .chart-container {
+      position: relative;
+      width: 100%;
+      max-width: 220px;
+      margin: 0 auto;
+    }
+    .chart-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .chart-center-val {
+      font-family: 'DM Mono', monospace;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--ivory);
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+    .chart-center-lbl {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--muted-2);
+      margin-top: 4px;
+    }
+    .chart-legend {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 18px;
+    }
+    .leg-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.78rem;
+      color: var(--muted-2);
+    }
+    .leg-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .leg-val {
+      font-family: 'DM Mono', monospace;
+      color: var(--ivory);
+      margin-left: 2px;
+    }
+
+    /* ── Rank List ── */
+    .rank-list { list-style: none; }
+    .rank-item {
+      display: grid;
+      grid-template-columns: 22px 1.4rem 1fr auto;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .rank-item:last-child { border-bottom: none; }
+    .rank-bar {
+      position: absolute;
+      bottom: 0; left: 0;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.18;
+      transition: width 0.6s cubic-bezier(0.25,1,0.5,1);
+    }
+    .rank-num {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.62rem;
+      font-weight: 700;
+      font-family: 'DM Mono', monospace;
+    }
+    .rn-1 { background: rgba(200,169,110,0.18); color: var(--gold); }
+    .rn-2 { background: rgba(200,200,200,0.1);  color: #C8C8C8; }
+    .rn-3 { background: rgba(180,110,60,0.15);  color: #D4915A; }
+    .rn-n { background: rgba(255,255,255,0.04); color: var(--muted-2); }
+    .rank-flag { font-size: 1rem; line-height: 1; justify-self: center; }
+    .rank-name {
+      font-size: 0.83rem;
+      font-weight: 400;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: var(--ivory);
+    }
+    .rank-count {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--muted-2);
+      text-align: right;
+    }
+
+    /* ── States ── */
+    .loading-state { padding: 80px 20px; text-align: center; }
+    .loading-txt {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 3px;
+      color: var(--muted-2);
+      text-transform: uppercase;
+      animation: blink 1.4s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+    .error-state {
+      background: rgba(232,100,90,0.05);
+      border: 1px solid rgba(232,100,90,0.18);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      color: #E8A4A0;
+      font-size: 0.88rem;
+    }
+
+    @keyframes fade-up {
+      from { opacity:0; transform:translateY(18px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    @media (max-width: 1000px) {
+      .main-grid     { grid-template-columns: 1fr 1fr; }
+      .metrics-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .wrap          { padding: 28px 16px 48px; }
+      .main-grid     { grid-template-columns: 1fr; }
+      .header-ghost  { font-size: 80px; }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
+  <div class="wrap">
+
     <header>
-      <h1>🌴 Phuket HKT Analytics</h1>
-      <div class="meta" id="updated">Обновление данных...</div>
+      <div class="header-ghost">HKT</div>
+      <div class="header-row">
+        <div>
+          <div class="header-eyebrow">Phuket International Airport</div>
+          <div class="header-title">Flight <em>Intelligence</em></div>
+          <div class="header-meta">Аналитика рейсов · Данные в реальном времени · Таиланд ICT</div>
+        </div>
+        <div>
+          <div class="live-badge">
+            <div class="live-dot"></div>
+            <span id="updated">Загрузка данных...</span>
+          </div>
+        </div>
+      </div>
     </header>
-    <div class="tabs">
-  <div class="tab active" data-k="yesterday">Вчера</div>
-  <div class="tab" data-k="today">Сегодня</div>
-  <div class="tab" data-k="week">Неделя</div>
-  <div class="tab" data-k="month">Месяц</div>
-  <div class="tab" data-k="quarter">3 месяца</div>
-  <div class="tab" data-k="halfyear">6 месяцев</div>
-  <div class="tab" data-k="year">Год</div>
-</div>
-    <div id="app">
-      <div class="loading">⏳ Загрузка статистики...</div>
-      <div class="error" id="err">⚠️ Не удалось загрузить данные.</div>
+
+    <div class="tabs-wrap">
+      <div class="tabs">
+        <div class="tab active" data-k="yesterday">Вчера</div>
+        <div class="tab" data-k="today">Сегодня</div>
+        <div class="tab" data-k="week">Неделя</div>
+        <div class="tab" data-k="month">Месяц</div>
+        <div class="tab" data-k="quarter">3 месяца</div>
+        <div class="tab" data-k="halfyear">6 месяцев</div>
+        <div class="tab" data-k="year">Год</div>
+      </div>
     </div>
+
+    <div id="metrics-row" class="metrics-strip"></div>
+    <div id="app">
+      <div class="loading-state">
+        <div class="loading-txt">Загрузка статистики...</div>
+      </div>
+    </div>
+
   </div>
 
   <script>
-    // ✅ Полный словарь флагов (ключи точно совпадают с Python)
     const FLAGS = {
-       'Russia': '🇷🇺', 'China': '🇨🇳', 'India': '🇮🇳', 'UAE': '🇦🇪', 'Singapore': '🇸🇬',
-    'Malaysia': '🇲🇾', 'Indonesia': '🇮🇩', 'Thailand': '🇹🇭', 'Vietnam': '🇻🇳', 'South Korea': '🇰🇷',
-    'Japan': '🇯🇵', 'Australia': '🇦🇺', 'New Zealand': '🇳🇿', 'UK': '🇬🇧', 'Germany': '🇩🇪',
-    'France': '🇫🇷', 'Italy': '🇮🇹', 'Spain': '🇪🇸', 'Netherlands': '🇳🇱', 'Turkey': '🇹🇷',
-    'Saudi Arabia': '🇸🇦', 'Qatar': '🇶🇦', 'Kuwait': '🇰🇼', 'Oman': '🇴🇲', 'Bahrain': '🇧🇭',
-    'Jordan': '🇯🇴', 'Israel': '🇮🇱', 'Kazakhstan': '🇰🇿', 'Uzbekistan': '🇺🇿', 'Azerbaijan': '🇦🇿',
-    'Armenia': '🇦🇲', 'Georgia': '🇬🇪', 'Kyrgyzstan': '🇰🇬', 'Tajikistan': '🇹🇯', 'Turkmenistan': '🇹🇲',
-    'Pakistan': '🇵🇰', 'Bangladesh': '🇧🇩', 'Sri Lanka': '🇱🇰', 'Nepal': '🇳🇵', 'Cambodia': '🇰🇭',
-    'Myanmar': '🇲🇲', 'Laos': '🇱🇦', 'Brunei': '🇧🇳', 'Hong Kong': '🇭🇰', 'Taiwan': '🇹🇼',
-    'Macau': '🇲🇴', 'Maldives': '🇲🇻', 'Greece': '🇬🇷', 'Poland': '🇵🇱', 'Czechia': '🇨🇿',
-    'Austria': '🇦🇹', 'Hungary': '🇭🇺', 'Latvia': '🇱🇻', 'Estonia': '🇪🇪', 'Finland': '🇫🇮',
-    'Sweden': '🇸🇪', 'Norway': '🇳🇴', 'Denmark': '🇩🇰', 'Switzerland': '🇨🇭', 'Portugal': '🇵🇹',
-    'Ukraine': '🇺🇦', 'Belarus': '🇧🇾', 'Lithuania': '🇱🇹', 'Moldova': '🇲🇩', 'Bulgaria': '🇧🇬',
-    'Romania': '🇷🇴', 'Serbia': '🇷🇸', 'Croatia': '🇭🇷', 'Slovenia': '🇸🇮', 'Slovakia': '🇸🇰',
-    'Luxembourg': '🇱🇺', 'Ireland': '🇮🇪', 'Iceland': '🇮🇸', 'Cyprus': '🇨🇾', 'Malta': '🇲🇹',
+      'Russia':'🇷🇺','China':'🇨🇳','India':'🇮🇳','UAE':'🇦🇪','Singapore':'🇸🇬',
+      'Malaysia':'🇲🇾','Indonesia':'🇮🇩','Thailand':'🇹🇭','Vietnam':'🇻🇳','South Korea':'🇰🇷',
+      'Japan':'🇯🇵','Australia':'🇦🇺','New Zealand':'🇳🇿','UK':'🇬🇧','Germany':'🇩🇪',
+      'France':'🇫🇷','Italy':'🇮🇹','Spain':'🇪🇸','Netherlands':'🇳🇱','Turkey':'🇹🇷',
+      'Saudi Arabia':'🇸🇦','Qatar':'🇶🇦','Kuwait':'🇰🇼','Oman':'🇴🇲','Bahrain':'🇧🇭',
+      'Jordan':'🇯🇴','Israel':'🇮🇱','Kazakhstan':'🇰🇿','Uzbekistan':'🇺🇿','Azerbaijan':'🇦🇿',
+      'Armenia':'🇦🇲','Georgia':'🇬🇪','Kyrgyzstan':'🇰🇬','Tajikistan':'🇹🇯','Turkmenistan':'🇹🇲',
+      'Pakistan':'🇵🇰','Bangladesh':'🇧🇩','Sri Lanka':'🇱🇰','Nepal':'🇳🇵','Cambodia':'🇰🇭',
+      'Myanmar':'🇲🇲','Laos':'🇱🇦','Brunei':'🇧🇳','Hong Kong':'🇭🇰','Taiwan':'🇹🇼',
+      'Macau':'🇲🇴','Maldives':'🇲🇻','Greece':'🇬🇷','Poland':'🇵🇱','Czechia':'🇨🇿',
+      'Austria':'🇦🇹','Hungary':'🇭🇺','Latvia':'🇱🇻','Estonia':'🇪🇪','Finland':'🇫🇮',
+      'Sweden':'🇸🇪','Norway':'🇳🇴','Denmark':'🇩🇰','Switzerland':'🇨🇭','Portugal':'🇵🇹',
+      'Ukraine':'🇺🇦','Belarus':'🇧🇾','Lithuania':'🇱🇹','Moldova':'🇲🇩','Bulgaria':'🇧🇬',
+      'Romania':'🇷🇴','Serbia':'🇷🇸','Croatia':'🇭🇷','Slovenia':'🇸🇮','Slovakia':'🇸🇰',
+      'Luxembourg':'🇱🇺','Ireland':'🇮🇪','Iceland':'🇮🇸','Cyprus':'🇨🇾','Malta':'🇲🇹',
     };
 
-    let data = null, charts = {};
-    const app = document.getElementById('app');
-    const tabs = document.querySelectorAll('.tab');
-    
-    tabs.forEach(t => t.addEventListener('click', () => {
+    let data = null, activeChart = null;
+    const appEl     = document.getElementById('app');
+    const metricsEl = document.getElementById('metrics-row');
+    const tabs      = document.querySelectorAll('.tab');
+
+      tabs.forEach(t => t.addEventListener('click', () => {
       tabs.forEach(x => x.classList.remove('active'));
       t.classList.add('active');
       render(t.dataset.k);
     }));
-
-    async function init() {
-      try {
-        // Добавляем timestamp чтобы избежать кеширования Vercel
-        const res = await fetch(`./data/dashboard.json?t=${Date.now()}`);
-        if (!res.ok) throw new Error();
-        data = await res.json();
-        const dt = new Date(data.updated);
-        document.getElementById('updated').textContent = `Последнее обновление: ${dt.toLocaleString('ru-RU', {timeZone:'Asia/Bangkok', hour:'2-digit', minute:'2-digit', day:'2-digit', month:'2-digit'})} (ICT)`;
-        document.querySelector('.loading').style.display = 'none';
-        render('today');
-      } catch(e) {
-        document.querySelector('.loading').style.display = 'none';
-        document.getElementById('err').style.display = 'block';
+    
+    // По умолчанию показываем "Сегодня" или "Вчера" если сегодня пустое
+    function getDefaultTab() {
+      if (data.today && data.today.arrivals.count > 0) return 'today';
+      if (data.yesterday && data.yesterday.arrivals.count > 0) return 'yesterday';
+      return 'week';
+    }
+    
+    const defaultTab = getDefaultTab();
+    tabs.forEach(t => {
+      if (t.dataset.k === defaultTab) {
+        t.classList.add('active');
+        render(defaultTab);
       }
+    });
+
+    // ── DOM helpers ──
+    function make(tag, cls) {
+      const el = document.createElement(tag);
+      if (cls) el.className = cls;
+      return el;
     }
 
+    function txt(el, text) { el.textContent = text; return el; }
+
+    function append(parent, ...children) {
+      children.forEach(c => parent.appendChild(c));
+      return parent;
+    }
+
+    // ── Metric card ──
+    function makeMetricCard(label, value, colorCls, icon, delay) {
+      const card  = make('div', 'm-card');
+      card.style.animationDelay = delay;
+      const lbl   = txt(make('div', 'm-label'), label);
+      const val   = txt(make('div', 'm-value ' + colorCls), value);
+      const ico   = txt(make('div', 'm-icon'), icon);
+      append(card, lbl, val, ico);
+      return card;
+    }
+
+    // ── Rank list ──
+    function makeRankList(list) {
+      const ul  = make('ul', 'rank-list');
+      const max = list[0]?.count || 1;
+
+      list.forEach((x, i) => {
+        const li    = make('li', 'rank-item');
+
+        const bar   = make('div', 'rank-bar');
+        bar.style.width = Math.round(x.count / max * 100) + '%';
+
+        const numCls = i === 0 ? 'rank-num rn-1'
+                     : i === 1 ? 'rank-num rn-2'
+                     : i === 2 ? 'rank-num rn-3'
+                     :           'rank-num rn-n';
+        const num   = txt(make('div', numCls), String(i + 1));
+        const flag  = txt(make('span', 'rank-flag'), FLAGS[x.name] || '🌍');
+        const name  = txt(make('span', 'rank-name'), x.name);
+        const count = txt(make('span', 'rank-count'), String(x.count));
+
+        append(li, bar, num, flag, name, count);
+        ul.appendChild(li);
+      });
+
+      return ul;
+    }
+
+    // ── Card shell ──
+    function makeCard(iconEmoji, titleText, delay) {
+      const card  = make('div', 'card');
+      card.style.animationDelay = delay;
+
+      const title = make('div', 'card-title');
+      const icon  = txt(make('div', 'card-icon'), iconEmoji);
+      const label = txt(make('span'), titleText);
+      append(title, icon, label);
+      card.appendChild(title);
+
+      return card;
+    }
+
+    // ── Chart card ──
+    function makeChartCard(arrCount, depCount, total, delay) {
+      const card = makeCard('📊', 'Распределение рейсов', delay);
+
+      const wrap  = make('div', 'chart-container');
+      const canvas = document.createElement('canvas');
+      canvas.id = 'mainChart';
+      canvas.height = 220;
+
+      const center = make('div', 'chart-center');
+      const cVal   = txt(make('div', 'chart-center-val'), String(total));
+      const cLbl   = txt(make('div', 'chart-center-lbl'), 'рейсов');
+      append(center, cVal, cLbl);
+      append(wrap, canvas, center);
+
+      const legend = make('div', 'chart-legend');
+
+      const legArr  = make('div', 'leg-item');
+      const dotArr  = make('div', 'leg-dot');
+      dotArr.style.background = '#5BB8F5';
+      append(legArr, dotArr, document.createTextNode(' Прилёты '), txt(make('span', 'leg-val'), String(arrCount)));
+
+      const legDep  = make('div', 'leg-item');
+      const dotDep  = make('div', 'leg-dot');
+      dotDep.style.background = '#E8A462';
+      append(legDep, dotDep, document.createTextNode(' Вылеты '), txt(make('span', 'leg-val'), String(depCount)));
+
+      append(legend, legArr, legDep);
+      append(card, wrap, legend);
+
+      return card;
+    }
+
+    // ── Main render ──
     function render(period) {
       const d = data[period];
-      if(!d) return;
+      if (!d) return;
+
       const total = d.arrivals.count + d.departures.count;
-      const pax = d.arrivals.pax + d.departures.pax;
-      
-      app.innerHTML = `
-        <div class="grid">
-          <div class="card">
-            <h3>📊 Обзор</h3>
-            <div class="metrics">
-              <div class="metric-box"><div class="val">${total}</div><div class="lbl">Рейсов</div></div>
-              <div class="metric-box"><div class="val">${pax.toLocaleString()}</div><div class="lbl">Пассажиров</div></div>
-              <div class="metric-box"><div class="val">${d.arrivals.count}</div><div class="lbl">Прилёты</div></div>
-              <div class="metric-box"><div class="val">${d.departures.count}</div><div class="lbl">Вылеты</div></div>
-            </div>
-            <div class="chart-wrap"><canvas id="mainChart"></canvas></div>
-          </div>
-          <div class="card">
-            <h3>🛬 Топ-10 Прилёты</h3>
-            <ul class="rank-list">${d.arrivals.top.map((x,i)=>`<li class="rank-item"><div class="rank-left"><div class="rank-num">${i+1}</div><span class="rank-flag">${FLAGS[x.name]||'🌍'}</span><span>${x.name}</span></div><div class="rank-count">${x.count}</div></li>`).join('')}</ul>
-          </div>
-          <div class="card">
-            <h3>🛫 Топ-10 Вылеты</h3>
-            <ul class="rank-list">${d.departures.top.map((x,i)=>`<li class="rank-item"><div class="rank-left"><div class="rank-num">${i+1}</div><span class="rank-flag">${FLAGS[x.name]||'🌍'}</span><span>${x.name}</span></div><div class="rank-count">${x.count}</div></li>`).join('')}</ul>
-          </div>
-        </div>`;
-      
+      const pax   = d.arrivals.pax   + d.departures.pax;
+
+      // Metrics
+      metricsEl.replaceChildren(
+        makeMetricCard('Всего рейсов',  String(total),                'col-ivory', '✈',  '0s'),
+        makeMetricCard('Пассажиров',    pax.toLocaleString('ru'),     'col-gold',  '👤', '0.06s'),
+        makeMetricCard('Прилёты',       String(d.arrivals.count),     'col-sky',   '🛬', '0.12s'),
+        makeMetricCard('Вылеты',        String(d.departures.count),   'col-amber', '🛫', '0.18s'),
+      );
+
+      // Grid
+      const grid = make('div', 'main-grid');
+
+      // Chart card
+      const chartCard = makeChartCard(d.arrivals.count, d.departures.count, total, '0.06s');
+      grid.appendChild(chartCard);
+
+      // Arrivals card
+      const arrCard = makeCard('🛬', 'Топ-10 · Прилёты', '0.12s');
+      arrCard.appendChild(makeRankList(d.arrivals.top));
+      grid.appendChild(arrCard);
+
+      // Departures card
+      const depCard = makeCard('🛫', 'Топ-10 · Вылеты', '0.18s');
+      depCard.appendChild(makeRankList(d.departures.top));
+      grid.appendChild(depCard);
+
+      appEl.replaceChildren(grid);
+
+      // Chart
+      if (activeChart) { activeChart.destroy(); activeChart = null; }
       const ctx = document.getElementById('mainChart').getContext('2d');
-      if(charts[period]) charts[period].destroy();
-      charts[period] = new Chart(ctx, {
-        type: 'bar',
+      activeChart = new Chart(ctx, {
+        type: 'doughnut',
         data: {
           labels: ['Прилёты', 'Вылеты'],
           datasets: [{
-            label: 'Рейсы',
             data: [d.arrivals.count, d.departures.count],
-            backgroundColor: ['#38bdf8', '#818cf8'],
-            borderRadius: 8,
-            barThickness: 40
+            backgroundColor: ['rgba(91,184,245,0.75)', 'rgba(232,164,98,0.75)'],
+            borderColor:     ['#5BB8F5', '#E8A462'],
+            borderWidth: 2,
+            hoverBorderWidth: 3,
+            hoverOffset: 6,
           }]
         },
         options: {
-          responsive: true, maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
-          scales: {
-            y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
-            x: { grid: { display: false }, ticks: { color: '#f8fafc' } }
+          responsive: true,
+          maintainAspectRatio: true,
+          cutout: '68%',
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: 'rgba(10,15,28,0.95)',
+              borderColor: 'rgba(200,169,110,0.2)',
+              borderWidth: 1,
+              titleColor: '#EDE8DF',
+              bodyColor: '#8A8480',
+              padding: 12,
+              cornerRadius: 10,
+              callbacks: {
+                label: ctx => ' ' + ctx.label + ': ' + ctx.parsed + ' рейсов'
+              }
+            }
           }
         }
       });
     }
+
+    async function init() {
+      try {
+        const res = await fetch('./data/dashboard.json?t=' + Date.now());
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        data = await res.json();
+
+        const dt = new Date(data.updated);
+        document.getElementById('updated').textContent =
+          dt.toLocaleString('ru-RU', {
+            timeZone: 'Asia/Bangkok',
+            hour: '2-digit', minute: '2-digit',
+            day: '2-digit',  month: '2-digit'
+          }) + ' ICT';
+
+        appEl.replaceChildren();
+        tabs.forEach(t => t.classList.toggle('active', t.dataset.k === 'today'));
+        render('today');
+
+      } catch (e) {
+        const err = make('div', 'error-state');
+        const msg = txt(make('p'), '⚠ Не удалось загрузить данные.');
+        const sub = txt(make('small'), 'Проверьте подключение или обновите страницу.');
+        sub.style.cssText = 'opacity:.6;margin-top:6px;display:block';
+        append(err, msg, sub);
+        appEl.replaceChildren(err);
+      }
+    }
+
     init();
-  </script>
-    <!-- Авто-обновление каждые 15 минут -->
-  <script>
+
     setInterval(async () => {
       try {
-        const res = await fetch(`./data/dashboard.json?t=${Date.now()}`);
-        const newData = await res.json();
-        if (newData.updated !== data.updated) {
-          console.log("New data found, reloading...");
-          location.reload();
-        }
-      } catch (e) {}
+        const r  = await fetch('./data/dashboard.json?t=' + Date.now());
+        const nd = await r.json();
+        if (nd.updated !== data?.updated) location.reload();
+      } catch (_) {}
     }, 15 * 60 * 1000);
   </script>
 </body>

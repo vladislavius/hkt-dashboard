@@ -181,8 +181,22 @@ def run():
         "departures": {"count": d_cur["count"], "pax": d_cur["pax"], "countries": d_cur["countries"]}
     }, indent=2, ensure_ascii=False))
     
-    w_a, w_d = load_period_stats(today, 7)
+   w_a, w_d = load_period_stats(today, 7)
     m_a, m_d = load_period_stats(today, 30)
+    q_a, q_d = load_period_stats(today, 90)    # 3 месяца
+    h_a, h_d = load_period_stats(today, 180)   # 6 месяцев
+    y_a, y_d = load_period_stats(today, 365)   # Год
+    
+    # Вчера (отдельная логика)
+    yesterday = (datetime.datetime.fromisoformat(today) - datetime.timedelta(days=1)).date().isoformat()
+    yest_file = Path(f"data/accumulated_{yesterday}.json")
+    if yest_file.exists():
+        yest_data = json.loads(yest_file.read_text())
+        v_a = yest_data.get("arrivals", {"count":0, "pax":0, "countries":{}})
+        v_d = yest_data.get("departures", {"count":0, "pax":0, "countries":{}})
+    else:
+        v_a = {"count":0, "pax":0, "countries":{}}
+        v_d = {"count":0, "pax":0, "countries":{}}
     
     def block(title, a, d):
         lines = [f"<b>{title}</b>", f"✈️ Всего: {a['count']+d['count']} | 👥 ~{a['pax']+d['pax']:,}", 
@@ -199,20 +213,26 @@ def run():
     print(msg)
     send_telegram(msg)
 
-
-def export_dashboard(today_str, a_cur, d_cur, w_a, w_d, m_a, m_d):
-    def fmt(ctry):
-        return [{"name": c, "count": v} for c, v in sorted(ctry.items(), key=lambda x: x[1], reverse=True)[:10]]
-    data = {
-        "updated": datetime.datetime.now(pytz.timezone('Asia/Bangkok')).isoformat(),
-        "today": {"arrivals": {"count": a_cur["count"], "pax": a_cur["pax"], "top": fmt(a_cur["countries"])},
-                  "departures": {"count": d_cur["count"], "pax": d_cur["pax"], "top": fmt(d_cur["countries"])}},
-        "week": {"arrivals": {"count": w_a["count"], "pax": w_a["pax"], "top": fmt(w_a["countries"])},
-                 "departures": {"count": w_d["count"], "pax": w_d["pax"], "top": fmt(w_d["countries"])}},
-        "month": {"arrivals": {"count": m_a["count"], "pax": m_a["pax"], "top": fmt(m_a["countries"])},
-                  "departures": {"count": m_d["count"], "pax": m_d["pax"], "top": fmt(m_d["countries"])}}
+    # 🌐 ГЕНЕРАЦИЯ DASHBOARD.JSON (встроена напрямую, без отдельных функций)
+    def to_web_fmt(arr, dep):
+        return {
+            "arrivals": {"count": arr["count"], "pax": arr["pax"], "top": [{"name": c, "count": v} for c, v in sorted(arr["countries"].items(), key=lambda x: x[1], reverse=True)[:10]]},
+            "departures": {"count": dep["count"], "pax": dep["pax"], "top": [{"name": c, "count": v} for c, v in sorted(dep["countries"].items(), key=lambda x: x[1], reverse=True)[:10]]}
+        }
+    
+        dashboard_data = {
+        "updated": now.isoformat(),
+        "yesterday": to_web_fmt(v_a, v_d),
+        "today": to_web_fmt(a_cur, d_cur),
+        "week": to_web_fmt(w_a, w_d),
+        "month": to_web_fmt(m_a, m_d),
+        "quarter": to_web_fmt(q_a, q_d),
+        "halfyear": to_web_fmt(h_a, h_d),
+        "year": to_web_fmt(y_a, y_d)
+    
     }
-    Path("data/dashboard.json").write_text(json.dumps(data, ensure_ascii=False, indent=2))
+    Path("data/dashboard.json").write_text(json.dumps(dashboard_data, ensure_ascii=False, indent=2))
+    print("✅ dashboard.json обновлён и сохранён.")
 
 if __name__ == "__main__":
     run()
