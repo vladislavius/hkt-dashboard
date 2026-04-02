@@ -1,23 +1,45 @@
 name: Update HKT Data
+
 on:
   schedule:
     - cron: '58 16 * * *'  # 23:58 ICT = 16:58 UTC
   workflow_dispatch:       # Кнопка ручного запуска
 
+permissions:
+  contents: write          # 🔑 Разрешаем записывать в репозиторий
+
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with: { python-version: '3.11' }
-      - run: pip install requests pytz
-      - run: python3 collector.py
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false  # ⚠️ Отключаем стандартные креды, чтобы использовать наш токен
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests pytz
+
+      - name: Run collector script
+        run: python3 collector.py
         env:
           PYTHONPATH: .
-      - run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add data/dashboard.json data/accumulated_*.json
-          git diff --staged --quiet || git commit -m "auto: update flight data $(date '+%Y-%m-%d %H:%M ICT')"
-          git push
+          # Если есть изменения — коммитим и пушим с токеном
+          if ! git diff --staged --quiet; then
+            git commit -m "auto: update flight data $(date '+%Y-%m-%d %H:%M ICT')"
+            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
+          else
+            echo "No changes to commit"
+          fi
