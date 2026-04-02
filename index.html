@@ -153,5 +153,18 @@
     }
     init();
   </script>
+    <!-- Авто-обновление каждые 15 минут -->
+  <script>
+    setInterval(async () => {
+      try {
+        const res = await fetch(`./data/dashboard.json?t=${Date.now()}`);
+        const newData = await res.json();
+        if (newData.updated !== data.updated) {
+          console.log("New data found, reloading...");
+          location.reload();
+        }
+      } catch (e) {}
+    }, 15 * 60 * 1000);
+  </script>
 </body>
 </html>
