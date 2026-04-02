@@ -2,9 +2,10 @@ name: Update HKT Data
 
 on:
   schedule:
-    - cron: '0 5 * * *'    # 12:00 ICT — полдень (KEY_2)
-    - cron: '0 11 * * *'   # 18:00 ICT — вечер  (KEY_3)
-    - cron: '0 16 * * *'   # 23:00 ICT — итог   (KEY_1)
+    - cron: '30 17 * * *'  # 00:30 ICT — ночь/ранние рейсы  (KEY_1)
+    - cron: '0 1 * * *'    # 08:00 ICT — утро/день          (KEY_2)
+    - cron: '0 9 * * *'    # 16:00 ICT — день/вечер         (KEY_3)
+    - cron: '58 16 * * *'  # 23:58 ICT — финализация дня    (KEY_1)
   workflow_dispatch:
 
 permissions:
