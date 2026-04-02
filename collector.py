@@ -118,14 +118,18 @@ def analyze(flights, direction):
         if d: by_date.setdefault(d, []).append(f)
     res = {}
     for date, fl in by_date.items():
-        cnt, pax, ctry, st = 0, 0, Counter(), {"completed":0,"upcoming":0,"cancelled":0}
+        cnt, pax, ctry, st = 0, 0, defaultdict(lambda: {"flights":0, "pax":0}), {"completed":0,"upcoming":0,"cancelled":0}
         for f in fl:
             dep = (f.get("departure") or {}).get("iata", "")
             arr = (f.get("arrival") or {}).get("iata", "")
             if (direction=="arrival" and dep in DOMESTIC) or (direction=="departure" and arr in DOMESTIC): continue
             cnt += 1
-            pax += CAP.get((f.get("aircraft") or {}).get("iata", ""), 180)
-            ctry[MAP_C.get(dep if direction=="arrival" else arr, f"Other({dep if direction=='arrival' else arr})")] += 1
+            ac_iata = (f.get("aircraft") or {}).get("iata", "")
+            flight_pax = CAP.get(ac_iata, 180)
+            pax += flight_pax
+            country = MAP_C.get(dep if direction=="arrival" else arr, f"Other({dep if direction=='arrival' else arr})")
+            ctry[country]["flights"] += 1
+            ctry[country]["pax"] += flight_pax
             s = (f.get("flight_status") or "").lower().strip()
             if direction == "departure":
                 if s in ("departed","landed","diverted","active","en route","en-route","incidents","taxi-out","pushback","returned","taxi"): st["completed"]+=1
@@ -139,8 +143,8 @@ def analyze(flights, direction):
     return res
 
 def load_period_stats(today_str, days):
-    tot_a = {"count":0, "pax":0, "countries": Counter()}
-    tot_d = {"count":0, "pax":0, "countries": Counter()}
+    tot_a = {"count":0, "pax":0, "countries": {}}
+    tot_d = {"count":0, "pax":0, "countries": {}}
     for i in range(days):
         dt = (datetime.datetime.fromisoformat(today_str) - datetime.timedelta(days=i)).date().isoformat()
         fp = Path(f"data/accumulated_{dt}.json")
@@ -151,14 +155,19 @@ def load_period_stats(today_str, days):
                 x = d.get(side, {})
                 tot["count"] += x.get("count", 0)
                 tot["pax"] += x.get("pax", 0)
-                tot["countries"].update(x.get("countries", {}))
+                for c, v in x.get("countries", {}).items():
+                    if c not in tot["countries"]: tot["countries"][c] = {"flights": 0, "pax": 0}
+                    tot["countries"][c]["flights"] += v.get("flights", 0)
+                    tot["countries"][c]["pax"] += v.get("pax", 0)
         except Exception: continue
     return tot_a, tot_d
 
 def fmt_top10(ctry):
     lines = []
-    for i, (c, v) in enumerate(sorted(ctry.items(), key=lambda x: x[1], reverse=True)[:10], 1):
-        lines.append(f"{i}. {COUNTRY_FLAGS.get(c,'')} {c}: {v}")
+    sorted_c = sorted(ctry.items(), key=lambda x: x[1]["flights"], reverse=True)[:10]
+    for i, (c, v) in enumerate(sorted_c, 1):
+        flag = COUNTRY_FLAGS.get(c, "")
+        lines.append(f"{i}. {flag} {c}: {v['flights']} рейсов (~{v['pax']:,} пасс.)")
     return "\n".join(lines) if lines else "Нет данных"
 
 def run():
@@ -181,13 +190,12 @@ def run():
         "departures": {"count": d_cur["count"], "pax": d_cur["pax"], "countries": d_cur["countries"]}
     }, indent=2, ensure_ascii=False))
     
-   w_a, w_d = load_period_stats(today, 7)
+    w_a, w_d = load_period_stats(today, 7)
     m_a, m_d = load_period_stats(today, 30)
-    q_a, q_d = load_period_stats(today, 90)    # 3 месяца
-    h_a, h_d = load_period_stats(today, 180)   # 6 месяцев
-    y_a, y_d = load_period_stats(today, 365)   # Год
+    q_a, q_d = load_period_stats(today, 90)
+    h_a, h_d = load_period_stats(today, 180)
+    y_a, y_d = load_period_stats(today, 365)
     
-    # Вчера (отдельная логика)
     yesterday = (datetime.datetime.fromisoformat(today) - datetime.timedelta(days=1)).date().isoformat()
     yest_file = Path(f"data/accumulated_{yesterday}.json")
     if yest_file.exists():
@@ -213,14 +221,17 @@ def run():
     print(msg)
     send_telegram(msg)
 
-    # 🌐 ГЕНЕРАЦИЯ DASHBOARD.JSON (встроена напрямую, без отдельных функций)
+    # 🌐 DASHBOARD.JSON GENERATION
     def to_web_fmt(arr, dep):
+        def fmt(ctry):
+            sorted_c = sorted(ctry.items(), key=lambda x: x[1]["flights"], reverse=True)[:10]
+            return [{"name": c, "flights": v["flights"], "pax": v["pax"]} for c, v in sorted_c]
         return {
-            "arrivals": {"count": arr["count"], "pax": arr["pax"], "top": [{"name": c, "count": v} for c, v in sorted(arr["countries"].items(), key=lambda x: x[1], reverse=True)[:10]]},
-            "departures": {"count": dep["count"], "pax": dep["pax"], "top": [{"name": c, "count": v} for c, v in sorted(dep["countries"].items(), key=lambda x: x[1], reverse=True)[:10]]}
+            "arrivals": {"count": arr["count"], "pax": arr["pax"], "top": fmt(arr["countries"])},
+            "departures": {"count": dep["count"], "pax": dep["pax"], "top": fmt(dep["countries"])}
         }
     
-        dashboard_data = {
+    dashboard_data = {
         "updated": now.isoformat(),
         "yesterday": to_web_fmt(v_a, v_d),
         "today": to_web_fmt(a_cur, d_cur),
@@ -229,10 +240,9 @@ def run():
         "quarter": to_web_fmt(q_a, q_d),
         "halfyear": to_web_fmt(h_a, h_d),
         "year": to_web_fmt(y_a, y_d)
-    
     }
     Path("data/dashboard.json").write_text(json.dumps(dashboard_data, ensure_ascii=False, indent=2))
-    print("✅ dashboard.json обновлён и сохранён.")
+    print("✅ dashboard.json обновлён.")
 
 if __name__ == "__main__":
     run()
