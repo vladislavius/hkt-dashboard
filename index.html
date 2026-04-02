@@ -471,242 +471,118 @@
       'Luxembourg':'🇱🇺','Ireland':'🇮🇪','Iceland':'🇮🇸','Cyprus':'🇨🇾','Malta':'🇲🇹',
     };
 
-    let data = null, activeChart = null;
-    const appEl     = document.getElementById('app');
-    const metricsEl = document.getElementById('metrics-row');
-    const tabs      = document.querySelectorAll('.tab');
+      let data = null;
+    const app = document.getElementById('app');
+    const tabs = document.querySelectorAll('.tab');
 
-      tabs.forEach(t => t.addEventListener('click', () => {
-      tabs.forEach(x => x.classList.remove('active'));
-      t.classList.add('active');
-      render(t.dataset.k);
-    }));
-    
-    // По умолчанию показываем "Сегодня" или "Вчера" если сегодня пустое
-    function getDefaultTab() {
-      if (data.today && data.today.arrivals.count > 0) return 'today';
-      if (data.yesterday && data.yesterday.arrivals.count > 0) return 'yesterday';
-      return 'week';
-    }
-    
-    const defaultTab = getDefaultTab();
-    tabs.forEach(t => {
-      if (t.dataset.k === defaultTab) {
-        t.classList.add('active');
-        render(defaultTab);
-      }
-    });
-
-    // ── DOM helpers ──
-    function make(tag, cls) {
-      const el = document.createElement(tag);
-      if (cls) el.className = cls;
-      return el;
-    }
-
-    function txt(el, text) { el.textContent = text; return el; }
-
-    function append(parent, ...children) {
-      children.forEach(c => parent.appendChild(c));
-      return parent;
-    }
-
-    // ── Metric card ──
-    function makeMetricCard(label, value, colorCls, icon, delay) {
-      const card  = make('div', 'm-card');
-      card.style.animationDelay = delay;
-      const lbl   = txt(make('div', 'm-label'), label);
-      const val   = txt(make('div', 'm-value ' + colorCls), value);
-      const ico   = txt(make('div', 'm-icon'), icon);
-      append(card, lbl, val, ico);
-      return card;
-    }
-
-    // ── Rank list ──
-    function makeRankList(list) {
-      const ul  = make('ul', 'rank-list');
-      const max = list[0]?.count || 1;
-
-      list.forEach((x, i) => {
-        const li    = make('li', 'rank-item');
-
-        const bar   = make('div', 'rank-bar');
-        bar.style.width = Math.round(x.count / max * 100) + '%';
-
-        const numCls = i === 0 ? 'rank-num rn-1'
-                     : i === 1 ? 'rank-num rn-2'
-                     : i === 2 ? 'rank-num rn-3'
-                     :           'rank-num rn-n';
-        const num   = txt(make('div', numCls), String(i + 1));
-        const flag  = txt(make('span', 'rank-flag'), FLAGS[x.name] || '🌍');
-        const name  = txt(make('span', 'rank-name'), x.name);
-        const count = txt(make('span', 'rank-count'), String(x.count));
-
-        append(li, bar, num, flag, name, count);
-        ul.appendChild(li);
-      });
-
-      return ul;
-    }
-
-    // ── Card shell ──
-    function makeCard(iconEmoji, titleText, delay) {
-      const card  = make('div', 'card');
-      card.style.animationDelay = delay;
-
-      const title = make('div', 'card-title');
-      const icon  = txt(make('div', 'card-icon'), iconEmoji);
-      const label = txt(make('span'), titleText);
-      append(title, icon, label);
-      card.appendChild(title);
-
-      return card;
-    }
-
-    // ── Chart card ──
-    function makeChartCard(arrCount, depCount, total, delay) {
-      const card = makeCard('📊', 'Распределение рейсов', delay);
-
-      const wrap  = make('div', 'chart-container');
-      const canvas = document.createElement('canvas');
-      canvas.id = 'mainChart';
-      canvas.height = 220;
-
-      const center = make('div', 'chart-center');
-      const cVal   = txt(make('div', 'chart-center-val'), String(total));
-      const cLbl   = txt(make('div', 'chart-center-lbl'), 'рейсов');
-      append(center, cVal, cLbl);
-      append(wrap, canvas, center);
-
-      const legend = make('div', 'chart-legend');
-
-      const legArr  = make('div', 'leg-item');
-      const dotArr  = make('div', 'leg-dot');
-      dotArr.style.background = '#5BB8F5';
-      append(legArr, dotArr, document.createTextNode(' Прилёты '), txt(make('span', 'leg-val'), String(arrCount)));
-
-      const legDep  = make('div', 'leg-item');
-      const dotDep  = make('div', 'leg-dot');
-      dotDep.style.background = '#E8A462';
-      append(legDep, dotDep, document.createTextNode(' Вылеты '), txt(make('span', 'leg-val'), String(depCount)));
-
-      append(legend, legArr, legDep);
-      append(card, wrap, legend);
-
-      return card;
-    }
-
-    // ── Main render ──
+    // 🛡️ Безопасная отрисовка
     function render(period) {
-      const d = data[period];
-      if (!d) return;
-
-      const total = d.arrivals.count + d.departures.count;
-      const pax   = d.arrivals.pax   + d.departures.pax;
-
-      // Metrics
-      metricsEl.replaceChildren(
-        makeMetricCard('Всего рейсов',  String(total),                'col-ivory', '✈',  '0s'),
-        makeMetricCard('Пассажиров',    pax.toLocaleString('ru'),     'col-gold',  '👤', '0.06s'),
-        makeMetricCard('Прилёты',       String(d.arrivals.count),     'col-sky',   '🛬', '0.12s'),
-        makeMetricCard('Вылеты',        String(d.departures.count),   'col-amber', '🛫', '0.18s'),
-      );
-
-      // Grid
-      const grid = make('div', 'main-grid');
-
-      // Chart card
-      const chartCard = makeChartCard(d.arrivals.count, d.departures.count, total, '0.06s');
-      grid.appendChild(chartCard);
-
-      // Arrivals card
-      const arrCard = makeCard('🛬', 'Топ-10 · Прилёты', '0.12s');
-      arrCard.appendChild(makeRankList(d.arrivals.top));
-      grid.appendChild(arrCard);
-
-      // Departures card
-      const depCard = makeCard('🛫', 'Топ-10 · Вылеты', '0.18s');
-      depCard.appendChild(makeRankList(d.departures.top));
-      grid.appendChild(depCard);
-
-      appEl.replaceChildren(grid);
-
-      // Chart
-      if (activeChart) { activeChart.destroy(); activeChart = null; }
+        if (!data || !data[period]) return; // Ждём загрузки
+        const d = data[period];
+        const total = d.arrivals.count + d.departures.count;
+        const pax = d.arrivals.pax + d.departures.pax;
+        
+        app.innerHTML = `
+        <div class="grid">
+          <div class="card">
+            <h3>📊 Обзор</h3>
+            <div class="metrics">
+              <div class="metric-box"><div class="val">${total}</div><div class="lbl">Рейсов</div></div>
+              <div class="metric-box"><div class="val">${pax.toLocaleString()}</div><div class="lbl">Пассажиров</div></div>
+              <div class="metric-box"><div class="val">${d.arrivals.count}</div><div class="lbl">Прилёты</div></div>
+              <div class="metric-box"><div class="val">${d.departures.count}</div><div class="lbl">Вылеты</div></div>
+            </div>
+            <div class="chart-wrap"><canvas id="mainChart"></canvas></div>
+          </div>
+          <div class="card">
+            <h3>🛬 Топ-10 Прилёты</h3>
+            <ul class="rank-list">${d.arrivals.top.map((x,i)=>`<li class="rank-item"><div class="rank-left"><div class="rank-num">${i+1}</div><span class="rank-flag">${FLAGS[x.name]||'🌍'}</span><span>${x.name}</span></div><div class="rank-count">${x.count}</div></li>`).join('')}</ul>
+          </div>
+          <div class="card">
+            <h3>🛫 Топ-10 Вылеты</h3>
+            <ul class="rank-list">${d.departures.top.map((x,i)=>`<li class="rank-item"><div class="rank-left"><div class="rank-num">${i+1}</div><span class="rank-flag">${FLAGS[x.name]||'🌍'}</span><span>${x.name}</span></div><div class="rank-count">${x.count}</div></li>`).join('')}</ul>
+          </div>
+        </div>`;
+      
       const ctx = document.getElementById('mainChart').getContext('2d');
-      activeChart = new Chart(ctx, {
-        type: 'doughnut',
+      if(charts[period]) charts[period].destroy();
+      charts[period] = new Chart(ctx, {
+        type: 'bar',
         data: {
           labels: ['Прилёты', 'Вылеты'],
           datasets: [{
+            label: 'Рейсы',
             data: [d.arrivals.count, d.departures.count],
-            backgroundColor: ['rgba(91,184,245,0.75)', 'rgba(232,164,98,0.75)'],
-            borderColor:     ['#5BB8F5', '#E8A462'],
-            borderWidth: 2,
-            hoverBorderWidth: 3,
-            hoverOffset: 6,
+            backgroundColor: ['#38bdf8', '#818cf8'],
+            borderRadius: 8,
+            barThickness: 40
           }]
         },
         options: {
-          responsive: true,
-          maintainAspectRatio: true,
-          cutout: '68%',
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              backgroundColor: 'rgba(10,15,28,0.95)',
-              borderColor: 'rgba(200,169,110,0.2)',
-              borderWidth: 1,
-              titleColor: '#EDE8DF',
-              bodyColor: '#8A8480',
-              padding: 12,
-              cornerRadius: 10,
-              callbacks: {
-                label: ctx => ' ' + ctx.label + ': ' + ctx.parsed + ' рейсов'
-              }
-            }
+          responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
+            x: { grid: { display: false }, ticks: { color: '#f8fafc' } }
           }
         }
       });
     }
 
-    async function init() {
-      try {
-        const res = await fetch('./data/dashboard.json?t=' + Date.now());
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        data = await res.json();
-
-        const dt = new Date(data.updated);
-        document.getElementById('updated').textContent =
-          dt.toLocaleString('ru-RU', {
-            timeZone: 'Asia/Bangkok',
-            hour: '2-digit', minute: '2-digit',
-            day: '2-digit',  month: '2-digit'
-          }) + ' ICT';
-
-        appEl.replaceChildren();
-        tabs.forEach(t => t.classList.toggle('active', t.dataset.k === 'today'));
-        render('today');
-
-      } catch (e) {
-        const err = make('div', 'error-state');
-        const msg = txt(make('p'), '⚠ Не удалось загрузить данные.');
-        const sub = txt(make('small'), 'Проверьте подключение или обновите страницу.');
-        sub.style.cssText = 'opacity:.6;margin-top:6px;display:block';
-        append(err, msg, sub);
-        appEl.replaceChildren(err);
-      }
+    // 🎯 Умный выбор вкладки по умолчанию
+    function getDefaultTab() {
+        if (!data) return 'today';
+        if (data.today?.arrivals?.count > 0) return 'today';
+        if (data.yesterday?.arrivals?.count > 0) return 'yesterday';
+        return 'week';
     }
 
+    // 🌐 Главная функция инициализации
+    async function init() {
+        try {
+            const res = await fetch(`./data/dashboard.json?t=${Date.now()}`);
+            if (!res.ok) throw new Error();
+            data = await res.json();
+            
+            const dt = new Date(data.updated);
+            document.getElementById('updated').textContent = `Последнее обновление: ${dt.toLocaleString('ru-RU', {timeZone:'Asia/Bangkok', hour:'2-digit', minute:'2-digit', day:'2-digit', month:'2-digit'})} (ICT)`;
+            document.querySelector('.loading').style.display = 'none';
+
+            // ✅ Рисуем ТОЛЬКО после успешной загрузки
+            const defaultTab = getDefaultTab();
+            render(defaultTab);
+            document.querySelector(`.tab[data-k="${defaultTab}"]`)?.classList.add('active');
+
+        } catch(e) {
+            document.querySelector('.loading').style.display = 'none';
+            document.getElementById('err').style.display = 'block';
+        }
+    }
+
+    // 🖱️ Обработка кликов (безопасна, render сам проверит data)
+    tabs.forEach(t => t.addEventListener('click', () => {
+        tabs.forEach(x => x.classList.remove('active'));
+        t.classList.add('active');
+        render(t.dataset.k);
+    }));
+
+    // 🚀 Запуск
     init();
 
+    // 🔁 Авто-обновление каждые 15 мин
     setInterval(async () => {
       try {
-        const r  = await fetch('./data/dashboard.json?t=' + Date.now());
-        const nd = await r.json();
-        if (nd.updated !== data?.updated) location.reload();
-      } catch (_) {}
+        const res = await fetch(`./data/dashboard.json?t=${Date.now()}`);
+        const newData = await res.json();
+        if (newData.updated !== data?.updated) {
+          data = newData;
+          render(getDefaultTab());
+          // Обновляем активный таб
+          tabs.forEach(t => t.classList.remove('active'));
+          document.querySelector(`.tab[data-k="${getDefaultTab()}"]`)?.classList.add('active');
+        }
+      } catch (e) {}
     }, 15 * 60 * 1000);
-  </script>
+</script>
 </body>
 </html>
