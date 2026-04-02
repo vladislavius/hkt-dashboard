@@ -471,117 +471,191 @@
       'Luxembourg':'🇱🇺','Ireland':'🇮🇪','Iceland':'🇮🇸','Cyprus':'🇨🇾','Malta':'🇲🇹',
     };
 
-      let data = null;
-    let charts = {}; // ✅ Исправлено: добавлено объявление
-    const app = document.getElementById('app');
-    const tabs = document.querySelectorAll('.tab');
+    let data = null, activeChart = null;
+    const appEl     = document.getElementById('app');
+    const metricsEl = document.getElementById('metrics-row');
+    const tabs      = document.querySelectorAll('.tab');
 
-    function render(period) {
-        if (!data || !data[period]) return;
-        const d = data[period];
-        const total = d.arrivals.count + d.departures.count;
-        const pax = d.arrivals.pax + d.departures.pax;
+    tabs.forEach(t => t.addEventListener('click', () => {
+      tabs.forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      render(t.dataset.k);
+    }));
 
-        app.innerHTML = `
-        <div class="grid">
-          <div class="card">
-            <h3>📊 Обзор</h3>
-            <div class="metrics">
-              <div class="metric-box"><div class="val">${total}</div><div class="lbl">Рейсов</div></div>
-              <div class="metric-box"><div class="val">${pax.toLocaleString()}</div><div class="lbl">Пассажиров</div></div>
-              <div class="metric-box"><div class="val">${d.arrivals.count}</div><div class="lbl">Прилёты</div></div>
-              <div class="metric-box"><div class="val">${d.departures.count}</div><div class="lbl">Вылеты</div></div>
-            </div>
-            <div class="chart-wrap"><canvas id="mainChart"></canvas></div>
-          </div>
-          <div class="card">
-            <h3>🛬 Топ-10 Прилёты</h3>
-            <ul class="rank-list">${d.arrivals.top.map((x,i)=>`<li class="rank-item"><div class="rank-left"><div class="rank-num">${i+1}</div><span class="rank-flag">${FLAGS[x.name]||'🌍'}</span><span>${x.name}</span></div><div class="rank-count">${x.count}</div></li>`).join('')}</ul>
-          </div>
-          <div class="card">
-            <h3>🛫 Топ-10 Вылеты</h3>
-            <ul class="rank-list">${d.departures.top.map((x,i)=>`<li class="rank-item"><div class="rank-left"><div class="rank-num">${i+1}</div><span class="rank-flag">${FLAGS[x.name]||'🌍'}</span><span>${x.name}</span></div><div class="rank-count">${x.count}</div></li>`).join('')}</ul>
-          </div>
-        </div>`;
+    /* ── Tiny DOM helpers ── */
+    function make(tag, cls) {
+      const e = document.createElement(tag);
+      if (cls) e.className = cls;
+      return e;
+    }
+    function txt(e, t) { e.textContent = t; return e; }
+    function ap(p, ...ch) { ch.forEach(c => p.appendChild(c)); return p; }
 
-        const ctx = document.getElementById('mainChart')?.getContext('2d');
-        if (!ctx) return;
-        if (charts[period]) charts[period].destroy();
-        charts[period] = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Прилёты', 'Вылеты'],
-                datasets: [{
-                    label: 'Рейсы',
-                    data: [d.arrivals.count, d.departures.count],
-                    backgroundColor: ['#38bdf8', '#818cf8'],
-                    borderRadius: 8,
-                    barThickness: 40
-                }]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: {
-                    y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
-                    x: { grid: { display: false }, ticks: { color: '#f8fafc' } }
-                }
-            }
-        });
+    /* ── Metric card ── */
+    function mkMetric(label, value, colorCls, icon, delay) {
+      const card = make('div', 'm-card');
+      card.style.animationDelay = delay;
+      ap(card,
+        txt(make('div', 'm-label'), label),
+        txt(make('div', 'm-value ' + colorCls), value),
+        txt(make('div', 'm-icon'), icon)
+      );
+      return card;
     }
 
-    function getDefaultTab() {
-        if (!data) return 'today';
-        if (data.today?.arrivals?.count > 0) return 'today';
-        if (data.yesterday?.arrivals?.count > 0) return 'yesterday';
-        return 'week';
+    /* ── Rank list ── */
+    function mkRankList(list) {
+      const ul  = make('ul', 'rank-list');
+      const max = list[0]?.count || 1;
+      list.forEach((x, i) => {
+        const li    = make('li', 'rank-item');
+        const bar   = make('div', 'rank-bar');
+        bar.style.width = Math.round(x.count / max * 100) + '%';
+        const numCls = i === 0 ? 'rank-num rn-1' : i === 1 ? 'rank-num rn-2' : i === 2 ? 'rank-num rn-3' : 'rank-num rn-n';
+        ap(li,
+          bar,
+          txt(make('div', numCls), String(i + 1)),
+          txt(make('span', 'rank-flag'), FLAGS[x.name] || '🌍'),
+          txt(make('span', 'rank-name'), x.name),
+          txt(make('span', 'rank-count'), String(x.count))
+        );
+        ul.appendChild(li);
+      });
+      return ul;
+    }
+
+    /* ── Card shell ── */
+    function mkCard(iconEmoji, titleText, delay) {
+      const card  = make('div', 'card');
+      card.style.animationDelay = delay;
+      const title = make('div', 'card-title');
+      ap(title, txt(make('div', 'card-icon'), iconEmoji), txt(make('span'), titleText));
+      card.appendChild(title);
+      return card;
+    }
+
+    /* ── Main render ── */
+    function render(period) {
+      const d = data?.[period];
+      if (!d) return;
+
+      const total = d.arrivals.count + d.departures.count;
+      const pax   = d.arrivals.pax   + d.departures.pax;
+
+      metricsEl.replaceChildren(
+        mkMetric('Всего рейсов',  String(total),              'col-ivory', '✈',  '0s'),
+        mkMetric('Пассажиров',    pax.toLocaleString('ru'),   'col-gold',  '👤', '0.06s'),
+        mkMetric('Прилёты',       String(d.arrivals.count),   'col-sky',   '🛬', '0.12s'),
+        mkMetric('Вылеты',        String(d.departures.count), 'col-amber', '🛫', '0.18s')
+      );
+
+      const grid = make('div', 'main-grid');
+
+      /* Chart card */
+      const chartCard = mkCard('📊', 'Распределение рейсов', '0.06s');
+      const wrap      = make('div', 'chart-container');
+      const canvas    = document.createElement('canvas');
+      canvas.id = 'mainChart'; canvas.height = 220;
+      const center  = make('div', 'chart-center');
+      ap(center, txt(make('div', 'chart-center-val'), String(total)), txt(make('div', 'chart-center-lbl'), 'рейсов'));
+      ap(wrap, canvas, center);
+      const legend  = make('div', 'chart-legend');
+      const legA    = make('div', 'leg-item');
+      const dotA    = make('div', 'leg-dot'); dotA.style.background = '#5BB8F5';
+      ap(legA, dotA, document.createTextNode(' Прилёты '), txt(make('span','leg-val'), String(d.arrivals.count)));
+      const legD    = make('div', 'leg-item');
+      const dotD    = make('div', 'leg-dot'); dotD.style.background = '#E8A462';
+      ap(legD, dotD, document.createTextNode(' Вылеты '),  txt(make('span','leg-val'), String(d.departures.count)));
+      ap(legend, legA, legD);
+      ap(chartCard, wrap, legend);
+      grid.appendChild(chartCard);
+
+      /* Arrivals card */
+      const arrCard = mkCard('🛬', 'Топ-10 · Прилёты', '0.12s');
+      arrCard.appendChild(mkRankList(d.arrivals.top));
+      grid.appendChild(arrCard);
+
+      /* Departures card */
+      const depCard = mkCard('🛫', 'Топ-10 · Вылеты', '0.18s');
+      depCard.appendChild(mkRankList(d.departures.top));
+      grid.appendChild(depCard);
+
+      appEl.replaceChildren(grid);
+
+      /* Chart */
+      if (activeChart) { activeChart.destroy(); activeChart = null; }
+      activeChart = new Chart(document.getElementById('mainChart').getContext('2d'), {
+        type: 'doughnut',
+        data: {
+          labels: ['Прилёты', 'Вылеты'],
+          datasets: [{
+            data: [d.arrivals.count, d.departures.count],
+            backgroundColor: ['rgba(91,184,245,0.75)', 'rgba(232,164,98,0.75)'],
+            borderColor: ['#5BB8F5', '#E8A462'],
+            borderWidth: 2,
+            hoverBorderWidth: 3,
+            hoverOffset: 6,
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: true, cutout: '68%',
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: 'rgba(10,15,28,0.95)',
+              borderColor: 'rgba(200,169,110,0.2)',
+              borderWidth: 1,
+              titleColor: '#EDE8DF',
+              bodyColor: '#8A8480',
+              padding: 12, cornerRadius: 10,
+              callbacks: { label: c => ' ' + c.label + ': ' + c.parsed + ' рейсов' }
+            }
+          }
+        }
+      });
+    }
+
+    function getDefaultPeriod() {
+      if (!data) return 'today';
+      if (data.today?.arrivals?.count > 0) return 'today';
+      if (data.yesterday?.arrivals?.count > 0) return 'yesterday';
+      return 'week';
     }
 
     async function init() {
-        try {
-            const res = await fetch(`./data/dashboard.json?t=${Date.now()}`);
-            if (!res.ok) throw new Error();
-            data = await res.json();
+      try {
+        const res = await fetch('./data/dashboard.json?t=' + Date.now());
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        data = await res.json();
 
-            const dt = new Date(data.updated);
-            const updatedEl = document.getElementById('updated');
-            if (updatedEl) updatedEl.textContent = `Последнее обновление: ${dt.toLocaleString('ru-RU', {timeZone:'Asia/Bangkok', hour:'2-digit', minute:'2-digit', day:'2-digit', month:'2-digit'})} (ICT)`;
+        const dt = new Date(data.updated);
+        document.getElementById('updated').textContent =
+          dt.toLocaleString('ru-RU', { timeZone:'Asia/Bangkok', hour:'2-digit', minute:'2-digit', day:'2-digit', month:'2-digit' }) + ' ICT';
 
-            const loadingEl = document.querySelector('.loading');
-            if (loadingEl) loadingEl.style.display = 'none'; // ✅ Защищено от null
+        const period = getDefaultPeriod();
+        tabs.forEach(t => t.classList.toggle('active', t.dataset.k === period));
+        render(period);
 
-            const defaultTab = getDefaultTab();
-            render(defaultTab);
-            const activeTab = document.querySelector(`.tab[data-k="${defaultTab}"]`);
-            if (activeTab) activeTab.classList.add('active');
-
-        } catch (e) {
-            const loadingEl = document.querySelector('.loading');
-            if (loadingEl) loadingEl.style.display = 'none';
-            const errEl = document.getElementById('err');
-            if (errEl) errEl.style.display = 'block';
-        }
+      } catch(e) {
+        const err = make('div', 'error-state');
+        ap(err, txt(make('p'), '⚠ Не удалось загрузить данные.'));
+        appEl.replaceChildren(err);
+      }
     }
-
-    tabs.forEach(t => t.addEventListener('click', () => {
-        tabs.forEach(x => x.classList.remove('active'));
-        t.classList.add('active');
-        render(t.dataset.k);
-    }));
 
     init();
 
     setInterval(async () => {
-        try {
-            const res = await fetch(`./data/dashboard.json?t=${Date.now()}`);
-            const newData = await res.json();
-            if (newData.updated !== data?.updated) {
-                data = newData;
-                const currentTab = document.querySelector('.tab.active')?.dataset.k || getDefaultTab();
-                render(currentTab);
-            }
-        } catch (e) {}
+      try {
+        const r  = await fetch('./data/dashboard.json?t=' + Date.now());
+        const nd = await r.json();
+        if (nd.updated !== data?.updated) {
+          data = nd;
+          const cur = document.querySelector('.tab.active')?.dataset.k || getDefaultPeriod();
+          render(cur);
+        }
+      } catch(_) {}
     }, 15 * 60 * 1000);
-</script>
+  </script>
 </body>
 </html>
