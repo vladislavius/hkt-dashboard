@@ -1,14 +1,14 @@
-import requests, json, datetime, pytz
+import os, requests, json, datetime, pytz
 from pathlib import Path
 from collections import Counter, defaultdict
 
 API_KEYS = [
-    "07deba653b969abc059382a133349e8f",
-    "a80602f218f99c940df4bb320fd700da",
-    "c58ee63777c13244220188930f692f85"
+    os.environ["AVIATIONSTACK_KEY_1"],
+    os.environ["AVIATIONSTACK_KEY_2"],
+    os.environ["AVIATIONSTACK_KEY_3"],
 ]
-TG_TOKEN = "8214283336:AAFSKaaWdXJjWDb2o1xh_zemAy4dqg_CHv4"
-TG_CHAT_ID = "153282547"
+TG_TOKEN   = os.environ.get("TG_TOKEN", "")
+TG_CHAT_ID = os.environ.get("TG_CHAT_ID", "")
 
 BASE = "https://api.aviationstack.com/v1/flights"
 DOMESTIC = {'BKK','DMK','CNX','USM','HDY','UTP','KBV','TST','NAW','THS','UBP','CEI','NST','URT','HHQ','CJM'}
