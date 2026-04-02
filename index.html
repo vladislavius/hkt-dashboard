@@ -5,37 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HKT Flight Analytics</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    :root { --bg: #0b1120; --card: rgba(30, 41, 59, 0.6); --accent: #38bdf8; --accent2: #818cf8; --text: #f8fafc; --muted: #94a3b8; --border: rgba(255,255,255,0.08); }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 20px; background-image: radial-gradient(circle at 10% 20%, rgba(56,189,248,0.15) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(129,140,248,0.15) 0%, transparent 40%); }
-    .container { max-width: 1100px; margin: 0 auto; }
-    header { text-align: center; margin-bottom: 30px; }
-    h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
-    .meta { color: var(--muted); font-size: 0.9rem; }
-    .tabs { display: flex; gap: 8px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
-    .tab { padding: 10px 20px; border-radius: 12px; cursor: pointer; background: var(--card); border: 1px solid var(--border); backdrop-filter: blur(8px); transition: 0.2s; font-weight: 500; }
-    .tab:hover { background: rgba(56,189,248,0.1); }
-    .tab.active { background: var(--accent); color: #0b1120; border-color: var(--accent); box-shadow: 0 4px 12px rgba(56,189,248,0.3); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; backdrop-filter: blur(10px); }
-    .card h3 { font-size: 1.1rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-    .metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
-    .metric-box { background: rgba(255,255,255,0.03); padding: 12px; border-radius: 10px; text-align: center; }
-    .val { font-size: 1.6rem; font-weight: 700; color: var(--accent); }
-    .lbl { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
-    .rank-list { list-style: none; }
-    .rank-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); }
-    .rank-item:last-child { border-bottom: none; }
-    .rank-left { display: flex; align-items: center; gap: 10px; }
-    .rank-num { width: 22px; height: 22px; background: var(--accent2); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #fff; }
-    .rank-flag { font-size: 1.2rem; line-height: 1; }
-    .rank-count { font-weight: 600; color: var(--muted); }
-    .chart-wrap { height: 220px; margin-top: 10px; }
-    .loading { text-align: center; padding: 60px; color: var(--muted); font-size: 1.1rem; }
-    .error { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: #fca5a5; padding: 16px; border-radius: 12px; text-align: center; margin-top: 20px; display: none; }
-    @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .metrics { grid-template-columns: 1fr; } }
-  </style>
+<style>
+  :root { --bg: #0b1120; --card: rgba(30, 41, 59, 0.6); --accent: #38bdf8; --accent2: #818cf8; --text: #f8fafc; --muted: #94a3b8; --border: rgba(255,255,255,0.08); }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 20px; background-image: radial-gradient(circle at 10% 20%, rgba(56,189,248,0.15) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(129,140,248,0.15) 0%, transparent 40%); }
+  .container { max-width: 1100px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 30px; }
+  h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
+  .meta { color: var(--muted); font-size: 0.9rem; }
+  
+  .tabs { 
+    display: flex; 
+    gap: 8px; 
+    justify-content: center; 
+    margin-bottom: 24px; 
+    overflow-x: auto; 
+    padding: 0 10px;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+  .tabs::-webkit-scrollbar { display: none; /* Chrome/Safari */ }
+  
+  .tab { 
+    padding: 10px 16px; 
+    border-radius: 12px; 
+    cursor: pointer; 
+    background: var(--card); 
+    border: 1px solid var(--border); 
+    backdrop-filter: blur(8px); 
+    transition: 0.2s; 
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .tab:hover { background: rgba(56,189,248,0.1); }
+  .tab.active { background: var(--accent); color: #0b1120; border-color: var(--accent); box-shadow: 0 4px 12px rgba(56,189,248,0.3); }
+  
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; backdrop-filter: blur(10px); }
+  .card h3 { font-size: 1.1rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  .metric-box { background: rgba(255,255,255,0.03); padding: 12px; border-radius: 10px; text-align: center; }
+  .val { font-size: 1.6rem; font-weight: 700; color: var(--accent); }
+  .lbl { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .rank-list { list-style: none; }
+  .rank-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .rank-item:last-child { border-bottom: none; }
+  .rank-left { display: flex; align-items: center; gap: 10px; }
+  .rank-num { width: 22px; height: 22px; background: var(--accent2); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: #fff; }
+  .rank-flag { font-size: 1.2rem; line-height: 1; }
+  .rank-count { font-weight: 600; color: var(--muted); }
+  .chart-wrap { height: 220px; margin-top: 10px; }
+  .loading { text-align: center; padding: 60px; color: var(--muted); font-size: 1.1rem; }
+  .error { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: #fca5a5; padding: 16px; border-radius: 12px; text-align: center; margin-top: 20px; display: none; }
+  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .metrics { grid-template-columns: 1fr; } }
+</style>
 </head>
 <body>
   <div class="container">
@@ -44,15 +69,20 @@
       <div class="meta" id="updated">Обновление данных...</div>
     </header>
     <div class="tabs">
-      <div class="tab active" data-k="today">Сегодня</div>
-      <div class="tab" data-k="week">Неделя</div>
-      <div class="tab" data-k="month">Месяц</div>
-    </div>
+  <div class="tab active" data-k="yesterday">Вчера</div>
+  <div class="tab" data-k="today">Сегодня</div>
+  <div class="tab" data-k="week">Неделя</div>
+  <div class="tab" data-k="month">Месяц</div>
+  <div class="tab" data-k="quarter">3 месяца</div>
+  <div class="tab" data-k="halfyear">6 месяцев</div>
+  <div class="tab" data-k="year">Год</div>
+</div>
     <div id="app">
       <div class="loading">⏳ Загрузка статистики...</div>
       <div class="error" id="err">⚠️ Не удалось загрузить данные.</div>
     </div>
   </div>
+
   <script>
     // ✅ Полный словарь флагов (ключи точно совпадают с Python)
     const FLAGS = {
