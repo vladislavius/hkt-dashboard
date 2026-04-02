@@ -472,16 +472,16 @@
     };
 
       let data = null;
+    let charts = {}; // ✅ Исправлено: добавлено объявление
     const app = document.getElementById('app');
     const tabs = document.querySelectorAll('.tab');
 
-    // 🛡️ Безопасная отрисовка
     function render(period) {
-        if (!data || !data[period]) return; // Ждём загрузки
+        if (!data || !data[period]) return;
         const d = data[period];
         const total = d.arrivals.count + d.departures.count;
         const pax = d.arrivals.pax + d.departures.pax;
-        
+
         app.innerHTML = `
         <div class="grid">
           <div class="card">
@@ -503,33 +503,33 @@
             <ul class="rank-list">${d.departures.top.map((x,i)=>`<li class="rank-item"><div class="rank-left"><div class="rank-num">${i+1}</div><span class="rank-flag">${FLAGS[x.name]||'🌍'}</span><span>${x.name}</span></div><div class="rank-count">${x.count}</div></li>`).join('')}</ul>
           </div>
         </div>`;
-      
-      const ctx = document.getElementById('mainChart').getContext('2d');
-      if(charts[period]) charts[period].destroy();
-      charts[period] = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['Прилёты', 'Вылеты'],
-          datasets: [{
-            label: 'Рейсы',
-            data: [d.arrivals.count, d.departures.count],
-            backgroundColor: ['#38bdf8', '#818cf8'],
-            borderRadius: 8,
-            barThickness: 40
-          }]
-        },
-        options: {
-          responsive: true, maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
-          scales: {
-            y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
-            x: { grid: { display: false }, ticks: { color: '#f8fafc' } }
-          }
-        }
-      });
+
+        const ctx = document.getElementById('mainChart')?.getContext('2d');
+        if (!ctx) return;
+        if (charts[period]) charts[period].destroy();
+        charts[period] = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Прилёты', 'Вылеты'],
+                datasets: [{
+                    label: 'Рейсы',
+                    data: [d.arrivals.count, d.departures.count],
+                    backgroundColor: ['#38bdf8', '#818cf8'],
+                    borderRadius: 8,
+                    barThickness: 40
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
+                    x: { grid: { display: false }, ticks: { color: '#f8fafc' } }
+                }
+            }
+        });
     }
 
-    // 🎯 Умный выбор вкладки по умолчанию
     function getDefaultTab() {
         if (!data) return 'today';
         if (data.today?.arrivals?.count > 0) return 'today';
@@ -537,51 +537,50 @@
         return 'week';
     }
 
-    // 🌐 Главная функция инициализации
     async function init() {
         try {
             const res = await fetch(`./data/dashboard.json?t=${Date.now()}`);
             if (!res.ok) throw new Error();
             data = await res.json();
-            
-            const dt = new Date(data.updated);
-            document.getElementById('updated').textContent = `Последнее обновление: ${dt.toLocaleString('ru-RU', {timeZone:'Asia/Bangkok', hour:'2-digit', minute:'2-digit', day:'2-digit', month:'2-digit'})} (ICT)`;
-            document.querySelector('.loading').style.display = 'none';
 
-            // ✅ Рисуем ТОЛЬКО после успешной загрузки
+            const dt = new Date(data.updated);
+            const updatedEl = document.getElementById('updated');
+            if (updatedEl) updatedEl.textContent = `Последнее обновление: ${dt.toLocaleString('ru-RU', {timeZone:'Asia/Bangkok', hour:'2-digit', minute:'2-digit', day:'2-digit', month:'2-digit'})} (ICT)`;
+
+            const loadingEl = document.querySelector('.loading');
+            if (loadingEl) loadingEl.style.display = 'none'; // ✅ Защищено от null
+
             const defaultTab = getDefaultTab();
             render(defaultTab);
-            document.querySelector(`.tab[data-k="${defaultTab}"]`)?.classList.add('active');
+            const activeTab = document.querySelector(`.tab[data-k="${defaultTab}"]`);
+            if (activeTab) activeTab.classList.add('active');
 
-        } catch(e) {
-            document.querySelector('.loading').style.display = 'none';
-            document.getElementById('err').style.display = 'block';
+        } catch (e) {
+            const loadingEl = document.querySelector('.loading');
+            if (loadingEl) loadingEl.style.display = 'none';
+            const errEl = document.getElementById('err');
+            if (errEl) errEl.style.display = 'block';
         }
     }
 
-    // 🖱️ Обработка кликов (безопасна, render сам проверит data)
     tabs.forEach(t => t.addEventListener('click', () => {
         tabs.forEach(x => x.classList.remove('active'));
         t.classList.add('active');
         render(t.dataset.k);
     }));
 
-    // 🚀 Запуск
     init();
 
-    // 🔁 Авто-обновление каждые 15 мин
     setInterval(async () => {
-      try {
-        const res = await fetch(`./data/dashboard.json?t=${Date.now()}`);
-        const newData = await res.json();
-        if (newData.updated !== data?.updated) {
-          data = newData;
-          render(getDefaultTab());
-          // Обновляем активный таб
-          tabs.forEach(t => t.classList.remove('active'));
-          document.querySelector(`.tab[data-k="${getDefaultTab()}"]`)?.classList.add('active');
-        }
-      } catch (e) {}
+        try {
+            const res = await fetch(`./data/dashboard.json?t=${Date.now()}`);
+            const newData = await res.json();
+            if (newData.updated !== data?.updated) {
+                data = newData;
+                const currentTab = document.querySelector('.tab.active')?.dataset.k || getDefaultTab();
+                render(currentTab);
+            }
+        } catch (e) {}
     }, 15 * 60 * 1000);
 </script>
 </body>
