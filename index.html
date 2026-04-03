@@ -332,6 +332,67 @@
       width: 100%;
     }
 
+    /* ── Breakdown table ── */
+    .breakdown-tabs {
+      display: flex;
+      gap: 6px;
+      margin: 24px 0 14px;
+    }
+    .btab {
+      padding: 6px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border-card);
+      background: transparent;
+      color: var(--muted-2);
+      font-size: 0.78rem;
+      font-family: 'Outfit', sans-serif;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .btab:hover { color: var(--ivory); border-color: var(--gold-border); }
+    .btab.active { background: var(--gold-faint); border-color: var(--gold-border); color: var(--gold-light); }
+    .breakdown-table-wrap {
+      overflow-x: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--muted) transparent;
+    }
+    .breakdown-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.76rem;
+      min-width: 420px;
+    }
+    .breakdown-table th {
+      color: var(--muted-2);
+      font-weight: 600;
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 6px 10px;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+      text-align: right;
+      font-family: 'DM Mono', monospace;
+    }
+    .breakdown-table th:first-child { text-align: left; font-family: 'Outfit', sans-serif; }
+    .breakdown-table td {
+      padding: 6px 10px;
+      border-bottom: 1px solid var(--border);
+      font-family: 'DM Mono', monospace;
+      text-align: right;
+      color: var(--muted-2);
+      white-space: nowrap;
+    }
+    .breakdown-table td:first-child {
+      text-align: left;
+      color: var(--ivory);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+    }
+    .breakdown-table tr:last-child td { border-bottom: none; }
+    .breakdown-table .td-total { color: var(--gold); font-weight: 500; }
+    .breakdown-table .td-zero  { color: var(--muted); }
+
     /* ── Rank List ── */
     .rank-list { list-style: none; }
     .rank-item {
@@ -574,7 +635,7 @@
       'Luxembourg':'🇱🇺','Ireland':'🇮🇪','Iceland':'🇮🇸','Cyprus':'🇨🇾','Malta':'🇲🇹',
     };
 
-    let data = null, activeChart = null, activeChart2 = null;
+    let data = null, activeChart = null, activeChart2 = null, cityFlagMap = {};
     const appEl     = document.getElementById('app');
     const metricsEl = document.getElementById('metrics-row');
     const tabs      = document.querySelectorAll('.tab');
@@ -604,6 +665,94 @@
         txt(make('div', 'm-icon'), icon)
       );
       return card;
+    }
+
+    /* ── Build city→flag map from all.country metadata ── */
+    function buildCityFlagMap(d) {
+      Object.values(d).forEach(period => {
+        if (typeof period !== 'object' || !period) return;
+        ['arrivals', 'departures'].forEach(side => {
+          const list = period[side]?.all || period[side]?.top || [];
+          list.forEach(item => {
+            if (item.country) cityFlagMap[item.name] = FLAGS[item.country] || '🌍';
+            else cityFlagMap[item.name] = FLAGS[item.name] || '🌍';
+          });
+        });
+      });
+    }
+
+    /* ── Breakdown pivot table ── */
+    function buildBreakdownTable(breakdown, side) {
+      const byKey = side + '_by';
+      // Collect all unique names sorted by total desc
+      const totals = {};
+      breakdown.forEach(p => {
+        Object.entries(p[byKey] || {}).forEach(([name, v]) => {
+          const n = typeof v === 'object' ? v.n : v;
+          totals[name] = (totals[name] || 0) + n;
+        });
+      });
+      const names = Object.keys(totals).sort((a, b) => totals[b] - totals[a]);
+      if (!names.length) {
+        return txt(make('p'), 'Нет данных за этот период');
+      }
+      const wrap  = make('div', 'breakdown-table-wrap');
+      const table = make('table', 'breakdown-table');
+      // Header
+      const thead = make('thead');
+      const hrow  = make('tr');
+      ap(hrow, txt(make('th'), 'Страна / Город'));
+      breakdown.forEach(p => ap(hrow, txt(make('th'), p.label)));
+      ap(hrow, txt(make('th'), 'Итого'));
+      ap(thead, hrow);
+      table.appendChild(thead);
+      // Body
+      const tbody = make('tbody');
+      names.forEach(name => {
+        const tr = make('tr');
+        const flag = cityFlagMap[name] || FLAGS[name] || '🌍';
+        ap(tr, txt(make('td'), flag + ' ' + name));
+        let total = 0;
+        breakdown.forEach(p => {
+          const raw = (p[byKey] || {})[name];
+          const n = raw === undefined ? 0 : (typeof raw === 'object' ? raw.n : raw);
+          total += n;
+          const td = make('td', n === 0 ? 'td-zero' : '');
+          td.textContent = n === 0 ? '—' : String(n);
+          tr.appendChild(td);
+        });
+        const tdTot = make('td', 'td-total');
+        tdTot.textContent = String(total);
+        tr.appendChild(tdTot);
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+      wrap.appendChild(table);
+      return wrap;
+    }
+
+    function mkBreakdownSection(breakdown, containerId) {
+      const wrap = make('div');
+      wrap.id = containerId;
+      const tabsEl = make('div', 'breakdown-tabs');
+      const btnArr = make('button', 'btab active');
+      btnArr.textContent = '🛬 Прилёты';
+      const btnDep = make('button', 'btab');
+      btnDep.textContent = '🛫 Вылеты';
+      ap(tabsEl, btnArr, btnDep);
+      wrap.appendChild(tabsEl);
+      const tableWrap = make('div');
+      tableWrap.appendChild(buildBreakdownTable(breakdown, 'arrivals'));
+      wrap.appendChild(tableWrap);
+      btnArr.addEventListener('click', () => {
+        btnArr.classList.add('active'); btnDep.classList.remove('active');
+        tableWrap.replaceChildren(buildBreakdownTable(breakdown, 'arrivals'));
+      });
+      btnDep.addEventListener('click', () => {
+        btnDep.classList.add('active'); btnArr.classList.remove('active');
+        tableWrap.replaceChildren(buildBreakdownTable(breakdown, 'departures'));
+      });
+      return wrap;
     }
 
     /* ── Rank list (all items) ── */
@@ -781,6 +930,7 @@
         c2.id = 'timelineChart';
         tw.appendChild(c2);
         timeCard.appendChild(tw);
+        timeCard.appendChild(mkBreakdownSection(breakdown, 'breakdown-section'));
         grid.appendChild(timeCard);
       }
 
@@ -839,6 +989,7 @@
         const res = await fetch('./data/dashboard.json?t=' + Date.now());
         if (!res.ok) throw new Error('HTTP ' + res.status);
         data = await res.json();
+        buildCityFlagMap(data);
 
         const dt = new Date(data.updated);
         document.getElementById('updated').textContent =

@@ -237,7 +237,22 @@ def load_period_stats(today_str, days):
             d = json.loads(fp.read_text())
             a_count = d.get("arrivals", {}).get("count", 0)
             d_count = d.get("departures", {}).get("count", 0)
-            daily[dt_str] = {"arrivals": a_count, "departures": d_count}
+            a_ctry  = d.get("arrivals",   {}).get("countries", {})
+            d_ctry  = d.get("departures", {}).get("countries", {})
+            # Flatten country breakdown: {name: flights} (keep "country" meta for Russian cities)
+            def flatten(ctry):
+                out = {}
+                for c, v in ctry.items():
+                    out[c] = {"n": v.get("flights", 0)}
+                    if "country" in v:
+                        out[c]["country"] = v["country"]
+                return out
+            daily[dt_str] = {
+                "arrivals":   a_count,
+                "departures": d_count,
+                "arrivals_by":   flatten(a_ctry),
+                "departures_by": flatten(d_ctry),
+            }
             for side, tot in [("arrivals", tot_a), ("departures", tot_d)]:
                 x = d.get(side, {})
                 tot["count"] += x.get("count", 0)
@@ -251,14 +266,28 @@ def load_period_stats(today_str, days):
         except Exception: continue
     return tot_a, tot_d, daily
 
+def _merge_by(target, source):
+    """Merge source {name: {n, ?country}} into target dict."""
+    for c, v in source.items():
+        n = v["n"] if isinstance(v, dict) else v
+        if c not in target:
+            target[c] = {"n": 0}
+            if isinstance(v, dict) and "country" in v:
+                target[c]["country"] = v["country"]
+        target[c]["n"] += n
+
 def make_by_days(daily):
     result = []
     for date_str in sorted(daily.keys()):
         dt = datetime.date.fromisoformat(date_str)
         label = f"{DAY_NAMES_RU[dt.weekday()]} {dt.day:02d}.{dt.month:02d}"
-        result.append({"date": date_str, "label": label,
-                        "arrivals": daily[date_str]["arrivals"],
-                        "departures": daily[date_str]["departures"]})
+        result.append({
+            "date": date_str, "label": label,
+            "arrivals":   daily[date_str]["arrivals"],
+            "departures": daily[date_str]["departures"],
+            "arrivals_by":   daily[date_str].get("arrivals_by", {}),
+            "departures_by": daily[date_str].get("departures_by", {}),
+        })
     return result
 
 def make_by_weeks(daily):
@@ -269,10 +298,13 @@ def make_by_weeks(daily):
         key = f"{iso_year}-W{iso_week:02d}"
         if key not in weeks:
             weeks[key] = {"key": key,
-                           "label": f"Нед {iso_week} ({MONTH_NAMES_RU[dt.month]})",
-                           "arrivals": 0, "departures": 0}
-        weeks[key]["arrivals"] += daily[date_str]["arrivals"]
+                          "label": f"Нед {iso_week} ({MONTH_NAMES_RU[dt.month]})",
+                          "arrivals": 0, "departures": 0,
+                          "arrivals_by": {}, "departures_by": {}}
+        weeks[key]["arrivals"]   += daily[date_str]["arrivals"]
         weeks[key]["departures"] += daily[date_str]["departures"]
+        _merge_by(weeks[key]["arrivals_by"],   daily[date_str].get("arrivals_by", {}))
+        _merge_by(weeks[key]["departures_by"], daily[date_str].get("departures_by", {}))
     return [v for _, v in sorted(weeks.items())]
 
 def make_by_months(daily):
@@ -282,10 +314,13 @@ def make_by_months(daily):
         key = f"{dt.year}-{dt.month:02d}"
         if key not in months:
             months[key] = {"key": key,
-                            "label": f"{MONTH_NAMES_RU[dt.month]} {dt.year}",
-                            "arrivals": 0, "departures": 0}
-        months[key]["arrivals"] += daily[date_str]["arrivals"]
+                           "label": f"{MONTH_NAMES_RU[dt.month]} {dt.year}",
+                           "arrivals": 0, "departures": 0,
+                           "arrivals_by": {}, "departures_by": {}}
+        months[key]["arrivals"]   += daily[date_str]["arrivals"]
         months[key]["departures"] += daily[date_str]["departures"]
+        _merge_by(months[key]["arrivals_by"],   daily[date_str].get("arrivals_by", {}))
+        _merge_by(months[key]["departures_by"], daily[date_str].get("departures_by", {}))
     return [v for _, v in sorted(months.items())]
 
 def save_to_supabase(date_str, a_acc, d_acc):
