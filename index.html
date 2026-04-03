@@ -268,6 +268,8 @@
       font-size: 0.85rem;
       flex-shrink: 0;
     }
+    /* Timeline card spans full row */
+    .card-full { grid-column: 1 / -1; }
 
     /* ── Chart ── */
     .chart-container {
@@ -322,6 +324,12 @@
       font-family: 'DM Mono', monospace;
       color: var(--ivory);
       margin-left: 2px;
+    }
+
+    /* ── Timeline bar chart ── */
+    .timeline-wrap {
+      position: relative;
+      width: 100%;
     }
 
     /* ── Rank List ── */
@@ -446,6 +454,7 @@
 
       /* Cards */
       .main-grid     { grid-template-columns: 1fr; gap: 12px; }
+      .card-full     { grid-column: 1; }
       .card          { padding: 18px; border-radius: 16px; }
       .card-title    { font-size: 1rem; margin-bottom: 16px; gap: 8px; }
       .card-icon     { width: 26px; height: 26px; font-size: 0.75rem; border-radius: 7px; }
@@ -565,7 +574,7 @@
       'Luxembourg':'🇱🇺','Ireland':'🇮🇪','Iceland':'🇮🇸','Cyprus':'🇨🇾','Malta':'🇲🇹',
     };
 
-    let data = null, activeChart = null;
+    let data = null, activeChart = null, activeChart2 = null;
     const appEl     = document.getElementById('app');
     const metricsEl = document.getElementById('metrics-row');
     const tabs      = document.querySelectorAll('.tab');
@@ -597,26 +606,32 @@
       return card;
     }
 
-    /* ── Rank list ── */
+    /* ── Rank list (all items) ── */
     function mkRankList(list) {
       const ul  = make('ul', 'rank-list');
-      const max = list[0]?.flights || list[0]?.count || 1;
+      if (!list || list.length === 0) {
+        ap(ul, txt(make('li', 'rank-item'), 'Нет данных'));
+        return ul;
+      }
+      const max = list[0]?.flights ?? list[0]?.count ?? 1;
       list.forEach((x, i) => {
         const flights = x.flights ?? x.count ?? 0;
-        const li    = make('li', 'rank-item');
-        const bar   = make('div', 'rank-bar');
+        const li      = make('li', 'rank-item');
+        const bar     = make('div', 'rank-bar');
         bar.style.width = Math.round(flights / max * 100) + '%';
-        const numCls = i === 0 ? 'rank-num rn-1' : i === 1 ? 'rank-num rn-2' : i === 2 ? 'rank-num rn-3' : 'rank-num rn-n';
+        const numCls  = i === 0 ? 'rank-num rn-1' : i === 1 ? 'rank-num rn-2' : i === 2 ? 'rank-num rn-3' : 'rank-num rn-n';
         const pax     = x.pax ?? 0;
         const countEl = make('div', 'rank-count');
         ap(countEl,
           txt(make('span', 'rc-flights'), String(flights) + ' ✈'),
           txt(make('span', 'rc-pax'), '~' + pax.toLocaleString('ru') + ' чел.')
         );
+        // Use parent country for Russian cities, otherwise use name
+        const flagKey = x.country || x.name;
         ap(li,
           bar,
           txt(make('div', numCls), String(i + 1)),
-          txt(make('span', 'rank-flag'), FLAGS[x.name] || '🌍'),
+          txt(make('span', 'rank-flag'), FLAGS[flagKey] || '🌍'),
           txt(make('span', 'rank-name'), x.name),
           countEl
         );
@@ -626,8 +641,8 @@
     }
 
     /* ── Card shell ── */
-    function mkCard(iconEmoji, titleText, delay) {
-      const card  = make('div', 'card');
+    function mkCard(iconEmoji, titleText, delay, extraClass) {
+      const card  = make('div', 'card' + (extraClass ? ' ' + extraClass : ''));
       card.style.animationDelay = delay;
       const title = make('div', 'card-title');
       ap(title, txt(make('div', 'card-icon'), iconEmoji), txt(make('span'), titleText));
@@ -635,7 +650,81 @@
       return card;
     }
 
+    /* ── Timeline bar chart ── */
+    function timelineLabel(period) {
+      if (period === 'week')                        return 'По дням';
+      if (period === 'month')                       return 'По неделям';
+      if (['quarter','halfyear','year'].includes(period)) return 'По месяцам';
+      return '';
+    }
 
+    function getBreakdown(d, period) {
+      if (period === 'week')                        return d.by_days;
+      if (period === 'month')                       return d.by_weeks;
+      if (['quarter','halfyear','year'].includes(period)) return d.by_months;
+      return null;
+    }
+
+    function buildTimelineChart(canvasId, breakdown) {
+      const labels = breakdown.map(x => x.label);
+      const arr    = breakdown.map(x => x.arrivals);
+      const dep    = breakdown.map(x => x.departures);
+
+      return new Chart(document.getElementById(canvasId).getContext('2d'), {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [
+            {
+              label: 'Прилёты',
+              data: arr,
+              backgroundColor: 'rgba(91,184,245,0.55)',
+              borderColor: '#5BB8F5',
+              borderWidth: 1.5,
+              borderRadius: 4,
+            },
+            {
+              label: 'Вылеты',
+              data: dep,
+              backgroundColor: 'rgba(232,164,98,0.55)',
+              borderColor: '#E8A462',
+              borderWidth: 1.5,
+              borderRadius: 4,
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: {
+              display: true,
+              labels: { color: '#8A8480', font: { family: 'DM Mono', size: 11 }, boxWidth: 12, padding: 16 }
+            },
+            tooltip: {
+              backgroundColor: 'rgba(10,15,28,0.95)',
+              borderColor: 'rgba(200,169,110,0.2)',
+              borderWidth: 1,
+              titleColor: '#EDE8DF',
+              bodyColor: '#8A8480',
+              padding: 12, cornerRadius: 10,
+            }
+          },
+          scales: {
+            x: {
+              ticks: { color: '#8A8480', font: { family: 'DM Mono', size: 10 }, maxRotation: 45 },
+              grid:  { color: 'rgba(255,255,255,0.04)' }
+            },
+            y: {
+              ticks: { color: '#8A8480', font: { family: 'DM Mono', size: 10 } },
+              grid:  { color: 'rgba(255,255,255,0.04)' },
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    }
 
     /* ── Main render ── */
     function render(period) {
@@ -653,7 +742,7 @@
 
       const grid = make('div', 'main-grid');
 
-      /* Chart card */
+      /* Donut chart card */
       const chartCard = mkCard('📊', 'Распределение рейсов', '0.06s');
       const wrap      = make('div', 'chart-container');
       const canvas    = document.createElement('canvas');
@@ -672,20 +761,36 @@
       ap(chartCard, wrap, legend);
       grid.appendChild(chartCard);
 
-      /* Arrivals card */
-      const arrCard = mkCard('🛬', 'Топ-10 · Прилёты', '0.12s');
-      arrCard.appendChild(mkRankList(d.arrivals.top));
+      /* Arrivals card — all flights, no top-10 limit */
+      const arrCard = mkCard('🛬', 'Прилёты', '0.12s');
+      arrCard.appendChild(mkRankList(d.arrivals.all));
       grid.appendChild(arrCard);
 
-      /* Departures card */
-      const depCard = mkCard('🛫', 'Топ-10 · Вылеты', '0.18s');
-      depCard.appendChild(mkRankList(d.departures.top));
+      /* Departures card — all flights, no top-10 limit */
+      const depCard = mkCard('🛫', 'Вылеты', '0.18s');
+      depCard.appendChild(mkRankList(d.departures.all));
       grid.appendChild(depCard);
+
+      /* Timeline card (week/month/quarter/halfyear/year) */
+      const breakdown = getBreakdown(d, period);
+      if (breakdown && breakdown.length > 0) {
+        const label = timelineLabel(period);
+        const timeCard = mkCard('📅', label, '0.24s', 'card-full');
+        const tw = make('div', 'timeline-wrap');
+        const c2 = document.createElement('canvas');
+        c2.id = 'timelineChart';
+        tw.appendChild(c2);
+        timeCard.appendChild(tw);
+        grid.appendChild(timeCard);
+      }
 
       appEl.replaceChildren(grid);
 
-      /* Chart */
-      if (activeChart) { activeChart.destroy(); activeChart = null; }
+      /* Destroy old charts */
+      if (activeChart)  { activeChart.destroy();  activeChart  = null; }
+      if (activeChart2) { activeChart2.destroy(); activeChart2 = null; }
+
+      /* Donut */
       activeChart = new Chart(document.getElementById('mainChart').getContext('2d'), {
         type: 'doughnut',
         data: {
@@ -715,6 +820,11 @@
           }
         }
       });
+
+      /* Timeline bar chart */
+      if (breakdown && breakdown.length > 0) {
+        activeChart2 = buildTimelineChart('timelineChart', breakdown);
+      }
     }
 
     function getDefaultPeriod() {
