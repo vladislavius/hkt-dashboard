@@ -38,6 +38,8 @@ jobs:
           AVIATIONSTACK_KEY_3: ${{ secrets.AVIATIONSTACK_KEY_3 }}
           TG_TOKEN:            ${{ secrets.TG_TOKEN }}
           TG_CHAT_ID:          ${{ secrets.TG_CHAT_ID }}
+          SUPABASE_URL:        ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY:        ${{ secrets.SUPABASE_KEY }}
 
       - name: Commit and push changes
         run: |
