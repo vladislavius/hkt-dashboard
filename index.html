@@ -763,12 +763,12 @@
 
       /* Arrivals card — all flights, no top-10 limit */
       const arrCard = mkCard('🛬', 'Прилёты', '0.12s');
-      arrCard.appendChild(mkRankList(d.arrivals.all));
+      arrCard.appendChild(mkRankList(d.arrivals.all || d.arrivals.top));
       grid.appendChild(arrCard);
 
       /* Departures card — all flights, no top-10 limit */
       const depCard = mkCard('🛫', 'Вылеты', '0.18s');
-      depCard.appendChild(mkRankList(d.departures.all));
+      depCard.appendChild(mkRankList(d.departures.all || d.departures.top));
       grid.appendChild(depCard);
 
       /* Timeline card (week/month/quarter/halfyear/year) */
