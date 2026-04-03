@@ -145,12 +145,13 @@ MONTH_NAMES_RU = {1:'Янв',2:'Фев',3:'Мар',4:'Апр',5:'Май',6:'Ию
 DAY_NAMES_RU   = {0:'Пн',1:'Вт',2:'Ср',3:'Чт',4:'Пт',5:'Сб',6:'Вс'}
 
 def get_api_key():
+    # Rotate evenly: 4 runs/day → KEY_1, KEY_2, KEY_3, KEY_1... (40 runs/key/month = 80 calls/key)
     now = datetime.datetime.now(ICT)
     h = now.hour
-    if h < 4: return API_KEYS[0], 1
-    elif h < 12: return API_KEYS[1], 2
-    elif h < 20: return API_KEYS[2], 3
-    else: return API_KEYS[0], 1
+    if h < 6:   return API_KEYS[0], 1   # 00:30 ICT
+    elif h < 14: return API_KEYS[1], 2  # 08:00 ICT
+    elif h < 22: return API_KEYS[2], 3  # 16:00 ICT
+    else:        return API_KEYS[0], 1  # 23:58 ICT
 
 def send_telegram(text):
     if not TG_TOKEN or not TG_CHAT_ID: return
@@ -160,12 +161,28 @@ def send_telegram(text):
     except Exception: pass
 
 def fetch_flights(direction, api_key):
-    key = "arr_iata" if direction == "arrival" else "dep_iata"
-    try:
-        r = requests.get(BASE, params={"access_key": api_key, key: "HKT", "limit": 100}, timeout=20)
-        r.raise_for_status()
-        return r.json().get("data", []), 1
-    except Exception: return [], 0
+    """Fetch with automatic fallback to other keys if primary is exhausted."""
+    key_param = "arr_iata" if direction == "arrival" else "dep_iata"
+    # Build priority list: primary key first, then others
+    keys_to_try = [api_key] + [k for k in API_KEYS if k != api_key]
+    for i, k in enumerate(keys_to_try):
+        try:
+            r = requests.get(BASE, params={"access_key": k, key_param: "HKT", "limit": 100}, timeout=20)
+            data = r.json()
+            # AviationStack returns error object when limit exceeded
+            if "error" in data:
+                code = data["error"].get("code", "")
+                print(f"⚠️ Key #{i+1} error: {code} — trying next key")
+                continue
+            r.raise_for_status()
+            if i > 0:
+                print(f"ℹ️ Used fallback key #{i+1}")
+            return data.get("data", []), i + 1
+        except Exception as e:
+            print(f"⚠️ Key #{i+1} exception: {e} — trying next key")
+            continue
+    print("❌ All API keys failed")
+    return [], 0
 
 def analyze(flights, direction):
     by_date = {}
