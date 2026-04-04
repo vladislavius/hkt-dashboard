@@ -27,7 +27,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install requests pytz
+        run: pip install requests pytz beautifulsoup4
 
       - name: Run collector script
         run: python3 collector.py
