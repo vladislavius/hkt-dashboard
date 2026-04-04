@@ -1431,7 +1431,9 @@
       var isArr = fboardSide === 'arrivals';
       var list  = isArr ? (d.arrivals_list || []) : (d.departures_list || []);
       var tKey  = isArr ? 'arr_time' : 'dep_time';
-      list = list.slice().sort(function(a,b){ return (a[tKey]||'').localeCompare(b[tKey]||''); });
+      list = list.slice().sort(function(a,b){
+        return (a[tKey] || a.sched || '').localeCompare(b[tKey] || b.sched || '');
+      });
       body.replaceChildren();
       if (!list.length) { empty.hidden = false; return; }
       empty.hidden = true;
@@ -1441,16 +1443,20 @@
 
       list.forEach(function(f) {
         var tr      = document.createElement('tr');
-        var time    = isArr ? fmtTime(f.arr_time) : fmtTime(f.dep_time);
+        // Support both new (arr_time/dep_time) and old (sched) formats
+        var time    = isArr
+          ? fmtTime(f.arr_time || f.sched)
+          : fmtTime(f.dep_time || f.sched);
         var airport = isArr ? (f.from || '—') : (f.to || '—');
         var flag    = FLAGS[f.country] || '🌍';
+        var airline = f.airline || '';
         var route   = document.createElement('span'); route.className = 'fboard-route';
         route.appendChild(mkSpan('fboard-route-flag', flag));
         route.appendChild(mkSpan('', f.country || airport));
         route.appendChild(mkSpan('fboard-route-code', airport));
         tr.appendChild(mkTd(mkSpan('fboard-time', time)));
         tr.appendChild(mkTd(mkSpan('fboard-fn', f.fn || '—')));
-        tr.appendChild(mkTd(mkSpan('fboard-airline', f.airline || '—')));
+        tr.appendChild(mkTd(mkSpan('fboard-airline', airline || '—')));
         tr.appendChild(mkTd(route));
         tr.appendChild(mkTd(mkSpan('fboard-status ' + fStatusCls(f.status), fStatusLabel(f.status))));
         body.appendChild(tr);
