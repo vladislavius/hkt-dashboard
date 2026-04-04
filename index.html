@@ -62,8 +62,8 @@
     /* ── Header ── */
     header {
       position: relative;
-      margin-bottom: 44px;
-      padding-bottom: 36px;
+      margin-bottom: 28px;
+      padding-bottom: 28px;
     }
     header::after {
       content: '';
@@ -146,79 +146,58 @@
     }
 
     /* ── Book Calendar ── */
-    .nav-wrap { margin-bottom: 32px; }
-
     .cal-book {
       position: relative;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background: var(--surface);
-      overflow: hidden;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.22);
-    }
-    .cal-book::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 3px;
-      background: linear-gradient(180deg, var(--gold) 0%, var(--sky) 100%);
-      border-radius: 18px 0 0 18px;
-      z-index: 1;
+      flex-shrink: 0;
     }
 
     /* ── Cover ── */
     .cal-cover {
       display: flex;
       align-items: center;
-      gap: 16px;
-      padding: 14px 22px 14px 24px;
+      gap: 8px;
+      padding: 8px 14px 8px 14px;
       cursor: pointer;
       user-select: none;
-      transition: background 0.2s;
+      border-radius: 10px;
+      border: 1px solid var(--gold-border);
+      background: var(--gold-faint);
+      transition: background 0.2s, border-color 0.2s;
     }
-    .cal-cover:hover { background: rgba(255,255,255,0.025); }
-    .cal-book.open .cal-cover { background: rgba(255,255,255,0.02); }
-    .cal-cover-left { display: flex; align-items: center; gap: 12px; }
-    .cal-book-icon { font-size: 1.25rem; line-height: 1; }
-    .cal-cover-texts { display: flex; flex-direction: column; gap: 2px; }
-    .cal-cover-title {
-      font-size: 0.56rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2.8px;
-      color: var(--muted-2);
-    }
+    .cal-cover:hover { background: rgba(200,169,110,0.14); border-color: var(--gold); }
+    .cal-book.open .cal-cover { background: rgba(200,169,110,0.18); border-color: var(--gold); }
     .cal-cover-sub {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--ivory);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--gold-light);
       font-family: 'Outfit', sans-serif;
+      white-space: nowrap;
     }
-    .cal-cover-right { display: flex; align-items: center; gap: 14px; margin-left: auto; }
     .cal-cover-range {
       font-family: 'DM Mono', monospace;
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       color: var(--gold-light);
-      background: var(--gold-faint);
-      border: 1px solid var(--gold-border);
-      border-radius: 7px;
-      padding: 3px 10px;
-      letter-spacing: 0.3px;
+      opacity: 0.7;
+      white-space: nowrap;
     }
     .cal-chevron-icon {
-      width: 26px; height: 26px;
-      border: 1px solid var(--border);
-      border-radius: 7px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--muted-2);
+      color: var(--gold-light);
       font-size: 0.7rem;
-      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), border-color 0.2s, color 0.2s;
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+      opacity: 0.7;
     }
-    .cal-cover:hover .cal-chevron-icon { border-color: var(--gold-border); color: var(--ivory); }
-    .cal-book.open .cal-chevron-icon { transform: rotate(180deg); border-color: var(--gold-border); color: var(--gold-light); }
+    .cal-book.open .cal-chevron-icon { transform: rotate(180deg); }
 
-    /* ── Body animation ── */
+    /* ── Body as absolute dropdown ── */
     .cal-body {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+      z-index: 200;
       max-height: 0;
       overflow: hidden;
       opacity: 0;
@@ -927,30 +906,13 @@
           <button id="cis-toggle" class="cis-toggle-btn" aria-expanded="false">
             <span id="cis-btn-label">🇷🇺🇰🇿🇺🇿 СНГ</span> <span class="cis-chevron">▾</span>
           </button>
-          <div class="live-badge">
-            <div class="live-dot"></div>
-            <span id="updated">Загрузка данных...</span>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <div class="nav-wrap">
-      <div class="cal-book" id="cal-book">
-        <!-- Cover (always visible, clickable) -->
-        <div class="cal-cover" id="cal-cover">
-          <div class="cal-cover-left">
-            <span class="cal-book-icon">📅</span>
-            <div class="cal-cover-texts">
-              <span class="cal-cover-title">Календарь</span>
-              <span class="cal-cover-sub" id="cal-cover-sub">Выберите период</span>
+          <div class="cal-book" id="cal-book">
+            <!-- Cover (always visible, clickable) -->
+            <div class="cal-cover" id="cal-cover">
+              <span class="cal-cover-sub" id="cal-cover-sub">Период</span>
+              <span class="cal-cover-range" id="cal-cover-range"></span>
+              <span class="cal-chevron-icon">▾</span>
             </div>
-          </div>
-          <div class="cal-cover-right">
-            <span class="cal-cover-range" id="cal-cover-range"></span>
-            <span class="cal-chevron-icon">▾</span>
-          </div>
-        </div>
         <!-- Body (opens on click) -->
         <div class="cal-body" id="cal-body">
           <div class="cal-hinge"></div>
@@ -987,8 +949,14 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
+          </div><!-- /cal-book -->
+          <div class="live-badge">
+            <div class="live-dot"></div>
+            <span id="updated">Загрузка данных...</span>
+          </div>
+        </div><!-- /flex row -->
+      </div><!-- /header-row -->
+    </header>
 
     <!-- CIS dropdown panel — appears right below tabs -->
     <div id="cis-panel" class="cis-panel" hidden>
