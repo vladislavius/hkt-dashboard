@@ -203,10 +203,113 @@
       box-shadow: 0 4px 24px rgba(0,0,0,0.22);
     }
     .cal-drawer.open {
-      max-height: 560px;
+      max-height: 600px;
       opacity: 1;
       margin-bottom: 24px;
+      display: flex;
     }
+
+    /* ── Drawer left panel ── */
+    .cal-drawer-left {
+      flex: 1;
+      min-width: 0;
+      padding: 20px 20px 20px 24px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .cdl-kpi {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .cdl-kpi-pill {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .cdl-kpi-label {
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--muted-2);
+      font-weight: 600;
+    }
+    .cdl-kpi-value {
+      font-family: 'DM Mono', monospace;
+      font-size: 1.15rem;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+    }
+    .cdl-bottom {
+      display: flex;
+      gap: 16px;
+      flex: 1;
+      min-height: 0;
+    }
+    .cdl-spark-wrap {
+      width: 160px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: flex-end;
+    }
+    .cdl-flights-wrap {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .cdl-flights-title {
+      font-size: 0.58rem;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--muted-2);
+      font-weight: 600;
+    }
+    .cdl-flights-list {
+      overflow-y: auto;
+      max-height: 340px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .cdl-flight-row {
+      display: grid;
+      grid-template-columns: 72px 28px 1fr 80px;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 8px;
+      border-radius: 7px;
+      font-size: 0.75rem;
+      transition: background 0.12s;
+    }
+    .cdl-flight-row:hover { background: rgba(255,255,255,0.04); }
+    .cdl-fn {
+      font-family: 'DM Mono', monospace;
+      font-weight: 500;
+      color: var(--ivory);
+      font-size: 0.78rem;
+    }
+    .cdl-flag { font-size: 1rem; }
+    .cdl-from { color: var(--muted-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .cdl-status {
+      font-size: 0.65rem;
+      font-family: 'DM Mono', monospace;
+      border-radius: 5px;
+      padding: 2px 6px;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .cdl-st-landed  { background: rgba(91,184,245,0.15); color: var(--sky); }
+    .cdl-st-active  { background: rgba(114,201,138,0.15); color: #72C98A; }
+    .cdl-st-sched   { background: rgba(255,255,255,0.06); color: var(--muted-2); }
+    .cdl-st-cancel  { background: rgba(232,100,90,0.15); color: #E8645A; }
 
     .cal-hinge {
       height: 1px;
@@ -953,6 +1056,16 @@
 
     <!-- Calendar drawer — expands below header, pushes content down -->
     <div class="cal-drawer" id="cal-drawer">
+      <div class="cal-drawer-left" id="cal-drawer-left">
+        <div class="cdl-kpi" id="cdl-kpi"></div>
+        <div class="cdl-bottom">
+          <div class="cdl-spark-wrap"><canvas id="cdl-spark" height="60"></canvas></div>
+          <div class="cdl-flights-wrap">
+            <div class="cdl-flights-title">Прилёты</div>
+            <div class="cdl-flights-list" id="cdl-flights-list"></div>
+          </div>
+        </div>
+      </div>
       <div class="cal-inner">
         <div class="cal-panel">
           <div class="cal-panel-head">
@@ -1251,7 +1364,66 @@
       const book   = document.getElementById('cal-book');
       const isOpen = drawer.classList.toggle('open');
       book.classList.toggle('open', isOpen);
+      if (isOpen && data) renderDrawerLeft(data[activeKey] || data['today']);
     });
+
+    // Drawer left panel
+    function renderDrawerLeft(d) {
+      if (!d) return;
+      const kpiEl = document.getElementById('cdl-kpi');
+      if (kpiEl) {
+        kpiEl.replaceChildren();
+        const topCountry = (d.arrivals.all || [])[0];
+        const topName = topCountry ? (topCountry.name || '') : '—';
+        const topFlag = topCountry ? (FLAGS[topCountry.country || topCountry.name] || '🌍') : '';
+        [['Рейсы', (d.arrivals.count + (d.departures ? d.departures.count : 0)), 'col-ivory'],
+         ['Пассажиров', '~' + (d.arrivals.pax + (d.departures ? d.departures.pax : 0)).toLocaleString('ru'), 'col-gold'],
+         ['Прилёты #1', topFlag + ' ' + topName, 'col-sky']
+        ].forEach(function(item) {
+          const pill = document.createElement('div'); pill.className = 'cdl-kpi-pill';
+          const lbl = document.createElement('span'); lbl.className = 'cdl-kpi-label'; lbl.textContent = item[0];
+          const val = document.createElement('span'); val.className = 'cdl-kpi-value ' + item[2]; val.textContent = item[1];
+          pill.appendChild(lbl); pill.appendChild(val); kpiEl.appendChild(pill);
+        });
+      }
+      const sparkCanvas = document.getElementById('cdl-spark');
+      if (sparkCanvas && data && data.week && data.week.by_days) {
+        const days = data.week.by_days.slice(-7);
+        if (window._cdlSparkChart) { window._cdlSparkChart.destroy(); }
+        window._cdlSparkChart = new Chart(sparkCanvas, {
+          type: 'bar',
+          data: { labels: days.map(function(x){return x.label.split(' ')[0];}),
+                  datasets: [{ data: days.map(function(x){return x.arrivals;}), backgroundColor: 'rgba(91,184,245,0.35)', borderRadius: 4, borderSkipped: false }] },
+          options: { responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: { x: { grid: { display: false }, ticks: { color: '#4E4A45', font: { size: 9 } } }, y: { display: false } } }
+        });
+      }
+      const listEl = document.getElementById('cdl-flights-list');
+      if (!listEl) return;
+      listEl.replaceChildren();
+      const flights = d.arrivals_list || [];
+      if (!flights.length) {
+        const msg = document.createElement('div');
+        msg.style.cssText = 'color:var(--muted-2);font-size:0.75rem;padding:8px';
+        msg.textContent = 'Нет данных о рейсах';
+        listEl.appendChild(msg); return;
+      }
+      flights.forEach(function(f) {
+        const row = document.createElement('div'); row.className = 'cdl-flight-row';
+        const s = (f.status || '').toLowerCase();
+        let scls = 'cdl-st-sched', stxt = 'план';
+        if (s.includes('land') || s.includes('arriv')) { scls = 'cdl-st-landed'; stxt = 'прил'; }
+        else if (s.includes('active') || s.includes('en route')) { scls = 'cdl-st-active'; stxt = 'в пути'; }
+        else if (s === 'cancelled') { scls = 'cdl-st-cancel'; stxt = 'отмен'; }
+        const fn = document.createElement('span'); fn.className = 'cdl-fn'; fn.textContent = f.fn || '—';
+        const flag = document.createElement('span'); flag.className = 'cdl-flag'; flag.textContent = FLAGS[f.country] || '🌍';
+        const from = document.createElement('span'); from.className = 'cdl-from'; from.textContent = f.country || f.from || '—';
+        const st = document.createElement('span'); st.className = 'cdl-status ' + scls; st.textContent = stxt;
+        row.appendChild(fn); row.appendChild(flag); row.appendChild(from); row.appendChild(st);
+        listEl.appendChild(row);
+      });
+    }
 
     // Month navigation
     document.getElementById('cal-prev').addEventListener('click', () => {
