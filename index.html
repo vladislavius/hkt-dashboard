@@ -145,97 +145,95 @@
       50%      { opacity:.35; box-shadow:0 0 2px var(--gold); }
     }
 
-    /* ── Calendar Navigation ── */
-    .nav-wrap { margin-bottom: 36px; }
-    .nav-top {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .nav-left {
-      flex: 1;
-      min-width: 0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      overflow: hidden;
-    }
+    /* ── Book Calendar ── */
+    .nav-wrap { margin-bottom: 32px; }
 
-    /* Day strip */
-    .nav-days {
-      display: flex;
-      gap: 6px;
-      overflow-x: auto;
-      scrollbar-width: none;
-      flex-shrink: 0;
-    }
-    .nav-days::-webkit-scrollbar { display: none; }
-    .day-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1px;
-      padding: 10px 12px 9px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      cursor: pointer;
-      min-width: 64px;
-      flex-shrink: 0;
-      transition: all 0.18s;
+    .cal-book {
       position: relative;
-    }
-    .day-card:hover:not(.no-data):not(.active) { border-color: var(--gold-border); background: rgba(200,169,110,0.06); }
-    .day-card.active {
-      background: var(--gold);
-      border-color: var(--gold);
-      box-shadow: 0 3px 20px rgba(200,169,110,0.38);
-    }
-    .day-card.no-data { opacity: 0.28; cursor: default; pointer-events: none; }
-    .day-badge {
-      font-size: 0.56rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-weight: 700;
-      color: var(--sky);
-      margin-bottom: 1px;
-      min-height: 10px;
-    }
-    .day-card.active .day-badge { color: rgba(9,16,10,0.65); }
-    .day-num {
-      font-family: 'DM Mono', monospace;
-      font-size: 1.35rem;
-      font-weight: 500;
-      line-height: 1;
-      color: var(--ivory);
-    }
-    .day-card.active .day-num { color: #09100A; }
-    .day-month {
-      font-size: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--muted-2);
-      margin-top: 2px;
-    }
-    .day-card.active .day-month { color: rgba(9,16,10,0.55); }
-    .day-dow {
-      font-size: 0.6rem;
-      color: var(--muted-2);
-    }
-    .day-card.active .day-dow { color: rgba(9,16,10,0.55); }
-
-    /* ── Inline Calendar widget ── */
-    .cal-wrap {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 10px 14px;
-      min-width: 0;
+      background: var(--surface);
       overflow: hidden;
+    }
+    /* Spine accent */
+    .cal-book::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--gold) 0%, var(--sky) 100%);
+      border-radius: 16px 0 0 16px;
+      z-index: 1;
+    }
+
+    /* Cover — clickable header */
+    .cal-cover {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 20px 13px 22px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.18s;
+    }
+    .cal-cover:hover { background: rgba(255,255,255,0.02); }
+    .cal-cover-left { display: flex; align-items: center; gap: 12px; }
+    .cal-book-icon { font-size: 1.1rem; }
+    .cal-cover-texts { display: flex; flex-direction: column; gap: 1px; }
+    .cal-cover-title {
+      font-size: 0.58rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--muted-2);
+    }
+    .cal-cover-sub {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--ivory);
+    }
+    .cal-cover-right { display: flex; align-items: center; gap: 14px; }
+    .cal-cover-range {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--gold-light);
+      letter-spacing: 0.3px;
+    }
+    .cal-chevron-icon {
+      color: var(--muted-2);
+      font-size: 0.72rem;
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .cal-book.open .cal-chevron-icon { transform: rotate(180deg); }
+
+    /* Book body — animated open/close */
+    .cal-body {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.42s cubic-bezier(0.4,0,0.2,1), opacity 0.32s ease;
+    }
+    .cal-book.open .cal-body { max-height: 520px; opacity: 1; }
+
+    .cal-hinge {
+      height: 1px;
+      margin: 0 18px;
+      background: linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
+    }
+
+    .cal-inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      padding: 18px 22px 20px;
+    }
+
+    /* Month panel */
+    .cal-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      flex-shrink: 0;
     }
 
     /* Month panel */
@@ -892,7 +890,10 @@
           <div class="header-title">Flight <em>Intelligence</em></div>
           <div class="header-meta">Аналитика рейсов · Данные в реальном времени · Таиланд ICT</div>
         </div>
-        <div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <button id="cis-toggle" class="cis-toggle-btn" aria-expanded="false">
+            <span id="cis-btn-label">🇷🇺🇰🇿🇺🇿 СНГ</span> <span class="cis-chevron">▾</span>
+          </button>
           <div class="live-badge">
             <div class="live-dot"></div>
             <span id="updated">Загрузка данных...</span>
@@ -902,13 +903,25 @@
     </header>
 
     <div class="nav-wrap">
-      <div class="nav-top">
-        <div class="nav-left">
-          <!-- Day strip — built by JS -->
-          <div id="nav-days" class="nav-days"></div>
-          <!-- Inline calendar widget -->
-          <div class="cal-wrap">
-            <!-- Month panel -->
+      <div class="cal-book" id="cal-book">
+        <!-- Cover (always visible, clickable) -->
+        <div class="cal-cover" id="cal-cover">
+          <div class="cal-cover-left">
+            <span class="cal-book-icon">📅</span>
+            <div class="cal-cover-texts">
+              <span class="cal-cover-title">Календарь</span>
+              <span class="cal-cover-sub" id="cal-cover-sub">Выберите период</span>
+            </div>
+          </div>
+          <div class="cal-cover-right">
+            <span class="cal-cover-range" id="cal-cover-range"></span>
+            <span class="cal-chevron-icon">▾</span>
+          </div>
+        </div>
+        <!-- Body (opens on click) -->
+        <div class="cal-body" id="cal-body">
+          <div class="cal-hinge"></div>
+          <div class="cal-inner">
             <div class="cal-panel">
               <div class="cal-panel-head">
                 <span class="cal-month-label" id="cal-month-label"></span>
@@ -926,7 +939,6 @@
               <div class="cal-grid" id="cal-grid"></div>
             </div>
             <div class="cal-divider-v"></div>
-            <!-- Presets -->
             <div class="cal-presets-col">
               <div class="cal-preset-group">
                 <div class="cal-preset-item" data-k="today"><span class="cal-radio"></span>Сегодня</div>
@@ -942,9 +954,6 @@
             </div>
           </div>
         </div>
-        <button id="cis-toggle" class="cis-toggle-btn" aria-expanded="false">
-          <span id="cis-btn-label">🇷🇺🇰🇿🇺🇿 СНГ</span> <span class="cis-chevron">▾</span>
-        </button>
       </div>
     </div>
 
@@ -1172,25 +1181,44 @@
       }
     }
 
+    const PERIOD_LABELS = {
+      today:'Сегодня', yesterday:'Вчера', week:'Текущая неделя',
+      month:'Текущий месяц', quarter:'3 месяца', halfyear:'6 месяцев', year:'Текущий год'
+    };
+
+    function formatDate(d) {
+      return d.getDate() + ' ' + RU_MONTHS[d.getMonth()];
+    }
+
+    function updateCover(key) {
+      const sub   = document.getElementById('cal-cover-sub');
+      const range = document.getElementById('cal-cover-range');
+      if (!sub || !range) return;
+      sub.textContent = PERIOD_LABELS[key] || key;
+      const r = getRangeForKey(key);
+      if (r) {
+        if (r.start.getTime() === r.end.getTime()) range.textContent = formatDate(r.start);
+        else range.textContent = formatDate(r.start) + ' — ' + formatDate(r.end);
+      }
+    }
+
     function doSelect(key) {
       activeKey = key;
-      // day strip
-      document.querySelectorAll('.day-card').forEach(el =>
-        el.classList.toggle('active', el.dataset.k === key));
-      // presets radio
       document.querySelectorAll('.cal-preset-item').forEach(el =>
         el.classList.toggle('active', el.dataset.k === key));
-      // calendar grid — navigate to relevant month if needed
       const range = getRangeForKey(key);
-      if (range) {
-        // Show month containing range end (most recent)
-        calViewDate = new Date(range.end.getFullYear(), range.end.getMonth(), 1);
-      }
+      if (range) calViewDate = new Date(range.end.getFullYear(), range.end.getMonth(), 1);
       buildCalendarGrid();
+      updateCover(key);
       render(key);
       const cisPanel = document.getElementById('cis-panel');
       if (cisPanel && !cisPanel.hidden) renderCIS(key);
     }
+
+    // Book open/close
+    document.getElementById('cal-cover').addEventListener('click', () => {
+      document.getElementById('cal-book').classList.toggle('open');
+    });
 
     // Month navigation
     document.getElementById('cal-prev').addEventListener('click', () => {
@@ -1216,14 +1244,6 @@
       doSelect(item.dataset.k);
     });
 
-    // Day strip clicks
-    document.getElementById('nav-days').addEventListener('click', e => {
-      const card = e.target.closest('.day-card:not(.no-data)');
-      if (!card || !card.dataset.k) return;
-      doSelect(card.dataset.k);
-    });
-
-    // Keep selectTab as alias for compatibility
     function selectTab(key) { doSelect(key); }
 
     /* ── Tiny DOM helpers ── */
@@ -1765,7 +1785,6 @@
         document.getElementById('updated').textContent =
           dt.toLocaleString('ru-RU', { timeZone:'Asia/Bangkok', hour:'2-digit', minute:'2-digit', day:'2-digit', month:'2-digit' }) + ' ICT';
 
-        buildDayStrip();
         buildCalendarGrid();
         const period = getDefaultPeriod();
         doSelect(period);
