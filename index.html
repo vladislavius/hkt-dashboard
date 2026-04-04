@@ -195,8 +195,7 @@
       opacity: 0;
       transition: max-height 0.44s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, margin-bottom 0.44s;
       margin-bottom: 0;
-      margin-left: auto;
-      width: fit-content;
+      width: 100%;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 18px;
@@ -209,11 +208,34 @@
       display: flex;
     }
 
+    /* ── Drawer chart block (leftmost) ── */
+    .cdl-chart-block {
+      width: 220px;
+      flex-shrink: 0;
+      border-right: 1px solid var(--border);
+      padding: 20px 18px 20px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .cdl-chart-label {
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--muted-2);
+      font-weight: 600;
+    }
+    .cdl-chart-canvas-wrap {
+      flex: 1;
+      min-height: 0;
+      position: relative;
+    }
+
     /* ── Drawer left panel ── */
     .cal-drawer-left {
       flex: 1;
       min-width: 0;
-      padding: 20px 20px 20px 24px;
+      padding: 20px 20px 20px 22px;
       border-right: 1px solid var(--border);
       display: flex;
       flex-direction: column;
@@ -245,18 +267,6 @@
       font-size: 1.15rem;
       font-weight: 500;
       letter-spacing: -0.5px;
-    }
-    .cdl-bottom {
-      display: flex;
-      gap: 16px;
-      flex: 1;
-      min-height: 0;
-    }
-    .cdl-spark-wrap {
-      width: 160px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: flex-end;
     }
     .cdl-flights-wrap {
       flex: 1;
@@ -1056,14 +1066,15 @@
 
     <!-- Calendar drawer — expands below header, pushes content down -->
     <div class="cal-drawer" id="cal-drawer">
+      <div class="cdl-chart-block">
+        <div class="cdl-chart-label">Прилёты · тренд</div>
+        <div class="cdl-chart-canvas-wrap"><canvas id="cdl-spark"></canvas></div>
+      </div>
       <div class="cal-drawer-left" id="cal-drawer-left">
         <div class="cdl-kpi" id="cdl-kpi"></div>
-        <div class="cdl-bottom">
-          <div class="cdl-spark-wrap"><canvas id="cdl-spark" height="60"></canvas></div>
-          <div class="cdl-flights-wrap">
-            <div class="cdl-flights-title">Прилёты</div>
-            <div class="cdl-flights-list" id="cdl-flights-list"></div>
-          </div>
+        <div class="cdl-flights-wrap">
+          <div class="cdl-flights-title">Прилёты</div>
+          <div class="cdl-flights-list" id="cdl-flights-list"></div>
         </div>
       </div>
       <div class="cal-inner">
@@ -1356,6 +1367,8 @@
       render(key);
       const cisPanel = document.getElementById('cis-panel');
       if (cisPanel && !cisPanel.hidden) renderCIS(key);
+      const drawer = document.getElementById('cal-drawer');
+      if (drawer && drawer.classList.contains('open') && data) renderDrawerLeft(data[key] || data['today']);
     }
 
     // Calendar drawer open/close
@@ -1373,19 +1386,31 @@
       const kpiEl = document.getElementById('cdl-kpi');
       if (kpiEl) {
         kpiEl.replaceChildren();
-        const topCountry = (d.arrivals.all || [])[0];
-        const topName = topCountry ? (topCountry.name || '') : '—';
-        const topFlag = topCountry ? (FLAGS[topCountry.country || topCountry.name] || '🌍') : '';
-        [['Рейсы', (d.arrivals.count + (d.departures ? d.departures.count : 0)), 'col-ivory'],
-         ['Пассажиров', '~' + (d.arrivals.pax + (d.departures ? d.departures.pax : 0)).toLocaleString('ru'), 'col-gold'],
-         ['Прилёты #1', topFlag + ' ' + topName, 'col-sky']
+        const arrList = d.arrivals.all || d.arrivals.top || [];
+        const total = d.arrivals.count + (d.departures ? d.departures.count : 0);
+        const pax   = d.arrivals.pax   + (d.departures ? d.departures.pax   : 0);
+        // Stats pills
+        [['Рейсы', String(total), 'col-ivory'],
+         ['Пассажиров', '~' + pax.toLocaleString('ru'), 'col-gold']
         ].forEach(function(item) {
           const pill = document.createElement('div'); pill.className = 'cdl-kpi-pill';
           const lbl = document.createElement('span'); lbl.className = 'cdl-kpi-label'; lbl.textContent = item[0];
           const val = document.createElement('span'); val.className = 'cdl-kpi-value ' + item[2]; val.textContent = item[1];
           pill.appendChild(lbl); pill.appendChild(val); kpiEl.appendChild(pill);
         });
+        // Top-3 arrival countries
+        arrList.slice(0, 3).forEach(function(c, i) {
+          const name = c.name || '';
+          const flag = FLAGS[c.country || c.name] || '🌍';
+          const pill = document.createElement('div'); pill.className = 'cdl-kpi-pill';
+          const lbl = document.createElement('span'); lbl.className = 'cdl-kpi-label';
+          lbl.textContent = 'Прилёты #' + (i + 1);
+          const val = document.createElement('span'); val.className = 'cdl-kpi-value col-sky';
+          val.textContent = flag + ' ' + name;
+          pill.appendChild(lbl); pill.appendChild(val); kpiEl.appendChild(pill);
+        });
       }
+      // Sparkline: arrivals only, full height of chart block
       const sparkCanvas = document.getElementById('cdl-spark');
       if (sparkCanvas && data && data.week && data.week.by_days) {
         const days = data.week.by_days.slice(-7);
@@ -1396,16 +1421,17 @@
             labels: days.map(function(x){return x.label.split(' ')[0];}),
             datasets: [
               { label: 'Прилёты', data: days.map(function(x){return x.arrivals;}),
-                borderColor: '#5BB8F5', backgroundColor: 'rgba(91,184,245,0.10)',
-                borderWidth: 1.5, pointRadius: 2, tension: 0.35, fill: true },
-              { label: 'Вылеты', data: days.map(function(x){return x.departures;}),
-                borderColor: '#E8A462', backgroundColor: 'rgba(232,164,98,0.07)',
-                borderWidth: 1.5, pointRadius: 2, tension: 0.35, fill: true }
+                borderColor: '#5BB8F5', backgroundColor: 'rgba(91,184,245,0.12)',
+                borderWidth: 2, pointRadius: 3, pointHoverRadius: 5, tension: 0.35, fill: true }
             ]
           },
           options: { responsive: true, maintainAspectRatio: false,
             plugins: { legend: { display: false } },
-            scales: { x: { grid: { display: false }, ticks: { color: '#4E4A45', font: { size: 9 } } }, y: { display: false } } }
+            scales: {
+              x: { grid: { display: false }, ticks: { color: '#8A8480', font: { size: 9 } } },
+              y: { display: false }
+            }
+          }
         });
       }
       const listEl = document.getElementById('cdl-flights-list');
