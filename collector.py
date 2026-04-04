@@ -318,17 +318,32 @@ def analyze(flights, direction):
                 if s in ("landed","arrived","diverted"): st["completed"]+=1
                 elif s in ("scheduled","active","en route","en-route","taxiing","taxi","boarding","expected","estimated"): st["upcoming"]+=1
                 elif s == "cancelled": st["cancelled"]+=1
-            # Collect individual arrival records
+            # Collect individual flight records for board display
+            fn = (f.get("flight") or {}).get("iata") or (f.get("flight") or {}).get("icao", "")
+            airline = (f.get("airline") or {}).get("name", "")
+            dep_sched = (f.get("departure") or {}).get("scheduled", "")
+            arr_sched = (f.get("arrival")   or {}).get("scheduled", "")
             if direction == "arrival":
-                fn = (f.get("flight") or {}).get("iata") or (f.get("flight") or {}).get("icao", "")
-                sched = (f.get("departure") or {}).get("scheduled", "")
                 flight_list.append({
-                    "fn":      fn,
-                    "from":    dep,
-                    "country": MAP_C.get(dep, ""),
-                    "status":  s,
-                    "pax":     flight_pax,
-                    "sched":   sched[:16] if sched else "",  # "2026-04-04T08:30"
+                    "fn":       fn,
+                    "airline":  airline,
+                    "from":     dep,
+                    "country":  MAP_C.get(dep, ""),
+                    "status":   s,
+                    "pax":      flight_pax,
+                    "dep_time": dep_sched[:16] if dep_sched else "",
+                    "arr_time": arr_sched[:16] if arr_sched else "",
+                })
+            else:
+                flight_list.append({
+                    "fn":       fn,
+                    "airline":  airline,
+                    "to":       arr,
+                    "country":  MAP_C.get(arr, ""),
+                    "status":   s,
+                    "pax":      flight_pax,
+                    "dep_time": dep_sched[:16] if dep_sched else "",
+                    "arr_time": arr_sched[:16] if arr_sched else "",
                 })
         res[date] = {"count": cnt, "pax": pax, "countries": dict(ctry), "stats": st,
                      "flight_list": flight_list}
@@ -513,10 +528,31 @@ def run():
         side["count"] = sum(x["flights"] for x in side["countries"].values())
         side["pax"]   = sum(x["pax"]     for x in side["countries"].values())
 
-    # Merge arrivals flight list (deduplicate by flight number)
-    existing_fns = {r["fn"] for r in acc.get("arrivals_list", []) if r.get("fn")}
-    new_flights = [r for r in a_cur.get("flight_list", []) if r.get("fn") not in existing_fns]
-    acc["arrivals_list"] = acc.get("arrivals_list", []) + new_flights
+    # Merge arrivals flight list — deduplicate code-shares by (from, arr_time)
+    seen_arr = {(r.get("from",""), r.get("arr_time","")) for r in acc.get("arrivals_list", []) if r.get("arr_time")}
+    seen_arr_fns = {r["fn"] for r in acc.get("arrivals_list", []) if r.get("fn")}
+    new_arr = []
+    for r in a_cur.get("flight_list", []):
+        key = (r.get("from",""), r.get("arr_time",""))
+        if r.get("fn") in seen_arr_fns: continue
+        if r.get("arr_time") and key in seen_arr: continue
+        new_arr.append(r)
+        seen_arr.add(key)
+        seen_arr_fns.add(r.get("fn",""))
+    acc["arrivals_list"] = acc.get("arrivals_list", []) + new_arr
+
+    # Merge departures flight list — deduplicate code-shares by (to, dep_time)
+    seen_dep = {(r.get("to",""), r.get("dep_time","")) for r in acc.get("departures_list", []) if r.get("dep_time")}
+    seen_dep_fns = {r["fn"] for r in acc.get("departures_list", []) if r.get("fn")}
+    new_dep = []
+    for r in d_cur.get("flight_list", []):
+        key = (r.get("to",""), r.get("dep_time",""))
+        if r.get("fn") in seen_dep_fns: continue
+        if r.get("dep_time") and key in seen_dep: continue
+        new_dep.append(r)
+        seen_dep.add(key)
+        seen_dep_fns.add(r.get("fn",""))
+    acc["departures_list"] = acc.get("departures_list", []) + new_dep
 
     acc_file.write_text(json.dumps(acc, indent=2, ensure_ascii=False))
 
@@ -541,11 +577,13 @@ def run():
         yest_data = json.loads(yest_file.read_text())
         v_a = yest_data.get("arrivals",   {"count":0, "pax":0, "countries":{}})
         v_d = yest_data.get("departures", {"count":0, "pax":0, "countries":{}})
-        v_arrivals_list = yest_data.get("arrivals_list", [])
+        v_arrivals_list   = yest_data.get("arrivals_list",   [])
+        v_departures_list = yest_data.get("departures_list", [])
     else:
         v_a = {"count":0, "pax":0, "countries":{}}
         v_d = {"count":0, "pax":0, "countries":{}}
-        v_arrivals_list = []
+        v_arrivals_list   = []
+        v_departures_list = []
 
     # ── Russian transit estimates ─────────────────────────────────────────
     yest_date = today_date - datetime.timedelta(days=1)
@@ -585,7 +623,7 @@ def run():
             result.append(item)
         return result
 
-    def to_web_fmt(arr, dep, breakdown=None, russia_transit=None, arrivals_list=None):
+    def to_web_fmt(arr, dep, breakdown=None, russia_transit=None, arrivals_list=None, departures_list=None):
         d = {
             "arrivals":   {"count": arr["count"], "pax": arr["pax"], "all": fmt_all(arr["countries"])},
             "departures": {"count": dep["count"], "pax": dep["pax"], "all": fmt_all(dep["countries"])},
@@ -596,12 +634,14 @@ def run():
             d["russia_transit"] = russia_transit
         if arrivals_list:
             d["arrivals_list"] = arrivals_list
+        if departures_list:
+            d["departures_list"] = departures_list
         return d
 
     dashboard_data = {
         "updated":   now.isoformat(),
-        "yesterday": to_web_fmt(v_a,  v_d,  russia_transit=rt_yesterday, arrivals_list=v_arrivals_list),
-        "today":     to_web_fmt(a_acc, d_acc, russia_transit=rt_today,     arrivals_list=acc.get("arrivals_list", [])),
+        "yesterday": to_web_fmt(v_a,  v_d,  russia_transit=rt_yesterday, arrivals_list=v_arrivals_list, departures_list=v_departures_list),
+        "today":     to_web_fmt(a_acc, d_acc, russia_transit=rt_today,     arrivals_list=acc.get("arrivals_list", []), departures_list=acc.get("departures_list", [])),
         "week":      to_web_fmt(w_a,  w_d,  {"by_days":   make_by_days(w_daily)},   russia_transit=rt_week),
         "month":     to_web_fmt(m_a,  m_d,  {"by_weeks":  make_by_weeks(m_daily)},  russia_transit=rt_month),
         "quarter":   to_web_fmt(q_a,  q_d,  {"by_months": make_by_months(q_daily)}, russia_transit=rt_quarter),
