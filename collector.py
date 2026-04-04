@@ -146,6 +146,89 @@ MAP_RU_CITY = {
 CAP = {'319':140,'320':180,'321':220,'332':280,'333':320,'339':350,'359':325,'388':525,'737':180,'738':189,'739':220,'73J':220,'772':314,'773':365,'77W':396,'77L':314,'788':250,'789':290,'78J':330,'32A':180,'32B':186,'32N':186,'32Q':186,'E90':100,'E95':120,'CR9':90,'DH4':78,'AT7':70,'CRJ':90,'32S':180}
 LOAD_FACTOR = 0.82  # средняя загрузка международных рейсов в Таиланд
 
+# ── Russian transit estimation ────────────────────────────────────────────────
+HKT_RUSSIAN_SHARE = 0.38   # Пхукет получает ~38% россиян, въезжающих в Таиланд
+                            # Источник: TAT/MOTS годовые отчёты 2023-2024. Проверять ежегодно.
+
+TRANSIT_HUBS = ['UAE', 'Turkey', 'Qatar', 'China', 'India']  # хабы с транзитным российским трафиком
+
+
+def load_tat_stats():
+    """Загружает data/tat_stats.json. Возвращает {} при ошибке."""
+    p = Path("data/tat_stats.json")
+    if not p.exists():
+        print("Warning: data/tat_stats.json not found — russia transit will be 0")
+        return {}
+    try:
+        return json.loads(p.read_text()).get("monthly", {})
+    except Exception as e:
+        print(f"Warning: Failed to read tat_stats.json: {e}")
+        return {}
+
+
+def tat_monthly_avg(tat_monthly, ref_date, lookback=3):
+    """
+    Возвращает среднемесячное количество российских туристов (весь Таиланд)
+    за `lookback` месяцев до ref_date. Fallback: 130 000/мес.
+    """
+    counts = []
+    for i in range(1, lookback + 4):   # буфер для пропущенных месяцев
+        m = ref_date.replace(day=1) - datetime.timedelta(days=28 * i)
+        key = f"{m.year}-{m.month:02d}"
+        if key in tat_monthly:
+            counts.append(tat_monthly[key])
+        if len(counts) == lookback:
+            break
+    if not counts:
+        return 130000.0   # глобальный fallback: среднемесячное за 2024
+    return sum(counts) / len(counts)
+
+
+def calc_russian_transit(period_days, countries_arrivals, tat_monthly, ref_date):
+    """
+    Оценивает количество российских пассажиров, прибывших через транзитные хабы.
+
+    Формула:
+        hkt_russians = tat_avg_monthly * HKT_RUSSIAN_SHARE / 30.44 * period_days
+        transit = max(0, hkt_russians - direct_russia_pax)
+        распределяем transit пропорционально трафику хабов
+
+    Возвращает: {"flights": int, "pax": int, "estimated": True}
+    """
+    monthly_avg = tat_monthly_avg(tat_monthly, ref_date)
+    daily_hkt = (monthly_avg * HKT_RUSSIAN_SHARE) / 30.44
+    period_hkt_russians = daily_hkt * period_days
+
+    direct_pax = sum(
+        v.get("pax", 0)
+        for c, v in countries_arrivals.items()
+        if v.get("country") == "Russia" or c == "Russia"
+    )
+
+    transit_total = max(0.0, period_hkt_russians - direct_pax)
+    if transit_total < 1:
+        return {"flights": 0, "pax": 0, "estimated": True}
+
+    hub_pax = {
+        hub: sum(
+            v.get("pax", 0)
+            for c, v in countries_arrivals.items()
+            if v.get("country", c) == hub or c == hub
+        )
+        for hub in TRANSIT_HUBS
+    }
+    total_hub_pax = sum(hub_pax.values())
+
+    transit_pax = int(transit_total)
+    avg_flight_pax = 180 * LOAD_FACTOR
+
+    if total_hub_pax == 0:
+        transit_flights = max(1, round(transit_pax / avg_flight_pax))
+        return {"flights": transit_flights, "pax": transit_pax, "estimated": True}
+
+    transit_flights = max(1, round(transit_pax / avg_flight_pax))
+    return {"flights": transit_flights, "pax": transit_pax, "estimated": True}
+
 ICT = pytz.timezone('Asia/Bangkok')
 
 MONTH_NAMES_RU = {1:'Янв',2:'Фев',3:'Мар',4:'Апр',5:'Май',6:'Июн',7:'Июл',8:'Авг',9:'Сен',10:'Окт',11:'Ноя',12:'Дек'}
