@@ -671,7 +671,7 @@
           <div class="tab" data-k="year">Год</div>
         </div>
         <button id="cis-toggle" class="cis-toggle-btn" aria-expanded="false">
-          🇷🇺🇰🇿🇺🇿 СНГ <span class="cis-chevron">▾</span>
+          <span id="cis-btn-label">🇷🇺🇰🇿🇺🇿 СНГ</span> <span class="cis-chevron">▾</span>
         </button>
       </div>
     </div>
@@ -1311,15 +1311,18 @@
         // CIS toggle button
         const cisToggle = document.getElementById('cis-toggle');
         const cisPanel  = document.getElementById('cis-panel');
+        const cisBtnLabel = document.getElementById('cis-btn-label');
         cisToggle.addEventListener('click', () => {
           const open = cisToggle.getAttribute('aria-expanded') === 'true';
           cisToggle.setAttribute('aria-expanded', String(!open));
           if (!open) {
             cisPanel.hidden = false;
+            cisBtnLabel.textContent = '🌍 Весь мир';
             const cur = document.querySelector('.tab.active')?.dataset.k || period;
             renderCIS(cur);
           } else {
             cisPanel.hidden = true;
+            cisBtnLabel.textContent = '🇷🇺🇰🇿🇺🇿 СНГ';
             if (activeCisChart)  { activeCisChart.destroy();  activeCisChart  = null; }
             if (activeCisChart2) { activeCisChart2.destroy(); activeCisChart2 = null; }
           }
