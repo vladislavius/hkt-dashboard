@@ -1391,9 +1391,18 @@
         const days = data.week.by_days.slice(-7);
         if (window._cdlSparkChart) { window._cdlSparkChart.destroy(); }
         window._cdlSparkChart = new Chart(sparkCanvas, {
-          type: 'bar',
-          data: { labels: days.map(function(x){return x.label.split(' ')[0];}),
-                  datasets: [{ data: days.map(function(x){return x.arrivals;}), backgroundColor: 'rgba(91,184,245,0.35)', borderRadius: 4, borderSkipped: false }] },
+          type: 'line',
+          data: {
+            labels: days.map(function(x){return x.label.split(' ')[0];}),
+            datasets: [
+              { label: 'Прилёты', data: days.map(function(x){return x.arrivals;}),
+                borderColor: '#5BB8F5', backgroundColor: 'rgba(91,184,245,0.10)',
+                borderWidth: 1.5, pointRadius: 2, tension: 0.35, fill: true },
+              { label: 'Вылеты', data: days.map(function(x){return x.departures;}),
+                borderColor: '#E8A462', backgroundColor: 'rgba(232,164,98,0.07)',
+                borderWidth: 1.5, pointRadius: 2, tension: 0.35, fill: true }
+            ]
+          },
           options: { responsive: true, maintainAspectRatio: false,
             plugins: { legend: { display: false } },
             scales: { x: { grid: { display: false }, ticks: { color: '#4E4A45', font: { size: 9 } } }, y: { display: false } } }
@@ -1643,6 +1652,7 @@
       if (period === 'week')                        return 'По дням';
       if (period === 'month')                       return 'По неделям';
       if (['quarter','halfyear','year'].includes(period)) return 'По месяцам';
+      if (['today','yesterday'].includes(period))   return 'Тренд за 7 дней';
       return '';
     }
 
@@ -1650,6 +1660,7 @@
       if (period === 'week')                        return d.by_days;
       if (period === 'month')                       return d.by_weeks;
       if (['quarter','halfyear','year'].includes(period)) return d.by_months;
+      if (['today','yesterday'].includes(period))   return data?.week?.by_days || null;
       return null;
     }
 
