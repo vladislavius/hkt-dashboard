@@ -456,6 +456,8 @@ def fmt_top10(ctry):
 def run():
     now = datetime.datetime.now(ICT)
     today = now.date().isoformat()
+    today_date = now.date()
+    tat_monthly = load_tat_stats()
     key, knum = get_api_key()
 
     a_fl, a_req = fetch_flights("arrival", key)
@@ -517,6 +519,16 @@ def run():
         v_a = {"count":0, "pax":0, "countries":{}}
         v_d = {"count":0, "pax":0, "countries":{}}
 
+    # ── Russian transit estimates ─────────────────────────────────────────
+    yest_date = today_date - datetime.timedelta(days=1)
+    rt_today     = calc_russian_transit(1,   a_acc["countries"], tat_monthly, today_date)
+    rt_yesterday = calc_russian_transit(1,   v_a["countries"],   tat_monthly, yest_date)
+    rt_week      = calc_russian_transit(7,   w_a["countries"],   tat_monthly, today_date)
+    rt_month     = calc_russian_transit(30,  m_a["countries"],   tat_monthly, today_date)
+    rt_quarter   = calc_russian_transit(90,  q_a["countries"],   tat_monthly, today_date)
+    rt_halfyear  = calc_russian_transit(180, h_a["countries"],   tat_monthly, today_date)
+    rt_year      = calc_russian_transit(365, y_a["countries"],   tat_monthly, today_date)
+
     # ── Telegram ─────────────────────────────────────────────────────────
     def block(title, a, d):
         lines = [f"<b>{title}</b>",
@@ -545,24 +557,26 @@ def run():
             result.append(item)
         return result
 
-    def to_web_fmt(arr, dep, breakdown=None):
+    def to_web_fmt(arr, dep, breakdown=None, russia_transit=None):
         d = {
             "arrivals":   {"count": arr["count"], "pax": arr["pax"], "all": fmt_all(arr["countries"])},
             "departures": {"count": dep["count"], "pax": dep["pax"], "all": fmt_all(dep["countries"])},
         }
         if breakdown:
             d.update(breakdown)
+        if russia_transit and russia_transit.get("pax", 0) > 0:
+            d["russia_transit"] = russia_transit
         return d
 
     dashboard_data = {
-        "updated":  now.isoformat(),
-        "yesterday": to_web_fmt(v_a, v_d),
-        "today":     to_web_fmt(a_acc, d_acc),
-        "week":      to_web_fmt(w_a, w_d, {"by_days":   make_by_days(w_daily)}),
-        "month":     to_web_fmt(m_a, m_d, {"by_weeks":  make_by_weeks(m_daily)}),
-        "quarter":   to_web_fmt(q_a, q_d, {"by_months": make_by_months(q_daily)}),
-        "halfyear":  to_web_fmt(h_a, h_d, {"by_months": make_by_months(h_daily)}),
-        "year":      to_web_fmt(y_a, y_d, {"by_months": make_by_months(y_daily)}),
+        "updated":   now.isoformat(),
+        "yesterday": to_web_fmt(v_a,  v_d,  russia_transit=rt_yesterday),
+        "today":     to_web_fmt(a_acc, d_acc, russia_transit=rt_today),
+        "week":      to_web_fmt(w_a,  w_d,  {"by_days":   make_by_days(w_daily)},   russia_transit=rt_week),
+        "month":     to_web_fmt(m_a,  m_d,  {"by_weeks":  make_by_weeks(m_daily)},  russia_transit=rt_month),
+        "quarter":   to_web_fmt(q_a,  q_d,  {"by_months": make_by_months(q_daily)}, russia_transit=rt_quarter),
+        "halfyear":  to_web_fmt(h_a,  h_d,  {"by_months": make_by_months(h_daily)}, russia_transit=rt_halfyear),
+        "year":      to_web_fmt(y_a,  y_d,  {"by_months": make_by_months(y_daily)}, russia_transit=rt_year),
     }
     Path("data/dashboard.json").write_text(json.dumps(dashboard_data, ensure_ascii=False, indent=2))
     print("✅ dashboard.json обновлён.")
