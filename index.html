@@ -210,10 +210,10 @@
 
     /* ── Drawer chart block (leftmost) ── */
     .cdl-chart-block {
-      width: 220px;
+      width: 340px;
       flex-shrink: 0;
       border-right: 1px solid var(--border);
-      padding: 20px 18px 20px 22px;
+      padding: 20px 20px 20px 24px;
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -231,42 +231,78 @@
       position: relative;
     }
 
-    /* ── Drawer left panel ── */
+    /* ── Drawer middle panel ── */
     .cal-drawer-left {
-      flex: 1;
-      min-width: 0;
-      padding: 20px 20px 20px 22px;
+      width: 250px;
+      flex-shrink: 0;
+      padding: 20px 18px 20px 20px;
       border-right: 1px solid var(--border);
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
     .cdl-kpi {
       display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+      gap: 8px;
     }
     .cdl-kpi-pill {
+      flex: 1;
       background: rgba(255,255,255,0.04);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 8px 14px;
+      padding: 8px 12px;
       display: flex;
       flex-direction: column;
       gap: 2px;
     }
     .cdl-kpi-label {
-      font-size: 0.55rem;
+      font-size: 0.52rem;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1.8px;
       color: var(--muted-2);
       font-weight: 600;
     }
     .cdl-kpi-value {
       font-family: 'DM Mono', monospace;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       font-weight: 500;
       letter-spacing: -0.5px;
+    }
+    /* ── Top-3 rank list ── */
+    .cdl-top3 {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .cdl-rank-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 4px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .cdl-rank-row:last-child { border-bottom: none; }
+    .cdl-rank-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--muted-2);
+      min-width: 14px;
+      text-align: right;
+    }
+    .cdl-rank-flag { font-size: 0.95rem; line-height: 1; }
+    .cdl-rank-name {
+      flex: 1;
+      font-size: 0.8rem;
+      color: var(--ivory);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .cdl-rank-flights {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--sky);
+      white-space: nowrap;
     }
     .cdl-flights-wrap {
       flex: 1;
@@ -1072,6 +1108,7 @@
       </div>
       <div class="cal-drawer-left" id="cal-drawer-left">
         <div class="cdl-kpi" id="cdl-kpi"></div>
+        <div class="cdl-top3" id="cdl-top3"></div>
         <div class="cdl-flights-wrap">
           <div class="cdl-flights-title">Прилёты</div>
           <div class="cdl-flights-list" id="cdl-flights-list"></div>
@@ -1383,13 +1420,12 @@
     // Drawer left panel
     function renderDrawerLeft(d) {
       if (!d) return;
+      const arrList = d.arrivals.all || d.arrivals.top || [];
+      const total = d.arrivals.count + (d.departures ? d.departures.count : 0);
+      const pax   = d.arrivals.pax   + (d.departures ? d.departures.pax   : 0);
       const kpiEl = document.getElementById('cdl-kpi');
       if (kpiEl) {
         kpiEl.replaceChildren();
-        const arrList = d.arrivals.all || d.arrivals.top || [];
-        const total = d.arrivals.count + (d.departures ? d.departures.count : 0);
-        const pax   = d.arrivals.pax   + (d.departures ? d.departures.pax   : 0);
-        // Stats pills
         [['Рейсы', String(total), 'col-ivory'],
          ['Пассажиров', '~' + pax.toLocaleString('ru'), 'col-gold']
         ].forEach(function(item) {
@@ -1398,16 +1434,19 @@
           const val = document.createElement('span'); val.className = 'cdl-kpi-value ' + item[2]; val.textContent = item[1];
           pill.appendChild(lbl); pill.appendChild(val); kpiEl.appendChild(pill);
         });
-        // Top-3 arrival countries
+      }
+      // Top-3 as compact rank list
+      const top3El = document.getElementById('cdl-top3');
+      if (top3El) {
+        top3El.replaceChildren();
         arrList.slice(0, 3).forEach(function(c, i) {
-          const name = c.name || '';
-          const flag = FLAGS[c.country || c.name] || '🌍';
-          const pill = document.createElement('div'); pill.className = 'cdl-kpi-pill';
-          const lbl = document.createElement('span'); lbl.className = 'cdl-kpi-label';
-          lbl.textContent = 'Прилёты #' + (i + 1);
-          const val = document.createElement('span'); val.className = 'cdl-kpi-value col-sky';
-          val.textContent = flag + ' ' + name;
-          pill.appendChild(lbl); pill.appendChild(val); kpiEl.appendChild(pill);
+          const row = document.createElement('div'); row.className = 'cdl-rank-row';
+          const num  = document.createElement('span'); num.className  = 'cdl-rank-num';     num.textContent  = String(i + 1);
+          const flag = document.createElement('span'); flag.className = 'cdl-rank-flag';    flag.textContent = FLAGS[c.country || c.name] || '🌍';
+          const name = document.createElement('span'); name.className = 'cdl-rank-name';    name.textContent = c.name || '';
+          const flt  = document.createElement('span'); flt.className  = 'cdl-rank-flights'; flt.textContent  = (c.flights || 0) + ' →';
+          row.append(num, flag, name, flt);
+          top3El.appendChild(row);
         });
       }
       // Sparkline: arrivals only, full height of chart block
