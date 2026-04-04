@@ -188,22 +188,23 @@
     }
     .cal-book.open .cal-chevron-icon { transform: rotate(180deg); }
 
-    /* ── Body as absolute dropdown ── */
-    .cal-body {
-      position: absolute;
-      top: calc(100% + 8px);
-      right: 0;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
-      z-index: 200;
+    /* ── Calendar drawer (below header, pushes content down) ── */
+    .cal-drawer {
       max-height: 0;
       overflow: hidden;
       opacity: 0;
-      transition: max-height 0.44s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
+      transition: max-height 0.44s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, margin-bottom 0.44s;
+      margin-bottom: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.22);
     }
-    .cal-book.open .cal-body { max-height: 560px; opacity: 1; }
+    .cal-drawer.open {
+      max-height: 560px;
+      opacity: 1;
+      margin-bottom: 24px;
+    }
 
     .cal-hinge {
       height: 1px;
@@ -903,53 +904,17 @@
           <div class="header-meta">Аналитика рейсов · Данные в реальном времени · Таиланд ICT</div>
         </div>
         <div style="display:flex;align-items:center;gap:10px;">
-          <button id="cis-toggle" class="cis-toggle-btn" aria-expanded="false">
-            <span id="cis-btn-label">🇷🇺🇰🇿🇺🇿 СНГ</span> <span class="cis-chevron">▾</span>
-          </button>
+          <!-- Calendar trigger button -->
           <div class="cal-book" id="cal-book">
-            <!-- Cover (always visible, clickable) -->
             <div class="cal-cover" id="cal-cover">
               <span class="cal-cover-sub" id="cal-cover-sub">Период</span>
               <span class="cal-cover-range" id="cal-cover-range"></span>
               <span class="cal-chevron-icon">▾</span>
             </div>
-        <!-- Body (opens on click) -->
-        <div class="cal-body" id="cal-body">
-          <div class="cal-hinge"></div>
-          <div class="cal-inner">
-            <div class="cal-panel">
-              <div class="cal-panel-head">
-                <span class="cal-month-label" id="cal-month-label"></span>
-                <div class="cal-nav-group">
-                  <button class="cal-nav-btn" id="cal-prev">‹</button>
-                  <button class="cal-nav-btn" id="cal-next">›</button>
-                </div>
-              </div>
-              <div class="cal-dow-row">
-                <span class="cal-dow">Пн</span><span class="cal-dow">Вт</span>
-                <span class="cal-dow">Ср</span><span class="cal-dow">Чт</span>
-                <span class="cal-dow">Пт</span><span class="cal-dow">Сб</span>
-                <span class="cal-dow">Вс</span>
-              </div>
-              <div class="cal-grid" id="cal-grid"></div>
-            </div>
-            <div class="cal-divider-v"></div>
-            <div class="cal-presets-col">
-              <div class="cal-preset-group">
-                <div class="cal-preset-item" data-k="today"><span class="cal-radio"></span>Сегодня</div>
-                <div class="cal-preset-item" data-k="week"><span class="cal-radio"></span>Текущая неделя</div>
-                <div class="cal-preset-item" data-k="month"><span class="cal-radio"></span>Текущий месяц</div>
-                <div class="cal-preset-item" data-k="year"><span class="cal-radio"></span>Текущий год</div>
-              </div>
-              <div class="cal-preset-group">
-                <div class="cal-preset-item" data-k="yesterday"><span class="cal-radio"></span>Вчера</div>
-                <div class="cal-preset-item" data-k="quarter"><span class="cal-radio"></span>3 месяца</div>
-                <div class="cal-preset-item" data-k="halfyear"><span class="cal-radio"></span>6 месяцев</div>
-              </div>
-            </div>
           </div>
-        </div>
-          </div><!-- /cal-book -->
+          <button id="cis-toggle" class="cis-toggle-btn" aria-expanded="false">
+            <span id="cis-btn-label">🇷🇺🇰🇿🇺🇿 СНГ</span> <span class="cis-chevron">▾</span>
+          </button>
           <div class="live-badge">
             <div class="live-dot"></div>
             <span id="updated">Загрузка данных...</span>
@@ -957,6 +922,42 @@
         </div><!-- /flex row -->
       </div><!-- /header-row -->
     </header>
+
+    <!-- Calendar drawer — expands below header, pushes content down -->
+    <div class="cal-drawer" id="cal-drawer">
+      <div class="cal-inner">
+        <div class="cal-panel">
+          <div class="cal-panel-head">
+            <span class="cal-month-label" id="cal-month-label"></span>
+            <div class="cal-nav-group">
+              <button class="cal-nav-btn" id="cal-prev">‹</button>
+              <button class="cal-nav-btn" id="cal-next">›</button>
+            </div>
+          </div>
+          <div class="cal-dow-row">
+            <span class="cal-dow">Пн</span><span class="cal-dow">Вт</span>
+            <span class="cal-dow">Ср</span><span class="cal-dow">Чт</span>
+            <span class="cal-dow">Пт</span><span class="cal-dow">Сб</span>
+            <span class="cal-dow">Вс</span>
+          </div>
+          <div class="cal-grid" id="cal-grid"></div>
+        </div>
+        <div class="cal-divider-v"></div>
+        <div class="cal-presets-col">
+          <div class="cal-preset-group">
+            <div class="cal-preset-item" data-k="today"><span class="cal-radio"></span>Сегодня</div>
+            <div class="cal-preset-item" data-k="week"><span class="cal-radio"></span>Текущая неделя</div>
+            <div class="cal-preset-item" data-k="month"><span class="cal-radio"></span>Текущий месяц</div>
+            <div class="cal-preset-item" data-k="year"><span class="cal-radio"></span>Текущий год</div>
+          </div>
+          <div class="cal-preset-group">
+            <div class="cal-preset-item" data-k="yesterday"><span class="cal-radio"></span>Вчера</div>
+            <div class="cal-preset-item" data-k="quarter"><span class="cal-radio"></span>3 месяца</div>
+            <div class="cal-preset-item" data-k="halfyear"><span class="cal-radio"></span>6 месяцев</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- CIS dropdown panel — appears right below tabs -->
     <div id="cis-panel" class="cis-panel" hidden>
@@ -1216,9 +1217,12 @@
       if (cisPanel && !cisPanel.hidden) renderCIS(key);
     }
 
-    // Book open/close
+    // Calendar drawer open/close
     document.getElementById('cal-cover').addEventListener('click', () => {
-      document.getElementById('cal-book').classList.toggle('open');
+      const drawer = document.getElementById('cal-drawer');
+      const book   = document.getElementById('cal-book');
+      const isOpen = drawer.classList.toggle('open');
+      book.classList.toggle('open', isOpen);
     });
 
     // Month navigation
