@@ -1309,19 +1309,27 @@
         render(period);
 
         // CIS toggle button
-        const cisToggle = document.getElementById('cis-toggle');
-        const cisPanel  = document.getElementById('cis-panel');
+        const cisToggle   = document.getElementById('cis-toggle');
+        const cisPanel    = document.getElementById('cis-panel');
         const cisBtnLabel = document.getElementById('cis-btn-label');
+        const mainMetrics = document.getElementById('metrics-row');
+        const mainApp     = document.getElementById('app');
         cisToggle.addEventListener('click', () => {
           const open = cisToggle.getAttribute('aria-expanded') === 'true';
           cisToggle.setAttribute('aria-expanded', String(!open));
           if (!open) {
+            // Показываем только СНГ
             cisPanel.hidden = false;
+            mainMetrics.hidden = true;
+            mainApp.hidden = true;
             cisBtnLabel.textContent = '🌍 Весь мир';
             const cur = document.querySelector('.tab.active')?.dataset.k || period;
             renderCIS(cur);
           } else {
+            // Показываем только Весь мир
             cisPanel.hidden = true;
+            mainMetrics.hidden = false;
+            mainApp.hidden = false;
             cisBtnLabel.textContent = '🇷🇺🇰🇿🇺🇿 СНГ';
             if (activeCisChart)  { activeCisChart.destroy();  activeCisChart  = null; }
             if (activeCisChart2) { activeCisChart2.destroy(); activeCisChart2 = null; }
