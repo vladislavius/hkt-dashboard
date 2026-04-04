@@ -1052,14 +1052,6 @@
           <div class="header-meta">Аналитика рейсов · Данные в реальном времени · Таиланд ICT</div>
         </div>
         <div style="display:flex;align-items:center;gap:10px;">
-          <!-- Calendar trigger button -->
-          <div class="cal-book" id="cal-book">
-            <div class="cal-cover" id="cal-cover">
-              <span class="cal-cover-sub" id="cal-cover-sub">Период</span>
-              <span class="cal-cover-range" id="cal-cover-range"></span>
-              <span class="cal-chevron-icon">▾</span>
-            </div>
-          </div>
           <button id="cis-toggle" class="cis-toggle-btn" aria-expanded="false">
             <span id="cis-btn-label">🇷🇺🇰🇿🇺🇿 СНГ</span> <span class="cis-chevron">▾</span>
           </button>
@@ -1071,8 +1063,8 @@
       </div><!-- /header-row -->
     </header>
 
-    <!-- Calendar drawer — expands below header, pushes content down -->
-    <div class="cal-drawer" id="cal-drawer">
+    <!-- Calendar drawer — always open -->
+    <div class="cal-drawer open" id="cal-drawer">
       <div class="fboard" id="fboard">
         <div class="fboard-tabs">
           <button class="fboard-tab active" data-side="arrivals">🛬 Прилёты</button>
@@ -1378,18 +1370,10 @@
       render(key);
       const cisPanel = document.getElementById('cis-panel');
       if (cisPanel && !cisPanel.hidden) renderCIS(key);
-      const drawer = document.getElementById('cal-drawer');
-      if (drawer && drawer.classList.contains('open') && data) renderDrawerLeft(data[key] || data['today']);
+      if (data) renderDrawerLeft(data[key] || data['today']);
     }
 
-    // Calendar drawer open/close
-    document.getElementById('cal-cover').addEventListener('click', () => {
-      const drawer = document.getElementById('cal-drawer');
-      const book   = document.getElementById('cal-book');
-      const isOpen = drawer.classList.toggle('open');
-      book.classList.toggle('open', isOpen);
-      if (isOpen && data) renderDrawerLeft(data[activeKey] || data['today']);
-    });
+    // Drawer always open — no toggle needed
 
     // ── Flight board ──────────────────────────────────────────────────────
     var fboardSide = 'arrivals';
@@ -2077,6 +2061,7 @@
         buildCalendarGrid();
         const period = getDefaultPeriod();
         doSelect(period);
+        renderDrawerLeft(data[period] || data['today']);
 
         // CIS toggle button
         const cisToggle   = document.getElementById('cis-toggle');
