@@ -529,8 +529,18 @@ def run():
         side["pax"]   = sum(x["pax"]     for x in side["countries"].values())
 
     # Merge arrivals flight list — deduplicate code-shares by (from, arr_time)
-    seen_arr = {(r.get("from",""), r.get("arr_time","")) for r in acc.get("arrivals_list", []) if r.get("arr_time")}
-    seen_arr_fns = {r["fn"] for r in acc.get("arrivals_list", []) if r.get("fn")}
+    # Build lookup from current API data to patch missing airline/times on existing records
+    cur_arr_by_fn = {r.get("fn"): r for r in a_cur.get("flight_list", []) if r.get("fn")}
+    existing_arr = acc.get("arrivals_list", [])
+    for r in existing_arr:
+        fresh = cur_arr_by_fn.get(r.get("fn",""))
+        if fresh:
+            if not r.get("airline") and fresh.get("airline"): r["airline"] = fresh["airline"]
+            if not r.get("arr_time") and fresh.get("arr_time"): r["arr_time"] = fresh["arr_time"]
+            if not r.get("dep_time") and fresh.get("dep_time"): r["dep_time"] = fresh["dep_time"]
+            r["status"] = fresh.get("status", r.get("status",""))
+    seen_arr = {(r.get("from",""), r.get("arr_time","")) for r in existing_arr if r.get("arr_time")}
+    seen_arr_fns = {r["fn"] for r in existing_arr if r.get("fn")}
     new_arr = []
     for r in a_cur.get("flight_list", []):
         key = (r.get("from",""), r.get("arr_time",""))
@@ -539,7 +549,7 @@ def run():
         new_arr.append(r)
         seen_arr.add(key)
         seen_arr_fns.add(r.get("fn",""))
-    acc["arrivals_list"] = acc.get("arrivals_list", []) + new_arr
+    acc["arrivals_list"] = existing_arr + new_arr
 
     # Merge departures flight list — deduplicate code-shares by (to, dep_time)
     seen_dep = {(r.get("to",""), r.get("dep_time","")) for r in acc.get("departures_list", []) if r.get("dep_time")}
