@@ -363,7 +363,11 @@
 
     /* ── CIS Panel ── */
     .cis-panel {
-      margin-top: 32px;
+      margin-top: 0;
+      margin-bottom: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid;
+      border-image: linear-gradient(90deg, transparent, rgba(91,184,245,0.25) 30%, rgba(91,184,245,0.25) 70%, transparent) 1;
       animation: fade-up 0.3s ease both;
     }
     .cis-panel-header {
@@ -672,14 +676,7 @@
       </div>
     </div>
 
-    <div id="metrics-row" class="metrics-strip"></div>
-    <div id="app">
-      <div class="loading-state">
-        <div class="loading-txt">Загрузка статистики...</div>
-      </div>
-    </div>
-
-    <!-- CIS dropdown panel -->
+    <!-- CIS dropdown panel — appears right below tabs -->
     <div id="cis-panel" class="cis-panel" hidden>
       <div class="cis-panel-header">
         <div class="cis-panel-title">
@@ -689,6 +686,13 @@
       </div>
       <div id="cis-metrics-row" class="metrics-strip"></div>
       <div id="cis-app"></div>
+    </div>
+
+    <div id="metrics-row" class="metrics-strip"></div>
+    <div id="app">
+      <div class="loading-state">
+        <div class="loading-txt">Загрузка статистики...</div>
+      </div>
     </div>
 
   </div>
