@@ -332,42 +332,64 @@
       width: 100%;
     }
 
-    /* ── CIS Section Header ── */
-    .cis-header {
-      margin: 48px 0 28px;
-      position: relative;
-    }
-    .cis-header-line {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(91,184,245,0.3) 30%, rgba(91,184,245,0.3) 70%, transparent);
-      margin-bottom: 20px;
-    }
-    .cis-header-inner {
+    /* ── Tabs row with CIS button ── */
+    .tabs-row {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
     }
-    .cis-flags { font-size: 1.4rem; line-height: 1; }
-    .cis-title {
+    .cis-toggle-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--gold-border);
+      background: var(--gold-faint);
+      color: var(--gold-light);
+      font-size: 0.82rem;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .cis-toggle-btn:hover { background: rgba(200,169,110,0.14); border-color: var(--gold); }
+    .cis-toggle-btn[aria-expanded="true"] { background: rgba(200,169,110,0.18); border-color: var(--gold); color: var(--gold); }
+    .cis-chevron { font-size: 0.75rem; transition: transform 0.2s; }
+    .cis-toggle-btn[aria-expanded="true"] .cis-chevron { transform: rotate(180deg); }
+
+    /* ── CIS Panel ── */
+    .cis-panel {
+      margin-top: 32px;
+      animation: fade-up 0.3s ease both;
+    }
+    .cis-panel-header {
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid;
+      border-image: linear-gradient(90deg, transparent, rgba(91,184,245,0.3) 30%, rgba(91,184,245,0.3) 70%, transparent) 1;
+    }
+    .cis-panel-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .cis-panel-flags { font-size: 1.1rem; line-height: 1.4; letter-spacing: 2px; }
+    .cis-panel-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
       font-weight: 600;
       color: var(--sky);
-      letter-spacing: -0.3px;
-    }
-    .cis-sub {
-      font-size: 0.7rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--muted-2);
-      font-weight: 600;
-      margin-left: 4px;
+      letter-spacing: -0.2px;
     }
     @media (max-width: 768px) {
-      .cis-header { margin: 32px 0 20px; }
-      .cis-title  { font-size: 1.3rem; }
-      .cis-sub    { display: none; }
+      .tabs-row       { gap: 8px; }
+      .cis-toggle-btn { font-size: 0.72rem; padding: 8px 10px; }
+      .cis-panel-flags{ font-size: 0.9rem; }
     }
 
     /* ── Breakdown table ── */
@@ -634,14 +656,19 @@
     </header>
 
     <div class="tabs-wrap">
-      <div class="tabs">
-        <div class="tab active" data-k="yesterday">Вчера</div>
-        <div class="tab" data-k="today">Сегодня</div>
-        <div class="tab" data-k="week">Неделя</div>
-        <div class="tab" data-k="month">Месяц</div>
-        <div class="tab" data-k="quarter">3 месяца</div>
-        <div class="tab" data-k="halfyear">6 месяцев</div>
-        <div class="tab" data-k="year">Год</div>
+      <div class="tabs-row">
+        <div class="tabs">
+          <div class="tab active" data-k="yesterday">Вчера</div>
+          <div class="tab" data-k="today">Сегодня</div>
+          <div class="tab" data-k="week">Неделя</div>
+          <div class="tab" data-k="month">Месяц</div>
+          <div class="tab" data-k="quarter">3 месяца</div>
+          <div class="tab" data-k="halfyear">6 месяцев</div>
+          <div class="tab" data-k="year">Год</div>
+        </div>
+        <button id="cis-toggle" class="cis-toggle-btn" aria-expanded="false">
+          🇷🇺🇰🇿🇺🇿 СНГ <span class="cis-chevron">▾</span>
+        </button>
       </div>
     </div>
 
@@ -652,17 +679,17 @@
       </div>
     </div>
 
-    <!-- CIS section -->
-    <div class="cis-header">
-      <div class="cis-header-line"></div>
-      <div class="cis-header-inner">
-        <span class="cis-flags">🇷🇺 🇰🇿 🇺🇿</span>
-        <span class="cis-title">Россия · Казахстан · Узбекистан</span>
-        <span class="cis-sub">Фильтр по странам СНГ</span>
+    <!-- CIS dropdown panel -->
+    <div id="cis-panel" class="cis-panel" hidden>
+      <div class="cis-panel-header">
+        <div class="cis-panel-title">
+          <span class="cis-panel-flags">🇷🇺 🇰🇿 🇺🇿 🇦🇿 🇦🇲 🇧🇾 🇬🇪 🇰🇬 🇹🇯 🇹🇲 🇺🇦</span>
+          <span class="cis-panel-name">Рейсы из стран СНГ и постсоветского пространства</span>
+        </div>
       </div>
+      <div id="cis-metrics-row" class="metrics-strip"></div>
+      <div id="cis-app"></div>
     </div>
-    <div id="cis-metrics-row" class="metrics-strip"></div>
-    <div id="cis-app"></div>
 
   </div>
 
@@ -688,9 +715,21 @@
     let data = null, activeChart = null, activeChart2 = null,
         activeCisChart = null, activeCisChart2 = null, cityFlagMap = {};
 
-    const CIS = new Set(['Russia', 'Kazakhstan', 'Uzbekistan']);
-    const CIS_COLORS = { 'Russia': '#E86060', 'Kazakhstan': '#5BB8F5', 'Uzbekistan': '#72C98A' };
-    const CIS_LABELS = { 'Russia': '🇷🇺 Россия', 'Kazakhstan': '🇰🇿 Казахстан', 'Uzbekistan': '🇺🇿 Узбекистан' };
+    const CIS = new Set(['Russia','Kazakhstan','Uzbekistan','Azerbaijan','Armenia','Belarus','Georgia','Kyrgyzstan','Tajikistan','Turkmenistan','Ukraine','Moldova','Lithuania','Latvia','Estonia']);
+    const CIS_COLORS = {
+      'Russia':'#E86060','Kazakhstan':'#5BB8F5','Uzbekistan':'#72C98A',
+      'Azerbaijan':'#E8A462','Armenia':'#C97BE8','Belarus':'#E8D060',
+      'Georgia':'#60C9E8','Kyrgyzstan':'#E87860','Tajikistan':'#A0C860',
+      'Turkmenistan':'#60E8C0','Ukraine':'#5B8AF5','Moldova':'#E860A0',
+      'Lithuania':'#70E870','Latvia':'#E89060','Estonia':'#60B0E8',
+    };
+    const CIS_LABELS = {
+      'Russia':'🇷🇺 Россия','Kazakhstan':'🇰🇿 Казахстан','Uzbekistan':'🇺🇿 Узбекистан',
+      'Azerbaijan':'🇦🇿 Азербайджан','Armenia':'🇦🇲 Армения','Belarus':'🇧🇾 Беларусь',
+      'Georgia':'🇬🇪 Грузия','Kyrgyzstan':'🇰🇬 Кыргызстан','Tajikistan':'🇹🇯 Таджикистан',
+      'Turkmenistan':'🇹🇲 Туркменистан','Ukraine':'🇺🇦 Украина','Moldova':'🇲🇩 Молдова',
+      'Lithuania':'🇱🇹 Литва','Latvia':'🇱🇻 Латвия','Estonia':'🇪🇪 Эстония',
+    };
 
     function isCIS(item) {
       return CIS.has(item.country) || CIS.has(item.name);
@@ -725,7 +764,8 @@
       tabs.forEach(x => x.classList.remove('active'));
       t.classList.add('active');
       render(t.dataset.k);
-      renderCIS(t.dataset.k);
+      const cisPanel = document.getElementById('cis-panel');
+      if (cisPanel && !cisPanel.hidden) renderCIS(t.dataset.k);
     }));
 
     /* ── Tiny DOM helpers ── */
@@ -1263,7 +1303,23 @@
         const period = getDefaultPeriod();
         tabs.forEach(t => t.classList.toggle('active', t.dataset.k === period));
         render(period);
-        renderCIS(period);
+
+        // CIS toggle button
+        const cisToggle = document.getElementById('cis-toggle');
+        const cisPanel  = document.getElementById('cis-panel');
+        cisToggle.addEventListener('click', () => {
+          const open = cisToggle.getAttribute('aria-expanded') === 'true';
+          cisToggle.setAttribute('aria-expanded', String(!open));
+          if (!open) {
+            cisPanel.hidden = false;
+            const cur = document.querySelector('.tab.active')?.dataset.k || period;
+            renderCIS(cur);
+          } else {
+            cisPanel.hidden = true;
+            if (activeCisChart)  { activeCisChart.destroy();  activeCisChart  = null; }
+            if (activeCisChart2) { activeCisChart2.destroy(); activeCisChart2 = null; }
+          }
+        });
 
       } catch(e) {
         const err = make('div', 'error-state');
@@ -1283,7 +1339,8 @@
           buildCityFlagMap(nd);
           const cur = document.querySelector('.tab.active')?.dataset.k || getDefaultPeriod();
           render(cur);
-          renderCIS(cur);
+          const cp = document.getElementById('cis-panel');
+          if (cp && !cp.hidden) renderCIS(cur);
         }
       } catch(_) {}
     }, 15 * 60 * 1000);
