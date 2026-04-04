@@ -3,8 +3,9 @@ name: Update HKT Data
 on:
   schedule:
     - cron: '30 17 * * *'  # 00:30 ICT — ночь/ранние рейсы  (KEY_1)
-    - cron: '0 1 * * *'    # 08:00 ICT — утро/день          (KEY_2)
-    - cron: '0 9 * * *'    # 16:00 ICT — день/вечер         (KEY_3)
+    - cron: '0 23 * * *'   # 06:00 ICT — утро               (KEY_2)
+    - cron: '0 4 * * *'    # 11:00 ICT — день               (KEY_3)
+    - cron: '0 9 * * *'    # 16:00 ICT — вечер              (KEY_4)
     - cron: '58 16 * * *'  # 23:58 ICT — финализация дня    (KEY_1)
   workflow_dispatch:
 
@@ -36,19 +37,23 @@ jobs:
           AVIATIONSTACK_KEY_1: ${{ secrets.AVIATIONSTACK_KEY_1 }}
           AVIATIONSTACK_KEY_2: ${{ secrets.AVIATIONSTACK_KEY_2 }}
           AVIATIONSTACK_KEY_3: ${{ secrets.AVIATIONSTACK_KEY_3 }}
+          AVIATIONSTACK_KEY_4: ${{ secrets.AVIATIONSTACK_KEY_4 }}
           TG_TOKEN:            ${{ secrets.TG_TOKEN }}
           TG_CHAT_ID:          ${{ secrets.TG_CHAT_ID }}
           SUPABASE_URL:        ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY:        ${{ secrets.SUPABASE_KEY }}
 
       - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add data/dashboard.json data/accumulated_*.json
           if ! git diff --staged --quiet; then
             git commit -m "auto: update flight data $(date '+%Y-%m-%d %H:%M ICT')"
-            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
+            git push https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:main
           else
             echo "No changes to commit"
           fi

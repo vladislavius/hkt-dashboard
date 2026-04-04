@@ -6,6 +6,7 @@ API_KEYS = [
     os.environ["AVIATIONSTACK_KEY_1"],
     os.environ["AVIATIONSTACK_KEY_2"],
     os.environ["AVIATIONSTACK_KEY_3"],
+    os.environ["AVIATIONSTACK_KEY_4"],
 ]
 TG_TOKEN      = os.environ.get("TG_TOKEN", "")
 TG_CHAT_ID    = os.environ.get("TG_CHAT_ID", "")
@@ -235,13 +236,19 @@ MONTH_NAMES_RU = {1:'Янв',2:'Фев',3:'Мар',4:'Апр',5:'Май',6:'Ию
 DAY_NAMES_RU   = {0:'Пн',1:'Вт',2:'Ср',3:'Чт',4:'Пт',5:'Сб',6:'Вс'}
 
 def get_api_key():
-    # Rotate evenly: 4 runs/day → KEY_1, KEY_2, KEY_3, KEY_1... (40 runs/key/month = 80 calls/key)
+    # 5 runs/day across 4 keys:
+    # 00:30 ICT → KEY_1   (~40 calls/month)
+    # 06:00 ICT → KEY_2   (~30 calls/month)
+    # 11:00 ICT → KEY_3   (~30 calls/month)
+    # 16:00 ICT → KEY_4   (~30 calls/month)
+    # 23:58 ICT → KEY_1   (day finalisation, same key)
     now = datetime.datetime.now(ICT)
     h = now.hour
-    if h < 6:   return API_KEYS[0], 1   # 00:30 ICT
-    elif h < 14: return API_KEYS[1], 2  # 08:00 ICT
-    elif h < 22: return API_KEYS[2], 3  # 16:00 ICT
-    else:        return API_KEYS[0], 1  # 23:58 ICT
+    if h < 4:    return API_KEYS[0], 1   # 00:30 ICT
+    elif h < 9:  return API_KEYS[1], 2   # 06:00 ICT
+    elif h < 14: return API_KEYS[2], 3   # 11:00 ICT
+    elif h < 22: return API_KEYS[3], 4   # 16:00 ICT
+    else:        return API_KEYS[0], 1   # 23:58 ICT
 
 def send_telegram(text):
     if not TG_TOKEN or not TG_CHAT_ID: return
