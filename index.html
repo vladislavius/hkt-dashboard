@@ -218,38 +218,149 @@
     }
     .day-card.active .day-dow { color: rgba(9,16,10,0.55); }
 
-    /* Period pills */
-    .nav-periods {
+    /* ── Calendar button + dropdown ── */
+    .cal-wrap { position: relative; }
+    .cal-btn {
       display: flex;
-      gap: 3px;
-      padding: 3px;
-      background: rgba(255,255,255,0.025);
-      border: 1px solid var(--border);
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
       border-radius: 10px;
-      width: fit-content;
-      max-width: 100%;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-    .nav-periods::-webkit-scrollbar { display: none; }
-    .period-tab {
-      padding: 6px 16px;
-      border-radius: 7px;
-      cursor: pointer;
-      font-size: 0.78rem;
-      font-weight: 500;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
       color: var(--muted-2);
+      font-size: 0.8rem;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
       white-space: nowrap;
-      flex-shrink: 0;
       transition: all 0.18s;
     }
-    .period-tab:hover:not(.active) { color: var(--ivory); background: rgba(255,255,255,0.05); }
-    .period-tab.active {
-      background: var(--gold);
-      color: #09100A;
-      font-weight: 700;
-      box-shadow: 0 1px 10px rgba(200,169,110,0.28);
+    .cal-btn:hover { border-color: var(--gold-border); color: var(--ivory); background: rgba(200,169,110,0.06); }
+    .cal-btn.has-period { border-color: var(--gold-border); color: var(--gold-light); background: rgba(200,169,110,0.1); }
+    .cal-chevron { font-size: 0.7rem; transition: transform 0.2s; }
+    .cal-btn.open .cal-chevron { transform: rotate(180deg); }
+
+    .cal-dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      z-index: 200;
+      background: #13191F;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      width: 300px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.65);
+      animation: fade-up 0.18s ease both;
     }
+    .cal-month-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .cal-month-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ivory);
+      letter-spacing: 0.3px;
+    }
+    .cal-nav-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      color: var(--muted-2);
+      font-size: 0.85rem;
+      width: 28px; height: 28px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .cal-nav-btn:hover { border-color: var(--gold-border); color: var(--ivory); }
+
+    .cal-dow-row {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+      margin-bottom: 4px;
+    }
+    .cal-dow {
+      text-align: center;
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted-2);
+      padding: 4px 0;
+    }
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+    }
+    .cal-day {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-family: 'DM Mono', monospace;
+      color: var(--muted-2);
+      cursor: default;
+      transition: all 0.15s;
+      border: 1px solid transparent;
+    }
+    .cal-day.has-data {
+      color: var(--ivory);
+      cursor: pointer;
+    }
+    .cal-day.has-data:hover { background: rgba(200,169,110,0.12); border-color: var(--gold-border); color: var(--gold-light); }
+    .cal-day.is-today { color: var(--gold-light); font-weight: 700; }
+    .cal-day.is-yesterday { color: var(--sky); }
+    .cal-day.active {
+      background: var(--gold) !important;
+      color: #09100A !important;
+      font-weight: 700;
+      border-color: var(--gold) !important;
+      box-shadow: 0 2px 12px rgba(200,169,110,0.4);
+    }
+    .cal-day.empty { pointer-events: none; }
+    .cal-day.other-month { opacity: 0.18; }
+
+    .cal-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 14px 0 12px;
+    }
+    .cal-presets-label {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted-2);
+      margin-bottom: 8px;
+    }
+    .cal-presets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .cal-preset {
+      padding: 5px 13px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted-2);
+      font-size: 0.75rem;
+      font-family: 'Outfit', sans-serif;
+      cursor: pointer;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .cal-preset:hover { border-color: var(--gold-border); color: var(--ivory); background: rgba(200,169,110,0.07); }
+    .cal-preset.active { background: var(--gold); color: #09100A; border-color: var(--gold); font-weight: 700; }
 
     /* ── Metrics strip ── */
     .metrics-strip {
@@ -464,6 +575,25 @@
       .cis-panel-flags{ font-size: 0.9rem; }
     }
 
+    /* ── Trend (inline line chart in col 1) ── */
+    .trend-section {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .trend-label {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      color: var(--muted-2);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .trend-wrap {
+      position: relative;
+      height: 130px;
+    }
+
     /* ── Breakdown table ── */
     .breakdown-tabs {
       display: flex;
@@ -637,7 +767,7 @@
       .nav-wrap      { margin-bottom: 22px; }
       .nav-top       { flex-wrap: wrap; }
       .day-card      { min-width: 52px; padding: 8px 7px 7px; }
-      .period-tab    { padding: 5px 11px; font-size: 0.73rem; }
+      .cal-btn       { font-size: 0.74rem; padding: 6px 10px; }
 
       /* Metrics 2×2 */
       .metrics-strip { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px; }
@@ -670,13 +800,14 @@
 
     /* ── Mobile M (≤480px) ── */
     @media (max-width: 480px) {
+      .cal-dropdown  { width: calc(100vw - 32px); left: 50%; transform: translateX(-50%); }
       .wrap          { padding: 16px 12px 40px; }
       .header-title  { font-size: 1.75rem; }
       .header-eyebrow{ letter-spacing: 2px; }
 
       /* Nav — smaller */
       .day-card      { min-width: 48px; }
-      .period-tab    { padding: 5px 9px; font-size: 0.68rem; }
+      .cal-btn       { font-size: 0.7rem; }
 
       /* Metrics — tighter */
       .metrics-strip { gap: 8px; }
@@ -704,7 +835,7 @@
     @media (max-width: 375px) {
       .wrap          { padding: 14px 10px 36px; }
       .m-value       { font-size: 1.4rem; }
-      .period-tab    { font-size: 0.62rem; padding: 5px 7px; }
+      .cal-btn       { font-size: 0.66rem; }
       .rank-name     { font-size: 0.72rem; }
     }
   </style>
@@ -734,13 +865,36 @@
         <div class="nav-left">
           <!-- Day strip — built by JS -->
           <div id="nav-days" class="nav-days"></div>
-          <!-- Period pills -->
-          <div class="nav-periods">
-            <div class="period-tab" data-k="week">Неделя</div>
-            <div class="period-tab" data-k="month">Месяц</div>
-            <div class="period-tab" data-k="quarter">3 мес</div>
-            <div class="period-tab" data-k="halfyear">6 мес</div>
-            <div class="period-tab" data-k="year">Год</div>
+          <!-- Calendar button -->
+          <div class="cal-wrap">
+            <button id="cal-btn" class="cal-btn">
+              <span>📅</span>
+              <span id="cal-btn-label">Выбрать период</span>
+              <span class="cal-chevron">▾</span>
+            </button>
+            <div id="cal-dropdown" class="cal-dropdown" hidden>
+              <div class="cal-month-nav">
+                <button class="cal-nav-btn" id="cal-prev">‹</button>
+                <span class="cal-month-label" id="cal-month-label"></span>
+                <button class="cal-nav-btn" id="cal-next">›</button>
+              </div>
+              <div class="cal-dow-row">
+                <span class="cal-dow">Пн</span><span class="cal-dow">Вт</span>
+                <span class="cal-dow">Ср</span><span class="cal-dow">Чт</span>
+                <span class="cal-dow">Пт</span><span class="cal-dow">Сб</span>
+                <span class="cal-dow">Вс</span>
+              </div>
+              <div class="cal-grid" id="cal-grid"></div>
+              <div class="cal-divider"></div>
+              <div class="cal-presets-label">Период</div>
+              <div class="cal-presets">
+                <button class="cal-preset" data-k="week">7 дней</button>
+                <button class="cal-preset" data-k="month">Месяц</button>
+                <button class="cal-preset" data-k="quarter">3 месяца</button>
+                <button class="cal-preset" data-k="halfyear">6 месяцев</button>
+                <button class="cal-preset" data-k="year">Год</button>
+              </div>
+            </div>
           </div>
         </div>
         <button id="cis-toggle" class="cis-toggle-btn" aria-expanded="false">
@@ -877,20 +1031,162 @@
       }
     }
 
+    const PERIOD_LABELS = {
+      today: 'Сегодня', yesterday: 'Вчера',
+      week: '7 дней', month: 'Месяц',
+      quarter: '3 месяца', halfyear: '6 месяцев', year: 'Год'
+    };
+    const RU_MONTHS_FULL = ['Январь','Февраль','Март','Апрель','Май','Июнь',
+                            'Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+
+    let calViewDate = new Date(); // month shown in calendar
+    let activeKey   = null;
+
     function selectTab(key) {
-      document.querySelectorAll('.day-card, .period-tab').forEach(el => el.classList.remove('active'));
-      const target = document.querySelector('[data-k="' + key + '"]');
-      if (target) target.classList.add('active');
+      activeKey = key;
+      // day strip
+      document.querySelectorAll('.day-card').forEach(el => {
+        el.classList.toggle('active', el.dataset.k === key);
+      });
+      // calendar presets
+      document.querySelectorAll('.cal-preset').forEach(el => {
+        el.classList.toggle('active', el.dataset.k === key);
+      });
+      // calendar grid days
+      document.querySelectorAll('.cal-day').forEach(el => {
+        el.classList.toggle('active', el.dataset.k === key);
+      });
+      // calendar button label
+      const label = PERIOD_LABELS[key] || key;
+      const calBtnLabel = document.getElementById('cal-btn-label');
+      if (calBtnLabel) calBtnLabel.textContent = label;
+      const calBtn = document.getElementById('cal-btn');
+      if (calBtn) {
+        calBtn.classList.toggle('has-period', ['week','month','quarter','halfyear','year'].includes(key));
+      }
     }
 
-    // Event delegation on nav-wrap
-    document.querySelector('.nav-wrap').addEventListener('click', e => {
-      const card = e.target.closest('.day-card:not(.no-data), .period-tab');
+    function buildCalendarGrid() {
+      const grid = document.getElementById('cal-grid');
+      if (!grid) return;
+      while (grid.firstChild) grid.removeChild(grid.firstChild);
+
+      const today = new Date(); today.setHours(0,0,0,0);
+      const yesterday = new Date(today); yesterday.setDate(today.getDate() - 1);
+
+      const y = calViewDate.getFullYear();
+      const m = calViewDate.getMonth();
+
+      document.getElementById('cal-month-label').textContent = RU_MONTHS_FULL[m] + ' ' + y;
+
+      // first day of month (0=Sun → convert to Mon-first)
+      const first = new Date(y, m, 1);
+      let startDow = first.getDay(); // 0=Sun
+      startDow = startDow === 0 ? 6 : startDow - 1; // Mon=0
+
+      const daysInMonth = new Date(y, m + 1, 0).getDate();
+
+      // empty cells before
+      for (let i = 0; i < startDow; i++) {
+        const cell = document.createElement('div');
+        cell.className = 'cal-day empty';
+        grid.appendChild(cell);
+      }
+
+      for (let d = 1; d <= daysInMonth; d++) {
+        const date = new Date(y, m, d);
+        const cell = document.createElement('div');
+
+        const isToday     = date.getTime() === today.getTime();
+        const isYesterday = date.getTime() === yesterday.getTime();
+        const hasData     = isToday || isYesterday;
+        const key         = isToday ? 'today' : isYesterday ? 'yesterday' : null;
+
+        let cls = 'cal-day';
+        if (hasData) cls += ' has-data';
+        if (isToday) cls += ' is-today';
+        if (isYesterday) cls += ' is-yesterday';
+        if (key && key === activeKey) cls += ' active';
+        cell.className = cls;
+        cell.textContent = String(d);
+        if (key) {
+          cell.dataset.k = key;
+          cell.title = isToday ? 'Сегодня' : 'Вчера';
+        }
+        grid.appendChild(cell);
+      }
+    }
+
+    function openCalendar() {
+      const btn = document.getElementById('cal-btn');
+      const dd  = document.getElementById('cal-dropdown');
+      calViewDate = new Date();
+      buildCalendarGrid();
+      dd.hidden = false;
+      btn.classList.add('open');
+    }
+
+    function closeCalendar() {
+      const btn = document.getElementById('cal-btn');
+      const dd  = document.getElementById('cal-dropdown');
+      if (btn) btn.classList.remove('open');
+      if (dd)  dd.hidden = true;
+    }
+
+    // Calendar button toggle
+    document.getElementById('cal-btn').addEventListener('click', e => {
+      e.stopPropagation();
+      const dd = document.getElementById('cal-dropdown');
+      if (dd.hidden) openCalendar(); else closeCalendar();
+    });
+
+    // Month navigation
+    document.getElementById('cal-prev').addEventListener('click', e => {
+      e.stopPropagation();
+      calViewDate = new Date(calViewDate.getFullYear(), calViewDate.getMonth() - 1, 1);
+      buildCalendarGrid();
+    });
+    document.getElementById('cal-next').addEventListener('click', e => {
+      e.stopPropagation();
+      calViewDate = new Date(calViewDate.getFullYear(), calViewDate.getMonth() + 1, 1);
+      buildCalendarGrid();
+    });
+
+    // Calendar grid day clicks
+    document.getElementById('cal-grid').addEventListener('click', e => {
+      const cell = e.target.closest('.cal-day.has-data');
+      if (!cell || !cell.dataset.k) return;
+      selectTab(cell.dataset.k);
+      render(cell.dataset.k);
+      const cisPanel = document.getElementById('cis-panel');
+      if (cisPanel && !cisPanel.hidden) renderCIS(cell.dataset.k);
+      closeCalendar();
+    });
+
+    // Calendar preset clicks
+    document.querySelector('.cal-presets').addEventListener('click', e => {
+      const btn = e.target.closest('.cal-preset');
+      if (!btn || !btn.dataset.k) return;
+      selectTab(btn.dataset.k);
+      render(btn.dataset.k);
+      const cisPanel = document.getElementById('cis-panel');
+      if (cisPanel && !cisPanel.hidden) renderCIS(btn.dataset.k);
+      closeCalendar();
+    });
+
+    // Day strip clicks
+    document.getElementById('nav-days').addEventListener('click', e => {
+      const card = e.target.closest('.day-card:not(.no-data)');
       if (!card || !card.dataset.k) return;
       selectTab(card.dataset.k);
       render(card.dataset.k);
       const cisPanel = document.getElementById('cis-panel');
       if (cisPanel && !cisPanel.hidden) renderCIS(card.dataset.k);
+    });
+
+    // Close calendar when clicking outside
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.cal-wrap')) closeCalendar();
     });
 
     /* ── Tiny DOM helpers ── */
@@ -1067,36 +1363,42 @@
       const dep    = breakdown.map(x => x.departures);
 
       return new Chart(document.getElementById(canvasId).getContext('2d'), {
-        type: 'bar',
+        type: 'line',
         data: {
           labels,
           datasets: [
             {
               label: 'Прилёты',
               data: arr,
-              backgroundColor: 'rgba(91,184,245,0.55)',
               borderColor: '#5BB8F5',
-              borderWidth: 1.5,
-              borderRadius: 4,
+              backgroundColor: 'rgba(91,184,245,0.08)',
+              borderWidth: 2,
+              pointRadius: 3,
+              pointHoverRadius: 5,
+              tension: 0.35,
+              fill: true,
             },
             {
               label: 'Вылеты',
               data: dep,
-              backgroundColor: 'rgba(232,164,98,0.55)',
               borderColor: '#E8A462',
-              borderWidth: 1.5,
-              borderRadius: 4,
+              backgroundColor: 'rgba(232,164,98,0.08)',
+              borderWidth: 2,
+              pointRadius: 3,
+              pointHoverRadius: 5,
+              tension: 0.35,
+              fill: true,
             }
           ]
         },
         options: {
           responsive: true,
-          maintainAspectRatio: true,
+          maintainAspectRatio: false,
           interaction: { mode: 'index', intersect: false },
           plugins: {
             legend: {
               display: true,
-              labels: { color: '#8A8480', font: { family: 'DM Mono', size: 11 }, boxWidth: 12, padding: 16 }
+              labels: { color: '#8A8480', font: { family: 'DM Mono', size: 10 }, boxWidth: 10, padding: 12 }
             },
             tooltip: {
               backgroundColor: 'rgba(10,15,28,0.95)',
@@ -1104,17 +1406,17 @@
               borderWidth: 1,
               titleColor: '#EDE8DF',
               bodyColor: '#8A8480',
-              padding: 12, cornerRadius: 10,
+              padding: 10, cornerRadius: 10,
             }
           },
           scales: {
             x: {
-              ticks: { color: '#8A8480', font: { family: 'DM Mono', size: 10 }, maxRotation: 45 },
-              grid:  { color: 'rgba(255,255,255,0.04)' }
+              ticks: { color: '#8A8480', font: { family: 'DM Mono', size: 9 }, maxRotation: 40 },
+              grid:  { color: 'rgba(255,255,255,0.03)' }
             },
             y: {
-              ticks: { color: '#8A8480', font: { family: 'DM Mono', size: 10 } },
-              grid:  { color: 'rgba(255,255,255,0.04)' },
+              ticks: { color: '#8A8480', font: { family: 'DM Mono', size: 9 } },
+              grid:  { color: 'rgba(255,255,255,0.03)' },
               beginAtZero: true
             }
           }
@@ -1138,11 +1440,13 @@
 
       const grid = make('div', 'main-grid');
 
-      /* Donut chart card */
-      const chartCard = mkCard('📊', 'Распределение рейсов', '0.06s');
+      const breakdown = getBreakdown(d, period);
+
+      /* Col 1: Donut + optional line chart */
+      const chartCard = mkCard('📊', 'Распределение', '0.06s');
       const wrap      = make('div', 'chart-container');
       const canvas    = document.createElement('canvas');
-      canvas.id = 'mainChart'; canvas.height = 220;
+      canvas.id = 'mainChart'; canvas.height = 160;
       const center  = make('div', 'chart-center');
       ap(center, txt(make('div', 'chart-center-val'), String(total)), txt(make('div', 'chart-center-lbl'), 'рейсов'));
       ap(wrap, canvas, center);
@@ -1155,31 +1459,30 @@
       ap(legD, dotD, document.createTextNode(' Вылеты '),  txt(make('span','leg-val'), String(d.departures.count)));
       ap(legend, legA, legD);
       ap(chartCard, wrap, legend);
+
+      if (breakdown && breakdown.length > 0) {
+        const trendDiv = make('div', 'trend-section');
+        const trendLabel = make('div', 'trend-label');
+        trendLabel.textContent = timelineLabel(period);
+        const trendWrap = make('div', 'trend-wrap');
+        const c2 = document.createElement('canvas');
+        c2.id = 'timelineChart';
+        trendWrap.appendChild(c2);
+        ap(trendDiv, trendLabel, trendWrap);
+        chartCard.appendChild(trendDiv);
+      }
+
       grid.appendChild(chartCard);
 
-      /* Arrivals card — all flights, no top-10 limit */
+      /* Arrivals card */
       const arrCard = mkCard('🛬', 'Прилёты', '0.12s');
       arrCard.appendChild(mkRankList(d.arrivals.all || d.arrivals.top));
       grid.appendChild(arrCard);
 
-      /* Departures card — all flights, no top-10 limit */
+      /* Departures card */
       const depCard = mkCard('🛫', 'Вылеты', '0.18s');
       depCard.appendChild(mkRankList(d.departures.all || d.departures.top));
       grid.appendChild(depCard);
-
-      /* Timeline card (week/month/quarter/halfyear/year) */
-      const breakdown = getBreakdown(d, period);
-      if (breakdown && breakdown.length > 0) {
-        const label = timelineLabel(period);
-        const timeCard = mkCard('📅', label, '0.24s', 'card-full');
-        const tw = make('div', 'timeline-wrap');
-        const c2 = document.createElement('canvas');
-        c2.id = 'timelineChart';
-        tw.appendChild(c2);
-        timeCard.appendChild(tw);
-        timeCard.appendChild(mkBreakdownSection(breakdown, 'breakdown-section'));
-        grid.appendChild(timeCard);
-      }
 
       appEl.replaceChildren(grid);
 
