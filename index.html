@@ -769,6 +769,32 @@
       letter-spacing: 0.2px;
     }
 
+    /* ── Transit / estimated rows ── */
+    .rank-item-estimated {
+      opacity: 0.72;
+      border-left: 2px dashed var(--gold-border);
+      padding-left: 10px;
+      margin-left: -10px;
+    }
+    .rank-item-estimated .rank-name {
+      color: var(--muted-2);
+      font-style: italic;
+    }
+    .rank-item-estimated .rc-flights,
+    .rank-item-estimated .rc-pax { color: var(--gold-light); }
+    .transit-badge {
+      font-size: 0.52rem;
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      border-radius: 4px;
+      padding: 1px 5px;
+      margin-left: 5px;
+      vertical-align: middle;
+      opacity: 0.85;
+      white-space: nowrap;
+      font-style: normal;
+    }
+
     /* ── States ── */
     .loading-state { padding: 80px 20px; text-align: center; }
     .loading-txt {
@@ -1361,13 +1387,14 @@
     }
 
     /* ── Rank list (all items) ── */
-    function mkRankList(list) {
+    function mkRankList(list, russiaTransit) {
       const ul  = make('ul', 'rank-list');
       if (!list || list.length === 0) {
         ap(ul, txt(make('li', 'rank-item'), 'Нет данных'));
         return ul;
       }
       const max = list[0]?.flights ?? list[0]?.count ?? 1;
+      let lastRussiaLi = null;
       list.forEach((x, i) => {
         const flights = x.flights ?? x.count ?? 0;
         const li      = make('li', 'rank-item');
@@ -1390,7 +1417,40 @@
           countEl
         );
         ul.appendChild(li);
+        // Track last Russia-related row for transit insertion
+        if (x.country === 'Russia' || x.name === 'Russia' ||
+            (x.name && (x.name.includes('Москва') || x.name.includes('Санкт') || x.name.includes('Новосибирск')))) {
+          lastRussiaLi = li;
+        }
       });
+
+      // Inject Russia transit estimated row
+      if (russiaTransit && russiaTransit.pax > 0) {
+        const li = make('li', 'rank-item rank-item-estimated');
+        li.title = 'Оценка на основе данных TAT · Пхукет ~38% от турпотока из РФ · через UAE, TR, QA, CN, IN';
+        const nameEl = make('span', 'rank-name');
+        nameEl.textContent = 'Россия (транзит)';
+        const badge = make('span', 'transit-badge');
+        badge.textContent = '~ оценка';
+        nameEl.appendChild(badge);
+        const countEl = make('div', 'rank-count');
+        ap(countEl,
+          txt(make('span', 'rc-flights'), '~' + String(russiaTransit.flights) + ' ✈'),
+          txt(make('span', 'rc-pax'), '~' + russiaTransit.pax.toLocaleString('ru') + ' чел.')
+        );
+        ap(li,
+          txt(make('div', 'rank-num rn-n'), '🇷🇺'),
+          txt(make('span', 'rank-flag'), ''),
+          nameEl,
+          countEl
+        );
+        if (lastRussiaLi) {
+          lastRussiaLi.after(li);
+        } else {
+          ul.appendChild(li);
+        }
+      }
+
       return ul;
     }
 
@@ -1538,7 +1598,7 @@
 
       /* Arrivals card */
       const arrCard = mkCard('🛬', 'Прилёты', '0.12s');
-      arrCard.appendChild(mkRankList(d.arrivals.all || d.arrivals.top));
+      arrCard.appendChild(mkRankList(d.arrivals.all || d.arrivals.top, d.russia_transit));
       grid.appendChild(arrCard);
 
       /* Departures card */
