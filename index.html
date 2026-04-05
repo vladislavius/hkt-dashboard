@@ -1008,7 +1008,7 @@
       /* ── Drawer: stack vertically on mobile ── */
       .cal-drawer.open {
         flex-direction: column;
-        max-height: none;        /* let content breathe */
+        max-height: none;
       }
       .fboard {
         border-right: none;
@@ -1016,23 +1016,36 @@
       }
       .cal-inner {
         width: 100%;
-        padding: 16px 14px 18px;
-        overflow-x: auto;        /* calendar scrollable if screen very narrow */
-      }
-      .cal-presets-col {
-        width: 100%;
+        padding: 14px 14px 16px;
         flex-direction: row;
-        flex-wrap: wrap;
-        gap: 6px;
+        gap: 12px;
+        align-items: flex-start;
+      }
+      /* Calendar + presets side by side inside cal-inner */
+      .cal-panel { flex-shrink: 0; }
+      .cal-divider-v { display: none; }
+      .cal-presets-col {
+        flex: 1;
+        min-width: 0;
+        width: auto;
+        flex-direction: column;
+        gap: 4px;
       }
       .cal-preset-group {
-        flex-direction: row;
-        flex: 1 1 auto;
-        min-width: 0;
+        flex-direction: column;
+        flex: none;
+        width: 100%;
       }
-      .cal-divider-v {
-        display: none;           /* no vertical divider when stacked */
+      .cal-preset-item {
+        padding: 7px 10px;
+        font-size: 0.72rem;
+        gap: 7px;
       }
+      .cal-radio { width: 13px; height: 13px; }
+
+      /* CIS button + live badge stay visible */
+      .header-row { flex-direction: column; align-items: flex-start; }
+      .header-row > div:last-child { align-self: flex-start; }
 
       /* Flight board table on mobile — compact */
       .fboard-table th,
@@ -1098,9 +1111,8 @@
       .cal-grid      { grid-template-columns: repeat(7, 30px); }
       .cal-day       { width: 30px; height: 28px; font-size: 0.74rem; }
 
-      /* Presets — wrap into rows */
-      .cal-presets-col  { flex-direction: row; flex-wrap: wrap; gap: 5px; }
-      .cal-preset-group { flex: 1 1 auto; }
+      /* Presets — single column, compact */
+      .cal-preset-item { padding: 6px 8px; font-size: 0.68rem; }
 
       /* Metrics */
       .metrics-strip { gap: 8px; }
