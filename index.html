@@ -1387,7 +1387,12 @@
         case 'quarter':  return { start: new Date(t.getTime()-89*msDay), end: t };
         case 'halfyear': return { start: new Date(t.getTime()-179*msDay), end: t };
         case 'year':     return { start: new Date(t.getTime()-364*msDay), end: t };
-        default:         return null;
+        default:
+          if (/^\d{4}-\d{2}-\d{2}$/.test(key)) {
+            const d = new Date(key + 'T00:00:00'); d.setHours(0,0,0,0);
+            return { start: d, end: d };
+          }
+          return null;
       }
     }
 
@@ -1507,11 +1512,14 @@
           .then(r => r.ok ? r.json() : null)
           .then(acc => {
             if (!acc) return;
-            // Wrap accumulated file into dashboard period format
+            // Build sorted country list from accumulated countries dict
+            const fmtCountries = (countries) => Object.entries(countries || {})
+              .map(([name, v]) => ({ name, flights: v.flights||0, pax: v.pax||0, country: v.country||name }))
+              .sort((a, b) => (b.pax||0) - (a.pax||0));
             const period = {
-              arrivals:       { count: acc.arrivals.count, pax: acc.arrivals.pax, all: [] },
-              departures:     { count: acc.departures.count, pax: acc.departures.pax, all: [] },
-              arrivals_list:  acc.arrivals_list  || [],
+              arrivals:        { count: acc.arrivals.count, pax: acc.arrivals.pax, all: fmtCountries(acc.arrivals.countries) },
+              departures:      { count: acc.departures.count, pax: acc.departures.pax, all: fmtCountries(acc.departures.countries) },
+              arrivals_list:   acc.arrivals_list  || [],
               departures_list: acc.departures_list || [],
             };
             if (!data) data = {};
