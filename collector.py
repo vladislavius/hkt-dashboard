@@ -519,17 +519,8 @@ def run():
         except Exception:
             pass
 
-    for side_key, cur in [("arrivals", a_cur), ("departures", d_cur)]:
-        side = acc.setdefault(side_key, {"count": 0, "pax": 0, "countries": {}})
-        for c, v in cur["countries"].items():
-            if c not in side["countries"]:
-                side["countries"][c] = {"flights": 0, "pax": 0}
-            side["countries"][c]["flights"] += v.get("flights", 0)
-            side["countries"][c]["pax"]     += v.get("pax", 0)
-            if "country" in v:
-                side["countries"][c]["country"] = v["country"]
-        side["count"] = sum(x["flights"] for x in side["countries"].values())
-        side["pax"]   = sum(x["pax"]     for x in side["countries"].values())
+    # NOTE: countries are recomputed from deduplicated flight lists below (after list merge)
+    # Old per-run accumulation removed — it caused double-counting across API runs
 
     # Merge arrivals flight list — deduplicate code-shares by (from, arr_time)
     # Build lookup from current API data to patch missing airline/times on existing records
@@ -591,6 +582,42 @@ def run():
                     r["status"] = "departed"
             except Exception:
                 pass
+
+    # ── Recompute countries from deduplicated flight lists ───────────────
+    # This ensures the country breakdown is always consistent with the
+    # deduplicated arrivals_list/departures_list (no double-counting across runs).
+    def _recompute_countries(flight_list, airport_field):
+        ctry = {}
+        for r in flight_list:
+            airport = r.get(airport_field, "")
+            country_key = MAP_C.get(airport, "")
+            if not country_key:
+                continue
+            if country_key == "Russia":
+                key = MAP_RU_CITY.get(airport, airport)
+                if key not in ctry:
+                    ctry[key] = {"flights": 0, "pax": 0, "country": "Russia"}
+                ctry[key]["flights"] += 1
+                ctry[key]["pax"] += r.get("pax", 0)
+            else:
+                if country_key not in ctry:
+                    ctry[country_key] = {"flights": 0, "pax": 0}
+                ctry[country_key]["flights"] += 1
+                ctry[country_key]["pax"] += r.get("pax", 0)
+        return ctry
+
+    arr_c = _recompute_countries(acc["arrivals_list"], "from")
+    acc["arrivals"] = {
+        "count":     sum(v["flights"] for v in arr_c.values()),
+        "pax":       sum(v["pax"]     for v in arr_c.values()),
+        "countries": arr_c,
+    }
+    dep_c = _recompute_countries(acc["departures_list"], "to")
+    acc["departures"] = {
+        "count":     sum(v["flights"] for v in dep_c.values()),
+        "pax":       sum(v["pax"]     for v in dep_c.values()),
+        "countries": dep_c,
+    }
 
     acc_file.write_text(json.dumps(acc, indent=2, ensure_ascii=False))
 

@@ -918,6 +918,28 @@
       letter-spacing: 0.2px;
     }
 
+    /* ── Expandable flight details ── */
+    .rank-item { overflow: visible; }
+    .rank-item-expandable { cursor: pointer; user-select: none; }
+    .rank-item-expandable:hover { background: rgba(255,255,255,0.025); border-radius: 6px; }
+    .rank-chevron {
+      font-size: 0.6rem; color: var(--muted); margin-left: 4px;
+      display: inline-block; transition: transform 0.2s; vertical-align: middle;
+    }
+    .rank-item.expanded .rank-chevron { transform: rotate(180deg); color: var(--gold); }
+    .rank-flights-detail {
+      grid-column: 1 / -1; display: none;
+      padding: 2px 0 6px 32px;
+    }
+    .rank-item.expanded .rank-flights-detail { display: block; }
+    .fdr-row {
+      display: flex; align-items: center; gap: 10px; padding: 3px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 0.72rem;
+    }
+    .fdr-row:last-child { border-bottom: none; }
+    .fdr-fn { font-family: 'DM Mono', monospace; font-weight: 600; color: var(--ivory); min-width: 60px; }
+    .fdr-time { font-family: 'DM Mono', monospace; color: var(--sky); min-width: 42px; }
+    .fdr-status { color: var(--muted); font-size: 0.65rem; }
     /* ── Transit / estimated rows ── */
     .rank-item-estimated {
       opacity: 0.72;
@@ -1284,6 +1306,46 @@
         activeCisChart = null, activeCisChart2 = null, cityFlagMap = {};
 
     const CIS = new Set(['Russia','Kazakhstan','Uzbekistan','Azerbaijan','Armenia','Belarus','Georgia','Kyrgyzstan','Tajikistan','Turkmenistan','Ukraine','Moldova','Lithuania','Latvia','Estonia']);
+
+    /* Airport → Russian city name (for flight detail matching) */
+    const MAP_RU_CITY_JS = {
+      'SVO':'Москва','DME':'Москва','VKO':'Москва','LED':'Санкт-Петербург',
+      'KZN':'Казань','SVX':'Екатеринбург','OVB':'Новосибирск','KJA':'Красноярск',
+      'AER':'Сочи','KRR':'Краснодар','ROV':'Ростов-на-Дону','UFA':'Уфа',
+      'MRV':'Минеральные Воды','STW':'Ставрополь','ASF':'Астрахань','EIK':'Ейск',
+      'KGD':'Калининград','GOJ':'Нижний Новгород','KUF':'Самара','NAL':'Нальчик',
+      'MQF':'Магнитогорск','TJM':'Тюмень','NJC':'Нижневартовск','SGC':'Сургут',
+      'HTA':'Чита','BQS':'Благовещенск','DYR':'Анадырь','IKT':'Иркутск',
+      'VVO':'Владивосток','KHV':'Хабаровск','PKC':'Петропавловск-Камчатский',
+      'UUS':'Южно-Сахалинск','GDX':'Магадан','YKS':'Якутск','BTK':'Братск',
+      'PEZ':'Пенза','SCW':'Сыктывкар','IJK':'Ижевск','OGZ':'Владикавказ',
+      'MCX':'Махачкала','GRV':'Грозный','ESL':'Элиста',
+    };
+    const STATUS_RU = {
+      'landed':'прилетел','active':'в пути','scheduled':'по расписанию',
+      'cancelled':'отменён','en route':'в пути','en-route':'в пути',
+      'departed':'вылетел','taxiing':'руление','boarding':'посадка',
+      'diverted':'отклонён',
+    };
+    function fmtTime(iso) {
+      if (!iso) return '—';
+      const m = iso.match(/T(\d{2}:\d{2})/);
+      return m ? m[1] : iso.slice(11,16) || '—';
+    }
+    function getFlightsForRow(item, flightsList, direction) {
+      if (!flightsList || !flightsList.length) return [];
+      const af = direction === 'dep' ? 'to' : 'from';
+      const isRuCity = item.country === 'Russia';
+      return flightsList.filter(r => {
+        const ap = r[af] || '';
+        if (isRuCity) return MAP_RU_CITY_JS[ap] === item.name;
+        return (r.country || '') === item.name || (r.country || '') === item.country;
+      }).sort((a,b) => {
+        const ta = direction === 'dep' ? (a.dep_time||'') : (a.arr_time||'');
+        const tb = direction === 'dep' ? (b.dep_time||'') : (b.arr_time||'');
+        return ta.localeCompare(tb);
+      });
+    }
     const CIS_COLORS = {
       'Russia':'#E86060','Kazakhstan':'#5BB8F5','Uzbekistan':'#72C98A',
       'Azerbaijan':'#E8A462','Armenia':'#C97BE8','Belarus':'#E8D060',
@@ -1813,7 +1875,7 @@
     }
 
     /* ── Rank list (all items) ── */
-    function mkRankList(list, russiaTransit) {
+    function mkRankList(list, russiaTransit, flightsList, direction) {
       const ul  = make('ul', 'rank-list');
       if (!list || list.length === 0) {
         ap(ul, txt(make('li', 'rank-item'), 'Нет данных'));
@@ -1835,13 +1897,36 @@
         );
         // Use parent country for Russian cities, otherwise use name
         const flagKey = x.country || x.name;
-        ap(li,
-          bar,
-          txt(make('div', numCls), String(i + 1)),
-          txt(make('span', 'rank-flag'), FLAGS[flagKey] || '🌍'),
-          txt(make('span', 'rank-name'), x.name),
-          countEl
-        );
+        // Expandable flight details
+        const matchedFlights = getFlightsForRow(x, flightsList, direction || 'arr');
+        const nameEl = make('span', 'rank-name');
+        nameEl.textContent = x.name;
+        if (matchedFlights.length > 0) {
+          li.classList.add('rank-item-expandable');
+          const chevron = make('span', 'rank-chevron');
+          chevron.textContent = '▾';
+          nameEl.appendChild(chevron);
+          const detailEl = make('div', 'rank-flights-detail');
+          const timeField = (direction === 'dep') ? 'dep_time' : 'arr_time';
+          matchedFlights.forEach(r => {
+            const row = make('div', 'fdr-row');
+            const statusStr = STATUS_RU[r.status] || r.status || '';
+            ap(row,
+              txt(make('span', 'fdr-fn'), r.fn || '—'),
+              txt(make('span', 'fdr-time'), fmtTime(r[timeField])),
+              txt(make('span', 'fdr-status'), (r.airline ? r.airline + ' · ' : '') + statusStr)
+            );
+            detailEl.appendChild(row);
+          });
+          ap(li, bar, txt(make('div', numCls), String(i + 1)),
+             txt(make('span', 'rank-flag'), FLAGS[flagKey] || '🌍'),
+             nameEl, countEl, detailEl);
+          li.addEventListener('click', () => li.classList.toggle('expanded'));
+        } else {
+          ap(li, bar, txt(make('div', numCls), String(i + 1)),
+             txt(make('span', 'rank-flag'), FLAGS[flagKey] || '🌍'),
+             nameEl, countEl);
+        }
         ul.appendChild(li);
         // Track last Russia-related row for transit insertion
         if (x.country === 'Russia' || x.name === 'Russia' ||
@@ -2030,12 +2115,12 @@
 
       /* Arrivals card */
       const arrCard = mkCard('🛬', 'Прилёты', '0.12s');
-      arrCard.appendChild(mkRankList(d.arrivals.all || d.arrivals.top, d.russia_transit));
+      arrCard.appendChild(mkRankList(d.arrivals.all || d.arrivals.top, d.russia_transit, d.arrivals_list, 'arr'));
       grid.appendChild(arrCard);
 
       /* Departures card */
       const depCard = mkCard('🛫', 'Вылеты', '0.18s');
-      depCard.appendChild(mkRankList(d.departures.all || d.departures.top));
+      depCard.appendChild(mkRankList(d.departures.all || d.departures.top, null, d.departures_list, 'dep'));
       grid.appendChild(depCard);
 
       appEl.replaceChildren(grid);
@@ -2143,12 +2228,12 @@
 
       /* CIS Arrivals */
       const cisArrCard = mkCard('🛬', 'Прилёты · СНГ', '0.12s');
-      cisArrCard.appendChild(mkRankList(arrList.filter(isCIS)));
+      cisArrCard.appendChild(mkRankList(arrList.filter(isCIS), null, d.arrivals_list, 'arr'));
       grid.appendChild(cisArrCard);
 
       /* CIS Departures */
       const cisDepCard = mkCard('🛫', 'Вылеты · СНГ', '0.18s');
-      cisDepCard.appendChild(mkRankList(depList.filter(isCIS)));
+      cisDepCard.appendChild(mkRankList(depList.filter(isCIS), null, d.departures_list, 'dep'));
       grid.appendChild(cisDepCard);
 
       /* CIS Timeline breakdown (filtered to CIS countries) */
