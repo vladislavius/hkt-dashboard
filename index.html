@@ -1603,12 +1603,13 @@
       function mkTd(child) { var td = document.createElement('td'); td.appendChild(child); return td; }
       function mkSpan(cls2, txt2) { var s = document.createElement('span'); s.className = cls2; s.textContent = txt2; return s; }
 
+      var nowMs = Date.now();
+      var scrollTarget = null;
+
       list.forEach(function(f) {
         var tr      = document.createElement('tr');
-        // Support both new (arr_time/dep_time) and old (sched) formats
-        var time    = isArr
-          ? fmtTime(f.arr_time || f.sched)
-          : fmtTime(f.dep_time || f.sched);
+        var timeKey = isArr ? (f.arr_time || f.sched) : (f.dep_time || f.sched);
+        var time    = fmtTime(timeKey);
         var airport = isArr ? (f.from || '—') : (f.to || '—');
         var flag    = FLAGS[f.country] || '🌍';
         var airline = f.airline || '';
@@ -1625,7 +1626,29 @@
         var effStatus = effectiveStatus(f, isArr);
         tr.appendChild(mkTd(mkSpan('fboard-status ' + fStatusCls(effStatus), fStatusLabel(effStatus))));
         body.appendChild(tr);
+
+        // Mark first upcoming flight (within next 3h or nearest future)
+        if (!scrollTarget && timeKey) {
+          try {
+            var ft = new Date(timeKey).getTime();
+            if (ft >= nowMs - 10 * 60000) { // from 10 min ago onward
+              scrollTarget = tr;
+            }
+          } catch(e) {}
+        }
       });
+
+      // Scroll to current time position
+      if (scrollTarget) {
+        var wrap = document.querySelector('.fboard-table-wrap');
+        if (wrap) {
+          setTimeout(function() {
+            var trTop = scrollTarget.offsetTop;
+            var offset = Math.max(0, trTop - 40); // show 1-2 rows above
+            wrap.scrollTop = offset;
+          }, 50);
+        }
+      }
     }
 
     function renderDrawerLeft(d) { renderFlightBoard(d); }
