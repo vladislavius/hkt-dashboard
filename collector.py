@@ -676,8 +676,15 @@ def run():
             d["departures_list"] = departures_list
         return d
 
+    # Collect all dates that have accumulated data files
+    available_dates = sorted([
+        p.stem.replace("accumulated_", "")
+        for p in Path("data").glob("accumulated_*.json")
+    ])
+
     dashboard_data = {
-        "updated":   now.isoformat(),
+        "updated":          now.isoformat(),
+        "available_dates":  available_dates,
         "yesterday": to_web_fmt(v_a,  v_d,  russia_transit=rt_yesterday, arrivals_list=v_arrivals_list, departures_list=v_departures_list),
         "today":     to_web_fmt(a_acc, d_acc, russia_transit=rt_today,     arrivals_list=acc.get("arrivals_list", []), departures_list=acc.get("departures_list", [])),
         "week":      to_web_fmt(w_a,  w_d,  {"by_days":   make_by_days(w_daily)},   russia_transit=rt_week),

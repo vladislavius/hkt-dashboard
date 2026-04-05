@@ -1428,8 +1428,12 @@
         const ms   = date.getTime();
         const isToday     = ms === today.getTime();
         const isYesterday = ms === yesterday.getTime();
-        const hasData     = isToday || isYesterday;
-        const key         = isToday ? 'today' : isYesterday ? 'yesterday' : null;
+        const dateStr     = date.getFullYear() + '-' +
+                            String(date.getMonth()+1).padStart(2,'0') + '-' +
+                            String(d).padStart(2,'0');
+        const availDates  = (data && data.available_dates) ? data.available_dates : [];
+        const hasData     = isToday || isYesterday || availDates.includes(dateStr);
+        const key         = isToday ? 'today' : isYesterday ? 'yesterday' : (hasData ? dateStr : null);
 
         const cell = document.createElement('div');
         let cls = 'cal-day';
@@ -1449,7 +1453,10 @@
 
         cell.className = cls;
         cell.textContent = String(d);
-        if (key) { cell.dataset.k = key; cell.title = isToday ? 'Сегодня' : 'Вчера'; }
+        if (key) {
+          cell.dataset.k = key;
+          cell.title = isToday ? 'Сегодня' : isYesterday ? 'Вчера' : dateStr;
+        }
         grid.appendChild(cell);
       }
 
@@ -1492,6 +1499,32 @@
       const range = getRangeForKey(key);
       if (range) calViewDate = new Date(range.end.getFullYear(), range.end.getMonth(), 1);
       buildCalendarGrid();
+
+      // Historical date key (YYYY-MM-DD) — load accumulated file
+      const isDateKey = /^\d{4}-\d{2}-\d{2}$/.test(key);
+      if (isDateKey && !(data && data[key])) {
+        fetch('./data/accumulated_' + key + '.json?t=' + Date.now())
+          .then(r => r.ok ? r.json() : null)
+          .then(acc => {
+            if (!acc) return;
+            // Wrap accumulated file into dashboard period format
+            const period = {
+              arrivals:       { count: acc.arrivals.count, pax: acc.arrivals.pax, all: [] },
+              departures:     { count: acc.departures.count, pax: acc.departures.pax, all: [] },
+              arrivals_list:  acc.arrivals_list  || [],
+              departures_list: acc.departures_list || [],
+            };
+            if (!data) data = {};
+            data[key] = period;
+            updateCover(key);
+            render(key);
+            const cisPanel = document.getElementById('cis-panel');
+            if (cisPanel && !cisPanel.hidden) renderCIS(key);
+            renderDrawerLeft(period);
+          }).catch(() => {});
+        return;
+      }
+
       updateCover(key);
       render(key);
       const cisPanel = document.getElementById('cis-panel');
