@@ -237,27 +237,21 @@ MONTH_NAMES_RU = {1:'Янв',2:'Фев',3:'Мар',4:'Апр',5:'Май',6:'Ию
 DAY_NAMES_RU   = {0:'Пн',1:'Вт',2:'Ср',3:'Чт',4:'Пт',5:'Сб',6:'Вс'}
 
 def get_api_key():
-    # 9 runs/day across 4 keys (~67 calls/month each):
+    # 6 runs/day across 4 keys = 12 API calls/day = 360/month (лимит 400)
     # 00:30 ICT → KEY_1
-    # 03:30 ICT → KEY_2
-    # 06:00 ICT → KEY_3
-    # 09:00 ICT → KEY_4
-    # 11:00 ICT → KEY_1
-    # 13:00 ICT → KEY_2
-    # 16:00 ICT → KEY_3
-    # 18:00 ICT → KEY_4
-    # 23:58 ICT → KEY_1  (day finalisation)
+    # 05:00 ICT → KEY_2
+    # 09:00 ICT → KEY_3
+    # 13:00 ICT → KEY_4
+    # 17:00 ICT → KEY_1
+    # 23:58 ICT → KEY_2  (day finalisation)
     now = datetime.datetime.now(ICT)
     h = now.hour
-    if h < 2:    return API_KEYS[0], 1   # 00:30 ICT
-    elif h < 5:  return API_KEYS[1], 2   # 03:30 ICT
-    elif h < 8:  return API_KEYS[2], 3   # 06:00 ICT
-    elif h < 10: return API_KEYS[3], 4   # 09:00 ICT
-    elif h < 12: return API_KEYS[0], 1   # 11:00 ICT
-    elif h < 15: return API_KEYS[1], 2   # 13:00 ICT
-    elif h < 17: return API_KEYS[2], 3   # 16:00 ICT
-    elif h < 22: return API_KEYS[3], 4   # 18:00 ICT
-    else:        return API_KEYS[0], 1   # 23:58 ICT
+    if h < 3:    return API_KEYS[0], 1   # 00:30 ICT
+    elif h < 7:  return API_KEYS[1], 2   # 05:00 ICT
+    elif h < 11: return API_KEYS[2], 3   # 09:00 ICT
+    elif h < 15: return API_KEYS[3], 4   # 13:00 ICT
+    elif h < 22: return API_KEYS[0], 1   # 17:00 ICT
+    else:        return API_KEYS[1], 2   # 23:58 ICT
 
 def send_telegram(text):
     if not TG_TOKEN or not TG_CHAT_ID: return
