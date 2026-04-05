@@ -1384,6 +1384,25 @@
       var t = iso.indexOf('T') > -1 ? iso.split('T')[1] : iso;
       return t ? t.slice(0,5) : '—';
     }
+    // Correct stale flight status based on scheduled time
+    function effectiveStatus(f, isArr) {
+      var s = f.status || '';
+      var timeKey = isArr ? (f.arr_time || f.sched) : (f.dep_time || f.sched);
+      if (!timeKey) return s;
+      var sl = s.toLowerCase();
+      // Already final state — don't override
+      if (sl.includes('land') || sl.includes('arriv') || sl === 'cancelled' || sl === 'diverted') return s;
+      if (!isArr && (sl === 'departed' || sl === 'taxi' || sl === 'taxi-out' || sl === 'pushback')) return s;
+      try {
+        var dt = new Date(timeKey);
+        var nowMs = Date.now();
+        var diffMin = (nowMs - dt.getTime()) / 60000;
+        if (isArr && diffMin > 45) return 'landed';
+        if (!isArr && diffMin > 45) return 'departed';
+      } catch(e) {}
+      return s;
+    }
+
     function fStatusCls(s) {
       if (!s) return 'fbs-sched';
       var sl = s.toLowerCase();
@@ -1442,7 +1461,8 @@
         tr.appendChild(mkTd(mkSpan('fboard-fn', f.fn || '—')));
         tr.appendChild(mkTd(mkSpan('fboard-airline', airline || '—')));
         tr.appendChild(mkTd(route));
-        tr.appendChild(mkTd(mkSpan('fboard-status ' + fStatusCls(f.status), fStatusLabel(f.status))));
+        var effStatus = effectiveStatus(f, isArr);
+        tr.appendChild(mkTd(mkSpan('fboard-status ' + fStatusCls(effStatus), fStatusLabel(effStatus))));
         body.appendChild(tr);
       });
     }

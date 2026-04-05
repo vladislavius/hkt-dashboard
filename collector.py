@@ -554,6 +554,19 @@ def run():
         seen_arr_fns.add(r.get("fn",""))
     acc["arrivals_list"] = existing_arr + new_arr
 
+    # Auto-update stale arrivals: if arr_time > 45min ago → "landed"
+    now_ict = datetime.datetime.now(ICT)
+    for r in acc["arrivals_list"]:
+        if r.get("status") in ("scheduled", "active") and r.get("arr_time"):
+            try:
+                arr_dt = datetime.datetime.fromisoformat(r["arr_time"])
+                if arr_dt.tzinfo is None:
+                    arr_dt = ICT.localize(arr_dt)
+                if arr_dt < now_ict - datetime.timedelta(minutes=45):
+                    r["status"] = "landed"
+            except Exception:
+                pass
+
     # Merge departures flight list — deduplicate code-shares by (to, dep_time)
     seen_dep = {(r.get("to",""), r.get("dep_time","")) for r in acc.get("departures_list", []) if r.get("dep_time")}
     seen_dep_fns = {r["fn"] for r in acc.get("departures_list", []) if r.get("fn")}
@@ -566,6 +579,18 @@ def run():
         seen_dep.add(key)
         seen_dep_fns.add(r.get("fn",""))
     acc["departures_list"] = acc.get("departures_list", []) + new_dep
+
+    # Auto-update stale "scheduled" departures: if dep_time > 45min ago → "departed"
+    for r in acc["departures_list"]:
+        if r.get("status") == "scheduled" and r.get("dep_time"):
+            try:
+                dep_dt = datetime.datetime.fromisoformat(r["dep_time"])
+                if dep_dt.tzinfo is None:
+                    dep_dt = ICT.localize(dep_dt)
+                if dep_dt < now_ict - datetime.timedelta(minutes=45):
+                    r["status"] = "departed"
+            except Exception:
+                pass
 
     acc_file.write_text(json.dumps(acc, indent=2, ensure_ascii=False))
 
