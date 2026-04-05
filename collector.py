@@ -526,38 +526,78 @@ def fmt_top10(ctry):
     return "\n".join(lines) if lines else "Нет данных"
 
 TWOCAPTCHA_KEY = os.environ.get("TWOCAPTCHA_KEY", "")
+CAPSOLVER_KEY  = os.environ.get("CAPSOLVER_KEY", "")
 # AOT Phuket flight board — Cloudflare Turnstile sitekey
 _TURNSTILE_SITEKEY  = "0x4AAAAAACVJKKHJ8u9nXinM"
 _TURNSTILE_PAGE_URL = "https://phuket.airportthai.co.th/flight?type=a"
 
 
+def _solve_via_capsolver():
+    """CapSolver — specialised Cloudflare solver, higher Turnstile success rate."""
+    payload = {
+        "clientKey": CAPSOLVER_KEY,
+        "task": {
+            "type":    "AntiTurnstileTaskProxyLess",
+            "websiteURL": _TURNSTILE_PAGE_URL,
+            "websiteKey": _TURNSTILE_SITEKEY,
+        },
+    }
+    # Create task
+    r = requests.post("https://api.capsolver.com/createTask", json=payload, timeout=15)
+    task_id = r.json().get("taskId")
+    if not task_id:
+        raise RuntimeError(f"CapSolver createTask failed: {r.text[:200]}")
+
+    # Poll for result (up to 120s)
+    for _ in range(40):
+        import time; time.sleep(3)
+        r2 = requests.post("https://api.capsolver.com/getTaskResult",
+                           json={"clientKey": CAPSOLVER_KEY, "taskId": task_id},
+                           timeout=10)
+        res = r2.json()
+        if res.get("status") == "ready":
+            return res["solution"]["token"]
+        if res.get("status") == "failed":
+            raise RuntimeError(f"CapSolver task failed: {res}")
+    raise RuntimeError("CapSolver timeout")
+
+
 def get_turnstile_token():
     """
-    Solve Cloudflare Turnstile via 2captcha and return the token.
-    Requires TWOCAPTCHA_KEY env var (~$0.001/solve, ~$0.18/month at 6 runs/day).
+    Solve Cloudflare Turnstile — tries CapSolver first (better CF success rate),
+    falls back to 2captcha if CAPSOLVER_KEY not set.
+    ~$0.001/solve, ~$0.18/month at 12 runs/day.
     Returns token string or None on failure.
     """
-    if not TWOCAPTCHA_KEY:
-        print("⚠️ TWOCAPTCHA_KEY not set — skipping GTT source")
-        return None
+    # ── CapSolver (preferred for Cloudflare Turnstile) ────────────────────
+    if CAPSOLVER_KEY:
+        print("🔐 Solving Turnstile via CapSolver...")
+        try:
+            token = _solve_via_capsolver()
+            if token:
+                print(f"✅ Turnstile token obtained ({len(token)} chars)")
+                return token
+        except Exception as e:
+            print(f"⚠️ CapSolver error: {e} — trying 2captcha fallback")
 
-    print("🔐 Solving Turnstile via 2captcha...")
-    try:
-        from twocaptcha import TwoCaptcha
-        solver = TwoCaptcha(TWOCAPTCHA_KEY)
-        result = solver.turnstile(
-            sitekey=_TURNSTILE_SITEKEY,
-            url=_TURNSTILE_PAGE_URL,
-        )
-        token = result.get("code", "")
-        if token:
-            print(f"✅ Turnstile token obtained ({len(token)} chars)")
-            return token
-        print(f"⚠️ 2captcha returned empty token: {result}")
-        return None
-    except Exception as e:
-        print(f"⚠️ 2captcha error: {e}")
-        return None
+    # ── 2captcha fallback ─────────────────────────────────────────────────
+    if TWOCAPTCHA_KEY:
+        print("🔐 Solving Turnstile via 2captcha...")
+        try:
+            from twocaptcha import TwoCaptcha
+            result = TwoCaptcha(TWOCAPTCHA_KEY).turnstile(
+                sitekey=_TURNSTILE_SITEKEY,
+                url=_TURNSTILE_PAGE_URL,
+            )
+            token = result.get("code", "")
+            if token:
+                print(f"✅ Turnstile token obtained ({len(token)} chars)")
+                return token
+        except Exception as e:
+            print(f"⚠️ 2captcha error: {e}")
+
+    print("⚠️ No captcha solver configured — skipping GTT source")
+    return None
 
 
 def fetch_flights_gtt(token, date_str):
