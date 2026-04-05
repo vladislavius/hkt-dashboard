@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-06T00:20:24.611604+07:00",
+  "updated": "2026-04-06T00:57:14.049869+07:00",
   "available_dates": [
     "2026-04-03",
     "2026-04-04",
@@ -1788,72 +1788,82 @@
   },
   "today": {
     "arrivals": {
-      "count": 19,
-      "pax": 2793,
+      "count": 45,
+      "pax": 6615,
       "all": [
         {
           "name": "India",
+          "flights": 11,
+          "pax": 1617
+        },
+        {
+          "name": "UAE",
+          "flights": 8,
+          "pax": 1176
+        },
+        {
+          "name": "Hong Kong",
           "flights": 5,
           "pax": 735
         },
         {
-          "name": "UAE",
+          "name": "Singapore",
           "flights": 4,
           "pax": 588
         },
         {
-          "name": "Singapore",
-          "flights": 2,
-          "pax": 294
-        },
-        {
           "name": "Turkey",
-          "flights": 2,
-          "pax": 294
+          "flights": 4,
+          "pax": 588
         },
         {
           "name": "Хабаровск",
+          "flights": 4,
+          "pax": 588,
+          "country": "Russia"
+        },
+        {
+          "name": "Other(OMS)",
+          "flights": 2,
+          "pax": 294
+        },
+        {
+          "name": "China",
+          "flights": 2,
+          "pax": 294
+        },
+        {
+          "name": "Kazakhstan",
+          "flights": 2,
+          "pax": 294
+        },
+        {
+          "name": "Новосибирск",
           "flights": 2,
           "pax": 294,
           "country": "Russia"
         },
         {
-          "name": "Other(OMS)",
+          "name": "Sweden",
           "flights": 1,
           "pax": 147
-        },
-        {
-          "name": "China",
-          "flights": 1,
-          "pax": 147
-        },
-        {
-          "name": "Kazakhstan",
-          "flights": 1,
-          "pax": 147
-        },
-        {
-          "name": "Новосибирск",
-          "flights": 1,
-          "pax": 147,
-          "country": "Russia"
         }
       ]
     },
     "departures": {
-      "count": 2,
-      "pax": 294,
+      "count": 4,
+      "pax": 588,
       "all": [
         {
           "name": "China",
-          "flights": 2,
-          "pax": 294
+          "flights": 4,
+          "pax": 588
         }
       ]
     },
     "russia_transit": {
-      "flights": 10,
-      "pax": 1473,
+      "flights": 7,
+      "pax": 1032,
       "estimated": true
     },
     "arrivals_list": [
@@ -1996,6 +2006,46 @@
         "pax": 147,
         "dep_time": "2026-04-06T00:10",
         "arr_time": "2026-04-06T07:40"
+      },
+      {
+        "fn": "CX771",
+        "airline": "Cathay Pacific",
+        "from": "HKG",
+        "country": "Hong Kong",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-04-06T08:05",
+        "arr_time": "2026-04-06T10:50"
+      },
+      {
+        "fn": "UO724",
+        "airline": "Hong Kong Express",
+        "from": "HKG",
+        "country": "Hong Kong",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-04-06T07:55",
+        "arr_time": "2026-04-06T10:30"
+      },
+      {
+        "fn": "6E1073",
+        "airline": "IndiGo",
+        "from": "DEL",
+        "country": "India",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-04-06T05:10",
+        "arr_time": "2026-04-06T11:20"
+      },
+      {
+        "fn": "6B403",
+        "airline": "TUI fly Nordic",
+        "from": "GOT",
+        "country": "Sweden",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-04-06T01:20",
+        "arr_time": "2026-04-06T18:05"
       }
     ],
     "departures_list": [
@@ -2013,13 +2063,13 @@
   },
   "week": {
     "arrivals": {
-      "count": 564,
-      "pax": 82908,
+      "count": 590,
+      "pax": 86730,
       "all": [
         {
           "name": "Singapore",
-          "flights": 133,
-          "pax": 19551
+          "flights": 135,
+          "pax": 19845
         },
         {
           "name": "Malaysia",
@@ -2028,13 +2078,13 @@
         },
         {
           "name": "UAE",
-          "flights": 60,
-          "pax": 8820
+          "flights": 64,
+          "pax": 9408
         },
         {
           "name": "India",
-          "flights": 56,
-          "pax": 8232
+          "flights": 62,
+          "pax": 9114
         },
         {
           "name": "Qatar",
@@ -2043,13 +2093,13 @@
         },
         {
           "name": "Hong Kong",
-          "flights": 25,
-          "pax": 3675
+          "flights": 30,
+          "pax": 4410
         },
         {
           "name": "China",
-          "flights": 24,
-          "pax": 3528
+          "flights": 25,
+          "pax": 3675
         },
         {
           "name": "Australia",
@@ -2062,15 +2112,15 @@
           "pax": 3528
         },
         {
-          "name": "Москва",
+          "name": "Новосибирск",
           "flights": 9,
           "pax": 1323,
           "country": "Russia"
         },
         {
-          "name": "Новосибирск",
-          "flights": 8,
-          "pax": 1176,
+          "name": "Москва",
+          "flights": 9,
+          "pax": 1323,
           "country": "Russia"
         },
         {
@@ -2084,14 +2134,14 @@
           "pax": 1029
         },
         {
-          "name": "Other(TFU)",
+          "name": "Kazakhstan",
           "flights": 6,
           "pax": 882
         },
         {
-          "name": "Kazakhstan",
-          "flights": 5,
-          "pax": 735
+          "name": "Other(TFU)",
+          "flights": 6,
+          "pax": 882
         },
         {
           "name": "Екатеринбург",
@@ -2103,6 +2153,22 @@
           "name": "Indonesia",
           "flights": 5,
           "pax": 735
+        },
+        {
+          "name": "Turkey",
+          "flights": 4,
+          "pax": 588
+        },
+        {
+          "name": "Хабаровск",
+          "flights": 4,
+          "pax": 588,
+          "country": "Russia"
+        },
+        {
+          "name": "Sweden",
+          "flights": 4,
+          "pax": 588
         },
         {
           "name": "Uzbekistan",
@@ -2131,25 +2197,14 @@
           "country": "Russia"
         },
         {
-          "name": "Sweden",
-          "flights": 3,
-          "pax": 441
-        },
-        {
           "name": "UK",
           "flights": 3,
           "pax": 441
         },
         {
-          "name": "Turkey",
+          "name": "Other(OMS)",
           "flights": 2,
           "pax": 294
-        },
-        {
-          "name": "Хабаровск",
-          "flights": 2,
-          "pax": 294,
-          "country": "Russia"
         },
         {
           "name": "Самара",
@@ -2174,11 +2229,6 @@
           "pax": 294
         },
         {
-          "name": "Other(OMS)",
-          "flights": 1,
-          "pax": 147
-        },
-        {
           "name": "Taiwan",
           "flights": 1,
           "pax": 147
@@ -2186,8 +2236,8 @@
       ]
     },
     "departures": {
-      "count": 562,
-      "pax": 82614,
+      "count": 564,
+      "pax": 82908,
       "all": [
         {
           "name": "Singapore",
@@ -2221,8 +2271,8 @@
         },
         {
           "name": "China",
-          "flights": 28,
-          "pax": 4116
+          "flights": 30,
+          "pax": 4410
         },
         {
           "name": "Hong Kong",
@@ -2655,61 +2705,67 @@
       {
         "date": "2026-04-06",
         "label": "Пн 06.04",
-        "arrivals": 19,
-        "departures": 2,
+        "arrivals": 45,
+        "departures": 4,
         "arrivals_by": {
           "Singapore": {
-            "n": 2
-          },
-          "Other(OMS)": {
-            "n": 1
-          },
-          "UAE": {
             "n": 4
           },
-          "India": {
-            "n": 5
-          },
-          "Turkey": {
+          "Other(OMS)": {
             "n": 2
           },
+          "UAE": {
+            "n": 8
+          },
+          "India": {
+            "n": 11
+          },
+          "Turkey": {
+            "n": 4
+          },
           "China": {
-            "n": 1
+            "n": 2
           },
           "Хабаровск": {
-            "n": 2,
+            "n": 4,
             "country": "Russia"
           },
           "Kazakhstan": {
-            "n": 1
+            "n": 2
           },
           "Новосибирск": {
-            "n": 1,
+            "n": 2,
             "country": "Russia"
+          },
+          "Hong Kong": {
+            "n": 5
+          },
+          "Sweden": {
+            "n": 1
           }
         },
         "departures_by": {
           "China": {
-            "n": 2
+            "n": 4
           }
         }
       }
     ],
     "russia_transit": {
-      "flights": 60,
-      "pax": 8842,
+      "flights": 57,
+      "pax": 8401,
       "estimated": true
     }
   },
   "month": {
     "arrivals": {
-      "count": 564,
-      "pax": 82908,
+      "count": 590,
+      "pax": 86730,
       "all": [
         {
           "name": "Singapore",
-          "flights": 133,
-          "pax": 19551
+          "flights": 135,
+          "pax": 19845
         },
         {
           "name": "Malaysia",
@@ -2718,13 +2774,13 @@
         },
         {
           "name": "UAE",
-          "flights": 60,
-          "pax": 8820
+          "flights": 64,
+          "pax": 9408
         },
         {
           "name": "India",
-          "flights": 56,
-          "pax": 8232
+          "flights": 62,
+          "pax": 9114
         },
         {
           "name": "Qatar",
@@ -2733,13 +2789,13 @@
         },
         {
           "name": "Hong Kong",
-          "flights": 25,
-          "pax": 3675
+          "flights": 30,
+          "pax": 4410
         },
         {
           "name": "China",
-          "flights": 24,
-          "pax": 3528
+          "flights": 25,
+          "pax": 3675
         },
         {
           "name": "Australia",
@@ -2752,15 +2808,15 @@
           "pax": 3528
         },
         {
-          "name": "Москва",
+          "name": "Новосибирск",
           "flights": 9,
           "pax": 1323,
           "country": "Russia"
         },
         {
-          "name": "Новосибирск",
-          "flights": 8,
-          "pax": 1176,
+          "name": "Москва",
+          "flights": 9,
+          "pax": 1323,
           "country": "Russia"
         },
         {
@@ -2774,14 +2830,14 @@
           "pax": 1029
         },
         {
-          "name": "Other(TFU)",
+          "name": "Kazakhstan",
           "flights": 6,
           "pax": 882
         },
         {
-          "name": "Kazakhstan",
-          "flights": 5,
-          "pax": 735
+          "name": "Other(TFU)",
+          "flights": 6,
+          "pax": 882
         },
         {
           "name": "Екатеринбург",
@@ -2793,6 +2849,22 @@
           "name": "Indonesia",
           "flights": 5,
           "pax": 735
+        },
+        {
+          "name": "Turkey",
+          "flights": 4,
+          "pax": 588
+        },
+        {
+          "name": "Хабаровск",
+          "flights": 4,
+          "pax": 588,
+          "country": "Russia"
+        },
+        {
+          "name": "Sweden",
+          "flights": 4,
+          "pax": 588
         },
         {
           "name": "Uzbekistan",
@@ -2821,25 +2893,14 @@
           "country": "Russia"
         },
         {
-          "name": "Sweden",
-          "flights": 3,
-          "pax": 441
-        },
-        {
           "name": "UK",
           "flights": 3,
           "pax": 441
         },
         {
-          "name": "Turkey",
+          "name": "Other(OMS)",
           "flights": 2,
           "pax": 294
-        },
-        {
-          "name": "Хабаровск",
-          "flights": 2,
-          "pax": 294,
-          "country": "Russia"
         },
         {
           "name": "Самара",
@@ -2864,11 +2925,6 @@
           "pax": 294
         },
         {
-          "name": "Other(OMS)",
-          "flights": 1,
-          "pax": 147
-        },
-        {
           "name": "Taiwan",
           "flights": 1,
           "pax": 147
@@ -2876,8 +2932,8 @@
       ]
     },
     "departures": {
-      "count": 562,
-      "pax": 82614,
+      "count": 564,
+      "pax": 82908,
       "all": [
         {
           "name": "Singapore",
@@ -2911,8 +2967,8 @@
         },
         {
           "name": "China",
-          "flights": 28,
-          "pax": 4116
+          "flights": 30,
+          "pax": 4410
         },
         {
           "name": "Hong Kong",
@@ -3170,61 +3226,67 @@
       {
         "key": "2026-W15",
         "label": "Нед 15 (Апр)",
-        "arrivals": 19,
-        "departures": 2,
+        "arrivals": 45,
+        "departures": 4,
         "arrivals_by": {
           "Singapore": {
-            "n": 2
-          },
-          "Other(OMS)": {
-            "n": 1
-          },
-          "UAE": {
             "n": 4
           },
-          "India": {
-            "n": 5
-          },
-          "Turkey": {
+          "Other(OMS)": {
             "n": 2
           },
+          "UAE": {
+            "n": 8
+          },
+          "India": {
+            "n": 11
+          },
+          "Turkey": {
+            "n": 4
+          },
           "China": {
-            "n": 1
+            "n": 2
           },
           "Хабаровск": {
-            "n": 2,
+            "n": 4,
             "country": "Russia"
           },
           "Kazakhstan": {
-            "n": 1
+            "n": 2
           },
           "Новосибирск": {
-            "n": 1,
+            "n": 2,
             "country": "Russia"
+          },
+          "Hong Kong": {
+            "n": 5
+          },
+          "Sweden": {
+            "n": 1
           }
         },
         "departures_by": {
           "China": {
-            "n": 2
+            "n": 4
           }
         }
       }
     ],
     "russia_transit": {
-      "flights": 358,
-      "pax": 52867,
+      "flights": 355,
+      "pax": 52426,
       "estimated": true
     }
   },
   "quarter": {
     "arrivals": {
-      "count": 564,
-      "pax": 82908,
+      "count": 590,
+      "pax": 86730,
       "all": [
         {
           "name": "Singapore",
-          "flights": 133,
-          "pax": 19551
+          "flights": 135,
+          "pax": 19845
         },
         {
           "name": "Malaysia",
@@ -3233,13 +3295,13 @@
         },
         {
           "name": "UAE",
-          "flights": 60,
-          "pax": 8820
+          "flights": 64,
+          "pax": 9408
         },
         {
           "name": "India",
-          "flights": 56,
-          "pax": 8232
+          "flights": 62,
+          "pax": 9114
         },
         {
           "name": "Qatar",
@@ -3248,13 +3310,13 @@
         },
         {
           "name": "Hong Kong",
-          "flights": 25,
-          "pax": 3675
+          "flights": 30,
+          "pax": 4410
         },
         {
           "name": "China",
-          "flights": 24,
-          "pax": 3528
+          "flights": 25,
+          "pax": 3675
         },
         {
           "name": "Australia",
@@ -3267,15 +3329,15 @@
           "pax": 3528
         },
         {
-          "name": "Москва",
+          "name": "Новосибирск",
           "flights": 9,
           "pax": 1323,
           "country": "Russia"
         },
         {
-          "name": "Новосибирск",
-          "flights": 8,
-          "pax": 1176,
+          "name": "Москва",
+          "flights": 9,
+          "pax": 1323,
           "country": "Russia"
         },
         {
@@ -3289,14 +3351,14 @@
           "pax": 1029
         },
         {
-          "name": "Other(TFU)",
+          "name": "Kazakhstan",
           "flights": 6,
           "pax": 882
         },
         {
-          "name": "Kazakhstan",
-          "flights": 5,
-          "pax": 735
+          "name": "Other(TFU)",
+          "flights": 6,
+          "pax": 882
         },
         {
           "name": "Екатеринбург",
@@ -3308,6 +3370,22 @@
           "name": "Indonesia",
           "flights": 5,
           "pax": 735
+        },
+        {
+          "name": "Turkey",
+          "flights": 4,
+          "pax": 588
+        },
+        {
+          "name": "Хабаровск",
+          "flights": 4,
+          "pax": 588,
+          "country": "Russia"
+        },
+        {
+          "name": "Sweden",
+          "flights": 4,
+          "pax": 588
         },
         {
           "name": "Uzbekistan",
@@ -3336,25 +3414,14 @@
           "country": "Russia"
         },
         {
-          "name": "Sweden",
-          "flights": 3,
-          "pax": 441
-        },
-        {
           "name": "UK",
           "flights": 3,
           "pax": 441
         },
         {
-          "name": "Turkey",
+          "name": "Other(OMS)",
           "flights": 2,
           "pax": 294
-        },
-        {
-          "name": "Хабаровск",
-          "flights": 2,
-          "pax": 294,
-          "country": "Russia"
         },
         {
           "name": "Самара",
@@ -3379,11 +3446,6 @@
           "pax": 294
         },
         {
-          "name": "Other(OMS)",
-          "flights": 1,
-          "pax": 147
-        },
-        {
           "name": "Taiwan",
           "flights": 1,
           "pax": 147
@@ -3391,8 +3453,8 @@
       ]
     },
     "departures": {
-      "count": 562,
-      "pax": 82614,
+      "count": 564,
+      "pax": 82908,
       "all": [
         {
           "name": "Singapore",
@@ -3426,8 +3488,8 @@
         },
         {
           "name": "China",
-          "flights": 28,
-          "pax": 4116
+          "flights": 30,
+          "pax": 4410
         },
         {
           "name": "Hong Kong",
@@ -3513,20 +3575,20 @@
       {
         "key": "2026-04",
         "label": "Апр 2026",
-        "arrivals": 564,
-        "departures": 562,
+        "arrivals": 590,
+        "departures": 564,
         "arrivals_by": {
           "China": {
-            "n": 24
+            "n": 25
           },
           "Singapore": {
-            "n": 133
+            "n": 135
           },
           "Indonesia": {
             "n": 5
           },
           "Sweden": {
-            "n": 3
+            "n": 4
           },
           "UK": {
             "n": 3
@@ -3547,7 +3609,7 @@
             "n": 24
           },
           "UAE": {
-            "n": 60
+            "n": 64
           },
           "Москва": {
             "n": 9,
@@ -3558,16 +3620,16 @@
             "country": "Russia"
           },
           "Hong Kong": {
-            "n": 25
+            "n": 30
           },
           "India": {
-            "n": 56
+            "n": 62
           },
           "Qatar": {
             "n": 45
           },
           "Kazakhstan": {
-            "n": 5
+            "n": 6
           },
           "Uzbekistan": {
             "n": 4
@@ -3585,7 +3647,7 @@
             "n": 3
           },
           "Новосибирск": {
-            "n": 8,
+            "n": 9,
             "country": "Russia"
           },
           "Самара": {
@@ -3610,19 +3672,19 @@
             "n": 2
           },
           "Other(OMS)": {
-            "n": 1
-          },
-          "Turkey": {
             "n": 2
           },
+          "Turkey": {
+            "n": 4
+          },
           "Хабаровск": {
-            "n": 2,
+            "n": 4,
             "country": "Russia"
           }
         },
         "departures_by": {
           "China": {
-            "n": 28
+            "n": 30
           },
           "India": {
             "n": 39
@@ -3694,20 +3756,20 @@
       }
     ],
     "russia_transit": {
-      "flights": 1136,
-      "pax": 167716,
+      "flights": 1133,
+      "pax": 167275,
       "estimated": true
     }
   },
   "halfyear": {
     "arrivals": {
-      "count": 564,
-      "pax": 82908,
+      "count": 590,
+      "pax": 86730,
       "all": [
         {
           "name": "Singapore",
-          "flights": 133,
-          "pax": 19551
+          "flights": 135,
+          "pax": 19845
         },
         {
           "name": "Malaysia",
@@ -3716,13 +3778,13 @@
         },
         {
           "name": "UAE",
-          "flights": 60,
-          "pax": 8820
+          "flights": 64,
+          "pax": 9408
         },
         {
           "name": "India",
-          "flights": 56,
-          "pax": 8232
+          "flights": 62,
+          "pax": 9114
         },
         {
           "name": "Qatar",
@@ -3731,13 +3793,13 @@
         },
         {
           "name": "Hong Kong",
-          "flights": 25,
-          "pax": 3675
+          "flights": 30,
+          "pax": 4410
         },
         {
           "name": "China",
-          "flights": 24,
-          "pax": 3528
+          "flights": 25,
+          "pax": 3675
         },
         {
           "name": "Australia",
@@ -3750,15 +3812,15 @@
           "pax": 3528
         },
         {
-          "name": "Москва",
+          "name": "Новосибирск",
           "flights": 9,
           "pax": 1323,
           "country": "Russia"
         },
         {
-          "name": "Новосибирск",
-          "flights": 8,
-          "pax": 1176,
+          "name": "Москва",
+          "flights": 9,
+          "pax": 1323,
           "country": "Russia"
         },
         {
@@ -3772,14 +3834,14 @@
           "pax": 1029
         },
         {
-          "name": "Other(TFU)",
+          "name": "Kazakhstan",
           "flights": 6,
           "pax": 882
         },
         {
-          "name": "Kazakhstan",
-          "flights": 5,
-          "pax": 735
+          "name": "Other(TFU)",
+          "flights": 6,
+          "pax": 882
         },
         {
           "name": "Екатеринбург",
@@ -3791,6 +3853,22 @@
           "name": "Indonesia",
           "flights": 5,
           "pax": 735
+        },
+        {
+          "name": "Turkey",
+          "flights": 4,
+          "pax": 588
+        },
+        {
+          "name": "Хабаровск",
+          "flights": 4,
+          "pax": 588,
+          "country": "Russia"
+        },
+        {
+          "name": "Sweden",
+          "flights": 4,
+          "pax": 588
         },
         {
           "name": "Uzbekistan",
@@ -3819,25 +3897,14 @@
           "country": "Russia"
         },
         {
-          "name": "Sweden",
-          "flights": 3,
-          "pax": 441
-        },
-        {
           "name": "UK",
           "flights": 3,
           "pax": 441
         },
         {
-          "name": "Turkey",
+          "name": "Other(OMS)",
           "flights": 2,
           "pax": 294
-        },
-        {
-          "name": "Хабаровск",
-          "flights": 2,
-          "pax": 294,
-          "country": "Russia"
         },
         {
           "name": "Самара",
@@ -3862,11 +3929,6 @@
           "pax": 294
         },
         {
-          "name": "Other(OMS)",
-          "flights": 1,
-          "pax": 147
-        },
-        {
           "name": "Taiwan",
           "flights": 1,
           "pax": 147
@@ -3874,8 +3936,8 @@
       ]
     },
     "departures": {
-      "count": 562,
-      "pax": 82614,
+      "count": 564,
+      "pax": 82908,
       "all": [
         {
           "name": "Singapore",
@@ -3909,8 +3971,8 @@
         },
         {
           "name": "China",
-          "flights": 28,
-          "pax": 4116
+          "flights": 30,
+          "pax": 4410
         },
         {
           "name": "Hong Kong",
@@ -3996,20 +4058,20 @@
       {
         "key": "2026-04",
         "label": "Апр 2026",
-        "arrivals": 564,
-        "departures": 562,
+        "arrivals": 590,
+        "departures": 564,
         "arrivals_by": {
           "China": {
-            "n": 24
+            "n": 25
           },
           "Singapore": {
-            "n": 133
+            "n": 135
           },
           "Indonesia": {
             "n": 5
           },
           "Sweden": {
-            "n": 3
+            "n": 4
           },
           "UK": {
             "n": 3
@@ -4030,7 +4092,7 @@
             "n": 24
           },
           "UAE": {
-            "n": 60
+            "n": 64
           },
           "Москва": {
             "n": 9,
@@ -4041,16 +4103,16 @@
             "country": "Russia"
           },
           "Hong Kong": {
-            "n": 25
+            "n": 30
           },
           "India": {
-            "n": 56
+            "n": 62
           },
           "Qatar": {
             "n": 45
           },
           "Kazakhstan": {
-            "n": 5
+            "n": 6
           },
           "Uzbekistan": {
             "n": 4
@@ -4068,7 +4130,7 @@
             "n": 3
           },
           "Новосибирск": {
-            "n": 8,
+            "n": 9,
             "country": "Russia"
           },
           "Самара": {
@@ -4093,19 +4155,19 @@
             "n": 2
           },
           "Other(OMS)": {
-            "n": 1
-          },
-          "Turkey": {
             "n": 2
           },
+          "Turkey": {
+            "n": 4
+          },
           "Хабаровск": {
-            "n": 2,
+            "n": 4,
             "country": "Russia"
           }
         },
         "departures_by": {
           "China": {
-            "n": 28
+            "n": 30
           },
           "India": {
             "n": 39
@@ -4177,20 +4239,20 @@
       }
     ],
     "russia_transit": {
-      "flights": 2303,
-      "pax": 339989,
+      "flights": 2300,
+      "pax": 339548,
       "estimated": true
     }
   },
   "year": {
     "arrivals": {
-      "count": 564,
-      "pax": 82908,
+      "count": 590,
+      "pax": 86730,
       "all": [
         {
           "name": "Singapore",
-          "flights": 133,
-          "pax": 19551
+          "flights": 135,
+          "pax": 19845
         },
         {
           "name": "Malaysia",
@@ -4199,13 +4261,13 @@
         },
         {
           "name": "UAE",
-          "flights": 60,
-          "pax": 8820
+          "flights": 64,
+          "pax": 9408
         },
         {
           "name": "India",
-          "flights": 56,
-          "pax": 8232
+          "flights": 62,
+          "pax": 9114
         },
         {
           "name": "Qatar",
@@ -4214,13 +4276,13 @@
         },
         {
           "name": "Hong Kong",
-          "flights": 25,
-          "pax": 3675
+          "flights": 30,
+          "pax": 4410
         },
         {
           "name": "China",
-          "flights": 24,
-          "pax": 3528
+          "flights": 25,
+          "pax": 3675
         },
         {
           "name": "Australia",
@@ -4233,15 +4295,15 @@
           "pax": 3528
         },
         {
-          "name": "Москва",
+          "name": "Новосибирск",
           "flights": 9,
           "pax": 1323,
           "country": "Russia"
         },
         {
-          "name": "Новосибирск",
-          "flights": 8,
-          "pax": 1176,
+          "name": "Москва",
+          "flights": 9,
+          "pax": 1323,
           "country": "Russia"
         },
         {
@@ -4255,14 +4317,14 @@
           "pax": 1029
         },
         {
-          "name": "Other(TFU)",
+          "name": "Kazakhstan",
           "flights": 6,
           "pax": 882
         },
         {
-          "name": "Kazakhstan",
-          "flights": 5,
-          "pax": 735
+          "name": "Other(TFU)",
+          "flights": 6,
+          "pax": 882
         },
         {
           "name": "Екатеринбург",
@@ -4274,6 +4336,22 @@
           "name": "Indonesia",
           "flights": 5,
           "pax": 735
+        },
+        {
+          "name": "Turkey",
+          "flights": 4,
+          "pax": 588
+        },
+        {
+          "name": "Хабаровск",
+          "flights": 4,
+          "pax": 588,
+          "country": "Russia"
+        },
+        {
+          "name": "Sweden",
+          "flights": 4,
+          "pax": 588
         },
         {
           "name": "Uzbekistan",
@@ -4302,25 +4380,14 @@
           "country": "Russia"
         },
         {
-          "name": "Sweden",
-          "flights": 3,
-          "pax": 441
-        },
-        {
           "name": "UK",
           "flights": 3,
           "pax": 441
         },
         {
-          "name": "Turkey",
+          "name": "Other(OMS)",
           "flights": 2,
           "pax": 294
-        },
-        {
-          "name": "Хабаровск",
-          "flights": 2,
-          "pax": 294,
-          "country": "Russia"
         },
         {
           "name": "Самара",
@@ -4345,11 +4412,6 @@
           "pax": 294
         },
         {
-          "name": "Other(OMS)",
-          "flights": 1,
-          "pax": 147
-        },
-        {
           "name": "Taiwan",
           "flights": 1,
           "pax": 147
@@ -4357,8 +4419,8 @@
       ]
     },
     "departures": {
-      "count": 562,
-      "pax": 82614,
+      "count": 564,
+      "pax": 82908,
       "all": [
         {
           "name": "Singapore",
@@ -4392,8 +4454,8 @@
         },
         {
           "name": "China",
-          "flights": 28,
-          "pax": 4116
+          "flights": 30,
+          "pax": 4410
         },
         {
           "name": "Hong Kong",
@@ -4479,20 +4541,20 @@
       {
         "key": "2026-04",
         "label": "Апр 2026",
-        "arrivals": 564,
-        "departures": 562,
+        "arrivals": 590,
+        "departures": 564,
         "arrivals_by": {
           "China": {
-            "n": 24
+            "n": 25
           },
           "Singapore": {
-            "n": 133
+            "n": 135
           },
           "Indonesia": {
             "n": 5
           },
           "Sweden": {
-            "n": 3
+            "n": 4
           },
           "UK": {
             "n": 3
@@ -4513,7 +4575,7 @@
             "n": 24
           },
           "UAE": {
-            "n": 60
+            "n": 64
           },
           "Москва": {
             "n": 9,
@@ -4524,16 +4586,16 @@
             "country": "Russia"
           },
           "Hong Kong": {
-            "n": 25
+            "n": 30
           },
           "India": {
-            "n": 56
+            "n": 62
           },
           "Qatar": {
             "n": 45
           },
           "Kazakhstan": {
-            "n": 5
+            "n": 6
           },
           "Uzbekistan": {
             "n": 4
@@ -4551,7 +4613,7 @@
             "n": 3
           },
           "Новосибирск": {
-            "n": 8,
+            "n": 9,
             "country": "Russia"
           },
           "Самара": {
@@ -4576,19 +4638,19 @@
             "n": 2
           },
           "Other(OMS)": {
-            "n": 1
-          },
-          "Turkey": {
             "n": 2
           },
+          "Turkey": {
+            "n": 4
+          },
           "Хабаровск": {
-            "n": 2,
+            "n": 4,
             "country": "Russia"
           }
         },
         "departures_by": {
           "China": {
-            "n": 28
+            "n": 30
           },
           "India": {
             "n": 39
@@ -4660,8 +4722,8 @@
       }
     ],
     "russia_transit": {
-      "flights": 4703,
-      "pax": 694107,
+      "flights": 4700,
+      "pax": 693666,
       "estimated": true
     }
   }
