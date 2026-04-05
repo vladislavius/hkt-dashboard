@@ -668,7 +668,7 @@ def run():
         }
         if breakdown:
             d.update(breakdown)
-        if russia_transit and russia_transit.get("pax", 0) > 0:
+        if russia_transit:
             d["russia_transit"] = russia_transit
         if arrivals_list:
             d["arrivals_list"] = arrivals_list

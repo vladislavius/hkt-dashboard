@@ -1787,19 +1787,23 @@
       });
 
       // Inject Russia transit estimated row
-      if (russiaTransit && russiaTransit.pax > 0) {
+      if (russiaTransit) {
         const li = make('li', 'rank-item rank-item-estimated');
-        li.title = 'Оценка на основе данных TAT · Пхукет ~38% от турпотока из РФ · через UAE, TR, QA, CN, IN';
+        li.title = 'Оценка TAT: Пхукет ~38% турпотока РФ · транзит через TR, CN, IN';
         const nameEl = make('span', 'rank-name');
         nameEl.textContent = 'Россия (транзит)';
         const badge = make('span', 'transit-badge');
         badge.textContent = '~ оценка';
         nameEl.appendChild(badge);
         const countEl = make('div', 'rank-count');
-        ap(countEl,
-          txt(make('span', 'rc-flights'), '~' + String(russiaTransit.flights) + ' ✈'),
-          txt(make('span', 'rc-pax'), '~' + russiaTransit.pax.toLocaleString('ru') + ' чел.')
-        );
+        if (russiaTransit.pax > 0) {
+          ap(countEl,
+            txt(make('span', 'rc-flights'), '~' + String(russiaTransit.flights) + ' ✈'),
+            txt(make('span', 'rc-pax'), '~' + russiaTransit.pax.toLocaleString('ru') + ' чел.')
+          );
+        } else {
+          ap(countEl, txt(make('span', 'rc-pax'), 'прямые ≥ TAT'));
+        }
         ap(li,
           txt(make('div', 'rank-num rn-n'), '🇷🇺'),
           txt(make('span', 'rank-flag'), ''),
