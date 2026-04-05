@@ -949,25 +949,72 @@
       .metrics-strip { grid-template-columns: repeat(2, 1fr); }
     }
 
+    /* ══════════════════════════════════════════
+       MOBILE BREAKPOINTS
+    ══════════════════════════════════════════ */
+
+    /* ── Tablet (≤1000px) ── */
+    @media (max-width: 1000px) {
+      .cal-drawer.open { max-height: 700px; }
+    }
+
     /* ── Mobile L (≤768px) ── */
     @media (max-width: 768px) {
-      .wrap          { padding: 22px 14px 48px; }
+      .wrap          { padding: 18px 12px 48px; }
 
       /* Header */
       .header-ghost  { display: none; }
-      header         { margin-bottom: 28px; padding-bottom: 24px; }
-      .header-row    { flex-direction: column; align-items: flex-start; gap: 14px; }
+      header         { margin-bottom: 22px; padding-bottom: 20px; }
+      .header-row    { flex-direction: column; align-items: flex-start; gap: 12px; }
       .header-eyebrow{ font-size: 0.62rem; letter-spacing: 2.5px; margin-bottom: 6px; }
       .header-title  { font-size: 2rem; }
       .header-meta   { font-size: 0.7rem; }
       .live-badge    { font-size: 0.65rem; padding: 6px 12px; gap: 6px; }
       .live-dot      { width: 6px; height: 6px; }
 
-      /* Nav — mobile */
-      .nav-wrap      { margin-bottom: 22px; }
+      /* Nav */
+      .nav-wrap      { margin-bottom: 18px; }
       .nav-top       { flex-wrap: wrap; }
       .day-card      { min-width: 52px; padding: 8px 7px 7px; }
       .cal-btn       { font-size: 0.74rem; padding: 6px 10px; }
+
+      /* ── Drawer: stack vertically on mobile ── */
+      .cal-drawer.open {
+        flex-direction: column;
+        max-height: none;        /* let content breathe */
+      }
+      .fboard {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        max-height: 320px;       /* scrollable flight list */
+      }
+      .cal-inner {
+        width: 100%;
+        padding: 16px 14px 18px;
+        overflow-x: auto;        /* calendar scrollable if screen very narrow */
+      }
+      .cal-presets-col {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .cal-preset-group {
+        flex-direction: row;
+        flex: 1 1 auto;
+        min-width: 0;
+      }
+      .cal-divider-v {
+        display: none;           /* no vertical divider when stacked */
+      }
+
+      /* Flight board table on mobile — compact */
+      .fboard-table th,
+      .fboard-table td  { padding: 6px 8px; }
+      .fboard-time      { font-size: 0.82rem; }
+      .fboard-fn        { font-size: 0.75rem; }
+      .fboard-airline   { max-width: 110px; font-size: 0.7rem; }
+      .fboard-status    { font-size: 0.58rem; padding: 2px 6px; }
 
       /* Metrics 2×2 */
       .metrics-strip { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px; }
@@ -983,60 +1030,97 @@
       .card-title    { font-size: 1rem; margin-bottom: 16px; gap: 8px; }
       .card-icon     { width: 26px; height: 26px; font-size: 0.75rem; border-radius: 7px; }
 
-      /* Chart — shrink donut */
-      .chart-container { max-width: 180px; }
-      .chart-center-val{ font-size: 1.3rem; }
-      .chart-legend  { gap: 16px; margin-top: 14px; }
-      .leg-item      { font-size: 0.72rem; }
+      /* Chart */
+      .chart-container  { max-width: 180px; }
+      .chart-center-val { font-size: 1.3rem; }
+      .chart-legend     { gap: 16px; margin-top: 14px; }
+      .leg-item         { font-size: 0.72rem; }
 
       /* Rank list */
-      .rank-item     { gap: 7px; padding: 7px 0; }
-      .rank-num      { width: 20px; height: 20px; font-size: 0.58rem; }
-      .rank-flag     { font-size: 0.9rem; }
-      .rank-name     { font-size: 0.8rem; }
-      .rc-flights    { font-size: 0.76rem; }
-      .rc-pax        { font-size: 0.63rem; }
+      .rank-item  { gap: 7px; padding: 7px 0; }
+      .rank-num   { width: 20px; height: 20px; font-size: 0.58rem; }
+      .rank-flag  { font-size: 0.9rem; }
+      .rank-name  { font-size: 0.8rem; }
+      .rc-flights { font-size: 0.76rem; }
+      .rc-pax     { font-size: 0.63rem; }
     }
 
     /* ── Mobile M (≤480px) ── */
     @media (max-width: 480px) {
-      .cal-wrap      { display: none; }
-      .wrap          { padding: 16px 12px 40px; }
+      .wrap          { padding: 14px 10px 40px; }
       .header-title  { font-size: 1.75rem; }
       .header-eyebrow{ letter-spacing: 2px; }
 
-      /* Nav — smaller */
-      .day-card      { min-width: 48px; }
-      .cal-btn       { font-size: 0.7rem; }
+      /* Nav */
+      .day-card { min-width: 48px; }
+      .cal-btn  { font-size: 0.7rem; }
 
-      /* Metrics — tighter */
+      /* Flight board — hide Airline column, keep Время/Рейс/Откуда/Статус */
+      .fboard-col-airline { display: none; }
+      .fboard-table th,
+      .fboard-table td    { padding: 6px 6px; }
+      .fboard-table       { font-size: 0.74rem; }
+      .fboard-time        { font-size: 0.78rem; }
+      .fboard-fn          { font-size: 0.7rem; }
+      .fboard-route       { font-size: 0.72rem; gap: 4px; }
+      .fboard-route-flag  { font-size: 0.88rem; }
+      .fboard-status      { font-size: 0.55rem; padding: 2px 5px; letter-spacing: 0; }
+      .fboard-tabs .fboard-tab { font-size: 0.68rem; padding: 10px 0; }
+
+      /* Calendar — tighter cells */
+      .cal-dow-row,
+      .cal-grid      { grid-template-columns: repeat(7, 30px); }
+      .cal-day       { width: 30px; height: 28px; font-size: 0.74rem; }
+
+      /* Presets — wrap into rows */
+      .cal-presets-col  { flex-direction: row; flex-wrap: wrap; gap: 5px; }
+      .cal-preset-group { flex: 1 1 auto; }
+
+      /* Metrics */
       .metrics-strip { gap: 8px; }
       .m-card        { padding: 14px 14px 12px; }
       .m-value       { font-size: 1.55rem; }
       .m-label       { font-size: 0.58rem; letter-spacing: 1.5px; }
 
       /* Cards */
-      .card          { padding: 16px; border-radius: 14px; }
-      .card-title    { font-size: 0.95rem; margin-bottom: 14px; }
+      .card       { padding: 16px; border-radius: 14px; }
+      .card-title { font-size: 0.95rem; margin-bottom: 14px; }
 
       /* Chart */
-      .chart-container { max-width: 160px; }
-      .chart-center-val{ font-size: 1.2rem; }
+      .chart-container  { max-width: 160px; }
+      .chart-center-val { font-size: 1.2rem; }
 
-      /* Rank — tightest */
-      .rank-item     { grid-template-columns: 18px 1.2rem 1fr auto; gap: 5px; }
-      .rank-num      { width: 18px; height: 18px; border-radius: 5px; font-size: 0.55rem; }
-      .rank-name     { font-size: 0.76rem; }
-      .rc-flights    { font-size: 0.72rem; }
-      .rc-pax        { font-size: 0.6rem; }
+      /* Rank */
+      .rank-item  { grid-template-columns: 18px 1.2rem 1fr auto; gap: 5px; }
+      .rank-num   { width: 18px; height: 18px; border-radius: 5px; font-size: 0.55rem; }
+      .rank-name  { font-size: 0.76rem; }
+      .rc-flights { font-size: 0.72rem; }
+      .rc-pax     { font-size: 0.6rem; }
     }
 
-    /* ── Mobile S (≤375px — iPhone SE etc.) ── */
+    /* ── Mobile S (≤375px — iPhone SE / mini) ── */
     @media (max-width: 375px) {
-      .wrap          { padding: 14px 10px 36px; }
-      .m-value       { font-size: 1.4rem; }
-      .cal-btn       { font-size: 0.66rem; }
-      .rank-name     { font-size: 0.72rem; }
+      .wrap         { padding: 12px 8px 36px; }
+      .m-value      { font-size: 1.4rem; }
+      .cal-btn      { font-size: 0.66rem; }
+      .rank-name    { font-size: 0.72rem; }
+      .header-title { font-size: 1.6rem; }
+
+      /* Flight board — ultra compact */
+      .fboard-table th,
+      .fboard-table td  { padding: 5px 4px; }
+      .fboard-time      { font-size: 0.72rem; }
+      .fboard-fn        { font-size: 0.65rem; }
+      .fboard-route     { font-size: 0.68rem; gap: 3px; }
+      .fboard-status    { padding: 2px 4px; font-size: 0.52rem; }
+
+      /* Calendar — smallest cells */
+      .cal-dow-row,
+      .cal-grid  { grid-template-columns: repeat(7, 26px); }
+      .cal-day   { width: 26px; height: 25px; font-size: 0.68rem; border-radius: 6px; }
+
+      .metrics-strip { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+      .m-card        { padding: 12px 12px 10px; border-radius: 12px; }
     }
   </style>
 </head>
@@ -1073,7 +1157,7 @@
         <div class="fboard-table-wrap">
           <table class="fboard-table">
             <thead><tr>
-              <th>Время</th><th>Рейс</th><th>Авиакомпания</th><th>Откуда / Куда</th><th>Статус</th>
+              <th>Время</th><th>Рейс</th><th class="fboard-col-airline">Авиакомпания</th><th>Откуда / Куда</th><th>Статус</th>
             </tr></thead>
             <tbody id="fboard-body"></tbody>
           </table>
@@ -1459,7 +1543,9 @@
         route.appendChild(mkSpan('fboard-route-code', airport));
         tr.appendChild(mkTd(mkSpan('fboard-time', time)));
         tr.appendChild(mkTd(mkSpan('fboard-fn', f.fn || '—')));
-        tr.appendChild(mkTd(mkSpan('fboard-airline', airline || '—')));
+        var airlineTd = mkTd(mkSpan('fboard-airline', airline || '—'));
+        airlineTd.className = 'fboard-col-airline';
+        tr.appendChild(airlineTd);
         tr.appendChild(mkTd(route));
         var effStatus = effectiveStatus(f, isArr);
         tr.appendChild(mkTd(mkSpan('fboard-status ' + fStatusCls(effStatus), fStatusLabel(effStatus))));
