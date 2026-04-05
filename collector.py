@@ -151,7 +151,8 @@ LOAD_FACTOR = 0.82  # средняя загрузка международных
 HKT_RUSSIAN_SHARE = 0.38   # Пхукет получает ~38% россиян, въезжающих в Таиланд
                             # Источник: TAT/MOTS годовые отчёты 2023-2024. Проверять ежегодно.
 
-TRANSIT_HUBS = ['UAE', 'Turkey', 'Qatar', 'China', 'India']  # хабы с транзитным российским трафиком
+TRANSIT_HUBS = ['Turkey', 'China', 'India']  # хабы с транзитным российским трафиком
+                                              # UAE и Qatar исключены: россияне этот маршрут не используют (2026)
 
 
 def load_tat_stats():
@@ -236,18 +237,26 @@ MONTH_NAMES_RU = {1:'Янв',2:'Фев',3:'Мар',4:'Апр',5:'Май',6:'Ию
 DAY_NAMES_RU   = {0:'Пн',1:'Вт',2:'Ср',3:'Чт',4:'Пт',5:'Сб',6:'Вс'}
 
 def get_api_key():
-    # 5 runs/day across 4 keys:
-    # 00:30 ICT → KEY_1   (~40 calls/month)
-    # 06:00 ICT → KEY_2   (~30 calls/month)
-    # 11:00 ICT → KEY_3   (~30 calls/month)
-    # 16:00 ICT → KEY_4   (~30 calls/month)
-    # 23:58 ICT → KEY_1   (day finalisation, same key)
+    # 9 runs/day across 4 keys (~67 calls/month each):
+    # 00:30 ICT → KEY_1
+    # 03:30 ICT → KEY_2
+    # 06:00 ICT → KEY_3
+    # 09:00 ICT → KEY_4
+    # 11:00 ICT → KEY_1
+    # 13:00 ICT → KEY_2
+    # 16:00 ICT → KEY_3
+    # 18:00 ICT → KEY_4
+    # 23:58 ICT → KEY_1  (day finalisation)
     now = datetime.datetime.now(ICT)
     h = now.hour
-    if h < 4:    return API_KEYS[0], 1   # 00:30 ICT
-    elif h < 9:  return API_KEYS[1], 2   # 06:00 ICT
-    elif h < 14: return API_KEYS[2], 3   # 11:00 ICT
-    elif h < 22: return API_KEYS[3], 4   # 16:00 ICT
+    if h < 2:    return API_KEYS[0], 1   # 00:30 ICT
+    elif h < 5:  return API_KEYS[1], 2   # 03:30 ICT
+    elif h < 8:  return API_KEYS[2], 3   # 06:00 ICT
+    elif h < 10: return API_KEYS[3], 4   # 09:00 ICT
+    elif h < 12: return API_KEYS[0], 1   # 11:00 ICT
+    elif h < 15: return API_KEYS[1], 2   # 13:00 ICT
+    elif h < 17: return API_KEYS[2], 3   # 16:00 ICT
+    elif h < 22: return API_KEYS[3], 4   # 18:00 ICT
     else:        return API_KEYS[0], 1   # 23:58 ICT
 
 def send_telegram(text):
