@@ -553,6 +553,7 @@ def fetch_flights_gtt(token, date_str, direction):
     type_code = "A" if direction == "arrival" else "D"
     schedule_start = f"{date_str} 00:00:00"
     schedule_end   = f"{date_str} 23:59:59"
+    print(f"🔎 GTT token prefix: {token[:30]}... len={len(token)}")
     try:
         resp = requests.post(
             GTT_ENDPOINT,
@@ -566,17 +567,29 @@ def fetch_flights_gtt(token, date_str, direction):
                 },
             },
             headers={
-                "Content-Type":  "application/json",
-                "Authorization": token,
-                "api-name":      "WebAOTFetchFlightBoard",
-                "origin":        "https://phuket.airportthai.co.th",
-                "referer":       "https://phuket.airportthai.co.th/",
+                "Content-Type":    "application/json",
+                "Authorization":   token,
+                "api-name":        "WebAOTFetchFlightBoard",
+                "origin":          "https://phuket.airportthai.co.th",
+                "referer":         "https://phuket.airportthai.co.th/",
+                "accept":          "*/*",
+                "accept-language": "en-US,en;q=0.9",
+                "user-agent":      (
+                    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                    "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+                ),
+                "sec-fetch-mode":  "cors",
+                "sec-fetch-site":  "cross-site",
+                "sec-fetch-dest":  "empty",
             },
             timeout=20,
         )
+        print(f"🔎 GTT HTTP status: {resp.status_code}")
         data = resp.json()
         if data.get("errors"):
             print(f"⚠️ GTT GraphQL errors: {data['errors']}")
+            # Print raw response for debugging
+            print(f"🔎 GTT raw: {resp.text[:300]}")
             return None
         board = (data.get("data") or {}).get("webAOTFetchFlightBoard") or {}
         if not board.get("success"):
