@@ -4,16 +4,32 @@ from collections import Counter, defaultdict
 
 # ── GTT GraphQL (AOT official flight board) ───────────────────────────────────
 GTT_ENDPOINT = "https://gtt-prod.sawasdeebyaot.com/graphql"
-GTT_QUERY = """query WebAOTFetchFlightBoard($site: String!, $type: String!, $scheduleStart: String!, $scheduleEnd: String!, $search: String, $searchType: String) {
-  webAOTFetchFlightBoard(site: $site, type: $type, schedule_start: $scheduleStart, schedule_end: $scheduleEnd, search: $search, search_type: $searchType) {
+# Single combined query — arrivals + departures in one request (token is single-use)
+GTT_QUERY = """query HKTFlightBoard($site: String!, $start: String!, $end: String!) {
+  arrivals: webAOTFetchFlightBoard(site: $site, type: "A", schedule_start: $start, schedule_end: $end) {
     success message code
     payload {
       flights {
-        flight_id number
-        flight_departure { scheduled_at estimated_at actual_at flight_status }
-        flight_arrival   { scheduled_at estimated_at actual_at flight_status }
-        origin_airport      { iata_code city name }
-        destination_airport { iata_code city name }
+        number
+        flight_departure { scheduled_at flight_status }
+        flight_arrival   { scheduled_at flight_status }
+        origin_airport      { iata_code city }
+        destination_airport { iata_code city }
+        airline  { iata name }
+        aircraft { iata name }
+        flight_status
+      }
+    }
+  }
+  departures: webAOTFetchFlightBoard(site: $site, type: "D", schedule_start: $start, schedule_end: $end) {
+    success message code
+    payload {
+      flights {
+        number
+        flight_departure { scheduled_at flight_status }
+        flight_arrival   { scheduled_at flight_status }
+        origin_airport      { iata_code city }
+        destination_airport { iata_code city }
         airline  { iata name }
         aircraft { iata name }
         flight_status
@@ -544,26 +560,23 @@ def get_turnstile_token():
         return None
 
 
-def fetch_flights_gtt(token, date_str, direction):
+def fetch_flights_gtt(token, date_str):
     """
-    Fetch flights for date_str from GTT GraphQL.
-    direction: "arrival" | "departure"
-    Returns list of flight dicts or None on error.
+    Fetch arrivals AND departures for date_str in a single GraphQL request.
+    Cloudflare Turnstile tokens are single-use — one request per token.
+    Returns (arrivals_list, departures_list) or (None, None) on error.
     """
-    type_code = "A" if direction == "arrival" else "D"
     schedule_start = f"{date_str} 00:00:00"
     schedule_end   = f"{date_str} 23:59:59"
-    print(f"🔎 GTT token prefix: {token[:30]}... len={len(token)}")
     try:
         resp = requests.post(
             GTT_ENDPOINT,
             json={
                 "query": GTT_QUERY,
                 "variables": {
-                    "site": "hkt",
-                    "type": type_code,
-                    "scheduleStart": schedule_start,
-                    "scheduleEnd":   schedule_end,
+                    "site":  "hkt",
+                    "start": schedule_start,
+                    "end":   schedule_end,
                 },
             },
             headers={
@@ -584,21 +597,22 @@ def fetch_flights_gtt(token, date_str, direction):
             },
             timeout=20,
         )
-        print(f"🔎 GTT HTTP status: {resp.status_code}")
         data = resp.json()
         if data.get("errors"):
             print(f"⚠️ GTT GraphQL errors: {data['errors']}")
-            # Print raw response for debugging
-            print(f"🔎 GTT raw: {resp.text[:300]}")
-            return None
-        board = (data.get("data") or {}).get("webAOTFetchFlightBoard") or {}
-        if not board.get("success"):
-            print(f"⚠️ GTT not successful: {board.get('message')}")
-            return None
-        return (board.get("payload") or {}).get("flights") or []
+            return None, None
+        d = data.get("data") or {}
+        arr_board = d.get("arrivals") or {}
+        dep_board = d.get("departures") or {}
+        if not arr_board.get("success") or not dep_board.get("success"):
+            print(f"⚠️ GTT not successful: arr={arr_board.get('message')} dep={dep_board.get('message')}")
+            return None, None
+        a_flights = (arr_board.get("payload") or {}).get("flights") or []
+        d_flights = (dep_board.get("payload") or {}).get("flights") or []
+        return a_flights, d_flights
     except Exception as e:
         print(f"⚠️ GTT fetch error: {e}")
-        return None
+        return None, None
 
 
 # GTT flight_status → collector category
@@ -706,8 +720,8 @@ def run():
     source = "aviationstack"
 
     if gtt_token:
-        a_fl_gtt = fetch_flights_gtt(gtt_token, today, "arrival")
-        d_fl_gtt = fetch_flights_gtt(gtt_token, today, "departure")
+        # Single request — token is single-use, arrivals+departures in one call
+        a_fl_gtt, d_fl_gtt = fetch_flights_gtt(gtt_token, today)
         if a_fl_gtt is not None and d_fl_gtt is not None:
             a_res = analyze_gtt(a_fl_gtt, "arrival",   today)
             d_res = analyze_gtt(d_fl_gtt, "departure", today)
