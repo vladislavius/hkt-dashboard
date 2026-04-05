@@ -2,6 +2,26 @@ import os, requests, json, datetime, pytz
 from pathlib import Path
 from collections import Counter, defaultdict
 
+# ── GTT GraphQL (AOT official flight board) ───────────────────────────────────
+GTT_ENDPOINT = "https://gtt-prod.sawasdeebyaot.com/graphql"
+GTT_QUERY = """query WebAOTFetchFlightBoard($site: String!, $type: String!, $scheduleStart: String!, $scheduleEnd: String!, $search: String, $searchType: String) {
+  webAOTFetchFlightBoard(site: $site, type: $type, schedule_start: $scheduleStart, schedule_end: $scheduleEnd, search: $search, search_type: $searchType) {
+    success message code
+    payload {
+      flights {
+        flight_id number
+        flight_departure { scheduled_at estimated_at actual_at flight_status }
+        flight_arrival   { scheduled_at estimated_at actual_at flight_status }
+        origin_airport      { iata_code city name }
+        destination_airport { iata_code city name }
+        airline  { iata name }
+        aircraft { iata name }
+        flight_status
+      }
+    }
+  }
+}"""
+
 API_KEYS = [
     os.environ["AVIATIONSTACK_KEY_1"],
     os.environ["AVIATIONSTACK_KEY_2"],
@@ -237,21 +257,18 @@ MONTH_NAMES_RU = {1:'Янв',2:'Фев',3:'Мар',4:'Апр',5:'Май',6:'Ию
 DAY_NAMES_RU   = {0:'Пн',1:'Вт',2:'Ср',3:'Чт',4:'Пт',5:'Сб',6:'Вс'}
 
 def get_api_key():
-    # 6 runs/day across 4 keys = 12 API calls/day = 360/month (лимит 400)
-    # 00:30 ICT → KEY_1
-    # 05:00 ICT → KEY_2
-    # 09:00 ICT → KEY_3
-    # 13:00 ICT → KEY_4
-    # 17:00 ICT → KEY_1
-    # 23:58 ICT → KEY_2  (day finalisation)
+    # 12 runs/day across 4 keys = 3 runs/key/day = ~90 calls/key/month (limit 400)
+    # GTT is primary; AviationStack is fallback only, so real usage is even lower.
+    # KEY_1: 01:00, 03:00, 05:00 ICT  (h < 7)
+    # KEY_2: 07:00, 09:00, 11:00 ICT  (h < 13)
+    # KEY_3: 13:00, 15:00, 17:00 ICT  (h < 19)
+    # KEY_4: 19:00, 21:00, 23:00 ICT  (else)
     now = datetime.datetime.now(ICT)
     h = now.hour
-    if h < 3:    return API_KEYS[0], 1   # 00:30 ICT
-    elif h < 7:  return API_KEYS[1], 2   # 05:00 ICT
-    elif h < 11: return API_KEYS[2], 3   # 09:00 ICT
-    elif h < 15: return API_KEYS[3], 4   # 13:00 ICT
-    elif h < 22: return API_KEYS[0], 1   # 17:00 ICT
-    else:        return API_KEYS[1], 2   # 23:58 ICT
+    if h < 7:    return API_KEYS[0], 1
+    elif h < 13: return API_KEYS[1], 2
+    elif h < 19: return API_KEYS[2], 3
+    else:        return API_KEYS[3], 4
 
 def send_telegram(text):
     if not TG_TOKEN or not TG_CHAT_ID: return
@@ -492,17 +509,211 @@ def fmt_top10(ctry):
         lines.append(f"{i}. {flag} {c}: {v['flights']} рейсов (~{v['pax']:,} пасс.)")
     return "\n".join(lines) if lines else "Нет данных"
 
+TWOCAPTCHA_KEY = os.environ.get("TWOCAPTCHA_KEY", "")
+# AOT Phuket flight board — Cloudflare Turnstile sitekey
+_TURNSTILE_SITEKEY  = "0x4AAAAAACVJKKHJ8u9nXinM"
+_TURNSTILE_PAGE_URL = "https://phuket.airportthai.co.th/flight?type=a"
+
+
+def get_turnstile_token():
+    """
+    Solve Cloudflare Turnstile via 2captcha and return the token.
+    Requires TWOCAPTCHA_KEY env var (~$0.001/solve, ~$0.18/month at 6 runs/day).
+    Returns token string or None on failure.
+    """
+    if not TWOCAPTCHA_KEY:
+        print("⚠️ TWOCAPTCHA_KEY not set — skipping GTT source")
+        return None
+
+    print("🔐 Solving Turnstile via 2captcha...")
+    try:
+        from twocaptcha import TwoCaptcha
+        solver = TwoCaptcha(TWOCAPTCHA_KEY)
+        result = solver.turnstile(
+            sitekey=_TURNSTILE_SITEKEY,
+            url=_TURNSTILE_PAGE_URL,
+        )
+        token = result.get("code", "")
+        if token:
+            print(f"✅ Turnstile token obtained ({len(token)} chars)")
+            return token
+        print(f"⚠️ 2captcha returned empty token: {result}")
+        return None
+    except Exception as e:
+        print(f"⚠️ 2captcha error: {e}")
+        return None
+
+
+def fetch_flights_gtt(token, date_str, direction):
+    """
+    Fetch flights for date_str from GTT GraphQL.
+    direction: "arrival" | "departure"
+    Returns list of flight dicts or None on error.
+    """
+    type_code = "A" if direction == "arrival" else "D"
+    schedule_start = f"{date_str} 00:00:00"
+    schedule_end   = f"{date_str} 23:59:59"
+    try:
+        resp = requests.post(
+            GTT_ENDPOINT,
+            json={
+                "query": GTT_QUERY,
+                "variables": {
+                    "site": "hkt",
+                    "type": type_code,
+                    "scheduleStart": schedule_start,
+                    "scheduleEnd":   schedule_end,
+                },
+            },
+            headers={
+                "Content-Type":  "application/json",
+                "Authorization": token,
+                "api-name":      "WebAOTFetchFlightBoard",
+                "origin":        "https://phuket.airportthai.co.th",
+                "referer":       "https://phuket.airportthai.co.th/",
+            },
+            timeout=20,
+        )
+        data = resp.json()
+        if data.get("errors"):
+            print(f"⚠️ GTT GraphQL errors: {data['errors']}")
+            return None
+        board = (data.get("data") or {}).get("webAOTFetchFlightBoard") or {}
+        if not board.get("success"):
+            print(f"⚠️ GTT not successful: {board.get('message')}")
+            return None
+        return (board.get("payload") or {}).get("flights") or []
+    except Exception as e:
+        print(f"⚠️ GTT fetch error: {e}")
+        return None
+
+
+# GTT flight_status → collector category
+_GTT_COMPLETED = {"departed", "landed", "arrived", "diverted", "completed"}
+_GTT_UPCOMING  = {"scheduled", "on-time", "expected", "estimated",
+                  "boarding", "gate", "check-in", "delay", "delayed"}
+_GTT_CANCELLED = {"cancelled", "canceled"}
+
+
+def analyze_gtt(flights, direction, date_str):
+    """
+    Convert GTT flight list into the same structure as analyze().
+    Returns {date_str: {count, pax, countries, stats, flight_list}}.
+    """
+    cnt, pax_total = 0, 0
+    st   = {"completed": 0, "upcoming": 0, "cancelled": 0}
+    ctry = defaultdict(lambda: {"flights": 0, "pax": 0})
+    flight_list = []
+
+    for f in (flights or []):
+        # Pick the relevant airport IATA based on direction
+        if direction == "arrival":
+            airport_iata = (f.get("origin_airport") or {}).get("iata_code", "")
+            time_info = f.get("flight_arrival") or {}
+            status_raw = (f.get("flight_arrival") or {}).get("flight_status") or f.get("flight_status", "")
+        else:
+            airport_iata = (f.get("destination_airport") or {}).get("iata_code", "")
+            time_info = f.get("flight_departure") or {}
+            status_raw = (f.get("flight_departure") or {}).get("flight_status") or f.get("flight_status", "")
+
+        if not airport_iata:
+            continue
+        # Skip domestic
+        if airport_iata in DOMESTIC:
+            continue
+
+        cnt += 1
+        ac_iata   = (f.get("aircraft") or {}).get("iata", "")
+        flight_pax = int(CAP.get(ac_iata, 180) * LOAD_FACTOR)
+        pax_total += flight_pax
+
+        # Country / city mapping
+        country = MAP_C.get(airport_iata, f"Other({airport_iata})")
+        if country == "Russia":
+            city = MAP_RU_CITY.get(airport_iata, airport_iata)
+            ctry[city]["flights"] += 1
+            ctry[city]["pax"]     += flight_pax
+            ctry[city]["country"]  = "Russia"
+        else:
+            ctry[country]["flights"] += 1
+            ctry[country]["pax"]     += flight_pax
+
+        # Status categorisation
+        s = status_raw.lower().strip()
+        if s in _GTT_COMPLETED:
+            st["completed"] += 1
+        elif s in _GTT_CANCELLED:
+            st["cancelled"] += 1
+        else:
+            st["upcoming"] += 1
+
+        # Scheduled times
+        dep_t = (f.get("flight_departure") or {}).get("scheduled_at", "")
+        arr_t = (f.get("flight_arrival")   or {}).get("scheduled_at", "")
+        fn      = f.get("number", "")
+        airline = (f.get("airline") or {}).get("name", "")
+
+        rec = {
+            "fn":       fn,
+            "airline":  airline,
+            "status":   s,
+            "pax":      flight_pax,
+            "aircraft": ac_iata,
+            "dep_time": dep_t[:16] if dep_t else "",
+            "arr_time": arr_t[:16] if arr_t else "",
+        }
+        if direction == "arrival":
+            rec["from"]    = airport_iata
+            rec["country"] = MAP_C.get(airport_iata, "")
+        else:
+            rec["to"]      = airport_iata
+            rec["country"] = MAP_C.get(airport_iata, "")
+        flight_list.append(rec)
+
+    return {
+        date_str: {
+            "count":       cnt,
+            "pax":         pax_total,
+            "countries":   dict(ctry),
+            "stats":       st,
+            "flight_list": flight_list,
+            "source":      "gtt",
+        }
+    }
+
+
 def run():
     now = datetime.datetime.now(ICT)
     today = now.date().isoformat()
     today_date = now.date()
     tat_monthly = load_tat_stats()
-    key, knum = get_api_key()
 
-    a_fl, a_req = fetch_flights("arrival", key)
-    d_fl, d_req = fetch_flights("departure", key)
-    a_res = analyze(a_fl, "arrival")
-    d_res = analyze(d_fl, "departure")
+    # ── Try GTT GraphQL (primary source) ─────────────────────────────────
+    gtt_token = get_turnstile_token()
+    source = "aviationstack"
+
+    if gtt_token:
+        a_fl_gtt = fetch_flights_gtt(gtt_token, today, "arrival")
+        d_fl_gtt = fetch_flights_gtt(gtt_token, today, "departure")
+        if a_fl_gtt is not None and d_fl_gtt is not None:
+            a_res = analyze_gtt(a_fl_gtt, "arrival",   today)
+            d_res = analyze_gtt(d_fl_gtt, "departure", today)
+            source = "gtt"
+            print(f"✅ GTT: {len(a_fl_gtt)} arrivals, {len(d_fl_gtt)} departures")
+        else:
+            gtt_token = None  # force fallback
+
+    if not gtt_token:
+        # ── Fallback: AviationStack ─────────────────────────────────────
+        key, knum = get_api_key()
+        a_fl, a_req = fetch_flights("arrival", key)
+        d_fl, d_req = fetch_flights("departure", key)
+        a_res = analyze(a_fl, "arrival")
+        d_res = analyze(d_fl, "departure")
+        print(f"ℹ️ Using AviationStack fallback (key #{knum})")
+
+    # knum for Telegram message (show 0 for GTT)
+    knum = 0 if source == "gtt" else locals().get("knum", "?")
 
     a_cur = a_res.get(today, {"count":0, "pax":0, "countries":{}, "stats":{}})
     d_cur = d_res.get(today, {"count":0, "pax":0, "countries":{}, "stats":{}})
@@ -668,7 +879,8 @@ def run():
                  "<b>🛫 ВЫЛЕТЫ (Топ-10)</b>", fmt_top10(d['countries']), ""]
         return "\n".join(lines)
 
-    msg = f"🌴 <b>PHUKET HKT STATISTICS</b>\n🕒 {now.strftime('%H:%M')} | API #{knum}\n━━━━━━━━━━━━━━━━━━━━\n"
+    src_label = "GTT" if source == "gtt" else f"AS #{knum}"
+    msg = f"🌴 <b>PHUKET HKT STATISTICS</b>\n🕒 {now.strftime('%H:%M')} | {src_label}\n━━━━━━━━━━━━━━━━━━━━\n"
     msg += block("🔴 СЕГОДНЯ (накопл.)", a_acc, d_acc)
     msg += block("📊 НЕДЕЛЯ (7 дней)", w_a, w_d)
     msg += block("📈 МЕСЯЦ (30 дней)", m_a, m_d)

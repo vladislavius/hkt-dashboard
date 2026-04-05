@@ -2,12 +2,19 @@ name: Update HKT Data
 
 on:
   schedule:
-    - cron: '30 17 * * *'  # 00:30 ICT — ночь               (KEY_1)
-    - cron: '0 22 * * *'   # 05:00 ICT — утро               (KEY_2)
-    - cron: '0 2 * * *'    # 09:00 ICT — день               (KEY_3)
-    - cron: '0 6 * * *'    # 13:00 ICT — день               (KEY_4)
-    - cron: '0 10 * * *'   # 17:00 ICT — вечер              (KEY_1)
-    - cron: '58 16 * * *'  # 23:58 ICT — финализация дня    (KEY_2)
+    # Every 2 hours — 12 runs/day (ICT = UTC+7)
+    - cron: '0 0 * * *'   # 07:00 ICT
+    - cron: '0 2 * * *'   # 09:00 ICT
+    - cron: '0 4 * * *'   # 11:00 ICT
+    - cron: '0 6 * * *'   # 13:00 ICT
+    - cron: '0 8 * * *'   # 15:00 ICT
+    - cron: '0 10 * * *'  # 17:00 ICT
+    - cron: '0 12 * * *'  # 19:00 ICT
+    - cron: '0 14 * * *'  # 21:00 ICT
+    - cron: '0 16 * * *'  # 23:00 ICT
+    - cron: '0 18 * * *'  # 01:00 ICT
+    - cron: '0 20 * * *'  # 03:00 ICT
+    - cron: '0 22 * * *'  # 05:00 ICT
   workflow_dispatch:
 
 permissions:
@@ -29,7 +36,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install requests pytz beautifulsoup4
+        run: pip install requests pytz beautifulsoup4 2captcha-python
 
       - name: Run collector script
         run: python3 collector.py
@@ -39,6 +46,7 @@ jobs:
           AVIATIONSTACK_KEY_2: ${{ secrets.AVIATIONSTACK_KEY_2 }}
           AVIATIONSTACK_KEY_3: ${{ secrets.AVIATIONSTACK_KEY_3 }}
           AVIATIONSTACK_KEY_4: ${{ secrets.AVIATIONSTACK_KEY_4 }}
+          TWOCAPTCHA_KEY:      ${{ secrets.TWOCAPTCHA_KEY }}
           TG_TOKEN:            ${{ secrets.TG_TOKEN }}
           TG_CHAT_ID:          ${{ secrets.TG_CHAT_ID }}
           SUPABASE_URL:        ${{ secrets.SUPABASE_URL }}
