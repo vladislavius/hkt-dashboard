@@ -4162,7 +4162,9 @@
       const rest = cityTotals.slice(5);
       const COLORS = ['#E86060','#5BB8F5','#72C98A','#E8A462','#C97BE8','#8A8480'];
 
+      // Compact chart (180px)
       const chartWrap = make('div', 'cis-chart-wrap');
+      chartWrap.style.height = '180px';
       const canvas = document.createElement('canvas');
       canvas.id = 'cisCitiesChart';
       chartWrap.appendChild(canvas);
@@ -4171,13 +4173,13 @@
       const datasets = top5.map((c,i) => ({
         label: c.name,
         data: months.map(m => c.byMonth[m]||0),
-        backgroundColor: COLORS[i]+'BF', borderColor: COLORS[i], borderWidth:1, borderRadius:3,
+        backgroundColor: COLORS[i]+'BF', borderColor: COLORS[i], borderWidth:1, borderRadius:4,
       }));
       if (rest.length) {
         datasets.push({
           label: 'Остальные',
           data: months.map(m => rest.reduce((s,c) => s+(c.byMonth[m]||0), 0)),
-          backgroundColor: COLORS[5]+'BF', borderColor: COLORS[5], borderWidth:1, borderRadius:3,
+          backgroundColor: COLORS[5]+'BF', borderColor: COLORS[5], borderWidth:1, borderRadius:4,
         });
       }
 
@@ -4190,32 +4192,51 @@
           options: {
             responsive:true, maintainAspectRatio:false,
             plugins: {
-              legend: { display:true, labels:{ color:'#EDE8DF', font:{family:'DM Mono',size:10}, boxWidth:10, padding:10 } },
+              legend: { position:'bottom', labels:{ color:'#8A8480', font:{family:'DM Mono',size:9}, boxWidth:8, padding:8 } },
               tooltip: { backgroundColor:'rgba(10,15,28,0.95)', borderColor:'rgba(200,169,110,0.2)', borderWidth:1,
                 titleColor:'#EDE8DF', bodyColor:'#8A8480', padding:10, cornerRadius:8 }
             },
             scales: {
-              x: { stacked:true, ticks:{color:'#8A8480',font:{family:'DM Mono',size:11}}, grid:{display:false} },
-              y: { stacked:true, ticks:{color:'#8A8480',font:{family:'DM Mono',size:11}}, grid:{color:'rgba(255,255,255,0.04)'}, beginAtZero:true }
+              x: { stacked:true, ticks:{color:'#8A8480',font:{family:'DM Mono',size:10}}, grid:{display:false} },
+              y: { stacked:true, ticks:{color:'#8A8480',font:{family:'DM Mono',size:10},maxTicksLimit:5}, grid:{color:'rgba(255,255,255,0.04)'}, beginAtZero:true }
             }
           }
         });
       }, 60);
 
-      // Table
+      // Table with ranks and inline bars
+      const maxTotal = cityTotals[0] ? cityTotals[0].total : 1;
+      const tableWrap = make('div', '');
+      tableWrap.style.overflowX = 'auto';
       const table = document.createElement('table');
       table.className = 'cis-cities-table';
       const thead = document.createElement('thead');
       const headRow = document.createElement('tr');
-      ['Город', ...monthLabels, 'Итого'].forEach(h => {
-        const th = document.createElement('th'); th.textContent = h; headRow.appendChild(th);
+      ['#', 'Город', ...monthLabels, 'Итого', ''].forEach((h, i) => {
+        const th = document.createElement('th');
+        th.textContent = h;
+        if (i === 0) { th.style.textAlign = 'center'; th.style.width = '28px'; }
+        if (i === headRow.children.length) th.style.width = '80px';
+        headRow.appendChild(th);
       });
       thead.appendChild(headRow); table.appendChild(thead);
 
       const tbody = document.createElement('tbody');
-      cityTotals.slice(0, 15).forEach(c => {
+      cityTotals.slice(0, 10).forEach((c, idx) => {
         const tr = document.createElement('tr');
+        // Rank
+        const tdR = document.createElement('td');
+        tdR.style.textAlign = 'center';
+        tdR.style.width = '28px';
+        tdR.style.color = idx < 3 ? 'var(--gold)' : 'var(--muted-2)';
+        tdR.style.fontWeight = idx < 3 ? '700' : '400';
+        tdR.style.fontFamily = "'DM Mono', monospace";
+        tdR.style.fontSize = '0.68rem';
+        tdR.textContent = String(idx + 1);
+        tr.appendChild(tdR);
+        // City name
         const tdN = document.createElement('td'); tdN.textContent = c.name; tr.appendChild(tdN);
+        // Month values
         months.forEach(m => {
           const td = document.createElement('td');
           const v = c.byMonth[m]||0;
@@ -4223,10 +4244,26 @@
           if (!v) td.style.color = 'var(--muted)';
           tr.appendChild(td);
         });
+        // Total
         const tdT = document.createElement('td'); tdT.className = 'cis-ct-total'; tdT.textContent = c.total;
-        tr.appendChild(tdT); tbody.appendChild(tr);
+        tr.appendChild(tdT);
+        // Mini inline bar
+        const tdBar = document.createElement('td');
+        tdBar.style.width = '80px';
+        tdBar.style.padding = '6px 4px';
+        const bar = make('div', '');
+        bar.style.cssText = 'height:6px;border-radius:3px;background:rgba(91,184,245,0.15);overflow:hidden;';
+        const fill = make('div', '');
+        const pct = maxTotal > 0 ? (c.total / maxTotal * 100) : 0;
+        fill.style.cssText = 'height:100%;border-radius:3px;background:var(--sky);width:' + pct.toFixed(1) + '%;';
+        bar.appendChild(fill);
+        tdBar.appendChild(bar);
+        tr.appendChild(tdBar);
+        tbody.appendChild(tr);
       });
-      table.appendChild(tbody); card.appendChild(table);
+      table.appendChild(tbody);
+      tableWrap.appendChild(table);
+      card.appendChild(tableWrap);
       container.appendChild(card);
     }
 
