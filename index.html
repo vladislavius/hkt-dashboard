@@ -2000,17 +2000,28 @@
         bar.style.width = Math.round(flights / max * 100) + '%';
         const numCls  = i === 0 ? 'rank-num rn-1' : i === 1 ? 'rank-num rn-2' : i === 2 ? 'rank-num rn-3' : 'rank-num rn-n';
         const pax     = x.pax ?? 0;
+        // Use parent country for Russian cities, otherwise use name
+        const flagKey = x.country || x.name;
+        // Russia row: augment pax with transit estimate
+        const isRussiaRow = (x.country === 'Russia' || x.name === 'Russia');
+        let displayPax = pax;
+        let transitBadge = null;
+        if (isRussiaRow && russiaTransit && russiaTransit.pax > 0) {
+          displayPax = pax + russiaTransit.pax;
+          transitBadge = make('span', 'transit-badge');
+          transitBadge.title = `Прямые: ~${pax.toLocaleString('ru')} · Транзит: ~${russiaTransit.pax.toLocaleString('ru')} (TAT ~${(russiaTransit.tat_pax||0).toLocaleString('ru')} + BKK ~${(russiaTransit.bkk_pax||0).toLocaleString('ru')})`;
+          transitBadge.textContent = '~ оценка';
+        }
         const countEl = make('div', 'rank-count');
         ap(countEl,
           txt(make('span', 'rc-flights'), String(flights) + ' ✈'),
-          txt(make('span', 'rc-pax'), '~' + pax.toLocaleString('ru') + ' чел.')
+          txt(make('span', 'rc-pax'), (isRussiaRow && displayPax !== pax ? '~' : '') + displayPax.toLocaleString('ru') + ' чел.')
         );
-        // Use parent country for Russian cities, otherwise use name
-        const flagKey = x.country || x.name;
         // Expandable flight details
         const matchedFlights = getFlightsForRow(x, flightsList, direction || 'arr');
         const nameEl = make('span', 'rank-name');
         nameEl.textContent = x.name;
+        if (transitBadge) nameEl.appendChild(transitBadge);
         if (matchedFlights.length > 0) {
           li.classList.add('rank-item-expandable');
           const chevron = make('span', 'rank-chevron');
@@ -2045,26 +2056,21 @@
         }
       });
 
-      // Inject Russia transit estimated row
-      if (russiaTransit) {
+      // Inject Russia transit breakdown row
+      if (russiaTransit && russiaTransit.pax > 0) {
+        const tatPax = russiaTransit.tat_pax || 0;
+        const bkkPax = russiaTransit.bkk_pax || 0;
         const li = make('li', 'rank-item rank-item-estimated');
-        li.title = 'Оценка TAT: Пхукет ~38% турпотока РФ · транзит через TR, CN, IN';
+        li.title = `Транзит: TAT-модель (K=0.38) ~${tatPax.toLocaleString('ru')} + BKK→HKT ~${bkkPax.toLocaleString('ru')}`;
         const nameEl = make('span', 'rank-name');
-        nameEl.textContent = 'Россия (транзит)';
-        const badge = make('span', 'transit-badge');
-        badge.textContent = '~ оценка';
-        nameEl.appendChild(badge);
+        nameEl.textContent = '↳ транзит (TAT+BKK)';
         const countEl = make('div', 'rank-count');
-        if (russiaTransit.pax > 0) {
-          ap(countEl,
-            txt(make('span', 'rc-flights'), '~' + String(russiaTransit.flights) + ' ✈'),
-            txt(make('span', 'rc-pax'), '~' + russiaTransit.pax.toLocaleString('ru') + ' чел.')
-          );
-        } else {
-          ap(countEl, txt(make('span', 'rc-pax'), 'прямые ≥ TAT'));
-        }
+        ap(countEl,
+          txt(make('span', 'rc-flights'), '~' + String(russiaTransit.flights) + ' ✈'),
+          txt(make('span', 'rc-pax'), '~' + russiaTransit.pax.toLocaleString('ru') + ' чел.')
+        );
         ap(li,
-          txt(make('div', 'rank-num rn-n'), '🇷🇺'),
+          make('div', 'rank-num rn-n'),
           txt(make('span', 'rank-flag'), ''),
           nameEl,
           countEl

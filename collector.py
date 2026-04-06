@@ -190,6 +190,25 @@ HKT_RUSSIAN_SHARE = 0.38   # Пхукет получает ~38% россиян, 
 TRANSIT_HUBS = ['Turkey', 'China', 'India']  # хабы с транзитным российским трафиком
                                               # UAE и Qatar исключены: россияне этот маршрут не используют (2026)
 
+# BKK→HKT транзитная модель: ~230 000 РФ в год через Бангкок на Пхукет
+# Источник: 1.44M РФ в Таиланде (2025) − 1.21M прямых на HKT = ~230K транзит
+BKK_ANNUAL_RUSSIANS = 230_000
+BKK_SEASONAL = {
+    1: 1.40,  # Январь: пик после НГ
+    2: 1.25,  # Февраль
+    3: 1.00,  # Март: базовый уровень
+    4: 0.80,  # Апрель: спад
+    5: 0.55,  # Май: низкий сезон
+    6: 0.45,  # Июнь: минимум
+    7: 0.60,  # Июль: летние каникулы
+    8: 0.70,  # Август
+    9: 0.40,  # Сентябрь: абсолютный минимум
+    10: 0.85, # Октябрь: восстановление
+    11: 1.20, # Ноябрь: старт высокого сезона
+    12: 1.60, # Декабрь: главный пик
+}
+_BKK_NORM = 12 / sum(BKK_SEASONAL.values())  # ≈ 1.1111 — нормализация: sum(coefs)≈10.8
+
 
 def load_tat_stats():
     """Загружает data/tat_stats.json. Возвращает {} при ошибке."""
@@ -222,17 +241,33 @@ def tat_monthly_avg(tat_monthly, ref_date, lookback=3):
     return sum(counts) / len(counts)
 
 
+def calc_bkk_transit(period_days, ref_date):
+    """
+    Оценивает РФ туристов через BKK→HKT транзит (не через прямые рейсы).
+    Модель: 230,000/год с сезонными коэффициентами.
+
+    Возвращает: {"pax": int, "flights": int, "estimated": True}
+    """
+    month = ref_date.month
+    # monthly_pax = BASE * seasonal * norm → нормализация сохраняет annual_total
+    monthly_pax = (BKK_ANNUAL_RUSSIANS / 12) * BKK_SEASONAL[month] * _BKK_NORM
+    daily_pax = monthly_pax / 30.44
+    pax = int(round(daily_pax * period_days))
+    flights = max(1, round(pax / (180 * LOAD_FACTOR)))
+    return {"pax": pax, "flights": flights, "estimated": True}
+
+
 def calc_russian_transit(period_days, countries_arrivals, tat_monthly, ref_date):
     """
-    Оценивает количество российских пассажиров, прибывших через транзитные хабы.
+    Оценивает общий транзитный поток россиян на Пхукет:
+      - TAT-based: через TR/CN/IN хабы (TAT_avg * HKT_share − direct)
+      - BKK-based: через Bangkok (сезонная модель 230k/год)
 
-    Формула:
-        hkt_russians = tat_avg_monthly * HKT_RUSSIAN_SHARE / 30.44 * period_days
-        transit = max(0, hkt_russians - direct_russia_pax)
-        распределяем transit пропорционально трафику хабов
-
-    Возвращает: {"flights": int, "pax": int, "estimated": True}
+    Возвращает: {"pax": int, "flights": int, "tat_pax": int, "bkk_pax": int, "estimated": True}
     """
+    avg_flight_pax = 180 * LOAD_FACTOR
+
+    # ── TAT transit ───────────────────────────────────────────────────────────
     monthly_avg = tat_monthly_avg(tat_monthly, ref_date)
     daily_hkt = (monthly_avg * HKT_RUSSIAN_SHARE) / 30.44
     period_hkt_russians = daily_hkt * period_days
@@ -242,30 +277,23 @@ def calc_russian_transit(period_days, countries_arrivals, tat_monthly, ref_date)
         for c, v in countries_arrivals.items()
         if v.get("country") == "Russia" or c == "Russia"
     )
+    tat_pax = int(max(0.0, period_hkt_russians - direct_pax))
 
-    transit_total = max(0.0, period_hkt_russians - direct_pax)
-    if transit_total < 1:
-        return {"flights": 0, "pax": 0, "estimated": True}
+    # ── BKK transit ───────────────────────────────────────────────────────────
+    bkk = calc_bkk_transit(period_days, ref_date)
+    bkk_pax = bkk["pax"]
 
-    hub_pax = {
-        hub: sum(
-            v.get("pax", 0)
-            for c, v in countries_arrivals.items()
-            if v.get("country", c) == hub or c == hub
-        )
-        for hub in TRANSIT_HUBS
+    # ── Combined ──────────────────────────────────────────────────────────────
+    total_pax = tat_pax + bkk_pax
+    total_flights = max(1, round(total_pax / avg_flight_pax))
+
+    return {
+        "pax": total_pax,
+        "flights": total_flights,
+        "tat_pax": tat_pax,
+        "bkk_pax": bkk_pax,
+        "estimated": True,
     }
-    total_hub_pax = sum(hub_pax.values())
-
-    transit_pax = int(transit_total)
-    avg_flight_pax = 180 * LOAD_FACTOR
-
-    if total_hub_pax == 0:
-        transit_flights = max(1, round(transit_pax / avg_flight_pax))
-        return {"flights": transit_flights, "pax": transit_pax, "estimated": True}
-
-    transit_flights = max(1, round(transit_pax / avg_flight_pax))
-    return {"flights": transit_flights, "pax": transit_pax, "estimated": True}
 
 ICT = pytz.timezone('Asia/Bangkok')
 
