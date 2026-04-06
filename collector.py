@@ -533,12 +533,12 @@ _TURNSTILE_PAGE_URL = "https://phuket.airportthai.co.th/flight?type=a"
 
 
 def _solve_via_playwright():
-    """Get Turnstile token via real browser — works on residential IP (local Mac)."""
+    """Get Turnstile token via real browser — headless=False for GPU/WebGL (required by CF)."""
     import time
     from playwright.sync_api import sync_playwright
     with sync_playwright() as p:
         browser = p.chromium.launch(
-            headless=True,
+            headless=False,  # GPU/WebGL needed for Cloudflare Turnstile fingerprinting
             args=["--no-sandbox", "--disable-blink-features=AutomationControlled"],
         )
         ctx = browser.new_context(
