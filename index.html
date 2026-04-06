@@ -571,6 +571,121 @@
       border-radius: 50%;
     }
 
+    /* ── Range picker: date fields ── */
+    .cal-inner {
+      flex-direction: column;
+      gap: 0;
+      padding: 16px 20px 16px;
+      width: auto;
+      min-width: 0;
+    }
+    .cal-date-fields {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .cal-date-field {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: rgba(255,255,255,0.03);
+      overflow: hidden;
+    }
+    .cal-field-val {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.82rem;
+      color: var(--ivory);
+      padding: 7px 14px;
+      min-width: 108px;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+    .cal-field-nav {
+      background: none;
+      border: none;
+      border-left: 1px solid var(--border);
+      color: var(--muted-2);
+      font-size: 0.9rem;
+      width: 28px; height: 34px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.14s, color 0.14s;
+      padding: 0;
+    }
+    .cal-field-nav:first-child { border-left: none; border-right: 1px solid var(--border); }
+    .cal-field-nav:hover { background: rgba(255,255,255,0.07); color: var(--ivory); }
+    .cal-fields-arrow { color: var(--muted-2); font-size: 0.85rem; opacity: 0.6; }
+    .cal-date-field.cal-field-active { border-color: var(--sky); }
+    .cal-date-field.cal-field-active .cal-field-val { color: var(--sky); }
+
+    /* ── Range picker: main row ── */
+    .cal-main-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+    }
+    .cal-panel-gap {
+      width: 20px;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .cal-panel-gap::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--border) 30%, var(--border) 70%, transparent);
+    }
+
+    /* ── Range picker: footer ── */
+    .cal-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      gap: 12px;
+    }
+    .cal-footer-summary {
+      font-size: 0.78rem;
+      color: var(--muted-2);
+      font-family: 'Outfit', sans-serif;
+    }
+    .cal-footer-summary strong { color: var(--ivory); font-weight: 600; }
+    .cal-footer-summary .cal-summary-days { color: var(--sky); margin-left: 6px; }
+    .cal-footer-btns { display: flex; gap: 8px; flex-shrink: 0; }
+    .cal-cancel-btn, .cal-apply-btn {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 7px 18px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .cal-cancel-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted-2);
+    }
+    .cal-cancel-btn:hover { border-color: rgba(255,255,255,0.25); color: var(--ivory); background: rgba(255,255,255,0.04); }
+    .cal-apply-btn {
+      background: var(--sky);
+      border: 1px solid var(--sky);
+      color: #05100A;
+    }
+    .cal-apply-btn:hover { background: #7dcfff; border-color: #7dcfff; }
+    .cal-apply-btn:disabled { opacity: 0.4; cursor: default; }
+
+    /* Selecting state cursor on grids */
+    .cal-selecting .cal-day.has-data { cursor: crosshair; }
+    .cal-day.hover-range { background: rgba(91,184,245,0.08); border-radius: 0; color: var(--sky); }
+
     /* ── Metrics strip ── */
     [hidden] { display: none !important; }
     .metrics-strip {
@@ -1177,22 +1292,21 @@
         border-right: none;
         border-bottom: 1px solid var(--border);
       }
-      .cal-inner {
-        width: 100%;
-        padding: 14px 14px 16px;
-        flex-direction: row;
-        gap: 12px;
-        align-items: flex-start;
-      }
-      /* Calendar + presets side by side inside cal-inner */
+      .cal-inner { width: 100%; padding: 12px 12px 14px; overflow-x: auto; }
+      /* Mobile: stack two panels vertically */
+      .cal-main-row { flex-wrap: wrap; gap: 0; }
       .cal-panel { flex-shrink: 0; }
+      .cal-panel-gap { display: none; }
       .cal-divider-v { display: none; }
+      #cal-panel-right { margin-top: 10px; }
       .cal-presets-col {
         flex: 1;
-        min-width: 0;
+        min-width: 130px;
         width: auto;
         flex-direction: column;
         gap: 4px;
+        margin-top: 0;
+        margin-left: 8px;
       }
       .cal-preset-group {
         flex-direction: column;
@@ -1205,6 +1319,10 @@
         gap: 7px;
       }
       .cal-radio { width: 13px; height: 13px; }
+      .cal-date-fields { flex-wrap: wrap; gap: 6px; }
+      .cal-field-val { min-width: 90px; font-size: 0.75rem; }
+      .cal-footer { flex-wrap: wrap; gap: 8px; }
+      .cal-footer-summary { font-size: 0.72rem; }
 
       /* CIS button + live badge stay visible */
       .header-row { flex-direction: column; align-items: flex-start; }
@@ -1716,34 +1834,76 @@
         </div>
       </div>
       <div class="cal-inner">
-        <div class="cal-panel">
-          <div class="cal-panel-head">
-            <span class="cal-month-label" id="cal-month-label"></span>
-            <div class="cal-nav-group">
-              <button class="cal-nav-btn" id="cal-prev">‹</button>
-              <button class="cal-nav-btn" id="cal-next">›</button>
+        <!-- Top: date range fields -->
+        <div class="cal-date-fields">
+          <div class="cal-date-field">
+            <button class="cal-field-nav" id="cal-field-start-prev">‹</button>
+            <span class="cal-field-val" id="cal-field-start-val">—</span>
+            <button class="cal-field-nav" id="cal-field-start-next">›</button>
+          </div>
+          <span class="cal-fields-arrow">→</span>
+          <div class="cal-date-field">
+            <button class="cal-field-nav" id="cal-field-end-prev">‹</button>
+            <span class="cal-field-val" id="cal-field-end-val">—</span>
+            <button class="cal-field-nav" id="cal-field-end-next">›</button>
+          </div>
+        </div>
+        <!-- Middle: two calendar panels + presets -->
+        <div class="cal-main-row">
+          <div class="cal-panel" id="cal-panel-left">
+            <div class="cal-panel-head">
+              <span class="cal-month-label" id="cal-month-left"></span>
+              <div class="cal-nav-group">
+                <button class="cal-nav-btn" id="cal-prev-left">‹</button>
+                <button class="cal-nav-btn" id="cal-next-left">›</button>
+              </div>
+            </div>
+            <div class="cal-dow-row">
+              <span class="cal-dow">Пн</span><span class="cal-dow">Вт</span>
+              <span class="cal-dow">Ср</span><span class="cal-dow">Чт</span>
+              <span class="cal-dow">Пт</span><span class="cal-dow">Сб</span>
+              <span class="cal-dow">Вс</span>
+            </div>
+            <div class="cal-grid" id="cal-grid-left"></div>
+          </div>
+          <div class="cal-panel-gap"></div>
+          <div class="cal-panel" id="cal-panel-right">
+            <div class="cal-panel-head">
+              <span class="cal-month-label" id="cal-month-right"></span>
+              <div class="cal-nav-group">
+                <button class="cal-nav-btn" id="cal-prev-right">‹</button>
+                <button class="cal-nav-btn" id="cal-next-right">›</button>
+              </div>
+            </div>
+            <div class="cal-dow-row">
+              <span class="cal-dow">Пн</span><span class="cal-dow">Вт</span>
+              <span class="cal-dow">Ср</span><span class="cal-dow">Чт</span>
+              <span class="cal-dow">Пт</span><span class="cal-dow">Сб</span>
+              <span class="cal-dow">Вс</span>
+            </div>
+            <div class="cal-grid" id="cal-grid-right"></div>
+          </div>
+          <div class="cal-divider-v"></div>
+          <div class="cal-presets-col">
+            <div class="cal-preset-group">
+              <div class="cal-preset-item" data-k="today"><span class="cal-radio"></span>Сегодня</div>
+              <div class="cal-preset-item" data-k="week"><span class="cal-radio"></span>Текущая неделя</div>
+              <div class="cal-preset-item" data-k="month"><span class="cal-radio"></span>Текущий месяц</div>
+              <div class="cal-preset-item" data-k="year"><span class="cal-radio"></span>Текущий год</div>
+            </div>
+            <div class="cal-preset-group">
+              <div class="cal-preset-item" data-k="yesterday"><span class="cal-radio"></span>Вчера</div>
+              <div class="cal-preset-item" data-k="quarter"><span class="cal-radio"></span>3 месяца</div>
+              <div class="cal-preset-item" data-k="halfyear"><span class="cal-radio"></span>6 месяцев</div>
             </div>
           </div>
-          <div class="cal-dow-row">
-            <span class="cal-dow">Пн</span><span class="cal-dow">Вт</span>
-            <span class="cal-dow">Ср</span><span class="cal-dow">Чт</span>
-            <span class="cal-dow">Пт</span><span class="cal-dow">Сб</span>
-            <span class="cal-dow">Вс</span>
-          </div>
-          <div class="cal-grid" id="cal-grid"></div>
         </div>
-        <div class="cal-divider-v"></div>
-        <div class="cal-presets-col">
-          <div class="cal-preset-group">
-            <div class="cal-preset-item" data-k="today"><span class="cal-radio"></span>Сегодня</div>
-            <div class="cal-preset-item" data-k="week"><span class="cal-radio"></span>Текущая неделя</div>
-            <div class="cal-preset-item" data-k="month"><span class="cal-radio"></span>Текущий месяц</div>
-            <div class="cal-preset-item" data-k="year"><span class="cal-radio"></span>Текущий год</div>
-          </div>
-          <div class="cal-preset-group">
-            <div class="cal-preset-item" data-k="yesterday"><span class="cal-radio"></span>Вчера</div>
-            <div class="cal-preset-item" data-k="quarter"><span class="cal-radio"></span>3 месяца</div>
-            <div class="cal-preset-item" data-k="halfyear"><span class="cal-radio"></span>6 месяцев</div>
+        <!-- Bottom: summary + buttons -->
+        <div class="cal-footer">
+          <span class="cal-footer-summary" id="cal-footer-summary"></span>
+          <div class="cal-footer-btns">
+            <button class="cal-cancel-btn" id="cal-cancel-btn">Отмена</button>
+            <button class="cal-apply-btn" id="cal-apply-btn">Применить</button>
           </div>
         </div>
       </div>
@@ -2039,8 +2199,17 @@
     const RU_MONTHS_FULL = ['Январь','Февраль','Март','Апрель','Май','Июнь',
                             'Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
 
-    let calViewDate = new Date();
-    let activeKey   = null;
+    // ── Range picker state ──────────────────────────────────────────────────
+    let calViewLeft  = new Date();
+    let calViewRight = null;           // null = calViewLeft + 1 month
+    let activeKey    = null;
+    let activeStart  = null;           // Date – currently applied range start
+    let activeEnd    = null;           // Date – currently applied range end
+    let pendingStart = null;           // Date – selection in progress
+    let pendingEnd   = null;
+    let pendingKey   = null;           // preset key if preset chosen, else null
+    let selectingStep = 0;             // 0=idle, 1=awaiting second click
+    let hoverDate    = null;           // Date – mouse hover for live preview
 
     // Returns {start, end} Date range for a given data key
     function getRangeForKey(key) {
@@ -2064,36 +2233,11 @@
       }
     }
 
-    function buildCalendarGrid() {
-      const grid = document.getElementById('cal-grid');
-      if (!grid) return;
-      while (grid.firstChild) grid.removeChild(grid.firstChild);
+    function buildCalendarGrid() { buildCalendarGrids(); }
 
-      const today = new Date(); today.setHours(0,0,0,0);
-      const yesterday = new Date(today); yesterday.setDate(today.getDate()-1);
-
-      const y = calViewDate.getFullYear();
-      const m = calViewDate.getMonth();
-      document.getElementById('cal-month-label').textContent = RU_MONTHS_FULL[m] + ' ' + y + ' Г.';
-
-      const range = activeKey ? getRangeForKey(activeKey) : null;
-      const rangeStart = range ? range.start.getTime() : null;
-      const rangeEnd   = range ? range.end.getTime()   : null;
-      const isSingle   = rangeStart !== null && rangeStart === rangeEnd;
-
-      // Monday-first offset
-      const first = new Date(y, m, 1);
-      let startDow = first.getDay();
-      startDow = startDow === 0 ? 6 : startDow - 1;
-
-      // Prev month fill
-      const prevDays = new Date(y, m, 0).getDate();
-      for (let i = startDow - 1; i >= 0; i--) {
-        const cell = document.createElement('div');
-        cell.className = 'cal-day other-month';
-        cell.textContent = String(prevDays - i);
-        grid.appendChild(cell);
-      }
+    function buildCalendarGrid_OLD_UNUSED() {
+      // Removed — use buildCalendarGrids() instead
+      return;
 
       const daysInMonth = new Date(y, m+1, 0).getDate();
       for (let d = 1; d <= daysInMonth; d++) {
@@ -2149,8 +2293,313 @@
       month:'Текущий месяц', quarter:'3 месяца', halfyear:'6 месяцев', year:'Текущий год'
     };
 
+    // ── Range-picker helpers ────────────────────────────────────────────────
     function formatDate(d) {
       return d.getDate() + ' ' + RU_MONTHS[d.getMonth()];
+    }
+
+    function formatDateFull(d) {
+      const GEN = ['января','февраля','марта','апреля','мая','июня',
+                   'июля','августа','сентября','октября','ноября','декабря'];
+      return d.getDate() + ' ' + GEN[d.getMonth()] + ' ' + d.getFullYear() + ' г.';
+    }
+    function fmtFieldDate(d) {
+      if (!d) return '—';
+      return String(d.getDate()).padStart(2,'0') + '.' +
+             String(d.getMonth()+1).padStart(2,'0') + '.' + d.getFullYear();
+    }
+    function pluralDays(n) {
+      const m = n % 10, m100 = n % 100;
+      if (m === 1 && m100 !== 11) return 'день';
+      if (m >= 2 && m <= 4 && (m100 < 10 || m100 >= 20)) return 'дня';
+      return 'дней';
+    }
+    function fmtCountries(countries) {
+      return Object.entries(countries || {})
+        .map(([name, v]) => ({ name, flights: v.flights||0, pax: v.pax||0, country: v.country||name }))
+        .sort((a, b) => (b.pax||0) - (a.pax||0));
+    }
+
+    function getRightView() {
+      if (calViewRight) return calViewRight;
+      return new Date(calViewLeft.getFullYear(), calViewLeft.getMonth() + 1, 1);
+    }
+
+    function buildOneGrid(gridEl, labelEl, viewDate, rangeStartMs, rangeEndMs, previewEndMs) {
+      while (gridEl.firstChild) gridEl.removeChild(gridEl.firstChild);
+      const today = new Date(); today.setHours(0,0,0,0);
+      const yesterday = new Date(today); yesterday.setDate(today.getDate()-1);
+      const y = viewDate.getFullYear();
+      const m = viewDate.getMonth();
+      if (labelEl) labelEl.textContent = RU_MONTHS_FULL[m] + ' ' + y + ' г.';
+      const isSingle = rangeStartMs !== null && rangeStartMs === rangeEndMs;
+
+      const first = new Date(y, m, 1);
+      let startDow = first.getDay();
+      startDow = startDow === 0 ? 6 : startDow - 1;
+      const prevDays = new Date(y, m, 0).getDate();
+      for (let i = startDow - 1; i >= 0; i--) {
+        const cell = document.createElement('div');
+        cell.className = 'cal-day other-month';
+        cell.textContent = String(prevDays - i);
+        gridEl.appendChild(cell);
+      }
+
+      const daysInMonth = new Date(y, m+1, 0).getDate();
+      const availDates  = (data && data.available_dates) ? data.available_dates : [];
+      for (let d = 1; d <= daysInMonth; d++) {
+        const date = new Date(y, m, d);
+        const ms   = date.getTime();
+        const isToday     = ms === today.getTime();
+        const isYesterday = ms === yesterday.getTime();
+        const dateStr     = date.getFullYear() + '-' +
+                            String(date.getMonth()+1).padStart(2,'0') + '-' +
+                            String(d).padStart(2,'0');
+        const hasData     = isToday || isYesterday || availDates.includes(dateStr);
+        const key         = isToday ? 'today' : isYesterday ? 'yesterday' : (hasData ? dateStr : null);
+
+        const cell = document.createElement('div');
+        let cls = 'cal-day';
+        if (hasData)     cls += ' has-data';
+        if (isToday)     cls += ' is-today';
+        if (isYesterday) cls += ' is-yesterday';
+
+        if (rangeStartMs !== null && rangeEndMs !== null) {
+          if (isSingle && ms === rangeStartMs) {
+            cls += ' range-single';
+          } else if (!isSingle) {
+            if (ms === rangeStartMs)                           cls += ' range-start';
+            else if (ms === rangeEndMs)                        cls += ' range-end';
+            else if (ms > rangeStartMs && ms < rangeEndMs)     cls += ' in-range';
+          }
+        } else if (rangeStartMs !== null && rangeEndMs === null && previewEndMs !== null) {
+          const lo = Math.min(rangeStartMs, previewEndMs);
+          const hi = Math.max(rangeStartMs, previewEndMs);
+          if (ms === lo)               cls += ' range-start';
+          else if (ms === hi)          cls += ' range-end';
+          else if (ms > lo && ms < hi) cls += ' in-range';
+        }
+
+        cell.className = cls;
+        cell.textContent = String(d);
+        if (key) {
+          cell.dataset.k  = key;
+          cell.dataset.ms = ms;
+          cell.title = isToday ? 'Сегодня' : isYesterday ? 'Вчера' : dateStr;
+        }
+        gridEl.appendChild(cell);
+      }
+
+      const totalCells = startDow + daysInMonth;
+      const rem = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
+      for (let i = 1; i <= rem; i++) {
+        const cell = document.createElement('div');
+        cell.className = 'cal-day other-month';
+        cell.textContent = String(i);
+        gridEl.appendChild(cell);
+      }
+    }
+
+    function buildCalendarGrids() {
+      const rStartMs = pendingStart ? pendingStart.getTime() : null;
+      const rEndMs   = pendingEnd   ? pendingEnd.getTime()   : null;
+      const prevMs   = (selectingStep === 1 && hoverDate) ? hoverDate.getTime() : null;
+      const gL = document.getElementById('cal-grid-left');
+      const gR = document.getElementById('cal-grid-right');
+      if (gL) gL.classList.toggle('cal-selecting', selectingStep === 1);
+      if (gR) gR.classList.toggle('cal-selecting', selectingStep === 1);
+      buildOneGrid(gL, document.getElementById('cal-month-left'),  calViewLeft,   rStartMs, rEndMs, prevMs);
+      buildOneGrid(gR, document.getElementById('cal-month-right'), getRightView(), rStartMs, rEndMs, prevMs);
+      updateFieldLabels();
+      updateFooterSummary();
+    }
+
+    function updateFieldLabels() {
+      const sv = document.getElementById('cal-field-start-val');
+      const ev = document.getElementById('cal-field-end-val');
+      if (sv) sv.textContent = fmtFieldDate(pendingStart);
+      if (ev) ev.textContent = fmtFieldDate(pendingEnd);
+      const fields = document.querySelectorAll('.cal-date-field');
+      if (fields[0]) fields[0].classList.toggle('cal-field-active', pendingStart !== null && selectingStep === 0);
+      if (fields[1]) fields[1].classList.toggle('cal-field-active', selectingStep === 1);
+    }
+
+    function updateFooterSummary() {
+      const el  = document.getElementById('cal-footer-summary');
+      const btn = document.getElementById('cal-apply-btn');
+      if (!el) return;
+      while (el.firstChild) el.removeChild(el.firstChild);
+      if (!pendingStart) { if (btn) btn.disabled = true; return; }
+      if (!pendingEnd) {
+        if (btn) btn.disabled = true;
+        const strong = document.createElement('strong');
+        strong.textContent = formatDateFull(pendingStart);
+        el.appendChild(strong);
+        el.appendChild(document.createTextNode('\u00a0— выберите конечную дату'));
+        return;
+      }
+      if (btn) btn.disabled = false;
+      const days = Math.round(Math.abs(pendingEnd - pendingStart) / 86400000) + 1;
+      const strong = document.createElement('strong');
+      strong.textContent = formatDateFull(pendingStart) + ' – ' + formatDateFull(pendingEnd);
+      const daysSpan = document.createElement('span');
+      daysSpan.className = 'cal-summary-days';
+      daysSpan.textContent = '\u00a0' + days + ' ' + pluralDays(days);
+      el.appendChild(strong);
+      el.appendChild(daysSpan);
+    }
+
+    function setPending(key) {
+      pendingKey    = key;
+      selectingStep = 0;
+      hoverDate     = null;
+      const r = getRangeForKey(key);
+      if (!r) return;
+      pendingStart = r.start;
+      pendingEnd   = r.end;
+      const sameMonth = r.start.getFullYear() === r.end.getFullYear() && r.start.getMonth() === r.end.getMonth();
+      calViewLeft  = new Date(r.start.getFullYear(), r.start.getMonth(), 1);
+      calViewRight = sameMonth ? null : new Date(r.end.getFullYear(), r.end.getMonth(), 1);
+      document.querySelectorAll('.cal-preset-item').forEach(el =>
+        el.classList.toggle('active', el.dataset.k === key));
+      buildCalendarGrids();
+    }
+
+    async function doApply() {
+      if (!pendingStart || !pendingEnd) return;
+      activeStart   = pendingStart;
+      activeEnd     = pendingEnd;
+      selectingStep = 0;
+      buildCalendarGrids();
+
+      if (pendingKey) {
+        activeKey = pendingKey;
+        doSelect(pendingKey);
+        return;
+      }
+
+      // Custom range
+      activeKey = null;
+      document.querySelectorAll('.cal-preset-item').forEach(el => el.classList.remove('active'));
+      const toStr = d => d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+      const startStr = toStr(activeStart);
+      const endStr   = toStr(activeEnd);
+      if (startStr === endStr) { doSelect(startStr); return; }
+      const customKey = 'custom_' + startStr + '_' + endStr;
+      activeKey = customKey;
+      updateCoverCustom(activeStart, activeEnd);
+      const period = await loadAndMergeRange(activeStart, activeEnd);
+      if (!data) data = {};
+      data[customKey] = period;
+      render(customKey);
+      const cisPanel = document.getElementById('cis-panel');
+      if (cisPanel && !cisPanel.hidden) renderCIS(customKey);
+      if (data) renderDrawerLeft(period);
+    }
+
+    function doCancel() {
+      pendingKey    = null;
+      hoverDate     = null;
+      selectingStep = 0;
+      if (activeStart) {
+        pendingStart = activeStart;
+        pendingEnd   = activeEnd;
+        const sameMonth = activeEnd && activeEnd.getFullYear() === activeStart.getFullYear() && activeEnd.getMonth() === activeStart.getMonth();
+        calViewLeft  = new Date(activeStart.getFullYear(), activeStart.getMonth(), 1);
+        calViewRight = sameMonth ? null : (activeEnd ? new Date(activeEnd.getFullYear(), activeEnd.getMonth(), 1) : null);
+      } else {
+        pendingStart = null;
+        pendingEnd   = null;
+      }
+      document.querySelectorAll('.cal-preset-item').forEach(el =>
+        el.classList.toggle('active', !!(activeKey && el.dataset.k === activeKey)));
+      buildCalendarGrids();
+    }
+
+    function updateCoverCustom(start, end) {
+      const sub   = document.getElementById('cal-cover-sub');
+      const range = document.getElementById('cal-cover-range');
+      if (!sub || !range) return;
+      const days = Math.round(Math.abs(end - start) / 86400000) + 1;
+      sub.textContent  = days + ' ' + pluralDays(days);
+      range.textContent = formatDate(start) + ' — ' + formatDate(end);
+    }
+
+    async function loadAndMergeRange(start, end) {
+      const dates = [];
+      const cur = new Date(start); cur.setHours(0,0,0,0);
+      const endD = new Date(end);  endD.setHours(0,0,0,0);
+      while (cur <= endD) {
+        dates.push(cur.getFullYear() + '-' +
+          String(cur.getMonth()+1).padStart(2,'0') + '-' +
+          String(cur.getDate()).padStart(2,'0'));
+        cur.setDate(cur.getDate() + 1);
+      }
+      const results = await Promise.all(dates.map(dk =>
+        (data && data[dk])
+          ? Promise.resolve({ _cached: true, _key: dk })
+          : fetch('./data/accumulated_' + dk + '.json')
+              .then(r => r.ok ? r.json().then(j => Object.assign(j, { _key: dk })) : null)
+              .catch(() => null)
+      ));
+      const merged = {
+        arrivals:   { count: 0, pax: 0, countries: {} },
+        departures: { count: 0, pax: 0, countries: {} },
+        arrivals_list:   [],
+        departures_list: [],
+      };
+      function mergeCountries(dest, src) {
+        for (const [name, v] of Object.entries(src || {})) {
+          const k = v.country || name;
+          if (!dest[k]) dest[k] = { flights: 0, pax: 0 };
+          dest[k].flights += v.flights || 0;
+          dest[k].pax     += v.pax     || 0;
+        }
+      }
+      function mergeFromArray(dest, arr) {
+        for (const item of (arr || [])) {
+          const k = item.country || item.name;
+          if (!dest[k]) dest[k] = { flights: 0, pax: 0 };
+          dest[k].flights += item.flights || 0;
+          dest[k].pax     += item.pax     || 0;
+        }
+      }
+      for (const acc of results) {
+        if (!acc) continue;
+        if (acc._cached) {
+          const p = data[acc._key];
+          if (!p) continue;
+          merged.arrivals.count   += p.arrivals.count   || 0;
+          merged.arrivals.pax     += p.arrivals.pax     || 0;
+          merged.departures.count += p.departures.count || 0;
+          merged.departures.pax   += p.departures.pax   || 0;
+          mergeFromArray(merged.arrivals.countries,   p.arrivals.all   || []);
+          mergeFromArray(merged.departures.countries, p.departures.all || []);
+          merged.arrivals_list   = merged.arrivals_list.concat(p.arrivals_list   || []);
+          merged.departures_list = merged.departures_list.concat(p.departures_list || []);
+        } else {
+          if (!data) data = {};
+          data[acc._key] = {
+            arrivals:   { count: acc.arrivals.count, pax: acc.arrivals.pax, all: fmtCountries(acc.arrivals.countries) },
+            departures: { count: acc.departures.count, pax: acc.departures.pax, all: fmtCountries(acc.departures.countries) },
+            arrivals_list: acc.arrivals_list || [], departures_list: acc.departures_list || [],
+          };
+          merged.arrivals.count   += acc.arrivals.count   || 0;
+          merged.arrivals.pax     += acc.arrivals.pax     || 0;
+          merged.departures.count += acc.departures.count || 0;
+          merged.departures.pax   += acc.departures.pax   || 0;
+          mergeCountries(merged.arrivals.countries,   acc.arrivals.countries);
+          mergeCountries(merged.departures.countries, acc.departures.countries);
+          merged.arrivals_list   = merged.arrivals_list.concat(acc.arrivals_list   || []);
+          merged.departures_list = merged.departures_list.concat(acc.departures_list || []);
+        }
+      }
+      return {
+        arrivals:   { count: merged.arrivals.count,   pax: merged.arrivals.pax,   all: fmtCountries(merged.arrivals.countries) },
+        departures: { count: merged.departures.count, pax: merged.departures.pax, all: fmtCountries(merged.departures.countries) },
+        arrivals_list:   merged.arrivals_list,
+        departures_list: merged.departures_list,
+      };
     }
 
     function updateCover(key) {
@@ -2170,8 +2619,15 @@
       document.querySelectorAll('.cal-preset-item').forEach(el =>
         el.classList.toggle('active', el.dataset.k === key));
       const range = getRangeForKey(key);
-      if (range) calViewDate = new Date(range.end.getFullYear(), range.end.getMonth(), 1);
-      buildCalendarGrid();
+      if (range) {
+        activeStart = range.start;
+        activeEnd   = range.end;
+        const sameMonth = range.start.getFullYear() === range.end.getFullYear() &&
+                          range.start.getMonth()    === range.end.getMonth();
+        calViewLeft  = new Date(range.start.getFullYear(), range.start.getMonth(), 1);
+        calViewRight = sameMonth ? null : new Date(range.end.getFullYear(), range.end.getMonth(), 1);
+      }
+      buildCalendarGrids();
 
       // Historical date key (YYYY-MM-DD) — load accumulated file
       const isDateKey = /^\d{4}-\d{2}-\d{2}$/.test(key);
@@ -2180,10 +2636,6 @@
           .then(r => r.ok ? r.json() : null)
           .then(acc => {
             if (!acc) return;
-            // Build sorted country list from accumulated countries dict
-            const fmtCountries = (countries) => Object.entries(countries || {})
-              .map(([name, v]) => ({ name, flights: v.flights||0, pax: v.pax||0, country: v.country||name }))
-              .sort((a, b) => (b.pax||0) - (a.pax||0));
             const period = {
               arrivals:        { count: acc.arrivals.count, pax: acc.arrivals.pax, all: fmtCountries(acc.arrivals.countries) },
               departures:      { count: acc.departures.count, pax: acc.departures.pax, all: fmtCountries(acc.departures.countries) },
@@ -2349,31 +2801,117 @@
       }
     });
 
-    // Month navigation
-    document.getElementById('cal-prev').addEventListener('click', () => {
-      calViewDate = new Date(calViewDate.getFullYear(), calViewDate.getMonth()-1, 1);
-      buildCalendarGrid();
+    // ── Range picker: panel navigation ─────────────────────────────────────
+    document.getElementById('cal-prev-left').addEventListener('click', () => {
+      calViewLeft = new Date(calViewLeft.getFullYear(), calViewLeft.getMonth()-1, 1);
+      // Keep right panel ≥ left panel
+      const rv = getRightView();
+      if (rv <= calViewLeft) calViewRight = new Date(calViewLeft.getFullYear(), calViewLeft.getMonth()+1, 1);
+      buildCalendarGrids();
     });
-    document.getElementById('cal-next').addEventListener('click', () => {
-      calViewDate = new Date(calViewDate.getFullYear(), calViewDate.getMonth()+1, 1);
-      buildCalendarGrid();
+    document.getElementById('cal-next-left').addEventListener('click', () => {
+      calViewLeft = new Date(calViewLeft.getFullYear(), calViewLeft.getMonth()+1, 1);
+      const rv = getRightView();
+      if (rv <= calViewLeft) calViewRight = new Date(calViewLeft.getFullYear(), calViewLeft.getMonth()+1, 1);
+      buildCalendarGrids();
+    });
+    document.getElementById('cal-prev-right').addEventListener('click', () => {
+      const rv = getRightView();
+      const newRight = new Date(rv.getFullYear(), rv.getMonth()-1, 1);
+      if (newRight <= calViewLeft) return; // prevent crossing
+      calViewRight = newRight;
+      buildCalendarGrids();
+    });
+    document.getElementById('cal-next-right').addEventListener('click', () => {
+      const rv = getRightView();
+      calViewRight = new Date(rv.getFullYear(), rv.getMonth()+1, 1);
+      buildCalendarGrids();
     });
 
-    // Calendar day clicks
-    document.getElementById('cal-grid').addEventListener('click', e => {
+    // Date field navigation (same as panel nav)
+    document.getElementById('cal-field-start-prev').addEventListener('click', () => {
+      calViewLeft = new Date(calViewLeft.getFullYear(), calViewLeft.getMonth()-1, 1);
+      buildCalendarGrids();
+    });
+    document.getElementById('cal-field-start-next').addEventListener('click', () => {
+      calViewLeft = new Date(calViewLeft.getFullYear(), calViewLeft.getMonth()+1, 1);
+      const rv = getRightView();
+      if (rv <= calViewLeft) calViewRight = new Date(calViewLeft.getFullYear(), calViewLeft.getMonth()+1, 1);
+      buildCalendarGrids();
+    });
+    document.getElementById('cal-field-end-prev').addEventListener('click', () => {
+      const rv = getRightView();
+      const newRight = new Date(rv.getFullYear(), rv.getMonth()-1, 1);
+      if (newRight <= calViewLeft) return;
+      calViewRight = newRight;
+      buildCalendarGrids();
+    });
+    document.getElementById('cal-field-end-next').addEventListener('click', () => {
+      const rv = getRightView();
+      calViewRight = new Date(rv.getFullYear(), rv.getMonth()+1, 1);
+      buildCalendarGrids();
+    });
+
+    // ── Range picker: day clicks ────────────────────────────────────────────
+    function handleDayClick(e) {
       const cell = e.target.closest('.cal-day.has-data');
       if (!cell || !cell.dataset.k) return;
-      doSelect(cell.dataset.k);
-    });
+      const ms = cell.dataset.ms ? Number(cell.dataset.ms) : null;
+      const d  = ms ? new Date(ms) : null;
+      if (!d) return;
+      if (selectingStep === 0) {
+        // First click: set start, wait for end
+        pendingStart  = d;
+        pendingEnd    = null;
+        pendingKey    = null;
+        selectingStep = 1;
+        hoverDate     = null;
+        document.querySelectorAll('.cal-preset-item').forEach(el => el.classList.remove('active'));
+        buildCalendarGrids();
+      } else {
+        // Second click: set end (swap if needed)
+        let s = pendingStart;
+        let e2 = d;
+        if (e2 < s) { const tmp = s; s = e2; e2 = tmp; }
+        pendingStart  = s;
+        pendingEnd    = e2;
+        pendingKey    = null;
+        selectingStep = 0;
+        hoverDate     = null;
+        buildCalendarGrids();
+      }
+    }
+    document.getElementById('cal-grid-left').addEventListener('click', handleDayClick);
+    document.getElementById('cal-grid-right').addEventListener('click', handleDayClick);
 
-    // Preset clicks
+    // Hover preview while selecting end date
+    function handleDayHover(e) {
+      if (selectingStep !== 1) return;
+      const cell = e.target.closest('.cal-day');
+      if (!cell || !cell.dataset.ms) { hoverDate = null; buildCalendarGrids(); return; }
+      const ms = Number(cell.dataset.ms);
+      if (!hoverDate || hoverDate.getTime() !== ms) {
+        hoverDate = new Date(ms);
+        buildCalendarGrids();
+      }
+    }
+    document.getElementById('cal-grid-left').addEventListener('mouseover',  handleDayHover);
+    document.getElementById('cal-grid-right').addEventListener('mouseover', handleDayHover);
+    document.getElementById('cal-grid-left').addEventListener('mouseleave',  () => { if (selectingStep === 1) { hoverDate = null; buildCalendarGrids(); } });
+    document.getElementById('cal-grid-right').addEventListener('mouseleave', () => { if (selectingStep === 1) { hoverDate = null; buildCalendarGrids(); } });
+
+    // ── Preset clicks ────────────────────────────────────────────────────────
     document.querySelector('.cal-presets-col').addEventListener('click', e => {
       const item = e.target.closest('.cal-preset-item[data-k]');
       if (!item) return;
-      doSelect(item.dataset.k);
+      setPending(item.dataset.k);
     });
 
-    function selectTab(key) { doSelect(key); }
+    // ── Apply / Cancel ───────────────────────────────────────────────────────
+    document.getElementById('cal-apply-btn').addEventListener('click', () => doApply());
+    document.getElementById('cal-cancel-btn').addEventListener('click', () => doCancel());
+
+    function selectTab(key) { setPending(key); doApply(); }
 
     /* ── Tiny DOM helpers ── */
     function make(tag, cls) {
@@ -2575,6 +3113,10 @@
       if (period === 'halfyear')  return 'за 6 мес.';
       if (period === 'year')      return 'за год';
       if (/^\d{4}-\d{2}-\d{2}$/.test(period)) return period.slice(5).replace('-', '.');
+      if (period && period.startsWith('custom_')) {
+        const m = period.match(/^custom_(\d{4}-\d{2}-\d{2})_(\d{4}-\d{2}-\d{2})$/);
+        if (m) return m[1].slice(5).replace('-','.') + '–' + m[2].slice(5).replace('-','.');
+      }
       return '';
     }
 
@@ -3254,8 +3796,8 @@
         document.getElementById('updated').textContent =
           dt.toLocaleString('ru-RU', { timeZone:'Asia/Bangkok', hour:'2-digit', minute:'2-digit', day:'2-digit', month:'2-digit' }) + ' ICT';
 
-        buildCalendarGrid();
         const period = getDefaultPeriod();
+        setPending(period);
         doSelect(period);
         renderDrawerLeft(data[period] || data['today']);
 
