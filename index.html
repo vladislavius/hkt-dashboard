@@ -1601,7 +1601,7 @@
             updateCover(key);
             render(key);
             const cisPanel = document.getElementById('cis-panel');
-            if (cisPanel && !cisPanel.hidden) renderCIS(key);
+            if (cisPanel && !cisPanel.hidden) renderCIS('week');
             renderDrawerLeft(period);
           }).catch(() => {});
         return;
@@ -1610,7 +1610,7 @@
       updateCover(key);
       render(key);
       const cisPanel = document.getElementById('cis-panel');
-      if (cisPanel && !cisPanel.hidden) renderCIS(key);
+      if (cisPanel && !cisPanel.hidden) renderCIS('week');
       if (data) renderDrawerLeft(data[key] || data['today']);
     }
 
@@ -2293,7 +2293,7 @@
       const grid = make('div', 'main-grid');
 
       /* CIS Donut: split by Russia/KZ/UZ arrivals */
-      const cisChartCard = mkCard('📊', 'СНГ · Распределение по странам', '0.06s');
+      const cisChartCard = mkCard('📊', 'СНГ · Распределение · с 3 апреля', '0.06s');
       const cisWrap   = make('div', 'chart-container');
       const cisCvs    = document.createElement('canvas');
       cisCvs.id = 'cisMainChart'; cisCvs.height = 220;
@@ -2353,7 +2353,7 @@
           }
           return { ...p, arrivals_by: filterByCIS(p.arrivals_by), departures_by: filterByCIS(p.departures_by) };
         });
-        const cisTimeCard = mkCard('📅', timelineLabel(period) + ' · СНГ', '0.24s', 'card-full');
+        const cisTimeCard = mkCard('📅', 'По дням · СНГ (с 3 апр)', '0.24s', 'card-full');
         const cisTimeWrap = make('div', 'timeline-wrap');
         const cisTCvs = document.createElement('canvas');
         cisTCvs.id = 'cisTimelineChart';
@@ -2484,15 +2484,14 @@
           const open = cisToggle.getAttribute('aria-expanded') === 'true';
           cisToggle.setAttribute('aria-expanded', String(!open));
           if (!open) {
-            // Показываем только СНГ
+            // Показываем только СНГ — всегда за всё доступное время (week = с 3 апр)
             cisPanel.hidden = false;
             mainMetrics.hidden = true;
             mainApp.hidden = true;
             cisBtnLabel.textContent = '🌍 Весь мир';
             fboardCISOnly = true;
             if (fboardData) renderFlightBoard(fboardData);
-            const cur = activeKey || period;
-            renderCIS(cur);
+            renderCIS('week');
           } else {
             // Показываем только Весь мир
             cisPanel.hidden = true;
@@ -2525,7 +2524,7 @@
           const cur = activeKey || getDefaultPeriod();
           render(cur);
           const cp = document.getElementById('cis-panel');
-          if (cp && !cp.hidden) renderCIS(cur);
+          if (cp && !cp.hidden) renderCIS('week');
         }
       } catch(_) {}
     }, 3 * 60 * 1000);
