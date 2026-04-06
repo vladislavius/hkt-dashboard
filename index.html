@@ -629,6 +629,26 @@
       margin-left: 4px;
     }
 
+    /* ── CIS 2-column layout ── */
+    .cis-2col-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .cis-col {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .cis-full-row {
+      grid-column: 1 / -1;
+    }
+    @media (max-width: 700px) {
+      .cis-2col-grid { grid-template-columns: 1fr; }
+    }
+
     /* ── Main Grid ── */
     .main-grid {
       display: grid;
@@ -2339,13 +2359,11 @@
         mkMetric2('Вылеты · СНГ',   cisDep.flights, cisDep.pax, 'col-amber', '🛫', '0.08s')
       );
 
-      const grid = make('div', 'main-grid');
+      const grid = make('div', 'cis-2col-grid');
 
-      /* ── Два донута: прилёты и вылеты отдельно ── */
+      /* ── Данные по странам ── */
       const arrByC = cisByCountry(arrList);
       const depByC = cisByCountry(depList);
-      const cisCountries = ['Russia','Kazakhstan','Uzbekistan','Belarus','Ukraine','Azerbaijan','Uzbekistan','Georgia','Armenia'];
-      // dedupe
       const seen = new Set();
       const allCISKeys = Object.keys({...arrByC,...depByC}).filter(k => { if(seen.has(k)) return false; seen.add(k); return true; });
 
@@ -2388,22 +2406,23 @@
         return { card, labels, vals, bgs, borders };
       }
 
+      /* Левая колонка: донут прилётов + список прилётов */
+      const colArr = make('div', 'cis-col');
       const arrDonut = mkDonutCard('🛬', 'Прилёты СНГ · по странам', arrByC, cisArr.flights, 'cisArrChart', '0.06s');
-      const depDonut = mkDonutCard('🛫', 'Вылеты СНГ · по странам', depByC, cisDep.flights, 'cisDepChart', '0.12s');
-      grid.appendChild(arrDonut.card);
-      grid.appendChild(depDonut.card);
-
-      /* CIS Arrivals rank */
-      const cisArrCard = mkCard('🛬', 'Прилёты · СНГ', '0.18s');
+      const cisArrCard = mkCard('🛬', 'Прилёты · рейсы', '0.12s');
       cisArrCard.appendChild(mkCISRankList(arrList.filter(isCIS), d.arrivals_list || [], 'arr'));
-      grid.appendChild(cisArrCard);
+      ap(colArr, arrDonut.card, cisArrCard);
 
-      /* CIS Departures rank */
-      const cisDepCard = mkCard('🛫', 'Вылеты · СНГ', '0.24s');
+      /* Правая колонка: донут вылетов + список вылетов */
+      const colDep = make('div', 'cis-col');
+      const depDonut = mkDonutCard('🛫', 'Вылеты СНГ · по странам', depByC, cisDep.flights, 'cisDepChart', '0.18s');
+      const cisDepCard = mkCard('🛫', 'Вылеты · рейсы', '0.24s');
       cisDepCard.appendChild(mkCISRankList(depList.filter(isCIS), d.departures_list || [], 'dep'));
-      grid.appendChild(cisDepCard);
+      ap(colDep, depDonut.card, cisDepCard);
 
-      /* ── Линейный график по дням ── */
+      ap(grid, colArr, colDep);
+
+      /* ── Линейный график по дням (полная ширина) ── */
       const breakdown2 = getBreakdown(d, period);
       if (breakdown2 && breakdown2.length > 0) {
         const cisTimeCard = mkCard('📅', 'Рейсы СНГ по дням (с 3 апр)', '0.3s', 'card-full');
@@ -2412,7 +2431,9 @@
         cisTCvs.id = 'cisTimelineChart';
         cisTimeWrap.appendChild(cisTCvs);
         cisTimeCard.appendChild(cisTimeWrap);
-        grid.appendChild(cisTimeCard);
+        const fullRow = make('div', 'cis-full-row');
+        fullRow.appendChild(cisTimeCard);
+        grid.appendChild(fullRow);
       }
 
       cisAppEl.replaceChildren(grid);
