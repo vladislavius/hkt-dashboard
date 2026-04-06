@@ -563,6 +563,7 @@
     }
 
     /* ── Metrics strip ── */
+    [hidden] { display: none !important; }
     .metrics-strip {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -613,6 +614,19 @@
       font-size: 2rem;
       opacity: 0.12;
       pointer-events: none;
+    }
+    .m-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--muted-2);
+      margin-top: 6px;
+      letter-spacing: 0;
+    }
+    .leg-pax {
+      font-size: 0.68rem;
+      color: var(--muted-2);
+      font-family: 'DM Mono', monospace;
+      margin-left: 4px;
     }
 
     /* ── Main Grid ── */
@@ -2280,80 +2294,93 @@
       const depList = d.departures.all|| d.departures.top|| [];
       const cisArr  = cisTotal(arrList);
       const cisDep  = cisTotal(depList);
-      const total   = cisArr.flights + cisDep.flights;
-      const pax     = cisArr.pax     + cisDep.pax;
 
+      /* KPI: только 2 ячейки — прилёты и вылеты с пассажирами */
+      cisMetricsEl.style.gridTemplateColumns = 'repeat(2,1fr)';
+      const mkMetric2 = (label, flights, pax, colorCls, icon, delay) => {
+        const card = make('div', 'm-card');
+        card.style.animationDelay = delay;
+        ap(card,
+          txt(make('div','m-label'), label),
+          txt(make('div','m-value ' + colorCls), String(flights)),
+          txt(make('div','m-sub'), '~' + pax.toLocaleString('ru') + ' чел.'),
+          txt(make('div','m-icon'), icon)
+        );
+        return card;
+      };
       cisMetricsEl.replaceChildren(
-        mkMetric('Всего рейсов',  String(total),             'col-ivory', '✈',  '0s'),
-        mkMetric('Пассажиров',    pax.toLocaleString('ru'),  'col-sky',   '👤', '0.06s'),
-        mkMetric('Прилёты',       String(cisArr.flights),    'col-sky',   '🛬', '0.12s'),
-        mkMetric('Вылеты',        String(cisDep.flights),    'col-amber', '🛫', '0.18s')
+        mkMetric2('Прилёты · СНГ',  cisArr.flights, cisArr.pax, 'col-sky',   '🛬', '0s'),
+        mkMetric2('Вылеты · СНГ',   cisDep.flights, cisDep.pax, 'col-amber', '🛫', '0.08s')
       );
 
       const grid = make('div', 'main-grid');
 
-      /* CIS Donut: split by Russia/KZ/UZ arrivals */
-      const cisChartCard = mkCard('📊', 'СНГ · Распределение · с 3 апреля', '0.06s');
-      const cisWrap   = make('div', 'chart-container');
-      const cisCvs    = document.createElement('canvas');
-      cisCvs.id = 'cisMainChart'; cisCvs.height = 220;
-      const cisCenter = make('div', 'chart-center');
-      ap(cisCenter, txt(make('div','chart-center-val'), String(total)), txt(make('div','chart-center-lbl'), 'рейсов'));
-      ap(cisWrap, cisCvs, cisCenter);
-
-      // Build 3-country donut data
+      /* ── Два донута: прилёты и вылеты отдельно ── */
       const arrByC = cisByCountry(arrList);
       const depByC = cisByCountry(depList);
-      const cisCountries = ['Russia','Kazakhstan','Uzbekistan'];
-      const donutLabels = [], donutData = [], donutBg = [], donutBorder = [];
-      cisCountries.forEach(c => {
-        const n = (arrByC[c]?.flights||0) + (depByC[c]?.flights||0);
-        if (n > 0) {
-          donutLabels.push(CIS_LABELS[c]);
-          donutData.push(n);
-          donutBg.push(CIS_COLORS[c] + 'BF');  // ~75% opacity
-          donutBorder.push(CIS_COLORS[c]);
-        }
-      });
+      const cisCountries = ['Russia','Kazakhstan','Uzbekistan','Belarus','Ukraine','Azerbaijan','Uzbekistan','Georgia','Armenia'];
+      // dedupe
+      const seen = new Set();
+      const allCISKeys = Object.keys({...arrByC,...depByC}).filter(k => { if(seen.has(k)) return false; seen.add(k); return true; });
 
-      const cisLegend = make('div', 'chart-legend');
-      cisCountries.forEach(c => {
-        const n = (arrByC[c]?.flights||0) + (depByC[c]?.flights||0);
-        if (!n) return;
-        const li = make('div', 'leg-item');
-        const dot = make('div', 'leg-dot'); dot.style.background = CIS_COLORS[c];
-        ap(li, dot, document.createTextNode(' ' + CIS_LABELS[c] + ' '), txt(make('span','leg-val'), String(n)));
-        cisLegend.appendChild(li);
-      });
+      function mkDonutCard(titleIcon, titleText, byC, totalFlights, chartId, delay) {
+        const card = mkCard(titleIcon, titleText, delay);
+        const wrap = make('div', 'chart-container');
+        const cvs  = document.createElement('canvas');
+        cvs.id = chartId; cvs.height = 180;
+        const center = make('div', 'chart-center');
+        ap(center, txt(make('div','chart-center-val'), String(totalFlights)), txt(make('div','chart-center-lbl'), 'рейсов'));
+        ap(wrap, cvs, center);
 
-      ap(cisChartCard, cisWrap, cisLegend);
-      grid.appendChild(cisChartCard);
+        const labels = [], vals = [], bgs = [], borders = [];
+        allCISKeys.forEach(c => {
+          const n = byC[c]?.flights || 0;
+          if (!n) return;
+          const color = CIS_COLORS[c] || '#888';
+          labels.push(CIS_LABELS[c] || c);
+          vals.push(n);
+          bgs.push(color + 'BF');
+          borders.push(color);
+        });
 
-      /* CIS Arrivals */
-      const cisArrCard = mkCard('🛬', 'Прилёты · СНГ', '0.12s');
+        const legend = make('div', 'chart-legend');
+        allCISKeys.forEach(c => {
+          const n = byC[c]?.flights || 0;
+          const p = byC[c]?.pax || 0;
+          if (!n) return;
+          const li = make('div', 'leg-item');
+          const dot = make('div', 'leg-dot'); dot.style.background = CIS_COLORS[c] || '#888';
+          ap(li, dot,
+            document.createTextNode(' ' + (CIS_LABELS[c] || c) + ' '),
+            txt(make('span','leg-val'), n + ' ✈'),
+            txt(make('span','leg-pax'), ' ~' + p.toLocaleString('ru') + ' чел.')
+          );
+          legend.appendChild(li);
+        });
+
+        ap(card, wrap, legend);
+        return { card, labels, vals, bgs, borders };
+      }
+
+      const arrDonut = mkDonutCard('🛬', 'Прилёты СНГ · по странам', arrByC, cisArr.flights, 'cisArrChart', '0.06s');
+      const depDonut = mkDonutCard('🛫', 'Вылеты СНГ · по странам', depByC, cisDep.flights, 'cisDepChart', '0.12s');
+      grid.appendChild(arrDonut.card);
+      grid.appendChild(depDonut.card);
+
+      /* CIS Arrivals rank */
+      const cisArrCard = mkCard('🛬', 'Прилёты · СНГ', '0.18s');
       cisArrCard.appendChild(mkCISRankList(arrList.filter(isCIS), d.arrivals_list || [], 'arr'));
       grid.appendChild(cisArrCard);
 
-      /* CIS Departures */
-      const cisDepCard = mkCard('🛫', 'Вылеты · СНГ', '0.18s');
+      /* CIS Departures rank */
+      const cisDepCard = mkCard('🛫', 'Вылеты · СНГ', '0.24s');
       cisDepCard.appendChild(mkCISRankList(depList.filter(isCIS), d.departures_list || [], 'dep'));
       grid.appendChild(cisDepCard);
 
-      /* CIS Timeline breakdown (filtered to CIS countries) */
-      const breakdown = getBreakdown(d, period);
-      if (breakdown && breakdown.length > 0) {
-        const cisBreakdown = breakdown.map(p => {
-          function filterByCIS(byObj) {
-            const out = {};
-            Object.entries(byObj || {}).forEach(([name, v]) => {
-              const country = (typeof v === 'object' && v.country) ? v.country : name;
-              if (CIS.has(country)) out[name] = v;
-            });
-            return out;
-          }
-          return { ...p, arrivals_by: filterByCIS(p.arrivals_by), departures_by: filterByCIS(p.departures_by) };
-        });
-        const cisTimeCard = mkCard('📅', 'По дням · СНГ (с 3 апр)', '0.24s', 'card-full');
+      /* ── Линейный график по дням ── */
+      const breakdown2 = getBreakdown(d, period);
+      if (breakdown2 && breakdown2.length > 0) {
+        const cisTimeCard = mkCard('📅', 'Рейсы СНГ по дням (с 3 апр)', '0.3s', 'card-full');
         const cisTimeWrap = make('div', 'timeline-wrap');
         const cisTCvs = document.createElement('canvas');
         cisTCvs.id = 'cisTimelineChart';
@@ -2365,89 +2392,108 @@
       cisAppEl.replaceChildren(grid);
 
       /* Destroy old CIS charts */
-      if (activeCisChart)  { activeCisChart.destroy();  activeCisChart  = null; }
-      if (activeCisChart2) { activeCisChart2.destroy(); activeCisChart2 = null; }
+      if (activeCisChart)       { activeCisChart.destroy();       activeCisChart  = null; }
+      if (activeCisChart2)      { activeCisChart2.destroy();      activeCisChart2 = null; }
+      if (window._cisDepChart)  { window._cisDepChart.destroy();  window._cisDepChart = null; }
 
-      /* CIS Donut */
-      if (donutData.length > 0) {
-        activeCisChart = new Chart(document.getElementById('cisMainChart').getContext('2d'), {
-          type: 'doughnut',
-          data: {
-            labels: donutLabels,
-            datasets: [{ data: donutData, backgroundColor: donutBg, borderColor: donutBorder, borderWidth: 2, hoverOffset: 6 }]
-          },
-          options: {
-            responsive: true, maintainAspectRatio: true, cutout: '68%',
-            plugins: {
-              legend: { display: false },
-              tooltip: {
-                backgroundColor:'rgba(10,15,28,0.95)', borderColor:'rgba(200,169,110,0.2)', borderWidth:1,
-                titleColor:'#EDE8DF', bodyColor:'#8A8480', padding:12, cornerRadius:10,
-                callbacks: { label: c => ' ' + c.label + ': ' + c.parsed + ' рейсов' }
-              }
-            }
+      const donutOpts = (cbLabel) => ({
+        responsive: true, maintainAspectRatio: true, cutout: '68%',
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor:'rgba(10,15,28,0.95)', borderColor:'rgba(200,169,110,0.2)', borderWidth:1,
+            titleColor:'#EDE8DF', bodyColor:'#8A8480', padding:12, cornerRadius:10,
+            callbacks: { label: c => ' ' + c.label + ': ' + c.parsed + ' рейсов' }
           }
+        }
+      });
+
+      if (arrDonut.vals.length > 0) {
+        activeCisChart = new Chart(document.getElementById('cisArrChart').getContext('2d'), {
+          type: 'doughnut',
+          data: { labels: arrDonut.labels, datasets: [{ data: arrDonut.vals, backgroundColor: arrDonut.bgs, borderColor: arrDonut.borders, borderWidth: 2, hoverOffset: 6 }] },
+          options: donutOpts()
         });
       }
 
-      /* CIS Timeline */
-      const breakdown2 = getBreakdown(d, period);
+      // второй донут в activeCisChart2 — создадим отдельную переменную через window
+      if (depDonut.vals.length > 0) {
+        if (window._cisDepChart) { window._cisDepChart.destroy(); window._cisDepChart = null; }
+        window._cisDepChart = new Chart(document.getElementById('cisDepChart').getContext('2d'), {
+          type: 'doughnut',
+          data: { labels: depDonut.labels, datasets: [{ data: depDonut.vals, backgroundColor: depDonut.bgs, borderColor: depDonut.borders, borderWidth: 2, hoverOffset: 6 }] },
+          options: donutOpts()
+        });
+      }
+
+      /* Линейный график: 2 линии — прилёты СНГ и вылеты СНГ по дням */
       if (breakdown2 && breakdown2.length > 0) {
-        // Build CIS-only line chart with 3 datasets (RU/KZ/UZ arrivals)
         const labels = breakdown2.map(x => x.label);
-        const countKey_a = 'arrivals_by', countKey_d = 'departures_by';
-
-        function getCISCountrySeries(breakdownArr, byKey, country) {
-          return breakdownArr.map(p => {
-            let total = 0;
-            Object.entries(p[byKey] || {}).forEach(([name, v]) => {
-              const c = (typeof v === 'object' && v.country) ? v.country : name;
-              if (c === country) total += typeof v === 'object' ? v.n : v;
-            });
-            return total;
+        const arrTotals = breakdown2.map(p => {
+          let t = 0;
+          Object.entries(p.arrivals_by || {}).forEach(([name, v]) => {
+            const c = (typeof v === 'object' && v.country) ? v.country : name;
+            if (CIS.has(c)) t += typeof v === 'object' ? (v.n || 0) : v;
           });
-        }
-
-        const datasets = [];
-        ['Russia','Kazakhstan','Uzbekistan'].forEach(c => {
-          const arrData = getCISCountrySeries(breakdown2, countKey_a, c);
-          const depData = getCISCountrySeries(breakdown2, countKey_d, c);
-          const total   = arrData.reduce((a,x) => a+x, 0) + depData.reduce((a,x) => a+x, 0);
-          if (total === 0) return;
-          datasets.push({
-            label: CIS_LABELS[c] + ' Прилёты',
-            data: arrData,
-            backgroundColor: CIS_COLORS[c] + '88',
-            borderColor: CIS_COLORS[c],
-            borderWidth: 1.5, borderRadius: 4, stack: c,
+          return t;
+        });
+        const depTotals = breakdown2.map(p => {
+          let t = 0;
+          Object.entries(p.departures_by || {}).forEach(([name, v]) => {
+            const c = (typeof v === 'object' && v.country) ? v.country : name;
+            if (CIS.has(c)) t += typeof v === 'object' ? (v.n || 0) : v;
           });
-          datasets.push({
-            label: CIS_LABELS[c] + ' Вылеты',
-            data: depData,
-            backgroundColor: CIS_COLORS[c] + '44',
-            borderColor: CIS_COLORS[c],
-            borderWidth: 1, borderRadius: 4, borderDash: [4,3], stack: c,
-          });
+          return t;
         });
 
-        if (datasets.length > 0) {
-          activeCisChart2 = new Chart(document.getElementById('cisTimelineChart').getContext('2d'), {
-            type: 'bar',
-            data: { labels, datasets },
-            options: {
-              responsive: true, maintainAspectRatio: true,
-              interaction: { mode: 'index', intersect: false },
-              plugins: {
-                legend: { display: true, labels: { color:'#8A8480', font:{ family:'DM Mono', size:10 }, boxWidth:10, padding:12 } },
-                tooltip: { backgroundColor:'rgba(10,15,28,0.95)', borderColor:'rgba(200,169,110,0.2)', borderWidth:1, titleColor:'#EDE8DF', bodyColor:'#8A8480', padding:10, cornerRadius:8 }
+        activeCisChart2 = new Chart(document.getElementById('cisTimelineChart').getContext('2d'), {
+          type: 'line',
+          data: {
+            labels,
+            datasets: [
+              {
+                label: 'Прилёты СНГ',
+                data: arrTotals,
+                borderColor: '#5BB8F5',
+                backgroundColor: 'rgba(91,184,245,0.12)',
+                borderWidth: 2.5,
+                pointRadius: 5,
+                pointHoverRadius: 7,
+                pointBackgroundColor: '#5BB8F5',
+                tension: 0.35,
+                fill: true,
               },
-              scales: {
-                x: { stacked: false, ticks:{ color:'#8A8480', font:{family:'DM Mono',size:10}, maxRotation:45 }, grid:{color:'rgba(255,255,255,0.04)'} },
-                y: { stacked: false, ticks:{ color:'#8A8480', font:{family:'DM Mono',size:10} }, grid:{color:'rgba(255,255,255,0.04)'}, beginAtZero:true }
+              {
+                label: 'Вылеты СНГ',
+                data: depTotals,
+                borderColor: '#E8A462',
+                backgroundColor: 'rgba(232,164,98,0.10)',
+                borderWidth: 2.5,
+                pointRadius: 5,
+                pointHoverRadius: 7,
+                pointBackgroundColor: '#E8A462',
+                tension: 0.35,
+                fill: true,
               }
+            ]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: true,
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+              legend: { display: true, labels: { color:'#EDE8DF', font:{ family:'DM Mono', size:11 }, boxWidth:12, padding:16 } },
+              tooltip: {
+                backgroundColor:'rgba(10,15,28,0.95)', borderColor:'rgba(200,169,110,0.2)', borderWidth:1,
+                titleColor:'#EDE8DF', bodyColor:'#8A8480', padding:12, cornerRadius:10,
+                callbacks: { label: c => ' ' + c.dataset.label + ': ' + c.parsed.y + ' рейсов' }
+              }
+            },
+            scales: {
+              x: { ticks:{ color:'#8A8480', font:{family:'DM Mono',size:11} }, grid:{color:'rgba(255,255,255,0.04)'} },
+              y: { ticks:{ color:'#8A8480', font:{family:'DM Mono',size:11}, stepSize:1 }, grid:{color:'rgba(255,255,255,0.06)'}, beginAtZero:true }
             }
-          });
-        }
+          }
+        });
       }
     }
 
