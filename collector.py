@@ -549,16 +549,24 @@ def _solve_via_playwright():
                 captured["token"] = auth
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(
-            headless=False,
-            args=["--no-sandbox", "--disable-blink-features=AutomationControlled"],
-        )
-        ctx = browser.new_context(
-            user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-            viewport={"width": 1280, "height": 800},
-        )
+        # Use system Chrome (not Playwright Chromium) — real fingerprint, passes CF Turnstile
+        try:
+            browser = p.chromium.launch(
+                channel="chrome",   # system Chrome
+                headless=False,
+                args=["--disable-blink-features=AutomationControlled"],
+            )
+        except Exception:
+            browser = p.chromium.launch(
+                headless=False,
+                args=["--no-sandbox", "--disable-blink-features=AutomationControlled"],
+            )
+        ctx = browser.new_context(viewport={"width": 1280, "height": 800})
         page = ctx.new_page()
-        page.add_init_script("Object.defineProperty(navigator,'webdriver',{get:()=>undefined})")
+        page.add_init_script("""
+            Object.defineProperty(navigator,'webdriver',{get:()=>undefined});
+            window.chrome={runtime:{}};
+        """)
         page.on("request", handle_request)
         page.goto(_TURNSTILE_PAGE_URL, wait_until="domcontentloaded", timeout=30000)
 
