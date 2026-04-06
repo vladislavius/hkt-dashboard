@@ -38,18 +38,27 @@
       overflow-x: hidden;
     }
 
+    /* Night atmosphere — horizon glow + city haze */
     body::before {
       content: '';
-      position: fixed;
-      inset: 0;
+      position: fixed; inset: 0;
       background:
+        radial-gradient(ellipse 120% 40% at 50% 105%, rgba(10,60,120,0.35) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 25% at 30% 100%, rgba(255,130,50,0.06) 0%, transparent 50%),
         radial-gradient(ellipse 80% 50% at 50% -10%, rgba(200,169,110,0.07) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 40% at 90% 100%, rgba(91,184,245,0.04) 0%, transparent 50%),
-        linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
-      background-size: 100%, 100%, 52px 52px, 52px 52px;
-      pointer-events: none;
-      z-index: 0;
+        radial-gradient(ellipse 40% 40% at 90% 100%, rgba(91,184,245,0.05) 0%, transparent 50%),
+        linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px);
+      background-size: 100%, 100%, 100%, 100%, 52px 52px, 52px 52px;
+      pointer-events: none; z-index: 0;
+    }
+    /* Film grain texture */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+      pointer-events: none; z-index: 0; opacity: 0.4;
     }
 
     .wrap {
@@ -1431,14 +1440,55 @@
   }
   .card:hover::before, .card:hover::after { opacity:0.9; }
 
-  /* ── Drifting plane watermark ── */
-  .avi-plane {
-    position:fixed; bottom:18%; left:0;
-    font-size:28px; pointer-events:none; z-index:0;
-    animation: plane-drift 28s linear infinite;
-    animation-delay: 4s;
-    opacity:0;
-    filter: drop-shadow(0 0 6px rgba(91,184,245,0.4));
+  /* ── Dynamic planes (spawned by JS) ── */
+  .avi-plane-dyn {
+    position:fixed; left:-80px; pointer-events:none; z-index:0;
+    animation: plane-drift linear infinite;
+    filter: drop-shadow(0 0 5px rgba(91,184,245,0.35));
+  }
+  @keyframes plane-trail {
+    0%   { width:0; opacity:.5; }
+    60%  { opacity:.2; }
+    100% { width:80px; opacity:0; }
+  }
+
+  /* ── Runway perspective ── */
+  .avi-runway {
+    position:fixed; bottom:0; left:50%; transform:translateX(-50%);
+    width:100vw; height:45vh; pointer-events:none; z-index:0; overflow:hidden;
+  }
+  .avi-runway svg { width:100%; height:100%; }
+
+  /* ── Taxiway lights strip (bottom) ── */
+  .avi-taxiway {
+    position:fixed; bottom:0; left:0; right:0; height:18px;
+    display:flex; align-items:center; justify-content:center;
+    gap:28px; z-index:0; pointer-events:none;
+  }
+  @keyframes taxi-blue {
+    0%,100%{ opacity:.7; box-shadow:0 0 5px 2px rgba(80,140,255,0.7); }
+    50%    { opacity:.25; box-shadow:none; }
+  }
+  .avi-taxi-dot {
+    width:5px; height:5px; border-radius:50%;
+    background:rgba(80,140,255,0.8);
+    animation: taxi-blue 3s ease-in-out infinite;
+  }
+  .avi-taxi-dot:nth-child(odd)  { animation-delay:.4s; }
+  .avi-taxi-dot:nth-child(3n)   { animation-delay:.8s; }
+  .avi-taxi-dot:nth-child(5n)   { animation-delay:1.2s; }
+
+  /* ── Card: cockpit glow on hover ── */
+  .card:hover {
+    box-shadow: 0 0 0 1px rgba(200,169,110,0.2),
+                0 8px 32px rgba(0,0,0,0.4),
+                inset 0 1px 0 rgba(200,169,110,0.06);
+  }
+  /* Scanlines on flight board */
+  .fboard-table-wrap { position:relative; }
+  .fboard-table-wrap::after {
+    content:''; position:absolute; inset:0; pointer-events:none; z-index:2;
+    background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px);
   }
 
   /* ── METAR status line ── */
@@ -1447,14 +1497,16 @@
     color: rgba(0,232,122,0.55); letter-spacing:1.5px;
     margin-top:6px;
     animation: hud-flicker 7s ease-in-out 2s infinite;
+    overflow:hidden; white-space:nowrap; text-overflow:ellipsis;
   }
 
   @media(max-width:768px){
-    .avi-radar { width:320px; height:320px; top:-120px; right:-120px; }
+    .avi-radar { width:280px; height:280px; top:-100px; right:-100px; }
     .avi-approach { gap:0; }
     .avi-apch-light { width:4px;height:4px;margin:0 3px; }
     .avi-navlights { gap:12px; margin-bottom:8px; }
     .card::before,.card::after { width:9px;height:9px; }
+    .avi-runway, .avi-taxiway { display:none; }
   }
   </style>
 </head>
@@ -1464,8 +1516,36 @@
     <div class="avi-radar-crosshair"></div>
     <div class="avi-radar-sweep"></div>
   </div>
-  <!-- Drifting plane -->
-  <div class="avi-plane">✈</div>
+  <!-- Runway perspective -->
+  <div class="avi-runway" aria-hidden="true">
+    <svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMax meet" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Converging runway edges -->
+      <line x1="600" y1="0" x2="0"    y2="400" stroke="rgba(245,213,71,0.12)" stroke-width="1.5"/>
+      <line x1="600" y1="0" x2="1200" y2="400" stroke="rgba(245,213,71,0.12)" stroke-width="1.5"/>
+      <!-- Centerline dashes -->
+      <line x1="600" y1="20"  x2="600" y2="55"  stroke="rgba(255,255,255,0.1)" stroke-width="2" stroke-dasharray="5 8"/>
+      <line x1="600" y1="70"  x2="600" y2="120" stroke="rgba(255,255,255,0.09)" stroke-width="3" stroke-dasharray="6 9"/>
+      <line x1="600" y1="140" x2="600" y2="220" stroke="rgba(255,255,255,0.07)" stroke-width="4" stroke-dasharray="8 12"/>
+      <line x1="600" y1="250" x2="600" y2="380" stroke="rgba(255,255,255,0.05)" stroke-width="6" stroke-dasharray="12 18"/>
+      <!-- PAPI glow -->
+      <ellipse cx="80"  cy="360" rx="18" ry="6" fill="rgba(255,60,60,0.25)"/>
+      <ellipse cx="1120" cy="360" rx="18" ry="6" fill="rgba(255,255,255,0.2)"/>
+      <!-- Edge lights -->
+      <g fill="rgba(245,213,71,0.4)">
+        <circle cx="210" cy="390" r="2.5"/><circle cx="380" cy="380" r="2"/><circle cx="510" cy="370" r="1.5"/>
+        <circle cx="990" cy="390" r="2.5"/><circle cx="820" cy="380" r="2"/><circle cx="690" cy="370" r="1.5"/>
+      </g>
+    </svg>
+  </div>
+  <!-- Taxiway blue lights -->
+  <div class="avi-taxiway" aria-hidden="true">
+    <div class="avi-taxi-dot"></div><div class="avi-taxi-dot"></div><div class="avi-taxi-dot"></div>
+    <div class="avi-taxi-dot"></div><div class="avi-taxi-dot"></div><div class="avi-taxi-dot"></div>
+    <div class="avi-taxi-dot"></div><div class="avi-taxi-dot"></div><div class="avi-taxi-dot"></div>
+    <div class="avi-taxi-dot"></div><div class="avi-taxi-dot"></div><div class="avi-taxi-dot"></div>
+    <div class="avi-taxi-dot"></div><div class="avi-taxi-dot"></div><div class="avi-taxi-dot"></div>
+    <div class="avi-taxi-dot"></div><div class="avi-taxi-dot"></div><div class="avi-taxi-dot"></div>
+  </div>
 
   <div class="wrap">
 
@@ -2961,6 +3041,45 @@
         }
       } catch(_) {}
     }, 3 * 60 * 1000);
+
+    /* ══ AVIATION FX ══════════════════════════════════════ */
+
+    // Multi-plane spawner
+    (function spawnFleet() {
+      const configs = [
+        { size:22, top:12, dur:32, delay:0,  angle:-4, opacity:.28 },
+        { size:14, top:28, dur:45, delay:8,  angle: 2, opacity:.18 },
+        { size:30, top:8,  dur:25, delay:14, angle:-2, opacity:.32 },
+        { size:11, top:42, dur:55, delay:22, angle: 5, opacity:.14 },
+        { size:18, top:18, dur:38, delay:31, angle:-6, opacity:.22 },
+      ];
+      configs.forEach(c => {
+        const el = document.createElement('div');
+        el.className = 'avi-plane-dyn';
+        el.textContent = '✈';
+        el.style.cssText = `font-size:${c.size}px;top:${c.top}%;` +
+          `animation-duration:${c.dur}s;animation-delay:${c.delay}s;` +
+          `transform:rotate(${c.angle}deg);` +
+          `filter:drop-shadow(0 0 ${Math.round(c.size/4)}px rgba(91,184,245,0.4));`;
+        el.style.opacity = '0';
+        document.body.appendChild(el);
+      });
+    })();
+
+    // METAR line cycling
+    const metars = [
+      'VTSP 060900Z 27008KT 9999 FEW030 32/24 Q1009 NOSIG',
+      'VTSP 061200Z 28012KT 9999 SCT028 33/23 Q1008 NOSIG',
+      'VTSP 061500Z 29010KT 9999 FEW035 34/22 Q1007 NOSIG',
+      'ATIS: RUNWAY 27 IN USE · QNH 1009 · TEMP 32°C · WIND 270/08',
+    ];
+    let _mi = 0;
+    const _metar = document.querySelector('.avi-metar');
+    if (_metar) setInterval(() => {
+      _mi = (_mi + 1) % metars.length;
+      _metar.style.opacity = '0';
+      setTimeout(() => { _metar.textContent = metars[_mi]; _metar.style.opacity = ''; }, 400);
+    }, 8000);
   </script>
 </body>
 </html>
