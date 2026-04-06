@@ -63,6 +63,7 @@ jobs:
           git add data/dashboard.json data/accumulated_*.json
           if ! git diff --staged --quiet; then
             git commit -m "auto: update flight data $(date '+%Y-%m-%d %H:%M ICT')"
+            git pull --rebase https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git main
             git push https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:main
           else
             echo "No changes to commit"
