@@ -532,6 +532,33 @@ _TURNSTILE_SITEKEY  = "0x4AAAAAACVJKKHJ8u9nXinM"
 _TURNSTILE_PAGE_URL = "https://phuket.airportthai.co.th/flight?type=a"
 
 
+def _solve_via_playwright():
+    """Get Turnstile token via real browser — works on residential IP (local Mac)."""
+    import time
+    from playwright.sync_api import sync_playwright
+    with sync_playwright() as p:
+        browser = p.chromium.launch(
+            headless=True,
+            args=["--no-sandbox", "--disable-blink-features=AutomationControlled"],
+        )
+        ctx = browser.new_context(
+            user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            viewport={"width": 1280, "height": 800},
+        )
+        page = ctx.new_page()
+        page.add_init_script("Object.defineProperty(navigator,'webdriver',{get:()=>undefined})")
+        page.goto(_TURNSTILE_PAGE_URL, wait_until="domcontentloaded", timeout=30000)
+        deadline = time.time() + 40
+        while time.time() < deadline:
+            tok = next((c["value"] for c in ctx.cookies() if c["name"] == "turnstiletoken" and c["value"] not in ("", "null")), None)
+            if tok:
+                browser.close()
+                return tok
+            time.sleep(0.8)
+        browser.close()
+    raise RuntimeError("Turnstile cookie not set within timeout")
+
+
 def _solve_via_capsolver():
     """CapSolver — specialised Cloudflare solver, higher Turnstile success rate."""
     payload = {
@@ -564,11 +591,26 @@ def _solve_via_capsolver():
 
 def get_turnstile_token():
     """
-    Solve Cloudflare Turnstile — tries CapSolver first (better CF success rate),
-    falls back to 2captcha if CAPSOLVER_KEY not set.
-    ~$0.001/solve, ~$0.18/month at 12 runs/day.
+    Solve Cloudflare Turnstile. Priority:
+    1. Playwright (real browser — works on residential IP, local Mac)
+    2. CapSolver (datacenter, often rejected by CF managed mode)
+    3. 2captcha (same limitation)
     Returns token string or None on failure.
     """
+    # ── Playwright (local residential IP — best success rate) ─────────────
+    try:
+        import playwright  # noqa: F401 — only available locally
+        print("🔐 Getting Turnstile token via Playwright (local browser)...")
+        try:
+            token = _solve_via_playwright()
+            if token:
+                print(f"✅ Turnstile token obtained ({len(token)} chars)")
+                return token
+        except Exception as e:
+            print(f"⚠️ Playwright error: {e} — trying captcha service")
+    except ImportError:
+        pass  # Not installed in this environment
+
     # ── CapSolver (preferred for Cloudflare Turnstile) ────────────────────
     if CAPSOLVER_KEY:
         print("🔐 Solving Turnstile via CapSolver...")
