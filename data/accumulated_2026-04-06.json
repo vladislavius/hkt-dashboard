@@ -1,8 +1,8 @@
 {
   "date": "2026-04-06",
   "arrivals": {
-    "count": 52,
-    "pax": 7644,
+    "count": 54,
+    "pax": 7938,
     "countries": {
       "Singapore": {
         "flights": 8,
@@ -39,8 +39,8 @@
         "country": "Russia"
       },
       "Hong Kong": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "Sweden": {
         "flights": 1,
@@ -59,8 +59,8 @@
         "pax": 294
       },
       "South Korea": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Oman": {
         "flights": 1,
@@ -69,8 +69,8 @@
     }
   },
   "departures": {
-    "count": 41,
-    "pax": 6027,
+    "count": 45,
+    "pax": 6615,
     "countries": {
       "China": {
         "flights": 2,
@@ -81,20 +81,20 @@
         "pax": 147
       },
       "Hong Kong": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Singapore": {
-        "flights": 5,
-        "pax": 735
+        "flights": 6,
+        "pax": 882
       },
       "Switzerland": {
         "flights": 1,
         "pax": 147
       },
       "Malaysia": {
-        "flights": 8,
-        "pax": 1176
+        "flights": 9,
+        "pax": 1323
       },
       "India": {
         "flights": 8,
@@ -143,6 +143,10 @@
         "flights": 1,
         "pax": 147,
         "country": "Russia"
+      },
+      "Sweden": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -182,7 +186,7 @@
       "airline": "Emirates",
       "from": "DXB",
       "country": "UAE",
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-04-06T02:35",
       "arr_time": "2026-04-06T12:00"
@@ -242,7 +246,7 @@
       "airline": "Aeroflot",
       "from": "KHV",
       "country": "Russia",
-      "status": "scheduled",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-04-06T06:20",
       "arr_time": "2026-04-06T11:25"
@@ -312,7 +316,7 @@
       "airline": "IndiGo",
       "from": "DEL",
       "country": "India",
-      "status": "scheduled",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-04-06T05:10",
       "arr_time": "2026-04-06T11:20"
@@ -332,7 +336,7 @@
       "airline": "Singapore Airlines",
       "from": "SIN",
       "country": "Singapore",
-      "status": "scheduled",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-04-06T11:05",
       "arr_time": "2026-04-06T11:55"
@@ -412,7 +416,7 @@
       "airline": "IndiGo",
       "from": "CCU",
       "country": "India",
-      "status": "scheduled",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-04-06T06:40",
       "arr_time": "2026-04-06T11:20"
@@ -442,7 +446,7 @@
       "airline": "IndiGo",
       "from": "BLR",
       "country": "India",
-      "status": "scheduled",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-04-06T06:30",
       "arr_time": "2026-04-06T11:45"
@@ -686,6 +690,36 @@
       "pax": 147,
       "dep_time": "2026-04-06T17:00",
       "arr_time": "2026-04-06T17:25"
+    },
+    {
+      "fn": "KE677",
+      "airline": "Korean Air",
+      "from": "ICN",
+      "country": "South Korea",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-06T17:50",
+      "arr_time": "2026-04-06T22:10"
+    },
+    {
+      "fn": "HB270",
+      "airline": "Greater Bay Airlines",
+      "from": "HKG",
+      "country": "Hong Kong",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-06T19:25",
+      "arr_time": "2026-04-06T22:10"
+    },
+    {
+      "fn": "3U3931",
+      "airline": "Sichuan Airlines",
+      "from": "TFU",
+      "country": "",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-06T15:10",
+      "arr_time": "2026-04-06T18:00"
     }
   ],
   "departures_list": [
@@ -704,7 +738,7 @@
       "airline": "VietJet Air",
       "to": "SGN",
       "country": "Vietnam",
-      "status": "scheduled",
+      "status": "departed",
       "pax": 147,
       "dep_time": "2026-04-06T11:55",
       "arr_time": "2026-04-06T13:50"
@@ -714,7 +748,7 @@
       "airline": "Cathay Pacific",
       "to": "HKG",
       "country": "Hong Kong",
-      "status": "scheduled",
+      "status": "departed",
       "pax": 147,
       "dep_time": "2026-04-06T11:50",
       "arr_time": "2026-04-06T16:50"
@@ -724,7 +758,7 @@
       "airline": "Singapore Airlines",
       "to": "SIN",
       "country": "Singapore",
-      "status": "scheduled",
+      "status": "departed",
       "pax": 147,
       "dep_time": "2026-04-06T11:40",
       "arr_time": "2026-04-06T14:55"
@@ -734,7 +768,7 @@
       "airline": "Edelweiss Air",
       "to": "ZRH",
       "country": "Switzerland",
-      "status": "scheduled",
+      "status": "departed",
       "pax": 147,
       "dep_time": "2026-04-06T11:35",
       "arr_time": "2026-04-06T18:55"
@@ -744,7 +778,7 @@
       "airline": "Hong Kong Express",
       "to": "HKG",
       "country": "Hong Kong",
-      "status": "scheduled",
+      "status": "departed",
       "pax": 147,
       "dep_time": "2026-04-06T11:15",
       "arr_time": "2026-04-06T16:00"
@@ -754,7 +788,7 @@
       "airline": "AirAsia",
       "to": "KUL",
       "country": "Malaysia",
-      "status": "scheduled",
+      "status": "departed",
       "pax": 147,
       "dep_time": "2026-04-06T11:10",
       "arr_time": "2026-04-06T13:45"
@@ -764,7 +798,7 @@
       "airline": "IndiGo",
       "to": "DEL",
       "country": "India",
-      "status": "scheduled",
+      "status": "departed",
       "pax": 147,
       "dep_time": "2026-04-06T11:05",
       "arr_time": "2026-04-06T14:20"
@@ -1108,6 +1142,56 @@
       "pax": 147,
       "dep_time": "2026-04-06T15:35",
       "arr_time": "2026-04-06T22:25"
+    },
+    {
+      "fn": "3U3932",
+      "airline": "Sichuan Airlines",
+      "to": "TFU",
+      "country": "",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-06T19:05",
+      "arr_time": "2026-04-06T23:50"
+    },
+    {
+      "fn": "DK2577",
+      "airline": "Sunclass Airlines",
+      "to": "ARN",
+      "country": "Sweden",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-06T18:35",
+      "arr_time": "2026-04-07T02:25"
+    },
+    {
+      "fn": "CX778",
+      "airline": "Cathay Pacific",
+      "to": "HKG",
+      "country": "Hong Kong",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-06T18:20",
+      "arr_time": "2026-04-06T23:15"
+    },
+    {
+      "fn": "MH791",
+      "airline": "Malaysia Airlines",
+      "to": "KUL",
+      "country": "Malaysia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-06T18:05",
+      "arr_time": "2026-04-06T20:45"
+    },
+    {
+      "fn": "SQ735",
+      "airline": "Singapore Airlines",
+      "to": "SIN",
+      "country": "Singapore",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-06T18:00",
+      "arr_time": "2026-04-06T21:05"
     }
   ]
 }
