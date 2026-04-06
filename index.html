@@ -1054,8 +1054,9 @@
 
     /* ── Flight stats ticker (under donut) ── */
     @keyframes ft-scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
     .ft-wrap { overflow:hidden; padding:8px 0 2px; border-top:1px solid var(--border); margin-top:10px; }
-    .ft-inner { display:inline-flex; animation:ft-scroll 32s linear infinite; white-space:nowrap; }
+    .ft-inner { display:inline-flex; animation:ft-scroll 58s linear infinite; white-space:nowrap; }
     .ft-inner:hover { animation-play-state:paused; }
     .ft-item { display:inline-flex; align-items:center; padding:0 14px; font-size:0.68rem; color:var(--muted-2); font-family:'DM Mono',monospace; gap:4px; white-space:nowrap; }
     .ft-item strong { color:var(--ivory); opacity:.7; font-weight:500; }
@@ -2747,7 +2748,7 @@
           legend.appendChild(li);
         });
         const ticker = mkFlightTicker(list);
-        ap(card, wrap, legend);
+        ap(card, wrap);
         if (ticker) card.appendChild(ticker);
         return card;
       };
