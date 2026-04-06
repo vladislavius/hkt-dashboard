@@ -2953,11 +2953,11 @@
 
       const header = make('div', 'tat-header');
       const titleGroup = make('div', 'tat-title-group');
-      titleGroup.appendChild(txt(make('div', 'tat-title'), 'Транзит РФ через BKK'));
+      titleGroup.appendChild(txt(make('div', 'tat-title'), 'Транзит РФ через хабы'));
       const badges = make('div', 'tat-badges');
       badges.appendChild(txt(make('span', 'tat-badge est'), 'ОЦЕНКА'));
       badges.appendChild(txt(make('span', 'tat-badge'), periodLabelShort(period).toUpperCase()));
-      badges.appendChild(txt(make('span', 'tat-badge'), 'TAT + AOT'));
+      badges.appendChild(txt(make('span', 'tat-badge'), 'ОАЭ · Турция · Катар · Китай · Индия'));
       titleGroup.appendChild(badges);
       header.appendChild(titleGroup);
       card.appendChild(header);
@@ -2981,20 +2981,22 @@
         const breakdown = make('div', 'tat-breakdown');
         if (russiaTransit.tat_pax > 0) {
           const r1 = make('div', 'tat-row');
-          ap(r1, txt(make('div','tat-row-lbl'),'TAT Thailand'), txt(make('div','tat-row-val'),'~' + russiaTransit.tat_pax.toLocaleString('ru') + ' чел.'));
+          ap(r1, txt(make('div','tat-row-lbl'),'Все хабы (формула TAT)'), txt(make('div','tat-row-val'),'~' + russiaTransit.tat_pax.toLocaleString('ru') + ' чел.'));
           breakdown.appendChild(r1);
         }
         if (russiaTransit.bkk_pax > 0) {
           const r2 = make('div', 'tat-row');
-          ap(r2, txt(make('div','tat-row-lbl'),'BKK → HKT'), txt(make('div','tat-row-val'),'~' + russiaTransit.bkk_pax.toLocaleString('ru') + ' чел.'));
+          ap(r2, txt(make('div','tat-row-lbl'),'в т.ч. BKK → HKT (AOT)'), txt(make('div','tat-row-val'),'~' + russiaTransit.bkk_pax.toLocaleString('ru') + ' чел.'));
           breakdown.appendChild(r2);
         }
         card.appendChild(breakdown);
       }
 
       card.appendChild(txt(make('div','tat-note'),
-        'Пассажиры из РФ через Bangkok (BKK) + транзитные по данным TAT. ' +
-        'Не пересекаются с прямыми рейсами выше. Источник: TAT Thailand / AOT.'
+        'Формула: TAT_месяц × 0.38 ÷ 30.44 × дней − прямые_пакс_РФ. ' +
+        'Учитывает туристов из РФ, летящих через ОАЭ, Турцию, Катар, Китай, Индию — ' +
+        'их рейсы не помечены как "Россия" в API (вылетают из Дубая/Стамбула). ' +
+        'Не пересекается с прямыми рейсами. Источник: MOTS / TAT Thailand.'
       ));
       return card;
     }
