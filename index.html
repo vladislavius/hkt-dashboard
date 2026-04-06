@@ -2210,7 +2210,7 @@
         var countEl = make('div', 'rank-count');
         ap(countEl, txt(make('span','rc-flights'),(x.flights||0)+' ✈'), txt(make('span','rc-pax'),'~'+(x.pax||0).toLocaleString('ru')+' чел.'));
         var nameEl = make('span','rank-name');
-        var flagEl = txt(make('span','rank-flag'), x.flag || COUNTRY_FLAGS[x.country] || COUNTRY_FLAGS[x.name] || '🌍');
+        var flagEl = txt(make('span','rank-flag'), x.flag || FLAGS[x.country] || FLAGS[x.name] || '🌍');
 
         if (x.isRussiaGroup) {
           li.classList.add('rank-item-expandable');
