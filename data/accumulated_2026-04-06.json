@@ -1,8 +1,8 @@
 {
   "date": "2026-04-06",
   "arrivals": {
-    "count": 54,
-    "pax": 7938,
+    "count": 57,
+    "pax": 8379,
     "countries": {
       "Singapore": {
         "flights": 8,
@@ -51,8 +51,8 @@
         "pax": 294
       },
       "Malaysia": {
-        "flights": 9,
-        "pax": 1323
+        "flights": 10,
+        "pax": 1470
       },
       "Australia": {
         "flights": 2,
@@ -65,16 +65,24 @@
       "Oman": {
         "flights": 1,
         "pax": 147
+      },
+      "Germany": {
+        "flights": 1,
+        "pax": 147
+      },
+      "UK": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 45,
-    "pax": 6615,
+    "count": 53,
+    "pax": 7791,
     "countries": {
       "China": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Vietnam": {
         "flights": 1,
@@ -85,8 +93,8 @@
         "pax": 441
       },
       "Singapore": {
-        "flights": 6,
-        "pax": 882
+        "flights": 8,
+        "pax": 1176
       },
       "Switzerland": {
         "flights": 1,
@@ -123,8 +131,8 @@
         "pax": 147
       },
       "UAE": {
-        "flights": 1,
-        "pax": 147
+        "flights": 3,
+        "pax": 441
       },
       "Тюмень": {
         "flights": 1,
@@ -132,8 +140,8 @@
         "country": "Russia"
       },
       "Oman": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Belarus": {
         "flights": 1,
@@ -145,6 +153,10 @@
         "country": "Russia"
       },
       "Sweden": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Australia": {
         "flights": 1,
         "pax": 147
       }
@@ -176,7 +188,7 @@
       "airline": "Azur Air",
       "from": "OMS",
       "country": "",
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-04-06T04:25",
       "arr_time": "2026-04-06T13:40"
@@ -366,7 +378,7 @@
       "airline": "Malindo Air",
       "from": "KUL",
       "country": "Malaysia",
-      "status": "scheduled",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-04-06T12:00",
       "arr_time": "2026-04-06T12:30"
@@ -436,7 +448,7 @@
       "airline": "Akasa Air",
       "from": "BOM",
       "country": "India",
-      "status": "scheduled",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-04-06T06:45",
       "arr_time": "2026-04-06T12:40"
@@ -466,7 +478,7 @@
       "airline": "Malaysia Airlines",
       "from": "KUL",
       "country": "Malaysia",
-      "status": "scheduled",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-04-06T12:55",
       "arr_time": "2026-04-06T13:20"
@@ -476,7 +488,7 @@
       "airline": "AirAsia",
       "from": "KUL",
       "country": "Malaysia",
-      "status": "scheduled",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-04-06T12:30",
       "arr_time": "2026-04-06T13:00"
@@ -526,7 +538,7 @@
       "airline": "Air China LTD",
       "from": "TFU",
       "country": "",
-      "status": "scheduled",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-04-06T09:50",
       "arr_time": "2026-04-06T12:50"
@@ -720,6 +732,36 @@
       "pax": 147,
       "dep_time": "2026-04-06T15:10",
       "arr_time": "2026-04-06T18:00"
+    },
+    {
+      "fn": "DE2368",
+      "airline": "Condor",
+      "from": "FRA",
+      "country": "Germany",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-06T15:10",
+      "arr_time": "2026-04-07T07:25"
+    },
+    {
+      "fn": "FY3600",
+      "airline": "Firefly",
+      "from": "PEN",
+      "country": "Malaysia",
+      "status": "landed",
+      "pax": 147,
+      "dep_time": "2026-04-06T13:50",
+      "arr_time": "2026-04-06T13:55"
+    },
+    {
+      "fn": "BY104",
+      "airline": "TUI Airways",
+      "from": "MAN",
+      "country": "UK",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-06T13:35",
+      "arr_time": "2026-04-07T07:50"
     }
   ],
   "departures_list": [
@@ -938,7 +980,7 @@
       "airline": "IndiGo",
       "to": "BLR",
       "country": "India",
-      "status": "scheduled",
+      "status": "departed",
       "pax": 147,
       "dep_time": "2026-04-06T12:45",
       "arr_time": "2026-04-06T14:40"
@@ -948,7 +990,7 @@
       "airline": "Aeroflot",
       "to": "SVX",
       "country": "Russia",
-      "status": "scheduled",
+      "status": "departed",
       "pax": 147,
       "dep_time": "2026-04-06T12:35",
       "arr_time": "2026-04-06T19:45"
@@ -958,7 +1000,7 @@
       "airline": "IndiGo",
       "to": "CCU",
       "country": "India",
-      "status": "scheduled",
+      "status": "departed",
       "pax": 147,
       "dep_time": "2026-04-06T12:25",
       "arr_time": "2026-04-06T13:55"
@@ -968,7 +1010,7 @@
       "airline": "IndiGo",
       "to": "BOM",
       "country": "India",
-      "status": "scheduled",
+      "status": "departed",
       "pax": 147,
       "dep_time": "2026-04-06T12:20",
       "arr_time": "2026-04-06T15:10"
@@ -1018,7 +1060,7 @@
       "airline": "Malaysia Airlines",
       "to": "KUL",
       "country": "Malaysia",
-      "status": "scheduled",
+      "status": "departed",
       "pax": 147,
       "dep_time": "2026-04-06T14:05",
       "arr_time": "2026-04-06T16:40"
@@ -1028,7 +1070,7 @@
       "airline": "Air China LTD",
       "to": "TFU",
       "country": "",
-      "status": "scheduled",
+      "status": "departed",
       "pax": 147,
       "dep_time": "2026-04-06T14:00",
       "arr_time": "2026-04-06T19:10"
@@ -1038,7 +1080,7 @@
       "airline": "Akasa Air",
       "to": "BOM",
       "country": "India",
-      "status": "scheduled",
+      "status": "departed",
       "pax": 147,
       "dep_time": "2026-04-06T13:50",
       "arr_time": "2026-04-06T17:10"
@@ -1048,7 +1090,7 @@
       "airline": "AirAsia",
       "to": "KUL",
       "country": "Malaysia",
-      "status": "scheduled",
+      "status": "departed",
       "pax": 147,
       "dep_time": "2026-04-06T13:35",
       "arr_time": "2026-04-06T16:10"
@@ -1058,7 +1100,7 @@
       "airline": "Malindo Air",
       "to": "KUL",
       "country": "Malaysia",
-      "status": "scheduled",
+      "status": "departed",
       "pax": 147,
       "dep_time": "2026-04-06T13:30",
       "arr_time": "2026-04-06T16:00"
@@ -1068,7 +1110,7 @@
       "airline": "Aeroflot",
       "to": "KJA",
       "country": "Russia",
-      "status": "scheduled",
+      "status": "departed",
       "pax": 147,
       "dep_time": "2026-04-06T13:25",
       "arr_time": "2026-04-06T21:10"
@@ -1078,7 +1120,7 @@
       "airline": "Scoot",
       "to": "SIN",
       "country": "Singapore",
-      "status": "scheduled",
+      "status": "departed",
       "pax": 147,
       "dep_time": "2026-04-06T13:15",
       "arr_time": "2026-04-06T16:35"
@@ -1192,6 +1234,86 @@
       "pax": 147,
       "dep_time": "2026-04-06T18:00",
       "arr_time": "2026-04-06T21:05"
+    },
+    {
+      "fn": "JQ28",
+      "airline": "Jetstar",
+      "to": "SYD",
+      "country": "Australia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-06T21:05",
+      "arr_time": "2026-04-07T08:50"
+    },
+    {
+      "fn": "EY413",
+      "airline": "Etihad Airways",
+      "to": "AUH",
+      "country": "UAE",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-06T21:05",
+      "arr_time": "2026-04-07T00:25"
+    },
+    {
+      "fn": "TR653",
+      "airline": "Scoot",
+      "to": "SIN",
+      "country": "Singapore",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-06T20:50",
+      "arr_time": "2026-04-06T23:55"
+    },
+    {
+      "fn": "WY832",
+      "airline": "Oman Air",
+      "to": "MCT",
+      "country": "Oman",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-06T20:50",
+      "arr_time": "2026-04-07T00:05"
+    },
+    {
+      "fn": "6B404",
+      "airline": "TUI fly Nordic",
+      "to": "ARN",
+      "country": "Sweden",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-06T20:20",
+      "arr_time": "2026-04-07T04:25"
+    },
+    {
+      "fn": "SQ739",
+      "airline": "Singapore Airlines",
+      "to": "SIN",
+      "country": "Singapore",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-06T20:10",
+      "arr_time": "2026-04-06T23:25"
+    },
+    {
+      "fn": "EK379",
+      "airline": "Emirates",
+      "to": "DXB",
+      "country": "UAE",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-06T19:55",
+      "arr_time": "2026-04-06T23:10"
+    },
+    {
+      "fn": "CA822",
+      "airline": "Air China LTD",
+      "to": "PEK",
+      "country": "China",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-06T19:25",
+      "arr_time": "2026-04-07T02:25"
     }
   ]
 }
