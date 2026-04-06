@@ -804,6 +804,7 @@ def analyze_gtt(flights, direction, date_str):
     st   = {"completed": 0, "upcoming": 0, "cancelled": 0}
     ctry = defaultdict(lambda: {"flights": 0, "pax": 0})
     flight_list = []
+    seen_flights = set()   # deduplicate codeshare duplicates by normalized fn
 
     for f in (flights or []):
         # Pick the relevant airport IATA based on direction
@@ -821,6 +822,14 @@ def analyze_gtt(flights, direction, date_str):
         # Skip domestic
         if airport_iata in DOMESTIC:
             continue
+
+        # Deduplicate codeshare flights: same normalised fn + same airport = same physical flight
+        fn_raw = f.get("number", "")
+        fn_norm = fn_raw.replace(" ", "").upper()
+        dedup_key = (fn_norm, airport_iata)
+        if dedup_key in seen_flights:
+            continue
+        seen_flights.add(dedup_key)
 
         cnt += 1
         ac_iata   = (f.get("aircraft") or {}).get("iata", "")
