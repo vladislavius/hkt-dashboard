@@ -532,27 +532,32 @@ _TURNSTILE_SITEKEY  = "0x4AAAAAACVJKKHJ8u9nXinM"
 _TURNSTILE_PAGE_URL = "https://phuket.airportthai.co.th/flight?type=a"
 
 
-def _solve_via_playwright():
+def fetch_flights_gtt_playwright(date_str):
     """
-    Intercept the Authorization header from the page's own GraphQL request.
-    More reliable than waiting for cookie — captures token exactly as used.
+    Open browser, navigate to AOT flight board for type=a then type=d.
+    Each page load auto-solves Turnstile and fires a GTT request.
+    We intercept each response with expect_response() — no token extraction needed.
+
+    Returns (arrivals_list, departures_list) or raises on failure.
     """
-    import time
     from playwright.sync_api import sync_playwright
 
-    captured = {}
+    _POPUP = (
+        "button:has-text('Accept'), button:has-text('ACCEPT'), "
+        "button:has-text('ยอมรับ'), button:has-text('Submit'), "
+        "button:has-text('I Agree'), .btn-accept, #accept-btn"
+    )
 
-    def handle_request(request):
-        if "gtt-prod.sawasdeebyaot.com/graphql" in request.url:
-            auth = request.headers.get("authorization", "")
-            if auth and auth not in ("", "null"):
-                captured["token"] = auth
+    def _flights_from_response(data, label):
+        board = (data.get("data") or {}).get("webAOTFetchFlightBoard") or {}
+        if not board.get("success"):
+            raise RuntimeError(f"GTT {label}: {board.get('message')}")
+        return (board.get("payload") or {}).get("flights") or []
 
     with sync_playwright() as p:
-        # Use system Chrome (not Playwright Chromium) — real fingerprint, passes CF Turnstile
         try:
             browser = p.chromium.launch(
-                channel="chrome",   # system Chrome
+                channel="chrome",
                 headless=False,
                 args=["--disable-blink-features=AutomationControlled"],
             )
@@ -567,36 +572,29 @@ def _solve_via_playwright():
             Object.defineProperty(navigator,'webdriver',{get:()=>undefined});
             window.chrome={runtime:{}};
         """)
-        page.on("request", handle_request)
-        page.goto(_TURNSTILE_PAGE_URL, wait_until="domcontentloaded", timeout=30000)
 
-        # Dismiss cookie consent / accept popup if present
-        try:
-            page.wait_for_selector(
-                "button:has-text('Accept'), button:has-text('ACCEPT'), "
-                "button:has-text('ยอมรับ'), button:has-text('Submit'), "
-                "button:has-text('I Agree'), .btn-accept, #accept-btn",
-                timeout=5000,
-            )
-            page.click(
-                "button:has-text('Accept'), button:has-text('ACCEPT'), "
-                "button:has-text('ยอมรับ'), button:has-text('Submit'), "
-                "button:has-text('I Agree'), .btn-accept, #accept-btn",
-            )
-            print("🖱️ Dismissed consent popup")
-        except Exception:
-            pass  # No popup — proceed normally
+        results = {}
+        for flight_type, label in [("a", "arrivals"), ("d", "departures")]:
+            url = f"https://phuket.airportthai.co.th/flight?type={flight_type}"
+            with page.expect_response(
+                lambda r: "gtt-prod.sawasdeebyaot.com/graphql" in r.url,
+                timeout=60000,
+            ) as resp_info:
+                page.goto(url, wait_until="domcontentloaded", timeout=30000)
+                try:
+                    page.wait_for_selector(_POPUP, timeout=5000)
+                    page.click(_POPUP)
+                    print("🖱️ Dismissed consent popup")
+                except Exception:
+                    pass
 
-        # Wait for the page to fire its own GTT request (up to 45s)
-        deadline = time.time() + 45
-        while time.time() < deadline:
-            if captured.get("token"):
-                browser.close()
-                return captured["token"]
-            time.sleep(0.5)
+            data = resp_info.value.json()
+            results[label] = _flights_from_response(data, label)
+            print(f"✅ GTT {label}: {len(results[label])} flights")
 
         browser.close()
-    raise RuntimeError("No GTT request intercepted within timeout")
+
+    return results["arrivals"], results["departures"]
 
 
 def _solve_via_capsolver():
@@ -631,26 +629,11 @@ def _solve_via_capsolver():
 
 def get_turnstile_token():
     """
-    Solve Cloudflare Turnstile. Priority:
-    1. Playwright (real browser — works on residential IP, local Mac)
-    2. CapSolver (datacenter, often rejected by CF managed mode)
-    3. 2captcha (same limitation)
+    Solve Cloudflare Turnstile via captcha service (CapSolver / 2captcha).
+    NOTE: Playwright path is removed — CF binds the token to the browser context,
+    so tokens obtained via Playwright must be used via fetch_flights_gtt_playwright().
     Returns token string or None on failure.
     """
-    # ── Playwright (local residential IP — best success rate) ─────────────
-    try:
-        import playwright  # noqa: F401 — only available locally
-        print("🔐 Getting Turnstile token via Playwright (local browser)...")
-        try:
-            token = _solve_via_playwright()
-            if token:
-                print(f"✅ Turnstile token obtained ({len(token)} chars)")
-                return token
-        except Exception as e:
-            print(f"⚠️ Playwright error: {e} — trying captcha service")
-    except ImportError:
-        pass  # Not installed in this environment
-
     # ── CapSolver (preferred for Cloudflare Turnstile) ────────────────────
     if CAPSOLVER_KEY:
         print("🔐 Solving Turnstile via CapSolver...")
@@ -680,6 +663,74 @@ def get_turnstile_token():
 
     print("⚠️ No captcha solver configured — skipping GTT source")
     return None
+
+
+_GTT_QUERY_ONE = """query HKTFlightBoardOne($site: String!, $type: String!, $start: String!, $end: String!) {
+  webAOTFetchFlightBoard(site: $site, type: $type, schedule_start: $start, schedule_end: $end) {
+    success message code
+    payload {
+      flights {
+        number
+        flight_departure { scheduled_at flight_status }
+        flight_arrival   { scheduled_at flight_status }
+        origin_airport      { iata_code city }
+        destination_airport { iata_code city }
+        airline  { iata name }
+        aircraft { iata name }
+        flight_status
+      }
+    }
+  }
+}"""
+
+
+def fetch_flights_gtt_one(token, date_str, flight_type):
+    """
+    Fetch a single direction (flight_type='A' or 'D') with one token.
+    Token is single-use — never mix arrivals+departures in one request.
+    Returns flights list or None on error.
+    """
+    schedule_start = f"{date_str} 00:00:00"
+    schedule_end   = f"{date_str} 23:59:59"
+    try:
+        resp = requests.post(
+            GTT_ENDPOINT,
+            json={
+                "query": _GTT_QUERY_ONE,
+                "variables": {
+                    "site":  "hkt",
+                    "type":  flight_type,
+                    "start": schedule_start,
+                    "end":   schedule_end,
+                },
+            },
+            headers={
+                "Content-Type":    "application/json",
+                "Authorization":   token,
+                "api-name":        "WebAOTFetchFlightBoard",
+                "origin":          "https://phuket.airportthai.co.th",
+                "referer":         "https://phuket.airportthai.co.th/",
+                "accept":          "*/*",
+                "accept-language": "en-US,en;q=0.9",
+                "user-agent":      (
+                    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                    "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+                ),
+            },
+            timeout=20,
+        )
+        data = resp.json()
+        if data.get("errors"):
+            print(f"⚠️ GTT {flight_type} errors: {data['errors']}")
+            return None
+        board = (data.get("data") or {}).get("webAOTFetchFlightBoard") or {}
+        if not board.get("success"):
+            print(f"⚠️ GTT {flight_type} not successful: {board.get('message')}")
+            return None
+        return (board.get("payload") or {}).get("flights") or []
+    except Exception as e:
+        print(f"⚠️ GTT {flight_type} fetch error: {e}")
+        return None
 
 
 def fetch_flights_gtt(token, date_str):
@@ -838,21 +889,35 @@ def run():
     tat_monthly = load_tat_stats()
 
     # ── Try GTT GraphQL (primary source) ─────────────────────────────────
-    gtt_token = get_turnstile_token()
     source = "aviationstack"
+    a_fl_gtt = d_fl_gtt = None
 
-    if gtt_token:
-        # Single request — token is single-use, arrivals+departures in one call
-        a_fl_gtt, d_fl_gtt = fetch_flights_gtt(gtt_token, today)
-        if a_fl_gtt is not None and d_fl_gtt is not None:
-            a_res = analyze_gtt(a_fl_gtt, "arrival",   today)
-            d_res = analyze_gtt(d_fl_gtt, "departure", today)
-            source = "gtt"
-            print(f"✅ GTT: {len(a_fl_gtt)} arrivals, {len(d_fl_gtt)} departures")
-        else:
-            gtt_token = None  # force fallback
+    # 1. Playwright (local Mac): makes fetch from within browser — CF token bound to context
+    try:
+        import playwright  # noqa: F401
+        print("🔐 Fetching GTT via Playwright (in-browser fetch)...")
+        try:
+            a_fl_gtt, d_fl_gtt = fetch_flights_gtt_playwright(today)
+            print(f"✅ GTT Playwright: {len(a_fl_gtt)} arrivals, {len(d_fl_gtt)} departures")
+        except Exception as e:
+            print(f"⚠️ GTT Playwright error: {e} — trying captcha service")
+    except ImportError:
+        pass  # Playwright not installed (production env)
 
-    if not gtt_token:
+    # 2. Captcha service: token is single-use → two tokens, one per direction
+    if a_fl_gtt is None:
+        arr_token = get_turnstile_token()
+        if arr_token:
+            a_fl_gtt = fetch_flights_gtt_one(arr_token, today, "A")
+            dep_token = get_turnstile_token()
+            if dep_token:
+                d_fl_gtt = fetch_flights_gtt_one(dep_token, today, "D")
+
+    if a_fl_gtt is not None and d_fl_gtt is not None:
+        a_res = analyze_gtt(a_fl_gtt, "arrival",   today)
+        d_res = analyze_gtt(d_fl_gtt, "departure", today)
+        source = "gtt"
+    else:
         # ── Fallback: AviationStack ─────────────────────────────────────
         key, knum = get_api_key()
         a_fl, a_req = fetch_flights("arrival", key)
