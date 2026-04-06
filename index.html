@@ -990,29 +990,31 @@
     .fdr-fn { font-family: 'DM Mono', monospace; font-weight: 600; color: var(--ivory); min-width: 60px; }
     .fdr-time { font-family: 'DM Mono', monospace; color: var(--sky); min-width: 42px; }
     .fdr-status { color: var(--muted); font-size: 0.65rem; }
-    /* ── Ticker / marquee for overflowing rank names ── */
-    @keyframes rn-scroll {
-      0%, 20%   { transform: translateX(0); }
-      80%, 100% { transform: translateX(var(--rnt-dx, -50px)); }
+    /* ── Seamless marquee for transit / estimated rows ── */
+    @keyframes rn-marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
     }
-    /* When ticker active: disable ellipsis, animate block span */
-    .rank-name.rn-ticker .rnt {
-      display: block;
-      text-overflow: clip;
-      overflow: visible;
-      animation: rn-scroll 5s ease-in-out infinite alternate;
-      will-change: transform;
+    /* Container: clips overflow */
+    .rank-item-estimated .rank-name { overflow: hidden; }
+    /* Flex wrapper holds text twice → animate -50% = exactly 1 copy = seamless loop */
+    .rn-ticker-wrap {
+      display: flex;
+      width: max-content;
+      animation: rn-marquee 7s linear infinite;
     }
-    /* Estimated rows: always ticker */
-    .rank-item-estimated .rank-name .rnt {
-      display: block;
-      text-overflow: clip;
-      overflow: visible;
-      animation: rn-scroll 5s ease-in-out infinite alternate;
-      will-change: transform;
+    .rn-ticker-wrap .rnt {
+      white-space: nowrap;
+      padding-right: 36px;
+      flex-shrink: 0;
     }
-    /* Pause when expanded */
-    .rank-item.expanded .rank-name .rnt { animation-play-state: paused; }
+    /* General rank-name: ellipsis until JS detects overflow */
+    .rank-name.rn-ticker { overflow: hidden; text-overflow: clip; }
+    .rank-name.rn-ticker .rnt-wrap {
+      display: flex; width: max-content;
+      animation: rn-marquee 7s linear infinite;
+    }
+    .rank-name.rn-ticker .rnt-wrap .rnt { white-space: nowrap; padding-right: 36px; flex-shrink: 0; }
 
     /* ── Transit / estimated rows ── */
     .rank-item-estimated {
@@ -2032,20 +2034,10 @@
         const pax     = x.pax ?? 0;
         // Use parent country for Russian cities, otherwise use name
         const flagKey = x.country || x.name;
-        // Russia row: augment pax with transit estimate
-        const isRussiaRow = (x.country === 'Russia' || x.name === 'Russia');
-        let displayPax = pax;
-        let transitBadge = null;
-        if (isRussiaRow && russiaTransit && russiaTransit.pax > 0) {
-          displayPax = pax + russiaTransit.pax;
-          transitBadge = make('span', 'transit-badge');
-          transitBadge.title = `Прямые: ~${pax.toLocaleString('ru')} · Транзит: ~${russiaTransit.pax.toLocaleString('ru')} (TAT ~${(russiaTransit.tat_pax||0).toLocaleString('ru')} + BKK ~${(russiaTransit.bkk_pax||0).toLocaleString('ru')})`;
-          transitBadge.textContent = '~ оценка';
-        }
         const countEl = make('div', 'rank-count');
         ap(countEl,
           txt(make('span', 'rc-flights'), String(flights) + ' ✈'),
-          txt(make('span', 'rc-pax'), (isRussiaRow && displayPax !== pax ? '~' : '') + displayPax.toLocaleString('ru') + ' чел.')
+          txt(make('span', 'rc-pax'), pax.toLocaleString('ru') + ' чел.')
         );
         // Expandable flight details
         const matchedFlights = getFlightsForRow(x, flightsList, direction || 'arr');
@@ -2085,32 +2077,6 @@
           lastRussiaLi = li;
         }
       });
-
-      // Inject Russia transit breakdown row
-      if (russiaTransit && russiaTransit.pax > 0) {
-        const tatPax = russiaTransit.tat_pax || 0;
-        const bkkPax = russiaTransit.bkk_pax || 0;
-        const li = make('li', 'rank-item rank-item-estimated');
-        li.title = `Транзит: TAT-модель (K=0.38) ~${tatPax.toLocaleString('ru')} + BKK→HKT ~${bkkPax.toLocaleString('ru')}`;
-        const nameEl = make('span', 'rank-name');
-        nameEl.appendChild(txt(make('span', 'rnt'), '↳ транзит (TAT+BKK)'));
-        const countEl = make('div', 'rank-count');
-        ap(countEl,
-          txt(make('span', 'rc-flights'), '~' + String(russiaTransit.flights) + ' ✈'),
-          txt(make('span', 'rc-pax'), '~' + russiaTransit.pax.toLocaleString('ru') + ' чел.')
-        );
-        ap(li,
-          make('div', 'rank-num rn-n'),
-          txt(make('span', 'rank-flag'), ''),
-          nameEl,
-          countEl
-        );
-        if (lastRussiaLi) {
-          lastRussiaLi.after(li);
-        } else {
-          ul.appendChild(li);
-        }
-      }
 
       return ul;
     }
@@ -2376,7 +2342,7 @@
     }
 
     /* ── CIS rank list (Russia grouped with city drill-down) ── */
-    function mkCISRankList(groupedList, flightsList, direction) {
+    function mkCISRankList(groupedList, flightsList, direction, russiaTransit) {
       var ul = make('ul', 'rank-list');
       if (!groupedList || !groupedList.length) {
         ap(ul, txt(make('li', 'rank-empty'), 'Нет данных'));
@@ -2441,6 +2407,7 @@
             ap(cityRow, cityHeader, flightList);
             cityDetail.appendChild(cityRow);
           });
+          cityDetail.addEventListener('click', function(e){ e.stopPropagation(); });
           li.appendChild(cityDetail);
           li.addEventListener('click',function(){li.classList.toggle('expanded');chevron.textContent=li.classList.contains('expanded')?' ▴':' ▾';});
         } else {
@@ -2467,6 +2434,27 @@
         }
         ul.appendChild(li);
       });
+
+      // Transit row — only for arrivals
+      if (direction === 'arr' && russiaTransit && russiaTransit.pax > 0) {
+        var tLi = make('li', 'rank-item rank-item-estimated');
+        var tatP = russiaTransit.tat_pax || 0;
+        var bkkP = russiaTransit.bkk_pax || 0;
+        tLi.title = 'TAT-оценка: ' + tatP.toLocaleString('ru') + ' · BKK→HKT: ' + bkkP.toLocaleString('ru');
+        var tNameEl = make('span', 'rank-name');
+        var tickWrap = make('div', 'rn-ticker-wrap');
+        var label = '↳ транзит BKK+TR (оценка)';
+        ap(tickWrap, txt(make('span','rnt'), label), txt(make('span','rnt'), label));
+        tNameEl.appendChild(tickWrap);
+        var tCount = make('div', 'rank-count');
+        ap(tCount,
+          txt(make('span','rc-flights'), '~' + russiaTransit.flights + ' ✈'),
+          txt(make('span','rc-pax'), '~' + russiaTransit.pax.toLocaleString('ru') + ' чел.')
+        );
+        ap(tLi, make('div','rank-num rn-n'), txt(make('span','rank-flag'),''), tNameEl, tCount);
+        ul.appendChild(tLi);
+      }
+
       return ul;
     }
 
@@ -2555,14 +2543,14 @@
       const colArr = make('div', 'cis-col');
       const arrDonut = mkDonutCard('🛬', 'Прилёты СНГ · по странам', arrByC, cisArr.flights, 'cisArrChart', '0.06s');
       const cisArrCard = mkCard('🛬', 'Прилёты · рейсы', '0.12s');
-      cisArrCard.appendChild(mkCISRankList(arrList.filter(isCIS), d.arrivals_list || [], 'arr'));
+      cisArrCard.appendChild(mkCISRankList(arrList.filter(isCIS), d.arrivals_list || [], 'arr', d.russia_transit));
       ap(colArr, arrDonut.card, cisArrCard);
 
       /* Правая колонка: донут вылетов + список вылетов */
       const colDep = make('div', 'cis-col');
       const depDonut = mkDonutCard('🛫', 'Вылеты СНГ · по странам', depByC, cisDep.flights, 'cisDepChart', '0.18s');
       const cisDepCard = mkCard('🛫', 'Вылеты · рейсы', '0.24s');
-      cisDepCard.appendChild(mkCISRankList(depList.filter(isCIS), d.departures_list || [], 'dep'));
+      cisDepCard.appendChild(mkCISRankList(depList.filter(isCIS), d.departures_list || [], 'dep', null));
       ap(colDep, depDonut.card, cisDepCard);
 
       ap(grid, colArr, colDep);
