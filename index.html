@@ -988,16 +988,22 @@
     /* ── Ticker / marquee for overflowing rank names ── */
     @keyframes rn-scroll {
       0%, 20%   { transform: translateX(0); }
-      80%, 100% { transform: translateX(var(--rnt-dx, -40px)); }
+      80%, 100% { transform: translateX(var(--rnt-dx, -50px)); }
     }
+    .rank-name { overflow: hidden; }
     .rank-name .rnt { display: inline-block; white-space: nowrap; }
-    .rank-name.rn-ticker { text-overflow: clip; }
+    .rank-name.rn-ticker { text-overflow: clip !important; }
     .rank-name.rn-ticker .rnt {
-      animation: rn-scroll 4s ease-in-out infinite alternate;
+      animation: rn-scroll 5s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+    /* Estimated rows: always ticker (name never fits) */
+    .rank-item-estimated .rank-name .rnt {
+      animation: rn-scroll 5s ease-in-out infinite alternate;
       will-change: transform;
     }
     /* Pause ticker when row is expanded */
-    .rank-item.expanded .rank-name.rn-ticker .rnt { animation-play-state: paused; }
+    .rank-item.expanded .rank-name .rnt { animation-play-state: paused; }
 
     /* ── Transit / estimated rows ── */
     .rank-item-estimated {
@@ -1009,6 +1015,7 @@
     .rank-item-estimated .rank-name {
       color: var(--muted-2);
       font-style: italic;
+      --rnt-dx: -55px;   /* default scroll distance for transit rows */
     }
     .rank-item-estimated .rc-flights,
     .rank-item-estimated .rc-pax { color: var(--gold-light); }
@@ -2294,7 +2301,7 @@
       }
 
       appEl.replaceChildren(grid);
-      requestAnimationFrame(() => initTickers(appEl));
+      setTimeout(() => initTickers(appEl), 80);
 
       /* Destroy old charts */
       if (activeChart)  { activeChart.destroy();  activeChart  = null; }
@@ -2558,7 +2565,7 @@
       }
 
       cisAppEl.replaceChildren(grid);
-      requestAnimationFrame(() => initTickers(cisAppEl));
+      setTimeout(() => initTickers(cisAppEl), 80);
 
       /* Destroy old CIS charts */
       if (activeCisChart)       { activeCisChart.destroy();       activeCisChart  = null; }
