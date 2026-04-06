@@ -3726,27 +3726,12 @@
           borders.push(color);
         });
 
-        const legend = make('div', 'chart-legend');
-        allCISKeys.forEach(c => {
-          const n = byC[c]?.flights || 0;
-          const p = byC[c]?.pax || 0;
-          if (!n) return;
-          const li = make('div', 'leg-item');
-          const dot = make('div', 'leg-dot'); dot.style.background = CIS_COLORS[c] || '#888';
-          ap(li, dot,
-            document.createTextNode(' ' + (CIS_LABELS[c] || c) + ' '),
-            txt(make('span','leg-val'), n + ' ✈'),
-            txt(make('span','leg-pax'), ' ~' + p.toLocaleString('ru') + ' чел.')
-          );
-          legend.appendChild(li);
-        });
-
         // Ticker for CIS donut — build list from byC
         const cisList = allCISKeys.filter(c => byC[c]?.flights).map(c => ({
           name: CIS_LABELS[c] || c, flights: byC[c].flights, pax: byC[c].pax || 0
         }));
         const cisTicker = mkFlightTicker(cisList);
-        ap(card, wrap, legend);
+        ap(card, wrap);
         if (cisTicker) card.appendChild(cisTicker);
         return { card, labels, vals, bgs, borders };
       }
