@@ -1052,6 +1052,60 @@
       font-style: normal;
     }
 
+    /* ── Flight stats ticker (under donut) ── */
+    @keyframes ft-scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .ft-wrap { overflow:hidden; padding:8px 0 2px; border-top:1px solid var(--border); margin-top:10px; }
+    .ft-inner { display:inline-flex; animation:ft-scroll 32s linear infinite; white-space:nowrap; }
+    .ft-inner:hover { animation-play-state:paused; }
+    .ft-item { display:inline-flex; align-items:center; padding:0 14px; font-size:0.68rem; color:var(--muted-2); font-family:'DM Mono',monospace; gap:4px; white-space:nowrap; }
+    .ft-item strong { color:var(--ivory); opacity:.7; font-weight:500; }
+    .ft-sep { color:var(--muted); padding:0 2px; font-size:0.6rem; }
+
+    /* ── Period badge on cards ── */
+    .card-period { font-size:0.58rem; color:var(--muted-2); font-family:'DM Mono',monospace; letter-spacing:0.5px; margin-left:auto; opacity:0.7; }
+
+    /* ── TAT transit card — distinct standalone ── */
+    @keyframes tat-scan { 0%{transform:translateX(-120%);opacity:0} 15%{opacity:1} 85%{opacity:0.5} 100%{transform:translateX(220%);opacity:0} }
+    @keyframes tat-pulse { 0%,100%{box-shadow:0 0 0 0 rgba(200,169,110,0),0 12px 40px rgba(0,0,0,0.5)} 50%{box-shadow:0 0 0 6px rgba(200,169,110,0.07),0 12px 40px rgba(0,0,0,0.5)} }
+    .tat-card {
+      position:relative; overflow:hidden;
+      background:linear-gradient(135deg,rgba(200,169,110,0.09) 0%,rgba(8,13,26,0.97) 45%,rgba(200,169,110,0.05) 100%);
+      border:1px solid rgba(200,169,110,0.24); border-radius:20px;
+      padding:22px 26px 18px; margin-top:18px;
+      animation:tat-pulse 4s ease-in-out infinite;
+    }
+    .tat-card::before { content:''; position:absolute; inset:0; width:35%;
+      background:linear-gradient(90deg,transparent,rgba(200,169,110,0.07),transparent);
+      animation:tat-scan 7s ease-in-out infinite; pointer-events:none; }
+    .tat-card::after { content:''; position:absolute; top:0; right:0; width:90px; height:90px;
+      background:radial-gradient(ellipse at top right,rgba(200,169,110,0.14),transparent 70%); pointer-events:none; }
+    .tat-eyebrow { font-family:'DM Mono',monospace; font-size:0.54rem; letter-spacing:3px; text-transform:uppercase; color:var(--muted-2); margin-bottom:5px; }
+    .tat-header { display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:14px; }
+    .tat-title { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:700; color:var(--gold-light); letter-spacing:-0.3px; line-height:1.1; }
+    .tat-badges { display:flex; gap:6px; flex-wrap:wrap; margin-top:6px; }
+    .tat-badge { font-size:0.53rem; font-family:'DM Mono',monospace; color:var(--muted-2); background:rgba(200,169,110,0.08); border:1px solid rgba(200,169,110,0.2); border-radius:5px; padding:2px 8px; letter-spacing:0.8px; text-transform:uppercase; }
+    .tat-badge.est { color:rgba(232,164,98,0.9); border-color:rgba(232,164,98,0.35); background:rgba(232,164,98,0.08); }
+    .tat-divider { height:1px; background:linear-gradient(90deg,transparent,rgba(200,169,110,0.28) 30%,rgba(200,169,110,0.28) 70%,transparent); margin:14px 0; }
+    .tat-grid { display:grid; grid-template-columns:repeat(3,1fr); }
+    .tat-metric { display:flex; flex-direction:column; gap:4px; padding:0 16px; border-right:1px solid rgba(200,169,110,0.1); }
+    .tat-metric:first-child { padding-left:0; }
+    .tat-metric:last-child  { border-right:none; }
+    .tat-metric-val { font-family:'DM Mono',monospace; font-size:1.5rem; font-weight:500; color:var(--gold-light); letter-spacing:-0.5px; }
+    .tat-metric-lbl { font-size:0.54rem; color:var(--muted-2); letter-spacing:1.5px; text-transform:uppercase; }
+    .tat-breakdown { margin-top:14px; display:flex; background:rgba(200,169,110,0.04); border:1px solid rgba(200,169,110,0.1); border-radius:10px; overflow:hidden; }
+    .tat-row { flex:1; display:flex; flex-direction:column; gap:3px; padding:10px 14px; border-right:1px solid rgba(200,169,110,0.1); }
+    .tat-row:last-child { border-right:none; }
+    .tat-row-lbl { font-size:0.52rem; color:var(--muted-2); font-family:'DM Mono',monospace; letter-spacing:1px; text-transform:uppercase; }
+    .tat-row-val { font-size:0.95rem; color:var(--ivory); font-family:'DM Mono',monospace; opacity:.8; }
+    .tat-note { margin-top:12px; font-size:0.58rem; color:var(--muted-2); font-family:'DM Mono',monospace; line-height:1.65; border-top:1px solid rgba(255,255,255,0.04); padding-top:10px; }
+    @media (max-width:600px) {
+      .tat-grid { grid-template-columns:repeat(2,1fr); row-gap:12px; }
+      .tat-metric { padding:0 10px; }
+      .tat-breakdown { flex-direction:column; }
+      .tat-row { border-right:none; border-bottom:1px solid rgba(200,169,110,0.1); }
+      .tat-row:last-child { border-bottom:none; }
+    }
+
     /* ── States ── */
     .loading-state { padding: 80px 20px; text-align: center; }
     .loading-txt {
@@ -1290,6 +1344,15 @@
       .m-card        { padding: 12px 12px 10px; border-radius: 12px; }
     }
 
+    /* ── Mobile: ticker compact ── */
+    @media (max-width: 480px) {
+      .ft-item  { font-size: 0.62rem; padding: 0 10px; }
+      .card-period { font-size: 0.54rem; }
+    }
+    @media (max-width: 768px) {
+      .ft-item  { font-size: 0.65rem; padding: 0 12px; }
+    }
+
     .cis-ru-subtitle { font-size: 0.68rem; color: var(--muted-2); margin: 2px 0 4px 32px; font-family: 'DM Mono', monospace; line-height: 1.6; display: none; }
     .rank-item.expanded .cis-ru-subtitle { display: block; }
     .cis-city-row { padding: 4px 0 4px 8px; border-top: 1px solid rgba(255,255,255,0.05); }
@@ -1328,6 +1391,66 @@
     100%{ transform: translateX(calc(100vw + 60px)) translateY(-8px) rotate(3deg); opacity:0; }
   }
   @keyframes sweep-trail { 0%{opacity:.8} 100%{opacity:0} }
+
+  /* ══ TAKEOFF PLANE ══════════════════════════════════════ */
+  @keyframes tp-ascent {
+    0%    { transform:translateX(-50%) translateY(0px)             rotate(0deg);   opacity:0; }
+    18%   { transform:translateX(-50%) translateY(0px)             rotate(0deg);   opacity:0; }
+    20%   { transform:translateX(-50%) translateY(-10px)           rotate(-3deg);  opacity:0.95; }
+    30%   { transform:translateX(-50%) translateY(-120px)          rotate(-8deg); }
+    55%   { transform:translateX(-50%) translateY(-45vh)           rotate(-14deg); }
+    90%   { transform:translateX(-50%) translateY(-110vh)          rotate(-18deg); opacity:0.8; }
+    100%  { transform:translateX(-50%) translateY(-130vh)          rotate(-20deg); opacity:0; }
+  }
+  @keyframes tp-nav-red {
+    0%,100%{ opacity:1; } 50%{ opacity:0.25; }
+  }
+  @keyframes tp-nav-grn {
+    0%,100%{ opacity:1; } 50%{ opacity:0.25; }
+  }
+  @keyframes tp-strobe {
+    0%,86%,89%,92%,100%{ opacity:0; }
+    87%,88%{ opacity:1; }
+    90%,91%{ opacity:0.85; }
+  }
+  @keyframes tp-strobe2 {
+    0%,80%,83%,86%,100%{ opacity:0; }
+    81%,82%{ opacity:1; }
+    84%,85%{ opacity:0.7; }
+  }
+  @keyframes tp-beacon {
+    0%,100%{ opacity:0.1; } 25%{ opacity:1; } 50%{ opacity:0.15; } 75%{ opacity:0.9; }
+  }
+  @keyframes tp-engine {
+    0%,100%{ opacity:0.85; } 30%{ opacity:1; } 70%{ opacity:0.7; }
+  }
+  @keyframes tp-landing {
+    0%,100%{ opacity:1; filter:blur(0px); }
+    50%    { opacity:0.8; filter:blur(0.5px); }
+  }
+  @keyframes tp-heat {
+    0%,100%{ transform:scaleY(1);   opacity:0.35; }
+    50%    { transform:scaleY(1.4); opacity:0.2;  }
+  }
+
+  .tp-wrap {
+    position: fixed;
+    left: 50%;
+    bottom: -180px;
+    z-index: 12;
+    pointer-events: none;
+    animation: tp-ascent 28s cubic-bezier(0.3,0,0.6,1) infinite;
+    animation-delay: 3s;
+    transform-origin: center bottom;
+  }
+  .tp-svg { display:block; }
+  .tp-nav-red  { animation: tp-nav-red  1.1s ease-in-out infinite; }
+  .tp-nav-grn  { animation: tp-nav-grn  1.1s ease-in-out infinite 0.55s; }
+  .tp-strobe   { animation: tp-strobe   3s   linear         infinite; }
+  .tp-strobe2  { animation: tp-strobe2  3s   linear         infinite 1.1s; }
+  .tp-beacon   { animation: tp-beacon   1.8s ease-in-out    infinite; }
+  .tp-engine   { animation: tp-engine   0.4s ease-in-out    infinite; }
+  .tp-landing  { animation: tp-landing  2.4s ease-in-out    infinite; }
 
   /* ── Radar background ── */
   .avi-radar {
@@ -2006,7 +2129,7 @@
             updateCover(key);
             render(key);
             const cisPanel = document.getElementById('cis-panel');
-            if (cisPanel && !cisPanel.hidden) renderCIS('week');
+            if (cisPanel && !cisPanel.hidden) renderCIS(key);
             renderDrawerLeft(period);
           }).catch(() => {});
         return;
@@ -2015,7 +2138,7 @@
       updateCover(key);
       render(key);
       const cisPanel = document.getElementById('cis-panel');
-      if (cisPanel && !cisPanel.hidden) renderCIS('week');
+      if (cisPanel && !cisPanel.hidden) renderCIS(key);
       if (data) renderDrawerLeft(data[key] || data['today']);
     }
 
@@ -2303,7 +2426,6 @@
         return ul;
       }
       const max = list[0]?.flights ?? list[0]?.count ?? 1;
-      let lastRussiaLi = null;
       list.forEach((x, i) => {
         const flights = x.flights ?? x.count ?? 0;
         const li      = make('li', 'rank-item');
@@ -2349,11 +2471,6 @@
              nameEl, countEl);
         }
         ul.appendChild(li);
-        // Track last Russia-related row for transit insertion
-        if (x.country === 'Russia' || x.name === 'Russia' ||
-            (x.name && (x.name.includes('Москва') || x.name.includes('Санкт') || x.name.includes('Новосибирск')))) {
-          lastRussiaLi = li;
-        }
       });
 
       return ul;
@@ -2380,6 +2497,45 @@
           el.classList.add('rn-ticker');
         }
       });
+    }
+
+    /* ── Period label helper ── */
+    function periodLabelShort(period) {
+      if (period === 'today')     return 'за сегодня';
+      if (period === 'yesterday') return 'за вчера';
+      if (period === 'week')      return 'за неделю';
+      if (period === 'month')     return 'за месяц';
+      if (period === 'quarter')   return 'за 3 мес.';
+      if (period === 'halfyear')  return 'за 6 мес.';
+      if (period === 'year')      return 'за год';
+      if (/^\d{4}-\d{2}-\d{2}$/.test(period)) return period.slice(5).replace('-', '.');
+      return '';
+    }
+
+    /* ── Flight stats ticker (under donut) ── */
+    function mkFlightTicker(list) {
+      if (!list || !list.length) return null;
+      const wrap  = make('div', 'ft-wrap');
+      const inner = make('div', 'ft-inner');
+      const items = list.slice(0, 10);
+      for (let r = 0; r < 2; r++) {
+        items.forEach((x) => {
+          const span = make('span', 'ft-item');
+          const flag = FLAGS[x.name] || FLAGS[x.country] || '🌍';
+          const name = x.name || x.country || '?';
+          const fl   = x.flights || 0;
+          const px   = x.pax || 0;
+          const bold = txt(make('strong', ''), name);
+          span.appendChild(document.createTextNode(flag + ' '));
+          span.appendChild(bold);
+          span.appendChild(document.createTextNode(' ' + fl + '\u2708  ~' + px.toLocaleString('ru') + '\u00a0чел.'));
+          inner.appendChild(span);
+          const sep = make('span', 'ft-sep'); sep.textContent = '·';
+          inner.appendChild(sep);
+        });
+      }
+      wrap.appendChild(inner);
+      return wrap;
     }
 
     /* ── Card shell ── */
@@ -2525,7 +2681,9 @@
           );
           legend.appendChild(li);
         });
+        const ticker = mkFlightTicker(list);
         ap(card, wrap, legend);
+        if (ticker) card.appendChild(ticker);
         return card;
       };
 
@@ -2534,8 +2692,10 @@
 
       /* Левая колонка: донут прилётов + список */
       const colArr = make('div', 'cis-col');
+      const pLabel = periodLabelShort(period);
       const arrDonutCard = mkWorldDonut('🛬', 'Прилёты · по странам', arrList, d.arrivals.count, d.arrivals.pax, 'mainArrChart', '#5BB8F5', '0.06s');
       const arrRankCard  = mkCard('🛬', 'Прилёты · рейсы', '0.12s');
+      if (pLabel) { const pb = txt(make('span','card-period'), pLabel); arrRankCard.querySelector('.card-title').appendChild(pb); }
       arrRankCard.appendChild(mkRankList(arrList, d.russia_transit, d.arrivals_list, 'arr'));
       ap(colArr, arrDonutCard, arrRankCard);
 
@@ -2543,6 +2703,7 @@
       const colDep = make('div', 'cis-col');
       const depDonutCard = mkWorldDonut('🛫', 'Вылеты · по странам', depList, d.departures.count, d.departures.pax, 'mainDepChart', '#E8A462', '0.18s');
       const depRankCard  = mkCard('🛫', 'Вылеты · рейсы', '0.24s');
+      if (pLabel) { const pb2 = txt(make('span','card-period'), pLabel); depRankCard.querySelector('.card-title').appendChild(pb2); }
       depRankCard.appendChild(mkRankList(depList, null, d.departures_list, 'dep'));
       ap(colDep, depDonutCard, depRankCard);
 
@@ -2620,7 +2781,7 @@
     }
 
     /* ── CIS rank list (Russia grouped with city drill-down) ── */
-    function mkCISRankList(groupedList, flightsList, direction, russiaTransit) {
+    function mkCISRankList(groupedList, flightsList, direction, russiaTransit, period) {
       var ul = make('ul', 'rank-list');
       if (!groupedList || !groupedList.length) {
         ap(ul, txt(make('li', 'rank-empty'), 'Нет данных'));
@@ -2655,16 +2816,16 @@
           var chevron = txt(make('span','rank-chevron'),' ▾');
           nameEl.appendChild(chevron);
           ap(li, bar, txt(make('div',numCls),String(i+1)), flagEl, nameEl, countEl);
-          if (x.cities.length > 1) {
-            var subtitle = txt(make('div','cis-ru-subtitle'), x.cities.map(function(c){return (c.name||'?')+'\u00a0'+c.flights;}).join(' · '));
-            li.appendChild(subtitle);
-          }
           var cityDetail = make('div','rank-flights-detail');
           x.cities.forEach(function(city) {
             var cityRow = make('div','cis-city-row');
-            var cityName = city.name || city.airport || '?';
-            var cityFlights = (flightsList||[]).filter(function(f){ return f[countryField] === city.iata || (city.iata && f[countryField] === city.iata); });
-            if (!cityFlights.length) cityFlights = (flightsList||[]).filter(function(f){ return f.country==='Russia' && f[countryField] && city.name && (f.from_city||'').toLowerCase()===city.name.toLowerCase(); });
+            var cityName = city.name || '?';
+            // Match real flights: find all airport codes mapping to this city
+            var cityAirports = Object.entries(MAP_RU_CITY_JS).filter(function(e){ return e[1] === cityName; }).map(function(e){ return e[0]; });
+            var cityFlights = (flightsList||[]).filter(function(f){
+              var ap = f[countryField] || '';
+              return f.country === 'Russia' && cityAirports.indexOf(ap) !== -1;
+            });
             // Deduplicate by normalized fn
             var _seenFn = new Map();
             cityFlights.forEach(function(f){ var k=normFn(f.fn); if(k && !_seenFn.has(k)) _seenFn.set(k,f); });
@@ -2713,27 +2874,64 @@
         ul.appendChild(li);
       });
 
-      // Transit row — only for arrivals
-      if (direction === 'arr' && russiaTransit && russiaTransit.pax > 0) {
-        var tLi = make('li', 'rank-item rank-item-estimated');
-        var tatP = russiaTransit.tat_pax || 0;
-        var bkkP = russiaTransit.bkk_pax || 0;
-        tLi.title = 'TAT-оценка: ' + tatP.toLocaleString('ru') + ' · BKK→HKT: ' + bkkP.toLocaleString('ru');
-        var tNameEl = make('span', 'rank-name');
-        var tickWrap = make('div', 'rn-ticker-wrap');
-        var label = '↳ транзит BKK+TR (оценка)';
-        ap(tickWrap, txt(make('span','rnt'), label), txt(make('span','rnt'), label));
-        tNameEl.appendChild(tickWrap);
-        var tCount = make('div', 'rank-count');
-        ap(tCount,
-          txt(make('span','rc-flights'), '~' + russiaTransit.flights + ' ✈'),
-          txt(make('span','rc-pax'), '~' + russiaTransit.pax.toLocaleString('ru') + ' чел.')
-        );
-        ap(tLi, make('div','rank-num rn-n'), txt(make('span','rank-flag'),''), tNameEl, tCount);
-        ul.appendChild(tLi);
+      return ul;
+    }
+
+    /* ── TAT transit card (separate from rank list) ── */
+    function mkTATCard(russiaTransit, period) {
+      if (!russiaTransit || !russiaTransit.pax) return null;
+      const card = make('div', 'tat-card');
+
+      txt(make('div', 'tat-eyebrow'), '✦ Транзитный поток · оценка').textContent; // placeholder
+      const eyebrow = txt(make('div', 'tat-eyebrow'), '✦ Транзит · не включён в прямые рейсы');
+      card.appendChild(eyebrow);
+
+      const header = make('div', 'tat-header');
+      const titleGroup = make('div', 'tat-title-group');
+      titleGroup.appendChild(txt(make('div', 'tat-title'), 'Транзит РФ через BKK'));
+      const badges = make('div', 'tat-badges');
+      badges.appendChild(txt(make('span', 'tat-badge est'), 'ОЦЕНКА'));
+      badges.appendChild(txt(make('span', 'tat-badge'), periodLabelShort(period).toUpperCase()));
+      badges.appendChild(txt(make('span', 'tat-badge'), 'TAT + AOT'));
+      titleGroup.appendChild(badges);
+      header.appendChild(titleGroup);
+      card.appendChild(header);
+
+      card.appendChild(make('div', 'tat-divider'));
+
+      const grid = make('div', 'tat-grid');
+      const mkM = (val, lbl) => {
+        const m = make('div', 'tat-metric');
+        ap(m, txt(make('div', 'tat-metric-val'), val), txt(make('div', 'tat-metric-lbl'), lbl));
+        return m;
+      };
+      ap(grid,
+        mkM('~' + russiaTransit.flights, 'рейсов'),
+        mkM('~' + russiaTransit.pax.toLocaleString('ru'), 'пассажиров'),
+        mkM('оценка', 'статус данных')
+      );
+      card.appendChild(grid);
+
+      if (russiaTransit.tat_pax > 0 || russiaTransit.bkk_pax > 0) {
+        const breakdown = make('div', 'tat-breakdown');
+        if (russiaTransit.tat_pax > 0) {
+          const r1 = make('div', 'tat-row');
+          ap(r1, txt(make('div','tat-row-lbl'),'TAT Thailand'), txt(make('div','tat-row-val'),'~' + russiaTransit.tat_pax.toLocaleString('ru') + ' чел.'));
+          breakdown.appendChild(r1);
+        }
+        if (russiaTransit.bkk_pax > 0) {
+          const r2 = make('div', 'tat-row');
+          ap(r2, txt(make('div','tat-row-lbl'),'BKK → HKT'), txt(make('div','tat-row-val'),'~' + russiaTransit.bkk_pax.toLocaleString('ru') + ' чел.'));
+          breakdown.appendChild(r2);
+        }
+        card.appendChild(breakdown);
       }
 
-      return ul;
+      card.appendChild(txt(make('div','tat-note'),
+        'Пассажиры из РФ через Bangkok (BKK) + транзитные по данным TAT. ' +
+        'Не пересекаются с прямыми рейсами выше. Источник: TAT Thailand / AOT.'
+      ));
+      return card;
     }
 
     /* ── CIS render ── */
@@ -2813,22 +3011,31 @@
           legend.appendChild(li);
         });
 
+        // Ticker for CIS donut — build list from byC
+        const cisList = allCISKeys.filter(c => byC[c]?.flights).map(c => ({
+          name: CIS_LABELS[c] || c, flights: byC[c].flights, pax: byC[c].pax || 0
+        }));
+        const cisTicker = mkFlightTicker(cisList);
         ap(card, wrap, legend);
+        if (cisTicker) card.appendChild(cisTicker);
         return { card, labels, vals, bgs, borders };
       }
 
       /* Левая колонка: донут прилётов + список прилётов */
       const colArr = make('div', 'cis-col');
       const arrDonut = mkDonutCard('🛬', 'Прилёты СНГ · по странам', arrByC, cisArr.flights, 'cisArrChart', '0.06s');
+      const cisPLabel = periodLabelShort(period);
       const cisArrCard = mkCard('🛬', 'Прилёты · рейсы', '0.12s');
-      cisArrCard.appendChild(mkCISRankList(arrList.filter(isCIS), d.arrivals_list || [], 'arr', d.russia_transit));
+      if (cisPLabel) { const cpb = txt(make('span','card-period'), cisPLabel); cisArrCard.querySelector('.card-title').appendChild(cpb); }
+      cisArrCard.appendChild(mkCISRankList(arrList.filter(isCIS), d.arrivals_list || [], 'arr', d.russia_transit, period));
       ap(colArr, arrDonut.card, cisArrCard);
 
       /* Правая колонка: донут вылетов + список вылетов */
       const colDep = make('div', 'cis-col');
       const depDonut = mkDonutCard('🛫', 'Вылеты СНГ · по странам', depByC, cisDep.flights, 'cisDepChart', '0.18s');
       const cisDepCard = mkCard('🛫', 'Вылеты · рейсы', '0.24s');
-      cisDepCard.appendChild(mkCISRankList(depList.filter(isCIS), d.departures_list || [], 'dep', null));
+      if (cisPLabel) { const cpb2 = txt(make('span','card-period'), cisPLabel); cisDepCard.querySelector('.card-title').appendChild(cpb2); }
+      cisDepCard.appendChild(mkCISRankList(depList.filter(isCIS), d.departures_list || [], 'dep', null, period));
       ap(colDep, depDonut.card, cisDepCard);
 
       ap(grid, colArr, colDep);
@@ -2847,7 +3054,12 @@
         grid.appendChild(fullRow);
       }
 
-      cisAppEl.replaceChildren(grid);
+      // TAT transit card — completely separate block
+      const tatCard = mkTATCard(d.russia_transit, period);
+      const container = make('div');
+      container.appendChild(grid);
+      if (tatCard) container.appendChild(tatCard);
+      cisAppEl.replaceChildren(container);
       setTimeout(() => initTickers(cisAppEl), 80);
 
       /* Destroy old CIS charts */
@@ -2989,14 +3201,13 @@
           const open = cisToggle.getAttribute('aria-expanded') === 'true';
           cisToggle.setAttribute('aria-expanded', String(!open));
           if (!open) {
-            // Показываем только СНГ — всегда за всё доступное время (week = с 3 апр)
             cisPanel.hidden = false;
             mainMetrics.hidden = true;
             mainApp.hidden = true;
             cisBtnLabel.textContent = '🌍 Весь мир';
             fboardCISOnly = true;
             if (fboardData) renderFlightBoard(fboardData);
-            renderCIS('week');
+            renderCIS(activeKey || getDefaultPeriod());
           } else {
             // Показываем только Весь мир
             cisPanel.hidden = true;
@@ -3036,7 +3247,7 @@
           const cur = activeKey || getDefaultPeriod();
           render(cur);
           const cp = document.getElementById('cis-panel');
-          if (cp && !cp.hidden) renderCIS('week');
+          if (cp && !cp.hidden) renderCIS(activeKey || getDefaultPeriod());
         }
       } catch(_) {}
     }, 3 * 60 * 1000);
@@ -3063,6 +3274,140 @@
         el.style.opacity = '0';
         document.body.appendChild(el);
       });
+    })();
+
+    /* ── Takeoff plane — vertical ascent with lit navigation lights ── */
+    (function spawnTakeoffPlane() {
+      const ns = 'http://www.w3.org/2000/svg';
+
+      const wrap = document.createElement('div');
+      wrap.className = 'tp-wrap';
+
+      const svgEl = document.createElementNS(ns, 'svg');
+      svgEl.setAttribute('viewBox', '0 0 100 180');
+      svgEl.setAttribute('width', '82');
+      svgEl.setAttribute('height', '148');
+      svgEl.classList.add('tp-svg');
+
+      svgEl.innerHTML = `
+        <defs>
+          <filter id="tp-glo-red" x="-150%" y="-150%" width="400%" height="400%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="b"/>
+            <feColorMatrix in="b" type="matrix" values="2 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="c"/>
+            <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="tp-glo-grn" x="-150%" y="-150%" width="400%" height="400%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="b"/>
+            <feColorMatrix in="b" type="matrix" values="0 0 0 0 0  0 2 0 0 0  0 0 0 0 0  0 0 0 1 0" result="c"/>
+            <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="tp-glo-wht" x="-150%" y="-150%" width="400%" height="400%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="tp-glo-eng" x="-150%" y="-150%" width="400%" height="400%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="b"/>
+            <feColorMatrix in="b" type="matrix" values="1.5 0 0 0 0.3  0.5 0.3 0 0 0  0 0 0 0 0  0 0 0 0.9 0" result="c"/>
+            <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <linearGradient id="tp-body" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#78808f"/>
+            <stop offset="28%"  stop-color="#bec4d4"/>
+            <stop offset="50%"  stop-color="#d8dce8"/>
+            <stop offset="72%"  stop-color="#bec4d4"/>
+            <stop offset="100%" stop-color="#78808f"/>
+          </linearGradient>
+          <linearGradient id="tp-wing" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"   stop-color="#c8ccd8"/>
+            <stop offset="100%" stop-color="#8890a2"/>
+          </linearGradient>
+          <radialGradient id="tp-beam" cx="50%" cy="5%" r="95%">
+            <stop offset="0%"   stop-color="#c8e8ff" stop-opacity="0.75"/>
+            <stop offset="60%"  stop-color="#a0ccff" stop-opacity="0.25"/>
+            <stop offset="100%" stop-color="#80aaff" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Landing light forward beam -->
+        <ellipse cx="50" cy="6" rx="22" ry="34" fill="url(#tp-beam)" class="tp-landing"/>
+
+        <!-- Fuselage -->
+        <path d="M43 22 C43 10 57 10 57 22 L59 98 C59 114 55 128 50 133 C45 128 41 114 41 98Z"
+              fill="url(#tp-body)"/>
+        <!-- Fuselage window stripe -->
+        <path d="M44.5 28 L55.5 28 L57.5 96 C55 98 45 98 43 96Z"
+              fill="rgba(91,184,245,0.10)" stroke="rgba(91,184,245,0.08)" stroke-width="0.3"/>
+        <!-- Windows -->
+        <g fill="#b8d8f0" opacity="0.55">
+          <rect x="44.5" y="38" width="3.5" height="2.8" rx="0.9"/>
+          <rect x="50.5" y="38" width="3.5" height="2.8" rx="0.9"/>
+          <rect x="44.5" y="46" width="3.5" height="2.8" rx="0.9"/>
+          <rect x="50.5" y="46" width="3.5" height="2.8" rx="0.9"/>
+          <rect x="44.5" y="54" width="3.5" height="2.8" rx="0.9"/>
+          <rect x="50.5" y="54" width="3.5" height="2.8" rx="0.9"/>
+          <rect x="44.5" y="62" width="3.5" height="2.8" rx="0.9"/>
+          <rect x="50.5" y="62" width="3.5" height="2.8" rx="0.9"/>
+        </g>
+
+        <!-- Main wings (swept) -->
+        <path d="M43 72 L3 94 L6 104 L41 88 L43 91 L57 91 L59 88 L94 104 L97 94 L57 72Z"
+              fill="url(#tp-wing)"/>
+        <!-- Flap lines -->
+        <path d="M6 102 L41 87 L43 90" stroke="#8890a2" stroke-width="0.6" fill="none" opacity="0.8"/>
+        <path d="M94 102 L59 87 L57 90" stroke="#8890a2" stroke-width="0.6" fill="none" opacity="0.8"/>
+        <!-- Winglets -->
+        <path d="M3 93 L1 100 L4 105 L6 104" fill="#9095a8"/>
+        <path d="M97 93 L99 100 L96 105 L94 104" fill="#9095a8"/>
+
+        <!-- Engine pods -->
+        <ellipse cx="20" cy="88" rx="7.5" ry="12" fill="#5e6270"/>
+        <ellipse cx="80" cy="88" rx="7.5" ry="12" fill="#5e6270"/>
+        <ellipse cx="20" cy="80"  rx="6.5" ry="4.5" fill="#8890a0"/>
+        <ellipse cx="80" cy="80"  rx="6.5" ry="4.5" fill="#8890a0"/>
+
+        <!-- Engine exhaust glow -->
+        <ellipse class="tp-engine" cx="20" cy="99" rx="5.5" ry="4" fill="#ff7800" filter="url(#tp-glo-eng)"/>
+        <ellipse class="tp-engine" cx="80" cy="99" rx="5.5" ry="4" fill="#ff7800" filter="url(#tp-glo-eng)"/>
+        <!-- Heat shimmer trails -->
+        <ellipse cx="20" cy="112" rx="4" ry="12" fill="#ff9500" opacity="0.18"/>
+        <ellipse cx="80" cy="112" rx="4" ry="12" fill="#ff9500" opacity="0.18"/>
+
+        <!-- Horizontal stabilizers -->
+        <path d="M43 126 L20 140 L22 146 L43 134Z" fill="#a0a4b4"/>
+        <path d="M57 126 L80 140 L78 146 L57 134Z" fill="#a0a4b4"/>
+        <!-- Vertical tail -->
+        <path d="M47 115 L53 115 L51.5 142 L48.5 142Z" fill="#b4b8c8"/>
+
+        <!-- ═══ NAVIGATION LIGHTS ═══ -->
+
+        <!-- Port (left) RED — wingtip -->
+        <g class="tp-nav-red" filter="url(#tp-glo-red)">
+          <circle cx="3" cy="99" r="4" fill="#ff1818"/>
+          <circle cx="3" cy="99" r="2" fill="#ff9090"/>
+        </g>
+        <!-- Starboard (right) GREEN — wingtip -->
+        <g class="tp-nav-grn" filter="url(#tp-glo-grn)">
+          <circle cx="97" cy="99" r="4" fill="#00ee44"/>
+          <circle cx="97" cy="99" r="2" fill="#88ffbb"/>
+        </g>
+
+        <!-- White strobe — port wingtip -->
+        <circle class="tp-strobe" cx="3" cy="99" r="6.5" fill="white" opacity="0" filter="url(#tp-glo-wht)"/>
+        <!-- White strobe — starboard wingtip -->
+        <circle class="tp-strobe" cx="97" cy="99" r="6.5" fill="white" opacity="0" filter="url(#tp-glo-wht)"/>
+        <!-- White strobe — tail -->
+        <circle class="tp-strobe2" cx="50" cy="144" r="3.5" fill="white" opacity="0" filter="url(#tp-glo-wht)"/>
+
+        <!-- Red anti-collision beacon (belly) -->
+        <circle class="tp-beacon" cx="50" cy="84" r="3" fill="#ff0000" filter="url(#tp-glo-red)"/>
+
+        <!-- Nose landing lights -->
+        <circle class="tp-landing" cx="50" cy="19" r="3.5" fill="white" filter="url(#tp-glo-wht)"/>
+        <circle cx="50" cy="19" r="1.8" fill="#f0f8ff"/>
+      `;
+
+      wrap.appendChild(svgEl);
+      document.body.appendChild(wrap);
     })();
 
     // METAR line cycling
