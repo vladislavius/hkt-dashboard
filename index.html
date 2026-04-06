@@ -571,14 +571,7 @@
       border-radius: 50%;
     }
 
-    /* ── Range picker: date fields ── */
-    .cal-inner {
-      flex-direction: column;
-      gap: 0;
-      padding: 16px 20px 16px;
-      width: auto;
-      min-width: 0;
-    }
+    /* ── Range picker: date fields (overlay only) ── */
     .cal-date-fields {
       display: flex;
       align-items: center;
@@ -685,6 +678,56 @@
     /* Selecting state cursor on grids */
     .cal-selecting .cal-day.has-data { cursor: crosshair; }
     .cal-day.hover-range { background: rgba(91,184,245,0.08); border-radius: 0; color: var(--sky); }
+
+    /* ── Range picker overlay ── */
+    .cal-overlay {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 200;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px);
+      min-width: 680px;
+    }
+    .cal-overlay.open { display: block; }
+    .cal-overlay .cal-inner {
+      flex-direction: column;
+      gap: 0;
+      padding: 16px 20px 16px;
+      width: auto;
+      min-width: 0;
+    }
+    .cal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 199;
+    }
+    .cal-backdrop.open { display: block; }
+
+    @media (max-width: 768px) {
+      .cal-overlay {
+        top: 0; left: 0; right: 0; bottom: 0;
+        transform: none;
+        border-radius: 0;
+        min-width: 0;
+        overflow-y: auto;
+        padding-top: 12px;
+      }
+      .cal-overlay .cal-inner { padding: 12px; }
+      .cal-overlay .cal-main-row { flex-wrap: wrap; }
+      .cal-overlay .cal-panel-gap { display: none; }
+      .cal-overlay .cal-divider-v { display: none; }
+      .cal-overlay #cal-panel-right { margin-top: 10px; }
+      .cal-overlay .cal-presets-col { width: 100%; margin-top: 10px; flex-direction: row; flex-wrap: wrap; gap: 4px; }
+      .cal-overlay .cal-preset-group { flex-direction: row; flex-wrap: wrap; }
+      .cal-overlay .cal-footer { flex-wrap: wrap; }
+    }
 
     /* ── Metrics strip ── */
     [hidden] { display: none !important; }
@@ -1292,21 +1335,15 @@
         border-right: none;
         border-bottom: 1px solid var(--border);
       }
-      .cal-inner { width: 100%; padding: 12px 12px 14px; overflow-x: auto; }
-      /* Mobile: stack two panels vertically */
-      .cal-main-row { flex-wrap: wrap; gap: 0; }
+      .cal-inner { width: 100%; padding: 12px 12px 14px; }
       .cal-panel { flex-shrink: 0; }
-      .cal-panel-gap { display: none; }
       .cal-divider-v { display: none; }
-      #cal-panel-right { margin-top: 10px; }
       .cal-presets-col {
         flex: 1;
-        min-width: 130px;
+        min-width: 0;
         width: auto;
         flex-direction: column;
         gap: 4px;
-        margin-top: 0;
-        margin-left: 8px;
       }
       .cal-preset-group {
         flex-direction: column;
@@ -1319,10 +1356,6 @@
         gap: 7px;
       }
       .cal-radio { width: 13px; height: 13px; }
-      .cal-date-fields { flex-wrap: wrap; gap: 6px; }
-      .cal-field-val { min-width: 90px; font-size: 0.75rem; }
-      .cal-footer { flex-wrap: wrap; gap: 8px; }
-      .cal-footer-summary { font-size: 0.72rem; }
 
       /* CIS button + live badge stay visible */
       .header-row { flex-direction: column; align-items: flex-start; }
@@ -1786,6 +1819,13 @@
           <button id="cis-toggle" class="cis-toggle-btn" aria-expanded="false">
             <span id="cis-btn-label">🇷🇺🇰🇿🇺🇿 СНГ</span> <span class="cis-chevron">▾</span>
           </button>
+          <div class="cal-book" id="cal-book">
+            <div class="cal-cover" id="cal-cover">
+              <span class="cal-cover-sub" id="cal-cover-sub">Сегодня</span>
+              <span class="cal-cover-range" id="cal-cover-range"></span>
+              <span class="cal-chevron-icon">&#9662;</span>
+            </div>
+          </div><!-- cal-overlay is positioned outside wrap for full-width on mobile -->
           <div class="live-badge">
             <div class="live-dot"></div>
             <span id="updated">Загрузка данных...</span>
@@ -1793,6 +1833,82 @@
         </div><!-- /flex row -->
       </div><!-- /header-row -->
     </header>
+
+    <!-- Range picker overlay (dropdown from header) -->
+    <div class="cal-backdrop" id="cal-backdrop"></div>
+    <div class="cal-overlay" id="cal-overlay">
+      <div class="cal-inner">
+        <div class="cal-date-fields">
+          <div class="cal-date-field">
+            <button class="cal-field-nav" id="cal-field-start-prev">&#8249;</button>
+            <span class="cal-field-val" id="cal-field-start-val">&mdash;</span>
+            <button class="cal-field-nav" id="cal-field-start-next">&#8250;</button>
+          </div>
+          <span class="cal-fields-arrow">&rarr;</span>
+          <div class="cal-date-field">
+            <button class="cal-field-nav" id="cal-field-end-prev">&#8249;</button>
+            <span class="cal-field-val" id="cal-field-end-val">&mdash;</span>
+            <button class="cal-field-nav" id="cal-field-end-next">&#8250;</button>
+          </div>
+        </div>
+        <div class="cal-main-row">
+          <div class="cal-panel" id="cal-panel-left">
+            <div class="cal-panel-head">
+              <span class="cal-month-label" id="cal-month-left"></span>
+              <div class="cal-nav-group">
+                <button class="cal-nav-btn" id="cal-prev-left">&#8249;</button>
+                <button class="cal-nav-btn" id="cal-next-left">&#8250;</button>
+              </div>
+            </div>
+            <div class="cal-dow-row">
+              <span class="cal-dow">&#1055;&#1085;</span><span class="cal-dow">&#1042;&#1090;</span>
+              <span class="cal-dow">&#1057;&#1088;</span><span class="cal-dow">&#1063;&#1090;</span>
+              <span class="cal-dow">&#1055;&#1090;</span><span class="cal-dow">&#1057;&#1073;</span>
+              <span class="cal-dow">&#1042;&#1089;</span>
+            </div>
+            <div class="cal-grid" id="cal-grid-left"></div>
+          </div>
+          <div class="cal-panel-gap"></div>
+          <div class="cal-panel" id="cal-panel-right">
+            <div class="cal-panel-head">
+              <span class="cal-month-label" id="cal-month-right"></span>
+              <div class="cal-nav-group">
+                <button class="cal-nav-btn" id="cal-prev-right">&#8249;</button>
+                <button class="cal-nav-btn" id="cal-next-right">&#8250;</button>
+              </div>
+            </div>
+            <div class="cal-dow-row">
+              <span class="cal-dow">&#1055;&#1085;</span><span class="cal-dow">&#1042;&#1090;</span>
+              <span class="cal-dow">&#1057;&#1088;</span><span class="cal-dow">&#1063;&#1090;</span>
+              <span class="cal-dow">&#1055;&#1090;</span><span class="cal-dow">&#1057;&#1073;</span>
+              <span class="cal-dow">&#1042;&#1089;</span>
+            </div>
+            <div class="cal-grid" id="cal-grid-right"></div>
+          </div>
+          <div class="cal-divider-v"></div>
+          <div class="cal-presets-col" id="overlay-presets">
+            <div class="cal-preset-group">
+              <div class="cal-preset-item" data-k="today"><span class="cal-radio"></span>&#1057;&#1077;&#1075;&#1086;&#1076;&#1085;&#1103;</div>
+              <div class="cal-preset-item" data-k="week"><span class="cal-radio"></span>&#1058;&#1077;&#1082;&#1091;&#1097;&#1072;&#1103; &#1085;&#1077;&#1076;&#1077;&#1083;&#1103;</div>
+              <div class="cal-preset-item" data-k="month"><span class="cal-radio"></span>&#1058;&#1077;&#1082;&#1091;&#1097;&#1080;&#1081; &#1084;&#1077;&#1089;&#1103;&#1094;</div>
+              <div class="cal-preset-item" data-k="year"><span class="cal-radio"></span>&#1058;&#1077;&#1082;&#1091;&#1097;&#1080;&#1081; &#1075;&#1086;&#1076;</div>
+            </div>
+            <div class="cal-preset-group">
+              <div class="cal-preset-item" data-k="yesterday"><span class="cal-radio"></span>&#1042;&#1095;&#1077;&#1088;&#1072;</div>
+              <div class="cal-preset-item" data-k="quarter"><span class="cal-radio"></span>3 &#1084;&#1077;&#1089;&#1103;&#1094;&#1072;</div>
+              <div class="cal-preset-item" data-k="halfyear"><span class="cal-radio"></span>6 &#1084;&#1077;&#1089;&#1103;&#1094;&#1077;&#1074;</div>
+            </div>
+          </div>
+        </div>
+        <div class="cal-footer">
+          <span class="cal-footer-summary" id="cal-footer-summary"></span>
+          <div class="cal-footer-btns">
+            <button class="cal-cancel-btn" id="cal-cancel-btn">&#1054;&#1090;&#1084;&#1077;&#1085;&#1072;</button>
+            <button class="cal-apply-btn" id="cal-apply-btn">&#1055;&#1088;&#1080;&#1084;&#1077;&#1085;&#1080;&#1090;&#1100;</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Approach lighting strip (ALS) -->
     <div class="avi-approach" aria-hidden="true">
@@ -1834,76 +1950,34 @@
         </div>
       </div>
       <div class="cal-inner">
-        <!-- Top: date range fields -->
-        <div class="cal-date-fields">
-          <div class="cal-date-field">
-            <button class="cal-field-nav" id="cal-field-start-prev">‹</button>
-            <span class="cal-field-val" id="cal-field-start-val">—</span>
-            <button class="cal-field-nav" id="cal-field-start-next">›</button>
+        <div class="cal-panel">
+          <div class="cal-panel-head">
+            <span class="cal-month-label" id="cal-month-label"></span>
+            <div class="cal-nav-group">
+              <button class="cal-nav-btn" id="cal-prev">&#8249;</button>
+              <button class="cal-nav-btn" id="cal-next">&#8250;</button>
+            </div>
           </div>
-          <span class="cal-fields-arrow">→</span>
-          <div class="cal-date-field">
-            <button class="cal-field-nav" id="cal-field-end-prev">‹</button>
-            <span class="cal-field-val" id="cal-field-end-val">—</span>
-            <button class="cal-field-nav" id="cal-field-end-next">›</button>
+          <div class="cal-dow-row">
+            <span class="cal-dow">&#1055;&#1085;</span><span class="cal-dow">&#1042;&#1090;</span>
+            <span class="cal-dow">&#1057;&#1088;</span><span class="cal-dow">&#1063;&#1090;</span>
+            <span class="cal-dow">&#1055;&#1090;</span><span class="cal-dow">&#1057;&#1073;</span>
+            <span class="cal-dow">&#1042;&#1089;</span>
           </div>
+          <div class="cal-grid" id="cal-grid"></div>
         </div>
-        <!-- Middle: two calendar panels + presets -->
-        <div class="cal-main-row">
-          <div class="cal-panel" id="cal-panel-left">
-            <div class="cal-panel-head">
-              <span class="cal-month-label" id="cal-month-left"></span>
-              <div class="cal-nav-group">
-                <button class="cal-nav-btn" id="cal-prev-left">‹</button>
-                <button class="cal-nav-btn" id="cal-next-left">›</button>
-              </div>
-            </div>
-            <div class="cal-dow-row">
-              <span class="cal-dow">Пн</span><span class="cal-dow">Вт</span>
-              <span class="cal-dow">Ср</span><span class="cal-dow">Чт</span>
-              <span class="cal-dow">Пт</span><span class="cal-dow">Сб</span>
-              <span class="cal-dow">Вс</span>
-            </div>
-            <div class="cal-grid" id="cal-grid-left"></div>
+        <div class="cal-divider-v"></div>
+        <div class="cal-presets-col" id="drawer-presets">
+          <div class="cal-preset-group">
+            <div class="cal-preset-item" data-k="today"><span class="cal-radio"></span>&#1057;&#1077;&#1075;&#1086;&#1076;&#1085;&#1103;</div>
+            <div class="cal-preset-item" data-k="week"><span class="cal-radio"></span>&#1058;&#1077;&#1082;&#1091;&#1097;&#1072;&#1103; &#1085;&#1077;&#1076;&#1077;&#1083;&#1103;</div>
+            <div class="cal-preset-item" data-k="month"><span class="cal-radio"></span>&#1058;&#1077;&#1082;&#1091;&#1097;&#1080;&#1081; &#1084;&#1077;&#1089;&#1103;&#1094;</div>
+            <div class="cal-preset-item" data-k="year"><span class="cal-radio"></span>&#1058;&#1077;&#1082;&#1091;&#1097;&#1080;&#1081; &#1075;&#1086;&#1076;</div>
           </div>
-          <div class="cal-panel-gap"></div>
-          <div class="cal-panel" id="cal-panel-right">
-            <div class="cal-panel-head">
-              <span class="cal-month-label" id="cal-month-right"></span>
-              <div class="cal-nav-group">
-                <button class="cal-nav-btn" id="cal-prev-right">‹</button>
-                <button class="cal-nav-btn" id="cal-next-right">›</button>
-              </div>
-            </div>
-            <div class="cal-dow-row">
-              <span class="cal-dow">Пн</span><span class="cal-dow">Вт</span>
-              <span class="cal-dow">Ср</span><span class="cal-dow">Чт</span>
-              <span class="cal-dow">Пт</span><span class="cal-dow">Сб</span>
-              <span class="cal-dow">Вс</span>
-            </div>
-            <div class="cal-grid" id="cal-grid-right"></div>
-          </div>
-          <div class="cal-divider-v"></div>
-          <div class="cal-presets-col">
-            <div class="cal-preset-group">
-              <div class="cal-preset-item" data-k="today"><span class="cal-radio"></span>Сегодня</div>
-              <div class="cal-preset-item" data-k="week"><span class="cal-radio"></span>Текущая неделя</div>
-              <div class="cal-preset-item" data-k="month"><span class="cal-radio"></span>Текущий месяц</div>
-              <div class="cal-preset-item" data-k="year"><span class="cal-radio"></span>Текущий год</div>
-            </div>
-            <div class="cal-preset-group">
-              <div class="cal-preset-item" data-k="yesterday"><span class="cal-radio"></span>Вчера</div>
-              <div class="cal-preset-item" data-k="quarter"><span class="cal-radio"></span>3 месяца</div>
-              <div class="cal-preset-item" data-k="halfyear"><span class="cal-radio"></span>6 месяцев</div>
-            </div>
-          </div>
-        </div>
-        <!-- Bottom: summary + buttons -->
-        <div class="cal-footer">
-          <span class="cal-footer-summary" id="cal-footer-summary"></span>
-          <div class="cal-footer-btns">
-            <button class="cal-cancel-btn" id="cal-cancel-btn">Отмена</button>
-            <button class="cal-apply-btn" id="cal-apply-btn">Применить</button>
+          <div class="cal-preset-group">
+            <div class="cal-preset-item" data-k="yesterday"><span class="cal-radio"></span>&#1042;&#1095;&#1077;&#1088;&#1072;</div>
+            <div class="cal-preset-item" data-k="quarter"><span class="cal-radio"></span>3 &#1084;&#1077;&#1089;&#1103;&#1094;&#1072;</div>
+            <div class="cal-preset-item" data-k="halfyear"><span class="cal-radio"></span>6 &#1084;&#1077;&#1089;&#1103;&#1094;&#1077;&#1074;</div>
           </div>
         </div>
       </div>
@@ -2233,18 +2307,25 @@
       }
     }
 
-    function buildCalendarGrid() { buildCalendarGrids(); }
+    // ── Drawer single calendar ──
+    let calViewDate = new Date();
+    function buildCalendarGrid() {
+      const grid = document.getElementById('cal-grid');
+      if (!grid) return;
+      const label = document.getElementById('cal-month-label');
+      // Use activeStart/activeEnd for range highlighting in drawer
+      const rStartMs = activeStart ? activeStart.getTime() : null;
+      const rEndMs   = activeEnd   ? activeEnd.getTime()   : null;
+      buildOneGrid(grid, label, calViewDate, rStartMs, rEndMs, null);
+    }
 
-    function buildCalendarGrid_OLD_UNUSED() {
-      // Removed — use buildCalendarGrids() instead
-      return;
-
-      const daysInMonth = new Date(y, m+1, 0).getDate();
+    function _unused() { return; // dead code below
+      const daysInMonth = new Date(0, 0+1, 0).getDate();
       for (let d = 1; d <= daysInMonth; d++) {
-        const date = new Date(y, m, d);
+        const date = new Date(0, 0, d);
         const ms   = date.getTime();
-        const isToday     = ms === today.getTime();
-        const isYesterday = ms === yesterday.getTime();
+        const isToday     = false;
+        const isYesterday = false;
         const dateStr     = date.getFullYear() + '-' +
                             String(date.getMonth()+1).padStart(2,'0') + '-' +
                             String(d).padStart(2,'0');
@@ -2488,6 +2569,8 @@
       const customKey = 'custom_' + startStr + '_' + endStr;
       activeKey = customKey;
       updateCoverCustom(activeStart, activeEnd);
+      calViewDate = new Date(activeEnd.getFullYear(), activeEnd.getMonth(), 1);
+      buildCalendarGrid();
       const period = await loadAndMergeRange(activeStart, activeEnd);
       if (!data) data = {};
       data[customKey] = period;
@@ -2616,18 +2699,25 @@
 
     function doSelect(key) {
       activeKey = key;
+      // Update presets in both drawer and overlay
       document.querySelectorAll('.cal-preset-item').forEach(el =>
         el.classList.toggle('active', el.dataset.k === key));
       const range = getRangeForKey(key);
       if (range) {
-        activeStart = range.start;
-        activeEnd   = range.end;
+        activeStart  = range.start;
+        activeEnd    = range.end;
+        pendingStart = range.start;
+        pendingEnd   = range.end;
+        pendingKey   = key;
+        // Sync drawer calendar to show end month
+        calViewDate = new Date(range.end.getFullYear(), range.end.getMonth(), 1);
+        // Sync overlay calendars
         const sameMonth = range.start.getFullYear() === range.end.getFullYear() &&
                           range.start.getMonth()    === range.end.getMonth();
         calViewLeft  = new Date(range.start.getFullYear(), range.start.getMonth(), 1);
         calViewRight = sameMonth ? null : new Date(range.end.getFullYear(), range.end.getMonth(), 1);
       }
-      buildCalendarGrids();
+      buildCalendarGrid(); // drawer single grid
 
       // Historical date key (YYYY-MM-DD) — load accumulated file
       const isDateKey = /^\d{4}-\d{2}-\d{2}$/.test(key);
@@ -2801,10 +2891,57 @@
       }
     });
 
-    // ── Range picker: panel navigation ─────────────────────────────────────
+    // ══ DRAWER: single calendar navigation ═══════════════════════════════
+    document.getElementById('cal-prev').addEventListener('click', () => {
+      calViewDate = new Date(calViewDate.getFullYear(), calViewDate.getMonth()-1, 1);
+      buildCalendarGrid();
+    });
+    document.getElementById('cal-next').addEventListener('click', () => {
+      calViewDate = new Date(calViewDate.getFullYear(), calViewDate.getMonth()+1, 1);
+      buildCalendarGrid();
+    });
+    // Drawer day clicks — instant apply
+    document.getElementById('cal-grid').addEventListener('click', e => {
+      const cell = e.target.closest('.cal-day.has-data');
+      if (!cell || !cell.dataset.k) return;
+      doSelect(cell.dataset.k);
+    });
+    // Drawer preset clicks — instant apply
+    document.getElementById('drawer-presets').addEventListener('click', e => {
+      const item = e.target.closest('.cal-preset-item[data-k]');
+      if (!item) return;
+      doSelect(item.dataset.k);
+    });
+
+    // ══ OVERLAY: range picker ══════════════════════════════════════════════
+    function openOverlay() {
+      document.getElementById('cal-overlay').classList.add('open');
+      document.getElementById('cal-backdrop').classList.add('open');
+      document.getElementById('cal-book').classList.add('open');
+      // Sync pending with current active
+      if (activeStart) { pendingStart = activeStart; pendingEnd = activeEnd; }
+      if (activeKey) pendingKey = activeKey;
+      buildCalendarGrids();
+    }
+    function closeOverlay() {
+      document.getElementById('cal-overlay').classList.remove('open');
+      document.getElementById('cal-backdrop').classList.remove('open');
+      document.getElementById('cal-book').classList.remove('open');
+      selectingStep = 0;
+      hoverDate = null;
+    }
+    document.getElementById('cal-cover').addEventListener('click', () => {
+      const isOpen = document.getElementById('cal-overlay').classList.contains('open');
+      if (isOpen) closeOverlay(); else openOverlay();
+    });
+    document.getElementById('cal-backdrop').addEventListener('click', closeOverlay);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && document.getElementById('cal-overlay').classList.contains('open')) closeOverlay();
+    });
+
+    // Overlay panel navigation
     document.getElementById('cal-prev-left').addEventListener('click', () => {
       calViewLeft = new Date(calViewLeft.getFullYear(), calViewLeft.getMonth()-1, 1);
-      // Keep right panel ≥ left panel
       const rv = getRightView();
       if (rv <= calViewLeft) calViewRight = new Date(calViewLeft.getFullYear(), calViewLeft.getMonth()+1, 1);
       buildCalendarGrids();
@@ -2817,9 +2954,9 @@
     });
     document.getElementById('cal-prev-right').addEventListener('click', () => {
       const rv = getRightView();
-      const newRight = new Date(rv.getFullYear(), rv.getMonth()-1, 1);
-      if (newRight <= calViewLeft) return; // prevent crossing
-      calViewRight = newRight;
+      const n = new Date(rv.getFullYear(), rv.getMonth()-1, 1);
+      if (n <= calViewLeft) return;
+      calViewRight = n;
       buildCalendarGrids();
     });
     document.getElementById('cal-next-right').addEventListener('click', () => {
@@ -2827,8 +2964,7 @@
       calViewRight = new Date(rv.getFullYear(), rv.getMonth()+1, 1);
       buildCalendarGrids();
     });
-
-    // Date field navigation (same as panel nav)
+    // Date field nav
     document.getElementById('cal-field-start-prev').addEventListener('click', () => {
       calViewLeft = new Date(calViewLeft.getFullYear(), calViewLeft.getMonth()-1, 1);
       buildCalendarGrids();
@@ -2841,9 +2977,9 @@
     });
     document.getElementById('cal-field-end-prev').addEventListener('click', () => {
       const rv = getRightView();
-      const newRight = new Date(rv.getFullYear(), rv.getMonth()-1, 1);
-      if (newRight <= calViewLeft) return;
-      calViewRight = newRight;
+      const n = new Date(rv.getFullYear(), rv.getMonth()-1, 1);
+      if (n <= calViewLeft) return;
+      calViewRight = n;
       buildCalendarGrids();
     });
     document.getElementById('cal-field-end-next').addEventListener('click', () => {
@@ -2851,8 +2987,7 @@
       calViewRight = new Date(rv.getFullYear(), rv.getMonth()+1, 1);
       buildCalendarGrids();
     });
-
-    // ── Range picker: day clicks ────────────────────────────────────────────
+    // Overlay day clicks
     function handleDayClick(e) {
       const cell = e.target.closest('.cal-day.has-data');
       if (!cell || !cell.dataset.k) return;
@@ -2860,58 +2995,43 @@
       const d  = ms ? new Date(ms) : null;
       if (!d) return;
       if (selectingStep === 0) {
-        // First click: set start, wait for end
-        pendingStart  = d;
-        pendingEnd    = null;
-        pendingKey    = null;
-        selectingStep = 1;
-        hoverDate     = null;
-        document.querySelectorAll('.cal-preset-item').forEach(el => el.classList.remove('active'));
+        pendingStart = d; pendingEnd = null; pendingKey = null;
+        selectingStep = 1; hoverDate = null;
+        document.querySelectorAll('#overlay-presets .cal-preset-item').forEach(el => el.classList.remove('active'));
         buildCalendarGrids();
       } else {
-        // Second click: set end (swap if needed)
-        let s = pendingStart;
-        let e2 = d;
+        let s = pendingStart, e2 = d;
         if (e2 < s) { const tmp = s; s = e2; e2 = tmp; }
-        pendingStart  = s;
-        pendingEnd    = e2;
-        pendingKey    = null;
-        selectingStep = 0;
-        hoverDate     = null;
+        pendingStart = s; pendingEnd = e2; pendingKey = null;
+        selectingStep = 0; hoverDate = null;
         buildCalendarGrids();
       }
     }
     document.getElementById('cal-grid-left').addEventListener('click', handleDayClick);
     document.getElementById('cal-grid-right').addEventListener('click', handleDayClick);
-
-    // Hover preview while selecting end date
+    // Hover preview
     function handleDayHover(e) {
       if (selectingStep !== 1) return;
       const cell = e.target.closest('.cal-day');
       if (!cell || !cell.dataset.ms) { hoverDate = null; buildCalendarGrids(); return; }
       const ms = Number(cell.dataset.ms);
-      if (!hoverDate || hoverDate.getTime() !== ms) {
-        hoverDate = new Date(ms);
-        buildCalendarGrids();
-      }
+      if (!hoverDate || hoverDate.getTime() !== ms) { hoverDate = new Date(ms); buildCalendarGrids(); }
     }
-    document.getElementById('cal-grid-left').addEventListener('mouseover',  handleDayHover);
+    document.getElementById('cal-grid-left').addEventListener('mouseover', handleDayHover);
     document.getElementById('cal-grid-right').addEventListener('mouseover', handleDayHover);
-    document.getElementById('cal-grid-left').addEventListener('mouseleave',  () => { if (selectingStep === 1) { hoverDate = null; buildCalendarGrids(); } });
+    document.getElementById('cal-grid-left').addEventListener('mouseleave', () => { if (selectingStep === 1) { hoverDate = null; buildCalendarGrids(); } });
     document.getElementById('cal-grid-right').addEventListener('mouseleave', () => { if (selectingStep === 1) { hoverDate = null; buildCalendarGrids(); } });
-
-    // ── Preset clicks ────────────────────────────────────────────────────────
-    document.querySelector('.cal-presets-col').addEventListener('click', e => {
+    // Overlay presets
+    document.getElementById('overlay-presets').addEventListener('click', e => {
       const item = e.target.closest('.cal-preset-item[data-k]');
       if (!item) return;
       setPending(item.dataset.k);
     });
+    // Apply / Cancel
+    document.getElementById('cal-apply-btn').addEventListener('click', () => { doApply(); closeOverlay(); });
+    document.getElementById('cal-cancel-btn').addEventListener('click', () => { doCancel(); closeOverlay(); });
 
-    // ── Apply / Cancel ───────────────────────────────────────────────────────
-    document.getElementById('cal-apply-btn').addEventListener('click', () => doApply());
-    document.getElementById('cal-cancel-btn').addEventListener('click', () => doCancel());
-
-    function selectTab(key) { setPending(key); doApply(); }
+    function selectTab(key) { doSelect(key); }
 
     /* ── Tiny DOM helpers ── */
     function make(tag, cls) {
@@ -3797,7 +3917,6 @@
           dt.toLocaleString('ru-RU', { timeZone:'Asia/Bangkok', hour:'2-digit', minute:'2-digit', day:'2-digit', month:'2-digit' }) + ' ICT';
 
         const period = getDefaultPeriod();
-        setPending(period);
         doSelect(period);
         renderDrawerLeft(data[period] || data['today']);
 
