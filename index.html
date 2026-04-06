@@ -724,8 +724,8 @@
       .cal-overlay .cal-panel-gap { display: none; }
       .cal-overlay .cal-divider-v { display: none; }
       .cal-overlay #cal-panel-right { margin-top: 10px; }
-      .cal-overlay .cal-presets-col { width: 100%; margin-top: 10px; flex-direction: row; flex-wrap: wrap; gap: 4px; }
-      .cal-overlay .cal-preset-group { flex-direction: row; flex-wrap: wrap; }
+      .cal-overlay .cal-presets-col { width: 100%; margin-top: 10px; flex-direction: column; gap: 6px; }
+      .cal-overlay .cal-preset-group { flex-direction: column; }
       .cal-overlay .cal-footer { flex-wrap: wrap; }
     }
 
@@ -2956,7 +2956,13 @@
       render(key);
       const cisPanel = document.getElementById('cis-panel');
       if (cisPanel && !cisPanel.hidden) renderCIS(key);
-      if (data) renderDrawerLeft(data[key] || data['today']);
+      // Flight board: show today/yesterday flights for periods without arrivals_list
+      const fbData = data[key];
+      if (fbData && (fbData.arrivals_list || fbData.departures_list)) {
+        renderDrawerLeft(fbData);
+      } else if (data) {
+        renderDrawerLeft(data['today'] || data['yesterday']);
+      }
     }
 
     // Drawer always open — no toggle needed
