@@ -985,6 +985,20 @@
     .fdr-fn { font-family: 'DM Mono', monospace; font-weight: 600; color: var(--ivory); min-width: 60px; }
     .fdr-time { font-family: 'DM Mono', monospace; color: var(--sky); min-width: 42px; }
     .fdr-status { color: var(--muted); font-size: 0.65rem; }
+    /* ── Ticker / marquee for overflowing rank names ── */
+    @keyframes rn-scroll {
+      0%, 20%   { transform: translateX(0); }
+      80%, 100% { transform: translateX(var(--rnt-dx, -40px)); }
+    }
+    .rank-name .rnt { display: inline-block; white-space: nowrap; }
+    .rank-name.rn-ticker { text-overflow: clip; }
+    .rank-name.rn-ticker .rnt {
+      animation: rn-scroll 4s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+    /* Pause ticker when row is expanded */
+    .rank-item.expanded .rank-name.rn-ticker .rnt { animation-play-state: paused; }
+
     /* ── Transit / estimated rows ── */
     .rank-item-estimated {
       opacity: 0.72;
@@ -2020,7 +2034,7 @@
         // Expandable flight details
         const matchedFlights = getFlightsForRow(x, flightsList, direction || 'arr');
         const nameEl = make('span', 'rank-name');
-        nameEl.textContent = x.name;
+        nameEl.appendChild(txt(make('span', 'rnt'), x.name));
         if (transitBadge) nameEl.appendChild(transitBadge);
         if (matchedFlights.length > 0) {
           li.classList.add('rank-item-expandable');
@@ -2063,7 +2077,7 @@
         const li = make('li', 'rank-item rank-item-estimated');
         li.title = `Транзит: TAT-модель (K=0.38) ~${tatPax.toLocaleString('ru')} + BKK→HKT ~${bkkPax.toLocaleString('ru')}`;
         const nameEl = make('span', 'rank-name');
-        nameEl.textContent = '↳ транзит (TAT+BKK)';
+        nameEl.appendChild(txt(make('span', 'rnt'), '↳ транзит (TAT+BKK)'));
         const countEl = make('div', 'rank-count');
         ap(countEl,
           txt(make('span', 'rc-flights'), '~' + String(russiaTransit.flights) + ' ✈'),
@@ -2083,6 +2097,21 @@
       }
 
       return ul;
+    }
+
+    /* ── Ticker initializer — detects overflow, activates scroll animation ── */
+    function initTickers(root) {
+      root.querySelectorAll('.rank-name').forEach(el => {
+        const inner = el.querySelector('.rnt');
+        if (!inner) return;
+        el.classList.remove('rn-ticker');
+        el.style.removeProperty('--rnt-dx');
+        const overflow = inner.scrollWidth - el.offsetWidth;
+        if (overflow > 2) {
+          el.style.setProperty('--rnt-dx', '-' + (overflow + 6) + 'px');
+          el.classList.add('rn-ticker');
+        }
+      });
     }
 
     /* ── Card shell ── */
@@ -2265,6 +2294,7 @@
       }
 
       appEl.replaceChildren(grid);
+      requestAnimationFrame(() => initTickers(appEl));
 
       /* Destroy old charts */
       if (activeChart)  { activeChart.destroy();  activeChart  = null; }
@@ -2353,7 +2383,7 @@
 
         if (x.isRussiaGroup) {
           li.classList.add('rank-item-expandable');
-          nameEl.textContent = 'Россия';
+          nameEl.appendChild(txt(make('span','rnt'),'Россия'));
           var chevron = txt(make('span','rank-chevron'),' ▾');
           nameEl.appendChild(chevron);
           ap(li, bar, txt(make('div',numCls),String(i+1)), flagEl, nameEl, countEl);
@@ -2390,7 +2420,7 @@
           li.appendChild(cityDetail);
           li.addEventListener('click',function(){li.classList.toggle('expanded');chevron.textContent=li.classList.contains('expanded')?' ▴':' ▾';});
         } else {
-          nameEl.textContent = x.name || x.country || '?';
+          nameEl.appendChild(txt(make('span','rnt'), x.name || x.country || '?'));
           var matchFlights = (flightsList||[]).filter(function(f){return f.country===(x.country||x.name);});
           // Deduplicate by normalized fn
           var _mfSeen = new Map();
@@ -2528,6 +2558,7 @@
       }
 
       cisAppEl.replaceChildren(grid);
+      requestAnimationFrame(() => initTickers(cisAppEl));
 
       /* Destroy old CIS charts */
       if (activeCisChart)       { activeCisChart.destroy();       activeCisChart  = null; }
@@ -2697,6 +2728,13 @@
     }
 
     init();
+
+    window.addEventListener('resize', () => {
+      const appEl2 = document.getElementById('app');
+      const cisEl2 = document.getElementById('cis-app');
+      if (appEl2) initTickers(appEl2);
+      if (cisEl2) initTickers(cisEl2);
+    });
 
     setInterval(async () => {
       try {
