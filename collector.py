@@ -533,12 +533,24 @@ _TURNSTILE_PAGE_URL = "https://phuket.airportthai.co.th/flight?type=a"
 
 
 def _solve_via_playwright():
-    """Get Turnstile token via real browser — headless=False for GPU/WebGL (required by CF)."""
+    """
+    Intercept the Authorization header from the page's own GraphQL request.
+    More reliable than waiting for cookie — captures token exactly as used.
+    """
     import time
     from playwright.sync_api import sync_playwright
+
+    captured = {}
+
+    def handle_request(request):
+        if "gtt-prod.sawasdeebyaot.com/graphql" in request.url:
+            auth = request.headers.get("authorization", "")
+            if auth and auth not in ("", "null"):
+                captured["token"] = auth
+
     with sync_playwright() as p:
         browser = p.chromium.launch(
-            headless=False,  # GPU/WebGL needed for Cloudflare Turnstile fingerprinting
+            headless=False,
             args=["--no-sandbox", "--disable-blink-features=AutomationControlled"],
         )
         ctx = browser.new_context(
@@ -547,16 +559,19 @@ def _solve_via_playwright():
         )
         page = ctx.new_page()
         page.add_init_script("Object.defineProperty(navigator,'webdriver',{get:()=>undefined})")
+        page.on("request", handle_request)
         page.goto(_TURNSTILE_PAGE_URL, wait_until="domcontentloaded", timeout=30000)
-        deadline = time.time() + 40
+
+        # Wait for the page to fire its own GTT request (up to 45s)
+        deadline = time.time() + 45
         while time.time() < deadline:
-            tok = next((c["value"] for c in ctx.cookies() if c["name"] == "turnstiletoken" and c["value"] not in ("", "null")), None)
-            if tok:
+            if captured.get("token"):
                 browser.close()
-                return tok
-            time.sleep(0.8)
+                return captured["token"]
+            time.sleep(0.5)
+
         browser.close()
-    raise RuntimeError("Turnstile cookie not set within timeout")
+    raise RuntimeError("No GTT request intercepted within timeout")
 
 
 def _solve_via_capsolver():
