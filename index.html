@@ -2322,7 +2322,6 @@
         const matchedFlights = getFlightsForRow(x, flightsList, direction || 'arr');
         const nameEl = make('span', 'rank-name');
         nameEl.appendChild(txt(make('span', 'rnt'), x.name));
-        if (transitBadge) nameEl.appendChild(transitBadge);
         if (matchedFlights.length > 0) {
           li.classList.add('rank-item-expandable');
           const chevron = make('span', 'rank-chevron');
