@@ -1392,65 +1392,40 @@
   }
   @keyframes sweep-trail { 0%{opacity:.8} 100%{opacity:0} }
 
-  /* ══ TAKEOFF PLANE ══════════════════════════════════════ */
-  @keyframes tp-ascent {
-    0%    { transform:translateX(-50%) translateY(0px)             rotate(0deg);   opacity:0; }
-    18%   { transform:translateX(-50%) translateY(0px)             rotate(0deg);   opacity:0; }
-    20%   { transform:translateX(-50%) translateY(-10px)           rotate(-3deg);  opacity:0.95; }
-    30%   { transform:translateX(-50%) translateY(-120px)          rotate(-8deg); }
-    55%   { transform:translateX(-50%) translateY(-45vh)           rotate(-14deg); }
-    90%   { transform:translateX(-50%) translateY(-110vh)          rotate(-18deg); opacity:0.8; }
-    100%  { transform:translateX(-50%) translateY(-130vh)          rotate(-20deg); opacity:0; }
+  /* ══ SILHOUETTE PLANE (horizontal pass) ═══════════════════ */
+  @keyframes sil-fly {
+    0%   { transform:translateX(-300px); opacity:0; }
+    14%  { transform:translateX(-300px); opacity:0; }
+    16%  { opacity:1; }
+    82%  { opacity:1; }
+    84%  { opacity:0; transform:translateX(calc(100vw + 300px)); }
+    100% { transform:translateX(calc(100vw + 300px)); opacity:0; }
   }
-  @keyframes tp-nav-red {
-    0%,100%{ opacity:1; } 50%{ opacity:0.25; }
-  }
-  @keyframes tp-nav-grn {
-    0%,100%{ opacity:1; } 50%{ opacity:0.25; }
-  }
-  @keyframes tp-strobe {
-    0%,86%,89%,92%,100%{ opacity:0; }
-    87%,88%{ opacity:1; }
-    90%,91%{ opacity:0.85; }
-  }
-  @keyframes tp-strobe2 {
-    0%,80%,83%,86%,100%{ opacity:0; }
-    81%,82%{ opacity:1; }
-    84%,85%{ opacity:0.7; }
-  }
-  @keyframes tp-beacon {
-    0%,100%{ opacity:0.1; } 25%{ opacity:1; } 50%{ opacity:0.15; } 75%{ opacity:0.9; }
-  }
-  @keyframes tp-engine {
-    0%,100%{ opacity:0.85; } 30%{ opacity:1; } 70%{ opacity:0.7; }
-  }
-  @keyframes tp-landing {
-    0%,100%{ opacity:1; filter:blur(0px); }
-    50%    { opacity:0.8; filter:blur(0.5px); }
-  }
-  @keyframes tp-heat {
-    0%,100%{ transform:scaleY(1);   opacity:0.35; }
-    50%    { transform:scaleY(1.4); opacity:0.2;  }
-  }
+  @keyframes sil-nav-r  { 0%,100%{opacity:.9} 50%{opacity:.1} }
+  @keyframes sil-nav-g  { 0%,100%{opacity:.9} 50%{opacity:.1} }
+  @keyframes sil-strobe { 0%,90%,93%,96%,100%{opacity:0} 91%,92%{opacity:1} 94%,95%{opacity:.7} }
+  @keyframes sil-beacon { 0%,100%{opacity:.12} 30%{opacity:1} 60%{opacity:.12} }
+  @keyframes sil-head   { 0%,100%{opacity:.55} 50%{opacity:1} }
 
-  .tp-wrap {
-    position: fixed;
-    left: 50%;
-    bottom: -180px;
-    z-index: 12;
+  .plane-runway {
+    position: relative;
+    height: 62px;
+    overflow: hidden;
     pointer-events: none;
-    animation: tp-ascent 28s cubic-bezier(0.3,0,0.6,1) infinite;
-    animation-delay: 3s;
-    transform-origin: center bottom;
+    margin: 4px 0;
   }
-  .tp-svg { display:block; }
-  .tp-nav-red  { animation: tp-nav-red  1.1s ease-in-out infinite; }
-  .tp-nav-grn  { animation: tp-nav-grn  1.1s ease-in-out infinite 0.55s; }
-  .tp-strobe   { animation: tp-strobe   3s   linear         infinite; }
-  .tp-strobe2  { animation: tp-strobe2  3s   linear         infinite 1.1s; }
-  .tp-beacon   { animation: tp-beacon   1.8s ease-in-out    infinite; }
-  .tp-engine   { animation: tp-engine   0.4s ease-in-out    infinite; }
-  .tp-landing  { animation: tp-landing  2.4s ease-in-out    infinite; }
+  .sil-wrap {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    animation: sil-fly 26s ease-in-out infinite;
+  }
+  .sil-nav-r  { animation: sil-nav-r   1.1s ease-in-out infinite; }
+  .sil-nav-g  { animation: sil-nav-g   1.1s ease-in-out infinite 0.55s; }
+  .sil-strobe { animation: sil-strobe  3.5s linear infinite; }
+  .sil-beacon { animation: sil-beacon  1.7s ease-in-out infinite; }
+  .sil-head   { animation: sil-head    2.6s ease-in-out infinite; }
 
   /* ── Radar background ── */
   .avi-radar {
@@ -1770,6 +1745,96 @@
             <div class="cal-preset-item" data-k="halfyear"><span class="cal-radio"></span>6 месяцев</div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Silhouette plane between fboard and stats -->
+    <div class="plane-runway" aria-hidden="true">
+      <div class="sil-wrap">
+        <svg viewBox="0 0 272 56" width="272" height="56" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="sil-glo-r" x="-250%" y="-250%" width="600%" height="600%">
+              <feGaussianBlur stdDeviation="2.5" result="b"/>
+              <feColorMatrix in="b" type="matrix" values="2 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="c"/>
+              <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="sil-glo-g" x="-250%" y="-250%" width="600%" height="600%">
+              <feGaussianBlur stdDeviation="2.5" result="b"/>
+              <feColorMatrix in="b" type="matrix" values="0 0 0 0 0  0 2 0 0 0  0 0 0 0 0  0 0 0 1 0" result="c"/>
+              <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="sil-glo-w" x="-250%" y="-250%" width="600%" height="600%">
+              <feGaussianBlur stdDeviation="4.5" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="sil-glo-h" x="-400%" y="-400%" width="900%" height="900%">
+              <feGaussianBlur stdDeviation="9" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <radialGradient id="sil-beam" cx="100%" cy="50%" r="90%">
+              <stop offset="0%"   stop-color="#b8d8ff" stop-opacity="0.85"/>
+              <stop offset="45%"  stop-color="#7ab0ff" stop-opacity="0.28"/>
+              <stop offset="100%" stop-color="#4080ff" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+
+          <!-- Forward headlight beam -->
+          <ellipse class="sil-head" cx="268" cy="28" rx="22" ry="12" fill="url(#sil-beam)"/>
+
+          <!-- Fuselage body -->
+          <path d="M 254 28 C 263 28 267 25 267 25 C 267 25 263 22 254 22
+                   L 48 20 C 28 20 14 23 8 28 C 14 33 28 36 48 36 L 254 34
+                   C 263 34 267 31 267 31 C 267 31 263 28 254 28 Z"
+                fill="#1b2138"/>
+
+          <!-- Wing (swept back, going left-down from mid-fuselage) -->
+          <path d="M 160 23 L 76 4 Q 67 3 71 8 L 94 50 Q 99 55 106 50 L 154 33 Z"
+                fill="#141929"/>
+
+          <!-- Winglet at port tip -->
+          <path d="M 71 8 L 68 1 L 74 1 L 76 8 Z" fill="#1b2138"/>
+
+          <!-- Engine nacelle under wing -->
+          <path d="M 106 34 L 148 34 L 147 43 Q 144 46 140 46 L 108 46 Q 104 43 106 34 Z"
+                fill="#0c111e"/>
+          <!-- Engine intake ring -->
+          <ellipse cx="106" cy="40" rx="4.5" ry="6" fill="#070a15"/>
+          <!-- Engine exhaust glow (faint) -->
+          <ellipse cx="147" cy="40" rx="3.5" ry="2.5" fill="#1a3268" opacity="0.6"/>
+
+          <!-- Vertical tail fin -->
+          <path d="M 19 22 L 25 1 L 31 3 L 28 22 Z" fill="#1b2138"/>
+          <!-- Horizontal stabilizer (visible/near side) -->
+          <path d="M 20 25 L 6 16 L 8 21 L 20 27 Z" fill="#141929"/>
+          <!-- Horizontal stabilizer (far side) -->
+          <path d="M 20 25 L 33 16 L 31 21 L 20 27 Z" fill="#18203a"/>
+
+          <!-- === LIGHTS === -->
+
+          <!-- Nose landing lights (white, forward glow) -->
+          <circle class="sil-head" cx="264" cy="28" r="4.5" fill="#ddeeff" filter="url(#sil-glo-w)"/>
+          <circle cx="264" cy="28" r="2" fill="#f0f8ff"/>
+
+          <!-- Port (red) nav — lower wingtip -->
+          <g class="sil-nav-r" filter="url(#sil-glo-r)">
+            <circle cx="94" cy="50" r="3.5" fill="#ff1818"/>
+            <circle cx="94" cy="50" r="1.8" fill="#ff9090"/>
+          </g>
+
+          <!-- Starboard (green) — upper wingtip -->
+          <g class="sil-nav-g" filter="url(#sil-glo-g)">
+            <circle cx="74" cy="4" r="3" fill="#00ee44"/>
+            <circle cx="74" cy="4" r="1.5" fill="#88ffbb"/>
+          </g>
+
+          <!-- White strobe — wing tip -->
+          <circle class="sil-strobe" cx="70" cy="5" r="6" fill="white" opacity="0" filter="url(#sil-glo-w)"/>
+          <!-- White strobe — tail fin -->
+          <circle class="sil-strobe" cx="25" cy="1" r="4" fill="white" opacity="0" filter="url(#sil-glo-w)" style="animation-delay:1.75s"/>
+
+          <!-- Red anti-collision beacon (belly) -->
+          <circle class="sil-beacon" cx="160" cy="36" r="3" fill="#ff0000" filter="url(#sil-glo-r)"/>
+        </svg>
       </div>
     </div>
 
@@ -3276,139 +3341,6 @@
       });
     })();
 
-    /* ── Takeoff plane — vertical ascent with lit navigation lights ── */
-    (function spawnTakeoffPlane() {
-      const ns = 'http://www.w3.org/2000/svg';
-
-      const wrap = document.createElement('div');
-      wrap.className = 'tp-wrap';
-
-      const svgEl = document.createElementNS(ns, 'svg');
-      svgEl.setAttribute('viewBox', '0 0 100 180');
-      svgEl.setAttribute('width', '82');
-      svgEl.setAttribute('height', '148');
-      svgEl.classList.add('tp-svg');
-
-      svgEl.innerHTML = `
-        <defs>
-          <filter id="tp-glo-red" x="-150%" y="-150%" width="400%" height="400%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="b"/>
-            <feColorMatrix in="b" type="matrix" values="2 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="c"/>
-            <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-          <filter id="tp-glo-grn" x="-150%" y="-150%" width="400%" height="400%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="b"/>
-            <feColorMatrix in="b" type="matrix" values="0 0 0 0 0  0 2 0 0 0  0 0 0 0 0  0 0 0 1 0" result="c"/>
-            <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-          <filter id="tp-glo-wht" x="-150%" y="-150%" width="400%" height="400%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/>
-            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-          <filter id="tp-glo-eng" x="-150%" y="-150%" width="400%" height="400%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="b"/>
-            <feColorMatrix in="b" type="matrix" values="1.5 0 0 0 0.3  0.5 0.3 0 0 0  0 0 0 0 0  0 0 0 0.9 0" result="c"/>
-            <feMerge><feMergeNode in="c"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-          <linearGradient id="tp-body" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%"   stop-color="#78808f"/>
-            <stop offset="28%"  stop-color="#bec4d4"/>
-            <stop offset="50%"  stop-color="#d8dce8"/>
-            <stop offset="72%"  stop-color="#bec4d4"/>
-            <stop offset="100%" stop-color="#78808f"/>
-          </linearGradient>
-          <linearGradient id="tp-wing" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%"   stop-color="#c8ccd8"/>
-            <stop offset="100%" stop-color="#8890a2"/>
-          </linearGradient>
-          <radialGradient id="tp-beam" cx="50%" cy="5%" r="95%">
-            <stop offset="0%"   stop-color="#c8e8ff" stop-opacity="0.75"/>
-            <stop offset="60%"  stop-color="#a0ccff" stop-opacity="0.25"/>
-            <stop offset="100%" stop-color="#80aaff" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-
-        <!-- Landing light forward beam -->
-        <ellipse cx="50" cy="6" rx="22" ry="34" fill="url(#tp-beam)" class="tp-landing"/>
-
-        <!-- Fuselage -->
-        <path d="M43 22 C43 10 57 10 57 22 L59 98 C59 114 55 128 50 133 C45 128 41 114 41 98Z"
-              fill="url(#tp-body)"/>
-        <!-- Fuselage window stripe -->
-        <path d="M44.5 28 L55.5 28 L57.5 96 C55 98 45 98 43 96Z"
-              fill="rgba(91,184,245,0.10)" stroke="rgba(91,184,245,0.08)" stroke-width="0.3"/>
-        <!-- Windows -->
-        <g fill="#b8d8f0" opacity="0.55">
-          <rect x="44.5" y="38" width="3.5" height="2.8" rx="0.9"/>
-          <rect x="50.5" y="38" width="3.5" height="2.8" rx="0.9"/>
-          <rect x="44.5" y="46" width="3.5" height="2.8" rx="0.9"/>
-          <rect x="50.5" y="46" width="3.5" height="2.8" rx="0.9"/>
-          <rect x="44.5" y="54" width="3.5" height="2.8" rx="0.9"/>
-          <rect x="50.5" y="54" width="3.5" height="2.8" rx="0.9"/>
-          <rect x="44.5" y="62" width="3.5" height="2.8" rx="0.9"/>
-          <rect x="50.5" y="62" width="3.5" height="2.8" rx="0.9"/>
-        </g>
-
-        <!-- Main wings (swept) -->
-        <path d="M43 72 L3 94 L6 104 L41 88 L43 91 L57 91 L59 88 L94 104 L97 94 L57 72Z"
-              fill="url(#tp-wing)"/>
-        <!-- Flap lines -->
-        <path d="M6 102 L41 87 L43 90" stroke="#8890a2" stroke-width="0.6" fill="none" opacity="0.8"/>
-        <path d="M94 102 L59 87 L57 90" stroke="#8890a2" stroke-width="0.6" fill="none" opacity="0.8"/>
-        <!-- Winglets -->
-        <path d="M3 93 L1 100 L4 105 L6 104" fill="#9095a8"/>
-        <path d="M97 93 L99 100 L96 105 L94 104" fill="#9095a8"/>
-
-        <!-- Engine pods -->
-        <ellipse cx="20" cy="88" rx="7.5" ry="12" fill="#5e6270"/>
-        <ellipse cx="80" cy="88" rx="7.5" ry="12" fill="#5e6270"/>
-        <ellipse cx="20" cy="80"  rx="6.5" ry="4.5" fill="#8890a0"/>
-        <ellipse cx="80" cy="80"  rx="6.5" ry="4.5" fill="#8890a0"/>
-
-        <!-- Engine exhaust glow -->
-        <ellipse class="tp-engine" cx="20" cy="99" rx="5.5" ry="4" fill="#ff7800" filter="url(#tp-glo-eng)"/>
-        <ellipse class="tp-engine" cx="80" cy="99" rx="5.5" ry="4" fill="#ff7800" filter="url(#tp-glo-eng)"/>
-        <!-- Heat shimmer trails -->
-        <ellipse cx="20" cy="112" rx="4" ry="12" fill="#ff9500" opacity="0.18"/>
-        <ellipse cx="80" cy="112" rx="4" ry="12" fill="#ff9500" opacity="0.18"/>
-
-        <!-- Horizontal stabilizers -->
-        <path d="M43 126 L20 140 L22 146 L43 134Z" fill="#a0a4b4"/>
-        <path d="M57 126 L80 140 L78 146 L57 134Z" fill="#a0a4b4"/>
-        <!-- Vertical tail -->
-        <path d="M47 115 L53 115 L51.5 142 L48.5 142Z" fill="#b4b8c8"/>
-
-        <!-- ═══ NAVIGATION LIGHTS ═══ -->
-
-        <!-- Port (left) RED — wingtip -->
-        <g class="tp-nav-red" filter="url(#tp-glo-red)">
-          <circle cx="3" cy="99" r="4" fill="#ff1818"/>
-          <circle cx="3" cy="99" r="2" fill="#ff9090"/>
-        </g>
-        <!-- Starboard (right) GREEN — wingtip -->
-        <g class="tp-nav-grn" filter="url(#tp-glo-grn)">
-          <circle cx="97" cy="99" r="4" fill="#00ee44"/>
-          <circle cx="97" cy="99" r="2" fill="#88ffbb"/>
-        </g>
-
-        <!-- White strobe — port wingtip -->
-        <circle class="tp-strobe" cx="3" cy="99" r="6.5" fill="white" opacity="0" filter="url(#tp-glo-wht)"/>
-        <!-- White strobe — starboard wingtip -->
-        <circle class="tp-strobe" cx="97" cy="99" r="6.5" fill="white" opacity="0" filter="url(#tp-glo-wht)"/>
-        <!-- White strobe — tail -->
-        <circle class="tp-strobe2" cx="50" cy="144" r="3.5" fill="white" opacity="0" filter="url(#tp-glo-wht)"/>
-
-        <!-- Red anti-collision beacon (belly) -->
-        <circle class="tp-beacon" cx="50" cy="84" r="3" fill="#ff0000" filter="url(#tp-glo-red)"/>
-
-        <!-- Nose landing lights -->
-        <circle class="tp-landing" cx="50" cy="19" r="3.5" fill="white" filter="url(#tp-glo-wht)"/>
-        <circle cx="50" cy="19" r="1.8" fill="#f0f8ff"/>
-      `;
-
-      wrap.appendChild(svgEl);
-      document.body.appendChild(wrap);
-    })();
 
     // METAR line cycling
     const metars = [
