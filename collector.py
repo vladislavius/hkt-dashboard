@@ -562,6 +562,23 @@ def _solve_via_playwright():
         page.on("request", handle_request)
         page.goto(_TURNSTILE_PAGE_URL, wait_until="domcontentloaded", timeout=30000)
 
+        # Dismiss cookie consent / accept popup if present
+        try:
+            page.wait_for_selector(
+                "button:has-text('Accept'), button:has-text('ACCEPT'), "
+                "button:has-text('ยอมรับ'), button:has-text('Submit'), "
+                "button:has-text('I Agree'), .btn-accept, #accept-btn",
+                timeout=5000,
+            )
+            page.click(
+                "button:has-text('Accept'), button:has-text('ACCEPT'), "
+                "button:has-text('ยอมรับ'), button:has-text('Submit'), "
+                "button:has-text('I Agree'), .btn-accept, #accept-btn",
+            )
+            print("🖱️ Dismissed consent popup")
+        except Exception:
+            pass  # No popup — proceed normally
+
         # Wait for the page to fire its own GTT request (up to 45s)
         deadline = time.time() + 45
         while time.time() < deadline:
