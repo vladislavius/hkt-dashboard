@@ -1379,6 +1379,17 @@
       'Luxembourg':'🇱🇺','Ireland':'🇮🇪','Iceland':'🇮🇸','Cyprus':'🇨🇾','Malta':'🇲🇹',
     };
 
+    const FLAGS_COLOR = {
+      'India':'#FF9933','Malaysia':'#CC0001','Singapore':'#EF3340','UAE':'#00732F',
+      'China':'#DE2910','Hong Kong':'#DE2910','South Korea':'#003478','Japan':'#BC002D',
+      'Australia':'#00008B','Russia':'#E86060','Kazakhstan':'#5BB8F5','Belarus':'#CF101A',
+      'Uzbekistan':'#72C98A','Ukraine':'#5B8AF5','Azerbaijan':'#E8A462','Turkey':'#E30A17',
+      'Saudi Arabia':'#006C35','Qatar':'#8D1B3D','Oman':'#DB161B','Sweden':'#006AA7',
+      'UK':'#012169','Germany':'#FFCE00','France':'#0055A4','Switzerland':'#FF0000',
+      'Israel':'#0038B8','Indonesia':'#CE1126','Vietnam':'#DA251D','Taiwan':'#FE0000',
+      'Finland':'#003580','Denmark':'#C60C30','Norway':'#EF2B2D','New Zealand':'#00247D',
+    };
+
     let data = null, activeChart = null, activeChart2 = null,
         activeCisChart = null, activeCisChart2 = null, cityFlagMap = {};
 
@@ -2166,100 +2177,139 @@
     function render(period) {
       const d = data?.[period];
       if (!d) return;
-      const total = d.arrivals.count + d.departures.count;
-      const pax   = d.arrivals.pax   + d.departures.pax;
 
+      /* KPI: 2 карточки — прилёты и вылеты с пассажирами в одну строку */
+      metricsEl.style.gridTemplateColumns = 'repeat(2,1fr)';
+      const mkMetricInline = (label, flights, pax, colorCls, icon, delay) => {
+        const card = make('div', 'm-card');
+        card.style.animationDelay = delay;
+        const row = make('div', 'm-inline-row');
+        ap(row,
+          txt(make('div', 'm-value ' + colorCls), String(flights)),
+          txt(make('div', 'm-sub'), '~' + pax.toLocaleString('ru') + ' чел.')
+        );
+        ap(card, txt(make('div','m-label'), label), row, txt(make('div','m-icon'), icon));
+        return card;
+      };
       metricsEl.replaceChildren(
-        mkMetric('Всего рейсов',  String(total),              'col-ivory', '✈',  '0s'),
-        mkMetric('Пассажиров',    pax.toLocaleString('ru'),   'col-gold',  '👤', '0.06s'),
-        mkMetric('Прилёты',       String(d.arrivals.count),   'col-sky',   '🛬', '0.12s'),
-        mkMetric('Вылеты',        String(d.departures.count), 'col-amber', '🛫', '0.18s')
+        mkMetricInline('Прилёты', d.arrivals.count,   d.arrivals.pax,   'col-sky',   '🛬', '0s'),
+        mkMetricInline('Вылеты',  d.departures.count, d.departures.pax, 'col-amber', '🛫', '0.08s')
       );
 
-      const grid = make('div', 'main-grid');
-
+      const grid = make('div', 'cis-2col-grid');
       const breakdown = getBreakdown(d, period);
 
-      /* Col 1: Donut + optional line chart */
-      const chartCard = mkCard('📊', 'Распределение', '0.06s');
-      const wrap      = make('div', 'chart-container');
-      const canvas    = document.createElement('canvas');
-      canvas.id = 'mainChart'; canvas.height = 160;
-      const center  = make('div', 'chart-center');
-      ap(center, txt(make('div', 'chart-center-val'), String(total)), txt(make('div', 'chart-center-lbl'), 'рейсов'));
-      ap(wrap, canvas, center);
-      const legend  = make('div', 'chart-legend');
-      const legA    = make('div', 'leg-item');
-      const dotA    = make('div', 'leg-dot'); dotA.style.background = '#5BB8F5';
-      ap(legA, dotA, document.createTextNode(' Прилёты '), txt(make('span','leg-val'), String(d.arrivals.count)));
-      const legD    = make('div', 'leg-item');
-      const dotD    = make('div', 'leg-dot'); dotD.style.background = '#E8A462';
-      ap(legD, dotD, document.createTextNode(' Вылеты '),  txt(make('span','leg-val'), String(d.departures.count)));
-      ap(legend, legA, legD);
-      ap(chartCard, wrap, legend);
+      /* Функция донута по странам */
+      const mkWorldDonut = (titleIcon, titleText, list, count, pax, chartId, color, delay) => {
+        const card = mkCard(titleIcon, titleText, delay);
+        const wrap = make('div', 'chart-container');
+        const cvs  = document.createElement('canvas');
+        cvs.id = chartId; cvs.height = 180;
+        const center = make('div', 'chart-center');
+        ap(center, txt(make('div','chart-center-val'), String(count)), txt(make('div','chart-center-lbl'), 'рейсов'));
+        ap(wrap, cvs, center);
+        // Легенда топ-5 стран
+        const legend = make('div', 'chart-legend');
+        const top5 = (list || []).slice(0, 5);
+        top5.forEach(x => {
+          const li = make('div', 'leg-item');
+          const dot = make('div', 'leg-dot');
+          dot.style.background = FLAGS_COLOR[x.name] || FLAGS_COLOR[x.country] || color;
+          ap(li, dot,
+            document.createTextNode(' ' + (x.name || x.country || '?') + ' '),
+            txt(make('span','leg-val'), (x.flights||0) + ' ✈'),
+            txt(make('span','leg-pax'), ' ~' + (x.pax||0).toLocaleString('ru') + ' чел.')
+          );
+          legend.appendChild(li);
+        });
+        ap(card, wrap, legend);
+        return card;
+      };
 
+      const arrList = d.arrivals.all  || d.arrivals.top  || [];
+      const depList = d.departures.all || d.departures.top || [];
+
+      /* Левая колонка: донут прилётов + список */
+      const colArr = make('div', 'cis-col');
+      const arrDonutCard = mkWorldDonut('🛬', 'Прилёты · по странам', arrList, d.arrivals.count, d.arrivals.pax, 'mainArrChart', '#5BB8F5', '0.06s');
+      const arrRankCard  = mkCard('🛬', 'Прилёты · рейсы', '0.12s');
+      arrRankCard.appendChild(mkRankList(arrList, d.russia_transit, d.arrivals_list, 'arr'));
+      ap(colArr, arrDonutCard, arrRankCard);
+
+      /* Правая колонка: донут вылетов + список */
+      const colDep = make('div', 'cis-col');
+      const depDonutCard = mkWorldDonut('🛫', 'Вылеты · по странам', depList, d.departures.count, d.departures.pax, 'mainDepChart', '#E8A462', '0.18s');
+      const depRankCard  = mkCard('🛫', 'Вылеты · рейсы', '0.24s');
+      depRankCard.appendChild(mkRankList(depList, null, d.departures_list, 'dep'));
+      ap(colDep, depDonutCard, depRankCard);
+
+      ap(grid, colArr, colDep);
+
+      /* Линейный график — полная ширина */
       if (breakdown && breakdown.length > 0) {
-        const trendDiv = make('div', 'trend-section');
-        const trendLabel = make('div', 'trend-label');
-        trendLabel.textContent = timelineLabel(period);
-        const trendWrap = make('div', 'trend-wrap');
-        const c2 = document.createElement('canvas');
-        c2.id = 'timelineChart';
-        trendWrap.appendChild(c2);
-        ap(trendDiv, trendLabel, trendWrap);
-        chartCard.appendChild(trendDiv);
+        const timeCard = mkCard('📅', timelineLabel(period), '0.3s', 'card-full');
+        const timeWrap = make('div', 'timeline-wrap');
+        const tc = document.createElement('canvas');
+        tc.id = 'timelineChart';
+        timeWrap.appendChild(tc);
+        timeCard.appendChild(timeWrap);
+        const fullRow = make('div', 'cis-full-row');
+        fullRow.appendChild(timeCard);
+        grid.appendChild(fullRow);
       }
-
-      grid.appendChild(chartCard);
-
-      /* Arrivals card */
-      const arrCard = mkCard('🛬', 'Прилёты', '0.12s');
-      arrCard.appendChild(mkRankList(d.arrivals.all || d.arrivals.top, d.russia_transit, d.arrivals_list, 'arr'));
-      grid.appendChild(arrCard);
-
-      /* Departures card */
-      const depCard = mkCard('🛫', 'Вылеты', '0.18s');
-      depCard.appendChild(mkRankList(d.departures.all || d.departures.top, null, d.departures_list, 'dep'));
-      grid.appendChild(depCard);
 
       appEl.replaceChildren(grid);
 
       /* Destroy old charts */
       if (activeChart)  { activeChart.destroy();  activeChart  = null; }
       if (activeChart2) { activeChart2.destroy(); activeChart2 = null; }
+      if (window._worldDepChart) { window._worldDepChart.destroy(); window._worldDepChart = null; }
 
-      /* Donut */
-      activeChart = new Chart(document.getElementById('mainChart').getContext('2d'), {
-        type: 'doughnut',
-        data: {
-          labels: ['Прилёты', 'Вылеты'],
-          datasets: [{
-            data: [d.arrivals.count, d.departures.count],
-            backgroundColor: ['rgba(91,184,245,0.75)', 'rgba(232,164,98,0.75)'],
-            borderColor: ['#5BB8F5', '#E8A462'],
-            borderWidth: 2,
-            hoverBorderWidth: 3,
-            hoverOffset: 6,
-          }]
-        },
-        options: {
-          responsive: true, maintainAspectRatio: true, cutout: '68%',
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              backgroundColor: 'rgba(10,15,28,0.95)',
-              borderColor: 'rgba(200,169,110,0.2)',
-              borderWidth: 1,
-              titleColor: '#EDE8DF',
-              bodyColor: '#8A8480',
-              padding: 12, cornerRadius: 10,
-              callbacks: { label: c => ' ' + c.label + ': ' + c.parsed + ' рейсов' }
-            }
+      const donutOpts = (cbLabel) => ({
+        responsive: true, maintainAspectRatio: true, cutout: '68%',
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor:'rgba(10,15,28,0.95)', borderColor:'rgba(200,169,110,0.2)', borderWidth:1,
+            titleColor:'#EDE8DF', bodyColor:'#8A8480', padding:12, cornerRadius:10,
+            callbacks: { label: c => ' ' + c.label + ': ' + c.parsed + ' рейсов' }
           }
         }
       });
 
-      /* Timeline bar chart */
+      /* Arrivals donut — топ-7 стран по цвету */
+      const arrTop = arrList.slice(0, 7);
+      activeChart = new Chart(document.getElementById('mainArrChart').getContext('2d'), {
+        type: 'doughnut',
+        data: {
+          labels: arrTop.map(x => x.name || x.country),
+          datasets: [{
+            data: arrTop.map(x => x.flights || 0),
+            backgroundColor: arrTop.map(x => (FLAGS_COLOR[x.name] || FLAGS_COLOR[x.country] || '#5BB8F5') + 'BF'),
+            borderColor:     arrTop.map(x => FLAGS_COLOR[x.name] || FLAGS_COLOR[x.country] || '#5BB8F5'),
+            borderWidth: 2, hoverOffset: 6
+          }]
+        },
+        options: donutOpts()
+      });
+
+      /* Departures donut */
+      const depTop = depList.slice(0, 7);
+      window._worldDepChart = new Chart(document.getElementById('mainDepChart').getContext('2d'), {
+        type: 'doughnut',
+        data: {
+          labels: depTop.map(x => x.name || x.country),
+          datasets: [{
+            data: depTop.map(x => x.flights || 0),
+            backgroundColor: depTop.map(x => (FLAGS_COLOR[x.name] || FLAGS_COLOR[x.country] || '#E8A462') + 'BF'),
+            borderColor:     depTop.map(x => FLAGS_COLOR[x.name] || FLAGS_COLOR[x.country] || '#E8A462'),
+            borderWidth: 2, hoverOffset: 6
+          }]
+        },
+        options: donutOpts()
+      });
+
+      /* Timeline line chart */
       if (breakdown && breakdown.length > 0) {
         activeChart2 = buildTimelineChart('timelineChart', breakdown);
       }
