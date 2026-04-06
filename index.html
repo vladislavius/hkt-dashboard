@@ -1358,17 +1358,35 @@
       const m = iso.match(/T(\d{2}:\d{2})/);
       return m ? m[1] : iso.slice(11,16) || '—';
     }
+    function normFn(fn) { return (fn || '').replace(/\s+/g, '').toUpperCase(); }
+
     function getFlightsForRow(item, flightsList, direction) {
       if (!flightsList || !flightsList.length) return [];
       const af = direction === 'dep' ? 'to' : 'from';
+      const timeField = direction === 'dep' ? 'dep_time' : 'arr_time';
       const isRuCity = item.country === 'Russia';
-      return flightsList.filter(r => {
+      const matched = flightsList.filter(r => {
         const ap = r[af] || '';
         if (isRuCity) return MAP_RU_CITY_JS[ap] === item.name;
         return (r.country || '') === item.name || (r.country || '') === item.country;
-      }).sort((a,b) => {
-        const ta = direction === 'dep' ? (a.dep_time||'') : (a.arr_time||'');
-        const tb = direction === 'dep' ? (b.dep_time||'') : (b.arr_time||'');
+      });
+      // Deduplicate by normalized flight number — keep entry with latest/most complete status
+      const byFn = new Map();
+      matched.forEach(r => {
+        const key = normFn(r.fn);
+        if (!key) return;
+        const prev = byFn.get(key);
+        if (!prev) { byFn.set(key, r); return; }
+        // Prefer records with real times and terminal statuses
+        const statusPriority = s => (['landed','departed','arrived'].includes(s) ? 2 : s ? 1 : 0);
+        if (statusPriority(r.status) > statusPriority(prev.status)) { byFn.set(key, r); return; }
+        if (statusPriority(r.status) === statusPriority(prev.status) && r[timeField] && !prev[timeField]) {
+          byFn.set(key, r);
+        }
+      });
+      return [...byFn.values()].sort((a, b) => {
+        const ta = a[timeField] || '';
+        const tb = b[timeField] || '';
         return ta.localeCompare(tb);
       });
     }
@@ -2242,6 +2260,10 @@
             var cityName = city.name || city.airport || '?';
             var cityFlights = (flightsList||[]).filter(function(f){ return f[countryField] === city.iata || (city.iata && f[countryField] === city.iata); });
             if (!cityFlights.length) cityFlights = (flightsList||[]).filter(function(f){ return f.country==='Russia' && f[countryField] && city.name && (f.from_city||'').toLowerCase()===city.name.toLowerCase(); });
+            // Deduplicate by normalized fn
+            var _seenFn = new Map();
+            cityFlights.forEach(function(f){ var k=normFn(f.fn); if(k && !_seenFn.has(k)) _seenFn.set(k,f); });
+            cityFlights = [..._seenFn.values()];
             var cityHeader = make('div','cis-city-header');
             var cityChevron = txt(make('span','cis-city-chevron'),'▸');
             ap(cityHeader, cityChevron, txt(make('span','cis-city-name'),cityName), txt(make('span','cis-city-count'),(city.flights||0)+' рейс · ~'+(city.pax||0).toLocaleString('ru')+' чел.'));
@@ -2263,6 +2285,10 @@
         } else {
           nameEl.textContent = x.name || x.country || '?';
           var matchFlights = (flightsList||[]).filter(function(f){return f.country===(x.country||x.name);});
+          // Deduplicate by normalized fn
+          var _mfSeen = new Map();
+          matchFlights.forEach(function(f){ var k=normFn(f.fn); if(k && !_mfSeen.has(k)) _mfSeen.set(k,f); });
+          matchFlights = [..._mfSeen.values()];
           if (matchFlights.length > 0) {
             li.classList.add('rank-item-expandable');
             var ch2 = txt(make('span','rank-chevron'),' ▾'); nameEl.appendChild(ch2);
