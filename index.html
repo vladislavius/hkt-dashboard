@@ -2244,15 +2244,14 @@
           <div class="cal-divider-v"></div>
           <div class="cal-presets-col" id="overlay-presets">
             <div class="cal-preset-group">
-              <div class="cal-preset-item" data-k="today"><span class="cal-radio"></span>&#1057;&#1077;&#1075;&#1086;&#1076;&#1085;&#1103;</div>
-              <div class="cal-preset-item" data-k="week"><span class="cal-radio"></span>&#1058;&#1077;&#1082;&#1091;&#1097;&#1072;&#1103; &#1085;&#1077;&#1076;&#1077;&#1083;&#1103;</div>
-              <div class="cal-preset-item" data-k="month"><span class="cal-radio"></span>&#1058;&#1077;&#1082;&#1091;&#1097;&#1080;&#1081; &#1084;&#1077;&#1089;&#1103;&#1094;</div>
-              <div class="cal-preset-item" data-k="year"><span class="cal-radio"></span>&#1058;&#1077;&#1082;&#1091;&#1097;&#1080;&#1081; &#1075;&#1086;&#1076;</div>
+              <div class="cal-preset-item" data-k="yesterday"><span class="cal-radio"></span>Вчера</div>
+              <div class="cal-preset-item" data-k="today"><span class="cal-radio"></span>Сегодня</div>
+              <div class="cal-preset-item" data-k="tomorrow"><span class="cal-radio"></span>Завтра</div>
             </div>
             <div class="cal-preset-group">
-              <div class="cal-preset-item" data-k="yesterday"><span class="cal-radio"></span>&#1042;&#1095;&#1077;&#1088;&#1072;</div>
-              <div class="cal-preset-item" data-k="quarter"><span class="cal-radio"></span>3 &#1084;&#1077;&#1089;&#1103;&#1094;&#1072;</div>
-              <div class="cal-preset-item" data-k="halfyear"><span class="cal-radio"></span>6 &#1084;&#1077;&#1089;&#1103;&#1094;&#1077;&#1074;</div>
+              <div class="cal-preset-item" data-k="week"><span class="cal-radio"></span>Текущая неделя</div>
+              <div class="cal-preset-item" data-k="month"><span class="cal-radio"></span>Текущий месяц</div>
+              <div class="cal-preset-item" data-k="year"><span class="cal-radio"></span>Текущий год</div>
             </div>
           </div>
         </div>
@@ -2325,15 +2324,14 @@
         <div class="cal-divider-v"></div>
         <div class="cal-presets-col" id="drawer-presets">
           <div class="cal-preset-group">
-            <div class="cal-preset-item" data-k="today"><span class="cal-radio"></span>&#1057;&#1077;&#1075;&#1086;&#1076;&#1085;&#1103;</div>
-            <div class="cal-preset-item" data-k="week"><span class="cal-radio"></span>&#1058;&#1077;&#1082;&#1091;&#1097;&#1072;&#1103; &#1085;&#1077;&#1076;&#1077;&#1083;&#1103;</div>
-            <div class="cal-preset-item" data-k="month"><span class="cal-radio"></span>&#1058;&#1077;&#1082;&#1091;&#1097;&#1080;&#1081; &#1084;&#1077;&#1089;&#1103;&#1094;</div>
-            <div class="cal-preset-item" data-k="year"><span class="cal-radio"></span>&#1058;&#1077;&#1082;&#1091;&#1097;&#1080;&#1081; &#1075;&#1086;&#1076;</div>
+            <div class="cal-preset-item" data-k="yesterday"><span class="cal-radio"></span>Вчера</div>
+            <div class="cal-preset-item" data-k="today"><span class="cal-radio"></span>Сегодня</div>
+            <div class="cal-preset-item" data-k="tomorrow"><span class="cal-radio"></span>Завтра</div>
           </div>
           <div class="cal-preset-group">
-            <div class="cal-preset-item" data-k="yesterday"><span class="cal-radio"></span>&#1042;&#1095;&#1077;&#1088;&#1072;</div>
-            <div class="cal-preset-item" data-k="quarter"><span class="cal-radio"></span>3 &#1084;&#1077;&#1089;&#1103;&#1094;&#1072;</div>
-            <div class="cal-preset-item" data-k="halfyear"><span class="cal-radio"></span>6 &#1084;&#1077;&#1089;&#1103;&#1094;&#1077;&#1074;</div>
+            <div class="cal-preset-item" data-k="week"><span class="cal-radio"></span>Тек. неделя</div>
+            <div class="cal-preset-item" data-k="month"><span class="cal-radio"></span>Тек. месяц</div>
+            <div class="cal-preset-item" data-k="year"><span class="cal-radio"></span>Тек. год</div>
           </div>
         </div>
       </div>
@@ -2654,12 +2652,11 @@
       const y = new Date(t); y.setDate(t.getDate()-1);
       const msDay = 86400000;
       switch(key) {
-        case 'today':    return { start: t, end: t };
         case 'yesterday':return { start: y, end: y };
+        case 'today':    return { start: t, end: t };
+        case 'tomorrow': const tm = new Date(t); tm.setDate(t.getDate()+1); return { start: tm, end: tm };
         case 'week':     return { start: new Date(t.getTime()-6*msDay), end: t };
         case 'month':    return { start: new Date(t.getTime()-29*msDay), end: t };
-        case 'quarter':  return { start: new Date(t.getTime()-89*msDay), end: t };
-        case 'halfyear': return { start: new Date(t.getTime()-179*msDay), end: t };
         case 'year':     return { start: new Date(t.getTime()-364*msDay), end: t };
         default:
           if (/^\d{4}-\d{2}-\d{2}$/.test(key)) {
@@ -2752,8 +2749,8 @@
     }
 
     const PERIOD_LABELS = {
-      today:'Сегодня', yesterday:'Вчера', week:'Текущая неделя',
-      month:'Текущий месяц', quarter:'3 месяца', halfyear:'6 месяцев', year:'Текущий год'
+      yesterday:'Вчера', today:'Сегодня', tomorrow:'Завтра', week:'Текущая неделя',
+      month:'Текущий месяц', year:'Текущий год'
     };
 
     // ── Range-picker helpers ────────────────────────────────────────────────
@@ -3734,12 +3731,11 @@
 
     /* ── Period label helper ── */
     function periodLabelShort(period) {
-      if (period === 'today')     return 'за сегодня';
       if (period === 'yesterday') return 'за вчера';
+      if (period === 'today')     return 'за сегодня';
+      if (period === 'tomorrow')  return 'за завтра';
       if (period === 'week')      return 'за неделю';
       if (period === 'month')     return 'за месяц';
-      if (period === 'quarter')   return 'за 3 мес.';
-      if (period === 'halfyear')  return 'за 6 мес.';
       if (period === 'year')      return 'за год';
       if (/^\d{4}-\d{2}-\d{2}$/.test(period)) return period.slice(5).replace('-', '.');
       if (period && period.startsWith('custom_')) {
@@ -3789,7 +3785,7 @@
     function timelineLabel(period) {
       if (period === 'week')                        return 'По дням';
       if (period === 'month')                       return 'По неделям';
-      if (['quarter','halfyear','year'].includes(period)) return 'По месяцам';
+      if (period === 'year') return 'По месяцам';
       if (['today','yesterday'].includes(period))   return 'Тренд за 7 дней';
       return '';
     }
@@ -3797,7 +3793,7 @@
     function getBreakdown(d, period) {
       if (period === 'week')                        return d.by_days;
       if (period === 'month')                       return d.by_weeks;
-      if (['quarter','halfyear','year'].includes(period)) return d.by_months;
+      if (period === 'year') return d.by_months;
       if (['today','yesterday'].includes(period))   return data?.week?.by_days || null;
       return null;
     }
