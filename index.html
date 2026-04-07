@@ -4868,23 +4868,39 @@
       const td = data['today'];
       const tdCIS = td ? (td.arrivals.all || []).filter(isCIS).reduce((s,x) => ({ f: s.f+(x.flights||0), p: s.p+(x.pax||0) }), {f:0,p:0}) : {f:0,p:0};
 
-      // Tomorrow forecast — avg for that day of week from heatmap logic
+      // Tomorrow forecast — use week data avg or today/yesterday avg
       const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate()+1);
       let tmDow = tomorrow.getDay(); tmDow = tmDow === 0 ? 6 : tmDow - 1;
       const DOWS_RU = ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
-      // Quick estimate: use available_dates to calc avg CIS flights per dow
-      const avail = data.available_dates || [];
-      let dowTotal = 0, dowDays = 0;
-      avail.forEach(dk => {
-        const dt = new Date(dk + 'T00:00:00');
-        let d = dt.getDay(); d = d === 0 ? 6 : d - 1;
-        if (d !== tmDow) return;
-        const p = data[dk];
-        if (!p) return;
-        const cis = (p.arrivals.all || []).filter(isCIS).reduce((s,x) => s+(x.flights||0), 0);
-        dowTotal += cis; dowDays++;
-      });
-      const tmForecast = dowDays > 0 ? Math.round(dowTotal / dowDays) : '—';
+      // Best estimate: avg of today + yesterday CIS flights
+      let tmForecast = '—';
+      const samples = [ydCIS.f, tdCIS.f].filter(v => v > 0);
+      if (samples.length) {
+        tmForecast = Math.round(samples.reduce((a,b) => a+b, 0) / samples.length);
+      }
+      // Try to improve with async aggregation (non-blocking)
+      aggregateCISAnalytics().then(function(analytics) {
+        if (!analytics) return;
+        const hm = analytics.heatmap;
+        const avail = data.available_dates || [];
+        // Count weeks per dow
+        let dowCount = 0;
+        avail.forEach(dk => {
+          const dt = new Date(dk + 'T00:00:00');
+          let d = dt.getDay(); d = d === 0 ? 6 : d - 1;
+          if (d === tmDow) dowCount++;
+        });
+        if (dowCount > 0 && hm[tmDow]) {
+          const total = hm[tmDow].reduce((s,v) => s+v, 0);
+          const avg = Math.round(total / dowCount);
+          if (avg > 0) {
+            // Update the forecast in ticker
+            track.querySelectorAll('.cis-ti-forecast').forEach(function(el) {
+              el.textContent = avg + ' рейсов СНГ';
+            });
+          }
+        }
+      }).catch(function(){});
 
       function mkItem(label, val, pax, isForecast) {
         const el = document.createElement('span');
