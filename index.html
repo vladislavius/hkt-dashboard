@@ -1256,14 +1256,18 @@
       margin-bottom: 20px;
       border-bottom: 1px solid;
       border-image: linear-gradient(90deg, transparent, rgba(91,184,245,0.3) 30%, rgba(91,184,245,0.3) 70%, transparent) 1;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .cis-panel-title {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
+      gap: 8px;
+      text-align: center;
     }
-    .cis-panel-flags { font-size: 1.1rem; line-height: 1.4; letter-spacing: 2px; }
+    .cis-panel-flags { font-size: 1.1rem; line-height: 1.4; letter-spacing: 3px; }
     .cis-panel-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.1rem, 2.5vw, 1.6rem);
