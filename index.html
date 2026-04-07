@@ -1835,10 +1835,8 @@
       .card-title    { font-size: 1rem; margin-bottom: 16px; gap: 8px; }
       .card-icon     { width: 26px; height: 26px; font-size: 0.75rem; border-radius: 7px; }
 
-      /* Chart — hide donuts + card tickers on mobile */
-      .chart-container  { display: none; }
-      .chart-center     { display: none; }
-      .chart-legend     { display: none; }
+      /* Hide donut cards + tickers entirely on mobile */
+      .donut-card       { display: none !important; }
       .ft-wrap          { display: none; }
 
       /* Rank list */
@@ -3996,6 +3994,7 @@
       /* Функция донута по странам */
       const mkWorldDonut = (titleIcon, titleText, list, count, pax, chartId, color, delay) => {
         const card = mkCard(titleIcon, titleText, delay);
+        card.classList.add('donut-card');
         const wrap = make('div', 'chart-container');
         const cvs  = document.createElement('canvas');
         cvs.id = chartId; cvs.height = 180;
@@ -4327,6 +4326,7 @@
 
       function mkDonutCard(titleIcon, titleText, byC, totalFlights, chartId, delay) {
         const card = mkCard(titleIcon, titleText, delay);
+        card.classList.add('donut-card');
         const wrap = make('div', 'chart-container');
         const cvs  = document.createElement('canvas');
         cvs.id = chartId; cvs.height = 180;
