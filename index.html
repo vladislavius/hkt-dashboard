@@ -1378,6 +1378,18 @@
       overflow: hidden;
     }
     .rank-item:last-child { border-bottom: none; }
+    .rank-show-more {
+      text-align: center;
+      padding: 10px 0;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--sky);
+      cursor: pointer;
+      border-bottom: none;
+      transition: color 0.15s;
+    }
+    .rank-show-more:hover { color: var(--gold-light); }
     .rank-bar {
       position: absolute;
       bottom: 0; left: 0;
@@ -3520,6 +3532,8 @@
         return ul;
       }
       const max = list[0]?.flights ?? list[0]?.count ?? 1;
+      // On mobile: collapse after 5 items
+      const isMobile = window.innerWidth <= 768;
       list.forEach((x, i) => {
         const flights = x.flights ?? x.count ?? 0;
         const li      = make('li', 'rank-item');
@@ -3564,8 +3578,19 @@
              txt(make('span', 'rank-flag'), FLAGS[flagKey] || '🌍'),
              nameEl, countEl);
         }
+        if (isMobile && i >= 5) li.style.display = 'none';
         ul.appendChild(li);
       });
+
+      if (isMobile && list.length > 5) {
+        const showBtn = make('li', 'rank-show-more');
+        showBtn.textContent = 'Показать все (' + list.length + ')';
+        showBtn.addEventListener('click', function() {
+          ul.querySelectorAll('.rank-item').forEach(function(el) { el.style.display = ''; });
+          showBtn.remove();
+        });
+        ul.appendChild(showBtn);
+      }
 
       return ul;
     }
@@ -3880,6 +3905,7 @@
 
     /* ── CIS rank list (Russia grouped with city drill-down) ── */
     function mkCISRankList(groupedList, flightsList, direction, russiaTransit, period) {
+      var isMobileCIS = window.innerWidth <= 768;
       var ul = make('ul', 'rank-list');
       if (!groupedList || !groupedList.length) {
         ap(ul, txt(make('li', 'rank-empty'), 'Нет данных'));
@@ -3969,8 +3995,19 @@
             ap(li, bar, txt(make('div',numCls),String(i+1)), flagEl, nameEl, countEl);
           }
         }
+        if (isMobileCIS && i >= 5) li.style.display = 'none';
         ul.appendChild(li);
       });
+
+      if (isMobileCIS && groupedList.length > 5) {
+        var showBtn2 = make('li', 'rank-show-more');
+        showBtn2.textContent = 'Показать все (' + groupedList.length + ')';
+        showBtn2.addEventListener('click', function() {
+          ul.querySelectorAll('.rank-item').forEach(function(el) { el.style.display = ''; });
+          showBtn2.remove();
+        });
+        ul.appendChild(showBtn2);
+      }
 
       return ul;
     }
