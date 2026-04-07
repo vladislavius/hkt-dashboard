@@ -4406,6 +4406,42 @@
         tr.appendChild(tdBar);
         tbody.appendChild(tr);
       });
+
+      // Footer row: totals per month
+      const tfoot = document.createElement('tfoot');
+      const tfRow = document.createElement('tr');
+      tfRow.style.borderTop = '2px solid var(--border)';
+      // # cell
+      const tfEmpty = document.createElement('td'); tfEmpty.textContent = ''; tfRow.appendChild(tfEmpty);
+      // "Всего" label
+      const tfLabel = document.createElement('td');
+      tfLabel.textContent = 'Всего';
+      tfLabel.style.fontWeight = '700';
+      tfLabel.style.color = 'var(--ivory)';
+      tfLabel.style.fontFamily = "'Outfit', sans-serif";
+      tfRow.appendChild(tfLabel);
+      // Month sums
+      const grandTotal = cityTotals.reduce((s, c) => s + c.total, 0);
+      months.forEach(m => {
+        const td = document.createElement('td');
+        const sum = cityTotals.reduce((s, c) => s + (c.byMonth[m] || 0), 0);
+        td.textContent = sum;
+        td.style.fontWeight = '700';
+        td.style.color = 'var(--gold-light)';
+        tfRow.appendChild(td);
+      });
+      // Grand total
+      const tfTotal = document.createElement('td');
+      tfTotal.textContent = grandTotal;
+      tfTotal.style.fontWeight = '700';
+      tfTotal.style.color = 'var(--gold)';
+      tfTotal.style.fontSize = '0.82rem';
+      tfRow.appendChild(tfTotal);
+      // Empty bar cell
+      tfRow.appendChild(document.createElement('td'));
+      tfoot.appendChild(tfRow);
+      table.appendChild(tfoot);
+
       table.appendChild(tbody);
       tableWrap.appendChild(table);
       card.appendChild(tableWrap);
