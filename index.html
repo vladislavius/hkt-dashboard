@@ -1646,12 +1646,38 @@
       .fboard {
         border-right: none;
         border-bottom: none;
+        padding-bottom: 8px;
       }
-      .cal-inner { width: 100%; padding: 12px 12px 14px; border-top: 1px solid var(--border); margin-top: 8px; }
+      .cal-inner {
+        width: 100%;
+        padding: 14px 12px;
+        border-top: 2px solid rgba(91,184,245,0.15);
+        margin-top: 12px;
+      }
       /* Collapsed calendar on mobile */
       .cal-grid.cal-collapsed .cal-day { display: none; }
       .cal-grid.cal-collapsed .cal-day.cal-visible-row { display: flex; }
       .cal-grid.cal-collapsed.cal-expanded .cal-day { display: flex; }
+      /* Collapsed presets on mobile */
+      .cal-presets-col.presets-collapsed .cal-preset-group { display: none; }
+      .cal-presets-col.presets-collapsed .cal-preset-group:first-child { display: flex; }
+      .cal-presets-col.presets-collapsed .cal-preset-group:first-child .cal-preset-item { display: none; }
+      .cal-presets-col.presets-collapsed .cal-preset-group:first-child .cal-preset-item.active { display: flex; }
+      .cal-presets-col.presets-expanded .cal-preset-group { display: flex; }
+      .presets-expand-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 6px 0;
+        font-family: 'Outfit', sans-serif;
+        font-size: 0.68rem;
+        color: var(--sky);
+        cursor: pointer;
+        background: none;
+        border: none;
+        margin-top: 4px;
+      }
+      .presets-expand-btn:hover { color: var(--gold-light); }
       .cal-expand-btn {
         display: block;
         width: 100%;
@@ -3323,20 +3349,36 @@
       calViewDate = new Date(calViewDate.getFullYear(), calViewDate.getMonth()+1, 1);
       buildCalendarGrid();
     });
-    // Mobile: collapse calendar grid, add expand button
+    // Mobile: collapse calendar grid + presets
     (function() {
       if (window.innerWidth > 768) return;
+      // Collapse calendar grid
       const grid = document.getElementById('cal-grid');
-      if (!grid) return;
-      grid.classList.add('cal-collapsed');
-      const btn = document.createElement('button');
-      btn.className = 'cal-expand-btn';
-      btn.textContent = 'Развернуть календарь ▾';
-      btn.addEventListener('click', function() {
-        const isExpanded = grid.classList.toggle('cal-expanded');
-        btn.textContent = isExpanded ? 'Свернуть календарь ▴' : 'Развернуть календарь ▾';
-      });
-      grid.parentNode.insertBefore(btn, grid.nextSibling);
+      if (grid) {
+        grid.classList.add('cal-collapsed');
+        const btn = document.createElement('button');
+        btn.className = 'cal-expand-btn';
+        btn.textContent = 'Развернуть календарь ▾';
+        btn.addEventListener('click', function() {
+          const isExpanded = grid.classList.toggle('cal-expanded');
+          btn.textContent = isExpanded ? 'Свернуть ▴' : 'Развернуть календарь ▾';
+        });
+        grid.parentNode.insertBefore(btn, grid.nextSibling);
+      }
+      // Collapse presets — show only active
+      const presets = document.getElementById('drawer-presets');
+      if (presets) {
+        presets.classList.add('presets-collapsed');
+        const pbtn = document.createElement('button');
+        pbtn.className = 'presets-expand-btn';
+        pbtn.textContent = 'Все периоды ▾';
+        pbtn.addEventListener('click', function() {
+          const open = presets.classList.toggle('presets-expanded');
+          presets.classList.toggle('presets-collapsed', !open);
+          pbtn.textContent = open ? 'Свернуть ▴' : 'Все периоды ▾';
+        });
+        presets.appendChild(pbtn);
+      }
     })();
 
     // Drawer day clicks — instant apply
