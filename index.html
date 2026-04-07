@@ -756,7 +756,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      margin: 20px 0;
+      margin: 16px 0 0;
       padding: 0 40px;
     }
     .rwy-line {
@@ -765,12 +765,81 @@
       background: repeating-linear-gradient(90deg, var(--gold-border) 0, var(--gold-border) 16px, transparent 16px, transparent 28px);
     }
     .rwy-dot {
-      width: 6px;
-      height: 6px;
+      width: 6px; height: 6px;
       border-radius: 50%;
       background: var(--gold);
       opacity: 0.4;
       box-shadow: 0 0 8px rgba(200,169,110,0.3);
+    }
+
+    /* ── CIS summary ticker bar ── */
+    .cis-ticker-bar {
+      overflow: hidden;
+      margin: 16px 0;
+      padding: 10px 0;
+      border-top: 1px solid rgba(91,184,245,0.08);
+      border-bottom: 1px solid rgba(91,184,245,0.08);
+      background: rgba(91,184,245,0.02);
+      position: relative;
+    }
+    .cis-ticker-bar::before, .cis-ticker-bar::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 40px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .cis-ticker-bar::before { left: 0; background: linear-gradient(90deg, var(--bg), transparent); }
+    .cis-ticker-bar::after  { right: 0; background: linear-gradient(-90deg, var(--bg), transparent); }
+    .cis-ticker-track {
+      display: flex;
+      gap: 0;
+      white-space: nowrap;
+      animation: cis-ticker-scroll 30s linear infinite;
+    }
+    @keyframes cis-ticker-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .cis-ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 24px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted-2);
+    }
+    .cis-ticker-item .cis-ti-label {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .cis-ticker-item .cis-ti-val {
+      color: var(--sky);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .cis-ticker-item .cis-ti-pax {
+      color: var(--muted-2);
+      font-size: 0.65rem;
+    }
+    .cis-ticker-item .cis-ti-forecast {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .cis-ticker-sep {
+      display: inline-block;
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--muted);
+      margin: 0 8px;
+      flex-shrink: 0;
+      align-self: center;
     }
 
     /* ── CIS Analytics: Heatmap ── */
@@ -2348,10 +2417,14 @@
 
     <!-- Silhouette plane between fboard and stats -->
     <!-- Runway centerline divider -->
+    <!-- Runway divider + CIS summary ticker -->
     <div class="rwy-divider" aria-hidden="true">
       <div class="rwy-line"></div>
       <div class="rwy-dot"></div>
       <div class="rwy-line"></div>
+    </div>
+    <div class="cis-ticker-bar" id="cis-ticker-bar">
+      <div class="cis-ticker-track" id="cis-ticker-track"></div>
     </div>
 
     <div style="display:none">
@@ -4782,6 +4855,78 @@
       container.appendChild(card);
     }
 
+    // ── CIS summary ticker (вчера / сегодня / завтра прогноз) ───────────
+    function buildCISTicker() {
+      const track = document.getElementById('cis-ticker-track');
+      if (!track || !data) return;
+
+      // Yesterday CIS
+      const yd = data['yesterday'];
+      const ydCIS = yd ? (yd.arrivals.all || []).filter(isCIS).reduce((s,x) => ({ f: s.f+(x.flights||0), p: s.p+(x.pax||0) }), {f:0,p:0}) : {f:0,p:0};
+
+      // Today CIS
+      const td = data['today'];
+      const tdCIS = td ? (td.arrivals.all || []).filter(isCIS).reduce((s,x) => ({ f: s.f+(x.flights||0), p: s.p+(x.pax||0) }), {f:0,p:0}) : {f:0,p:0};
+
+      // Tomorrow forecast — avg for that day of week from heatmap logic
+      const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate()+1);
+      let tmDow = tomorrow.getDay(); tmDow = tmDow === 0 ? 6 : tmDow - 1;
+      const DOWS_RU = ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
+      // Quick estimate: use available_dates to calc avg CIS flights per dow
+      const avail = data.available_dates || [];
+      let dowTotal = 0, dowDays = 0;
+      avail.forEach(dk => {
+        const dt = new Date(dk + 'T00:00:00');
+        let d = dt.getDay(); d = d === 0 ? 6 : d - 1;
+        if (d !== tmDow) return;
+        const p = data[dk];
+        if (!p) return;
+        const cis = (p.arrivals.all || []).filter(isCIS).reduce((s,x) => s+(x.flights||0), 0);
+        dowTotal += cis; dowDays++;
+      });
+      const tmForecast = dowDays > 0 ? Math.round(dowTotal / dowDays) : '—';
+
+      function mkItem(label, val, pax, isForecast) {
+        const el = document.createElement('span');
+        el.className = 'cis-ticker-item';
+        const lbl = document.createElement('span');
+        lbl.className = 'cis-ti-label';
+        lbl.textContent = label;
+        const v = document.createElement('span');
+        v.className = isForecast ? 'cis-ti-forecast' : 'cis-ti-val';
+        v.textContent = val + ' рейсов СНГ';
+        el.appendChild(lbl);
+        el.appendChild(v);
+        if (pax) {
+          const px = document.createElement('span');
+          px.className = 'cis-ti-pax';
+          px.textContent = '~' + pax.toLocaleString('ru') + ' чел.';
+          el.appendChild(px);
+        }
+        return el;
+      }
+      function mkSep() {
+        const s = document.createElement('span');
+        s.className = 'cis-ticker-sep';
+        return s;
+      }
+
+      // Build items: duplicate for seamless loop
+      const items = [];
+      items.push(mkItem('Вчера', ydCIS.f, ydCIS.p, false));
+      items.push(mkSep());
+      items.push(mkItem('Сегодня', tdCIS.f, tdCIS.p, false));
+      items.push(mkSep());
+      items.push(mkItem('Завтра ' + DOWS_RU[tmDow] + ' (прогноз)', tmForecast, null, true));
+      items.push(mkSep());
+
+      track.replaceChildren();
+      // Double content for seamless scroll
+      for (let r = 0; r < 2; r++) {
+        items.forEach(el => track.appendChild(el.cloneNode(true)));
+      }
+    }
+
     function getDefaultPeriod() {
       if (!data) return 'today';
       if (data.today?.arrivals?.count > 0) return 'today';
@@ -4803,6 +4948,7 @@
         const period = getDefaultPeriod();
         doSelect(period);
         renderDrawerLeft(data[period] || data['today']);
+        buildCISTicker();
 
         // CIS toggle button
         const cisToggle   = document.getElementById('cis-toggle');
