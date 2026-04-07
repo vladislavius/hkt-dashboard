@@ -1240,7 +1240,7 @@
     .chart-container {
       position: relative;
       width: 100%;
-      max-width: 220px;
+      max-width: 170px;
       margin: 0 auto;
     }
     .chart-center {
@@ -4015,9 +4015,7 @@
           );
           legend.appendChild(li);
         });
-        const ticker = mkFlightTicker(list);
         ap(card, wrap);
-        if (ticker) card.appendChild(ticker);
         return card;
       };
 
@@ -4349,9 +4347,7 @@
         const cisList = allCISKeys.filter(c => byC[c]?.flights).map(c => ({
           name: CIS_LABELS[c] || c, flights: byC[c].flights, pax: byC[c].pax || 0
         }));
-        const cisTicker = mkFlightTicker(cisList);
         ap(card, wrap);
-        if (cisTicker) card.appendChild(cisTicker);
         return { card, labels, vals, bgs, borders };
       }
 
