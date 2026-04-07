@@ -801,7 +801,7 @@
     }
     @keyframes cis-ticker-scroll {
       0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      100% { transform: translateX(var(--ticker-shift, -50%)); }
     }
     .cis-ticker-item {
       display: inline-flex;
@@ -4958,10 +4958,25 @@
       items.push(mkSep());
 
       track.replaceChildren();
-      // Double content for seamless scroll
-      for (let r = 0; r < 2; r++) {
-        items.forEach(el => track.appendChild(el.cloneNode(true)));
-      }
+      // Create enough copies for seamless scroll
+      // First pass: add items to measure width
+      items.forEach(el => track.appendChild(el.cloneNode(true)));
+      // After render, measure and duplicate enough to fill 2x viewport
+      requestAnimationFrame(function() {
+        const oneSetWidth = track.scrollWidth;
+        const viewWidth = track.parentNode.offsetWidth;
+        if (oneSetWidth <= 0) return;
+        const copies = Math.ceil((viewWidth * 2) / oneSetWidth) + 1;
+        for (let r = 0; r < copies; r++) {
+          items.forEach(el => track.appendChild(el.cloneNode(true)));
+        }
+        // Set animation to scroll exactly one set width
+        track.style.animationName = 'none';
+        track.offsetHeight; // force reflow
+        const pct = (oneSetWidth / track.scrollWidth * 100).toFixed(2);
+        track.style.setProperty('--ticker-shift', '-' + oneSetWidth + 'px');
+        track.style.animationName = 'cis-ticker-scroll';
+      });
     }
 
     function getDefaultPeriod() {
