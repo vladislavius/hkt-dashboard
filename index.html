@@ -67,6 +67,7 @@
       max-width: 1320px;
       margin: 0 auto;
       padding: 48px 28px 72px;
+      overflow-x: hidden;
     }
 
     /* ── Header ── */
@@ -1150,7 +1151,7 @@
       text-transform: uppercase;
     }
     /* Timeline card spans full row */
-    .card-full { grid-column: 1 / -1; }
+    .card-full { grid-column: 1 / -1; overflow-x: auto; }
 
     /* ── Chart ── */
     .chart-container {
@@ -1658,11 +1659,13 @@
       .cal-grid.cal-collapsed .cal-day { display: none; }
       .cal-grid.cal-collapsed .cal-day.cal-visible-row { display: flex; }
       .cal-grid.cal-collapsed.cal-expanded .cal-day { display: flex; }
-      /* Collapsed presets on mobile */
+      /* Collapsed presets on mobile — show first 3 items (Сегодня, Тек.неделя, Тек.месяц) */
       .cal-presets-col.presets-collapsed .cal-preset-group { display: none; }
       .cal-presets-col.presets-collapsed .cal-preset-group:first-child { display: flex; }
       .cal-presets-col.presets-collapsed .cal-preset-group:first-child .cal-preset-item { display: none; }
-      .cal-presets-col.presets-collapsed .cal-preset-group:first-child .cal-preset-item.active { display: flex; }
+      .cal-presets-col.presets-collapsed .cal-preset-group:first-child .cal-preset-item:nth-child(1),
+      .cal-presets-col.presets-collapsed .cal-preset-group:first-child .cal-preset-item:nth-child(2),
+      .cal-presets-col.presets-collapsed .cal-preset-group:first-child .cal-preset-item:nth-child(3) { display: flex; }
       .cal-presets-col.presets-expanded .cal-preset-group { display: flex; }
       .presets-expand-btn {
         display: block;
