@@ -1730,13 +1730,21 @@
       .fboard {
         border-right: none;
         border-bottom: none;
-        padding-bottom: 8px;
+        padding-bottom: 0;
+      }
+      /* Ticker moved via JS on mobile — style adjustments */
+      .rwy-divider { display: none; }
+      .cis-ticker-bar {
+        margin: 8px 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
       }
       .cal-inner {
         width: 100%;
         padding: 14px 12px;
         border-top: 2px solid rgba(91,184,245,0.15);
-        margin-top: 12px;
+        margin-top: 0;
       }
       /* Collapsed calendar on mobile */
       .cal-grid.cal-collapsed .cal-day { display: none; }
@@ -3449,9 +3457,15 @@
       calViewDate = new Date(calViewDate.getFullYear(), calViewDate.getMonth()+1, 1);
       buildCalendarGrid();
     });
-    // Mobile: collapse calendar grid + presets
+    // Mobile: collapse calendar grid + presets + move ticker
     (function() {
       if (window.innerWidth > 768) return;
+      // Move ticker between fboard and cal-inner
+      const ticker = document.getElementById('cis-ticker-bar');
+      const calInner = document.querySelector('.cal-drawer .cal-inner');
+      if (ticker && calInner) {
+        calInner.parentNode.insertBefore(ticker, calInner);
+      }
       // Collapse calendar grid
       const grid = document.getElementById('cal-grid');
       if (grid) {
