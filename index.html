@@ -3726,9 +3726,8 @@
       const d = data?.[period];
       if (!d) return;
 
-      /* KPI: 2 карточки — прилёты и вылеты, компактные */
-      metricsEl.style.gridTemplateColumns = 'repeat(2, minmax(0, 360px))';
-      metricsEl.style.justifyContent = 'center';
+      /* KPI: 2 карточки — прилёты и вылеты */
+      metricsEl.style.gridTemplateColumns = 'repeat(2, 1fr)';
       const mkMetricInline = (label, flights, pax, colorCls, icon, delay) => {
         const card = make('div', 'm-card');
         card.style.animationDelay = delay;
