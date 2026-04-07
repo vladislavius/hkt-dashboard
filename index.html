@@ -3261,6 +3261,18 @@
       var body  = document.getElementById('fboard-body');
       var empty = document.getElementById('fboard-empty');
       if (!body) return;
+      // Update tab labels with date
+      var dateStr = '';
+      var sampleList = d.arrivals_list || d.departures_list || [];
+      if (sampleList.length) {
+        var t = sampleList[0].arr_time || sampleList[0].dep_time || '';
+        var m = t.match(/^(\d{4})-(\d{2})-(\d{2})/);
+        if (m) dateStr = ' · ' + m[3] + '.' + m[2];
+      }
+      document.querySelectorAll('.fboard-tab[data-side]').forEach(function(tab) {
+        var side = tab.dataset.side;
+        tab.textContent = (side === 'arrivals' ? 'ARR Прилёты' : 'DEP Вылеты') + dateStr;
+      });
       var isArr = fboardSide === 'arrivals';
       var list  = isArr ? (d.arrivals_list || []) : (d.departures_list || []);
       if (fboardCISOnly) {
