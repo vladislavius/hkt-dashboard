@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HKT · Flight Intelligence</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='16' width='100' height='100' fill='%2305080F'/><text x='50' y='58' text-anchor='middle' font-family='monospace' font-weight='700' font-size='36' fill='%23C8A96E'>HKT</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -743,6 +743,28 @@
       .cal-overlay .cal-footer { flex-wrap: wrap; }
     }
 
+    /* ── Runway centerline divider ── */
+    .rwy-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 20px 0;
+      padding: 0 40px;
+    }
+    .rwy-line {
+      flex: 1;
+      height: 1px;
+      background: repeating-linear-gradient(90deg, var(--gold-border) 0, var(--gold-border) 16px, transparent 16px, transparent 28px);
+    }
+    .rwy-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.4;
+      box-shadow: 0 0 8px rgba(200,169,110,0.3);
+    }
+
     /* ── CIS Analytics: Heatmap ── */
     .cis-heatmap-grid {
       display: grid;
@@ -936,10 +958,14 @@
     .col-amber { color: var(--amber); }
     .m-icon {
       position: absolute;
-      bottom: 14px; right: 18px;
-      font-size: 2rem;
-      opacity: 0.12;
+      bottom: 12px; right: 14px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      opacity: 0.15;
       pointer-events: none;
+      color: var(--ivory);
     }
     .m-sub {
       font-family: 'DM Mono', monospace;
@@ -1013,13 +1039,19 @@
       gap: 10px;
     }
     .card-icon {
-      width: 30px; height: 30px;
-      background: var(--gold-faint);
-      border: 1px solid var(--gold-border);
-      border-radius: 8px;
+      width: auto; height: 24px;
+      padding: 0 8px;
+      background: rgba(91,184,245,0.08);
+      border: 1px solid rgba(91,184,245,0.15);
+      border-radius: 4px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 0.85rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--sky);
       flex-shrink: 0;
+      text-transform: uppercase;
     }
     /* Timeline card spans full row */
     .card-full { grid-column: 1 / -1; }
@@ -1850,11 +1882,7 @@
   .card:hover::before, .card:hover::after { opacity:0.9; }
 
   /* ── Dynamic planes (spawned by JS) ── */
-  .avi-plane-dyn {
-    position:fixed; left:-80px; pointer-events:none; z-index:0;
-    animation: plane-drift linear infinite;
-    filter: drop-shadow(0 0 5px rgba(91,184,245,0.35));
-  }
+  .avi-plane-dyn { display:none; }
   @keyframes plane-trail {
     0%   { width:0; opacity:.5; }
     60%  { opacity:.2; }
@@ -2091,8 +2119,8 @@
     <div class="cal-drawer open" id="cal-drawer">
       <div class="fboard" id="fboard">
         <div class="fboard-tabs">
-          <button class="fboard-tab active" data-side="arrivals">🛬 Прилёты</button>
-          <button class="fboard-tab" data-side="departures">🛫 Вылеты</button>
+          <button class="fboard-tab active" data-side="arrivals">ARR Прилёты</button>
+          <button class="fboard-tab" data-side="departures">DEP Вылеты</button>
           <button class="fboard-toggle" id="fboard-toggle-btn">
             <span id="fboard-toggle-label">Все</span>
             <i class="fboard-toggle-icon">▾</i>
@@ -2143,8 +2171,15 @@
     </div>
 
     <!-- Silhouette plane between fboard and stats -->
-    <div class="plane-runway" aria-hidden="true">
-      <div class="sil-wrap">
+    <!-- Runway centerline divider -->
+    <div class="rwy-divider" aria-hidden="true">
+      <div class="rwy-line"></div>
+      <div class="rwy-dot"></div>
+      <div class="rwy-line"></div>
+    </div>
+
+    <div style="display:none">
+      <div class="plane-runway-removed">
         <svg viewBox="0 0 272 56" width="272" height="56" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id="sil-glo-r" x="-250%" y="-250%" width="600%" height="600%">
@@ -2230,7 +2265,7 @@
           <circle class="sil-beacon" cx="160" cy="36" r="3" fill="#ff0000" filter="url(#sil-glo-r)"/>
         </svg>
       </div>
-    </div>
+    </div></div>
 
     <!-- CIS dropdown panel — appears right below tabs -->
     <div id="cis-panel" class="cis-panel" hidden>
@@ -3352,9 +3387,9 @@
       wrap.id = containerId;
       const tabsEl = make('div', 'breakdown-tabs');
       const btnArr = make('button', 'btab active');
-      btnArr.textContent = '🛬 Прилёты';
+      btnArr.textContent = 'ARR Прилёты';
       const btnDep = make('button', 'btab');
-      btnDep.textContent = '🛫 Вылеты';
+      btnDep.textContent = 'DEP Вылеты';
       ap(tabsEl, btnArr, btnDep);
       wrap.appendChild(tabsEl);
       const tableWrap = make('div');
@@ -3390,7 +3425,7 @@
         const flagKey = x.country || x.name;
         const countEl = make('div', 'rank-count');
         ap(countEl,
-          txt(make('span', 'rc-flights'), String(flights) + ' ✈'),
+          txt(make('span', 'rc-flights'), String(flights) + ' →'),
           txt(make('span', 'rc-pax'), pax.toLocaleString('ru') + ' чел.')
         );
         // Expandable flight details
@@ -3608,8 +3643,8 @@
         return card;
       };
       metricsEl.replaceChildren(
-        mkMetricInline('Прилёты', d.arrivals.count,   d.arrivals.pax,   'col-sky',   '🛬', '0s'),
-        mkMetricInline('Вылеты',  d.departures.count, d.departures.pax, 'col-amber', '🛫', '0.08s')
+        mkMetricInline('Прилёты', d.arrivals.count,   d.arrivals.pax,   'col-sky',   'ARR', '0s'),
+        mkMetricInline('Вылеты',  d.departures.count, d.departures.pax, 'col-amber', 'DEP', '0.08s')
       );
 
       const grid = make('div', 'cis-2col-grid');
@@ -3633,7 +3668,7 @@
           dot.style.background = FLAGS_COLOR[x.name] || FLAGS_COLOR[x.country] || color;
           ap(li, dot,
             document.createTextNode(' ' + (x.name || x.country || '?') + ' '),
-            txt(make('span','leg-val'), (x.flights||0) + ' ✈'),
+            txt(make('span','leg-val'), (x.flights||0) + ' →'),
             txt(make('span','leg-pax'), ' ~' + (x.pax||0).toLocaleString('ru') + ' чел.')
           );
           legend.appendChild(li);
@@ -3650,16 +3685,16 @@
       /* Левая колонка: донут прилётов + список */
       const colArr = make('div', 'cis-col');
       const pLabel = periodLabelShort(period);
-      const arrDonutCard = mkWorldDonut('🛬', 'Прилёты · по странам', arrList, d.arrivals.count, d.arrivals.pax, 'mainArrChart', '#5BB8F5', '0.06s');
-      const arrRankCard  = mkCard('🛬', 'Прилёты · рейсы', '0.12s');
+      const arrDonutCard = mkWorldDonut('ARR', 'Прилёты · по странам', arrList, d.arrivals.count, d.arrivals.pax, 'mainArrChart', '#5BB8F5', '0.06s');
+      const arrRankCard  = mkCard('ARR', 'Прилёты · рейсы', '0.12s');
       if (pLabel) { const pb = txt(make('span','card-period'), pLabel); arrRankCard.querySelector('.card-title').appendChild(pb); }
       arrRankCard.appendChild(mkRankList(arrList, d.russia_transit, d.arrivals_list, 'arr'));
       ap(colArr, arrDonutCard, arrRankCard);
 
       /* Правая колонка: донут вылетов + список */
       const colDep = make('div', 'cis-col');
-      const depDonutCard = mkWorldDonut('🛫', 'Вылеты · по странам', depList, d.departures.count, d.departures.pax, 'mainDepChart', '#E8A462', '0.18s');
-      const depRankCard  = mkCard('🛫', 'Вылеты · рейсы', '0.24s');
+      const depDonutCard = mkWorldDonut('DEP', 'Вылеты · по странам', depList, d.departures.count, d.departures.pax, 'mainDepChart', '#E8A462', '0.18s');
+      const depRankCard  = mkCard('DEP', 'Вылеты · рейсы', '0.24s');
       if (pLabel) { const pb2 = txt(make('span','card-period'), pLabel); depRankCard.querySelector('.card-title').appendChild(pb2); }
       depRankCard.appendChild(mkRankList(depList, null, d.departures_list, 'dep'));
       ap(colDep, depDonutCard, depRankCard);
@@ -3668,7 +3703,7 @@
 
       /* Линейный график — полная ширина */
       if (breakdown && breakdown.length > 0) {
-        const timeCard = mkCard('📅', timelineLabel(period), '0.3s', 'card-full');
+        const timeCard = mkCard('TL', timelineLabel(period), '0.3s', 'card-full');
         const timeWrap = make('div', 'timeline-wrap');
         const tc = document.createElement('canvas');
         tc.id = 'timelineChart';
@@ -3763,7 +3798,7 @@
         var bar = make('div', 'rank-bar'); bar.style.width = Math.round((x.flights||0)/max*100)+'%';
         var numCls = i===0?'rank-num rn-1':i===1?'rank-num rn-2':i===2?'rank-num rn-3':'rank-num rn-n';
         var countEl = make('div', 'rank-count');
-        ap(countEl, txt(make('span','rc-flights'),(x.flights||0)+' ✈'), txt(make('span','rc-pax'),'~'+(x.pax||0).toLocaleString('ru')+' чел.'));
+        ap(countEl, txt(make('span','rc-flights'),(x.flights||0)+' →'), txt(make('span','rc-pax'),'~'+(x.pax||0).toLocaleString('ru')+' чел.'));
         var nameEl = make('span','rank-name');
         var flagEl = txt(make('span','rank-flag'), x.flag || FLAGS[x.country] || FLAGS[x.name] || '🌍');
 
@@ -3923,8 +3958,8 @@
         return card;
       };
       cisMetricsEl.replaceChildren(
-        mkMetric2('Прилёты · СНГ',  cisArr.flights, cisArr.pax, 'col-sky',   '🛬', '0s'),
-        mkMetric2('Вылеты · СНГ',   cisDep.flights, cisDep.pax, 'col-amber', '🛫', '0.08s')
+        mkMetric2('Прилёты · СНГ',  cisArr.flights, cisArr.pax, 'col-sky',   'ARR', '0s'),
+        mkMetric2('Вылеты · СНГ',   cisDep.flights, cisDep.pax, 'col-amber', 'DEP', '0.08s')
       );
 
       const grid = make('div', 'cis-2col-grid');
@@ -3967,17 +4002,17 @@
 
       /* Левая колонка: донут прилётов + список прилётов */
       const colArr = make('div', 'cis-col');
-      const arrDonut = mkDonutCard('🛬', 'Прилёты СНГ · по странам', arrByC, cisArr.flights, 'cisArrChart', '0.06s');
+      const arrDonut = mkDonutCard('ARR', 'Прилёты СНГ · по странам', arrByC, cisArr.flights, 'cisArrChart', '0.06s');
       const cisPLabel = periodLabelShort(period);
-      const cisArrCard = mkCard('🛬', 'Прилёты · рейсы', '0.12s');
+      const cisArrCard = mkCard('ARR', 'Прилёты · рейсы', '0.12s');
       if (cisPLabel) { const cpb = txt(make('span','card-period'), cisPLabel); cisArrCard.querySelector('.card-title').appendChild(cpb); }
       cisArrCard.appendChild(mkCISRankList(arrList.filter(isCIS), d.arrivals_list || [], 'arr', d.russia_transit, period));
       ap(colArr, arrDonut.card, cisArrCard);
 
       /* Правая колонка: донут вылетов + список вылетов */
       const colDep = make('div', 'cis-col');
-      const depDonut = mkDonutCard('🛫', 'Вылеты СНГ · по странам', depByC, cisDep.flights, 'cisDepChart', '0.18s');
-      const cisDepCard = mkCard('🛫', 'Вылеты · рейсы', '0.24s');
+      const depDonut = mkDonutCard('DEP', 'Вылеты СНГ · по странам', depByC, cisDep.flights, 'cisDepChart', '0.18s');
+      const cisDepCard = mkCard('DEP', 'Вылеты · рейсы', '0.24s');
       if (cisPLabel) { const cpb2 = txt(make('span','card-period'), cisPLabel); cisDepCard.querySelector('.card-title').appendChild(cpb2); }
       cisDepCard.appendChild(mkCISRankList(depList.filter(isCIS), d.departures_list || [], 'dep', null, period));
       ap(colDep, depDonut.card, cisDepCard);
@@ -3987,7 +4022,7 @@
       /* ── Линейный график по дням (полная ширина) ── */
       const breakdown2 = getBreakdown(d, period);
       if (breakdown2 && breakdown2.length > 0) {
-        const cisTimeCard = mkCard('📅', 'Рейсы СНГ по дням (с 3 апр)', '0.3s', 'card-full');
+        const cisTimeCard = mkCard('TL', 'Рейсы СНГ по дням (с 3 апр)', '0.3s', 'card-full');
         const cisTimeWrap = make('div', 'timeline-wrap');
         const cisTCvs = document.createElement('canvas');
         cisTCvs.id = 'cisTimelineChart';
@@ -4126,7 +4161,7 @@
 
     // ── CIS Heatmap renderer ───────────────────────────────────────────
     function renderCISHeatmap(heatmap, container) {
-      const card = mkCard('🗓', 'Тепловая карта · Прилёты СНГ', '0.05s', 'card-full');
+      const card = mkCard('HM', 'Тепловая карта · Прилёты СНГ', '0.05s', 'card-full');
       const grid = make('div', 'cis-heatmap-grid');
       const DOWS = ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
       const SLOTS = ['Ночь 00–06','Утро 06–12','День 12–18','Вечер 18–24'];
@@ -4163,7 +4198,7 @@
     var activeCitiesChart = null;
     function renderCISCities(cities, container) {
       if (activeCitiesChart) { activeCitiesChart.destroy(); activeCitiesChart = null; }
-      const card = mkCard('🏙', 'Города РФ · помесячный тренд', '0.1s', 'card-full');
+      const card = mkCard('RU', 'Города РФ · помесячный тренд', '0.1s', 'card-full');
 
       const allMonths = new Set();
       Object.values(cities).forEach(m => Object.keys(m).forEach(k => allMonths.add(k)));
@@ -4291,7 +4326,7 @@
     var activeSeasonChart = null;
     function renderCISSeasonality(seasonal, container) {
       if (activeSeasonChart) { activeSeasonChart.destroy(); activeSeasonChart = null; }
-      const card = mkCard('📈', 'Сезонность · Прилёты СНГ по месяцам', '0.15s', 'card-full');
+      const card = mkCard('SN', 'Сезонность · Прилёты СНГ по месяцам', '0.15s', 'card-full');
 
       const months = Object.keys(seasonal).sort();
       if (!months.length) { container.appendChild(card); return; }
@@ -4441,27 +4476,7 @@
 
     /* ══ AVIATION FX ══════════════════════════════════════ */
 
-    // Multi-plane spawner
-    (function spawnFleet() {
-      const configs = [
-        { size:22, top:12, dur:32, delay:0,  angle:-4, opacity:.28 },
-        { size:14, top:28, dur:45, delay:8,  angle: 2, opacity:.18 },
-        { size:30, top:8,  dur:25, delay:14, angle:-2, opacity:.32 },
-        { size:11, top:42, dur:55, delay:22, angle: 5, opacity:.14 },
-        { size:18, top:18, dur:38, delay:31, angle:-6, opacity:.22 },
-      ];
-      configs.forEach(c => {
-        const el = document.createElement('div');
-        el.className = 'avi-plane-dyn';
-        el.textContent = '✈';
-        el.style.cssText = `font-size:${c.size}px;top:${c.top}%;` +
-          `animation-duration:${c.dur}s;animation-delay:${c.delay}s;` +
-          `transform:rotate(${c.angle}deg);` +
-          `filter:drop-shadow(0 0 ${Math.round(c.size/4)}px rgba(91,184,245,0.4));`;
-        el.style.opacity = '0';
-        document.body.appendChild(el);
-      });
-    })();
+    // Spawned fleet removed — replaced with cleaner aviation UI
 
 
     // METAR line cycling
