@@ -1635,6 +1635,9 @@
       .day-card      { min-width: 52px; padding: 8px 7px 7px; }
       .cal-btn       { font-size: 0.74rem; padding: 6px 10px; }
 
+      /* Hide ARR/DEP watermarks on mobile — overlap text */
+      .m-icon { display: none; }
+
       /* ── Drawer: stack vertically on mobile ── */
       .cal-drawer.open {
         flex-direction: column;
@@ -1642,9 +1645,28 @@
       }
       .fboard {
         border-right: none;
-        border-bottom: 1px solid var(--border);
+        border-bottom: none;
       }
-      .cal-inner { width: 100%; padding: 12px 12px 14px; }
+      .cal-inner { width: 100%; padding: 12px 12px 14px; border-top: 1px solid var(--border); margin-top: 8px; }
+      /* Collapsed calendar on mobile */
+      .cal-grid.cal-collapsed .cal-day { display: none; }
+      .cal-grid.cal-collapsed .cal-day.cal-visible-row { display: flex; }
+      .cal-grid.cal-collapsed.cal-expanded .cal-day { display: flex; }
+      .cal-expand-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 6px 0;
+        font-family: 'Outfit', sans-serif;
+        font-size: 0.68rem;
+        color: var(--sky);
+        cursor: pointer;
+        background: none;
+        border: none;
+        border-top: 1px solid var(--border);
+        margin-top: 4px;
+      }
+      .cal-expand-btn:hover { color: var(--gold-light); }
       .cal-panel { flex-shrink: 0; }
       .cal-divider-v { display: none; }
       .cal-presets-col {
@@ -2624,11 +2646,30 @@
     function buildCalendarGrid() {
       const grid = document.getElementById('cal-grid');
       if (!grid) return;
+      const wasCollapsed = grid.classList.contains('cal-collapsed');
+      const wasExpanded = grid.classList.contains('cal-expanded');
       const label = document.getElementById('cal-month-label');
-      // Use activeStart/activeEnd for range highlighting in drawer
       const rStartMs = activeStart ? activeStart.getTime() : null;
       const rEndMs   = activeEnd   ? activeEnd.getTime()   : null;
       buildOneGrid(grid, label, calViewDate, rStartMs, rEndMs, null);
+      // Restore collapsed state and mark today's row visible
+      if (wasCollapsed) {
+        grid.classList.add('cal-collapsed');
+        if (wasExpanded) grid.classList.add('cal-expanded');
+      }
+      if (window.innerWidth <= 768) {
+        grid.classList.add('cal-collapsed');
+        // Find today/yesterday cell and mark its row (every 7 cells = 1 row)
+        const allCells = [...grid.children];
+        let todayIdx = allCells.findIndex(c => c.classList.contains('is-today') || c.classList.contains('is-yesterday'));
+        if (todayIdx < 0) todayIdx = allCells.findIndex(c => c.classList.contains('has-data'));
+        if (todayIdx >= 0) {
+          const rowStart = todayIdx - (todayIdx % 7);
+          for (let j = rowStart; j < rowStart + 7 && j < allCells.length; j++) {
+            allCells[j].classList.add('cal-visible-row');
+          }
+        }
+      }
     }
 
     function _unused() { return; // dead code below
@@ -3282,6 +3323,22 @@
       calViewDate = new Date(calViewDate.getFullYear(), calViewDate.getMonth()+1, 1);
       buildCalendarGrid();
     });
+    // Mobile: collapse calendar grid, add expand button
+    (function() {
+      if (window.innerWidth > 768) return;
+      const grid = document.getElementById('cal-grid');
+      if (!grid) return;
+      grid.classList.add('cal-collapsed');
+      const btn = document.createElement('button');
+      btn.className = 'cal-expand-btn';
+      btn.textContent = 'Развернуть календарь ▾';
+      btn.addEventListener('click', function() {
+        const isExpanded = grid.classList.toggle('cal-expanded');
+        btn.textContent = isExpanded ? 'Свернуть календарь ▴' : 'Развернуть календарь ▾';
+      });
+      grid.parentNode.insertBefore(btn, grid.nextSibling);
+    })();
+
     // Drawer day clicks — instant apply
     document.getElementById('cal-grid').addEventListener('click', e => {
       const cell = e.target.closest('.cal-day.has-data');
