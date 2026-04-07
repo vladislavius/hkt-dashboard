@@ -308,6 +308,12 @@
       white-space: nowrap;
     }
     .fboard-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
+    .fboard-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted-2);
+      letter-spacing: 0.3px;
+    }
     .fboard-time {
       font-family: 'DM Mono', monospace;
       font-size: 0.88rem;
@@ -1724,6 +1730,7 @@
       /* Flight board table on mobile — compact */
       .fboard-table th,
       .fboard-table td  { padding: 6px 8px; }
+      .fboard-date      { font-size: 0.68rem; }
       .fboard-time      { font-size: 0.82rem; }
       .fboard-fn        { font-size: 0.75rem; }
       .fboard-airline   { max-width: 110px; font-size: 0.7rem; }
@@ -1789,11 +1796,12 @@
       .day-card { min-width: 48px; }
       .cal-btn  { font-size: 0.7rem; }
 
-      /* Flight board — hide Airline column, keep Время/Рейс/Откуда/Статус */
+      /* Flight board — hide Airline column on small screens */
       .fboard-col-airline { display: none; }
       .fboard-table th,
       .fboard-table td    { padding: 6px 6px; }
       .fboard-table       { font-size: 0.74rem; }
+      .fboard-date        { font-size: 0.6rem; }
       .fboard-time        { font-size: 0.78rem; }
       .fboard-fn          { font-size: 0.7rem; }
       .fboard-route       { font-size: 0.72rem; gap: 4px; }
@@ -2297,7 +2305,7 @@
         <div class="fboard-table-wrap">
           <table class="fboard-table">
             <thead><tr>
-              <th>Время</th><th>Рейс</th><th class="fboard-col-airline">Авиакомпания</th><th>Откуда / Куда</th><th>Статус</th>
+              <th>Дата</th><th>Время</th><th>Рейс</th><th class="fboard-col-airline">Авиакомпания</th><th>Откуда / Куда</th><th>Статус</th>
             </tr></thead>
             <tbody id="fboard-body"></tbody>
           </table>
@@ -3258,17 +3266,9 @@
       var body  = document.getElementById('fboard-body');
       var empty = document.getElementById('fboard-empty');
       if (!body) return;
-      // Update tab labels with date
-      var dateStr = '';
-      var sampleList = d.arrivals_list || d.departures_list || [];
-      if (sampleList.length) {
-        var t = sampleList[0].arr_time || sampleList[0].dep_time || '';
-        var m = t.match(/^(\d{4})-(\d{2})-(\d{2})/);
-        if (m) dateStr = ' · ' + m[3] + '.' + m[2];
-      }
+      // Reset tab labels (no date in tabs)
       document.querySelectorAll('.fboard-tab[data-side]').forEach(function(tab) {
-        var side = tab.dataset.side;
-        tab.textContent = (side === 'arrivals' ? 'ARR Прилёты' : 'DEP Вылеты') + dateStr;
+        tab.textContent = tab.dataset.side === 'arrivals' ? 'ARR Прилёты' : 'DEP Вылеты';
       });
       var isArr = fboardSide === 'arrivals';
       var list  = isArr ? (d.arrivals_list || []) : (d.departures_list || []);
@@ -3300,6 +3300,13 @@
         route.appendChild(mkSpan('fboard-route-flag', flag));
         route.appendChild(mkSpan('', f.country || airport));
         route.appendChild(mkSpan('fboard-route-code', airport));
+        // Date cell
+        var dateCell = '—';
+        if (timeKey) {
+          var dm = timeKey.match(/^(\d{4})-(\d{2})-(\d{2})/);
+          if (dm) dateCell = dm[3] + '.' + dm[2];
+        }
+        tr.appendChild(mkTd(mkSpan('fboard-date', dateCell)));
         tr.appendChild(mkTd(mkSpan('fboard-time', time)));
         tr.appendChild(mkTd(mkSpan('fboard-fn', f.fn || '—')));
         var airlineTd = mkTd(mkSpan('fboard-airline', airline || '—'));
