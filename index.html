@@ -1202,6 +1202,7 @@
     .timeline-wrap {
       position: relative;
       width: 100%;
+      height: 220px;
     }
 
     /* .tabs-row removed — replaced by .nav-top */
@@ -4217,10 +4218,10 @@
             ]
           },
           options: {
-            responsive: true, maintainAspectRatio: true,
+            responsive: true, maintainAspectRatio: false,
             interaction: { mode: 'index', intersect: false },
             plugins: {
-              legend: { display: true, labels: { color:'#EDE8DF', font:{ family:'DM Mono', size:11 }, boxWidth:12, padding:16 } },
+              legend: { display: true, position:'bottom', labels: { color:'#8A8480', font:{ family:'DM Mono', size:9 }, boxWidth:8, padding:10 } },
               tooltip: {
                 backgroundColor:'rgba(10,15,28,0.95)', borderColor:'rgba(200,169,110,0.2)', borderWidth:1,
                 titleColor:'#EDE8DF', bodyColor:'#8A8480', padding:12, cornerRadius:10,
