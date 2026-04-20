@@ -1,0 +1,67 @@
+name: Update DAD Data
+
+on:
+  schedule:
+    - cron: '45 0 * * *'
+    - cron: '45 2 * * *'
+    - cron: '45 4 * * *'
+    - cron: '45 6 * * *'
+    - cron: '45 8 * * *'
+    - cron: '45 10 * * *'
+    - cron: '45 12 * * *'
+    - cron: '45 14 * * *'
+    - cron: '45 16 * * *'
+    - cron: '45 18 * * *'
+    - cron: '45 20 * * *'
+    - cron: '45 22 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-dad:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests pytz beautifulsoup4 certifi
+
+      - name: Run DAD collector
+        run: python3 -m dad.collector
+        env:
+          PYTHONPATH: .
+          AVIATIONSTACK_KEY_1: ${{ secrets.AVIATIONSTACK_KEY_1 }}
+          AVIATIONSTACK_KEY_2: ${{ secrets.AVIATIONSTACK_KEY_2 }}
+          AVIATIONSTACK_KEY_3: ${{ secrets.AVIATIONSTACK_KEY_3 }}
+          AVIATIONSTACK_KEY_4: ${{ secrets.AVIATIONSTACK_KEY_4 }}
+          TG_TOKEN:            ${{ secrets.TG_TOKEN }}
+          TG_CHAT_ID:          ${{ secrets.TG_CHAT_ID }}
+          SUPABASE_URL:        ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY:        ${{ secrets.SUPABASE_KEY }}
+
+      - name: Commit and push DAD data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add dad/data/dashboard.json dad/data/accumulated_*.json
+          if ! git diff --staged --quiet; then
+            git commit -m "auto: update DAD flight data $(date '+%Y-%m-%d %H:%M ICT')"
+            git pull --rebase "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" main
+            git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
+          else
+            echo "No DAD changes to commit"
+          fi
