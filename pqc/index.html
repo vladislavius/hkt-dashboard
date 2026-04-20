@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CXR · Flight Intelligence</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='16' width='100' height='100' fill='%2305080F'/><text x='50' y='58' text-anchor='middle' font-family='monospace' font-weight='700' font-size='36' fill='%23C8A96E'>CXR</text></svg>">
+  <title>PQC · Flight Intelligence</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='16' width='100' height='100' fill='%2305080F'/><text x='50' y='58' text-anchor='middle' font-family='monospace' font-weight='700' font-size='36' fill='%23C8A96E'>PQC</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -2247,25 +2247,27 @@
   <div class="wrap">
 
     <header>
-      <div class="header-ghost">CXR</div>
+      <div class="header-ghost">PQC</div>
       <div class="header-row">
         <div>
           <div class="avi-navlights">
             <div class="avi-navlight red"></div>
             <div class="avi-navlight wht"></div>
             <div class="avi-navlight grn"></div>
-            <span class="avi-icao">VVCR</span>
-            <span class="avi-rwy">RWY 02/20</span>
+            <span class="avi-icao">VVPQ</span>
+            <span class="avi-rwy">RWY 10/28</span>
           </div>
-          <div class="header-eyebrow">Cam Ranh International Airport · Вьетнам</div>
+          <div class="header-eyebrow">Phu Quoc International Airport · Вьетнам</div>
           <div class="header-title">Flight <em>Intelligence</em></div>
           <div class="header-meta">Аналитика рейсов · Данные в реальном времени · Вьетнам ICT</div>
-          <div class="avi-metar">VVCR 060900Z 07012KT 9999 SCT020 30/25 Q1010 NOSIG</div>
+          <div class="avi-metar">VVPQ 060900Z 09010KT 9999 FEW020 31/26 Q1009 NOSIG</div>
         </div>
         <div style="display:flex;align-items:center;gap:10px;">
-          <a class="cis-toggle-btn" href="/" title="Пхукет · Таиланд" style="text-decoration:none;">🇹🇭 HKT</a>
-          <a class="cis-toggle-btn" href="/pqc" title="Фукуок · Вьетнам" style="text-decoration:none;">🇻🇳 PQC</a>
-          <a class="cis-toggle-btn" href="/dad" title="Дананг · Вьетнам" style="text-decoration:none;">🇻🇳 DAD</a>
+          <div style="display:flex;gap:8px;">
+    <a class="cis-toggle-btn" href="/" title="Пхукет · Таиланд" style="text-decoration:none;">🇹🇭 HKT</a>
+    <a class="cis-toggle-btn" href="/cxr" title="Камрань · Вьетнам" style="text-decoration:none;">CXR</a>
+    <a class="cis-toggle-btn" href="/dad" title="Дананг · Вьетнам" style="text-decoration:none;">DAD</a>
+  </div>
           <button id="cis-toggle" class="cis-toggle-btn" aria-expanded="false">
             <span id="cis-btn-label">🇷🇺🇰🇿🇺🇿 СНГ</span> <span class="cis-chevron">▾</span>
           </button>
@@ -3098,7 +3100,7 @@
       const results = await Promise.all(dates.map(dk =>
         (data && data[dk])
           ? Promise.resolve({ _cached: true, _key: dk })
-          : fetch('/cxr/data/accumulated_' + dk + '.json')
+          : fetch('/pqc/data/accumulated_' + dk + '.json')
               .then(r => r.ok ? r.json().then(j => Object.assign(j, { _key: dk })) : null)
               .catch(() => null)
       ));
@@ -3170,7 +3172,7 @@
       // Fetch all accumulated files not yet in cache
       await Promise.all(avail.map(dk => {
         if (data[dk]) return Promise.resolve();
-        return fetch('/cxr/data/accumulated_' + dk + '.json')
+        return fetch('/pqc/data/accumulated_' + dk + '.json')
           .then(r => r.ok ? r.json() : null)
           .then(acc => {
             if (!acc || !data) return;
@@ -3263,7 +3265,7 @@
       // Historical date key (YYYY-MM-DD) — load accumulated file
       const isDateKey = /^\d{4}-\d{2}-\d{2}$/.test(key);
       if (isDateKey && !(data && data[key])) {
-        fetch('/cxr/data/accumulated_' + key + '.json?t=' + Date.now())
+        fetch('/pqc/data/accumulated_' + key + '.json?t=' + Date.now())
           .then(r => r.ok ? r.json() : null)
           .then(acc => {
             if (!acc) return;
@@ -4987,7 +4989,7 @@
 
     async function init() {
       try {
-        const res = await fetch('/cxr/data/dashboard.json?t=' + Date.now());
+        const res = await fetch('/pqc/data/dashboard.json?t=' + Date.now());
         if (!res.ok) throw new Error('HTTP ' + res.status);
         data = await res.json();
         buildCityFlagMap(data);
@@ -5051,7 +5053,7 @@
 
     setInterval(async () => {
       try {
-        const r  = await fetch('/cxr/data/dashboard.json?t=' + Date.now());
+        const r  = await fetch('/pqc/data/dashboard.json?t=' + Date.now());
         const nd = await r.json();
         if (nd.updated !== data?.updated) {
           data = nd;

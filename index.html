@@ -2205,6 +2205,34 @@
     .card::before,.card::after { width:9px;height:9px; }
     .avi-runway, .avi-taxiway { display:none; }
   }
+  .vn-dropdown { position: relative; display: inline-block; }
+  .vn-drop-btn { cursor: pointer; }
+  .vn-drop-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    background: rgba(10,15,28,0.97);
+    border: 1px solid var(--gold-border);
+    border-radius: 10px;
+    min-width: 160px;
+    overflow: hidden;
+    z-index: 200;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  }
+  .vn-dropdown.open .vn-drop-menu { display: block; }
+  .vn-drop-item {
+    display: block;
+    padding: 10px 16px;
+    color: var(--ivory);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.5px;
+    transition: background 0.15s;
+  }
+  .vn-drop-item:hover { background: var(--gold-faint); color: var(--gold-light); }
+  .vn-drop-divider { height: 1px; background: var(--border); margin: 2px 0; }
   </style>
 </head>
 <body>
@@ -2263,7 +2291,16 @@
           <div class="avi-metar">VTSP 060900Z 27008KT 9999 FEW030 32/24 Q1009 NOSIG</div>
         </div>
         <div style="display:flex;align-items:center;gap:10px;">
-          <a class="cis-toggle-btn" href="/cxr" title="Перейти на дашборд Камрани (Вьетнам)" style="text-decoration:none;">🇻🇳 CXR · Вьетнам</a>
+          <div class="vn-dropdown" id="vn-dropdown">
+            <button class="cis-toggle-btn vn-drop-btn" onclick="document.getElementById('vn-dropdown').classList.toggle('open')">🇻🇳 Вьетнам <span class="cis-chevron">▾</span></button>
+            <div class="vn-drop-menu">
+              <a class="vn-drop-item" href="/cxr">✈ CXR · Камрань</a>
+              <div class="vn-drop-divider"></div>
+              <a class="vn-drop-item" href="/pqc">✈ PQC · Фукуок</a>
+              <div class="vn-drop-divider"></div>
+              <a class="vn-drop-item" href="/dad">✈ DAD · Дананг</a>
+            </div>
+          </div>
           <button id="cis-toggle" class="cis-toggle-btn" aria-expanded="false">
             <span id="cis-btn-label">🇷🇺🇰🇿🇺🇿 СНГ</span> <span class="cis-chevron">▾</span>
           </button>
@@ -3445,6 +3482,11 @@
         var isOpen = fb.classList.toggle('fboard-open');
         document.getElementById('fboard-toggle-label').textContent = isOpen ? 'Свернуть' : 'Все';
       }
+    });
+
+    document.addEventListener('click', function(e) {
+      var dd = document.getElementById('vn-dropdown');
+      if (dd && !dd.contains(e.target)) dd.classList.remove('open');
     });
 
     // ══ DRAWER: single calendar navigation ═══════════════════════════════

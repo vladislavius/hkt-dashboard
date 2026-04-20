@@ -1,7 +1,11 @@
 {
   "rewrites": [
     { "source": "/cxr", "destination": "/cxr/index.html" },
-    { "source": "/cxr/", "destination": "/cxr/index.html" }
+    { "source": "/cxr/", "destination": "/cxr/index.html" },
+    { "source": "/pqc", "destination": "/pqc/index.html" },
+    { "source": "/pqc/", "destination": "/pqc/index.html" },
+    { "source": "/dad", "destination": "/dad/index.html" },
+    { "source": "/dad/", "destination": "/dad/index.html" }
   ],
   "headers": [
     {
@@ -37,6 +41,44 @@
     },
     {
       "source": "/cxr/data/dashboard.json",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" },
+        { "key": "Pragma", "value": "no-cache" }
+      ]
+    },
+    {
+      "source": "/pqc",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/pqc/index.html",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/pqc/data/dashboard.json",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" },
+        { "key": "Pragma", "value": "no-cache" }
+      ]
+    },
+    {
+      "source": "/dad",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/dad/index.html",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/dad/data/dashboard.json",
       "headers": [
         { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" },
         { "key": "Pragma", "value": "no-cache" }
