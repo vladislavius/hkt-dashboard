@@ -2830,9 +2830,22 @@
     let selectingStep = 0;             // 0=idle, 1=awaiting second click
     let hoverDate    = null;           // Date – mouse hover for live preview
 
+    // Browser-local Date aligned to airport timezone (UTC+7).
+    // Fixes "today" mismatch when user's browser timezone ≠ airport timezone.
+    function localToday() {
+      const parts = new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'Asia/Bangkok',
+        year: 'numeric', month: '2-digit', day: '2-digit'
+      }).formatToParts(new Date());
+      const y = +parts.find(p => p.type === 'year').value;
+      const m = +parts.find(p => p.type === 'month').value - 1;
+      const d = +parts.find(p => p.type === 'day').value;
+      return new Date(y, m, d);
+    }
+
     // Returns {start, end} Date range for a given data key
     function getRangeForKey(key) {
-      const t = new Date(); t.setHours(0,0,0,0);
+      const t = localToday();
       const y = new Date(t); y.setDate(t.getDate()-1);
       const msDay = 86400000;
       switch(key) {
@@ -2971,7 +2984,7 @@
 
     function buildOneGrid(gridEl, labelEl, viewDate, rangeStartMs, rangeEndMs, previewEndMs) {
       while (gridEl.firstChild) gridEl.removeChild(gridEl.firstChild);
-      const today = new Date(); today.setHours(0,0,0,0);
+      const today = localToday();
       const yesterday = new Date(today); yesterday.setDate(today.getDate()-1);
       const y = viewDate.getFullYear();
       const m = viewDate.getMonth();
