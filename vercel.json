@@ -1,4 +1,8 @@
 {
+  "rewrites": [
+    { "source": "/cxr", "destination": "/cxr/index.html" },
+    { "source": "/cxr/", "destination": "/cxr/index.html" }
+  ],
   "headers": [
     {
       "source": "/data/dashboard.json",
@@ -17,6 +21,25 @@
       "source": "/index.html",
       "headers": [
         { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/cxr",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/cxr/index.html",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/cxr/data/dashboard.json",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" },
+        { "key": "Pragma", "value": "no-cache" }
       ]
     }
   ]
