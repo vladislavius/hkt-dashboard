@@ -1321,6 +1321,9 @@
     .cis-chevron { font-size: 0.75rem; transition: transform 0.2s; }
     .cis-toggle-btn[aria-expanded="true"] .cis-chevron { transform: rotate(180deg); }
 
+    /* ── Header tools (airport switcher left, cis+cal+clock right) ── */
+    .header-tools { display: flex; align-items: center; gap: 10px; flex: 1; }
+
     /* ── Airport switcher (horizontal 4-in-row) ── */
     .airport-nav {
       display: flex;
@@ -1331,6 +1334,7 @@
       background: rgba(14,20,34,0.50);
       backdrop-filter: blur(6px);
       flex-shrink: 0;
+      margin-right: auto;
     }
     .airport-pill {
       display: flex;
@@ -1365,6 +1369,8 @@
     }
     .airport-pill--active .airport-pill__label { opacity: 0.9; }
     @media (max-width: 720px) {
+      .header-tools { flex-wrap: wrap; justify-content: flex-start; gap: 8px; width: 100%; }
+      .airport-nav { margin-right: 0; }
       .airport-pill { min-width: 56px; padding: 6px 9px; }
       .airport-pill__label { font-size: 0.55rem; letter-spacing: 1.2px; }
       .airport-pill__code { font-size: 0.82rem; letter-spacing: 1.4px; }
@@ -2311,7 +2317,7 @@
           <div class="header-meta">Аналитика рейсов · Данные в реальном времени · Вьетнам ICT</div>
           <div class="avi-metar">VVPQ 060900Z 09010KT 9999 FEW020 31/26 Q1009 NOSIG</div>
         </div>
-        <div style="display:flex;align-items:center;gap:10px;">
+        <div class="header-tools">
           <nav class="airport-nav" aria-label="Выбор аэропорта">
             <a class="airport-pill" href="/"><span class="airport-pill__label">пхукет</span><span class="airport-pill__code">HKT</span></a>
             <a class="airport-pill" href="/cxr"><span class="airport-pill__label">камрань</span><span class="airport-pill__code">CXR</span></a>
