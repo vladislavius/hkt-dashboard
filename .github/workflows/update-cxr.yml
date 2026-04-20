@@ -37,9 +37,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: |
-          pip install requests pytz scrapling
-          scrapling install || true
+        run: pip install requests pytz
 
       - name: Run CXR collector
         run: python3 -m cxr.collector

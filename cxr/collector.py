@@ -1,9 +1,9 @@
 """Cam Ranh (CXR, Vietnam) flight data collector — isolated from HKT pipeline.
 
-Pipeline (3 sources, первая успешная побеждает):
-1. Scrapling StealthyFetcher на camranh.aero — основной (в разработке, скелет ниже)
-2. Aviationstack API с IATA=CXR — fallback
-3. (планируется) acv.vn — если отдаст данные
+Pipeline (2 sources, первая успешная побеждает):
+1. camranh.aero official REST API — основной. Прямой HTTP без авторизации:
+   GET https://beta.camranh.aero/api/adapters/{arrivals,departures}?date=YYYY-MM-DD
+2. Aviationstack API с IATA=CXR — fallback (если основной упал).
 
 Storage:
 - cxr/data/accumulated_YYYY-MM-DD.json (merged flight lists)
@@ -171,45 +171,138 @@ def analyze_aviationstack(flights, direction):
     return res
 
 
-# ── Scrapling source (camranh.aero) — SKELETON ───────────────────────────
-def fetch_flights_scrapling(date_str):
-    """Пробует достать рейсы CXR с camranh.aero через Scrapling StealthyFetcher.
+# ── camranh.aero source (official CXR REST API) ─────────────────────────
+CAMRANH_API = "https://beta.camranh.aero/api/adapters"
 
-    СТАТУС: скелет. camranh.aero — SPA с XHR-загрузкой таблицы, endpoint нужно
-    реверсить при первом живом запуске. После того как endpoint найден — заменить
-    `capture_all_xhr=True` блок ниже на прямой fetch того URL.
+# camranh.aero status → collector category
+_CR_COMPLETED = {"arrived", "landed", "departed", "diverted"}
+_CR_CANCELLED = {"cancelled", "canceled"}
+# всё остальное (On Time, Scheduled, Boarding, ...) → upcoming
+
+
+def fetch_flights_camranh(date_str):
+    """Прямой REST API camranh.aero — отдаёт список рейсов JSON без авторизации.
 
     Returns (arrivals_list, departures_list) или (None, None) при ошибке.
-
-    Пример, как должна выглядеть финальная версия (когда endpoint будет найден):
-        fetcher = StealthyFetcher()
-        resp = fetcher.fetch(
-            f"https://camranh.aero/api/flights?date={date_str}&type=departures",
-            ...
-        )
-        flights = resp.json()['data']
-        return _normalize_camranh(flights, 'departure')
+    Endpoints:
+        GET https://beta.camranh.aero/api/adapters/arrivals?date=YYYY-MM-DD
+        GET https://beta.camranh.aero/api/adapters/departures?date=YYYY-MM-DD
     """
-    try:
-        from scrapling.fetchers import StealthyFetcher  # type: ignore
-    except ImportError:
-        print("⚠️ scrapling не установлен — пропускаем camranh.aero source")
-        return None, None
+    def _fetch(kind):
+        try:
+            r = requests.get(
+                f"{CAMRANH_API}/{kind}",
+                params={"date": date_str},
+                headers={
+                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                                  "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+                    "Accept": "application/json",
+                    "Referer": "https://camranh.aero/",
+                },
+                timeout=20,
+            )
+            r.raise_for_status()
+            data = r.json()
+            if not isinstance(data, list):
+                print(f"⚠️ camranh {kind}: unexpected payload type {type(data).__name__}")
+                return None
+            return data
+        except Exception as e:
+            print(f"⚠️ camranh {kind} error: {e}")
+            return None
 
-    try:
-        # Первый живой прогон: разведка. Открываем страницу, слушаем все XHR,
-        # печатаем их в лог — потом добавим прямой fetch на найденный endpoint.
-        fetcher = StealthyFetcher()
-        url = f"https://camranh.aero/ru/flights/search-flight/departure-flight"
-        print(f"🔐 Scrapling stealth fetch: {url}")
-        page = fetcher.fetch(url, network_idle=True, timeout=60000)
-        print(f"ℹ️ Scrapling: status={page.status}, content {len(page.body or '')} bytes")
-        # TODO: разобрать XHR / HTML и нормализовать в flight records.
-        # Пока возвращаем None чтобы сработал Aviationstack fallback.
+    arrivals = _fetch("arrivals")
+    departures = _fetch("departures")
+    if arrivals is None and departures is None:
         return None, None
-    except Exception as e:
-        print(f"⚠️ Scrapling error: {e}")
-        return None, None
+    return arrivals or [], departures or []
+
+
+def analyze_camranh(flights, direction, date_str):
+    """Нормализует camranh.aero payload в {date_str: {count, pax, countries, stats, flight_list}}.
+
+    Поля camranh: FlightId, Airline, Route (IATA), City, Country (UPPERCASE),
+    ScheduledDatetime "YYYY-MM-DD HH:MM:SS", StatusArr/StatusDep, Registration.
+    """
+    cnt, pax_total = 0, 0
+    st = {"completed": 0, "upcoming": 0, "cancelled": 0}
+    ctry = defaultdict(lambda: {"flights": 0, "pax": 0})
+    flight_list = []
+    seen = set()  # dedup по (fn_normalized, route_iata)
+
+    for f in (flights or []):
+        route = (f.get("Route") or "").strip().upper()
+        if not route or route in DOMESTIC:
+            continue
+
+        fn_raw = (f.get("FlightId") or "").strip()
+        fn_norm = fn_raw.replace(" ", "").upper()
+        dedup_key = (fn_norm, route)
+        if dedup_key in seen:
+            continue
+        seen.add(dedup_key)
+
+        cnt += 1
+        # camranh не отдаёт IATA самолёта — fallback на 180 мест
+        flight_pax = int(180 * LOAD_FACTOR)
+        pax_total += flight_pax
+
+        # Country: сначала MAP_C по IATA (даёт корректные Title-case имена для флагов),
+        # fallback на .title() от camranh Country
+        country = MAP_C.get(route) or (f.get("Country") or "").title() or f"Other({route})"
+        if country == "Russia":
+            city = MAP_RU_CITY.get(route, (f.get("City") or "").title() or route)
+            ctry[city]["flights"] += 1
+            ctry[city]["pax"] += flight_pax
+            ctry[city]["country"] = "Russia"
+        else:
+            ctry[country]["flights"] += 1
+            ctry[country]["pax"] += flight_pax
+
+        status_field = "StatusArr" if direction == "arrival" else "StatusDep"
+        s = (f.get(status_field) or "").lower().strip()
+        if s in _CR_COMPLETED:
+            st["completed"] += 1
+        elif s in _CR_CANCELLED:
+            st["cancelled"] += 1
+        else:
+            st["upcoming"] += 1
+
+        # ScheduledDatetime "2026-04-20 00:35:00" → ISO-16char "2026-04-20T00:35"
+        sched_raw = (f.get("ScheduledDatetime") or "")[:16].replace(" ", "T")
+        est_raw = (f.get("EstimatedTime") or "")[:16].replace(" ", "T")
+        # EstimatedTime иногда "1753-01-01 12:00:00" (sentinel) — игнорим
+        est_iso = est_raw if est_raw.startswith("20") else ""
+
+        airline = (f.get("Airline") or "").title()
+
+        rec = {
+            "fn": fn_raw,
+            "airline": airline,
+            "status": s,
+            "pax": flight_pax,
+            "aircraft": (f.get("Registration") or ""),
+            "dep_time": sched_raw if direction == "departure" else (est_iso or ""),
+            "arr_time": sched_raw if direction == "arrival"   else (est_iso or ""),
+        }
+        if direction == "arrival":
+            rec["from"] = route
+            rec["country"] = country
+        else:
+            rec["to"] = route
+            rec["country"] = country
+        flight_list.append(rec)
+
+    return {
+        date_str: {
+            "count": cnt,
+            "pax": pax_total,
+            "countries": dict(ctry),
+            "stats": st,
+            "flight_list": flight_list,
+            "source": "camranh",
+        }
+    }
 
 
 # ── Telegram ─────────────────────────────────────────────────────────────
@@ -382,28 +475,26 @@ def run():
     now = datetime.datetime.now(ICT_VN)
     today = now.date().isoformat()
 
-    # ── Try Scrapling source first (camranh.aero) ────────────────────────
+    # ── Source #1: camranh.aero official REST API (primary) ──────────────
     source = "aviationstack"
-    a_flights_raw, d_flights_raw = None, None
+    a_res, d_res = None, None
 
-    print("🔐 Пробуем Scrapling на camranh.aero...")
-    a_raw, d_raw = fetch_flights_scrapling(today)
-    if a_raw is not None and d_raw is not None:
-        # TODO: when scrapling parser is done, plug analyze_scrapling() here
-        a_flights_raw, d_flights_raw = a_raw, d_raw
-        source = "scrapling"
+    print("📡 Пробуем camranh.aero REST API...")
+    a_raw, d_raw = fetch_flights_camranh(today)
+    if a_raw is not None and d_raw is not None and (len(a_raw) > 0 or len(d_raw) > 0):
+        a_res = analyze_camranh(a_raw, "arrival",   today)
+        d_res = analyze_camranh(d_raw, "departure", today)
+        source = "camranh"
+        print(f"✅ camranh: {len(a_raw)} arrivals raw, {len(d_raw)} departures raw")
 
-    if a_flights_raw is None:
-        # ── Fallback: Aviationstack ──────────────────────────────────────
+    if a_res is None or d_res is None:
+        # ── Source #2: Aviationstack (fallback) ──────────────────────────
         key, knum = get_api_key()
-        a_fl, _ = fetch_flights_aviationstack("arrival", knum - 1)
+        a_fl, _ = fetch_flights_aviationstack("arrival",   knum - 1)
         d_fl, _ = fetch_flights_aviationstack("departure", knum - 1)
         a_res = analyze_aviationstack(a_fl, "arrival")
         d_res = analyze_aviationstack(d_fl, "departure")
-        print(f"ℹ️ Using AviationStack source (key #{knum})")
-    else:
-        # когда Scrapling заработает — сделаем analyze_scrapling()
-        a_res, d_res = {}, {}
+        print(f"ℹ️ Using AviationStack fallback (key #{knum})")
 
     a_cur = a_res.get(today, {"count": 0, "pax": 0, "countries": {}, "stats": {}, "flight_list": []})
     d_cur = d_res.get(today, {"count": 0, "pax": 0, "countries": {}, "stats": {}, "flight_list": []})
