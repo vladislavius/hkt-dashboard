@@ -3095,7 +3095,7 @@
       const results = await Promise.all(dates.map(dk =>
         (data && data[dk])
           ? Promise.resolve({ _cached: true, _key: dk })
-          : fetch('./data/accumulated_' + dk + '.json')
+          : fetch('/cxr/data/accumulated_' + dk + '.json')
               .then(r => r.ok ? r.json().then(j => Object.assign(j, { _key: dk })) : null)
               .catch(() => null)
       ));
@@ -3167,7 +3167,7 @@
       // Fetch all accumulated files not yet in cache
       await Promise.all(avail.map(dk => {
         if (data[dk]) return Promise.resolve();
-        return fetch('./data/accumulated_' + dk + '.json')
+        return fetch('/cxr/data/accumulated_' + dk + '.json')
           .then(r => r.ok ? r.json() : null)
           .then(acc => {
             if (!acc || !data) return;
@@ -3260,7 +3260,7 @@
       // Historical date key (YYYY-MM-DD) — load accumulated file
       const isDateKey = /^\d{4}-\d{2}-\d{2}$/.test(key);
       if (isDateKey && !(data && data[key])) {
-        fetch('./data/accumulated_' + key + '.json?t=' + Date.now())
+        fetch('/cxr/data/accumulated_' + key + '.json?t=' + Date.now())
           .then(r => r.ok ? r.json() : null)
           .then(acc => {
             if (!acc) return;
@@ -4984,7 +4984,7 @@
 
     async function init() {
       try {
-        const res = await fetch('./data/dashboard.json?t=' + Date.now());
+        const res = await fetch('/cxr/data/dashboard.json?t=' + Date.now());
         if (!res.ok) throw new Error('HTTP ' + res.status);
         data = await res.json();
         buildCityFlagMap(data);
@@ -5048,7 +5048,7 @@
 
     setInterval(async () => {
       try {
-        const r  = await fetch('./data/dashboard.json?t=' + Date.now());
+        const r  = await fetch('/cxr/data/dashboard.json?t=' + Date.now());
         const nd = await r.json();
         if (nd.updated !== data?.updated) {
           data = nd;
