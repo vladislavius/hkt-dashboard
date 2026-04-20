@@ -14,5 +14,9 @@ CREATE TABLE IF NOT EXISTS cxr_flight_daily (
 
 CREATE INDEX IF NOT EXISTS idx_cxr_flight_daily_date ON cxr_flight_daily(date DESC);
 
+-- RLS enabled (closed by default, только service_role пишет/читает — как у flight_daily)
+ALTER TABLE cxr_flight_daily ENABLE ROW LEVEL SECURITY;
+
 -- Проверка:
 -- SELECT COUNT(*), MIN(date), MAX(date) FROM cxr_flight_daily;
+-- Applied 2026-04-20 via mcp__supabase__apply_migration (name=create_cxr_flight_daily)
