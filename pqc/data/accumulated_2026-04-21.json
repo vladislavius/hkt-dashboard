@@ -1,8 +1,8 @@
 {
   "date": "2026-04-21",
   "arrivals": {
-    "count": 9,
-    "pax": 1323,
+    "count": 11,
+    "pax": 1617,
     "countries": {
       "South Korea": {
         "flights": 7,
@@ -15,12 +15,20 @@
       "Malaysia": {
         "flights": 1,
         "pax": 147
+      },
+      "Thailand": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Singapore": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 10,
-    "pax": 1470,
+    "count": 11,
+    "pax": 1617,
     "countries": {
       "South Korea": {
         "flights": 8,
@@ -31,6 +39,10 @@
         "pax": 147
       },
       "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Malaysia": {
         "flights": 1,
         "pax": 147
       }
@@ -130,12 +142,32 @@
     {
       "fn": "VJ977",
       "airline": "VietJet Air",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-04-21T05:00",
       "arr_time": "2026-04-21T08:25",
       "from": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "VZ980",
+      "airline": "Thai VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-21T09:15",
+      "arr_time": "2026-04-21T10:40",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "TR528",
+      "airline": "Scoot",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-21T10:45",
+      "arr_time": "2026-04-21T11:45",
+      "from": "SIN",
+      "country": "Singapore"
     }
   ],
   "departures_list": [
@@ -238,6 +270,16 @@
       "arr_time": "2026-04-21T13:00",
       "to": "TPE",
       "country": "Taiwan"
+    },
+    {
+      "fn": "AK544",
+      "airline": "AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-21T10:05",
+      "arr_time": "2026-04-21T12:50",
+      "to": "KUL",
+      "country": "Malaysia"
     }
   ]
 }
