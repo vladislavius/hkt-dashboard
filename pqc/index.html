@@ -1321,6 +1321,31 @@
     .cis-chevron { font-size: 0.75rem; transition: transform 0.2s; }
     .cis-toggle-btn[aria-expanded="true"] .cis-chevron { transform: rotate(180deg); }
 
+    .scope-toggle { display: flex; gap: 6px; flex-shrink: 0; }
+    .scope-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--gold-border);
+      background: var(--gold-faint);
+      color: var(--gold-light);
+      font-size: 0.82rem;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .scope-btn:hover { background: rgba(200,169,110,0.14); border-color: var(--gold); }
+    .scope-btn[aria-pressed="true"] {
+      background: rgba(200,169,110,0.18);
+      border-color: var(--gold);
+      color: var(--gold);
+      box-shadow: 0 0 0 1px var(--gold) inset;
+    }
+    @media (max-width: 900px) { .scope-btn { font-size: 0.72rem; padding: 8px 10px; } }
+    @media (max-width: 640px) { .scope-btn { font-size: 0.68rem; padding: 7px 10px; } }
+
     /* ── Header tools (airport switcher left, cis+cal+clock right) ── */
     .header-tools { display: flex; align-items: center; gap: 10px; flex: 1; }
 
@@ -2324,9 +2349,10 @@
             <a class="airport-pill airport-pill--active" href="/pqc" aria-current="page"><span class="airport-pill__label">фукуок</span><span class="airport-pill__code">PQC</span></a>
             <a class="airport-pill" href="/dad"><span class="airport-pill__label">дананг</span><span class="airport-pill__code">DAD</span></a>
           </nav>
-          <button id="cis-toggle" class="cis-toggle-btn" aria-expanded="false">
-            <span id="cis-btn-label">🇷🇺🇰🇿🇺🇿 СНГ</span> <span class="cis-chevron">▾</span>
-          </button>
+          <div class="scope-toggle" role="group" aria-label="Область данных">
+            <button id="scope-world" class="scope-btn" aria-pressed="true" type="button">🌍 Весь мир</button>
+            <button id="scope-cis" class="scope-btn" aria-pressed="false" type="button">🇷🇺🇰🇿🇺🇿 СНГ</button>
+          </div>
           <div class="cal-book" id="cal-book">
             <div class="cal-cover" id="cal-cover">
               <span class="cal-cover-sub" id="cal-cover-sub">Сегодня</span>
@@ -5070,37 +5096,35 @@
         renderDrawerLeft(data[period] || data['today']);
         buildCISTicker();
 
-        // CIS toggle button
-        const cisToggle   = document.getElementById('cis-toggle');
+        const scopeWorld  = document.getElementById('scope-world');
+        const scopeCis    = document.getElementById('scope-cis');
         const cisPanel    = document.getElementById('cis-panel');
-        const cisBtnLabel = document.getElementById('cis-btn-label');
         const mainMetrics = document.getElementById('metrics-row');
         const mainApp     = document.getElementById('app');
-        cisToggle.addEventListener('click', () => {
-          const open = cisToggle.getAttribute('aria-expanded') === 'true';
-          cisToggle.setAttribute('aria-expanded', String(!open));
-          if (!open) {
+        function setScope(cis) {
+          scopeCis.setAttribute('aria-pressed', String(cis));
+          scopeWorld.setAttribute('aria-pressed', String(!cis));
+          if (cis) {
             cisPanel.hidden = false;
             mainMetrics.hidden = true;
             mainApp.hidden = true;
-            cisBtnLabel.textContent = '🌍 Весь мир';
             fboardCISOnly = true;
             if (fboardData) renderFlightBoard(fboardData);
             renderCIS(activeKey || getDefaultPeriod());
           } else {
-            // Показываем только Весь мир
             cisPanel.hidden = true;
             mainMetrics.hidden = false;
             mainApp.hidden = false;
-            cisBtnLabel.textContent = '🇷🇺🇰🇿🇺🇿 СНГ';
             fboardCISOnly = false;
             if (fboardData) renderFlightBoard(fboardData);
-            if (activeCisChart)  { activeCisChart.destroy();  activeCisChart  = null; }
-            if (activeCisChart2) { activeCisChart2.destroy(); activeCisChart2 = null; }
+            if (activeCisChart)    { activeCisChart.destroy();    activeCisChart    = null; }
+            if (activeCisChart2)   { activeCisChart2.destroy();   activeCisChart2   = null; }
             if (activeCitiesChart) { activeCitiesChart.destroy(); activeCitiesChart = null; }
             if (activeSeasonChart) { activeSeasonChart.destroy(); activeSeasonChart = null; }
           }
-        });
+        }
+        scopeWorld.addEventListener('click', () => setScope(false));
+        scopeCis.addEventListener('click',   () => setScope(true));
 
       } catch(e) {
         const err = make('div', 'error-state');
