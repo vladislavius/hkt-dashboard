@@ -1,26 +1,30 @@
 {
   "date": "2026-04-22",
   "arrivals": {
-    "count": 3,
-    "pax": 441,
+    "count": 7,
+    "pax": 1029,
     "countries": {
       "South Korea": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Malaysia": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Thailand": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Singapore": {
         "flights": 1,
         "pax": 147
       }
     }
   },
   "departures": {
-    "count": 7,
-    "pax": 1029,
+    "count": 9,
+    "pax": 1323,
     "countries": {
       "South Korea": {
         "flights": 4,
@@ -35,6 +39,14 @@
         "pax": 147
       },
       "Kazakhstan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Thailand": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Taiwan": {
         "flights": 1,
         "pax": 147
       }
@@ -70,6 +82,46 @@
       "arr_time": "2026-04-22T10:40",
       "from": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "VJ984",
+      "airline": "VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-22T13:05",
+      "arr_time": "2026-04-22T13:45",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "AK545",
+      "airline": "AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-22T12:50",
+      "arr_time": "2026-04-22T13:35",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "FD660",
+      "airline": "Thai AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-22T12:00",
+      "arr_time": "2026-04-22T13:20",
+      "from": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "9G451",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-22T12:35",
+      "arr_time": "2026-04-22T16:15",
+      "from": "ICN",
+      "country": "South Korea"
     }
   ],
   "departures_list": [
@@ -142,6 +194,26 @@
       "arr_time": "2026-04-22T17:00",
       "to": "ALA",
       "country": "Kazakhstan"
+    },
+    {
+      "fn": "VZ981",
+      "airline": "Thai VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-22T11:45",
+      "arr_time": "2026-04-22T13:05",
+      "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "9G510",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-22T11:30",
+      "arr_time": "2026-04-22T16:10",
+      "to": "TPE",
+      "country": "Taiwan"
     }
   ]
 }
