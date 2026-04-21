@@ -1344,7 +1344,15 @@
       box-shadow: 0 0 0 1px var(--gold) inset;
     }
     @media (max-width: 900px) { .scope-btn { font-size: 0.72rem; padding: 8px 10px; } }
-    @media (max-width: 640px) { .scope-btn { font-size: 0.68rem; padding: 7px 10px; } }
+    @media (max-width: 720px) {
+      .scope-toggle { flex: 0 0 auto; gap: 4px; }
+      .scope-btn { font-size: 0.68rem; padding: 7px 9px; border-radius: 8px; gap: 4px; }
+    }
+    @media (max-width: 480px) {
+      .scope-toggle { width: 100%; justify-content: stretch; gap: 6px; }
+      .scope-btn { flex: 1 1 0; justify-content: center; font-size: 0.66rem; padding: 8px 6px; }
+    }
+    @media (hover: none) { .scope-btn:hover { background: var(--gold-faint); border-color: var(--gold-border); } }
 
     /* ── Header tools (airport switcher left, cis+cal+clock right) ── */
     .header-tools { display: flex; align-items: center; gap: 10px; flex: 1; }

@@ -13,15 +13,18 @@ if not CAPSOLVER_KEY:
 
 TARGET_URL = "https://www.flightera.net/en/airport/Da%20Nang/VVDN/arrival/2025-10-15_00_00"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+WEBSHARE_PROXY = os.environ.get("WEBSHARE_PROXY", "")  # host:port:user:pass
 
 
 def create_task():
+    if not WEBSHARE_PROXY:
+        sys.exit("❌ WEBSHARE_PROXY env var required (host:port:user:pass)")
     payload = {
         "clientKey": CAPSOLVER_KEY,
         "task": {
-            "type":    "AntiCloudflareTaskProxyLess",
+            "type":    "AntiCloudflareTask",
             "websiteURL": TARGET_URL,
-            "proxy": "",
+            "proxy":   WEBSHARE_PROXY,
         },
     }
     r = requests.post("https://api.capsolver.com/createTask", json=payload, timeout=30)
@@ -73,12 +76,16 @@ def main():
     else:
         cookie_header = ""
 
-    print("\n🌐 Fetching page with cookies…")
-    r = requests.get(
+    print("\n🌐 Fetching page via curl_cffi (Chrome TLS) + proxy…")
+    from curl_cffi import requests as cfreq
+    host, port, puser, ppass = WEBSHARE_PROXY.split(":", 3)
+    proxy_url = f"http://{puser}:{ppass}@{host}:{port}"
+    r = cfreq.get(
         TARGET_URL,
         headers={"User-Agent": ua, "Cookie": cookie_header, "Accept-Language": "en-US,en;q=0.9"},
-        timeout=30,
-        allow_redirects=True,
+        proxies={"http": proxy_url, "https": proxy_url},
+        impersonate="chrome124",
+        timeout=45,
     )
     print(f"  HTTP {r.status_code}, {len(r.text)} bytes")
     snippet = r.text[:500]
