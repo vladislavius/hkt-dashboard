@@ -1,8 +1,8 @@
 {
   "date": "2026-04-21",
   "arrivals": {
-    "count": 21,
-    "pax": 3087,
+    "count": 22,
+    "pax": 3234,
     "countries": {
       "South Korea": {
         "flights": 8,
@@ -33,6 +33,10 @@
         "pax": 294
       },
       "Vietnam": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Uzbekistan": {
         "flights": 1,
         "pax": 147
       }
@@ -199,7 +203,7 @@
     {
       "fn": "TR528",
       "airline": "Scoot",
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-04-21T10:45",
       "arr_time": "2026-04-21T11:45",
@@ -229,7 +233,7 @@
     {
       "fn": "9G451",
       "airline": "Sun PhuQuoc Airways",
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-04-21T12:35",
       "arr_time": "2026-04-21T16:15",
@@ -239,7 +243,7 @@
     {
       "fn": "9G511",
       "airline": "Sun PhuQuoc Airways",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-04-21T17:35",
       "arr_time": "2026-04-21T20:25",
@@ -259,7 +263,7 @@
     {
       "fn": "UO596",
       "airline": "HK express",
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-04-21T16:10",
       "arr_time": "2026-04-21T18:05",
@@ -309,12 +313,22 @@
     {
       "fn": "9G2953",
       "airline": "Sun PhuQuoc Airways",
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-04-21T16:20",
       "arr_time": "2026-04-21T17:40",
       "from": "CXR",
       "country": "Vietnam"
+    },
+    {
+      "fn": "C65535",
+      "airline": "My Freighter",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-21T22:10",
+      "arr_time": "2026-04-22T07:20",
+      "from": "TAS",
+      "country": "Uzbekistan"
     }
   ],
   "departures_list": [
