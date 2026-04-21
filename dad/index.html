@@ -5104,6 +5104,7 @@
         const mainMetrics = document.getElementById('metrics-row');
         const mainApp     = document.getElementById('app');
         function setScope(cis) {
+          try { localStorage.setItem('fi-scope', cis ? 'cis' : 'world'); } catch(e) {}
           scopeCis.setAttribute('aria-pressed', String(cis));
           scopeWorld.setAttribute('aria-pressed', String(!cis));
           if (cis) {
@@ -5127,6 +5128,9 @@
         }
         scopeWorld.addEventListener('click', () => setScope(false));
         scopeCis.addEventListener('click',   () => setScope(true));
+        try {
+          if (localStorage.getItem('fi-scope') === 'cis') setScope(true);
+        } catch(e) {}
 
       } catch(e) {
         const err = make('div', 'error-state');
