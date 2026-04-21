@@ -1,8 +1,8 @@
 {
   "date": "2026-04-22",
   "arrivals": {
-    "count": 2,
-    "pax": 294,
+    "count": 3,
+    "pax": 441,
     "countries": {
       "South Korea": {
         "flights": 1,
@@ -11,18 +11,30 @@
       "Malaysia": {
         "flights": 1,
         "pax": 147
+      },
+      "Thailand": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 5,
-    "pax": 735,
+    "count": 7,
+    "pax": 1029,
     "countries": {
       "South Korea": {
         "flights": 4,
         "pax": 588
       },
       "Uzbekistan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Malaysia": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Kazakhstan": {
         "flights": 1,
         "pax": 147
       }
@@ -48,6 +60,16 @@
       "arr_time": "2026-04-22T09:30",
       "from": "KUL",
       "country": "Malaysia"
+    },
+    {
+      "fn": "VZ980",
+      "airline": "Thai VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-22T09:15",
+      "arr_time": "2026-04-22T10:40",
+      "from": "BKK",
+      "country": "Thailand"
     }
   ],
   "departures_list": [
@@ -100,6 +122,26 @@
       "arr_time": "2026-04-22T14:20",
       "to": "TAS",
       "country": "Uzbekistan"
+    },
+    {
+      "fn": "AK544",
+      "airline": "AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-22T10:05",
+      "arr_time": "2026-04-22T12:50",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "KC162",
+      "airline": "Air Astana",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-22T10:00",
+      "arr_time": "2026-04-22T17:00",
+      "to": "ALA",
+      "country": "Kazakhstan"
     }
   ]
 }
