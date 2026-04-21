@@ -1,22 +1,30 @@
 {
   "date": "2026-04-22",
   "arrivals": {
-    "count": 1,
-    "pax": 147,
+    "count": 2,
+    "pax": 294,
     "countries": {
       "South Korea": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Malaysia": {
         "flights": 1,
         "pax": 147
       }
     }
   },
   "departures": {
-    "count": 4,
-    "pax": 588,
+    "count": 5,
+    "pax": 735,
     "countries": {
       "South Korea": {
         "flights": 4,
         "pax": 588
+      },
+      "Uzbekistan": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -24,12 +32,22 @@
     {
       "fn": "VJ977",
       "airline": "VietJet Air",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-04-22T05:00",
       "arr_time": "2026-04-22T08:25",
       "from": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "AK543",
+      "airline": "AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-22T08:40",
+      "arr_time": "2026-04-22T09:30",
+      "from": "KUL",
+      "country": "Malaysia"
     }
   ],
   "departures_list": [
@@ -72,6 +90,16 @@
       "arr_time": "2026-04-22T07:50",
       "to": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "C65536",
+      "airline": "My Freighter",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-22T08:50",
+      "arr_time": "2026-04-22T14:20",
+      "to": "TAS",
+      "country": "Uzbekistan"
     }
   ]
 }
