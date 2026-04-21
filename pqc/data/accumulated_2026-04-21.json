@@ -1,8 +1,8 @@
 {
   "date": "2026-04-21",
   "arrivals": {
-    "count": 14,
-    "pax": 2058,
+    "count": 19,
+    "pax": 2793,
     "countries": {
       "South Korea": {
         "flights": 8,
@@ -17,18 +17,26 @@
         "pax": 294
       },
       "Thailand": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Singapore": {
         "flights": 1,
         "pax": 147
+      },
+      "Taiwan": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Hong Kong": {
+        "flights": 2,
+        "pax": 294
       }
     }
   },
   "departures": {
-    "count": 15,
-    "pax": 2205,
+    "count": 21,
+    "pax": 3087,
     "countries": {
       "South Korea": {
         "flights": 8,
@@ -43,8 +51,8 @@
         "pax": 294
       },
       "Malaysia": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Москва": {
         "flights": 1,
@@ -56,6 +64,18 @@
         "pax": 147
       },
       "Thailand": {
+        "flights": 3,
+        "pax": 441
+      },
+      "Vietnam": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Kazakhstan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Singapore": {
         "flights": 1,
         "pax": 147
       }
@@ -65,7 +85,7 @@
     {
       "fn": "LJ 91",
       "airline": "Jin Air",
-      "status": "arrived on-time",
+      "status": "scheduled",
       "pax": 147,
       "dep_time": "2026-04-21T20:57",
       "arr_time": "2026-04-21T21:00",
@@ -85,7 +105,7 @@
     {
       "fn": "KE 485",
       "airline": "Korean Air",
-      "status": "arrived on-time",
+      "status": "scheduled",
       "pax": 147,
       "dep_time": "2026-04-21T22:57",
       "arr_time": "2026-04-21T22:50",
@@ -125,7 +145,7 @@
     {
       "fn": "AK543",
       "airline": "AirAsia",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-04-21T08:40",
       "arr_time": "2026-04-21T09:30",
@@ -145,7 +165,7 @@
     {
       "fn": "JX333",
       "airline": "STARLUX",
-      "status": "scheduled",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-04-21T07:05",
       "arr_time": "2026-04-21T09:40",
@@ -155,7 +175,7 @@
     {
       "fn": "VJ977",
       "airline": "VietJet Air",
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-04-21T05:00",
       "arr_time": "2026-04-21T08:25",
@@ -175,7 +195,7 @@
     {
       "fn": "TR528",
       "airline": "Scoot",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-04-21T10:45",
       "arr_time": "2026-04-21T11:45",
@@ -211,6 +231,66 @@
       "arr_time": "2026-04-21T16:15",
       "from": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "9G511",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-21T17:35",
+      "arr_time": "2026-04-21T20:25",
+      "from": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "VJ985",
+      "airline": "VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-21T16:40",
+      "arr_time": "2026-04-21T18:25",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "UO596",
+      "airline": "HK express",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-21T16:10",
+      "arr_time": "2026-04-21T18:05",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "VZ982",
+      "airline": "Thai VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-21T14:35",
+      "arr_time": "2026-04-21T15:55",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "K6830",
+      "airline": "Air Cambodia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-21T13:45",
+      "arr_time": "2026-04-21T14:55",
+      "from": "KTI",
+      "country": ""
+    },
+    {
+      "fn": "W24845",
+      "airline": "Flexflight",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-21T14:10",
+      "arr_time": "2026-04-21T16:50",
+      "from": "TPE",
+      "country": "Taiwan"
     }
   ],
   "departures_list": [
@@ -373,6 +453,76 @@
       "arr_time": "2026-04-21T15:25",
       "to": "RMQ",
       "country": ""
+    },
+    {
+      "fn": "VZ983",
+      "airline": "Thai VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-21T16:45",
+      "arr_time": "2026-04-21T18:05",
+      "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "K6831",
+      "airline": "Air Cambodia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-21T15:25",
+      "arr_time": "2026-04-21T16:30",
+      "to": "KTI",
+      "country": ""
+    },
+    {
+      "fn": "9G2952",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-21T14:20",
+      "arr_time": "2026-04-21T15:40",
+      "to": "CXR",
+      "country": "Vietnam"
+    },
+    {
+      "fn": "AK546",
+      "airline": "AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-21T14:10",
+      "arr_time": "2026-04-21T17:00",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "FD661",
+      "airline": "Thai AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-21T13:50",
+      "arr_time": "2026-04-21T15:05",
+      "to": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "KC174",
+      "airline": "Air Astana",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-21T13:35",
+      "arr_time": "2026-04-21T20:50",
+      "to": "NQZ",
+      "country": "Kazakhstan"
+    },
+    {
+      "fn": "TR529",
+      "airline": "Scoot",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-21T12:25",
+      "arr_time": "2026-04-21T15:30",
+      "to": "SIN",
+      "country": "Singapore"
     }
   ]
 }
