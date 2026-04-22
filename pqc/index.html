@@ -4091,20 +4091,20 @@
         ap(card, txt(make('div','m-label'), label), row, txt(make('div','m-icon'), icon));
         return card;
       };
-      /* today: показываем "прилетело / план", а не весь суточный план */
-      const ARRIVED = new Set(['landed','arrived','diverted','confirmed']);
+      /* today: реально прилетевшие / уже вылетевшие (по статусам HTML-таблицы)
+         другие период: count как есть (день завершён) */
+      const isArrived = s => /arrived|landed|diverted|bags delivered|confirmed/.test((s||'').toLowerCase());
+      const isDeparted = s => /departed|took off|gone|in the air|airborne|confirmed/.test((s||'').toLowerCase());
       const isToday = period === 'today';
-      const countArrived = list => (list || []).filter(f => ARRIVED.has((f.status||'').toLowerCase())).length;
-      const paxArrived = list => (list || []).filter(f => ARRIVED.has((f.status||'').toLowerCase())).reduce((s,f)=>s+(f.pax||0),0);
-      const arrN = isToday ? countArrived(d.arrivals_list)   : d.arrivals.count;
-      const depN = isToday ? countArrived(d.departures_list) : d.departures.count;
-      const arrLabel = isToday ? `${arrN} / ${d.arrivals.count}`   : String(arrN);
-      const depLabel = isToday ? `${depN} / ${d.departures.count}` : String(depN);
-      const arrPax = isToday ? paxArrived(d.arrivals_list)   : d.arrivals.pax;
-      const depPax = isToday ? paxArrived(d.departures_list) : d.departures.pax;
+      const sumFlights = (list, pred) => (list || []).filter(f => pred(f.status)).length;
+      const sumPax     = (list, pred) => (list || []).filter(f => pred(f.status)).reduce((s,f)=>s+(f.pax||0),0);
+      const arrN  = isToday ? sumFlights(d.arrivals_list,   isArrived)  : d.arrivals.count;
+      const depN  = isToday ? sumFlights(d.departures_list, isDeparted) : d.departures.count;
+      const arrPax = isToday ? sumPax(d.arrivals_list,   isArrived)  : d.arrivals.pax;
+      const depPax = isToday ? sumPax(d.departures_list, isDeparted) : d.departures.pax;
       metricsEl.replaceChildren(
-        mkMetricInline('Прилёты', arrLabel, arrPax, 'col-sky',   'ARR', '0s'),
-        mkMetricInline('Вылеты',  depLabel, depPax, 'col-amber', 'DEP', '0.08s')
+        mkMetricInline('Прилёты', arrN, arrPax, 'col-sky',   'ARR', '0s'),
+        mkMetricInline('Вылеты',  depN, depPax, 'col-amber', 'DEP', '0.08s')
       );
 
       const grid = make('div', 'cis-2col-grid');
