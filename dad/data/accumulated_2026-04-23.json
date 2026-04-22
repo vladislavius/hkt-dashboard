@@ -11,16 +11,16 @@
     }
   },
   "departures": {
-    "count": 7,
-    "pax": 1029,
+    "count": 10,
+    "pax": 1470,
     "countries": {
       "South Korea": {
-        "flights": 6,
-        "pax": 882
+        "flights": 8,
+        "pax": 1176
       },
       "Japan": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       }
     }
   },
@@ -48,12 +48,22 @@
     {
       "fn": "BX7315",
       "airline": "Air Busan",
-      "status": "arrived",
+      "status": "bags delivered",
       "pax": 147,
       "dep_time": "",
       "arr_time": "2026-04-23T01:10",
       "from": "PUS",
       "country": "South Korea"
+    },
+    {
+      "fn": "VJ2855",
+      "airline": "Vietjet Air",
+      "status": "on time",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-23T04:05",
+      "from": "MNL",
+      "country": "Other(MNL)"
     }
   ],
   "departures_list": [
@@ -135,6 +145,46 @@
       "dep_time": "2026-04-23T01:25",
       "arr_time": "",
       "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "7C2218",
+      "airline": "Jeju Air",
+      "status": "last call",
+      "pax": 147,
+      "dep_time": "2026-04-23T01:30",
+      "arr_time": "",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "VN336",
+      "airline": "Vietnam Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-23T01:30",
+      "arr_time": "",
+      "to": "KIX",
+      "country": "Japan"
+    },
+    {
+      "fn": "TW30",
+      "airline": "T'Way Air",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-23T01:30",
+      "arr_time": "",
+      "to": "TAE",
+      "country": "Other(TAE)"
+    },
+    {
+      "fn": "BX7325",
+      "airline": "Air Busan",
+      "status": "last call",
+      "pax": 147,
+      "dep_time": "2026-04-23T02:10",
+      "arr_time": "",
+      "to": "PUS",
       "country": "South Korea"
     }
   ]
