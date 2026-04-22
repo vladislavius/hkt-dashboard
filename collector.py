@@ -973,8 +973,72 @@ def run():
     a_cur = a_res.get(today, {"count":0, "pax":0, "countries":{}, "stats":{}})
     d_cur = d_res.get(today, {"count":0, "pax":0, "countries":{}, "stats":{}})
 
-    # ── Accumulate today's data (merge, not overwrite) ──────────────────
+    # ── Persist cross-day flights first (yesterday evening, tomorrow early) ────
+    # GTT returns ~24h window, analyze_gtt groups by date. We used to discard
+    # non-today dates, so flights with arr_time in prev/next day got lost.
+    # Now we append them into their proper accumulated_<date>.json file.
     Path("data").mkdir(exist_ok=True)
+    def _persist_day(day_str, arr_flights, dep_flights):
+        fp = Path(f"data/accumulated_{day_str}.json")
+        obj = {"date": day_str, "arrivals": {"count":0,"pax":0,"countries":{}}, "departures": {"count":0,"pax":0,"countries":{}}}
+        if fp.exists():
+            try: obj = json.loads(fp.read_text())
+            except Exception: pass
+        def _nf(x): return (x or "").replace(" ", "").upper()
+        ex_arr = obj.get("arrivals_list", [])
+        seen_a = {_nf(r.get("fn","")) for r in ex_arr if r.get("fn")}
+        for r in arr_flights:
+            if _nf(r.get("fn","")) in seen_a: continue
+            ex_arr.append(r); seen_a.add(_nf(r.get("fn","")))
+        ex_dep = obj.get("departures_list", [])
+        seen_d = {_nf(r.get("fn","")) for r in ex_dep if r.get("fn")}
+        for r in dep_flights:
+            if _nf(r.get("fn","")) in seen_d: continue
+            ex_dep.append(r); seen_d.add(_nf(r.get("fn","")))
+        def _ctry(lst, field):
+            c = {}
+            for r in lst:
+                ap = r.get(field, "")
+                ck = MAP_C.get(ap, "") or "Other"
+                if ck == "Russia":
+                    k = MAP_RU_CITY.get(ap, ap)
+                    c.setdefault(k, {"flights":0,"pax":0,"country":"Russia"})
+                else:
+                    k = ck
+                    c.setdefault(k, {"flights":0,"pax":0})
+                c[k]["flights"] += 1
+                c[k]["pax"] += r.get("pax", 0)
+            return c
+        a_c = _ctry(ex_arr, "from")
+        d_c = _ctry(ex_dep, "to")
+        obj["arrivals_list"] = ex_arr
+        obj["departures_list"] = ex_dep
+        obj["arrivals"] = {"count": sum(v["flights"] for v in a_c.values()),
+                           "pax": sum(v["pax"] for v in a_c.values()), "countries": a_c}
+        obj["departures"] = {"count": sum(v["flights"] for v in d_c.values()),
+                             "pax": sum(v["pax"] for v in d_c.values()), "countries": d_c}
+        fp.write_text(json.dumps(obj, indent=2, ensure_ascii=False))
+    # Split flight_list by actual arr_time / dep_time date (not by "today")
+    def _group_by_date(flight_list, time_field):
+        groups = {}
+        for r in flight_list:
+            t = r.get(time_field, "") or ""
+            day = t[:10] if len(t) >= 10 else today
+            groups.setdefault(day, []).append(r)
+        return groups
+    arr_by_day = _group_by_date(a_cur.get("flight_list", []), "arr_time")
+    dep_by_day = _group_by_date(d_cur.get("flight_list", []), "dep_time")
+    cross_dates = (set(arr_by_day.keys()) | set(dep_by_day.keys())) - {today}
+    for d_str in sorted(cross_dates):
+        a_flights = arr_by_day.get(d_str, [])
+        d_flights = dep_by_day.get(d_str, [])
+        _persist_day(d_str, a_flights, d_flights)
+        print(f"ℹ️ cross-day: accumulated_{d_str}.json += arr:{len(a_flights)} dep:{len(d_flights)}")
+    # Strip non-today flights from a_cur so TODAY's file stays clean
+    a_cur["flight_list"] = arr_by_day.get(today, [])
+    d_cur["flight_list"] = dep_by_day.get(today, [])
+
+    # ── Accumulate today's data (merge, not overwrite) ──────────────────
     acc_file = Path(f"data/accumulated_{today}.json")
     acc = {"date": today,
            "arrivals":   {"count": 0, "pax": 0, "countries": {}},
