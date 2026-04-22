@@ -4092,9 +4092,20 @@
         ap(card, txt(make('div','m-label'), label), row, txt(make('div','m-icon'), icon));
         return card;
       };
+      /* today: показываем "прилетело / план", а не весь суточный план */
+      const ARRIVED = new Set(['landed','arrived','diverted','confirmed']);
+      const isToday = period === 'today';
+      const countArrived = list => (list || []).filter(f => ARRIVED.has((f.status||'').toLowerCase())).length;
+      const paxArrived = list => (list || []).filter(f => ARRIVED.has((f.status||'').toLowerCase())).reduce((s,f)=>s+(f.pax||0),0);
+      const arrN = isToday ? countArrived(d.arrivals_list)   : d.arrivals.count;
+      const depN = isToday ? countArrived(d.departures_list) : d.departures.count;
+      const arrLabel = isToday ? `${arrN} / ${d.arrivals.count}`   : String(arrN);
+      const depLabel = isToday ? `${depN} / ${d.departures.count}` : String(depN);
+      const arrPax = isToday ? paxArrived(d.arrivals_list)   : d.arrivals.pax;
+      const depPax = isToday ? paxArrived(d.departures_list) : d.departures.pax;
       metricsEl.replaceChildren(
-        mkMetricInline('Прилёты', d.arrivals.count,   d.arrivals.pax,   'col-sky',   'ARR', '0s'),
-        mkMetricInline('Вылеты',  d.departures.count, d.departures.pax, 'col-amber', 'DEP', '0.08s')
+        mkMetricInline('Прилёты', arrLabel, arrPax, 'col-sky',   'ARR', '0s'),
+        mkMetricInline('Вылеты',  depLabel, depPax, 'col-amber', 'DEP', '0.08s')
       );
 
       const grid = make('div', 'cis-2col-grid');
