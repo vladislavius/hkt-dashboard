@@ -35,8 +35,8 @@
     }
   },
   "departures": {
-    "count": 14,
-    "pax": 2058,
+    "count": 16,
+    "pax": 2352,
     "countries": {
       "South Korea": {
         "flights": 4,
@@ -63,6 +63,10 @@
         "pax": 294
       },
       "Singapore": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Hong Kong": {
         "flights": 1,
         "pax": 147
       }
@@ -112,7 +116,7 @@
     {
       "fn": "AK545",
       "airline": "AirAsia",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-04-22T12:50",
       "arr_time": "2026-04-22T13:35",
@@ -400,6 +404,26 @@
       "arr_time": "2026-04-22T15:05",
       "to": "DMK",
       "country": "Thailand"
+    },
+    {
+      "fn": "UO597",
+      "airline": "HK express",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-22T19:05",
+      "arr_time": "2026-04-22T23:10",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "TR525",
+      "airline": "Scoot",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-22T18:20",
+      "arr_time": "2026-04-22T21:15",
+      "to": "SIN",
+      "country": "Singapore"
     }
   ]
 }
