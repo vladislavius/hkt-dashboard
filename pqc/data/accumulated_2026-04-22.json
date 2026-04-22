@@ -1,12 +1,12 @@
 {
   "date": "2026-04-22",
   "arrivals": {
-    "count": 19,
-    "pax": 2793,
+    "count": 20,
+    "pax": 2940,
     "countries": {
       "South Korea": {
-        "flights": 8,
-        "pax": 1176
+        "flights": 9,
+        "pax": 1323
       },
       "Malaysia": {
         "flights": 2,
@@ -35,12 +35,12 @@
     }
   },
   "departures": {
-    "count": 16,
-    "pax": 2352,
+    "count": 18,
+    "pax": 2646,
     "countries": {
       "South Korea": {
-        "flights": 4,
-        "pax": 588
+        "flights": 5,
+        "pax": 735
       },
       "Uzbekistan": {
         "flights": 1,
@@ -67,6 +67,10 @@
         "pax": 294
       },
       "Hong Kong": {
+        "flights": 1,
+        "pax": 147
+      },
+      "China": {
         "flights": 1,
         "pax": 147
       }
@@ -106,7 +110,7 @@
     {
       "fn": "VJ984",
       "airline": "VietJet Air",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-04-22T13:05",
       "arr_time": "2026-04-22T13:45",
@@ -176,7 +180,7 @@
     {
       "fn": "MU861",
       "airline": "China Eastern Airlines",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-04-22T16:40",
       "arr_time": "2026-04-22T20:00",
@@ -186,7 +190,7 @@
     {
       "fn": "UO596",
       "airline": "HK express",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-04-22T16:10",
       "arr_time": "2026-04-22T18:05",
@@ -196,7 +200,7 @@
     {
       "fn": "TR524",
       "airline": "Scoot",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-04-22T16:40",
       "arr_time": "2026-04-22T17:40",
@@ -206,7 +210,7 @@
     {
       "fn": "LJ91",
       "airline": "Jin Air",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-04-22T17:05",
       "arr_time": "2026-04-22T21:00",
@@ -226,7 +230,7 @@
     {
       "fn": "JX705",
       "airline": "STARLUX",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-04-22T13:15",
       "arr_time": "2026-04-22T16:05",
@@ -260,6 +264,16 @@
       "pax": 147,
       "dep_time": "2026-04-22T19:30",
       "arr_time": "2026-04-22T23:20",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "H19889",
+      "airline": null,
+      "status": "active",
+      "pax": 147,
+      "dep_time": "2026-04-22T17:20",
+      "arr_time": "2026-04-22T21:25",
       "from": "ICN",
       "country": "South Korea"
     }
@@ -424,6 +438,26 @@
       "arr_time": "2026-04-22T21:15",
       "to": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "MU862",
+      "airline": "China Eastern Airlines",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-22T21:00",
+      "arr_time": "2026-04-23T01:55",
+      "to": "XIY",
+      "country": "China"
+    },
+    {
+      "fn": "VJ976",
+      "airline": "VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-22T20:35",
+      "arr_time": "2026-04-23T04:00",
+      "to": "ICN",
+      "country": "South Korea"
     }
   ]
 }
