@@ -1,0 +1,56 @@
+name: Backfill HKT (FlightAware AeroAPI)
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Date to backfill (YYYY-MM-DD, ICT)'
+        required: true
+        default: '2026-04-22'
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deps
+        run: pip install requests pytz certifi
+
+      - name: Backfill via FlightAware
+        env:
+          TARGET_DATE:            ${{ inputs.date }}
+          FLIGHTAWARE_API_KEY:    ${{ secrets.FLIGHTAWARE_API_KEY }}
+          AVIATIONSTACK_KEY_1:    ${{ secrets.AVIATIONSTACK_KEY_1 }}
+          AVIATIONSTACK_KEY_2:    ${{ secrets.AVIATIONSTACK_KEY_2 }}
+          AVIATIONSTACK_KEY_3:    ${{ secrets.AVIATIONSTACK_KEY_3 }}
+          AVIATIONSTACK_KEY_4:    ${{ secrets.AVIATIONSTACK_KEY_4 }}
+        run: python3 scripts/backfill_hkt_flightaware.py "$TARGET_DATE"
+
+      - name: Regenerate dashboard.json
+        env:
+          AVIATIONSTACK_KEY_1:  ${{ secrets.AVIATIONSTACK_KEY_1 }}
+          AVIATIONSTACK_KEY_2:  ${{ secrets.AVIATIONSTACK_KEY_2 }}
+          AVIATIONSTACK_KEY_3:  ${{ secrets.AVIATIONSTACK_KEY_3 }}
+          AVIATIONSTACK_KEY_4:  ${{ secrets.AVIATIONSTACK_KEY_4 }}
+          CAPSOLVER_KEY:        ${{ secrets.CAPSOLVER_KEY }}
+          TG_TOKEN:             ${{ secrets.TG_TOKEN }}
+          TG_CHAT_ID:           ${{ secrets.TG_CHAT_ID }}
+          PYTHONPATH: .
+        run: python3 collector.py
+
+      - name: Commit and push
+        env:
+          TARGET_DATE: ${{ inputs.date }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet && echo "no changes" && exit 0
+          git commit -m "backfill(hkt): FlightAware AeroAPI ${TARGET_DATE}"
+          git push
