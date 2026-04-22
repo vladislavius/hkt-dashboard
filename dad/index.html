@@ -4075,6 +4075,30 @@
     }
 
     /* ── Main render ── */
+    // ── Filter today to actually arrived/departed (consistent across all widgets) ──
+    function rebuildTodayFromList(t) {
+      if (!t || !Array.isArray(t.arrivals_list)) return t;
+      const isArr = s => /arrived|landed|diverted|bags delivered|confirmed/.test((s||'').toLowerCase());
+      const isDep = s => /departed|took off|gone|in the air|airborne|confirmed/.test((s||'').toLowerCase());
+      const agg = (list) => {
+        let count = 0, pax = 0;
+        const by = new Map();
+        for (const f of list) {
+          count++;
+          pax += f.pax || 0;
+          const name = f.country || 'Other';
+          const cur = by.get(name) || { name, flights: 0, pax: 0 };
+          cur.flights++;
+          cur.pax += f.pax || 0;
+          by.set(name, cur);
+        }
+        return { count, pax, all: [...by.values()].sort((a,b) => b.flights - a.flights) };
+      };
+      const arrF = t.arrivals_list.filter(f => isArr(f.status));
+      const depF = (t.departures_list || []).filter(f => isDep(f.status));
+      return { ...t, arrivals: agg(arrF), departures: agg(depF), arrivals_list: arrF, departures_list: depF };
+    }
+
     function render(period) {
       const d = data?.[period];
       if (!d) return;
@@ -4092,20 +4116,9 @@
         ap(card, txt(make('div','m-label'), label), row, txt(make('div','m-icon'), icon));
         return card;
       };
-      /* today: реально прилетевшие / уже вылетевшие (по статусам HTML-таблицы)
-         другие период: count как есть (день завершён) */
-      const isArrived = s => /arrived|landed|diverted|bags delivered|confirmed/.test((s||'').toLowerCase());
-      const isDeparted = s => /departed|took off|gone|in the air|airborne|confirmed/.test((s||'').toLowerCase());
-      const isToday = period === 'today';
-      const sumFlights = (list, pred) => (list || []).filter(f => pred(f.status)).length;
-      const sumPax     = (list, pred) => (list || []).filter(f => pred(f.status)).reduce((s,f)=>s+(f.pax||0),0);
-      const arrN  = isToday ? sumFlights(d.arrivals_list,   isArrived)  : d.arrivals.count;
-      const depN  = isToday ? sumFlights(d.departures_list, isDeparted) : d.departures.count;
-      const arrPax = isToday ? sumPax(d.arrivals_list,   isArrived)  : d.arrivals.pax;
-      const depPax = isToday ? sumPax(d.departures_list, isDeparted) : d.departures.pax;
       metricsEl.replaceChildren(
-        mkMetricInline('Прилёты', arrN, arrPax, 'col-sky',   'ARR', '0s'),
-        mkMetricInline('Вылеты',  depN, depPax, 'col-amber', 'DEP', '0.08s')
+        mkMetricInline('Прилёты', d.arrivals.count,   d.arrivals.pax,   'col-sky',   'ARR', '0s'),
+        mkMetricInline('Вылеты',  d.departures.count, d.departures.pax, 'col-amber', 'DEP', '0.08s')
       );
 
       const grid = make('div', 'cis-2col-grid');
@@ -5107,6 +5120,7 @@
         const res = await fetch('/dad/data/dashboard.json?t=' + Date.now());
         if (!res.ok) throw new Error('HTTP ' + res.status);
         data = await res.json();
+        if (data && data.today) data.today = rebuildTodayFromList(data.today);
         buildCityFlagMap(data);
 
         const dt = new Date(data.updated);
@@ -5175,6 +5189,7 @@
         const nd = await r.json();
         if (nd.updated !== data?.updated) {
           data = nd;
+          if (data && data.today) data.today = rebuildTodayFromList(data.today);
           buildCityFlagMap(nd);
           const cur = activeKey || getDefaultPeriod();
           render(cur);
