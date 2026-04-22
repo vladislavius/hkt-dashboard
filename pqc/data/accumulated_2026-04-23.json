@@ -1,12 +1,12 @@
 {
   "date": "2026-04-23",
   "arrivals": {
-    "count": 13,
-    "pax": 1911,
+    "count": 17,
+    "pax": 2499,
     "countries": {
       "South Korea": {
-        "flights": 9,
-        "pax": 1323
+        "flights": 10,
+        "pax": 1470
       },
       "China": {
         "flights": 1,
@@ -22,14 +22,18 @@
         "country": "Russia"
       },
       "Malaysia": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
+      },
+      "Thailand": {
+        "flights": 2,
+        "pax": 294
       }
     }
   },
   "departures": {
-    "count": 15,
-    "pax": 2205,
+    "count": 19,
+    "pax": 2793,
     "countries": {
       "South Korea": {
         "flights": 10,
@@ -40,8 +44,8 @@
         "pax": 147
       },
       "Hong Kong": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "China": {
         "flights": 1,
@@ -53,6 +57,14 @@
         "country": "Russia"
       },
       "Taiwan": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Thailand": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Malaysia": {
         "flights": 1,
         "pax": 147
       }
@@ -62,7 +74,7 @@
     {
       "fn": "VJ969",
       "airline": "VietJet Air",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-04-23T07:45",
       "arr_time": "2026-04-23T11:10",
@@ -72,7 +84,7 @@
     {
       "fn": "VJ977",
       "airline": "VietJet Air",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-04-23T05:00",
       "arr_time": "2026-04-23T08:25",
@@ -182,12 +194,52 @@
     {
       "fn": "AK 543",
       "airline": "AirAsia",
-      "status": "on-time",
+      "status": "scheduled",
       "pax": 147,
       "dep_time": "2026-04-23T09:21",
       "arr_time": "2026-04-23T09:30",
       "from": "KUL",
       "country": "Malaysia"
+    },
+    {
+      "fn": "FD660",
+      "airline": "Thai AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-23T12:00",
+      "arr_time": "2026-04-23T13:20",
+      "from": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "AK545",
+      "airline": "AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-23T12:50",
+      "arr_time": "2026-04-23T13:35",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "9G451",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-23T12:35",
+      "arr_time": "2026-04-23T16:15",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "VZ980",
+      "airline": "Thai VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-23T09:15",
+      "arr_time": "2026-04-23T10:40",
+      "from": "BKK",
+      "country": "Thailand"
     }
   ],
   "departures_list": [
@@ -340,6 +392,46 @@
       "arr_time": "2026-04-23T08:20",
       "to": "TPE",
       "country": "Taiwan"
+    },
+    {
+      "fn": "VJ986",
+      "airline": "VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-23T11:55",
+      "arr_time": "2026-04-23T15:40",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "VZ981",
+      "airline": "Thai VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-23T11:45",
+      "arr_time": "2026-04-23T13:05",
+      "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "9G510",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-23T11:30",
+      "arr_time": "2026-04-23T16:10",
+      "to": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "AK544",
+      "airline": "AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-23T10:05",
+      "arr_time": "2026-04-23T12:50",
+      "to": "KUL",
+      "country": "Malaysia"
     }
   ]
 }
