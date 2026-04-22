@@ -47,8 +47,6 @@ jobs:
           AVIATIONSTACK_KEY_4: ${{ secrets.AVIATIONSTACK_KEY_4 }}
           TG_TOKEN:            ${{ secrets.TG_TOKEN }}
           TG_CHAT_ID:          ${{ secrets.TG_CHAT_ID }}
-          SUPABASE_URL:        ${{ secrets.SUPABASE_URL }}
-          SUPABASE_KEY:        ${{ secrets.SUPABASE_KEY }}
 
       - name: Commit and push PQC data
         env:

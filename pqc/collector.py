@@ -573,8 +573,6 @@ def run():
                          "countries": dep_c}
     acc_file.write_text(json.dumps(acc, indent=2, ensure_ascii=False))
 
-    save_to_supabase(today, acc.get("arrivals", {}), acc.get("departures", {}))
-
     a_acc = acc.get("arrivals",   {"count": 0, "pax": 0, "countries": {}})
     d_acc = acc.get("departures", {"count": 0, "pax": 0, "countries": {}})
 

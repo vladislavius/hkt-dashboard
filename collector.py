@@ -1090,9 +1090,6 @@ def run():
 
     acc_file.write_text(json.dumps(acc, indent=2, ensure_ascii=False))
 
-    # Persist to Supabase
-    save_to_supabase(today, acc.get("arrivals", {}), acc.get("departures", {}))
-
     # Read accumulated today for dashboard
     a_acc = acc.get("arrivals",   {"count": 0, "pax": 0, "countries": {}})
     d_acc = acc.get("departures", {"count": 0, "pax": 0, "countries": {}})
