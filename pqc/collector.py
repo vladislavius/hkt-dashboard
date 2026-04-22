@@ -76,26 +76,42 @@ _ROW_RE = re.compile(
 _FL_RE = re.compile(r'^(.*?)\s+([A-Z0-9]{2,3}\*?)\s+(\d+)')
 
 
+def _get_proxies():
+    """Optional Webshare residential proxy (bypass CF block from datacenter IPs).
+    Set WEBSHARE_PROXY_HOST / PORT / USER / PASS env vars to enable."""
+    h = os.environ.get("WEBSHARE_PROXY_HOST", "")
+    p = os.environ.get("WEBSHARE_PROXY_PORT", "")
+    u = os.environ.get("WEBSHARE_PROXY_USER", "")
+    w = os.environ.get("WEBSHARE_PROXY_PASS", "")
+    if h and p and u and w:
+        url = f"http://{u}:{w}@{h}:{p}"
+        return {"http": url, "https": url}
+    return None
+
+
 def _fetch_html(url):
+    proxies = _get_proxies()
     try:
         r = requests.get(
             url,
             headers={"User-Agent": USER_AGENT, "Accept": "text/html,application/xhtml+xml"},
             timeout=25,
             verify=_CA,
+            proxies=proxies,
         )
         r.raise_for_status()
         return r.text
     except requests.exceptions.SSLError:
         try:
-            r = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=25, verify=False)
+            r = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=25, verify=False, proxies=proxies)
             r.raise_for_status()
             return r.text
         except Exception as e:
             print(f"⚠️ phuquocairport.com (no-verify retry) {url}: {e}")
             return None
     except Exception as e:
-        print(f"⚠️ phuquocairport.com {url}: {e}")
+        via = " via proxy" if proxies else ""
+        print(f"⚠️ phuquocairport.com{via} {url}: {e}")
         return None
 
 

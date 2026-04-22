@@ -35,7 +35,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install requests pytz beautifulsoup4 certifi
+        run: pip install requests pytz beautifulsoup4 certifi curl_cffi
 
       - name: Run DAD collector
         run: python3 -m dad.collector
@@ -47,6 +47,11 @@ jobs:
           AVIATIONSTACK_KEY_4: ${{ secrets.AVIATIONSTACK_KEY_4 }}
           TG_TOKEN:            ${{ secrets.TG_TOKEN }}
           TG_CHAT_ID:          ${{ secrets.TG_CHAT_ID }}
+          WEBSHARE_PROXY_HOST: ${{ secrets.WEBSHARE_PROXY_HOST }}
+          WEBSHARE_PROXY_PORT: ${{ secrets.WEBSHARE_PROXY_PORT }}
+          WEBSHARE_PROXY_USER: ${{ secrets.WEBSHARE_PROXY_USER }}
+          WEBSHARE_PROXY_PASS: ${{ secrets.WEBSHARE_PROXY_PASS }}
+          CAPSOLVER_KEY:       ${{ secrets.CAPSOLVER_KEY }}
 
       - name: Commit and push DAD data
         env:

@@ -16,6 +16,7 @@ Telegram: префикс [DAD].
 import os
 import json
 import re
+import time
 import datetime
 import pytz
 import certifi
@@ -66,28 +67,128 @@ AVIATIONSTACK_BASE = "https://api.aviationstack.com/v1/flights"
 _CITY_IATA_RE = re.compile(r'^\s*(.*?)\s*\(([A-Z]{3})\)\s*$')
 
 
+def _get_proxies():
+    h = os.environ.get("WEBSHARE_PROXY_HOST", "")
+    p = os.environ.get("WEBSHARE_PROXY_PORT", "")
+    u = os.environ.get("WEBSHARE_PROXY_USER", "")
+    w = os.environ.get("WEBSHARE_PROXY_PASS", "")
+    if h and p and u and w:
+        url = f"http://{u}:{w}@{h}:{p}"
+        return {"http": url, "https": url}
+    return None
+
+
+# CapSolver-bypassed cookies cache (cf_clearance + UA, 1 solve ≈ 30 min)
+_CF_CACHE = {"cookie": "", "ua": "", "ts": 0}
+
+
+def _solve_cloudflare(site_url):
+    """AntiCloudflareTask via CapSolver. Returns (cookie_str, user_agent) or (None, None)."""
+    key = os.environ.get("CAPSOLVER_KEY", "")
+    if not key:
+        return None, None
+    proxies = _get_proxies()
+    proxy_str = ""
+    if proxies:
+        h = os.environ.get("WEBSHARE_PROXY_HOST", "")
+        p = os.environ.get("WEBSHARE_PROXY_PORT", "")
+        u = os.environ.get("WEBSHARE_PROXY_USER", "")
+        w = os.environ.get("WEBSHARE_PROXY_PASS", "")
+        proxy_str = f"{h}:{p}:{u}:{w}"
+    task = {
+        "type": "AntiCloudflareTask",
+        "websiteURL": site_url,
+    }
+    if proxy_str:
+        task["proxy"] = proxy_str
+    else:
+        task["type"] = "AntiCloudflareTaskProxyLess"
+    try:
+        r = requests.post(
+            "https://api.capsolver.com/createTask",
+            json={"clientKey": key, "task": task}, timeout=30,
+        )
+        t_id = r.json().get("taskId")
+        if not t_id:
+            print(f"⚠️ CapSolver createTask: {r.text[:200]}")
+            return None, None
+        for _ in range(40):
+            time.sleep(3)
+            rr = requests.post(
+                "https://api.capsolver.com/getTaskResult",
+                json={"clientKey": key, "taskId": t_id}, timeout=15,
+            ).json()
+            if rr.get("status") == "ready":
+                sol = rr.get("solution", {}) or {}
+                cookies = sol.get("cookies") or {}
+                ua = sol.get("userAgent", "")
+                cookie_str = "; ".join(f"{k}={v}" for k, v in cookies.items())
+                return cookie_str, ua
+            if rr.get("errorId"):
+                print(f"⚠️ CapSolver task error: {rr}")
+                return None, None
+        print("⚠️ CapSolver timeout")
+    except Exception as e:
+        print(f"⚠️ CapSolver exception: {e}")
+    return None, None
+
+
+def _fetch_via_capsolver(url):
+    """Cloudflare bypass: cf_clearance + curl_cffi impersonate=chrome124."""
+    import time as _t
+    if _CF_CACHE["cookie"] and (_t.time() - _CF_CACHE["ts"] < 1500):
+        cookie, ua = _CF_CACHE["cookie"], _CF_CACHE["ua"]
+    else:
+        cookie, ua = _solve_cloudflare("https://danangairport.vn/")
+        if cookie:
+            _CF_CACHE["cookie"], _CF_CACHE["ua"], _CF_CACHE["ts"] = cookie, ua, _t.time()
+    if not cookie:
+        return None
+    try:
+        from curl_cffi import requests as cffi_requests
+    except ImportError:
+        print("⚠️ curl_cffi not installed — cannot use CapSolver CF bypass")
+        return None
+    proxies = _get_proxies()
+    try:
+        r = cffi_requests.get(
+            url, impersonate="chrome124", timeout=30,
+            headers={"User-Agent": ua, "Cookie": cookie}, proxies=proxies,
+        )
+        if r.status_code == 200:
+            return r.text
+        print(f"⚠️ CapSolver bypass: HTTP {r.status_code} on {url}")
+    except Exception as e:
+        print(f"⚠️ CapSolver bypass fetch: {e}")
+    return None
+
+
 def _fetch_html(url):
+    proxies = _get_proxies()
+    # 1) Direct / proxied requests (fastest path)
     try:
         r = requests.get(
             url,
             headers={"User-Agent": USER_AGENT, "Accept": "text/html"},
-            timeout=25,
-            verify=_CA,
+            timeout=25, verify=_CA, proxies=proxies,
         )
         r.raise_for_status()
         return r.text
     except requests.exceptions.SSLError:
-        # Graceful fallback on mac w/o Apple root CA chain
         try:
-            r = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=25, verify=False)
+            r = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=25, verify=False, proxies=proxies)
             r.raise_for_status()
             return r.text
         except Exception as e:
             print(f"⚠️ danangairport.vn (no-verify retry) {url}: {e}")
-            return None
     except Exception as e:
-        print(f"⚠️ danangairport.vn {url}: {e}")
-        return None
+        via = " via proxy" if proxies else ""
+        print(f"⚠️ danangairport.vn{via} {url}: {e} — trying CapSolver CF bypass")
+    # 2) CapSolver AntiCloudflareTask + curl_cffi impersonate
+    html = _fetch_via_capsolver(url)
+    if html:
+        return html
+    return None
 
 
 def fetch_flights_danang(date_str):
