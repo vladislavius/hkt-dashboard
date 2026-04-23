@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-23T16:55:09.585844+07:00",
+  "updated": "2026-04-23T18:33:27.621146+07:00",
   "available_dates": [
     "2026-04-21",
     "2026-04-22",
@@ -583,8 +583,8 @@
       ]
     },
     "departures": {
-      "count": 24,
-      "pax": 3528,
+      "count": 25,
+      "pax": 3675,
       "all": [
         {
           "name": "South Korea",
@@ -631,6 +631,12 @@
           "name": "Vietnam",
           "flights": 1,
           "pax": 147
+        },
+        {
+          "name": "Красноярск",
+          "flights": 1,
+          "pax": 147,
+          "country": "Russia"
         }
       ]
     },
@@ -708,7 +714,7 @@
       {
         "fn": "KE 485",
         "airline": "Korean Air",
-        "status": "arrived on-time",
+        "status": "on-time",
         "pax": 147,
         "dep_time": "2026-04-23T22:49",
         "arr_time": "2026-04-23T22:50",
@@ -718,7 +724,7 @@
       {
         "fn": "ZE 581",
         "airline": "Eastar Jet",
-        "status": "arrived on-time",
+        "status": "on-time",
         "pax": 147,
         "dep_time": "2026-04-23T23:05",
         "arr_time": "2026-04-23T23:20",
@@ -728,7 +734,7 @@
       {
         "fn": "TWB 55",
         "airline": "T'way Air",
-        "status": "arrived on-time",
+        "status": "on-time",
         "pax": 147,
         "dep_time": "2026-04-23T23:14",
         "arr_time": "2026-04-23T23:35",
@@ -738,7 +744,7 @@
       {
         "fn": "FGW 207",
         "airline": "Parata Air",
-        "status": "arrived on-time",
+        "status": "on-time",
         "pax": 147,
         "dep_time": "2026-04-23T23:31",
         "arr_time": "2026-04-23T00:05",
@@ -808,7 +814,7 @@
       {
         "fn": "TVJ 982",
         "airline": "Thai VietJet Air",
-        "status": "arrived on-time",
+        "status": "arrived 50 minutes late",
         "pax": 147,
         "dep_time": "2026-04-23T15:55",
         "arr_time": "2026-04-23T15:55",
@@ -818,7 +824,7 @@
       {
         "fn": "VJC 845",
         "airline": "VietJet Air",
-        "status": "on-time",
+        "status": "arrived on-time",
         "pax": 147,
         "dep_time": "2026-04-23T16:50",
         "arr_time": "2026-04-23T16:50",
@@ -838,7 +844,7 @@
       {
         "fn": "TR 524",
         "airline": "Scoot",
-        "status": "on-time",
+        "status": "arrived on-time",
         "pax": 147,
         "dep_time": "2026-04-23T17:40",
         "arr_time": "2026-04-23T17:40",
@@ -848,7 +854,7 @@
       {
         "fn": "UO 596",
         "airline": "HK Express",
-        "status": "on-time",
+        "status": "arrived on-time",
         "pax": 147,
         "dep_time": "2026-04-23T18:05",
         "arr_time": "2026-04-23T18:05",
@@ -1136,6 +1142,16 @@
         "arr_time": "2026-04-23T19:55",
         "to": "BKK",
         "country": "Thailand"
+      },
+      {
+        "fn": "KTK 2672",
+        "airline": "Azur Air",
+        "status": "on-time",
+        "pax": 147,
+        "dep_time": "2026-04-23T23:40",
+        "arr_time": "2026-04-23T23:40",
+        "to": "KJA",
+        "country": "Russia"
       }
     ]
   },
@@ -1204,8 +1220,8 @@
       ]
     },
     "departures": {
-      "count": 69,
-      "pax": 10143,
+      "count": 70,
+      "pax": 10290,
       "all": [
         {
           "name": "South Korea",
@@ -1254,6 +1270,12 @@
         },
         {
           "name": "Новосибирск",
+          "flights": 1,
+          "pax": 147,
+          "country": "Russia"
+        },
+        {
+          "name": "Красноярск",
           "flights": 1,
           "pax": 147,
           "country": "Russia"
@@ -1402,7 +1424,7 @@
         "date": "2026-04-23",
         "label": "Чт 23.04",
         "arrivals": 25,
-        "departures": 24,
+        "departures": 25,
         "arrivals_by": {
           "South Korea": {
             "n": 10
@@ -1465,6 +1487,10 @@
           },
           "Vietnam": {
             "n": 1
+          },
+          "Красноярск": {
+            "n": 1,
+            "country": "Russia"
           }
         }
       }
@@ -1535,8 +1561,8 @@
       ]
     },
     "departures": {
-      "count": 69,
-      "pax": 10143,
+      "count": 70,
+      "pax": 10290,
       "all": [
         {
           "name": "South Korea",
@@ -1590,6 +1616,12 @@
           "country": "Russia"
         },
         {
+          "name": "Красноярск",
+          "flights": 1,
+          "pax": 147,
+          "country": "Russia"
+        },
+        {
           "name": "Uzbekistan",
           "flights": 1,
           "pax": 147
@@ -1607,7 +1639,7 @@
         "key": "2026-W17",
         "label": "Нед 17 (Апр)",
         "arrivals": 67,
-        "departures": 69,
+        "departures": 70,
         "arrivals_by": {
           "South Korea": {
             "n": 27
@@ -1681,6 +1713,10 @@
             "n": 1
           },
           "Новосибирск": {
+            "n": 1,
+            "country": "Russia"
+          },
+          "Красноярск": {
             "n": 1,
             "country": "Russia"
           }
@@ -1753,8 +1789,8 @@
       ]
     },
     "departures": {
-      "count": 69,
-      "pax": 10143,
+      "count": 70,
+      "pax": 10290,
       "all": [
         {
           "name": "South Korea",
@@ -1808,6 +1844,12 @@
           "country": "Russia"
         },
         {
+          "name": "Красноярск",
+          "flights": 1,
+          "pax": 147,
+          "country": "Russia"
+        },
+        {
           "name": "Uzbekistan",
           "flights": 1,
           "pax": 147
@@ -1825,7 +1867,7 @@
         "key": "2026-04",
         "label": "Апр 2026",
         "arrivals": 67,
-        "departures": 69,
+        "departures": 70,
         "arrivals_by": {
           "South Korea": {
             "n": 27
@@ -1899,6 +1941,10 @@
             "n": 1
           },
           "Новосибирск": {
+            "n": 1,
+            "country": "Russia"
+          },
+          "Красноярск": {
             "n": 1,
             "country": "Russia"
           }
@@ -1971,8 +2017,8 @@
       ]
     },
     "departures": {
-      "count": 69,
-      "pax": 10143,
+      "count": 70,
+      "pax": 10290,
       "all": [
         {
           "name": "South Korea",
@@ -2026,6 +2072,12 @@
           "country": "Russia"
         },
         {
+          "name": "Красноярск",
+          "flights": 1,
+          "pax": 147,
+          "country": "Russia"
+        },
+        {
           "name": "Uzbekistan",
           "flights": 1,
           "pax": 147
@@ -2043,7 +2095,7 @@
         "key": "2026-04",
         "label": "Апр 2026",
         "arrivals": 67,
-        "departures": 69,
+        "departures": 70,
         "arrivals_by": {
           "South Korea": {
             "n": 27
@@ -2117,6 +2169,10 @@
             "n": 1
           },
           "Новосибирск": {
+            "n": 1,
+            "country": "Russia"
+          },
+          "Красноярск": {
             "n": 1,
             "country": "Russia"
           }
@@ -2189,8 +2245,8 @@
       ]
     },
     "departures": {
-      "count": 69,
-      "pax": 10143,
+      "count": 70,
+      "pax": 10290,
       "all": [
         {
           "name": "South Korea",
@@ -2244,6 +2300,12 @@
           "country": "Russia"
         },
         {
+          "name": "Красноярск",
+          "flights": 1,
+          "pax": 147,
+          "country": "Russia"
+        },
+        {
           "name": "Uzbekistan",
           "flights": 1,
           "pax": 147
@@ -2261,7 +2323,7 @@
         "key": "2026-04",
         "label": "Апр 2026",
         "arrivals": 67,
-        "departures": 69,
+        "departures": 70,
         "arrivals_by": {
           "South Korea": {
             "n": 27
@@ -2335,6 +2397,10 @@
             "n": 1
           },
           "Новосибирск": {
+            "n": 1,
+            "country": "Russia"
+          },
+          "Красноярск": {
             "n": 1,
             "country": "Russia"
           }
