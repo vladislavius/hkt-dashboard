@@ -1,18 +1,34 @@
 {
   "date": "2026-04-23",
   "arrivals": {
-    "count": 3,
-    "pax": 441,
+    "count": 8,
+    "pax": 1176,
     "countries": {
       "South Korea": {
         "flights": 3,
         "pax": 441
+      },
+      "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Hong Kong": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Thailand": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Singapore": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 10,
-    "pax": 1470,
+    "count": 11,
+    "pax": 1617,
     "countries": {
       "South Korea": {
         "flights": 8,
@@ -21,6 +37,10 @@
       "Japan": {
         "flights": 2,
         "pax": 294
+      },
+      "Taiwan": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -84,6 +104,56 @@
       "arr_time": "2026-04-23T07:30",
       "from": "MNL",
       "country": "Other(MNL)"
+    },
+    {
+      "fn": "CI787",
+      "airline": "China Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-23T09:00",
+      "from": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "UO552",
+      "airline": "Hong Kong Express Airways",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-23T09:20",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "FD634",
+      "airline": "Thai Air Asia",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-23T09:30",
+      "from": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "TR510",
+      "airline": "Scoot",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-23T09:55",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "VZ964",
+      "airline": "Thai Vietjet",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-23T09:55",
+      "from": "BKK",
+      "country": "Thailand"
     }
   ],
   "departures_list": [
@@ -206,6 +276,16 @@
       "arr_time": "",
       "to": "PUS",
       "country": "South Korea"
+    },
+    {
+      "fn": "CI788",
+      "airline": "China Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-23T10:00",
+      "arr_time": "",
+      "to": "TPE",
+      "country": "Taiwan"
     }
   ]
 }
