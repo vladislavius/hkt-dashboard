@@ -49,12 +49,12 @@
     }
   },
   "departures": {
-    "count": 25,
-    "pax": 3675,
+    "count": 26,
+    "pax": 3822,
     "countries": {
       "South Korea": {
-        "flights": 10,
-        "pax": 1470
+        "flights": 11,
+        "pax": 1617
       },
       "Singapore": {
         "flights": 1,
@@ -130,7 +130,7 @@
     {
       "fn": "9G 511",
       "airline": "Sun PhuQuoc Airways",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-23T20:05",
       "arr_time": "2026-04-23T20:25",
@@ -140,7 +140,7 @@
     {
       "fn": "LJ 91",
       "airline": "Jin Air",
-      "status": "18 minutes late",
+      "status": "30 minutes late",
       "pax": 147,
       "dep_time": "2026-04-23T20:47",
       "arr_time": "2026-04-23T21:00",
@@ -290,7 +290,7 @@
     {
       "fn": "9G 2953",
       "airline": "Sun PhuQuoc Airways",
-      "status": "on-time",
+      "status": "arrived 42 minutes late",
       "pax": 147,
       "dep_time": "2026-04-23T17:40",
       "arr_time": "2026-04-23T17:40",
@@ -320,7 +320,7 @@
     {
       "fn": "VJC 985",
       "airline": "VietJet Air",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-23T18:25",
       "arr_time": "2026-04-23T18:25",
@@ -330,7 +330,7 @@
     {
       "fn": "TVJ 984",
       "airline": "Thai VietJet Air",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-23T19:00",
       "arr_time": "2026-04-23T19:00",
@@ -608,6 +608,16 @@
       "arr_time": "2026-04-23T23:40",
       "to": "KJA",
       "country": "Russia"
+    },
+    {
+      "fn": "FGW 208",
+      "airline": "Parata Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-23T01:00",
+      "arr_time": "2026-04-23T01:00",
+      "to": "ICN",
+      "country": "South Korea"
     }
   ]
 }
