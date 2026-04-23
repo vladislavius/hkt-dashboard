@@ -1,8 +1,8 @@
 {
   "date": "2026-04-23",
   "arrivals": {
-    "count": 22,
-    "pax": 3234,
+    "count": 24,
+    "pax": 3528,
     "countries": {
       "South Korea": {
         "flights": 7,
@@ -13,12 +13,12 @@
         "pax": 294
       },
       "Hong Kong": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "Thailand": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "Singapore": {
         "flights": 2,
@@ -31,8 +31,8 @@
     }
   },
   "departures": {
-    "count": 26,
-    "pax": 3822,
+    "count": 28,
+    "pax": 4116,
     "countries": {
       "South Korea": {
         "flights": 10,
@@ -51,8 +51,8 @@
         "pax": 441
       },
       "Singapore": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Malaysia": {
         "flights": 4,
@@ -67,6 +67,10 @@
         "pax": 147
       },
       "Laos": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Vietnam": {
         "flights": 1,
         "pax": 147
       }
@@ -332,6 +336,26 @@
       "arr_time": "2026-04-23T16:00",
       "from": "SAI",
       "country": "Other(SAI)"
+    },
+    {
+      "fn": "UO558",
+      "airline": "Hong Kong Express Airways",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-23T17:25",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "VZ962",
+      "airline": "Thai Vietjet",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-23T17:30",
+      "from": "BKK",
+      "country": "Thailand"
     }
   ],
   "departures_list": [
@@ -614,6 +638,26 @@
       "arr_time": "",
       "to": "HKG",
       "country": "Hong Kong"
+    },
+    {
+      "fn": "SQ173",
+      "airline": "Singapore Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-23T16:45",
+      "arr_time": "",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "VN1941",
+      "airline": "Vietnam Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-23T18:00",
+      "arr_time": "",
+      "to": "CXR",
+      "country": "Vietnam"
     }
   ]
 }
