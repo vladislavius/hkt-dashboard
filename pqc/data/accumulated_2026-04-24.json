@@ -1,8 +1,8 @@
 {
   "date": "2026-04-24",
   "arrivals": {
-    "count": 26,
-    "pax": 3822,
+    "count": 27,
+    "pax": 3969,
     "countries": {
       "Vietnam": {
         "flights": 1,
@@ -43,14 +43,14 @@
         "pax": 441
       },
       "China": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       }
     }
   },
   "departures": {
-    "count": 25,
-    "pax": 3675,
+    "count": 27,
+    "pax": 3969,
     "countries": {
       "Singapore": {
         "flights": 3,
@@ -90,8 +90,13 @@
         "pax": 147
       },
       "China": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Самара": {
         "flights": 1,
-        "pax": 147
+        "pax": 147,
+        "country": "Russia"
       }
     }
   },
@@ -339,7 +344,7 @@
     {
       "fn": "UO 596",
       "airline": "HK Express",
-      "status": "on-time",
+      "status": "arrived 36 minutes late",
       "pax": 147,
       "dep_time": "2026-04-24T18:05",
       "arr_time": "2026-04-24T18:05",
@@ -349,11 +354,21 @@
     {
       "fn": "MU 861",
       "airline": "China Eastern Airlines",
-      "status": "15 minutes late",
+      "status": "arrived 16 minutes late",
       "pax": 147,
       "dep_time": "2026-04-24T20:11",
       "arr_time": "2026-04-24T20:00",
       "from": "XIY",
+      "country": "China"
+    },
+    {
+      "fn": "DR 5045",
+      "airline": "Ruili Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-24T23:57",
+      "arr_time": "2026-04-24T01:45",
+      "from": "KMG",
       "country": "China"
     }
   ],
@@ -607,6 +622,26 @@
       "arr_time": "2026-04-24T23:10",
       "to": "PUS",
       "country": "South Korea"
+    },
+    {
+      "fn": "KTK 2624",
+      "airline": "Azur Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-24T01:35",
+      "arr_time": "2026-04-24T01:35",
+      "to": "KUF",
+      "country": "Russia"
+    },
+    {
+      "fn": "DR 5046",
+      "airline": "Ruili Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-24T02:45",
+      "arr_time": "2026-04-24T02:45",
+      "to": "KMG",
+      "country": "China"
     }
   ]
 }

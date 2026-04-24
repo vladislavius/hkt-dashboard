@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-24T18:35:45.568283+07:00",
+  "updated": "2026-04-24T21:07:56.139780+07:00",
   "available_dates": [
     "2026-04-21",
     "2026-04-22",
@@ -650,8 +650,8 @@
   },
   "today": {
     "arrivals": {
-      "count": 26,
-      "pax": 3822,
+      "count": 27,
+      "pax": 3969,
       "all": [
         {
           "name": "South Korea",
@@ -684,6 +684,11 @@
           "pax": 294
         },
         {
+          "name": "China",
+          "flights": 2,
+          "pax": 294
+        },
+        {
           "name": "Vietnam",
           "flights": 1,
           "pax": 147
@@ -699,17 +704,12 @@
           "flights": 1,
           "pax": 147,
           "country": "Russia"
-        },
-        {
-          "name": "China",
-          "flights": 1,
-          "pax": 147
         }
       ]
     },
     "departures": {
-      "count": 25,
-      "pax": 3675,
+      "count": 27,
+      "pax": 3969,
       "all": [
         {
           "name": "South Korea",
@@ -728,6 +728,11 @@
         },
         {
           "name": "Malaysia",
+          "flights": 2,
+          "pax": 294
+        },
+        {
+          "name": "China",
           "flights": 2,
           "pax": 294
         },
@@ -758,9 +763,10 @@
           "pax": 147
         },
         {
-          "name": "China",
+          "name": "Самара",
           "flights": 1,
-          "pax": 147
+          "pax": 147,
+          "country": "Russia"
         }
       ]
     },
@@ -1008,7 +1014,7 @@
       {
         "fn": "UO 596",
         "airline": "HK Express",
-        "status": "on-time",
+        "status": "arrived 36 minutes late",
         "pax": 147,
         "dep_time": "2026-04-24T18:05",
         "arr_time": "2026-04-24T18:05",
@@ -1018,11 +1024,21 @@
       {
         "fn": "MU 861",
         "airline": "China Eastern Airlines",
-        "status": "15 minutes late",
+        "status": "arrived 16 minutes late",
         "pax": 147,
         "dep_time": "2026-04-24T20:11",
         "arr_time": "2026-04-24T20:00",
         "from": "XIY",
+        "country": "China"
+      },
+      {
+        "fn": "DR 5045",
+        "airline": "Ruili Airlines",
+        "status": "on-time",
+        "pax": 147,
+        "dep_time": "2026-04-24T23:57",
+        "arr_time": "2026-04-24T01:45",
+        "from": "KMG",
         "country": "China"
       }
     ],
@@ -1276,13 +1292,33 @@
         "arr_time": "2026-04-24T23:10",
         "to": "PUS",
         "country": "South Korea"
+      },
+      {
+        "fn": "KTK 2624",
+        "airline": "Azur Air",
+        "status": "on-time",
+        "pax": 147,
+        "dep_time": "2026-04-24T01:35",
+        "arr_time": "2026-04-24T01:35",
+        "to": "KUF",
+        "country": "Russia"
+      },
+      {
+        "fn": "DR 5046",
+        "airline": "Ruili Airlines",
+        "status": "on-time",
+        "pax": 147,
+        "dep_time": "2026-04-24T02:45",
+        "arr_time": "2026-04-24T02:45",
+        "to": "KMG",
+        "country": "China"
       }
     ]
   },
   "week": {
     "arrivals": {
-      "count": 93,
-      "pax": 13671,
+      "count": 94,
+      "pax": 13818,
       "all": [
         {
           "name": "South Korea",
@@ -1316,8 +1352,8 @@
         },
         {
           "name": "China",
-          "flights": 4,
-          "pax": 588
+          "flights": 5,
+          "pax": 735
         },
         {
           "name": "Vietnam",
@@ -1350,8 +1386,8 @@
       ]
     },
     "departures": {
-      "count": 96,
-      "pax": 14112,
+      "count": 98,
+      "pax": 14406,
       "all": [
         {
           "name": "South Korea",
@@ -1385,8 +1421,8 @@
         },
         {
           "name": "China",
-          "flights": 4,
-          "pax": 588
+          "flights": 5,
+          "pax": 735
         },
         {
           "name": "Kazakhstan",
@@ -1402,6 +1438,12 @@
           "name": "Красноярск",
           "flights": 2,
           "pax": 294,
+          "country": "Russia"
+        },
+        {
+          "name": "Самара",
+          "flights": 1,
+          "pax": 147,
           "country": "Russia"
         },
         {
@@ -1627,8 +1669,8 @@
       {
         "date": "2026-04-24",
         "label": "Пт 24.04",
-        "arrivals": 26,
-        "departures": 25,
+        "arrivals": 27,
+        "departures": 27,
         "arrivals_by": {
           "Vietnam": {
             "n": 1
@@ -1660,7 +1702,7 @@
             "n": 3
           },
           "China": {
-            "n": 1
+            "n": 2
           }
         },
         "departures_by": {
@@ -1693,7 +1735,11 @@
             "n": 1
           },
           "China": {
-            "n": 1
+            "n": 2
+          },
+          "Самара": {
+            "n": 1,
+            "country": "Russia"
           }
         }
       }
@@ -1701,8 +1747,8 @@
   },
   "month": {
     "arrivals": {
-      "count": 93,
-      "pax": 13671,
+      "count": 94,
+      "pax": 13818,
       "all": [
         {
           "name": "South Korea",
@@ -1736,8 +1782,8 @@
         },
         {
           "name": "China",
-          "flights": 4,
-          "pax": 588
+          "flights": 5,
+          "pax": 735
         },
         {
           "name": "Vietnam",
@@ -1770,8 +1816,8 @@
       ]
     },
     "departures": {
-      "count": 96,
-      "pax": 14112,
+      "count": 98,
+      "pax": 14406,
       "all": [
         {
           "name": "South Korea",
@@ -1805,8 +1851,8 @@
         },
         {
           "name": "China",
-          "flights": 4,
-          "pax": 588
+          "flights": 5,
+          "pax": 735
         },
         {
           "name": "Kazakhstan",
@@ -1822,6 +1868,12 @@
           "name": "Красноярск",
           "flights": 2,
           "pax": 294,
+          "country": "Russia"
+        },
+        {
+          "name": "Самара",
+          "flights": 1,
+          "pax": 147,
           "country": "Russia"
         },
         {
@@ -1847,14 +1899,14 @@
       {
         "key": "2026-W17",
         "label": "Нед 17 (Апр)",
-        "arrivals": 93,
-        "departures": 96,
+        "arrivals": 94,
+        "departures": 98,
         "arrivals_by": {
           "South Korea": {
             "n": 36
           },
           "China": {
-            "n": 4
+            "n": 5
           },
           "Malaysia": {
             "n": 8
@@ -1895,7 +1947,7 @@
             "n": 38
           },
           "China": {
-            "n": 4
+            "n": 5
           },
           "Taiwan": {
             "n": 7
@@ -1931,6 +1983,10 @@
           },
           "Красноярск": {
             "n": 2,
+            "country": "Russia"
+          },
+          "Самара": {
+            "n": 1,
             "country": "Russia"
           }
         }
@@ -1939,8 +1995,8 @@
   },
   "quarter": {
     "arrivals": {
-      "count": 93,
-      "pax": 13671,
+      "count": 94,
+      "pax": 13818,
       "all": [
         {
           "name": "South Korea",
@@ -1974,8 +2030,8 @@
         },
         {
           "name": "China",
-          "flights": 4,
-          "pax": 588
+          "flights": 5,
+          "pax": 735
         },
         {
           "name": "Vietnam",
@@ -2008,8 +2064,8 @@
       ]
     },
     "departures": {
-      "count": 96,
-      "pax": 14112,
+      "count": 98,
+      "pax": 14406,
       "all": [
         {
           "name": "South Korea",
@@ -2043,8 +2099,8 @@
         },
         {
           "name": "China",
-          "flights": 4,
-          "pax": 588
+          "flights": 5,
+          "pax": 735
         },
         {
           "name": "Kazakhstan",
@@ -2060,6 +2116,12 @@
           "name": "Красноярск",
           "flights": 2,
           "pax": 294,
+          "country": "Russia"
+        },
+        {
+          "name": "Самара",
+          "flights": 1,
+          "pax": 147,
           "country": "Russia"
         },
         {
@@ -2085,14 +2147,14 @@
       {
         "key": "2026-04",
         "label": "Апр 2026",
-        "arrivals": 93,
-        "departures": 96,
+        "arrivals": 94,
+        "departures": 98,
         "arrivals_by": {
           "South Korea": {
             "n": 36
           },
           "China": {
-            "n": 4
+            "n": 5
           },
           "Malaysia": {
             "n": 8
@@ -2133,7 +2195,7 @@
             "n": 38
           },
           "China": {
-            "n": 4
+            "n": 5
           },
           "Taiwan": {
             "n": 7
@@ -2169,6 +2231,10 @@
           },
           "Красноярск": {
             "n": 2,
+            "country": "Russia"
+          },
+          "Самара": {
+            "n": 1,
             "country": "Russia"
           }
         }
@@ -2177,8 +2243,8 @@
   },
   "halfyear": {
     "arrivals": {
-      "count": 93,
-      "pax": 13671,
+      "count": 94,
+      "pax": 13818,
       "all": [
         {
           "name": "South Korea",
@@ -2212,8 +2278,8 @@
         },
         {
           "name": "China",
-          "flights": 4,
-          "pax": 588
+          "flights": 5,
+          "pax": 735
         },
         {
           "name": "Vietnam",
@@ -2246,8 +2312,8 @@
       ]
     },
     "departures": {
-      "count": 96,
-      "pax": 14112,
+      "count": 98,
+      "pax": 14406,
       "all": [
         {
           "name": "South Korea",
@@ -2281,8 +2347,8 @@
         },
         {
           "name": "China",
-          "flights": 4,
-          "pax": 588
+          "flights": 5,
+          "pax": 735
         },
         {
           "name": "Kazakhstan",
@@ -2298,6 +2364,12 @@
           "name": "Красноярск",
           "flights": 2,
           "pax": 294,
+          "country": "Russia"
+        },
+        {
+          "name": "Самара",
+          "flights": 1,
+          "pax": 147,
           "country": "Russia"
         },
         {
@@ -2323,14 +2395,14 @@
       {
         "key": "2026-04",
         "label": "Апр 2026",
-        "arrivals": 93,
-        "departures": 96,
+        "arrivals": 94,
+        "departures": 98,
         "arrivals_by": {
           "South Korea": {
             "n": 36
           },
           "China": {
-            "n": 4
+            "n": 5
           },
           "Malaysia": {
             "n": 8
@@ -2371,7 +2443,7 @@
             "n": 38
           },
           "China": {
-            "n": 4
+            "n": 5
           },
           "Taiwan": {
             "n": 7
@@ -2407,6 +2479,10 @@
           },
           "Красноярск": {
             "n": 2,
+            "country": "Russia"
+          },
+          "Самара": {
+            "n": 1,
             "country": "Russia"
           }
         }
@@ -2415,8 +2491,8 @@
   },
   "year": {
     "arrivals": {
-      "count": 93,
-      "pax": 13671,
+      "count": 94,
+      "pax": 13818,
       "all": [
         {
           "name": "South Korea",
@@ -2450,8 +2526,8 @@
         },
         {
           "name": "China",
-          "flights": 4,
-          "pax": 588
+          "flights": 5,
+          "pax": 735
         },
         {
           "name": "Vietnam",
@@ -2484,8 +2560,8 @@
       ]
     },
     "departures": {
-      "count": 96,
-      "pax": 14112,
+      "count": 98,
+      "pax": 14406,
       "all": [
         {
           "name": "South Korea",
@@ -2519,8 +2595,8 @@
         },
         {
           "name": "China",
-          "flights": 4,
-          "pax": 588
+          "flights": 5,
+          "pax": 735
         },
         {
           "name": "Kazakhstan",
@@ -2536,6 +2612,12 @@
           "name": "Красноярск",
           "flights": 2,
           "pax": 294,
+          "country": "Russia"
+        },
+        {
+          "name": "Самара",
+          "flights": 1,
+          "pax": 147,
           "country": "Russia"
         },
         {
@@ -2561,14 +2643,14 @@
       {
         "key": "2026-04",
         "label": "Апр 2026",
-        "arrivals": 93,
-        "departures": 96,
+        "arrivals": 94,
+        "departures": 98,
         "arrivals_by": {
           "South Korea": {
             "n": 36
           },
           "China": {
-            "n": 4
+            "n": 5
           },
           "Malaysia": {
             "n": 8
@@ -2609,7 +2691,7 @@
             "n": 38
           },
           "China": {
-            "n": 4
+            "n": 5
           },
           "Taiwan": {
             "n": 7
@@ -2645,6 +2727,10 @@
           },
           "Красноярск": {
             "n": 2,
+            "country": "Russia"
+          },
+          "Самара": {
+            "n": 1,
             "country": "Russia"
           }
         }
