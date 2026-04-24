@@ -1,8 +1,8 @@
 {
   "date": "2026-04-24",
   "arrivals": {
-    "count": 25,
-    "pax": 3675,
+    "count": 26,
+    "pax": 3822,
     "countries": {
       "Vietnam": {
         "flights": 1,
@@ -41,12 +41,16 @@
       "Singapore": {
         "flights": 3,
         "pax": 441
+      },
+      "China": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 23,
-    "pax": 3381,
+    "count": 24,
+    "pax": 3528,
     "countries": {
       "Singapore": {
         "flights": 3,
@@ -82,6 +86,10 @@
         "pax": 147
       },
       "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "China": {
         "flights": 1,
         "pax": 147
       }
@@ -131,7 +139,7 @@
     {
       "fn": "LJ 91",
       "airline": "Jin Air",
-      "status": "arrived 20 minutes late",
+      "status": "15 minutes late",
       "pax": 147,
       "dep_time": "2026-04-24T21:20",
       "arr_time": "2026-04-24T21:00",
@@ -261,7 +269,7 @@
     {
       "fn": "FD 660",
       "airline": "Thai AirAsia",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-24T13:20",
       "arr_time": "2026-04-24T13:20",
@@ -271,7 +279,7 @@
     {
       "fn": "AK 545",
       "airline": "AirAsia",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-24T13:31",
       "arr_time": "2026-04-24T13:35",
@@ -281,7 +289,7 @@
     {
       "fn": "VJC 984",
       "airline": "VietJet Air",
-      "status": "on-time",
+      "status": "arrived 15 minutes late",
       "pax": 147,
       "dep_time": "2026-04-24T13:45",
       "arr_time": "2026-04-24T13:45",
@@ -337,6 +345,16 @@
       "arr_time": "2026-04-24T18:05",
       "from": "HKG",
       "country": "Hong Kong"
+    },
+    {
+      "fn": "MU 861",
+      "airline": "China Eastern Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-24T20:11",
+      "arr_time": "2026-04-24T20:00",
+      "from": "XIY",
+      "country": "China"
     }
   ],
   "departures_list": [
@@ -569,6 +587,16 @@
       "arr_time": "2026-04-24T17:05",
       "to": "TPE",
       "country": "Taiwan"
+    },
+    {
+      "fn": "MU 862",
+      "airline": "China Eastern Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-24T21:00",
+      "arr_time": "2026-04-24T21:00",
+      "to": "XIY",
+      "country": "China"
     }
   ]
 }
