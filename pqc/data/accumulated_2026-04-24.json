@@ -1,16 +1,16 @@
 {
   "date": "2026-04-24",
   "arrivals": {
-    "count": 23,
-    "pax": 3381,
+    "count": 25,
+    "pax": 3675,
     "countries": {
       "Vietnam": {
         "flights": 1,
         "pax": 147
       },
       "Hong Kong": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Thailand": {
         "flights": 4,
@@ -39,14 +39,14 @@
         "country": "Russia"
       },
       "Singapore": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       }
     }
   },
   "departures": {
-    "count": 22,
-    "pax": 3234,
+    "count": 23,
+    "pax": 3381,
     "countries": {
       "Singapore": {
         "flights": 3,
@@ -80,6 +80,10 @@
       "Vietnam": {
         "flights": 1,
         "pax": 147
+      },
+      "Taiwan": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -87,7 +91,7 @@
     {
       "fn": "9G 2953",
       "airline": "Sun PhuQuoc Airways",
-      "status": "arrived 42 minutes late",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-04-24T18:22",
       "arr_time": "2026-04-24T17:40",
@@ -237,7 +241,7 @@
     {
       "fn": "KTK 2601",
       "airline": "Azur Air",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-24T11:15",
       "arr_time": "2026-04-24T11:15",
@@ -247,7 +251,7 @@
     {
       "fn": "TR 528",
       "airline": "Scoot",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-24T11:45",
       "arr_time": "2026-04-24T11:45",
@@ -313,6 +317,26 @@
       "arr_time": "2026-04-24T16:15",
       "from": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "TR 524",
+      "airline": "Scoot",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-24T17:40",
+      "arr_time": "2026-04-24T17:40",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "UO 596",
+      "airline": "HK Express",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-24T18:05",
+      "arr_time": "2026-04-24T18:05",
+      "from": "HKG",
+      "country": "Hong Kong"
     }
   ],
   "departures_list": [
@@ -535,6 +559,16 @@
       "arr_time": "2026-04-24T16:45",
       "to": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "J2X 706",
+      "airline": "Starlux Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-24T17:05",
+      "arr_time": "2026-04-24T17:05",
+      "to": "TPE",
+      "country": "Taiwan"
     }
   ]
 }
