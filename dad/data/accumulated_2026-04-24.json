@@ -1,12 +1,12 @@
 {
   "date": "2026-04-24",
   "arrivals": {
-    "count": 29,
-    "pax": 4263,
+    "count": 32,
+    "pax": 4704,
     "countries": {
       "South Korea": {
-        "flights": 8,
-        "pax": 1176
+        "flights": 10,
+        "pax": 1470
       },
       "Hong Kong": {
         "flights": 5,
@@ -29,8 +29,8 @@
         "pax": 294
       },
       "Vietnam": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Macau": {
         "flights": 2,
@@ -39,8 +39,8 @@
     }
   },
   "departures": {
-    "count": 30,
-    "pax": 4410,
+    "count": 31,
+    "pax": 4557,
     "countries": {
       "South Korea": {
         "flights": 11,
@@ -73,6 +73,10 @@
       "Taiwan": {
         "flights": 3,
         "pax": 441
+      },
+      "Macau": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -416,6 +420,36 @@
       "arr_time": "2026-04-24T20:35",
       "from": "RMQ",
       "country": "Other(RMQ)"
+    },
+    {
+      "fn": "VN1940",
+      "airline": "Vietnam Airlines",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-24T20:55",
+      "from": "CXR",
+      "country": "Vietnam"
+    },
+    {
+      "fn": "KE459",
+      "airline": "Korean Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-24T21:05",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "WE201",
+      "airline": "Parata Air",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-24T21:10",
+      "from": "ICN",
+      "country": "South Korea"
     }
   ],
   "departures_list": [
@@ -748,6 +782,26 @@
       "arr_time": "",
       "to": "HKG",
       "country": "Hong Kong"
+    },
+    {
+      "fn": "NX977",
+      "airline": "Air Macau",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-24T21:30",
+      "arr_time": "",
+      "to": "MFM",
+      "country": "Macau"
+    },
+    {
+      "fn": "QH9344",
+      "airline": "Bamboo Airways",
+      "status": "delayed",
+      "pax": 147,
+      "dep_time": "2026-04-24T22:25",
+      "arr_time": "",
+      "to": "MNL",
+      "country": "Other(MNL)"
     }
   ]
 }
