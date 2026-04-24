@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-24T18:44:54.848509+07:00",
+  "updated": "2026-04-24T21:18:15.602695+07:00",
   "available_dates": [
     "2026-04-21",
     "2026-04-22",
@@ -821,8 +821,8 @@
   },
   "today": {
     "arrivals": {
-      "count": 26,
-      "pax": 3822,
+      "count": 29,
+      "pax": 4263,
       "all": [
         {
           "name": "South Korea",
@@ -830,14 +830,19 @@
           "pax": 1176
         },
         {
+          "name": "Hong Kong",
+          "flights": 5,
+          "pax": 735
+        },
+        {
           "name": "Malaysia",
           "flights": 5,
           "pax": 735
         },
         {
-          "name": "Hong Kong",
-          "flights": 4,
-          "pax": 588
+          "name": "Thailand",
+          "flights": 3,
+          "pax": 441
         },
         {
           "name": "Singapore",
@@ -845,12 +850,12 @@
           "pax": 441
         },
         {
-          "name": "Thailand",
+          "name": "Taiwan",
           "flights": 2,
           "pax": 294
         },
         {
-          "name": "Taiwan",
+          "name": "Macau",
           "flights": 2,
           "pax": 294
         },
@@ -858,17 +863,12 @@
           "name": "Vietnam",
           "flights": 1,
           "pax": 147
-        },
-        {
-          "name": "Macau",
-          "flights": 1,
-          "pax": 147
         }
       ]
     },
     "departures": {
-      "count": 28,
-      "pax": 4116,
+      "count": 30,
+      "pax": 4410,
       "all": [
         {
           "name": "South Korea",
@@ -881,6 +881,11 @@
           "pax": 441
         },
         {
+          "name": "Hong Kong",
+          "flights": 3,
+          "pax": 441
+        },
+        {
           "name": "Thailand",
           "flights": 3,
           "pax": 441
@@ -891,22 +896,17 @@
           "pax": 441
         },
         {
+          "name": "Taiwan",
+          "flights": 3,
+          "pax": 441
+        },
+        {
           "name": "Japan",
           "flights": 2,
           "pax": 294
         },
         {
           "name": "Vietnam",
-          "flights": 2,
-          "pax": 294
-        },
-        {
-          "name": "Hong Kong",
-          "flights": 2,
-          "pax": 294
-        },
-        {
-          "name": "Taiwan",
           "flights": 2,
           "pax": 294
         }
@@ -1212,6 +1212,46 @@
         "arr_time": "2026-04-24T17:35",
         "from": "MFM",
         "country": "Macau"
+      },
+      {
+        "fn": "VN626",
+        "airline": "Vietnam Airlines",
+        "status": "bags delivered",
+        "pax": 147,
+        "dep_time": "",
+        "arr_time": "2026-04-24T19:45",
+        "from": "BKK",
+        "country": "Thailand"
+      },
+      {
+        "fn": "HX546",
+        "airline": "Hong Kong Airlines",
+        "status": "cancelled",
+        "pax": 147,
+        "dep_time": "",
+        "arr_time": "2026-04-24T19:50",
+        "from": "HKG",
+        "country": "Hong Kong"
+      },
+      {
+        "fn": "NX978",
+        "airline": "Air Macau",
+        "status": "bags delivered",
+        "pax": 147,
+        "dep_time": "",
+        "arr_time": "2026-04-24T20:30",
+        "from": "MFM",
+        "country": "Macau"
+      },
+      {
+        "fn": "VJ8511",
+        "airline": "Vietjet Air",
+        "status": "on time",
+        "pax": 147,
+        "dep_time": "",
+        "arr_time": "2026-04-24T20:35",
+        "from": "RMQ",
+        "country": "Other(RMQ)"
       }
     ],
     "departures_list": [
@@ -1524,13 +1564,33 @@
         "arr_time": "",
         "to": "TPE",
         "country": "Taiwan"
+      },
+      {
+        "fn": "IT552",
+        "airline": "Tigerair Taiwan",
+        "status": "departed",
+        "pax": 147,
+        "dep_time": "2026-04-24T19:45",
+        "arr_time": "",
+        "to": "TPE",
+        "country": "Taiwan"
+      },
+      {
+        "fn": "HX547",
+        "airline": "Hong Kong Airlines",
+        "status": "cancelled",
+        "pax": 147,
+        "dep_time": "2026-04-24T20:50",
+        "arr_time": "",
+        "to": "HKG",
+        "country": "Hong Kong"
       }
     ]
   },
   "week": {
     "arrivals": {
-      "count": 115,
-      "pax": 16905,
+      "count": 118,
+      "pax": 17346,
       "all": [
         {
           "name": "South Korea",
@@ -1544,13 +1604,13 @@
         },
         {
           "name": "Hong Kong",
-          "flights": 17,
-          "pax": 2499
+          "flights": 18,
+          "pax": 2646
         },
         {
           "name": "Thailand",
-          "flights": 16,
-          "pax": 2352
+          "flights": 17,
+          "pax": 2499
         },
         {
           "name": "Taiwan",
@@ -1564,8 +1624,8 @@
         },
         {
           "name": "Macau",
-          "flights": 6,
-          "pax": 882
+          "flights": 7,
+          "pax": 1029
         },
         {
           "name": "Vietnam",
@@ -1575,8 +1635,8 @@
       ]
     },
     "departures": {
-      "count": 112,
-      "pax": 16464,
+      "count": 114,
+      "pax": 16758,
       "all": [
         {
           "name": "South Korea",
@@ -1600,8 +1660,8 @@
         },
         {
           "name": "Hong Kong",
-          "flights": 9,
-          "pax": 1323
+          "flights": 10,
+          "pax": 1470
         },
         {
           "name": "Japan",
@@ -1615,8 +1675,8 @@
         },
         {
           "name": "Taiwan",
-          "flights": 5,
-          "pax": 735
+          "flights": 6,
+          "pax": 882
         },
         {
           "name": "Macau",
@@ -1833,17 +1893,17 @@
       {
         "date": "2026-04-24",
         "label": "Пт 24.04",
-        "arrivals": 26,
-        "departures": 28,
+        "arrivals": 29,
+        "departures": 30,
         "arrivals_by": {
           "South Korea": {
             "n": 8
           },
           "Hong Kong": {
-            "n": 4
+            "n": 5
           },
           "Thailand": {
-            "n": 2
+            "n": 3
           },
           "Singapore": {
             "n": 3
@@ -1858,7 +1918,7 @@
             "n": 1
           },
           "Macau": {
-            "n": 1
+            "n": 2
           }
         },
         "departures_by": {
@@ -1875,7 +1935,7 @@
             "n": 3
           },
           "Hong Kong": {
-            "n": 2
+            "n": 3
           },
           "Thailand": {
             "n": 3
@@ -1884,7 +1944,7 @@
             "n": 3
           },
           "Taiwan": {
-            "n": 2
+            "n": 3
           }
         }
       }
@@ -1892,8 +1952,8 @@
   },
   "month": {
     "arrivals": {
-      "count": 115,
-      "pax": 16905,
+      "count": 118,
+      "pax": 17346,
       "all": [
         {
           "name": "South Korea",
@@ -1907,13 +1967,13 @@
         },
         {
           "name": "Hong Kong",
-          "flights": 17,
-          "pax": 2499
+          "flights": 18,
+          "pax": 2646
         },
         {
           "name": "Thailand",
-          "flights": 16,
-          "pax": 2352
+          "flights": 17,
+          "pax": 2499
         },
         {
           "name": "Taiwan",
@@ -1927,8 +1987,8 @@
         },
         {
           "name": "Macau",
-          "flights": 6,
-          "pax": 882
+          "flights": 7,
+          "pax": 1029
         },
         {
           "name": "Vietnam",
@@ -1938,8 +1998,8 @@
       ]
     },
     "departures": {
-      "count": 112,
-      "pax": 16464,
+      "count": 114,
+      "pax": 16758,
       "all": [
         {
           "name": "South Korea",
@@ -1963,8 +2023,8 @@
         },
         {
           "name": "Hong Kong",
-          "flights": 9,
-          "pax": 1323
+          "flights": 10,
+          "pax": 1470
         },
         {
           "name": "Japan",
@@ -1978,8 +2038,8 @@
         },
         {
           "name": "Taiwan",
-          "flights": 5,
-          "pax": 735
+          "flights": 6,
+          "pax": 882
         },
         {
           "name": "Macau",
@@ -2007,17 +2067,17 @@
       {
         "key": "2026-W17",
         "label": "Нед 17 (Апр)",
-        "arrivals": 115,
-        "departures": 112,
+        "arrivals": 118,
+        "departures": 114,
         "arrivals_by": {
           "South Korea": {
             "n": 36
           },
           "Hong Kong": {
-            "n": 17
+            "n": 18
           },
           "Thailand": {
-            "n": 16
+            "n": 17
           },
           "Malaysia": {
             "n": 20
@@ -2029,7 +2089,7 @@
             "n": 8
           },
           "Macau": {
-            "n": 6
+            "n": 7
           },
           "Vietnam": {
             "n": 3
@@ -2043,7 +2103,7 @@
             "n": 6
           },
           "Hong Kong": {
-            "n": 9
+            "n": 10
           },
           "Thailand": {
             "n": 12
@@ -2061,7 +2121,7 @@
             "n": 5
           },
           "Taiwan": {
-            "n": 5
+            "n": 6
           },
           "Vietnam": {
             "n": 6
@@ -2078,8 +2138,8 @@
   },
   "quarter": {
     "arrivals": {
-      "count": 115,
-      "pax": 16905,
+      "count": 118,
+      "pax": 17346,
       "all": [
         {
           "name": "South Korea",
@@ -2093,13 +2153,13 @@
         },
         {
           "name": "Hong Kong",
-          "flights": 17,
-          "pax": 2499
+          "flights": 18,
+          "pax": 2646
         },
         {
           "name": "Thailand",
-          "flights": 16,
-          "pax": 2352
+          "flights": 17,
+          "pax": 2499
         },
         {
           "name": "Taiwan",
@@ -2113,8 +2173,8 @@
         },
         {
           "name": "Macau",
-          "flights": 6,
-          "pax": 882
+          "flights": 7,
+          "pax": 1029
         },
         {
           "name": "Vietnam",
@@ -2124,8 +2184,8 @@
       ]
     },
     "departures": {
-      "count": 112,
-      "pax": 16464,
+      "count": 114,
+      "pax": 16758,
       "all": [
         {
           "name": "South Korea",
@@ -2149,8 +2209,8 @@
         },
         {
           "name": "Hong Kong",
-          "flights": 9,
-          "pax": 1323
+          "flights": 10,
+          "pax": 1470
         },
         {
           "name": "Japan",
@@ -2164,8 +2224,8 @@
         },
         {
           "name": "Taiwan",
-          "flights": 5,
-          "pax": 735
+          "flights": 6,
+          "pax": 882
         },
         {
           "name": "Macau",
@@ -2193,17 +2253,17 @@
       {
         "key": "2026-04",
         "label": "Апр 2026",
-        "arrivals": 115,
-        "departures": 112,
+        "arrivals": 118,
+        "departures": 114,
         "arrivals_by": {
           "South Korea": {
             "n": 36
           },
           "Hong Kong": {
-            "n": 17
+            "n": 18
           },
           "Thailand": {
-            "n": 16
+            "n": 17
           },
           "Malaysia": {
             "n": 20
@@ -2215,7 +2275,7 @@
             "n": 8
           },
           "Macau": {
-            "n": 6
+            "n": 7
           },
           "Vietnam": {
             "n": 3
@@ -2229,7 +2289,7 @@
             "n": 6
           },
           "Hong Kong": {
-            "n": 9
+            "n": 10
           },
           "Thailand": {
             "n": 12
@@ -2247,7 +2307,7 @@
             "n": 5
           },
           "Taiwan": {
-            "n": 5
+            "n": 6
           },
           "Vietnam": {
             "n": 6
@@ -2264,8 +2324,8 @@
   },
   "halfyear": {
     "arrivals": {
-      "count": 115,
-      "pax": 16905,
+      "count": 118,
+      "pax": 17346,
       "all": [
         {
           "name": "South Korea",
@@ -2279,13 +2339,13 @@
         },
         {
           "name": "Hong Kong",
-          "flights": 17,
-          "pax": 2499
+          "flights": 18,
+          "pax": 2646
         },
         {
           "name": "Thailand",
-          "flights": 16,
-          "pax": 2352
+          "flights": 17,
+          "pax": 2499
         },
         {
           "name": "Taiwan",
@@ -2299,8 +2359,8 @@
         },
         {
           "name": "Macau",
-          "flights": 6,
-          "pax": 882
+          "flights": 7,
+          "pax": 1029
         },
         {
           "name": "Vietnam",
@@ -2310,8 +2370,8 @@
       ]
     },
     "departures": {
-      "count": 112,
-      "pax": 16464,
+      "count": 114,
+      "pax": 16758,
       "all": [
         {
           "name": "South Korea",
@@ -2335,8 +2395,8 @@
         },
         {
           "name": "Hong Kong",
-          "flights": 9,
-          "pax": 1323
+          "flights": 10,
+          "pax": 1470
         },
         {
           "name": "Japan",
@@ -2350,8 +2410,8 @@
         },
         {
           "name": "Taiwan",
-          "flights": 5,
-          "pax": 735
+          "flights": 6,
+          "pax": 882
         },
         {
           "name": "Macau",
@@ -2379,17 +2439,17 @@
       {
         "key": "2026-04",
         "label": "Апр 2026",
-        "arrivals": 115,
-        "departures": 112,
+        "arrivals": 118,
+        "departures": 114,
         "arrivals_by": {
           "South Korea": {
             "n": 36
           },
           "Hong Kong": {
-            "n": 17
+            "n": 18
           },
           "Thailand": {
-            "n": 16
+            "n": 17
           },
           "Malaysia": {
             "n": 20
@@ -2401,7 +2461,7 @@
             "n": 8
           },
           "Macau": {
-            "n": 6
+            "n": 7
           },
           "Vietnam": {
             "n": 3
@@ -2415,7 +2475,7 @@
             "n": 6
           },
           "Hong Kong": {
-            "n": 9
+            "n": 10
           },
           "Thailand": {
             "n": 12
@@ -2433,7 +2493,7 @@
             "n": 5
           },
           "Taiwan": {
-            "n": 5
+            "n": 6
           },
           "Vietnam": {
             "n": 6
@@ -2450,8 +2510,8 @@
   },
   "year": {
     "arrivals": {
-      "count": 115,
-      "pax": 16905,
+      "count": 118,
+      "pax": 17346,
       "all": [
         {
           "name": "South Korea",
@@ -2465,13 +2525,13 @@
         },
         {
           "name": "Hong Kong",
-          "flights": 17,
-          "pax": 2499
+          "flights": 18,
+          "pax": 2646
         },
         {
           "name": "Thailand",
-          "flights": 16,
-          "pax": 2352
+          "flights": 17,
+          "pax": 2499
         },
         {
           "name": "Taiwan",
@@ -2485,8 +2545,8 @@
         },
         {
           "name": "Macau",
-          "flights": 6,
-          "pax": 882
+          "flights": 7,
+          "pax": 1029
         },
         {
           "name": "Vietnam",
@@ -2496,8 +2556,8 @@
       ]
     },
     "departures": {
-      "count": 112,
-      "pax": 16464,
+      "count": 114,
+      "pax": 16758,
       "all": [
         {
           "name": "South Korea",
@@ -2521,8 +2581,8 @@
         },
         {
           "name": "Hong Kong",
-          "flights": 9,
-          "pax": 1323
+          "flights": 10,
+          "pax": 1470
         },
         {
           "name": "Japan",
@@ -2536,8 +2596,8 @@
         },
         {
           "name": "Taiwan",
-          "flights": 5,
-          "pax": 735
+          "flights": 6,
+          "pax": 882
         },
         {
           "name": "Macau",
@@ -2565,17 +2625,17 @@
       {
         "key": "2026-04",
         "label": "Апр 2026",
-        "arrivals": 115,
-        "departures": 112,
+        "arrivals": 118,
+        "departures": 114,
         "arrivals_by": {
           "South Korea": {
             "n": 36
           },
           "Hong Kong": {
-            "n": 17
+            "n": 18
           },
           "Thailand": {
-            "n": 16
+            "n": 17
           },
           "Malaysia": {
             "n": 20
@@ -2587,7 +2647,7 @@
             "n": 8
           },
           "Macau": {
-            "n": 6
+            "n": 7
           },
           "Vietnam": {
             "n": 3
@@ -2601,7 +2661,7 @@
             "n": 6
           },
           "Hong Kong": {
-            "n": 9
+            "n": 10
           },
           "Thailand": {
             "n": 12
@@ -2619,7 +2679,7 @@
             "n": 5
           },
           "Taiwan": {
-            "n": 5
+            "n": 6
           },
           "Vietnam": {
             "n": 6
