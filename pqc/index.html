@@ -4077,8 +4077,7 @@
     // ── Filter today to actually arrived/departed (consistent across all widgets) ──
     function rebuildTodayFromList(t) {
       if (!t || !Array.isArray(t.arrivals_list)) return t;
-      const isArr = s => /arrived|landed|diverted|bags delivered|confirmed/.test((s||'').toLowerCase());
-      const isDep = s => /departed|took off|gone|in the air|airborne|confirmed/.test((s||'').toLowerCase());
+      const notCancelled = s => !/cancelled/i.test(s||'');
       const agg = (list) => {
         let count = 0, pax = 0;
         const by = new Map();
@@ -4093,8 +4092,8 @@
         }
         return { count, pax, all: [...by.values()].sort((a,b) => b.flights - a.flights) };
       };
-      const arrF = t.arrivals_list.filter(f => isArr(f.status));
-      const depF = (t.departures_list || []).filter(f => isDep(f.status));
+      const arrF = t.arrivals_list.filter(f => notCancelled(f.status));
+      const depF = (t.departures_list || []).filter(f => notCancelled(f.status));
       return { ...t, arrivals: agg(arrF), departures: agg(depF), arrivals_list: arrF, departures_list: depF };
     }
 
