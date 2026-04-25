@@ -1,8 +1,8 @@
 {
   "date": "2026-04-25",
   "arrivals": {
-    "count": 23,
-    "pax": 3381,
+    "count": 26,
+    "pax": 3822,
     "countries": {
       "Singapore": {
         "flights": 2,
@@ -13,12 +13,12 @@
         "pax": 441
       },
       "China": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "South Korea": {
-        "flights": 7,
-        "pax": 1029
+        "flights": 9,
+        "pax": 1323
       },
       "Malaysia": {
         "flights": 2,
@@ -39,8 +39,8 @@
     }
   },
   "departures": {
-    "count": 25,
-    "pax": 3675,
+    "count": 27,
+    "pax": 3969,
     "countries": {
       "Singapore": {
         "flights": 2,
@@ -51,8 +51,8 @@
         "pax": 441
       },
       "South Korea": {
-        "flights": 7,
-        "pax": 1029
+        "flights": 9,
+        "pax": 1323
       },
       "China": {
         "flights": 2,
@@ -89,7 +89,7 @@
     {
       "fn": "TR 524",
       "airline": "Scoot",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-25T17:50",
       "arr_time": "2026-04-25T17:40",
@@ -139,7 +139,7 @@
     {
       "fn": "KE 485",
       "airline": "Korean Air",
-      "status": "arrived 25 minutes late",
+      "status": "32 minutes late",
       "pax": 147,
       "dep_time": "2026-04-25T23:15",
       "arr_time": "2026-04-25T22:50",
@@ -149,7 +149,7 @@
     {
       "fn": "ZE 581",
       "airline": "Eastar Jet",
-      "status": "arrived on-time",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-04-25T23:31",
       "arr_time": "2026-04-25T23:20",
@@ -159,7 +159,7 @@
     {
       "fn": "TWB 55",
       "airline": "T'way Air",
-      "status": "arrived on-time",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-04-25T23:27",
       "arr_time": "2026-04-25T23:35",
@@ -269,7 +269,7 @@
     {
       "fn": "TVJ 982",
       "airline": "Thai VietJet Air",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-25T15:55",
       "arr_time": "2026-04-25T15:55",
@@ -279,7 +279,7 @@
     {
       "fn": "9G 451",
       "airline": "Sun PhuQuoc Airways",
-      "status": "on-time",
+      "status": "arrived 33 minutes late",
       "pax": 147,
       "dep_time": "2026-04-25T16:15",
       "arr_time": "2026-04-25T16:15",
@@ -299,7 +299,7 @@
     {
       "fn": "VJC 845",
       "airline": "VietJet Air",
-      "status": "on-time",
+      "status": "arrived 17 minutes late",
       "pax": 147,
       "dep_time": "2026-04-25T16:50",
       "arr_time": "2026-04-25T16:50",
@@ -335,6 +335,36 @@
       "arr_time": "2026-04-25T20:25",
       "from": "TPE",
       "country": "Taiwan"
+    },
+    {
+      "fn": "ZE 981",
+      "airline": "Eastar Jet",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-25T22:25",
+      "arr_time": "2026-04-25T22:25",
+      "from": "PUS",
+      "country": "South Korea"
+    },
+    {
+      "fn": "FGW 207",
+      "airline": "Parata Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-25T23:40",
+      "arr_time": "2026-04-25T23:40",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "MU 6033",
+      "airline": "China Eastern Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-25T23:24",
+      "arr_time": "2026-04-25T00:05",
+      "from": "PVG",
+      "country": "China"
     }
   ],
   "departures_list": [
@@ -607,6 +637,26 @@
       "arr_time": "2026-04-25T19:55",
       "to": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "9G 452",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-25T23:10",
+      "arr_time": "2026-04-25T23:10",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "ZE 982",
+      "airline": "Eastar Jet",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-25T23:25",
+      "arr_time": "2026-04-25T23:25",
+      "to": "PUS",
+      "country": "South Korea"
     }
   ]
 }
