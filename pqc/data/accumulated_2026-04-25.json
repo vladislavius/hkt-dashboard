@@ -1,16 +1,16 @@
 {
   "date": "2026-04-25",
   "arrivals": {
-    "count": 20,
-    "pax": 2940,
+    "count": 21,
+    "pax": 3087,
     "countries": {
       "Singapore": {
         "flights": 2,
         "pax": 294
       },
       "Hong Kong": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "China": {
         "flights": 2,
@@ -39,8 +39,8 @@
     }
   },
   "departures": {
-    "count": 23,
-    "pax": 3381,
+    "count": 24,
+    "pax": 3528,
     "countries": {
       "Singapore": {
         "flights": 2,
@@ -78,6 +78,10 @@
       "Thailand": {
         "flights": 3,
         "pax": 441
+      },
+      "India": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -85,7 +89,7 @@
     {
       "fn": "TR 524",
       "airline": "Scoot",
-      "status": "arrived on-time",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-04-25T17:50",
       "arr_time": "2026-04-25T17:40",
@@ -95,7 +99,7 @@
     {
       "fn": "UO 596",
       "airline": "HK Express",
-      "status": "arrived 36 minutes late",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-04-25T18:41",
       "arr_time": "2026-04-25T18:05",
@@ -215,7 +219,7 @@
     {
       "fn": "VJC 969",
       "airline": "VietJet Air",
-      "status": "on-time",
+      "status": "arrived 40 minutes late",
       "pax": 147,
       "dep_time": "2026-04-25T11:10",
       "arr_time": "2026-04-25T11:10",
@@ -301,6 +305,16 @@
       "arr_time": "2026-04-25T16:50",
       "from": "TPE",
       "country": "Taiwan"
+    },
+    {
+      "fn": "VJC 985",
+      "airline": "VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-25T18:25",
+      "arr_time": "2026-04-25T18:25",
+      "from": "HKG",
+      "country": "Hong Kong"
     }
   ],
   "departures_list": [
@@ -553,6 +567,16 @@
       "arr_time": "2026-04-25T16:45",
       "to": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "ANK 7778",
+      "airline": "Aero Nomad Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-25T17:40",
+      "arr_time": "2026-04-25T17:40",
+      "to": "CCU",
+      "country": "India"
     }
   ]
 }
