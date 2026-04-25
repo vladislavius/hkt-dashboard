@@ -1,8 +1,8 @@
 {
   "date": "2026-04-25",
   "arrivals": {
-    "count": 18,
-    "pax": 2646,
+    "count": 20,
+    "pax": 2940,
     "countries": {
       "Singapore": {
         "flights": 2,
@@ -27,12 +27,20 @@
       "Thailand": {
         "flights": 3,
         "pax": 441
+      },
+      "India": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Taiwan": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 22,
-    "pax": 3234,
+    "count": 23,
+    "pax": 3381,
     "countries": {
       "Singapore": {
         "flights": 2,
@@ -68,8 +76,8 @@
         "pax": 294
       },
       "Thailand": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       }
     }
   },
@@ -197,7 +205,7 @@
     {
       "fn": "TVJ 980",
       "airline": "Thai VietJet Air",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-25T10:40",
       "arr_time": "2026-04-25T10:40",
@@ -273,6 +281,26 @@
       "arr_time": "2026-04-25T16:15",
       "from": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "ANK 7777",
+      "airline": "Aero Nomad Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-25T16:40",
+      "arr_time": "2026-04-25T16:40",
+      "from": "CCU",
+      "country": "India"
+    },
+    {
+      "fn": "VJC 845",
+      "airline": "VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-25T16:50",
+      "arr_time": "2026-04-25T16:50",
+      "from": "TPE",
+      "country": "Taiwan"
     }
   ],
   "departures_list": [
@@ -515,6 +543,16 @@
       "arr_time": "2026-04-25T15:45",
       "to": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "TVJ 983",
+      "airline": "Thai VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-25T16:45",
+      "arr_time": "2026-04-25T16:45",
+      "to": "BKK",
+      "country": "Thailand"
     }
   ]
 }
