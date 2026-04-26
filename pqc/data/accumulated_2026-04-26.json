@@ -1,8 +1,8 @@
 {
   "date": "2026-04-26",
   "arrivals": {
-    "count": 19,
-    "pax": 2793,
+    "count": 24,
+    "pax": 3528,
     "countries": {
       "India": {
         "flights": 1,
@@ -13,50 +13,12 @@
         "pax": 441
       },
       "Thailand": {
-        "flights": 2,
-        "pax": 294
+        "flights": 4,
+        "pax": 588
       },
       "Taiwan": {
         "flights": 1,
         "pax": 147
-      },
-      "South Korea": {
-        "flights": 8,
-        "pax": 1176
-      },
-      "China": {
-        "flights": 1,
-        "pax": 147
-      },
-      "Uzbekistan": {
-        "flights": 1,
-        "pax": 147
-      },
-      "Malaysia": {
-        "flights": 1,
-        "pax": 147
-      },
-      "Singapore": {
-        "flights": 1,
-        "pax": 147
-      }
-    }
-  },
-  "departures": {
-    "count": 18,
-    "pax": 2646,
-    "countries": {
-      "Singapore": {
-        "flights": 1,
-        "pax": 147
-      },
-      "Hong Kong": {
-        "flights": 2,
-        "pax": 294
-      },
-      "Thailand": {
-        "flights": 2,
-        "pax": 294
       },
       "South Korea": {
         "flights": 9,
@@ -71,10 +33,52 @@
         "pax": 147
       },
       "Malaysia": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Singapore": {
+        "flights": 2,
+        "pax": 294
+      }
+    }
+  },
+  "departures": {
+    "count": 24,
+    "pax": 3528,
+    "countries": {
+      "Singapore": {
+        "flights": 3,
+        "pax": 441
+      },
+      "Hong Kong": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Thailand": {
+        "flights": 4,
+        "pax": 588
+      },
+      "South Korea": {
+        "flights": 9,
+        "pax": 1323
+      },
+      "China": {
         "flights": 1,
         "pax": 147
       },
+      "Uzbekistan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Malaysia": {
+        "flights": 2,
+        "pax": 294
+      },
       "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Vietnam": {
         "flights": 1,
         "pax": 147
       }
@@ -214,7 +218,7 @@
     {
       "fn": "HY 565",
       "airline": "Uzbekistan Airways",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-26T08:25",
       "arr_time": "2026-04-26T08:25",
@@ -224,7 +228,7 @@
     {
       "fn": "VJC 977",
       "airline": "VietJet Air",
-      "status": "on-time",
+      "status": "arrived 17 minutes late",
       "pax": 147,
       "dep_time": "2026-04-26T08:25",
       "arr_time": "2026-04-26T08:25",
@@ -234,7 +238,7 @@
     {
       "fn": "AK 543",
       "airline": "AirAsia",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-26T09:22",
       "arr_time": "2026-04-26T09:30",
@@ -244,7 +248,7 @@
     {
       "fn": "UO 598",
       "airline": "HK Express",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-26T09:40",
       "arr_time": "2026-04-26T09:40",
@@ -254,7 +258,7 @@
     {
       "fn": "TVJ 980",
       "airline": "Thai VietJet Air",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-26T10:40",
       "arr_time": "2026-04-26T10:40",
@@ -270,6 +274,66 @@
       "arr_time": "2026-04-26T11:45",
       "from": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "FD 660",
+      "airline": "Thai AirAsia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-26T13:18",
+      "arr_time": "2026-04-26T13:20",
+      "from": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "AK 545",
+      "airline": "AirAsia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-26T13:33",
+      "arr_time": "2026-04-26T13:35",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "VJC 984",
+      "airline": "VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-26T13:45",
+      "arr_time": "2026-04-26T13:45",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "K6 830",
+      "airline": "Air Cambodia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-26T14:55",
+      "arr_time": "2026-04-26T14:55",
+      "from": "KTI",
+      "country": "Other(KTI)"
+    },
+    {
+      "fn": "TVJ 982",
+      "airline": "Thai VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-26T15:55",
+      "arr_time": "2026-04-26T15:55",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "9G 451",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-26T16:15",
+      "arr_time": "2026-04-26T16:15",
+      "from": "ICN",
+      "country": "South Korea"
     }
   ],
   "departures_list": [
@@ -450,6 +514,86 @@
       "pax": 147,
       "dep_time": "2026-04-26T11:45",
       "arr_time": "2026-04-26T11:45",
+      "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "TR 529",
+      "airline": "Scoot",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-26T12:25",
+      "arr_time": "2026-04-26T12:25",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "KC 174",
+      "airline": "Air Astana",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-26T13:35",
+      "arr_time": "2026-04-26T13:35",
+      "to": "TSE",
+      "country": "Other(TSE)"
+    },
+    {
+      "fn": "FD 661",
+      "airline": "Thai AirAsia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-26T13:50",
+      "arr_time": "2026-04-26T13:50",
+      "to": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "AK 546",
+      "airline": "AirAsia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-26T14:10",
+      "arr_time": "2026-04-26T14:10",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "9G 2952",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-26T14:20",
+      "arr_time": "2026-04-26T14:20",
+      "to": "CXR",
+      "country": "Vietnam"
+    },
+    {
+      "fn": "K6 831",
+      "airline": "Air Cambodia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-26T15:25",
+      "arr_time": "2026-04-26T15:25",
+      "to": "KTI",
+      "country": "Other(KTI)"
+    },
+    {
+      "fn": "VJC 983",
+      "airline": "VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-26T15:45",
+      "arr_time": "2026-04-26T15:45",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "TVJ 983",
+      "airline": "Thai VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-26T16:45",
+      "arr_time": "2026-04-26T16:45",
       "to": "BKK",
       "country": "Thailand"
     }
