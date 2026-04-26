@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-27T01:55:51.823057+07:00",
+  "updated": "2026-04-27T03:31:01.500813+07:00",
   "available_dates": [
     "2025-09-01",
     "2025-09-02",
@@ -243,8 +243,8 @@
   ],
   "yesterday": {
     "arrivals": {
-      "count": 87,
-      "pax": 15311,
+      "count": 90,
+      "pax": 15785,
       "all": [
         {
           "name": "Malaysia",
@@ -275,6 +275,11 @@
           "name": "Hong Kong",
           "flights": 5,
           "pax": 742
+        },
+        {
+          "name": "Other",
+          "flights": 3,
+          "pax": 474
         },
         {
           "name": "Australia",
@@ -363,8 +368,8 @@
       ]
     },
     "departures": {
-      "count": 90,
-      "pax": 15760,
+      "count": 94,
+      "pax": 16381,
       "all": [
         {
           "name": "UAE",
@@ -388,8 +393,8 @@
         },
         {
           "name": "China",
-          "flights": 7,
-          "pax": 1029
+          "flights": 8,
+          "pax": 1176
         },
         {
           "name": "Hong Kong",
@@ -405,6 +410,11 @@
           "name": "Qatar",
           "flights": 3,
           "pax": 795
+        },
+        {
+          "name": "Other",
+          "flights": 3,
+          "pax": 474
         },
         {
           "name": "Australia",
@@ -2480,13 +2490,24 @@
         "pax": 147,
         "dep_time": "2026-04-26T19:55",
         "arr_time": "2026-04-26T23:10"
+      },
+      {
+        "fn": "FM 832",
+        "airline": "SHANGHAI AIRLINES",
+        "status": "departed",
+        "pax": 147,
+        "aircraft": "7M8",
+        "dep_time": "2026-04-26T17:05",
+        "arr_time": "2026-04-26T23:30",
+        "to": "PVG",
+        "country": "China"
       }
     ]
   },
   "today": {
     "arrivals": {
-      "count": 85,
-      "pax": 15336,
+      "count": 97,
+      "pax": 17411,
       "all": [
         {
           "name": "UAE",
@@ -2495,13 +2516,18 @@
         },
         {
           "name": "India",
-          "flights": 12,
-          "pax": 1764
+          "flights": 14,
+          "pax": 2124
         },
         {
           "name": "Malaysia",
-          "flights": 11,
-          "pax": 1829
+          "flights": 12,
+          "pax": 1976
+        },
+        {
+          "name": "China",
+          "flights": 9,
+          "pax": 1323
         },
         {
           "name": "Singapore",
@@ -2509,19 +2535,14 @@
           "pax": 1176
         },
         {
+          "name": "Hong Kong",
+          "flights": 5,
+          "pax": 742
+        },
+        {
           "name": "Switzerland",
           "flights": 4,
           "pax": 707
-        },
-        {
-          "name": "Hong Kong",
-          "flights": 4,
-          "pax": 588
-        },
-        {
-          "name": "China",
-          "flights": 4,
-          "pax": 588
         },
         {
           "name": "Qatar",
@@ -2554,6 +2575,16 @@
           "name": "Sweden",
           "flights": 2,
           "pax": 384
+        },
+        {
+          "name": "Australia",
+          "flights": 2,
+          "pax": 385
+        },
+        {
+          "name": "South Korea",
+          "flights": 2,
+          "pax": 499
         },
         {
           "name": "Germany",
@@ -2591,28 +2622,126 @@
           "name": "Indonesia",
           "flights": 1,
           "pax": 147
-        },
-        {
-          "name": "Australia",
-          "flights": 1,
-          "pax": 205
         }
       ]
     },
     "departures": {
-      "count": 2,
-      "pax": 294,
+      "count": 78,
+      "pax": 14793,
       "all": [
         {
+          "name": "India",
+          "flights": 12,
+          "pax": 1896
+        },
+        {
+          "name": "Malaysia",
+          "flights": 12,
+          "pax": 1976
+        },
+        {
+          "name": "UAE",
+          "flights": 10,
+          "pax": 2343
+        },
+        {
+          "name": "China",
+          "flights": 9,
+          "pax": 1323
+        },
+        {
+          "name": "Singapore",
+          "flights": 8,
+          "pax": 1275
+        },
+        {
+          "name": "Hong Kong",
+          "flights": 4,
+          "pax": 661
+        },
+        {
           "name": "Москва",
+          "flights": 3,
+          "pax": 795,
+          "country": "Russia"
+        },
+        {
+          "name": "Qatar",
+          "flights": 3,
+          "pax": 972
+        },
+        {
+          "name": "Oman",
+          "flights": 2,
+          "pax": 294
+        },
+        {
+          "name": "Australia",
+          "flights": 2,
+          "pax": 385
+        },
+        {
+          "name": "South Korea",
+          "flights": 2,
+          "pax": 499
+        },
+        {
+          "name": "Germany",
+          "flights": 1,
+          "pax": 287
+        },
+        {
+          "name": "Kazakhstan",
+          "flights": 1,
+          "pax": 180
+        },
+        {
+          "name": "Switzerland",
+          "flights": 1,
+          "pax": 266
+        },
+        {
+          "name": "Vietnam",
+          "flights": 1,
+          "pax": 147
+        },
+        {
+          "name": "Сургут",
           "flights": 1,
           "pax": 147,
           "country": "Russia"
         },
         {
-          "name": "China",
+          "name": "Екатеринбург",
+          "flights": 1,
+          "pax": 262,
+          "country": "Russia"
+        },
+        {
+          "name": "Красноярск",
+          "flights": 1,
+          "pax": 324,
+          "country": "Russia"
+        },
+        {
+          "name": "Belarus",
           "flights": 1,
           "pax": 147
+        },
+        {
+          "name": "Indonesia",
+          "flights": 1,
+          "pax": 147
+        },
+        {
+          "name": "Denmark",
+          "flights": 1,
+          "pax": 205
+        },
+        {
+          "name": "Turkey",
+          "flights": 1,
+          "pax": 262
         }
       ]
     },
@@ -2627,7 +2756,7 @@
       {
         "fn": "EY 410",
         "airline": "ETIHAD AIRWAYS",
-        "status": "",
+        "status": "confirmed",
         "pax": 270,
         "aircraft": "78J",
         "dep_time": "2026-04-27T14:00",
@@ -2638,7 +2767,7 @@
       {
         "fn": "AI 2378",
         "airline": "AIR INDIA LTD",
-        "status": "landed",
+        "status": "confirmed",
         "pax": 147,
         "aircraft": "",
         "dep_time": "2026-04-26T18:25",
@@ -2649,7 +2778,7 @@
       {
         "fn": "DE 2368",
         "airline": "CONDOR FLUGDIENST GMBH FRANKFURT",
-        "status": "",
+        "status": "confirmed",
         "pax": 287,
         "aircraft": "339",
         "dep_time": "2026-04-26T08:55",
@@ -2682,7 +2811,7 @@
       {
         "fn": "VZ 763",
         "airline": "THAI VIET JET AIR JOINTSTOCK",
-        "status": "landed",
+        "status": "",
         "pax": 147,
         "aircraft": "320",
         "dep_time": "2026-04-27T02:20",
@@ -2693,7 +2822,7 @@
       {
         "fn": "EY 414",
         "airline": "ETIHAD AIRWAYS",
-        "status": "",
+        "status": "confirmed",
         "pax": 147,
         "aircraft": "",
         "dep_time": "",
@@ -2704,7 +2833,7 @@
       {
         "fn": "WY 833",
         "airline": "OMAN AIR",
-        "status": "",
+        "status": "confirmed",
         "pax": 147,
         "aircraft": "7M8",
         "dep_time": "",
@@ -2737,7 +2866,7 @@
       {
         "fn": "TR 658",
         "airline": "SCOOT PTE LTD",
-        "status": "scheduled",
+        "status": "",
         "pax": 147,
         "aircraft": "",
         "dep_time": "2026-04-27T07:30",
@@ -2748,7 +2877,7 @@
       {
         "fn": "SU 284",
         "airline": "AEROFLOT RUSSIAN AIRLINES",
-        "status": "",
+        "status": "confirmed",
         "pax": 324,
         "aircraft": "77W",
         "dep_time": "2026-04-25T12:10",
@@ -2759,7 +2888,7 @@
       {
         "fn": "SQ 726",
         "airline": "SINGAPORE AIRLINES LIMITED",
-        "status": "scheduled",
+        "status": "",
         "pax": 147,
         "aircraft": "7M8",
         "dep_time": "2026-04-27T01:20",
@@ -2770,7 +2899,7 @@
       {
         "fn": "KC 563",
         "airline": "AIR ASTANA",
-        "status": "active",
+        "status": "confirmed",
         "pax": 147,
         "aircraft": "",
         "dep_time": "2026-04-26T17:30",
@@ -2792,7 +2921,7 @@
       {
         "fn": "WK 050",
         "airline": "EDELWEISS AIR AG",
-        "status": "",
+        "status": "confirmed",
         "pax": 266,
         "aircraft": "359",
         "dep_time": "2026-04-26T12:10",
@@ -2814,7 +2943,7 @@
       {
         "fn": "6E 1071",
         "airline": "INTERGLOBE AVIATION LIMITED (INDIGO)",
-        "status": "scheduled",
+        "status": "",
         "pax": 147,
         "aircraft": "",
         "dep_time": "2026-04-26T21:40",
@@ -2825,7 +2954,7 @@
       {
         "fn": "ZF 2947",
         "airline": "AZUR AIR",
-        "status": "active",
+        "status": "",
         "pax": 147,
         "aircraft": "76W",
         "dep_time": "2026-04-27T02:35",
@@ -2836,7 +2965,7 @@
       {
         "fn": "UO 724",
         "airline": "HONG KONG EXPRESS AIRWAYS",
-        "status": "scheduled",
+        "status": "",
         "pax": 147,
         "aircraft": "",
         "dep_time": "2026-04-27T07:55",
@@ -2847,7 +2976,7 @@
       {
         "fn": "SU 628",
         "airline": "AEROFLOT RUSSIAN AIRLINES",
-        "status": "",
+        "status": "confirmed",
         "pax": 262,
         "aircraft": "333",
         "dep_time": "",
@@ -2880,7 +3009,7 @@
       {
         "fn": "CX 771",
         "airline": "CATHAY PACIFIC AIRWAYS",
-        "status": "scheduled",
+        "status": "",
         "pax": 147,
         "aircraft": "",
         "dep_time": "2026-04-27T08:05",
@@ -2902,7 +3031,7 @@
       {
         "fn": "6E 1073",
         "airline": "INTERGLOBE AVIATION LIMITED (INDIGO)",
-        "status": "scheduled",
+        "status": "",
         "pax": 147,
         "aircraft": "",
         "dep_time": "2026-04-27T05:10",
@@ -2924,7 +3053,7 @@
       {
         "fn": "SU 643",
         "airline": "AEROFLOT RUSSIAN AIRLINES",
-        "status": "scheduled",
+        "status": "",
         "pax": 324,
         "aircraft": "77W",
         "dep_time": "2026-04-27T06:20",
@@ -2935,7 +3064,7 @@
       {
         "fn": "6E 1077",
         "airline": "INTERGLOBE AVIATION LIMITED (INDIGO)",
-        "status": "scheduled",
+        "status": "",
         "pax": 147,
         "aircraft": "",
         "dep_time": "2026-04-27T06:30",
@@ -2946,7 +3075,7 @@
       {
         "fn": "EK 378",
         "airline": "EMIRATES",
-        "status": "scheduled",
+        "status": "",
         "pax": 324,
         "aircraft": "77W",
         "dep_time": "2026-04-26T20:00",
@@ -2957,7 +3086,7 @@
       {
         "fn": "B2 8603",
         "airline": "BELAVIA BELARUSIAN AIRLINES",
-        "status": "",
+        "status": "confirmed",
         "pax": 147,
         "aircraft": "33X",
         "dep_time": "",
@@ -3067,7 +3196,7 @@
       {
         "fn": "QR 840",
         "airline": "QATAR AIRWAYS COMPANY",
-        "status": "scheduled",
+        "status": "",
         "pax": 324,
         "aircraft": "77W",
         "dep_time": "2026-04-27T03:15",
@@ -3111,7 +3240,7 @@
       {
         "fn": "TK 172",
         "airline": "TURK HAVA YOLLARI (TURKISH AIRLINES CO.)",
-        "status": "scheduled",
+        "status": "",
         "pax": 262,
         "aircraft": "333",
         "dep_time": "2026-04-27T01:50",
@@ -3309,7 +3438,7 @@
       {
         "fn": "EY 416",
         "airline": "ETIHAD AIRWAYS",
-        "status": "scheduled",
+        "status": "",
         "pax": 147,
         "aircraft": "",
         "dep_time": "2026-04-26T02:25",
@@ -3561,6 +3690,138 @@
         "pax": 147,
         "dep_time": "2026-04-27T02:20",
         "arr_time": "2026-04-27T08:30"
+      },
+      {
+        "fn": "OD 542",
+        "airline": "MALINDO AIRWAYS SDN BHD",
+        "status": "cancelled",
+        "pax": 147,
+        "aircraft": "7M8",
+        "dep_time": "",
+        "arr_time": "2026-04-27T13:15",
+        "from": "KUL",
+        "country": "Malaysia"
+      },
+      {
+        "fn": "9C 8665",
+        "airline": "SPRING AIRLINES LIMITED CORPORATION",
+        "status": "",
+        "pax": 147,
+        "aircraft": "320",
+        "dep_time": "",
+        "arr_time": "2026-04-27T13:25",
+        "from": "PVG",
+        "country": "China"
+      },
+      {
+        "fn": "9C 8773",
+        "airline": "SPRING AIRLINES LIMITED CORPORATION",
+        "status": "",
+        "pax": 147,
+        "aircraft": "320",
+        "dep_time": "",
+        "arr_time": "2026-04-27T13:45",
+        "from": "CAN",
+        "country": "China"
+      },
+      {
+        "fn": "OZ 747",
+        "airline": "ASIANA AIRLINES",
+        "status": "",
+        "pax": 262,
+        "aircraft": "333",
+        "dep_time": "",
+        "arr_time": "2026-04-27T14:15",
+        "from": "ICN",
+        "country": "South Korea"
+      },
+      {
+        "fn": "JQ 069",
+        "airline": "JETSTAR AIRWAYS PTY LIMITED",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "",
+        "arr_time": "2026-04-27T14:30",
+        "from": "PER",
+        "country": "Australia"
+      },
+      {
+        "fn": "6E 1081",
+        "airline": "INTERGLOBE AVIATION LIMITED (INDIGO)",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "",
+        "arr_time": "2026-04-27T14:50",
+        "from": "DEL",
+        "country": "India"
+      },
+      {
+        "fn": "6E 1089",
+        "airline": "INTERGLOBE AVIATION LIMITED (INDIGO)",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "2026-04-27T08:50",
+        "arr_time": "2026-04-27T14:55",
+        "from": "BOM",
+        "country": "India"
+      },
+      {
+        "fn": "FM 857",
+        "airline": "SHANGHAI AIRLINES",
+        "status": "",
+        "pax": 147,
+        "aircraft": "7M8",
+        "dep_time": "",
+        "arr_time": "2026-04-27T15:00",
+        "from": "PVG",
+        "country": "China"
+      },
+      {
+        "fn": "HB 270",
+        "airline": "GREATER BAY AIRLINES",
+        "status": "cancelled",
+        "pax": 154,
+        "aircraft": "738",
+        "dep_time": "",
+        "arr_time": "2026-04-27T15:10",
+        "from": "HKG",
+        "country": "Hong Kong"
+      },
+      {
+        "fn": "KE 677",
+        "airline": "KOREAN AIRLINES CO.LTD.",
+        "status": "",
+        "pax": 237,
+        "aircraft": "789",
+        "dep_time": "",
+        "arr_time": "2026-04-27T15:10",
+        "from": "ICN",
+        "country": "South Korea"
+      },
+      {
+        "fn": "9C 8521",
+        "airline": "SPRING AIRLINES LIMITED CORPORATION",
+        "status": "",
+        "pax": 147,
+        "aircraft": "320",
+        "dep_time": "",
+        "arr_time": "2026-04-27T15:40",
+        "from": "PVG",
+        "country": "China"
+      },
+      {
+        "fn": "FM 831",
+        "airline": "SHANGHAI AIRLINES",
+        "status": "",
+        "pax": 147,
+        "aircraft": "7M8",
+        "dep_time": "",
+        "arr_time": "2026-04-27T15:45",
+        "from": "PVG",
+        "country": "China"
       }
     ],
     "departures_list": [
@@ -3583,23 +3844,881 @@
         "pax": 147,
         "dep_time": "2026-04-27T00:05",
         "arr_time": "2026-04-27T06:30"
+      },
+      {
+        "fn": "AI 2379",
+        "airline": "AIR INDIA LTD",
+        "status": "",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "2026-04-27T01:25",
+        "arr_time": "2026-04-27T04:50",
+        "to": "DEL",
+        "country": "India"
+      },
+      {
+        "fn": "G9 688",
+        "airline": "AIR ARABIA",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "2026-04-27T01:45",
+        "arr_time": "2026-04-27T05:55",
+        "to": "SHJ",
+        "country": "UAE"
+      },
+      {
+        "fn": "EY 415",
+        "airline": "ETIHAD AIRWAYS",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "2026-04-27T02:05",
+        "arr_time": "2026-04-27T05:45",
+        "to": "AUH",
+        "country": "UAE"
+      },
+      {
+        "fn": "WY 834",
+        "airline": "OMAN AIR",
+        "status": "",
+        "pax": 147,
+        "aircraft": "7M8",
+        "dep_time": "2026-04-27T02:10",
+        "arr_time": "2026-04-27T05:25",
+        "to": "MCT",
+        "country": "Oman"
+      },
+      {
+        "fn": "QR 843",
+        "airline": "QATAR AIRWAYS COMPANY",
+        "status": "cancelled",
+        "pax": 324,
+        "aircraft": "77W",
+        "dep_time": "2026-04-27T02:20",
+        "arr_time": "2026-04-27T04:20",
+        "to": "DOH",
+        "country": "Qatar"
+      },
+      {
+        "fn": "TR 659",
+        "airline": "SCOOT PTE LTD",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "2026-04-27T02:20",
+        "arr_time": "2026-04-27T05:45",
+        "to": "SIN",
+        "country": "Singapore"
+      },
+      {
+        "fn": "EY 411",
+        "airline": "ETIHAD AIRWAYS",
+        "status": "",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "2026-04-27T02:25",
+        "arr_time": "2026-04-27T05:45",
+        "to": "AUH",
+        "country": "UAE"
+      },
+      {
+        "fn": "SQ 725",
+        "airline": "SINGAPORE AIRLINES LIMITED",
+        "status": "",
+        "pax": 147,
+        "aircraft": "7M8",
+        "dep_time": "2026-04-27T02:25",
+        "arr_time": "2026-04-27T06:00",
+        "to": "SIN",
+        "country": "Singapore"
+      },
+      {
+        "fn": "DE 2369",
+        "airline": "CONDOR FLUGDIENST GMBH FRANKFURT",
+        "status": "",
+        "pax": 287,
+        "aircraft": "339",
+        "dep_time": "2026-04-27T03:00",
+        "arr_time": "2026-04-27T10:30",
+        "to": "FRA",
+        "country": "Germany"
+      },
+      {
+        "fn": "EK 391",
+        "airline": "EMIRATES",
+        "status": "cancelled",
+        "pax": 324,
+        "aircraft": "77W",
+        "dep_time": "2026-04-27T03:00",
+        "arr_time": "",
+        "to": "DXB",
+        "country": "UAE"
+      },
+      {
+        "fn": "MH 787",
+        "airline": "MALAYSIA AIRLINES",
+        "status": "",
+        "pax": 154,
+        "aircraft": "738",
+        "dep_time": "2026-04-27T03:30",
+        "arr_time": "2026-04-27T06:00",
+        "to": "KUL",
+        "country": "Malaysia"
+      },
+      {
+        "fn": "KC 564",
+        "airline": "AIR ASTANA",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "2026-04-27T03:30",
+        "arr_time": "2026-04-27T08:45",
+        "to": "ALA",
+        "country": "Kazakhstan"
+      },
+      {
+        "fn": "SU 285",
+        "airline": "AEROFLOT RUSSIAN AIRLINES",
+        "status": "",
+        "pax": 324,
+        "aircraft": "77W",
+        "dep_time": "2026-04-27T03:35",
+        "arr_time": "2026-04-27T09:35",
+        "to": "SVO",
+        "country": "Russia"
+      },
+      {
+        "fn": "G9 700",
+        "airline": "AIR ARABIA",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "2026-04-27T03:45",
+        "arr_time": "",
+        "to": "SHJ",
+        "country": "UAE"
+      },
+      {
+        "fn": "6E 1074",
+        "airline": "INTERGLOBE AVIATION LIMITED (INDIGO)",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "2026-04-27T04:05",
+        "arr_time": "2026-04-27T07:20",
+        "to": "DEL",
+        "country": "India"
+      },
+      {
+        "fn": "AK 833",
+        "airline": "AIRASIA BERHAD",
+        "status": "",
+        "pax": 147,
+        "aircraft": "320",
+        "dep_time": "2026-04-27T04:10",
+        "arr_time": "2026-04-27T06:45",
+        "to": "KUL",
+        "country": "Malaysia"
+      },
+      {
+        "fn": "UO 725",
+        "airline": "HONG KONG EXPRESS AIRWAYS",
+        "status": "",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "2026-04-27T04:15",
+        "arr_time": "2026-04-27T09:00",
+        "to": "HKG",
+        "country": "Hong Kong"
+      },
+      {
+        "fn": "WK 051",
+        "airline": "EDELWEISS AIR AG",
+        "status": "",
+        "pax": 266,
+        "aircraft": "359",
+        "dep_time": "2026-04-27T04:35",
+        "arr_time": "2026-04-27T11:55",
+        "to": "ZRH",
+        "country": "Switzerland"
+      },
+      {
+        "fn": "SQ 727",
+        "airline": "SINGAPORE AIRLINES LIMITED",
+        "status": "",
+        "pax": 147,
+        "aircraft": "7M8",
+        "dep_time": "2026-04-27T04:40",
+        "arr_time": "2026-04-27T07:55",
+        "to": "SIN",
+        "country": "Singapore"
+      },
+      {
+        "fn": "CX 770",
+        "airline": "CATHAY PACIFIC AIRWAYS",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "2026-04-27T04:50",
+        "arr_time": "2026-04-27T09:50",
+        "to": "HKG",
+        "country": "Hong Kong"
+      },
+      {
+        "fn": "VJ 808",
+        "airline": "VIETJET AIR",
+        "status": "cancelled",
+        "pax": 147,
+        "aircraft": "320",
+        "dep_time": "2026-04-27T04:55",
+        "arr_time": "2026-04-27T06:50",
+        "to": "SGN",
+        "country": "Vietnam"
+      },
+      {
+        "fn": "ZF 2986",
+        "airline": "AZUR AIR",
+        "status": "",
+        "pax": 147,
+        "aircraft": "76W",
+        "dep_time": "2026-04-27T05:10",
+        "arr_time": "",
+        "to": "SGC",
+        "country": "Russia"
+      },
+      {
+        "fn": "6E 1072",
+        "airline": "INTERGLOBE AVIATION LIMITED (INDIGO)",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "2026-04-27T05:20",
+        "arr_time": "2026-04-27T08:10",
+        "to": "BOM",
+        "country": "India"
+      },
+      {
+        "fn": "6E 1088",
+        "airline": "INTERGLOBE AVIATION LIMITED (INDIGO)",
+        "status": "",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "2026-04-27T05:25",
+        "arr_time": "2026-04-27T06:55",
+        "to": "CCU",
+        "country": "India"
+      },
+      {
+        "fn": "SU 627",
+        "airline": "AEROFLOT RUSSIAN AIRLINES",
+        "status": "",
+        "pax": 262,
+        "aircraft": "333",
+        "dep_time": "2026-04-27T05:35",
+        "arr_time": "2026-04-27T12:45",
+        "to": "SVX",
+        "country": "Russia"
+      },
+      {
+        "fn": "6E 1076",
+        "airline": "INTERGLOBE AVIATION LIMITED (INDIGO)",
+        "status": "",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "2026-04-27T05:45",
+        "arr_time": "2026-04-27T07:40",
+        "to": "BLR",
+        "country": "India"
+      },
+      {
+        "fn": "TR 657",
+        "airline": "SCOOT PTE LTD",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "2026-04-27T06:15",
+        "arr_time": "2026-04-27T09:35",
+        "to": "SIN",
+        "country": "Singapore"
+      },
+      {
+        "fn": "SU 635",
+        "airline": "AEROFLOT RUSSIAN AIRLINES",
+        "status": "",
+        "pax": 324,
+        "aircraft": "77W",
+        "dep_time": "2026-04-27T06:25",
+        "arr_time": "2026-04-27T14:10",
+        "to": "KJA",
+        "country": "Russia"
+      },
+      {
+        "fn": "OD 541",
+        "airline": "MALINDO AIRWAYS SDN BHD",
+        "status": "",
+        "pax": 154,
+        "aircraft": "738",
+        "dep_time": "2026-04-27T06:30",
+        "arr_time": "",
+        "to": "KUL",
+        "country": "Malaysia"
+      },
+      {
+        "fn": "AK 825",
+        "airline": "AIRASIA BERHAD",
+        "status": "",
+        "pax": 147,
+        "aircraft": "320",
+        "dep_time": "2026-04-27T06:35",
+        "arr_time": "2026-04-27T09:10",
+        "to": "KUL",
+        "country": "Malaysia"
+      },
+      {
+        "fn": "9C 8670",
+        "airline": "SPRING AIRLINES LIMITED CORPORATION",
+        "status": "cancelled",
+        "pax": 147,
+        "aircraft": "320",
+        "dep_time": "2026-04-27T06:40",
+        "arr_time": "",
+        "to": "PVG",
+        "country": "China"
+      },
+      {
+        "fn": "QP 619",
+        "airline": "AKASA AIR",
+        "status": "",
+        "pax": 147,
+        "aircraft": "7M8",
+        "dep_time": "2026-04-27T06:50",
+        "arr_time": "2026-04-27T13:15",
+        "to": "BOM",
+        "country": "India"
+      },
+      {
+        "fn": "CA 414",
+        "airline": "AIR CHINA",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "2026-04-27T07:00",
+        "arr_time": "2026-04-27T12:05",
+        "to": "TFU",
+        "country": ""
+      },
+      {
+        "fn": "MH 795",
+        "airline": "MALAYSIA AIRLINES",
+        "status": "",
+        "pax": 154,
+        "aircraft": "738",
+        "dep_time": "2026-04-27T07:05",
+        "arr_time": "2026-04-27T12:30",
+        "to": "KUL",
+        "country": "Malaysia"
+      },
+      {
+        "fn": "B2 8604",
+        "airline": "BELAVIA BELARUSIAN AIRLINES",
+        "status": "",
+        "pax": 147,
+        "aircraft": "33X",
+        "dep_time": "2026-04-27T07:10",
+        "arr_time": "",
+        "to": "MSQ",
+        "country": "Belarus"
+      },
+      {
+        "fn": "FY 3601",
+        "airline": "FLYFIREFLY SDN BHD",
+        "status": "",
+        "pax": 154,
+        "aircraft": "738",
+        "dep_time": "2026-04-27T07:35",
+        "arr_time": "2026-04-27T09:35",
+        "to": "PEN",
+        "country": "Malaysia"
+      },
+      {
+        "fn": "AK 1821",
+        "airline": "AIRASIA BERHAD",
+        "status": "",
+        "pax": 147,
+        "aircraft": "320",
+        "dep_time": "2026-04-27T07:55",
+        "arr_time": "",
+        "to": "PEN",
+        "country": "Malaysia"
+      },
+      {
+        "fn": "SU 577",
+        "airline": "AEROFLOT RUSSIAN AIRLINES",
+        "status": "",
+        "pax": 324,
+        "aircraft": "77W",
+        "dep_time": "2026-04-27T07:55",
+        "arr_time": "",
+        "to": "SVO",
+        "country": "Russia"
+      },
+      {
+        "fn": "SQ 731",
+        "airline": "SINGAPORE AIRLINES LIMITED",
+        "status": "",
+        "pax": 147,
+        "aircraft": "7M8",
+        "dep_time": "2026-04-27T08:00",
+        "arr_time": "2026-04-27T10:55",
+        "to": "SIN",
+        "country": "Singapore"
+      },
+      {
+        "fn": "QR 840",
+        "airline": "QATAR AIRWAYS COMPANY",
+        "status": "cancelled",
+        "pax": 324,
+        "aircraft": "77W",
+        "dep_time": "2026-04-27T08:45",
+        "arr_time": "2026-04-27T11:00",
+        "to": "PEN",
+        "country": "Malaysia"
+      },
+      {
+        "fn": "AK 823",
+        "airline": "AIRASIA BERHAD",
+        "status": "",
+        "pax": 147,
+        "aircraft": "320",
+        "dep_time": "2026-04-27T09:00",
+        "arr_time": "2026-04-27T11:10",
+        "to": "KUL",
+        "country": "Malaysia"
+      },
+      {
+        "fn": "QP 624",
+        "airline": "AKASA AIR",
+        "status": "",
+        "pax": 147,
+        "aircraft": "7M8",
+        "dep_time": "2026-04-27T09:10",
+        "arr_time": "2026-04-27T12:55",
+        "to": "BLR",
+        "country": "India"
+      },
+      {
+        "fn": "CZ 6064",
+        "airline": "CHINA SOUTHERN AIRLINES",
+        "status": "",
+        "pax": 147,
+        "aircraft": "320",
+        "dep_time": "2026-04-27T09:40",
+        "arr_time": "2026-04-27T14:55",
+        "to": "CAN",
+        "country": "China"
+      },
+      {
+        "fn": "IX 937",
+        "airline": "AIR INDIA EXPRESS",
+        "status": "",
+        "pax": 147,
+        "aircraft": "7M8",
+        "dep_time": "2026-04-27T09:45",
+        "arr_time": "2026-04-27T07:55",
+        "to": "HYD",
+        "country": "India"
+      },
+      {
+        "fn": "AK 821",
+        "airline": "AIRASIA BERHAD",
+        "status": "",
+        "pax": 147,
+        "aircraft": "320",
+        "dep_time": "2026-04-27T10:05",
+        "arr_time": "2026-04-27T12:25",
+        "to": "KUL",
+        "country": "Malaysia"
+      },
+      {
+        "fn": "SQ 735",
+        "airline": "SINGAPORE AIRLINES LIMITED",
+        "status": "",
+        "pax": 147,
+        "aircraft": "7M8",
+        "dep_time": "2026-04-27T11:00",
+        "arr_time": "2026-04-27T14:00",
+        "to": "SIN",
+        "country": "Singapore"
+      },
+      {
+        "fn": "MH 791",
+        "airline": "MALAYSIA AIRLINES",
+        "status": "",
+        "pax": 154,
+        "aircraft": "738",
+        "dep_time": "2026-04-27T11:05",
+        "arr_time": "2026-04-27T13:55",
+        "to": "KUL",
+        "country": "Malaysia"
+      },
+      {
+        "fn": "CX 778",
+        "airline": "CATHAY PACIFIC AIRWAYS",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "2026-04-27T11:20",
+        "arr_time": "2026-04-27T16:15",
+        "to": "HKG",
+        "country": "Hong Kong"
+      },
+      {
+        "fn": "G9 715",
+        "airline": "AIR ARABIA",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "2026-04-27T11:40",
+        "arr_time": "2026-04-27T15:05",
+        "to": "SHJ",
+        "country": "UAE"
+      },
+      {
+        "fn": "3U 3932",
+        "airline": "SICHUAN AIRLINES",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "2026-04-27T12:05",
+        "arr_time": "2026-04-27T16:25",
+        "to": "TFU",
+        "country": ""
+      },
+      {
+        "fn": "CA 822",
+        "airline": "AIR CHINA",
+        "status": "",
+        "pax": 147,
+        "aircraft": "7M8",
+        "dep_time": "2026-04-27T12:25",
+        "arr_time": "2026-04-27T17:50",
+        "to": "PEK",
+        "country": "China"
+      },
+      {
+        "fn": "QZ 247",
+        "airline": "INDONESIA AIRASIA PT.",
+        "status": "cancelled",
+        "pax": 147,
+        "aircraft": "320",
+        "dep_time": "2026-04-27T12:40",
+        "arr_time": "2026-04-27T17:30",
+        "to": "DPS",
+        "country": "Indonesia"
+      },
+      {
+        "fn": "EK 379",
+        "airline": "EMIRATES",
+        "status": "",
+        "pax": 324,
+        "aircraft": "77W",
+        "dep_time": "2026-04-27T12:55",
+        "arr_time": "2026-04-27T15:40",
+        "to": "DXB",
+        "country": "UAE"
+      },
+      {
+        "fn": "SQ 739",
+        "airline": "SINGAPORE AIRLINES LIMITED",
+        "status": "",
+        "pax": 147,
+        "aircraft": "7M8",
+        "dep_time": "2026-04-27T13:10",
+        "arr_time": "2026-04-27T16:25",
+        "to": "SIN",
+        "country": "Singapore"
+      },
+      {
+        "fn": "QR 847",
+        "airline": "QATAR AIRWAYS COMPANY",
+        "status": "cancelled",
+        "pax": 324,
+        "aircraft": "77W",
+        "dep_time": "2026-04-27T13:30",
+        "arr_time": "2026-04-27T16:30",
+        "to": "DOH",
+        "country": "Qatar"
+      },
+      {
+        "fn": "QR 841",
+        "airline": "QATAR AIRWAYS COMPANY",
+        "status": "",
+        "pax": 324,
+        "aircraft": "77W",
+        "dep_time": "2026-04-27T13:40",
+        "arr_time": "2026-04-27T20:50",
+        "to": "DOH",
+        "country": "Qatar"
+      },
+      {
+        "fn": "9C 8772",
+        "airline": "SPRING AIRLINES LIMITED CORPORATION",
+        "status": "cancelled",
+        "pax": 147,
+        "aircraft": "320",
+        "dep_time": "2026-04-27T13:45",
+        "arr_time": "2026-04-27T20:15",
+        "to": "CAN",
+        "country": "China"
+      },
+      {
+        "fn": "EY 417",
+        "airline": "ETIHAD AIRWAYS",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "2026-04-27T13:45",
+        "arr_time": "",
+        "to": "AUH",
+        "country": "UAE"
+      },
+      {
+        "fn": "WY 832",
+        "airline": "OMAN AIR",
+        "status": "",
+        "pax": 147,
+        "aircraft": "7M8",
+        "dep_time": "2026-04-27T13:50",
+        "arr_time": "2026-04-27T15:40",
+        "to": "MCT",
+        "country": "Oman"
+      },
+      {
+        "fn": "TR 653",
+        "airline": "SCOOT PTE LTD",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "2026-04-27T13:50",
+        "arr_time": "2026-04-27T16:15",
+        "to": "SIN",
+        "country": "Singapore"
+      },
+      {
+        "fn": "6B 404",
+        "airline": "TUIFLY NORDIC AB",
+        "status": "",
+        "pax": 205,
+        "aircraft": "788",
+        "dep_time": "2026-04-27T14:00",
+        "arr_time": "",
+        "to": "CPH",
+        "country": "Denmark"
+      },
+      {
+        "fn": "JQ 028",
+        "airline": "JETSTAR AIRWAYS PTY LIMITED",
+        "status": "",
+        "pax": 205,
+        "aircraft": "788",
+        "dep_time": "2026-04-27T14:05",
+        "arr_time": "2026-04-28T02:40",
+        "to": "SYD",
+        "country": "Australia"
+      },
+      {
+        "fn": "OD 543",
+        "airline": "MALINDO AIRWAYS SDN BHD",
+        "status": "cancelled",
+        "pax": 147,
+        "aircraft": "7M8",
+        "dep_time": "2026-04-27T14:10",
+        "arr_time": "",
+        "to": "KUL",
+        "country": "Malaysia"
+      },
+      {
+        "fn": "EY 413",
+        "airline": "ETIHAD AIRWAYS",
+        "status": "",
+        "pax": 324,
+        "aircraft": "77W",
+        "dep_time": "2026-04-27T14:15",
+        "arr_time": "2026-04-27T17:35",
+        "to": "AUH",
+        "country": "UAE"
+      },
+      {
+        "fn": "9C 8774",
+        "airline": "SPRING AIRLINES LIMITED CORPORATION",
+        "status": "",
+        "pax": 147,
+        "aircraft": "320",
+        "dep_time": "2026-04-27T14:30",
+        "arr_time": "",
+        "to": "CAN",
+        "country": "China"
+      },
+      {
+        "fn": "9C 8666",
+        "airline": "SPRING AIRLINES LIMITED CORPORATION",
+        "status": "",
+        "pax": 147,
+        "aircraft": "320",
+        "dep_time": "2026-04-27T14:45",
+        "arr_time": "",
+        "to": "PVG",
+        "country": "China"
+      },
+      {
+        "fn": "AI 2377",
+        "airline": "AIR INDIA LTD",
+        "status": "",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "2026-04-27T15:20",
+        "arr_time": "2026-04-27T18:45",
+        "to": "DEL",
+        "country": "India"
+      },
+      {
+        "fn": "OZ 748",
+        "airline": "ASIANA AIRLINES",
+        "status": "",
+        "pax": 262,
+        "aircraft": "333",
+        "dep_time": "2026-04-27T15:25",
+        "arr_time": "2026-04-28T00:15",
+        "to": "ICN",
+        "country": "South Korea"
+      },
+      {
+        "fn": "TK 173",
+        "airline": "TURK HAVA YOLLARI (TURKISH AIRLINES CO.)",
+        "status": "",
+        "pax": 262,
+        "aircraft": "333",
+        "dep_time": "2026-04-27T15:35",
+        "arr_time": "2026-04-27T22:30",
+        "to": "IST",
+        "country": "Turkey"
+      },
+      {
+        "fn": "6E 1082",
+        "airline": "INTERGLOBE AVIATION LIMITED (INDIGO)",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "2026-04-27T15:50",
+        "arr_time": "2026-04-27T18:35",
+        "to": "DEL",
+        "country": "India"
+      },
+      {
+        "fn": "6E 1090",
+        "airline": "INTERGLOBE AVIATION LIMITED (INDIGO)",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "2026-04-27T15:55",
+        "arr_time": "2026-04-27T18:50",
+        "to": "BOM",
+        "country": "India"
+      },
+      {
+        "fn": "JQ 070",
+        "airline": "JETSTAR AIRWAYS PTY LIMITED",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "2026-04-27T16:00",
+        "arr_time": "",
+        "to": "PER",
+        "country": "Australia"
+      },
+      {
+        "fn": "FM 858",
+        "airline": "SHANGHAI AIRLINES",
+        "status": "",
+        "pax": 147,
+        "aircraft": "7M8",
+        "dep_time": "2026-04-27T16:05",
+        "arr_time": "2026-04-27T22:00",
+        "to": "PVG",
+        "country": "China"
+      },
+      {
+        "fn": "HB 271",
+        "airline": "GREATER BAY AIRLINES",
+        "status": "cancelled",
+        "pax": 154,
+        "aircraft": "738",
+        "dep_time": "2026-04-27T16:10",
+        "arr_time": "",
+        "to": "HKG",
+        "country": "Hong Kong"
+      },
+      {
+        "fn": "KE 678",
+        "airline": "KOREAN AIRLINES CO.LTD.",
+        "status": "",
+        "pax": 237,
+        "aircraft": "789",
+        "dep_time": "2026-04-27T16:25",
+        "arr_time": "2026-04-28T00:35",
+        "to": "ICN",
+        "country": "South Korea"
+      },
+      {
+        "fn": "9C 8522",
+        "airline": "SPRING AIRLINES LIMITED CORPORATION",
+        "status": "",
+        "pax": 147,
+        "aircraft": "320",
+        "dep_time": "2026-04-27T16:35",
+        "arr_time": "",
+        "to": "PVG",
+        "country": "China"
+      },
+      {
+        "fn": "EK 397",
+        "airline": "EMIRATES",
+        "status": "",
+        "pax": 324,
+        "aircraft": "77W",
+        "dep_time": "2026-04-27T16:45",
+        "arr_time": "2026-04-27T20:25",
+        "to": "DXB",
+        "country": "UAE"
+      },
+      {
+        "fn": "FD 192",
+        "airline": "THAI AIR ASIA CO.LTD.",
+        "status": "cancelled",
+        "pax": 147,
+        "aircraft": "320",
+        "dep_time": "2026-04-27T16:50",
+        "arr_time": "",
+        "to": "MAA",
+        "country": "India"
       }
     ]
   },
   "week": {
     "arrivals": {
-      "count": 603,
-      "pax": 108811,
+      "count": 618,
+      "pax": 111360,
       "all": [
         {
           "name": "Malaysia",
-          "flights": 90,
-          "pax": 14705
+          "flights": 91,
+          "pax": 14852
         },
         {
           "name": "India",
-          "flights": 88,
-          "pax": 13075
+          "flights": 90,
+          "pax": 13435
         },
         {
           "name": "UAE",
@@ -3613,18 +4732,18 @@
         },
         {
           "name": "China",
-          "flights": 46,
-          "pax": 6783
+          "flights": 51,
+          "pax": 7518
         },
         {
           "name": "Hong Kong",
-          "flights": 29,
-          "pax": 4880
+          "flights": 30,
+          "pax": 5034
         },
         {
           "name": "Australia",
-          "flights": 22,
-          "pax": 3905
+          "flights": 23,
+          "pax": 4085
         },
         {
           "name": "Qatar",
@@ -3638,19 +4757,19 @@
           "country": "Russia"
         },
         {
-          "name": "Oman",
-          "flights": 13,
-          "pax": 1911
-        },
-        {
           "name": "Other",
-          "flights": 13,
-          "pax": 2043
+          "flights": 16,
+          "pax": 2517
         },
         {
           "name": "South Korea",
-          "flights": 12,
-          "pax": 2994
+          "flights": 14,
+          "pax": 3493
+        },
+        {
+          "name": "Oman",
+          "flights": 13,
+          "pax": 1911
         },
         {
           "name": "Vietnam",
@@ -3791,89 +4910,94 @@
       ]
     },
     "departures": {
-      "count": 519,
-      "pax": 93594,
+      "count": 599,
+      "pax": 108714,
       "all": [
         {
           "name": "Malaysia",
-          "flights": 77,
-          "pax": 12575
+          "flights": 89,
+          "pax": 14551
         },
         {
           "name": "India",
-          "flights": 76,
-          "pax": 11311
+          "flights": 88,
+          "pax": 13207
         },
         {
           "name": "UAE",
-          "flights": 73,
-          "pax": 15495
+          "flights": 83,
+          "pax": 17838
         },
         {
           "name": "Singapore",
-          "flights": 60,
-          "pax": 8940
+          "flights": 68,
+          "pax": 10215
         },
         {
           "name": "China",
-          "flights": 42,
-          "pax": 6195
+          "flights": 51,
+          "pax": 7518
         },
         {
           "name": "Hong Kong",
-          "flights": 23,
-          "pax": 3883
+          "flights": 27,
+          "pax": 4544
         },
         {
           "name": "Australia",
-          "flights": 21,
-          "pax": 3758
+          "flights": 23,
+          "pax": 4143
         },
         {
           "name": "Qatar",
-          "flights": 16,
-          "pax": 4830
+          "flights": 19,
+          "pax": 5802
         },
         {
           "name": "Москва",
-          "flights": 15,
-          "pax": 4262,
+          "flights": 17,
+          "pax": 4910,
           "country": "Russia"
         },
         {
           "name": "South Korea",
-          "flights": 13,
-          "pax": 3051
+          "flights": 15,
+          "pax": 3550
         },
         {
           "name": "Oman",
-          "flights": 12,
-          "pax": 1764
+          "flights": 14,
+          "pax": 2058
         },
         {
           "name": "Other",
-          "flights": 11,
-          "pax": 1749
+          "flights": 14,
+          "pax": 2223
+        },
+        {
+          "name": "Vietnam",
+          "flights": 8,
+          "pax": 1176
+        },
+        {
+          "name": "Germany",
+          "flights": 7,
+          "pax": 2009
+        },
+        {
+          "name": "Kazakhstan",
+          "flights": 7,
+          "pax": 1095
+        },
+        {
+          "name": "Indonesia",
+          "flights": 7,
+          "pax": 1029
         },
         {
           "name": "Uzbekistan",
           "flights": 7,
           "pax": 1029
-        },
-        {
-          "name": "Vietnam",
-          "flights": 7,
-          "pax": 1029
-        },
-        {
-          "name": "Germany",
-          "flights": 6,
-          "pax": 1722
-        },
-        {
-          "name": "Kazakhstan",
-          "flights": 6,
-          "pax": 915
         },
         {
           "name": "Новосибирск",
@@ -3882,14 +5006,26 @@
           "country": "Russia"
         },
         {
-          "name": "Indonesia",
-          "flights": 6,
-          "pax": 882
-        },
-        {
           "name": "UK",
           "flights": 5,
           "pax": 967
+        },
+        {
+          "name": "Екатеринбург",
+          "flights": 4,
+          "pax": 928,
+          "country": "Russia"
+        },
+        {
+          "name": "Красноярск",
+          "flights": 4,
+          "pax": 1052,
+          "country": "Russia"
+        },
+        {
+          "name": "Turkey",
+          "flights": 4,
+          "pax": 933
         },
         {
           "name": "Israel",
@@ -3909,21 +5045,9 @@
           "country": "Russia"
         },
         {
-          "name": "Екатеринбург",
-          "flights": 3,
-          "pax": 666,
-          "country": "Russia"
-        },
-        {
-          "name": "Turkey",
-          "flights": 3,
-          "pax": 671
-        },
-        {
-          "name": "Красноярск",
-          "flights": 3,
-          "pax": 728,
-          "country": "Russia"
+          "name": "Switzerland",
+          "flights": 2,
+          "pax": 532
         },
         {
           "name": "Myanmar",
@@ -3959,6 +5083,22 @@
           "country": "Russia"
         },
         {
+          "name": "Сургут",
+          "flights": 1,
+          "pax": 147,
+          "country": "Russia"
+        },
+        {
+          "name": "Belarus",
+          "flights": 1,
+          "pax": 147
+        },
+        {
+          "name": "Denmark",
+          "flights": 1,
+          "pax": 205
+        },
+        {
           "name": "Sweden",
           "flights": 1,
           "pax": 237
@@ -3980,11 +5120,6 @@
           "flights": 1,
           "pax": 262,
           "country": "Russia"
-        },
-        {
-          "name": "Switzerland",
-          "flights": 1,
-          "pax": 266
         },
         {
           "name": "Самара",
@@ -4813,8 +5948,8 @@
       {
         "date": "2026-04-26",
         "label": "Вс 26.04",
-        "arrivals": 87,
-        "departures": 90,
+        "arrivals": 90,
+        "departures": 94,
         "arrivals_by": {
           "UAE": {
             "n": 11
@@ -4863,6 +5998,9 @@
           "Казань": {
             "n": 1,
             "country": "Russia"
+          },
+          "Other": {
+            "n": 3
           },
           "Australia": {
             "n": 3
@@ -4935,6 +6073,9 @@
             "n": 1,
             "country": "Russia"
           },
+          "Other": {
+            "n": 3
+          },
           "Australia": {
             "n": 3
           },
@@ -4950,7 +6091,7 @@
             "country": "Russia"
           },
           "China": {
-            "n": 7
+            "n": 8
           },
           "Indonesia": {
             "n": 1
@@ -4963,14 +6104,14 @@
       {
         "date": "2026-04-27",
         "label": "Пн 27.04",
-        "arrivals": 85,
-        "departures": 2,
+        "arrivals": 97,
+        "departures": 78,
         "arrivals_by": {
           "UAE": {
             "n": 18
           },
           "India": {
-            "n": 12
+            "n": 14
           },
           "Germany": {
             "n": 1
@@ -4992,7 +6133,7 @@
             "n": 1
           },
           "Malaysia": {
-            "n": 11
+            "n": 12
           },
           "Switzerland": {
             "n": 4
@@ -5002,7 +6143,7 @@
             "country": "Russia"
           },
           "Hong Kong": {
-            "n": 4
+            "n": 5
           },
           "Санкт-Петербург": {
             "n": 3,
@@ -5019,7 +6160,7 @@
             "n": 1
           },
           "China": {
-            "n": 4
+            "n": 9
           },
           "Turkey": {
             "n": 3
@@ -5031,15 +6172,81 @@
             "n": 1
           },
           "Australia": {
-            "n": 1
+            "n": 2
+          },
+          "South Korea": {
+            "n": 2
           }
         },
         "departures_by": {
           "Москва": {
-            "n": 1,
+            "n": 3,
             "country": "Russia"
           },
           "China": {
+            "n": 9
+          },
+          "India": {
+            "n": 12
+          },
+          "UAE": {
+            "n": 10
+          },
+          "Oman": {
+            "n": 2
+          },
+          "Qatar": {
+            "n": 3
+          },
+          "Singapore": {
+            "n": 8
+          },
+          "Germany": {
+            "n": 1
+          },
+          "Malaysia": {
+            "n": 12
+          },
+          "Kazakhstan": {
+            "n": 1
+          },
+          "Hong Kong": {
+            "n": 4
+          },
+          "Switzerland": {
+            "n": 1
+          },
+          "Vietnam": {
+            "n": 1
+          },
+          "Сургут": {
+            "n": 1,
+            "country": "Russia"
+          },
+          "Екатеринбург": {
+            "n": 1,
+            "country": "Russia"
+          },
+          "Красноярск": {
+            "n": 1,
+            "country": "Russia"
+          },
+          "Belarus": {
+            "n": 1
+          },
+          "Indonesia": {
+            "n": 1
+          },
+          "Denmark": {
+            "n": 1
+          },
+          "Australia": {
+            "n": 2
+          },
+          "South Korea": {
+            "n": 2
+          },
+          "Turkey": {
             "n": 1
           }
         }
@@ -5055,18 +6262,18 @@
   },
   "month": {
     "arrivals": {
-      "count": 2616,
-      "pax": 485526,
+      "count": 2631,
+      "pax": 488075,
       "all": [
         {
           "name": "India",
-          "flights": 384,
-          "pax": 56900
+          "flights": 386,
+          "pax": 57260
         },
         {
           "name": "Malaysia",
-          "flights": 384,
-          "pax": 62058
+          "flights": 385,
+          "pax": 62205
         },
         {
           "name": "UAE",
@@ -5080,8 +6287,8 @@
         },
         {
           "name": "China",
-          "flights": 180,
-          "pax": 26901
+          "flights": 185,
+          "pax": 27636
         },
         {
           "name": "Москва",
@@ -5091,13 +6298,13 @@
         },
         {
           "name": "Hong Kong",
-          "flights": 118,
-          "pax": 22365
+          "flights": 119,
+          "pax": 22519
         },
         {
           "name": "Australia",
-          "flights": 92,
-          "pax": 16324
+          "flights": 93,
+          "pax": 16504
         },
         {
           "name": "Qatar",
@@ -5106,8 +6313,8 @@
         },
         {
           "name": "South Korea",
-          "flights": 57,
-          "pax": 13914
+          "flights": 59,
+          "pax": 14413
         },
         {
           "name": "Oman",
@@ -5190,6 +6397,11 @@
           "country": "Russia"
         },
         {
+          "name": "Other",
+          "flights": 16,
+          "pax": 2517
+        },
+        {
           "name": "Хабаровск",
           "flights": 15,
           "pax": 4124,
@@ -5204,11 +6416,6 @@
           "name": "Finland",
           "flights": 13,
           "pax": 3188
-        },
-        {
-          "name": "Other",
-          "flights": 13,
-          "pax": 2043
         },
         {
           "name": "Казань",
@@ -5346,79 +6553,79 @@
       ]
     },
     "departures": {
-      "count": 2484,
-      "pax": 462003,
+      "count": 2564,
+      "pax": 477123,
       "all": [
         {
           "name": "Malaysia",
-          "flights": 363,
-          "pax": 58582
+          "flights": 375,
+          "pax": 60558
         },
         {
           "name": "India",
-          "flights": 358,
-          "pax": 53078
+          "flights": 370,
+          "pax": 54974
         },
         {
           "name": "UAE",
-          "flights": 298,
-          "pax": 64587
+          "flights": 308,
+          "pax": 66930
         },
         {
           "name": "Singapore",
-          "flights": 266,
-          "pax": 39551
+          "flights": 274,
+          "pax": 40826
         },
         {
           "name": "China",
-          "flights": 173,
-          "pax": 25947
-        },
-        {
-          "name": "Москва",
-          "flights": 111,
-          "pax": 30536,
-          "country": "Russia"
+          "flights": 182,
+          "pax": 27270
         },
         {
           "name": "Hong Kong",
-          "flights": 111,
-          "pax": 20998
+          "flights": 115,
+          "pax": 21659
         },
         {
-          "name": "Australia",
-          "flights": 86,
-          "pax": 15533
+          "name": "Москва",
+          "flights": 113,
+          "pax": 31184,
+          "country": "Russia"
         },
         {
           "name": "Qatar",
-          "flights": 85,
-          "pax": 26298
+          "flights": 88,
+          "pax": 27270
+        },
+        {
+          "name": "Australia",
+          "flights": 88,
+          "pax": 15918
         },
         {
           "name": "South Korea",
-          "flights": 59,
-          "pax": 14323
+          "flights": 61,
+          "pax": 14822
         },
         {
           "name": "Oman",
-          "flights": 52,
-          "pax": 7644
+          "flights": 54,
+          "pax": 7938
         },
         {
           "name": "Kazakhstan",
-          "flights": 45,
-          "pax": 6747
+          "flights": 46,
+          "pax": 6927
+        },
+        {
+          "name": "Vietnam",
+          "flights": 35,
+          "pax": 5321
         },
         {
           "name": "Uzbekistan",
           "flights": 34,
           "pax": 5031
-        },
-        {
-          "name": "Vietnam",
-          "flights": 34,
-          "pax": 5174
         },
         {
           "name": "Новосибирск",
@@ -5428,19 +6635,19 @@
         },
         {
           "name": "Germany",
-          "flights": 29,
-          "pax": 8043
-        },
-        {
-          "name": "Indonesia",
-          "flights": 29,
-          "pax": 4263
+          "flights": 30,
+          "pax": 8330
         },
         {
           "name": "Екатеринбург",
-          "flights": 29,
-          "pax": 5963,
+          "flights": 30,
+          "pax": 6225,
           "country": "Russia"
+        },
+        {
+          "name": "Indonesia",
+          "flights": 30,
+          "pax": 4410
         },
         {
           "name": "Sweden",
@@ -5449,8 +6656,8 @@
         },
         {
           "name": "Красноярск",
-          "flights": 22,
-          "pax": 5464,
+          "flights": 23,
+          "pax": 5788,
           "country": "Russia"
         },
         {
@@ -5465,15 +6672,20 @@
           "country": "Russia"
         },
         {
+          "name": "Turkey",
+          "flights": 16,
+          "pax": 4077
+        },
+        {
+          "name": "Switzerland",
+          "flights": 15,
+          "pax": 3752
+        },
+        {
           "name": "Иркутск",
           "flights": 15,
           "pax": 2549,
           "country": "Russia"
-        },
-        {
-          "name": "Turkey",
-          "flights": 15,
-          "pax": 3815
         },
         {
           "name": "Other(TFU)",
@@ -5481,14 +6693,14 @@
           "pax": 2469
         },
         {
+          "name": "Other",
+          "flights": 14,
+          "pax": 2223
+        },
+        {
           "name": "Finland",
           "flights": 14,
           "pax": 3364
-        },
-        {
-          "name": "Switzerland",
-          "flights": 14,
-          "pax": 3486
         },
         {
           "name": "Israel",
@@ -5500,11 +6712,6 @@
           "flights": 12,
           "pax": 2109,
           "country": "Russia"
-        },
-        {
-          "name": "Other",
-          "flights": 11,
-          "pax": 1749
         },
         {
           "name": "Хабаровск",
@@ -5530,6 +6737,11 @@
           "country": "Russia"
         },
         {
+          "name": "Denmark",
+          "flights": 7,
+          "pax": 1599
+        },
+        {
           "name": "Myanmar",
           "flights": 7,
           "pax": 574
@@ -5539,11 +6751,6 @@
           "flights": 7,
           "pax": 1029,
           "country": "Russia"
-        },
-        {
-          "name": "Denmark",
-          "flights": 6,
-          "pax": 1394
         },
         {
           "name": "Сочи",
@@ -5568,6 +6775,11 @@
           "pax": 588
         },
         {
+          "name": "Belarus",
+          "flights": 3,
+          "pax": 441
+        },
+        {
           "name": "Italy",
           "flights": 3,
           "pax": 711
@@ -5578,15 +6790,16 @@
           "pax": 441
         },
         {
-          "name": "Тюмень",
+          "name": "Сургут",
           "flights": 2,
           "pax": 294,
           "country": "Russia"
         },
         {
-          "name": "Belarus",
+          "name": "Тюмень",
           "flights": 2,
-          "pax": 294
+          "pax": 294,
+          "country": "Russia"
         },
         {
           "name": "Poland",
@@ -5597,12 +6810,6 @@
           "name": "Other(IKA)",
           "flights": 2,
           "pax": 294
-        },
-        {
-          "name": "Сургут",
-          "flights": 1,
-          "pax": 147,
-          "country": "Russia"
         },
         {
           "name": "Other(OMS)",
@@ -6707,8 +7914,8 @@
       {
         "key": "2026-W17",
         "label": "Нед 17 (Апр)",
-        "arrivals": 605,
-        "departures": 598,
+        "arrivals": 608,
+        "departures": 602,
         "arrivals_by": {
           "Казань": {
             "n": 2,
@@ -6814,7 +8021,7 @@
             "country": "Russia"
           },
           "Other": {
-            "n": 13
+            "n": 16
           },
           "Сочи": {
             "n": 2,
@@ -6833,7 +8040,7 @@
         },
         "departures_by": {
           "China": {
-            "n": 47
+            "n": 48
           },
           "Москва": {
             "n": 17,
@@ -6932,7 +8139,7 @@
             "n": 7
           },
           "Other": {
-            "n": 11
+            "n": 14
           },
           "Хабаровск": {
             "n": 2,
@@ -6961,14 +8168,14 @@
       {
         "key": "2026-W18",
         "label": "Нед 18 (Апр)",
-        "arrivals": 85,
-        "departures": 2,
+        "arrivals": 97,
+        "departures": 78,
         "arrivals_by": {
           "UAE": {
             "n": 18
           },
           "India": {
-            "n": 12
+            "n": 14
           },
           "Germany": {
             "n": 1
@@ -6990,7 +8197,7 @@
             "n": 1
           },
           "Malaysia": {
-            "n": 11
+            "n": 12
           },
           "Switzerland": {
             "n": 4
@@ -7000,7 +8207,7 @@
             "country": "Russia"
           },
           "Hong Kong": {
-            "n": 4
+            "n": 5
           },
           "Санкт-Петербург": {
             "n": 3,
@@ -7017,7 +8224,7 @@
             "n": 1
           },
           "China": {
-            "n": 4
+            "n": 9
           },
           "Turkey": {
             "n": 3
@@ -7029,15 +8236,81 @@
             "n": 1
           },
           "Australia": {
-            "n": 1
+            "n": 2
+          },
+          "South Korea": {
+            "n": 2
           }
         },
         "departures_by": {
           "Москва": {
-            "n": 1,
+            "n": 3,
             "country": "Russia"
           },
           "China": {
+            "n": 9
+          },
+          "India": {
+            "n": 12
+          },
+          "UAE": {
+            "n": 10
+          },
+          "Oman": {
+            "n": 2
+          },
+          "Qatar": {
+            "n": 3
+          },
+          "Singapore": {
+            "n": 8
+          },
+          "Germany": {
+            "n": 1
+          },
+          "Malaysia": {
+            "n": 12
+          },
+          "Kazakhstan": {
+            "n": 1
+          },
+          "Hong Kong": {
+            "n": 4
+          },
+          "Switzerland": {
+            "n": 1
+          },
+          "Vietnam": {
+            "n": 1
+          },
+          "Сургут": {
+            "n": 1,
+            "country": "Russia"
+          },
+          "Екатеринбург": {
+            "n": 1,
+            "country": "Russia"
+          },
+          "Красноярск": {
+            "n": 1,
+            "country": "Russia"
+          },
+          "Belarus": {
+            "n": 1
+          },
+          "Indonesia": {
+            "n": 1
+          },
+          "Denmark": {
+            "n": 1
+          },
+          "Australia": {
+            "n": 2
+          },
+          "South Korea": {
+            "n": 2
+          },
+          "Turkey": {
             "n": 1
           }
         }
@@ -7053,23 +8326,23 @@
   },
   "quarter": {
     "arrivals": {
-      "count": 9589,
-      "pax": 1742676,
+      "count": 9604,
+      "pax": 1745225,
       "all": [
         {
           "name": "China",
-          "flights": 1529,
-          "pax": 237083
+          "flights": 1534,
+          "pax": 237818
         },
         {
           "name": "India",
-          "flights": 1243,
-          "pax": 183206
+          "flights": 1245,
+          "pax": 183566
         },
         {
           "name": "Malaysia",
-          "flights": 1121,
-          "pax": 181869
+          "flights": 1122,
+          "pax": 182016
         },
         {
           "name": "Singapore",
@@ -7083,8 +8356,8 @@
         },
         {
           "name": "Hong Kong",
-          "flights": 367,
-          "pax": 67684
+          "flights": 368,
+          "pax": 67838
         },
         {
           "name": "Москва",
@@ -7104,13 +8377,13 @@
         },
         {
           "name": "South Korea",
-          "flights": 211,
-          "pax": 50352
+          "flights": 213,
+          "pax": 50851
         },
         {
           "name": "Australia",
-          "flights": 186,
-          "pax": 33622
+          "flights": 187,
+          "pax": 33802
         },
         {
           "name": "Kazakhstan",
@@ -7292,6 +8565,11 @@
           "pax": 2499
         },
         {
+          "name": "Other",
+          "flights": 16,
+          "pax": 2517
+        },
+        {
           "name": "Other(UBN)",
           "flights": 16,
           "pax": 2422
@@ -7306,11 +8584,6 @@
           "name": "Other(KTW)",
           "flights": 14,
           "pax": 2870
-        },
-        {
-          "name": "Other",
-          "flights": 13,
-          "pax": 2043
         },
         {
           "name": "Other(PEE)",
@@ -7416,49 +8689,49 @@
       ]
     },
     "departures": {
-      "count": 9454,
-      "pax": 1718190,
+      "count": 9534,
+      "pax": 1733310,
       "all": [
         {
           "name": "China",
-          "flights": 1520,
-          "pax": 236082
+          "flights": 1529,
+          "pax": 237405
         },
         {
           "name": "India",
-          "flights": 1208,
-          "pax": 178061
+          "flights": 1220,
+          "pax": 179957
         },
         {
           "name": "Malaysia",
-          "flights": 1102,
-          "pax": 179041
+          "flights": 1114,
+          "pax": 181017
         },
         {
           "name": "Singapore",
-          "flights": 837,
-          "pax": 125109
+          "flights": 845,
+          "pax": 126384
         },
         {
           "name": "UAE",
-          "flights": 822,
-          "pax": 174867
-        },
-        {
-          "name": "Москва",
-          "flights": 360,
-          "pax": 100366,
-          "country": "Russia"
+          "flights": 832,
+          "pax": 177210
         },
         {
           "name": "Hong Kong",
-          "flights": 360,
-          "pax": 66317
+          "flights": 364,
+          "pax": 66978
+        },
+        {
+          "name": "Москва",
+          "flights": 362,
+          "pax": 101014,
+          "country": "Russia"
         },
         {
           "name": "Qatar",
-          "flights": 296,
-          "pax": 90950
+          "flights": 299,
+          "pax": 91922
         },
         {
           "name": "Other(TFU)",
@@ -7467,23 +8740,23 @@
         },
         {
           "name": "Kazakhstan",
-          "flights": 260,
-          "pax": 38352
+          "flights": 261,
+          "pax": 38532
         },
         {
           "name": "South Korea",
-          "flights": 198,
-          "pax": 47636
+          "flights": 200,
+          "pax": 48135
         },
         {
           "name": "Australia",
-          "flights": 182,
-          "pax": 33241
+          "flights": 184,
+          "pax": 33626
         },
         {
           "name": "Oman",
-          "flights": 149,
-          "pax": 21903
+          "flights": 151,
+          "pax": 22197
         },
         {
           "name": "Uzbekistan",
@@ -7504,23 +8777,23 @@
         },
         {
           "name": "Turkey",
-          "flights": 99,
-          "pax": 25285
+          "flights": 100,
+          "pax": 25547
         },
         {
           "name": "Vietnam",
-          "flights": 94,
-          "pax": 15974
+          "flights": 95,
+          "pax": 16121
         },
         {
           "name": "Indonesia",
-          "flights": 90,
-          "pax": 13230
+          "flights": 91,
+          "pax": 13377
         },
         {
           "name": "Germany",
-          "flights": 89,
-          "pax": 25263
+          "flights": 90,
+          "pax": 25550
         },
         {
           "name": "Finland",
@@ -7534,14 +8807,14 @@
         },
         {
           "name": "Екатеринбург",
-          "flights": 77,
-          "pax": 16189,
+          "flights": 78,
+          "pax": 16451,
           "country": "Russia"
         },
         {
           "name": "Красноярск",
-          "flights": 67,
-          "pax": 16188,
+          "flights": 68,
+          "pax": 16512,
           "country": "Russia"
         },
         {
@@ -7567,8 +8840,8 @@
         },
         {
           "name": "Switzerland",
-          "flights": 49,
-          "pax": 8631
+          "flights": 50,
+          "pax": 8897
         },
         {
           "name": "Israel",
@@ -7605,8 +8878,8 @@
         },
         {
           "name": "Denmark",
-          "flights": 29,
-          "pax": 7025
+          "flights": 30,
+          "pax": 7230
         },
         {
           "name": "France",
@@ -7661,6 +8934,11 @@
           "pax": 2422
         },
         {
+          "name": "Other",
+          "flights": 14,
+          "pax": 2223
+        },
+        {
           "name": "Other(PEE)",
           "flights": 14,
           "pax": 2058
@@ -7676,11 +8954,6 @@
           "pax": 2754
         },
         {
-          "name": "Other",
-          "flights": 11,
-          "pax": 1749
-        },
-        {
           "name": "Сочи",
           "flights": 11,
           "pax": 1617,
@@ -7690,6 +8963,11 @@
           "name": "Other(BAX)",
           "flights": 10,
           "pax": 1470
+        },
+        {
+          "name": "Belarus",
+          "flights": 9,
+          "pax": 1323
         },
         {
           "name": "Минеральные Воды",
@@ -7709,14 +8987,9 @@
           "pax": 1323
         },
         {
-          "name": "Belarus",
-          "flights": 8,
-          "pax": 1176
-        },
-        {
           "name": "Сургут",
-          "flights": 6,
-          "pax": 882,
+          "flights": 7,
+          "pax": 1029,
           "country": "Russia"
         },
         {
@@ -8937,8 +10210,8 @@
       {
         "key": "2026-04",
         "label": "Апр 2026",
-        "arrivals": 2353,
-        "departures": 2214,
+        "arrivals": 2368,
+        "departures": 2294,
         "arrivals_by": {
           "UAE": {
             "n": 277
@@ -8948,7 +10221,7 @@
             "country": "Russia"
           },
           "India": {
-            "n": 348
+            "n": 350
           },
           "Germany": {
             "n": 27
@@ -8981,7 +10254,7 @@
             "country": "Russia"
           },
           "Malaysia": {
-            "n": 346
+            "n": 347
           },
           "Other(OMS)": {
             "n": 1
@@ -8990,7 +10263,7 @@
             "n": 33
           },
           "Hong Kong": {
-            "n": 107
+            "n": 108
           },
           "Иркутск": {
             "n": 16,
@@ -9017,16 +10290,16 @@
             "country": "Russia"
           },
           "China": {
-            "n": 163
+            "n": 168
           },
           "Indonesia": {
             "n": 28
           },
           "Australia": {
-            "n": 86
+            "n": 87
           },
           "South Korea": {
-            "n": 51
+            "n": 53
           },
           "Екатеринбург": {
             "n": 28,
@@ -9100,53 +10373,53 @@
             "country": "Russia"
           },
           "Other": {
-            "n": 13
+            "n": 16
           }
         },
         "departures_by": {
           "China": {
-            "n": 156
+            "n": 165
           },
           "UAE": {
-            "n": 268
+            "n": 278
           },
           "India": {
-            "n": 321
+            "n": 333
           },
           "Oman": {
-            "n": 47
+            "n": 49
           },
           "Qatar": {
-            "n": 75
+            "n": 78
           },
           "Singapore": {
-            "n": 241
+            "n": 249
           },
           "Екатеринбург": {
-            "n": 26,
+            "n": 27,
             "country": "Russia"
           },
           "Germany": {
-            "n": 26
+            "n": 27
           },
           "Malaysia": {
-            "n": 325
+            "n": 337
           },
           "Kazakhstan": {
-            "n": 33
+            "n": 34
           },
           "Москва": {
-            "n": 97,
+            "n": 99,
             "country": "Russia"
           },
           "Hong Kong": {
-            "n": 99
+            "n": 103
           },
           "Other(PEE)": {
             "n": 2
           },
           "Vietnam": {
-            "n": 30
+            "n": 31
           },
           "Uzbekistan": {
             "n": 32
@@ -9181,19 +10454,19 @@
             "country": "Russia"
           },
           "Indonesia": {
-            "n": 26
+            "n": 27
           },
           "Australia": {
-            "n": 80
+            "n": 82
           },
           "Other(IKA)": {
             "n": 2
           },
           "South Korea": {
-            "n": 53
+            "n": 55
           },
           "Turkey": {
-            "n": 13
+            "n": 14
           },
           "Новосибирск": {
             "n": 33,
@@ -9206,10 +10479,10 @@
             "n": 7
           },
           "Switzerland": {
-            "n": 13
+            "n": 14
           },
           "Красноярск": {
-            "n": 19,
+            "n": 20,
             "country": "Russia"
           },
           "Уфа": {
@@ -9231,7 +10504,7 @@
             "country": "Russia"
           },
           "Denmark": {
-            "n": 5
+            "n": 6
           },
           "Taiwan": {
             "n": 8
@@ -9241,7 +10514,7 @@
             "country": "Russia"
           },
           "Belarus": {
-            "n": 2
+            "n": 3
           },
           "Israel": {
             "n": 12
@@ -9257,11 +10530,11 @@
             "country": "Russia"
           },
           "Сургут": {
-            "n": 1,
+            "n": 2,
             "country": "Russia"
           },
           "Other": {
-            "n": 11
+            "n": 14
           }
         }
       }
@@ -9276,23 +10549,23 @@
   },
   "halfyear": {
     "arrivals": {
-      "count": 18449,
-      "pax": 3405896,
+      "count": 18464,
+      "pax": 3408445,
       "all": [
         {
           "name": "China",
-          "flights": 2573,
-          "pax": 404270
+          "flights": 2578,
+          "pax": 405005
         },
         {
           "name": "India",
-          "flights": 2513,
-          "pax": 370061
+          "flights": 2515,
+          "pax": 370421
         },
         {
           "name": "Malaysia",
-          "flights": 2190,
-          "pax": 355933
+          "flights": 2191,
+          "pax": 356080
         },
         {
           "name": "Singapore",
@@ -9312,8 +10585,8 @@
         },
         {
           "name": "Hong Kong",
-          "flights": 700,
-          "pax": 132108
+          "flights": 701,
+          "pax": 132262
         },
         {
           "name": "Qatar",
@@ -9327,13 +10600,13 @@
         },
         {
           "name": "South Korea",
-          "flights": 475,
-          "pax": 112190
+          "flights": 477,
+          "pax": 112689
         },
         {
           "name": "Australia",
-          "flights": 355,
-          "pax": 65342
+          "flights": 356,
+          "pax": 65522
         },
         {
           "name": "Kazakhstan",
@@ -9552,6 +10825,11 @@
           "country": "Russia"
         },
         {
+          "name": "Other",
+          "flights": 16,
+          "pax": 2517
+        },
+        {
           "name": "Минеральные Воды",
           "flights": 16,
           "pax": 2352,
@@ -9573,11 +10851,6 @@
           "flights": 14,
           "pax": 2058,
           "country": "Russia"
-        },
-        {
-          "name": "Other",
-          "flights": 13,
-          "pax": 2043
         },
         {
           "name": "Other(OTP)",
@@ -9649,49 +10922,49 @@
       ]
     },
     "departures": {
-      "count": 18556,
-      "pax": 3427294,
+      "count": 18636,
+      "pax": 3442414,
       "all": [
         {
           "name": "China",
-          "flights": 2601,
-          "pax": 409060
+          "flights": 2610,
+          "pax": 410383
         },
         {
           "name": "India",
-          "flights": 2503,
-          "pax": 368591
+          "flights": 2515,
+          "pax": 370487
         },
         {
           "name": "Malaysia",
-          "flights": 2197,
-          "pax": 357330
+          "flights": 2209,
+          "pax": 359306
         },
         {
           "name": "Singapore",
-          "flights": 1658,
-          "pax": 246340
+          "flights": 1666,
+          "pax": 247615
         },
         {
           "name": "UAE",
-          "flights": 1540,
-          "pax": 350334
+          "flights": 1550,
+          "pax": 352677
         },
         {
           "name": "Москва",
-          "flights": 709,
-          "pax": 202235,
+          "flights": 711,
+          "pax": 202883,
           "country": "Russia"
         },
         {
           "name": "Hong Kong",
-          "flights": 701,
-          "pax": 132328
+          "flights": 705,
+          "pax": 132989
         },
         {
           "name": "Qatar",
-          "flights": 645,
-          "pax": 195590
+          "flights": 648,
+          "pax": 196562
         },
         {
           "name": "Other(TFU)",
@@ -9700,23 +10973,23 @@
         },
         {
           "name": "Kazakhstan",
-          "flights": 498,
-          "pax": 73404
+          "flights": 499,
+          "pax": 73584
         },
         {
           "name": "South Korea",
-          "flights": 468,
-          "pax": 110791
+          "flights": 470,
+          "pax": 111290
         },
         {
           "name": "Australia",
-          "flights": 357,
-          "pax": 66075
+          "flights": 359,
+          "pax": 66460
         },
         {
           "name": "Oman",
-          "flights": 285,
-          "pax": 41895
+          "flights": 287,
+          "pax": 42189
         },
         {
           "name": "Иркутск",
@@ -9731,8 +11004,8 @@
         },
         {
           "name": "Turkey",
-          "flights": 217,
-          "pax": 54961
+          "flights": 218,
+          "pax": 55223
         },
         {
           "name": "Новосибирск",
@@ -9742,18 +11015,18 @@
         },
         {
           "name": "Vietnam",
-          "flights": 185,
-          "pax": 32288
+          "flights": 186,
+          "pax": 32435
         },
         {
           "name": "Indonesia",
-          "flights": 180,
-          "pax": 26460
+          "flights": 181,
+          "pax": 26607
         },
         {
           "name": "Germany",
-          "flights": 178,
-          "pax": 50806
+          "flights": 179,
+          "pax": 51093
         },
         {
           "name": "Finland",
@@ -9762,8 +11035,8 @@
         },
         {
           "name": "Екатеринбург",
-          "flights": 158,
-          "pax": 35287,
+          "flights": 159,
+          "pax": 35549,
           "country": "Russia"
         },
         {
@@ -9783,8 +11056,8 @@
         },
         {
           "name": "Красноярск",
-          "flights": 139,
-          "pax": 34197,
+          "flights": 140,
+          "pax": 34521,
           "country": "Russia"
         },
         {
@@ -9800,8 +11073,8 @@
         },
         {
           "name": "Switzerland",
-          "flights": 90,
-          "pax": 14658
+          "flights": 91,
+          "pax": 14924
         },
         {
           "name": "Хабаровск",
@@ -9853,8 +11126,8 @@
         },
         {
           "name": "Denmark",
-          "flights": 50,
-          "pax": 12028
+          "flights": 51,
+          "pax": 12233
         },
         {
           "name": "Poland",
@@ -9932,9 +11205,20 @@
           "country": "Russia"
         },
         {
+          "name": "Other",
+          "flights": 14,
+          "pax": 2223
+        },
+        {
           "name": "Other(OTP)",
           "flights": 14,
           "pax": 2058
+        },
+        {
+          "name": "Сургут",
+          "flights": 13,
+          "pax": 1911,
+          "country": "Russia"
         },
         {
           "name": "Other(CEK)",
@@ -9953,20 +11237,9 @@
           "pax": 1911
         },
         {
-          "name": "Сургут",
-          "flights": 12,
-          "pax": 1764,
-          "country": "Russia"
-        },
-        {
-          "name": "Other",
-          "flights": 11,
-          "pax": 1749
-        },
-        {
           "name": "Belarus",
-          "flights": 10,
-          "pax": 1470
+          "flights": 11,
+          "pax": 1617
         },
         {
           "name": "Other(SOF)",
@@ -12246,8 +13519,8 @@
       {
         "key": "2026-04",
         "label": "Апр 2026",
-        "arrivals": 2353,
-        "departures": 2214,
+        "arrivals": 2368,
+        "departures": 2294,
         "arrivals_by": {
           "UAE": {
             "n": 277
@@ -12257,7 +13530,7 @@
             "country": "Russia"
           },
           "India": {
-            "n": 348
+            "n": 350
           },
           "Germany": {
             "n": 27
@@ -12290,7 +13563,7 @@
             "country": "Russia"
           },
           "Malaysia": {
-            "n": 346
+            "n": 347
           },
           "Other(OMS)": {
             "n": 1
@@ -12299,7 +13572,7 @@
             "n": 33
           },
           "Hong Kong": {
-            "n": 107
+            "n": 108
           },
           "Иркутск": {
             "n": 16,
@@ -12326,16 +13599,16 @@
             "country": "Russia"
           },
           "China": {
-            "n": 163
+            "n": 168
           },
           "Indonesia": {
             "n": 28
           },
           "Australia": {
-            "n": 86
+            "n": 87
           },
           "South Korea": {
-            "n": 51
+            "n": 53
           },
           "Екатеринбург": {
             "n": 28,
@@ -12409,53 +13682,53 @@
             "country": "Russia"
           },
           "Other": {
-            "n": 13
+            "n": 16
           }
         },
         "departures_by": {
           "China": {
-            "n": 156
+            "n": 165
           },
           "UAE": {
-            "n": 268
+            "n": 278
           },
           "India": {
-            "n": 321
+            "n": 333
           },
           "Oman": {
-            "n": 47
+            "n": 49
           },
           "Qatar": {
-            "n": 75
+            "n": 78
           },
           "Singapore": {
-            "n": 241
+            "n": 249
           },
           "Екатеринбург": {
-            "n": 26,
+            "n": 27,
             "country": "Russia"
           },
           "Germany": {
-            "n": 26
+            "n": 27
           },
           "Malaysia": {
-            "n": 325
+            "n": 337
           },
           "Kazakhstan": {
-            "n": 33
+            "n": 34
           },
           "Москва": {
-            "n": 97,
+            "n": 99,
             "country": "Russia"
           },
           "Hong Kong": {
-            "n": 99
+            "n": 103
           },
           "Other(PEE)": {
             "n": 2
           },
           "Vietnam": {
-            "n": 30
+            "n": 31
           },
           "Uzbekistan": {
             "n": 32
@@ -12490,19 +13763,19 @@
             "country": "Russia"
           },
           "Indonesia": {
-            "n": 26
+            "n": 27
           },
           "Australia": {
-            "n": 80
+            "n": 82
           },
           "Other(IKA)": {
             "n": 2
           },
           "South Korea": {
-            "n": 53
+            "n": 55
           },
           "Turkey": {
-            "n": 13
+            "n": 14
           },
           "Новосибирск": {
             "n": 33,
@@ -12515,10 +13788,10 @@
             "n": 7
           },
           "Switzerland": {
-            "n": 13
+            "n": 14
           },
           "Красноярск": {
-            "n": 19,
+            "n": 20,
             "country": "Russia"
           },
           "Уфа": {
@@ -12540,7 +13813,7 @@
             "country": "Russia"
           },
           "Denmark": {
-            "n": 5
+            "n": 6
           },
           "Taiwan": {
             "n": 8
@@ -12550,7 +13823,7 @@
             "country": "Russia"
           },
           "Belarus": {
-            "n": 2
+            "n": 3
           },
           "Israel": {
             "n": 12
@@ -12566,11 +13839,11 @@
             "country": "Russia"
           },
           "Сургут": {
-            "n": 1,
+            "n": 2,
             "country": "Russia"
           },
           "Other": {
-            "n": 11
+            "n": 14
           }
         }
       }
@@ -12585,23 +13858,23 @@
   },
   "year": {
     "arrivals": {
-      "count": 23686,
-      "pax": 4334177,
+      "count": 23701,
+      "pax": 4336726,
       "all": [
         {
           "name": "China",
-          "flights": 3527,
-          "pax": 546805
+          "flights": 3532,
+          "pax": 547540
         },
         {
           "name": "India",
-          "flights": 3305,
-          "pax": 488366
+          "flights": 3307,
+          "pax": 488726
         },
         {
           "name": "Malaysia",
-          "flights": 2805,
-          "pax": 450116
+          "flights": 2806,
+          "pax": 450263
         },
         {
           "name": "Singapore",
@@ -12615,8 +13888,8 @@
         },
         {
           "name": "Hong Kong",
-          "flights": 1015,
-          "pax": 184216
+          "flights": 1016,
+          "pax": 184370
         },
         {
           "name": "Москва",
@@ -12636,8 +13909,8 @@
         },
         {
           "name": "South Korea",
-          "flights": 685,
-          "pax": 161627
+          "flights": 687,
+          "pax": 162126
         },
         {
           "name": "Oman",
@@ -12646,8 +13919,8 @@
         },
         {
           "name": "Australia",
-          "flights": 447,
-          "pax": 82618
+          "flights": 448,
+          "pax": 82798
         },
         {
           "name": "Kazakhstan",
@@ -12866,6 +14139,11 @@
           "pax": 3675
         },
         {
+          "name": "Other",
+          "flights": 16,
+          "pax": 2517
+        },
+        {
           "name": "Минеральные Воды",
           "flights": 16,
           "pax": 2352,
@@ -12887,11 +14165,6 @@
           "flights": 14,
           "pax": 2058,
           "country": "Russia"
-        },
-        {
-          "name": "Other",
-          "flights": 13,
-          "pax": 2043
         },
         {
           "name": "Other(OTP)",
@@ -12963,43 +14236,43 @@
       ]
     },
     "departures": {
-      "count": 23865,
-      "pax": 4366163,
+      "count": 23945,
+      "pax": 4381283,
       "all": [
         {
           "name": "China",
-          "flights": 3558,
-          "pax": 552071
+          "flights": 3567,
+          "pax": 553394
         },
         {
           "name": "India",
-          "flights": 3353,
-          "pax": 495422
+          "flights": 3365,
+          "pax": 497318
         },
         {
           "name": "Malaysia",
-          "flights": 2813,
-          "pax": 451667
+          "flights": 2825,
+          "pax": 453643
         },
         {
           "name": "Singapore",
-          "flights": 2254,
-          "pax": 335496
+          "flights": 2262,
+          "pax": 336771
         },
         {
           "name": "UAE",
-          "flights": 1945,
-          "pax": 450919
+          "flights": 1955,
+          "pax": 453262
         },
         {
           "name": "Hong Kong",
-          "flights": 1018,
-          "pax": 184730
+          "flights": 1022,
+          "pax": 185391
         },
         {
           "name": "Москва",
-          "flights": 839,
-          "pax": 241541,
+          "flights": 841,
+          "pax": 242189,
           "country": "Russia"
         },
         {
@@ -13009,28 +14282,28 @@
         },
         {
           "name": "Qatar",
-          "flights": 768,
-          "pax": 235204
+          "flights": 771,
+          "pax": 236176
         },
         {
           "name": "South Korea",
-          "flights": 681,
-          "pax": 160800
+          "flights": 683,
+          "pax": 161299
         },
         {
           "name": "Kazakhstan",
-          "flights": 586,
-          "pax": 89120
+          "flights": 587,
+          "pax": 89300
         },
         {
           "name": "Oman",
-          "flights": 461,
-          "pax": 68460
+          "flights": 463,
+          "pax": 68754
         },
         {
           "name": "Australia",
-          "flights": 449,
-          "pax": 83351
+          "flights": 451,
+          "pax": 83736
         },
         {
           "name": "Иркутск",
@@ -13040,13 +14313,13 @@
         },
         {
           "name": "Vietnam",
-          "flights": 245,
-          "pax": 41355
+          "flights": 246,
+          "pax": 41502
         },
         {
           "name": "Turkey",
-          "flights": 245,
-          "pax": 62297
+          "flights": 246,
+          "pax": 62559
         },
         {
           "name": "Uzbekistan",
@@ -13055,8 +14328,8 @@
         },
         {
           "name": "Indonesia",
-          "flights": 239,
-          "pax": 35133
+          "flights": 240,
+          "pax": 35280
         },
         {
           "name": "Новосибирск",
@@ -13066,25 +14339,25 @@
         },
         {
           "name": "Germany",
-          "flights": 202,
-          "pax": 57694
+          "flights": 203,
+          "pax": 57981
         },
         {
           "name": "Екатеринбург",
-          "flights": 188,
-          "pax": 43097,
+          "flights": 189,
+          "pax": 43359,
+          "country": "Russia"
+        },
+        {
+          "name": "Красноярск",
+          "flights": 163,
+          "pax": 40589,
           "country": "Russia"
         },
         {
           "name": "Finland",
           "flights": 162,
           "pax": 41768
-        },
-        {
-          "name": "Красноярск",
-          "flights": 162,
-          "pax": 40265,
-          "country": "Russia"
         },
         {
           "name": "Saudi Arabia",
@@ -13125,8 +14398,8 @@
         },
         {
           "name": "Switzerland",
-          "flights": 91,
-          "pax": 14805
+          "flights": 92,
+          "pax": 15071
         },
         {
           "name": "Myanmar",
@@ -13171,14 +14444,14 @@
           "pax": 17503
         },
         {
+          "name": "Denmark",
+          "flights": 51,
+          "pax": 12233
+        },
+        {
           "name": "Poland",
           "flights": 51,
           "pax": 11735
-        },
-        {
-          "name": "Denmark",
-          "flights": 50,
-          "pax": 12028
         },
         {
           "name": "Other(UBN)",
@@ -13251,9 +14524,20 @@
           "country": "Russia"
         },
         {
+          "name": "Other",
+          "flights": 14,
+          "pax": 2223
+        },
+        {
           "name": "Other(OTP)",
           "flights": 14,
           "pax": 2058
+        },
+        {
+          "name": "Сургут",
+          "flights": 13,
+          "pax": 1911,
+          "country": "Russia"
         },
         {
           "name": "Other(CEK)",
@@ -13272,20 +14556,9 @@
           "pax": 1911
         },
         {
-          "name": "Сургут",
-          "flights": 12,
-          "pax": 1764,
-          "country": "Russia"
-        },
-        {
-          "name": "Other",
-          "flights": 11,
-          "pax": 1749
-        },
-        {
           "name": "Belarus",
-          "flights": 10,
-          "pax": 1470
+          "flights": 11,
+          "pax": 1617
         },
         {
           "name": "Other(SOF)",
@@ -15858,8 +17131,8 @@
       {
         "key": "2026-04",
         "label": "Апр 2026",
-        "arrivals": 2353,
-        "departures": 2214,
+        "arrivals": 2368,
+        "departures": 2294,
         "arrivals_by": {
           "UAE": {
             "n": 277
@@ -15869,7 +17142,7 @@
             "country": "Russia"
           },
           "India": {
-            "n": 348
+            "n": 350
           },
           "Germany": {
             "n": 27
@@ -15902,7 +17175,7 @@
             "country": "Russia"
           },
           "Malaysia": {
-            "n": 346
+            "n": 347
           },
           "Other(OMS)": {
             "n": 1
@@ -15911,7 +17184,7 @@
             "n": 33
           },
           "Hong Kong": {
-            "n": 107
+            "n": 108
           },
           "Иркутск": {
             "n": 16,
@@ -15938,16 +17211,16 @@
             "country": "Russia"
           },
           "China": {
-            "n": 163
+            "n": 168
           },
           "Indonesia": {
             "n": 28
           },
           "Australia": {
-            "n": 86
+            "n": 87
           },
           "South Korea": {
-            "n": 51
+            "n": 53
           },
           "Екатеринбург": {
             "n": 28,
@@ -16021,53 +17294,53 @@
             "country": "Russia"
           },
           "Other": {
-            "n": 13
+            "n": 16
           }
         },
         "departures_by": {
           "China": {
-            "n": 156
+            "n": 165
           },
           "UAE": {
-            "n": 268
+            "n": 278
           },
           "India": {
-            "n": 321
+            "n": 333
           },
           "Oman": {
-            "n": 47
+            "n": 49
           },
           "Qatar": {
-            "n": 75
+            "n": 78
           },
           "Singapore": {
-            "n": 241
+            "n": 249
           },
           "Екатеринбург": {
-            "n": 26,
+            "n": 27,
             "country": "Russia"
           },
           "Germany": {
-            "n": 26
+            "n": 27
           },
           "Malaysia": {
-            "n": 325
+            "n": 337
           },
           "Kazakhstan": {
-            "n": 33
+            "n": 34
           },
           "Москва": {
-            "n": 97,
+            "n": 99,
             "country": "Russia"
           },
           "Hong Kong": {
-            "n": 99
+            "n": 103
           },
           "Other(PEE)": {
             "n": 2
           },
           "Vietnam": {
-            "n": 30
+            "n": 31
           },
           "Uzbekistan": {
             "n": 32
@@ -16102,19 +17375,19 @@
             "country": "Russia"
           },
           "Indonesia": {
-            "n": 26
+            "n": 27
           },
           "Australia": {
-            "n": 80
+            "n": 82
           },
           "Other(IKA)": {
             "n": 2
           },
           "South Korea": {
-            "n": 53
+            "n": 55
           },
           "Turkey": {
-            "n": 13
+            "n": 14
           },
           "Новосибирск": {
             "n": 33,
@@ -16127,10 +17400,10 @@
             "n": 7
           },
           "Switzerland": {
-            "n": 13
+            "n": 14
           },
           "Красноярск": {
-            "n": 19,
+            "n": 20,
             "country": "Russia"
           },
           "Уфа": {
@@ -16152,7 +17425,7 @@
             "country": "Russia"
           },
           "Denmark": {
-            "n": 5
+            "n": 6
           },
           "Taiwan": {
             "n": 8
@@ -16162,7 +17435,7 @@
             "country": "Russia"
           },
           "Belarus": {
-            "n": 2
+            "n": 3
           },
           "Israel": {
             "n": 12
@@ -16178,11 +17451,11 @@
             "country": "Russia"
           },
           "Сургут": {
-            "n": 1,
+            "n": 2,
             "country": "Russia"
           },
           "Other": {
-            "n": 11
+            "n": 14
           }
         }
       }
