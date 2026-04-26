@@ -47,8 +47,8 @@
     }
   },
   "departures": {
-    "count": 24,
-    "pax": 3528,
+    "count": 25,
+    "pax": 3675,
     "countries": {
       "Singapore": {
         "flights": 3,
@@ -67,8 +67,8 @@
         "pax": 1323
       },
       "China": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Uzbekistan": {
         "flights": 1,
@@ -142,7 +142,7 @@
     {
       "fn": "LJ 91",
       "airline": "Jin Air",
-      "status": "arrived 17 minutes late",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-04-26T21:17",
       "arr_time": "2026-04-26T21:00",
@@ -152,7 +152,7 @@
     {
       "fn": "7C 2315",
       "airline": "Jeju Air",
-      "status": "arrived on-time",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-04-26T21:29",
       "arr_time": "2026-04-26T21:25",
@@ -312,7 +312,7 @@
     {
       "fn": "K6 830",
       "airline": "Air Cambodia",
-      "status": "on-time",
+      "status": "arrived 20 minutes late",
       "pax": 147,
       "dep_time": "2026-04-26T14:55",
       "arr_time": "2026-04-26T14:55",
@@ -620,6 +620,16 @@
       "arr_time": "2026-04-26T16:45",
       "to": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "MU 862",
+      "airline": "China Eastern Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-26T21:00",
+      "arr_time": "2026-04-26T21:00",
+      "to": "XIY",
+      "country": "China"
     }
   ]
 }
