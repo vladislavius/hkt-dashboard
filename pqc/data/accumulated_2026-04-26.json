@@ -47,8 +47,8 @@
     }
   },
   "departures": {
-    "count": 25,
-    "pax": 3675,
+    "count": 26,
+    "pax": 3822,
     "countries": {
       "Singapore": {
         "flights": 3,
@@ -63,8 +63,8 @@
         "pax": 588
       },
       "South Korea": {
-        "flights": 9,
-        "pax": 1323
+        "flights": 10,
+        "pax": 1470
       },
       "China": {
         "flights": 2,
@@ -162,7 +162,7 @@
     {
       "fn": "ZE 981",
       "airline": "Eastar Jet",
-      "status": "arrived on-time",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-04-26T22:36",
       "arr_time": "2026-04-26T22:25",
@@ -172,7 +172,7 @@
     {
       "fn": "KE 485",
       "airline": "Korean Air",
-      "status": "arrived 25 minutes late",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-04-26T23:15",
       "arr_time": "2026-04-26T22:50",
@@ -192,7 +192,7 @@
     {
       "fn": "TWB 55",
       "airline": "T'way Air",
-      "status": "arrived on-time",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-04-26T23:28",
       "arr_time": "2026-04-26T23:35",
@@ -202,7 +202,7 @@
     {
       "fn": "FGW 207",
       "airline": "Parata Air",
-      "status": "arrived 40 minutes late",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-04-26T23:40",
       "arr_time": "2026-04-26T23:40",
@@ -322,7 +322,7 @@
     {
       "fn": "TVJ 982",
       "airline": "Thai VietJet Air",
-      "status": "on-time",
+      "status": "arrived 38 minutes late",
       "pax": 147,
       "dep_time": "2026-04-26T15:55",
       "arr_time": "2026-04-26T15:55",
@@ -332,7 +332,7 @@
     {
       "fn": "9G 451",
       "airline": "Sun PhuQuoc Airways",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-26T16:15",
       "arr_time": "2026-04-26T16:15",
@@ -342,7 +342,7 @@
     {
       "fn": "9G 2953",
       "airline": "Sun PhuQuoc Airways",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-26T17:40",
       "arr_time": "2026-04-26T17:40",
@@ -630,6 +630,16 @@
       "arr_time": "2026-04-26T21:00",
       "to": "XIY",
       "country": "China"
+    },
+    {
+      "fn": "VJC 968",
+      "airline": "VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-26T23:10",
+      "arr_time": "2026-04-26T23:10",
+      "to": "PUS",
+      "country": "South Korea"
     }
   ]
 }
