@@ -1,8 +1,8 @@
 {
   "date": "2026-04-27",
   "arrivals": {
-    "count": 23,
-    "pax": 3381,
+    "count": 25,
+    "pax": 3675,
     "countries": {
       "South Korea": {
         "flights": 5,
@@ -13,8 +13,8 @@
         "pax": 147
       },
       "Thailand": {
-        "flights": 4,
-        "pax": 588
+        "flights": 5,
+        "pax": 735
       },
       "Singapore": {
         "flights": 4,
@@ -35,12 +35,16 @@
       "Japan": {
         "flights": 2,
         "pax": 294
+      },
+      "Macau": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 27,
-    "pax": 3969,
+    "count": 28,
+    "pax": 4116,
     "countries": {
       "South Korea": {
         "flights": 9,
@@ -77,6 +81,10 @@
       "Taiwan": {
         "flights": 2,
         "pax": 294
+      },
+      "Myanmar": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -370,6 +378,26 @@
       "arr_time": "2026-04-27T17:30",
       "from": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "VN626",
+      "airline": "Vietnam Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-27T19:45",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "NX978",
+      "airline": "Air Macau",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-27T20:30",
+      "from": "MFM",
+      "country": "Macau"
     }
   ],
   "departures_list": [
@@ -672,6 +700,16 @@
       "arr_time": "",
       "to": "CXR",
       "country": "Vietnam"
+    },
+    {
+      "fn": "8M455",
+      "airline": "Myanmar Airways International",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-27T20:00",
+      "arr_time": "",
+      "to": "RGN",
+      "country": "Myanmar"
     }
   ]
 }
