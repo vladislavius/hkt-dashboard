@@ -39,8 +39,8 @@
     }
   },
   "departures": {
-    "count": 21,
-    "pax": 3087,
+    "count": 22,
+    "pax": 3234,
     "countries": {
       "Hong Kong": {
         "flights": 2,
@@ -63,8 +63,8 @@
         "pax": 294
       },
       "Thailand": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "Singapore": {
         "flights": 2,
@@ -110,7 +110,7 @@
     {
       "fn": "LJ 91",
       "airline": "Jin Air",
-      "status": "arrived on-time",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-04-27T20:49",
       "arr_time": "2026-04-27T21:00",
@@ -240,7 +240,7 @@
     {
       "fn": "AK 545",
       "airline": "AirAsia",
-      "status": "on-time",
+      "status": "arrived 18 minutes late",
       "pax": 147,
       "dep_time": "2026-04-27T13:32",
       "arr_time": "2026-04-27T13:35",
@@ -250,7 +250,7 @@
     {
       "fn": "VJC 984",
       "airline": "VietJet Air",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-27T13:45",
       "arr_time": "2026-04-27T13:45",
@@ -518,6 +518,16 @@
       "arr_time": "2026-04-27T18:20",
       "to": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "TVJ 985",
+      "airline": "Thai VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-27T19:55",
+      "arr_time": "2026-04-27T19:55",
+      "to": "BKK",
+      "country": "Thailand"
     }
   ]
 }
