@@ -1,8 +1,8 @@
 {
   "date": "2026-04-27",
   "arrivals": {
-    "count": 21,
-    "pax": 3087,
+    "count": 22,
+    "pax": 3234,
     "countries": {
       "Hong Kong": {
         "flights": 2,
@@ -33,14 +33,14 @@
         "pax": 441
       },
       "Singapore": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       }
     }
   },
   "departures": {
-    "count": 19,
-    "pax": 2793,
+    "count": 20,
+    "pax": 2940,
     "countries": {
       "Hong Kong": {
         "flights": 2,
@@ -69,6 +69,10 @@
       "Singapore": {
         "flights": 1,
         "pax": 147
+      },
+      "Taiwan": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -76,7 +80,7 @@
     {
       "fn": "UO 596",
       "airline": "HK Express",
-      "status": "arrived on-time",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-04-27T18:04",
       "arr_time": "2026-04-27T18:05",
@@ -216,7 +220,7 @@
     {
       "fn": "VJC 969",
       "airline": "VietJet Air",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-27T11:10",
       "arr_time": "2026-04-27T11:10",
@@ -282,6 +286,16 @@
       "arr_time": "2026-04-27T16:15",
       "from": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "TR 524",
+      "airline": "Scoot",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-27T17:40",
+      "arr_time": "2026-04-27T17:40",
+      "from": "SIN",
+      "country": "Singapore"
     }
   ],
   "departures_list": [
@@ -474,6 +488,16 @@
       "arr_time": "2026-04-27T16:45",
       "to": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "J2X 706",
+      "airline": "Starlux Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-27T17:05",
+      "arr_time": "2026-04-27T17:05",
+      "to": "TPE",
+      "country": "Taiwan"
     }
   ]
 }
