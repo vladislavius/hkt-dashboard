@@ -1,50 +1,54 @@
 {
   "date": "2026-04-28",
   "arrivals": {
-    "count": 9,
-    "pax": 1323,
+    "count": 12,
+    "pax": 1764,
     "countries": {
       "Hong Kong": {
         "flights": 2,
         "pax": 294
       },
       "Thailand": {
+        "flights": 2,
+        "pax": 294
+      },
+      "South Korea": {
+        "flights": 6,
+        "pax": 882
+      },
+      "Malaysia": {
         "flights": 1,
         "pax": 147
       },
-      "South Korea": {
-        "flights": 5,
-        "pax": 735
-      },
-      "Malaysia": {
+      "Singapore": {
         "flights": 1,
         "pax": 147
       }
     }
   },
   "departures": {
-    "count": 12,
-    "pax": 1764,
+    "count": 15,
+    "pax": 2205,
     "countries": {
       "Singapore": {
         "flights": 1,
         "pax": 147
       },
       "Hong Kong": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Thailand": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "South Korea": {
         "flights": 7,
         "pax": 1029
       },
       "Taiwan": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Malaysia": {
         "flights": 1,
@@ -152,6 +156,36 @@
       "arr_time": "2026-04-28T09:40",
       "from": "RMQ",
       "country": "Other(RMQ)"
+    },
+    {
+      "fn": "TVJ 980",
+      "airline": "Thai VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-28T10:40",
+      "arr_time": "2026-04-28T10:40",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "VJC 969",
+      "airline": "VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-28T11:10",
+      "arr_time": "2026-04-28T11:10",
+      "from": "PUS",
+      "country": "South Korea"
+    },
+    {
+      "fn": "TR 528",
+      "airline": "Scoot",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-28T11:45",
+      "arr_time": "2026-04-28T11:45",
+      "from": "SIN",
+      "country": "Singapore"
     }
   ],
   "departures_list": [
@@ -274,6 +308,46 @@
       "arr_time": "2026-04-28T10:05",
       "to": "KUL",
       "country": "Malaysia"
+    },
+    {
+      "fn": "UO 599",
+      "airline": "HK Express",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-28T10:40",
+      "arr_time": "2026-04-28T10:40",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "J2X 334",
+      "airline": "Starlux Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-28T10:40",
+      "arr_time": "2026-04-28T10:40",
+      "to": "RMQ",
+      "country": "Other(RMQ)"
+    },
+    {
+      "fn": "9G 510",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-28T11:30",
+      "arr_time": "2026-04-28T11:30",
+      "to": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "TVJ 981",
+      "airline": "Thai VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-28T11:45",
+      "arr_time": "2026-04-28T11:45",
+      "to": "BKK",
+      "country": "Thailand"
     }
   ]
 }
