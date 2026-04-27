@@ -99,8 +99,8 @@
     }
   },
   "departures": {
-    "count": 95,
-    "pax": 17292,
+    "count": 97,
+    "pax": 17586,
     "countries": {
       "Москва": {
         "flights": 3,
@@ -108,12 +108,12 @@
         "country": "Russia"
       },
       "China": {
-        "flights": 9,
-        "pax": 1323
+        "flights": 10,
+        "pax": 1470
       },
       "India": {
-        "flights": 12,
-        "pax": 1896
+        "flights": 13,
+        "pax": 2043
       },
       "UAE": {
         "flights": 12,
@@ -838,7 +838,7 @@
     {
       "fn": "QR 841",
       "airline": "QATAR AIRWAYS COMPANY",
-      "status": "scheduled",
+      "status": "landed",
       "pax": 324,
       "aircraft": "77W",
       "dep_time": "2026-04-27T19:05",
@@ -860,7 +860,7 @@
     {
       "fn": "SQ 740",
       "airline": "SINGAPORE AIRLINES LIMITED",
-      "status": "scheduled",
+      "status": "landed",
       "pax": 147,
       "aircraft": "7M8",
       "dep_time": "2026-04-27T18:30",
@@ -882,7 +882,7 @@
     {
       "fn": "EY 416",
       "airline": "ETIHAD AIRWAYS",
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "aircraft": "",
       "dep_time": "2026-04-26T02:25",
@@ -904,7 +904,7 @@
     {
       "fn": "AI 2376",
       "airline": "AIR INDIA LTD",
-      "status": "scheduled",
+      "status": "landed",
       "pax": 147,
       "aircraft": "",
       "dep_time": "2026-04-27T13:25",
@@ -1110,7 +1110,7 @@
       "airline": "Thai Airways",
       "from": "DXB",
       "country": "UAE",
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-04-27T02:35",
       "arr_time": "2026-04-27T12:00"
@@ -1412,7 +1412,7 @@
       "airline": "Turkish Airlines",
       "from": "KUL",
       "country": "Malaysia",
-      "status": "scheduled",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-04-27T12:00",
       "arr_time": "2026-04-27T12:30"
@@ -1422,7 +1422,7 @@
       "airline": "Singapore Airlines",
       "from": "SIN",
       "country": "Singapore",
-      "status": "scheduled",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-04-27T11:20",
       "arr_time": "2026-04-27T12:10"
@@ -2342,7 +2342,7 @@
       "airline": null,
       "to": "SGN",
       "country": "Vietnam",
-      "status": "scheduled",
+      "status": "departed",
       "pax": 147,
       "dep_time": "2026-04-27T11:55",
       "arr_time": "2026-04-27T13:50"
@@ -2352,7 +2352,7 @@
       "airline": "Qatar Airways",
       "to": "HKG",
       "country": "Hong Kong",
-      "status": "scheduled",
+      "status": "departed",
       "pax": 147,
       "dep_time": "2026-04-27T11:50",
       "arr_time": "2026-04-27T16:50"
@@ -2506,6 +2506,26 @@
       "pax": 147,
       "dep_time": "2026-04-27T14:35",
       "arr_time": "2026-04-27T16:35"
+    },
+    {
+      "fn": "AI9252",
+      "airline": "Air India",
+      "to": "HYD",
+      "country": "India",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-27T16:45",
+      "arr_time": "2026-04-27T19:15"
+    },
+    {
+      "fn": "3U7046",
+      "airline": "Sichuan Airlines",
+      "to": "CAN",
+      "country": "China",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-04-27T16:40",
+      "arr_time": "2026-04-27T21:40"
     }
   ]
 }
