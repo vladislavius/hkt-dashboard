@@ -1,42 +1,50 @@
 {
   "date": "2026-04-28",
   "arrivals": {
-    "count": 5,
-    "pax": 735,
+    "count": 9,
+    "pax": 1323,
     "countries": {
       "South Korea": {
         "flights": 2,
         "pax": 294
       },
       "Thailand": {
+        "flights": 3,
+        "pax": 441
+      },
+      "Malaysia": {
         "flights": 2,
         "pax": 294
       },
-      "Malaysia": {
-        "flights": 1,
-        "pax": 147
-      }
-    }
-  },
-  "departures": {
-    "count": 10,
-    "pax": 1470,
-    "countries": {
-      "South Korea": {
-        "flights": 6,
-        "pax": 882
-      },
-      "Japan": {
-        "flights": 1,
-        "pax": 147
-      },
-      "Malaysia": {
+      "Singapore": {
         "flights": 1,
         "pax": 147
       },
       "Hong Kong": {
         "flights": 1,
         "pax": 147
+      }
+    }
+  },
+  "departures": {
+    "count": 14,
+    "pax": 2058,
+    "countries": {
+      "South Korea": {
+        "flights": 7,
+        "pax": 1029
+      },
+      "Japan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Malaysia": {
+        "flights": 3,
+        "pax": 441
+      },
+      "Hong Kong": {
+        "flights": 2,
+        "pax": 294
       },
       "Thailand": {
         "flights": 1,
@@ -114,6 +122,46 @@
       "arr_time": "2026-04-28T10:25",
       "from": "KUL",
       "country": "Malaysia"
+    },
+    {
+      "fn": "AK642",
+      "airline": "Air Asia",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-28T10:50",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "SQ172",
+      "airline": "Singapore Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-28T11:05",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "UO566",
+      "airline": "Hong Kong Express Airways",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-28T11:05",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "FD636",
+      "airline": "Thai Air Asia",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-28T11:30",
+      "from": "DMK",
+      "country": "Thailand"
     }
   ],
   "departures_list": [
@@ -226,6 +274,46 @@
       "arr_time": "",
       "to": "DMK",
       "country": "Thailand"
+    },
+    {
+      "fn": "AK643",
+      "airline": "Air Asia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-28T11:20",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "MH747",
+      "airline": "Malaysia Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-28T11:25",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "TW8",
+      "airline": "T'Way Air",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-28T11:45",
+      "arr_time": "",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "UO563",
+      "airline": "Hong Kong Express Airways",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-28T11:50",
+      "arr_time": "",
+      "to": "HKG",
+      "country": "Hong Kong"
     }
   ]
 }
