@@ -1,8 +1,8 @@
 {
   "date": "2026-04-28",
   "arrivals": {
-    "count": 18,
-    "pax": 2646,
+    "count": 20,
+    "pax": 2940,
     "countries": {
       "Hong Kong": {
         "flights": 2,
@@ -27,12 +27,20 @@
       "India": {
         "flights": 1,
         "pax": 147
+      },
+      "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Vietnam": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 22,
-    "pax": 3234,
+    "count": 23,
+    "pax": 3381,
     "countries": {
       "Singapore": {
         "flights": 3,
@@ -61,6 +69,10 @@
       "Vietnam": {
         "flights": 1,
         "pax": 147
+      },
+      "India": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -68,7 +80,7 @@
     {
       "fn": "UO 596",
       "airline": "HK Express",
-      "status": "arrived 27 minutes late",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-04-28T18:32",
       "arr_time": "2026-04-28T18:05",
@@ -178,7 +190,7 @@
     {
       "fn": "VJC 969",
       "airline": "VietJet Air",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-28T11:10",
       "arr_time": "2026-04-28T11:10",
@@ -188,7 +200,7 @@
     {
       "fn": "TR 528",
       "airline": "Scoot",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-28T11:45",
       "arr_time": "2026-04-28T11:45",
@@ -264,6 +276,26 @@
       "arr_time": "2026-04-28T16:40",
       "from": "CCU",
       "country": "India"
+    },
+    {
+      "fn": "VJC 845",
+      "airline": "VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-28T16:50",
+      "arr_time": "2026-04-28T16:50",
+      "from": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "9G 2953",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-28T17:40",
+      "arr_time": "2026-04-28T17:40",
+      "from": "CXR",
+      "country": "Vietnam"
     }
   ],
   "departures_list": [
@@ -506,6 +538,16 @@
       "arr_time": "2026-04-28T16:45",
       "to": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "ANK 7778",
+      "airline": "Aero Nomad Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-28T17:40",
+      "arr_time": "2026-04-28T17:40",
+      "to": "CCU",
+      "country": "India"
     }
   ]
 }

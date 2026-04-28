@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-28T11:02:48.740925+07:00",
+  "updated": "2026-04-28T12:40:30.887326+07:00",
   "available_dates": [
     "2026-04-21",
     "2026-04-22",
@@ -560,8 +560,8 @@
   },
   "today": {
     "arrivals": {
-      "count": 18,
-      "pax": 2646,
+      "count": 20,
+      "pax": 2940,
       "all": [
         {
           "name": "South Korea",
@@ -592,12 +592,22 @@
           "name": "India",
           "flights": 1,
           "pax": 147
+        },
+        {
+          "name": "Taiwan",
+          "flights": 1,
+          "pax": 147
+        },
+        {
+          "name": "Vietnam",
+          "flights": 1,
+          "pax": 147
         }
       ]
     },
     "departures": {
-      "count": 22,
-      "pax": 3234,
+      "count": 23,
+      "pax": 3381,
       "all": [
         {
           "name": "South Korea",
@@ -633,6 +643,11 @@
           "name": "Vietnam",
           "flights": 1,
           "pax": 147
+        },
+        {
+          "name": "India",
+          "flights": 1,
+          "pax": 147
         }
       ]
     },
@@ -640,7 +655,7 @@
       {
         "fn": "UO 596",
         "airline": "HK Express",
-        "status": "arrived 27 minutes late",
+        "status": "on-time",
         "pax": 147,
         "dep_time": "2026-04-28T18:32",
         "arr_time": "2026-04-28T18:05",
@@ -750,7 +765,7 @@
       {
         "fn": "VJC 969",
         "airline": "VietJet Air",
-        "status": "on-time",
+        "status": "arrived on-time",
         "pax": 147,
         "dep_time": "2026-04-28T11:10",
         "arr_time": "2026-04-28T11:10",
@@ -760,7 +775,7 @@
       {
         "fn": "TR 528",
         "airline": "Scoot",
-        "status": "on-time",
+        "status": "arrived on-time",
         "pax": 147,
         "dep_time": "2026-04-28T11:45",
         "arr_time": "2026-04-28T11:45",
@@ -836,6 +851,26 @@
         "arr_time": "2026-04-28T16:40",
         "from": "CCU",
         "country": "India"
+      },
+      {
+        "fn": "VJC 845",
+        "airline": "VietJet Air",
+        "status": "on-time",
+        "pax": 147,
+        "dep_time": "2026-04-28T16:50",
+        "arr_time": "2026-04-28T16:50",
+        "from": "TPE",
+        "country": "Taiwan"
+      },
+      {
+        "fn": "9G 2953",
+        "airline": "Sun PhuQuoc Airways",
+        "status": "on-time",
+        "pax": 147,
+        "dep_time": "2026-04-28T17:40",
+        "arr_time": "2026-04-28T17:40",
+        "from": "CXR",
+        "country": "Vietnam"
       }
     ],
     "departures_list": [
@@ -1078,13 +1113,23 @@
         "arr_time": "2026-04-28T16:45",
         "to": "BKK",
         "country": "Thailand"
+      },
+      {
+        "fn": "ANK 7778",
+        "airline": "Aero Nomad Airlines",
+        "status": "on-time",
+        "pax": 147,
+        "dep_time": "2026-04-28T17:40",
+        "arr_time": "2026-04-28T17:40",
+        "to": "CCU",
+        "country": "India"
       }
     ]
   },
   "week": {
     "arrivals": {
-      "count": 165,
-      "pax": 24255,
+      "count": 167,
+      "pax": 24549,
       "all": [
         {
           "name": "South Korea",
@@ -1113,8 +1158,8 @@
         },
         {
           "name": "Taiwan",
-          "flights": 11,
-          "pax": 1617
+          "flights": 12,
+          "pax": 1764
         },
         {
           "name": "China",
@@ -1122,12 +1167,12 @@
           "pax": 1470
         },
         {
-          "name": "India",
-          "flights": 3,
-          "pax": 441
+          "name": "Vietnam",
+          "flights": 4,
+          "pax": 588
         },
         {
-          "name": "Vietnam",
+          "name": "India",
           "flights": 3,
           "pax": 441
         },
@@ -1157,8 +1202,8 @@
       ]
     },
     "departures": {
-      "count": 174,
-      "pax": 25578,
+      "count": 175,
+      "pax": 25725,
       "all": [
         {
           "name": "South Korea",
@@ -1211,6 +1256,11 @@
           "pax": 441
         },
         {
+          "name": "India",
+          "flights": 2,
+          "pax": 294
+        },
+        {
           "name": "Самара",
           "flights": 2,
           "pax": 294,
@@ -1221,11 +1271,6 @@
           "flights": 2,
           "pax": 294,
           "country": "Russia"
-        },
-        {
-          "name": "India",
-          "flights": 1,
-          "pax": 147
         },
         {
           "name": "Новосибирск",
@@ -1638,8 +1683,8 @@
       {
         "date": "2026-04-28",
         "label": "Вт 28.04",
-        "arrivals": 18,
-        "departures": 22,
+        "arrivals": 20,
+        "departures": 23,
         "arrivals_by": {
           "Hong Kong": {
             "n": 2
@@ -1657,6 +1702,12 @@
             "n": 2
           },
           "India": {
+            "n": 1
+          },
+          "Taiwan": {
+            "n": 1
+          },
+          "Vietnam": {
             "n": 1
           }
         },
@@ -1681,6 +1732,9 @@
           },
           "Vietnam": {
             "n": 1
+          },
+          "India": {
+            "n": 1
           }
         }
       }
@@ -1688,8 +1742,8 @@
   },
   "month": {
     "arrivals": {
-      "count": 187,
-      "pax": 27489,
+      "count": 189,
+      "pax": 27783,
       "all": [
         {
           "name": "South Korea",
@@ -1718,8 +1772,8 @@
         },
         {
           "name": "Taiwan",
-          "flights": 13,
-          "pax": 1911
+          "flights": 14,
+          "pax": 2058
         },
         {
           "name": "China",
@@ -1728,8 +1782,8 @@
         },
         {
           "name": "Vietnam",
-          "flights": 4,
-          "pax": 588
+          "flights": 5,
+          "pax": 735
         },
         {
           "name": "India",
@@ -1762,8 +1816,8 @@
       ]
     },
     "departures": {
-      "count": 197,
-      "pax": 28959,
+      "count": 198,
+      "pax": 29106,
       "all": [
         {
           "name": "South Korea",
@@ -1816,6 +1870,11 @@
           "pax": 441
         },
         {
+          "name": "India",
+          "flights": 2,
+          "pax": 294
+        },
+        {
           "name": "Самара",
           "flights": 2,
           "pax": 294,
@@ -1826,11 +1885,6 @@
           "flights": 2,
           "pax": 294,
           "country": "Russia"
-        },
-        {
-          "name": "India",
-          "flights": 1,
-          "pax": 147
         },
         {
           "name": "Новосибирск",
@@ -1951,8 +2005,8 @@
       {
         "key": "2026-W18",
         "label": "Нед 18 (Апр)",
-        "arrivals": 41,
-        "departures": 44,
+        "arrivals": 43,
+        "departures": 45,
         "arrivals_by": {
           "Hong Kong": {
             "n": 4
@@ -1961,7 +2015,7 @@
             "n": 1
           },
           "Taiwan": {
-            "n": 2
+            "n": 3
           },
           "South Korea": {
             "n": 16
@@ -1979,6 +2033,9 @@
             "n": 4
           },
           "India": {
+            "n": 1
+          },
+          "Vietnam": {
             "n": 1
           }
         },
@@ -2008,6 +2065,9 @@
             "n": 3
           },
           "Vietnam": {
+            "n": 1
+          },
+          "India": {
             "n": 1
           }
         }
@@ -2016,8 +2076,8 @@
   },
   "quarter": {
     "arrivals": {
-      "count": 187,
-      "pax": 27489,
+      "count": 189,
+      "pax": 27783,
       "all": [
         {
           "name": "South Korea",
@@ -2046,8 +2106,8 @@
         },
         {
           "name": "Taiwan",
-          "flights": 13,
-          "pax": 1911
+          "flights": 14,
+          "pax": 2058
         },
         {
           "name": "China",
@@ -2056,8 +2116,8 @@
         },
         {
           "name": "Vietnam",
-          "flights": 4,
-          "pax": 588
+          "flights": 5,
+          "pax": 735
         },
         {
           "name": "India",
@@ -2090,8 +2150,8 @@
       ]
     },
     "departures": {
-      "count": 197,
-      "pax": 28959,
+      "count": 198,
+      "pax": 29106,
       "all": [
         {
           "name": "South Korea",
@@ -2144,6 +2204,11 @@
           "pax": 441
         },
         {
+          "name": "India",
+          "flights": 2,
+          "pax": 294
+        },
+        {
           "name": "Самара",
           "flights": 2,
           "pax": 294,
@@ -2154,11 +2219,6 @@
           "flights": 2,
           "pax": 294,
           "country": "Russia"
-        },
-        {
-          "name": "India",
-          "flights": 1,
-          "pax": 147
         },
         {
           "name": "Новосибирск",
@@ -2178,8 +2238,8 @@
       {
         "key": "2026-04",
         "label": "Апр 2026",
-        "arrivals": 187,
-        "departures": 197,
+        "arrivals": 189,
+        "departures": 198,
         "arrivals_by": {
           "South Korea": {
             "n": 70
@@ -2197,13 +2257,13 @@
             "n": 15
           },
           "Taiwan": {
-            "n": 13
+            "n": 14
           },
           "Hong Kong": {
             "n": 17
           },
           "Vietnam": {
-            "n": 4
+            "n": 5
           },
           "Uzbekistan": {
             "n": 3
@@ -2272,7 +2332,7 @@
             "country": "Russia"
           },
           "India": {
-            "n": 1
+            "n": 2
           }
         }
       }
@@ -2280,8 +2340,8 @@
   },
   "halfyear": {
     "arrivals": {
-      "count": 187,
-      "pax": 27489,
+      "count": 189,
+      "pax": 27783,
       "all": [
         {
           "name": "South Korea",
@@ -2310,8 +2370,8 @@
         },
         {
           "name": "Taiwan",
-          "flights": 13,
-          "pax": 1911
+          "flights": 14,
+          "pax": 2058
         },
         {
           "name": "China",
@@ -2320,8 +2380,8 @@
         },
         {
           "name": "Vietnam",
-          "flights": 4,
-          "pax": 588
+          "flights": 5,
+          "pax": 735
         },
         {
           "name": "India",
@@ -2354,8 +2414,8 @@
       ]
     },
     "departures": {
-      "count": 197,
-      "pax": 28959,
+      "count": 198,
+      "pax": 29106,
       "all": [
         {
           "name": "South Korea",
@@ -2408,6 +2468,11 @@
           "pax": 441
         },
         {
+          "name": "India",
+          "flights": 2,
+          "pax": 294
+        },
+        {
           "name": "Самара",
           "flights": 2,
           "pax": 294,
@@ -2418,11 +2483,6 @@
           "flights": 2,
           "pax": 294,
           "country": "Russia"
-        },
-        {
-          "name": "India",
-          "flights": 1,
-          "pax": 147
         },
         {
           "name": "Новосибирск",
@@ -2442,8 +2502,8 @@
       {
         "key": "2026-04",
         "label": "Апр 2026",
-        "arrivals": 187,
-        "departures": 197,
+        "arrivals": 189,
+        "departures": 198,
         "arrivals_by": {
           "South Korea": {
             "n": 70
@@ -2461,13 +2521,13 @@
             "n": 15
           },
           "Taiwan": {
-            "n": 13
+            "n": 14
           },
           "Hong Kong": {
             "n": 17
           },
           "Vietnam": {
-            "n": 4
+            "n": 5
           },
           "Uzbekistan": {
             "n": 3
@@ -2536,7 +2596,7 @@
             "country": "Russia"
           },
           "India": {
-            "n": 1
+            "n": 2
           }
         }
       }
@@ -2544,8 +2604,8 @@
   },
   "year": {
     "arrivals": {
-      "count": 187,
-      "pax": 27489,
+      "count": 189,
+      "pax": 27783,
       "all": [
         {
           "name": "South Korea",
@@ -2574,8 +2634,8 @@
         },
         {
           "name": "Taiwan",
-          "flights": 13,
-          "pax": 1911
+          "flights": 14,
+          "pax": 2058
         },
         {
           "name": "China",
@@ -2584,8 +2644,8 @@
         },
         {
           "name": "Vietnam",
-          "flights": 4,
-          "pax": 588
+          "flights": 5,
+          "pax": 735
         },
         {
           "name": "India",
@@ -2618,8 +2678,8 @@
       ]
     },
     "departures": {
-      "count": 197,
-      "pax": 28959,
+      "count": 198,
+      "pax": 29106,
       "all": [
         {
           "name": "South Korea",
@@ -2672,6 +2732,11 @@
           "pax": 441
         },
         {
+          "name": "India",
+          "flights": 2,
+          "pax": 294
+        },
+        {
           "name": "Самара",
           "flights": 2,
           "pax": 294,
@@ -2682,11 +2747,6 @@
           "flights": 2,
           "pax": 294,
           "country": "Russia"
-        },
-        {
-          "name": "India",
-          "flights": 1,
-          "pax": 147
         },
         {
           "name": "Новосибирск",
@@ -2706,8 +2766,8 @@
       {
         "key": "2026-04",
         "label": "Апр 2026",
-        "arrivals": 187,
-        "departures": 197,
+        "arrivals": 189,
+        "departures": 198,
         "arrivals_by": {
           "South Korea": {
             "n": 70
@@ -2725,13 +2785,13 @@
             "n": 15
           },
           "Taiwan": {
-            "n": 13
+            "n": 14
           },
           "Hong Kong": {
             "n": 17
           },
           "Vietnam": {
-            "n": 4
+            "n": 5
           },
           "Uzbekistan": {
             "n": 3
@@ -2800,7 +2860,7 @@
             "country": "Russia"
           },
           "India": {
-            "n": 1
+            "n": 2
           }
         }
       }
