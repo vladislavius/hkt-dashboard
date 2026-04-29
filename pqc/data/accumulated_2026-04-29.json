@@ -1,8 +1,8 @@
 {
   "date": "2026-04-29",
   "arrivals": {
-    "count": 20,
-    "pax": 2940,
+    "count": 21,
+    "pax": 3087,
     "countries": {
       "Thailand": {
         "flights": 4,
@@ -13,8 +13,8 @@
         "pax": 294
       },
       "South Korea": {
-        "flights": 6,
-        "pax": 882
+        "flights": 7,
+        "pax": 1029
       },
       "China": {
         "flights": 2,
@@ -39,8 +39,8 @@
     }
   },
   "departures": {
-    "count": 20,
-    "pax": 2940,
+    "count": 21,
+    "pax": 3087,
     "countries": {
       "Hong Kong": {
         "flights": 2,
@@ -51,8 +51,8 @@
         "pax": 588
       },
       "South Korea": {
-        "flights": 6,
-        "pax": 882
+        "flights": 7,
+        "pax": 1029
       },
       "China": {
         "flights": 2,
@@ -110,7 +110,7 @@
     {
       "fn": "7C 2315",
       "airline": "Jeju Air",
-      "status": "arrived on-time",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-04-29T21:12",
       "arr_time": "2026-04-29T21:25",
@@ -120,7 +120,7 @@
     {
       "fn": "KE 485",
       "airline": "Korean Air",
-      "status": "arrived on-time",
+      "status": "26 minutes late",
       "pax": 147,
       "dep_time": "2026-04-29T22:57",
       "arr_time": "2026-04-29T22:50",
@@ -220,7 +220,7 @@
     {
       "fn": "TVJ 982",
       "airline": "Thai VietJet Air",
-      "status": "on-time",
+      "status": "arrived 21 minutes late",
       "pax": 147,
       "dep_time": "2026-04-29T15:55",
       "arr_time": "2026-04-29T15:55",
@@ -230,7 +230,7 @@
     {
       "fn": "J2X 705",
       "airline": "Starlux Airlines",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-29T16:05",
       "arr_time": "2026-04-29T16:05",
@@ -240,7 +240,7 @@
     {
       "fn": "9G 451",
       "airline": "Sun PhuQuoc Airways",
-      "status": "on-time",
+      "status": "arrived 22 minutes late",
       "pax": 147,
       "dep_time": "2026-04-29T16:15",
       "arr_time": "2026-04-29T16:15",
@@ -280,12 +280,22 @@
     {
       "fn": "MU 861",
       "airline": "China Eastern Airlines",
-      "status": "on-time",
+      "status": "19 minutes late",
       "pax": 147,
       "dep_time": "2026-04-29T19:49",
       "arr_time": "2026-04-29T20:00",
       "from": "XIY",
       "country": "China"
+    },
+    {
+      "fn": "ZE 981",
+      "airline": "Eastar Jet",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-29T22:25",
+      "arr_time": "2026-04-29T22:25",
+      "from": "PUS",
+      "country": "South Korea"
     }
   ],
   "departures_list": [
@@ -498,6 +508,16 @@
       "arr_time": "2026-04-29T21:00",
       "to": "XIY",
       "country": "China"
+    },
+    {
+      "fn": "VJC 968",
+      "airline": "VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-29T23:10",
+      "arr_time": "2026-04-29T23:10",
+      "to": "PUS",
+      "country": "South Korea"
     }
   ]
 }
