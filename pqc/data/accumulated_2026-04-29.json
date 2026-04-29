@@ -39,8 +39,8 @@
     }
   },
   "departures": {
-    "count": 18,
-    "pax": 2646,
+    "count": 19,
+    "pax": 2793,
     "countries": {
       "Hong Kong": {
         "flights": 2,
@@ -69,6 +69,10 @@
       "Taiwan": {
         "flights": 2,
         "pax": 294
+      },
+      "Singapore": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -196,7 +200,7 @@
     {
       "fn": "FD 660",
       "airline": "Thai AirAsia",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-04-29T13:18",
       "arr_time": "2026-04-29T13:20",
@@ -206,7 +210,7 @@
     {
       "fn": "AK 545",
       "airline": "AirAsia",
-      "status": "23 minutes late",
+      "status": "35 minutes late",
       "pax": 147,
       "dep_time": "2026-04-29T13:33",
       "arr_time": "2026-04-29T13:35",
@@ -262,6 +266,16 @@
       "arr_time": "2026-04-29T18:05",
       "from": "HKG",
       "country": "Hong Kong"
+    },
+    {
+      "fn": "TV 9781",
+      "airline": "Tibet Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-29T19:00",
+      "arr_time": "2026-04-29T19:00",
+      "from": "TFU",
+      "country": "Other(TFU)"
     }
   ],
   "departures_list": [
@@ -444,6 +458,16 @@
       "arr_time": "2026-04-29T17:05",
       "to": "TPE",
       "country": "Taiwan"
+    },
+    {
+      "fn": "TR 525",
+      "airline": "Scoot",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-29T18:20",
+      "arr_time": "2026-04-29T18:20",
+      "to": "SIN",
+      "country": "Singapore"
     }
   ]
 }
