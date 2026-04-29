@@ -1,16 +1,16 @@
 {
   "date": "2026-04-29",
   "arrivals": {
-    "count": 10,
-    "pax": 1470,
+    "count": 12,
+    "pax": 1764,
     "countries": {
       "South Korea": {
         "flights": 3,
         "pax": 441
       },
       "Thailand": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Singapore": {
         "flights": 2,
@@ -27,12 +27,16 @@
       "Hong Kong": {
         "flights": 1,
         "pax": 147
+      },
+      "Japan": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 15,
-    "pax": 2205,
+    "count": 20,
+    "pax": 2940,
     "countries": {
       "South Korea": {
         "flights": 7,
@@ -47,12 +51,12 @@
         "pax": 147
       },
       "Malaysia": {
-        "flights": 2,
-        "pax": 294
+        "flights": 4,
+        "pax": 588
       },
       "Taiwan": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Thailand": {
         "flights": 1,
@@ -65,6 +69,10 @@
       "Singapore": {
         "flights": 1,
         "pax": 147
+      },
+      "Macau": {
+        "flights": 2,
+        "pax": 294
       }
     }
   },
@@ -188,6 +196,26 @@
       "arr_time": "2026-04-29T11:05",
       "from": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "VZ960",
+      "airline": "Thai Vietjet",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-29T12:30",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "VN319",
+      "airline": "Vietnam Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-29T12:40",
+      "from": "NRT",
+      "country": "Japan"
     }
   ],
   "departures_list": [
@@ -340,6 +368,56 @@
       "arr_time": "",
       "to": "KUL",
       "country": "Malaysia"
+    },
+    {
+      "fn": "VJ8890",
+      "airline": "Vietjet Air",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-29T12:15",
+      "arr_time": "",
+      "to": "MFM",
+      "country": "Macau"
+    },
+    {
+      "fn": "AK649",
+      "airline": "Air Asia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-29T12:20",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "QH9588",
+      "airline": "Bamboo Airways",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-29T12:30",
+      "arr_time": "",
+      "to": "MFM",
+      "country": "Macau"
+    },
+    {
+      "fn": "OD503",
+      "airline": "Batik Air Malaysia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-29T12:50",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "BR384",
+      "airline": "Eva Air",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-29T12:55",
+      "arr_time": "",
+      "to": "TPE",
+      "country": "Taiwan"
     }
   ]
 }
