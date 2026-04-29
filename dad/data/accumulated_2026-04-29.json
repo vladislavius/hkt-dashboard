@@ -1,12 +1,12 @@
 {
   "date": "2026-04-29",
   "arrivals": {
-    "count": 12,
-    "pax": 1764,
+    "count": 15,
+    "pax": 2205,
     "countries": {
       "South Korea": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "Thailand": {
         "flights": 3,
@@ -25,18 +25,22 @@
         "pax": 147
       },
       "Hong Kong": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Japan": {
         "flights": 1,
         "pax": 147
       },
-      "Japan": {
+      "Vietnam": {
         "flights": 1,
         "pax": 147
       }
     }
   },
   "departures": {
-    "count": 20,
-    "pax": 2940,
+    "count": 22,
+    "pax": 3234,
     "countries": {
       "South Korea": {
         "flights": 7,
@@ -51,16 +55,16 @@
         "pax": 147
       },
       "Malaysia": {
-        "flights": 4,
-        "pax": 588
+        "flights": 5,
+        "pax": 735
       },
       "Taiwan": {
         "flights": 2,
         "pax": 294
       },
       "Thailand": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Hong Kong": {
         "flights": 1,
@@ -216,6 +220,46 @@
       "arr_time": "2026-04-29T12:40",
       "from": "NRT",
       "country": "Japan"
+    },
+    {
+      "fn": "KE457",
+      "airline": "Korean Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-29T14:20",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "PR585",
+      "airline": "Philippine Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-29T15:20",
+      "from": "MNL",
+      "country": "Other(MNL)"
+    },
+    {
+      "fn": "HX548",
+      "airline": "Hong Kong Airlines",
+      "status": "delayed",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-29T15:20",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "VN7940",
+      "airline": "Vietnam Airlines",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-29T15:20",
+      "from": "CXR",
+      "country": "Vietnam"
     }
   ],
   "departures_list": [
@@ -418,6 +462,36 @@
       "arr_time": "",
       "to": "TPE",
       "country": "Taiwan"
+    },
+    {
+      "fn": "VJ8510",
+      "airline": "Vietjet Air",
+      "status": "last call",
+      "pax": 147,
+      "dep_time": "2026-04-29T14:30",
+      "arr_time": "",
+      "to": "RMQ",
+      "country": "Other(RMQ)"
+    },
+    {
+      "fn": "MH749",
+      "airline": "Malaysia Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-29T14:40",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "VN627",
+      "airline": "Vietnam Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-29T15:15",
+      "arr_time": "",
+      "to": "BKK",
+      "country": "Thailand"
     }
   ]
 }
