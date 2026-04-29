@@ -1,12 +1,12 @@
 {
   "date": "2026-04-30",
   "arrivals": {
-    "count": 10,
-    "pax": 1470,
+    "count": 12,
+    "pax": 1764,
     "countries": {
       "Hong Kong": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "China": {
         "flights": 2,
@@ -19,12 +19,16 @@
       "South Korea": {
         "flights": 6,
         "pax": 882
+      },
+      "Malaysia": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 13,
-    "pax": 1911,
+    "count": 14,
+    "pax": 2058,
     "countries": {
       "Hong Kong": {
         "flights": 1,
@@ -39,6 +43,10 @@
         "pax": 294
       },
       "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Malaysia": {
         "flights": 1,
         "pax": 147
       }
@@ -154,6 +162,26 @@
       "arr_time": "2026-04-30T23:40",
       "from": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "AK 543",
+      "airline": "AirAsia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-30T09:23",
+      "arr_time": "2026-04-30T09:30",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "UO 598",
+      "airline": "HK Express",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-30T09:40",
+      "arr_time": "2026-04-30T09:40",
+      "from": "HKG",
+      "country": "Hong Kong"
     }
   ],
   "departures_list": [
@@ -296,6 +324,16 @@
       "arr_time": "2026-04-30T08:20",
       "to": "TPE",
       "country": "Taiwan"
+    },
+    {
+      "fn": "AK 544",
+      "airline": "AirAsia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-04-30T10:05",
+      "arr_time": "2026-04-30T10:05",
+      "to": "KUL",
+      "country": "Malaysia"
     }
   ]
 }
