@@ -1,18 +1,30 @@
 {
   "date": "2026-04-30",
   "arrivals": {
-    "count": 3,
-    "pax": 441,
+    "count": 8,
+    "pax": 1176,
     "countries": {
       "South Korea": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
+      },
+      "Thailand": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Singapore": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Malaysia": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 9,
-    "pax": 1323,
+    "count": 12,
+    "pax": 1764,
     "countries": {
       "Japan": {
         "flights": 2,
@@ -21,6 +33,18 @@
       "South Korea": {
         "flights": 7,
         "pax": 1029
+      },
+      "Malaysia": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Hong Kong": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -64,6 +88,56 @@
       "arr_time": "2026-04-30T07:30",
       "from": "MNL",
       "country": "Other(MNL)"
+    },
+    {
+      "fn": "FD634",
+      "airline": "Thai Air Asia",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-30T09:30",
+      "from": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "VJ879",
+      "airline": "Vietjet Air",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-30T09:40",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "TR510",
+      "airline": "Scoot",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-30T09:55",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "VZ964",
+      "airline": "Thai Vietjet",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-30T09:55",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "MH746",
+      "airline": "Malaysia Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-30T10:25",
+      "from": "KUL",
+      "country": "Malaysia"
     }
   ],
   "departures_list": [
@@ -176,6 +250,36 @@
       "arr_time": "",
       "to": "PUS",
       "country": "South Korea"
+    },
+    {
+      "fn": "VJ827",
+      "airline": "Vietjet Air",
+      "status": "cancelled",
+      "pax": 147,
+      "dep_time": "2026-04-30T09:50",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "CI788",
+      "airline": "China Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-30T10:00",
+      "arr_time": "",
+      "to": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "UO553",
+      "airline": "Hong Kong Express Airways",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-30T10:05",
+      "arr_time": "",
+      "to": "HKG",
+      "country": "Hong Kong"
     }
   ]
 }
