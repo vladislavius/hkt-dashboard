@@ -1,8 +1,8 @@
 {
   "date": "2026-04-30",
   "arrivals": {
-    "count": 86,
-    "pax": 14523,
+    "count": 87,
+    "pax": 14703,
     "countries": {
       "Санкт-Петербург": {
         "flights": 1,
@@ -68,8 +68,8 @@
         "pax": 595
       },
       "Vietnam": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 327
       },
       "Хабаровск": {
         "flights": 1,
@@ -95,8 +95,8 @@
     }
   },
   "departures": {
-    "count": 77,
-    "pax": 13632,
+    "count": 79,
+    "pax": 14016,
     "countries": {
       "India": {
         "flights": 13,
@@ -111,8 +111,8 @@
         "pax": 2190
       },
       "China": {
-        "flights": 12,
-        "pax": 1771
+        "flights": 13,
+        "pax": 1918
       },
       "Qatar": {
         "flights": 3,
@@ -178,8 +178,8 @@
         "pax": 147
       },
       "South Korea": {
-        "flights": 1,
-        "pax": 262
+        "flights": 2,
+        "pax": 499
       }
     }
   },
@@ -821,7 +821,7 @@
     {
       "fn": "MH 790",
       "airline": "MALAYSIA AIRLINES",
-      "status": "confirmed",
+      "status": "landed",
       "pax": 154,
       "aircraft": "738",
       "dep_time": "2026-04-30T10:05",
@@ -832,7 +832,7 @@
     {
       "fn": "G9 714",
       "airline": "AIR ARABIA",
-      "status": "",
+      "status": "cancelled",
       "pax": 180,
       "aircraft": "321",
       "dep_time": "",
@@ -843,7 +843,7 @@
     {
       "fn": "CA 821",
       "airline": "AIR CHINA",
-      "status": "confirmed",
+      "status": "landed",
       "pax": 147,
       "aircraft": "7M8",
       "dep_time": "",
@@ -854,7 +854,7 @@
     {
       "fn": "3U 3931",
       "airline": "SICHUAN AIRLINES",
-      "status": "confirmed",
+      "status": "landed",
       "pax": 180,
       "aircraft": "321",
       "dep_time": "2026-04-30T07:45",
@@ -865,7 +865,7 @@
     {
       "fn": "MU 5093",
       "airline": "CHINA EASTERN AIRLINES",
-      "status": "confirmed",
+      "status": "landed",
       "pax": 154,
       "aircraft": "738",
       "dep_time": "",
@@ -876,7 +876,7 @@
     {
       "fn": "EY 412",
       "airline": "ETIHAD AIRWAYS",
-      "status": "confirmed",
+      "status": "landed",
       "pax": 147,
       "aircraft": "",
       "dep_time": "",
@@ -920,7 +920,7 @@
     {
       "fn": "SQ 740",
       "airline": "SINGAPORE AIRLINES LIMITED",
-      "status": "",
+      "status": "confirmed",
       "pax": 147,
       "aircraft": "7M8",
       "dep_time": "",
@@ -975,7 +975,7 @@
     {
       "fn": "WY 831",
       "airline": "OMAN AIR",
-      "status": "",
+      "status": "confirmed",
       "pax": 147,
       "aircraft": "7M8",
       "dep_time": "2026-04-30T02:00",
@@ -986,7 +986,7 @@
     {
       "fn": "TR 652",
       "airline": "SCOOT PTE LTD",
-      "status": "",
+      "status": "confirmed",
       "pax": 147,
       "aircraft": "",
       "dep_time": "",
@@ -1041,7 +1041,7 @@
     {
       "fn": "9C 8773",
       "airline": "SPRING AIRLINES LIMITED CORPORATION",
-      "status": "",
+      "status": "confirmed",
       "pax": 147,
       "aircraft": "320",
       "dep_time": "",
@@ -1074,7 +1074,7 @@
     {
       "fn": "6E 1081",
       "airline": "INTERGLOBE AVIATION LIMITED (INDIGO)",
-      "status": "",
+      "status": "confirmed",
       "pax": 147,
       "aircraft": "",
       "dep_time": "",
@@ -1085,7 +1085,7 @@
     {
       "fn": "6E 1089",
       "airline": "INTERGLOBE AVIATION LIMITED (INDIGO)",
-      "status": "",
+      "status": "confirmed",
       "pax": 147,
       "aircraft": "",
       "dep_time": "2026-04-30T08:50",
@@ -1151,13 +1151,24 @@
     {
       "fn": "FM 831",
       "airline": "SHANGHAI AIRLINES",
-      "status": "",
+      "status": "confirmed",
       "pax": 147,
       "aircraft": "7M8",
       "dep_time": "",
       "arr_time": "2026-04-30T15:45",
       "from": "PVG",
       "country": "China"
+    },
+    {
+      "fn": "VN 621",
+      "airline": "VIETNAM AIRLINES",
+      "status": "cancelled",
+      "pax": 180,
+      "aircraft": "321",
+      "dep_time": "",
+      "arr_time": "2026-04-30T10:50",
+      "from": "SGN",
+      "country": "Vietnam"
     }
   ],
   "departures_list": [
@@ -2051,6 +2062,28 @@
       "arr_time": "",
       "to": "MAA",
       "country": "India"
+    },
+    {
+      "fn": "KE 678",
+      "airline": "KOREAN AIRLINES CO.LTD.",
+      "status": "delayed",
+      "pax": 237,
+      "aircraft": "789",
+      "dep_time": "2026-04-30T16:25",
+      "arr_time": "2026-05-01T00:35",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "FM 832",
+      "airline": "SHANGHAI AIRLINES",
+      "status": "",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2026-04-30T17:05",
+      "arr_time": "2026-04-30T23:30",
+      "to": "PVG",
+      "country": "China"
     }
   ]
 }
