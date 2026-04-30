@@ -95,8 +95,8 @@
     }
   },
   "departures": {
-    "count": 79,
-    "pax": 14016,
+    "count": 80,
+    "pax": 14196,
     "countries": {
       "India": {
         "flights": 13,
@@ -152,8 +152,8 @@
         "pax": 266
       },
       "Vietnam": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 327
       },
       "Санкт-Петербург": {
         "flights": 1,
@@ -1052,7 +1052,7 @@
     {
       "fn": "CA 551",
       "airline": "AIR CHINA",
-      "status": "confirmed",
+      "status": "landed",
       "pax": 147,
       "aircraft": "7M8",
       "dep_time": "",
@@ -1096,7 +1096,7 @@
     {
       "fn": "FM 857",
       "airline": "SHANGHAI AIRLINES",
-      "status": "",
+      "status": "confirmed",
       "pax": 147,
       "aircraft": "7M8",
       "dep_time": "",
@@ -1107,7 +1107,7 @@
     {
       "fn": "HB 270",
       "airline": "GREATER BAY AIRLINES",
-      "status": "",
+      "status": "confirmed",
       "pax": 154,
       "aircraft": "738",
       "dep_time": "",
@@ -1129,7 +1129,7 @@
     {
       "fn": "CZ 6057",
       "airline": "CHINA SOUTHERN AIRLINES",
-      "status": "",
+      "status": "confirmed",
       "pax": 147,
       "aircraft": "320",
       "dep_time": "2026-04-30T12:45",
@@ -1140,7 +1140,7 @@
     {
       "fn": "9C 8521",
       "airline": "SPRING AIRLINES LIMITED CORPORATION",
-      "status": "",
+      "status": "confirmed",
       "pax": 147,
       "aircraft": "320",
       "dep_time": "",
@@ -2084,6 +2084,17 @@
       "arr_time": "2026-04-30T23:30",
       "to": "PVG",
       "country": "China"
+    },
+    {
+      "fn": "VN 620",
+      "airline": "VIETNAM AIRLINES",
+      "status": "cancelled",
+      "pax": 180,
+      "aircraft": "321",
+      "dep_time": "2026-04-30T11:45",
+      "arr_time": "",
+      "to": "SGN",
+      "country": "Vietnam"
     }
   ]
 }
