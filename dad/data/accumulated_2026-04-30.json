@@ -1,12 +1,12 @@
 {
   "date": "2026-04-30",
   "arrivals": {
-    "count": 14,
-    "pax": 2058,
+    "count": 17,
+    "pax": 2499,
     "countries": {
       "South Korea": {
-        "flights": 4,
-        "pax": 588
+        "flights": 5,
+        "pax": 735
       },
       "Thailand": {
         "flights": 3,
@@ -17,12 +17,12 @@
         "pax": 294
       },
       "Malaysia": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Hong Kong": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Japan": {
         "flights": 2,
@@ -31,16 +31,16 @@
     }
   },
   "departures": {
-    "count": 22,
-    "pax": 3234,
+    "count": 25,
+    "pax": 3675,
     "countries": {
       "Japan": {
         "flights": 2,
         "pax": 294
       },
       "South Korea": {
-        "flights": 9,
-        "pax": 1323
+        "flights": 10,
+        "pax": 1470
       },
       "Malaysia": {
         "flights": 5,
@@ -51,14 +51,18 @@
         "pax": 294
       },
       "Hong Kong": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Singapore": {
         "flights": 1,
         "pax": 147
       },
       "Macau": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Thailand": {
         "flights": 1,
         "pax": 147
       }
@@ -214,6 +218,36 @@
       "arr_time": "2026-04-30T12:40",
       "from": "NRT",
       "country": "Japan"
+    },
+    {
+      "fn": "KE457",
+      "airline": "Korean Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-30T14:20",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "HX548",
+      "airline": "Hong Kong Airlines",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-30T15:20",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "AK640",
+      "airline": "Air Asia",
+      "status": "delayed",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-04-30T15:35",
+      "from": "KUL",
+      "country": "Malaysia"
     }
   ],
   "departures_list": [
@@ -453,6 +487,46 @@
       "status": "departed",
       "pax": 147,
       "dep_time": "2026-04-30T13:10",
+      "arr_time": "",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "PR586",
+      "airline": "Philippine Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-30T14:10",
+      "arr_time": "",
+      "to": "MNL",
+      "country": "Other(MNL)"
+    },
+    {
+      "fn": "HB2532",
+      "airline": "Greater Bay Airlines",
+      "status": "last call",
+      "pax": 147,
+      "dep_time": "2026-04-30T15:00",
+      "arr_time": "",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "VN627",
+      "airline": "Vietnam Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-30T15:15",
+      "arr_time": "",
+      "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "KE458",
+      "airline": "Korean Airlines",
+      "status": "boarding",
+      "pax": 147,
+      "dep_time": "2026-04-30T15:55",
       "arr_time": "",
       "to": "ICN",
       "country": "South Korea"
