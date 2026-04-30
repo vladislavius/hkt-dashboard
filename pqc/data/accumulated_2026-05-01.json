@@ -1,8 +1,8 @@
 {
   "date": "2026-05-01",
   "arrivals": {
-    "count": 16,
-    "pax": 2352,
+    "count": 19,
+    "pax": 2793,
     "countries": {
       "Vietnam": {
         "flights": 1,
@@ -13,8 +13,8 @@
         "pax": 441
       },
       "Thailand": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Taiwan": {
         "flights": 1,
@@ -31,24 +31,32 @@
       "Malaysia": {
         "flights": 1,
         "pax": 147
+      },
+      "Singapore": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Belarus": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 16,
-    "pax": 2352,
+    "count": 18,
+    "pax": 2646,
     "countries": {
       "Singapore": {
         "flights": 1,
         "pax": 147
       },
       "Hong Kong": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Thailand": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "South Korea": {
         "flights": 10,
@@ -224,6 +232,36 @@
       "arr_time": "2026-05-01T09:40",
       "from": "HKG",
       "country": "Hong Kong"
+    },
+    {
+      "fn": "TVJ 980",
+      "airline": "Thai VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-01T10:40",
+      "arr_time": "2026-05-01T10:40",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "TR 528",
+      "airline": "Scoot",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-01T11:45",
+      "arr_time": "2026-05-01T11:45",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "B2 8197",
+      "airline": "Belavia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-01T11:45",
+      "arr_time": "2026-05-01T11:45",
+      "from": "MSQ",
+      "country": "Belarus"
     }
   ],
   "departures_list": [
@@ -386,6 +424,26 @@
       "arr_time": "2026-05-01T10:05",
       "to": "KUL",
       "country": "Malaysia"
+    },
+    {
+      "fn": "UO 599",
+      "airline": "HK Express",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-01T10:40",
+      "arr_time": "2026-05-01T10:40",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "TVJ 981",
+      "airline": "Thai VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-01T11:45",
+      "arr_time": "2026-05-01T11:45",
+      "to": "BKK",
+      "country": "Thailand"
     }
   ]
 }
