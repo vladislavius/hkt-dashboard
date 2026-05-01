@@ -15,16 +15,20 @@
     }
   },
   "departures": {
-    "count": 7,
-    "pax": 1029,
+    "count": 9,
+    "pax": 1323,
     "countries": {
       "Japan": {
         "flights": 1,
         "pax": 147
       },
       "South Korea": {
-        "flights": 6,
-        "pax": 882
+        "flights": 7,
+        "pax": 1029
+      },
+      "Hong Kong": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -52,12 +56,32 @@
     {
       "fn": "BX7315",
       "airline": "Air Busan",
-      "status": "arrived",
+      "status": "bags delivered",
       "pax": 147,
       "dep_time": "",
       "arr_time": "2026-05-02T01:10",
       "from": "PUS",
       "country": "South Korea"
+    },
+    {
+      "fn": "VJ2855",
+      "airline": "Vietjet Air",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-02T04:05",
+      "from": "MNL",
+      "country": "Other(MNL)"
+    },
+    {
+      "fn": "QH9345",
+      "airline": "Bamboo Airways",
+      "status": "on time",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-02T04:35",
+      "from": "MNL",
+      "country": "Other(MNL)"
     }
   ],
   "departures_list": [
@@ -139,6 +163,36 @@
       "dep_time": "2026-05-02T01:25",
       "arr_time": "",
       "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "TW30",
+      "airline": "T'Way Air",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-02T01:30",
+      "arr_time": "",
+      "to": "TAE",
+      "country": "Other(TAE)"
+    },
+    {
+      "fn": "HB2550",
+      "airline": "Greater Bay Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-02T02:10",
+      "arr_time": "",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "BX7325",
+      "airline": "Air Busan",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-02T02:10",
+      "arr_time": "",
+      "to": "PUS",
       "country": "South Korea"
     }
   ]
