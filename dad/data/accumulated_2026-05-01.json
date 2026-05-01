@@ -1,16 +1,16 @@
 {
   "date": "2026-05-01",
   "arrivals": {
-    "count": 21,
-    "pax": 3087,
+    "count": 24,
+    "pax": 3528,
     "countries": {
       "South Korea": {
         "flights": 7,
         "pax": 1029
       },
       "Thailand": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "Singapore": {
         "flights": 3,
@@ -21,8 +21,8 @@
         "pax": 147
       },
       "Hong Kong": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "Japan": {
         "flights": 2,
@@ -31,12 +31,16 @@
       "Malaysia": {
         "flights": 2,
         "pax": 294
+      },
+      "Macau": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 33,
-    "pax": 4851,
+    "count": 35,
+    "pax": 5145,
     "countries": {
       "Japan": {
         "flights": 2,
@@ -47,8 +51,8 @@
         "pax": 1764
       },
       "Hong Kong": {
-        "flights": 4,
-        "pax": 588
+        "flights": 5,
+        "pax": 735
       },
       "Thailand": {
         "flights": 3,
@@ -67,8 +71,8 @@
         "pax": 147
       },
       "Taiwan": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Vietnam": {
         "flights": 1,
@@ -336,6 +340,36 @@
       "arr_time": "2026-05-01T17:25",
       "from": "HKG",
       "country": "Hong Kong"
+    },
+    {
+      "fn": "VN626",
+      "airline": "Vietnam Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-01T19:45",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "HX546",
+      "airline": "Hong Kong Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-01T19:50",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "NX978",
+      "airline": "Air Macau",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-01T20:30",
+      "from": "MFM",
+      "country": "Macau"
     }
   ],
   "departures_list": [
@@ -698,6 +732,26 @@
       "arr_time": "",
       "to": "CXR",
       "country": "Vietnam"
+    },
+    {
+      "fn": "IT552",
+      "airline": "Tigerair Taiwan",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-01T19:45",
+      "arr_time": "",
+      "to": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "HX547",
+      "airline": "Hong Kong Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-01T20:50",
+      "arr_time": "",
+      "to": "HKG",
+      "country": "Hong Kong"
     }
   ]
 }
