@@ -1,12 +1,12 @@
 {
   "date": "2026-05-01",
   "arrivals": {
-    "count": 24,
-    "pax": 3528,
+    "count": 27,
+    "pax": 3969,
     "countries": {
       "South Korea": {
-        "flights": 7,
-        "pax": 1029
+        "flights": 9,
+        "pax": 1323
       },
       "Thailand": {
         "flights": 4,
@@ -35,12 +35,16 @@
       "Macau": {
         "flights": 1,
         "pax": 147
+      },
+      "Vietnam": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 35,
-    "pax": 5145,
+    "count": 36,
+    "pax": 5292,
     "countries": {
       "Japan": {
         "flights": 2,
@@ -67,8 +71,8 @@
         "pax": 294
       },
       "Macau": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Taiwan": {
         "flights": 3,
@@ -370,6 +374,36 @@
       "arr_time": "2026-05-01T20:30",
       "from": "MFM",
       "country": "Macau"
+    },
+    {
+      "fn": "VN1940",
+      "airline": "Vietnam Airlines",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-01T20:55",
+      "from": "CXR",
+      "country": "Vietnam"
+    },
+    {
+      "fn": "KE459",
+      "airline": "Korean Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-01T21:05",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "WE201",
+      "airline": "Parata Air",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-01T21:10",
+      "from": "ICN",
+      "country": "South Korea"
     }
   ],
   "departures_list": [
@@ -752,6 +786,16 @@
       "arr_time": "",
       "to": "HKG",
       "country": "Hong Kong"
+    },
+    {
+      "fn": "NX977",
+      "airline": "Air Macau",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-01T21:30",
+      "arr_time": "",
+      "to": "MFM",
+      "country": "Macau"
     }
   ]
 }
