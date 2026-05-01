@@ -1,8 +1,8 @@
 {
   "date": "2026-05-01",
   "arrivals": {
-    "count": 20,
-    "pax": 2940,
+    "count": 21,
+    "pax": 3087,
     "countries": {
       "South Korea": {
         "flights": 7,
@@ -21,8 +21,8 @@
         "pax": 147
       },
       "Hong Kong": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Japan": {
         "flights": 2,
@@ -35,8 +35,8 @@
     }
   },
   "departures": {
-    "count": 30,
-    "pax": 4410,
+    "count": 33,
+    "pax": 4851,
     "countries": {
       "Japan": {
         "flights": 2,
@@ -59,14 +59,18 @@
         "pax": 882
       },
       "Singapore": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Macau": {
         "flights": 1,
         "pax": 147
       },
       "Taiwan": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Vietnam": {
         "flights": 1,
         "pax": 147
       }
@@ -322,6 +326,16 @@
       "arr_time": "2026-05-01T16:00",
       "from": "SAI",
       "country": "Other(SAI)"
+    },
+    {
+      "fn": "UO558",
+      "airline": "Hong Kong Express Airways",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-01T17:25",
+      "from": "HKG",
+      "country": "Hong Kong"
     }
   ],
   "departures_list": [
@@ -654,6 +668,36 @@
       "arr_time": "",
       "to": "HKG",
       "country": "Hong Kong"
+    },
+    {
+      "fn": "SQ173",
+      "airline": "Singapore Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-01T16:45",
+      "arr_time": "",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "CI790",
+      "airline": "China Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-01T17:30",
+      "arr_time": "",
+      "to": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "VN1941",
+      "airline": "Vietnam Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-01T18:00",
+      "arr_time": "",
+      "to": "CXR",
+      "country": "Vietnam"
     }
   ]
 }
