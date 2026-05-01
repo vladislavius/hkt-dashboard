@@ -1,8 +1,8 @@
 {
   "date": "2026-05-01",
   "arrivals": {
-    "count": 27,
-    "pax": 3969,
+    "count": 28,
+    "pax": 4116,
     "countries": {
       "Vietnam": {
         "flights": 1,
@@ -25,8 +25,8 @@
         "pax": 1323
       },
       "China": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Malaysia": {
         "flights": 2,
@@ -43,8 +43,8 @@
     }
   },
   "departures": {
-    "count": 26,
-    "pax": 3822,
+    "count": 28,
+    "pax": 4116,
     "countries": {
       "Singapore": {
         "flights": 2,
@@ -63,8 +63,8 @@
         "pax": 1617
       },
       "China": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Malaysia": {
         "flights": 2,
@@ -75,6 +75,10 @@
         "pax": 147
       },
       "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Belarus": {
         "flights": 1,
         "pax": 147
       }
@@ -124,7 +128,7 @@
     {
       "fn": "LJ 91",
       "airline": "Jin Air",
-      "status": "arrived 24 minutes late",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-05-01T21:24",
       "arr_time": "2026-05-01T21:00",
@@ -274,7 +278,7 @@
     {
       "fn": "FD 660",
       "airline": "Thai AirAsia",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-05-01T13:17",
       "arr_time": "2026-05-01T13:20",
@@ -360,6 +364,16 @@
       "arr_time": "2026-05-01T19:00",
       "from": "TFU",
       "country": "Other(TFU)"
+    },
+    {
+      "fn": "MU 861",
+      "airline": "China Eastern Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-01T19:55",
+      "arr_time": "2026-05-01T20:00",
+      "from": "XIY",
+      "country": "China"
     }
   ],
   "departures_list": [
@@ -622,6 +636,36 @@
       "arr_time": "2026-05-01T19:35",
       "to": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "B2 8198",
+      "airline": "Belavia",
+      "status": "departed on-time",
+      "pax": 147,
+      "dep_time": "2026-05-01T13:40",
+      "arr_time": "2026-05-01T13:42",
+      "to": "MSQ",
+      "country": "Belarus"
+    },
+    {
+      "fn": "TV 9782",
+      "airline": "Tibet Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-01T20:00",
+      "arr_time": "2026-05-01T20:00",
+      "to": "TFU",
+      "country": "Other(TFU)"
+    },
+    {
+      "fn": "MU 862",
+      "airline": "China Eastern Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-01T21:00",
+      "arr_time": "2026-05-01T21:00",
+      "to": "XIY",
+      "country": "China"
     }
   ]
 }
