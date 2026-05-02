@@ -1,8 +1,8 @@
 {
   "date": "2026-05-02",
   "arrivals": {
-    "count": 18,
-    "pax": 2646,
+    "count": 21,
+    "pax": 3087,
     "countries": {
       "Hong Kong": {
         "flights": 3,
@@ -21,14 +21,22 @@
         "pax": 294
       },
       "Thailand": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
+      },
+      "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Singapore": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 23,
-    "pax": 3381,
+    "count": 24,
+    "pax": 3528,
     "countries": {
       "Taiwan": {
         "flights": 3,
@@ -55,8 +63,8 @@
         "pax": 294
       },
       "Thailand": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       }
     }
   },
@@ -64,7 +72,7 @@
     {
       "fn": "UO 596",
       "airline": "HK Express",
-      "status": "arrived on-time",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-05-02T18:01",
       "arr_time": "2026-05-02T18:05",
@@ -174,7 +182,7 @@
     {
       "fn": "AK 543",
       "airline": "AirAsia",
-      "status": "arrived 57 minutes late",
+      "status": "arrived 58 minutes late",
       "pax": 147,
       "dep_time": "2026-05-02T09:22",
       "arr_time": "2026-05-02T09:30",
@@ -184,7 +192,7 @@
     {
       "fn": "J2X 333",
       "airline": "Starlux Airlines",
-      "status": "arrived 72 minutes late",
+      "status": "arrived 64 minutes late",
       "pax": 147,
       "dep_time": "2026-05-02T09:40",
       "arr_time": "2026-05-02T09:40",
@@ -214,7 +222,7 @@
     {
       "fn": "VJC 969",
       "airline": "VietJet Air",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-05-02T11:10",
       "arr_time": "2026-05-02T11:10",
@@ -270,6 +278,36 @@
       "arr_time": "2026-05-02T16:15",
       "from": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "VJC 845",
+      "airline": "VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-02T16:50",
+      "arr_time": "2026-05-02T16:50",
+      "from": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "FD 662",
+      "airline": "Thai AirAsia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-02T16:54",
+      "arr_time": "2026-05-02T17:00",
+      "from": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "TR 524",
+      "airline": "Scoot",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-02T17:40",
+      "arr_time": "2026-05-02T17:40",
+      "from": "SIN",
+      "country": "Singapore"
     }
   ],
   "departures_list": [
@@ -531,6 +569,16 @@
       "dep_time": "2026-05-02T16:45",
       "arr_time": "2026-05-02T16:45",
       "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "FD 663",
+      "airline": "Thai AirAsia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-02T17:30",
+      "arr_time": "2026-05-02T17:30",
+      "to": "DMK",
       "country": "Thailand"
     }
   ]
