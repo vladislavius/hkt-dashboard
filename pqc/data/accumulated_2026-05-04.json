@@ -1,16 +1,16 @@
 {
   "date": "2026-05-04",
   "arrivals": {
-    "count": 15,
-    "pax": 2205,
+    "count": 17,
+    "pax": 2499,
     "countries": {
       "Vietnam": {
         "flights": 1,
         "pax": 147
       },
       "Hong Kong": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "China": {
         "flights": 1,
@@ -27,12 +27,16 @@
       "Uzbekistan": {
         "flights": 1,
         "pax": 147
+      },
+      "Malaysia": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 14,
-    "pax": 2058,
+    "count": 15,
+    "pax": 2205,
     "countries": {
       "Hong Kong": {
         "flights": 2,
@@ -43,6 +47,10 @@
         "pax": 1617
       },
       "China": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Uzbekistan": {
         "flights": 1,
         "pax": 147
       }
@@ -208,6 +216,26 @@
       "arr_time": "2026-05-04T07:30",
       "from": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "AK 543",
+      "airline": "AirAsia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-04T09:30",
+      "arr_time": "2026-05-04T09:30",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "UO 598",
+      "airline": "HK Express",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-04T09:40",
+      "arr_time": "2026-05-04T09:40",
+      "from": "HKG",
+      "country": "Hong Kong"
     }
   ],
   "departures_list": [
@@ -360,6 +388,16 @@
       "arr_time": "2026-05-04T01:00",
       "to": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "MFX 5536",
+      "airline": "Centrum Air (My Freighter)",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-04T08:50",
+      "arr_time": "2026-05-04T08:50",
+      "to": "TAS",
+      "country": "Uzbekistan"
     }
   ]
 }
