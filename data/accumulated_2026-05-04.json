@@ -1,8 +1,8 @@
 {
   "date": "2026-05-04",
   "arrivals": {
-    "count": 45,
-    "pax": 8005,
+    "count": 43,
+    "pax": 7711,
     "countries": {
       "India": {
         "flights": 8,
@@ -62,17 +62,18 @@
         "flights": 1,
         "pax": 324,
         "country": "Russia"
-      },
-      "Other": {
-        "flights": 2,
-        "pax": 294
       }
     }
   },
   "departures": {
-    "count": 0,
-    "pax": 0,
-    "countries": {}
+    "count": 1,
+    "pax": 147,
+    "countries": {
+      "China": {
+        "flights": 1,
+        "pax": 147
+      }
+    }
   },
   "arrivals_list": [
     {
@@ -568,5 +569,16 @@
       "arr_time": "2026-05-04T09:50"
     }
   ],
-  "departures_list": []
+  "departures_list": [
+    {
+      "fn": "FM832",
+      "airline": "Shanghai Airlines",
+      "to": "PVG",
+      "country": "China",
+      "status": "active",
+      "pax": 147,
+      "dep_time": "2026-05-04T00:05",
+      "arr_time": "2026-05-04T06:30"
+    }
+  ]
 }
