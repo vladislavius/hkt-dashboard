@@ -1,8 +1,8 @@
 {
   "date": "2026-05-03",
   "arrivals": {
-    "count": 17,
-    "pax": 2499,
+    "count": 20,
+    "pax": 2940,
     "countries": {
       "South Korea": {
         "flights": 8,
@@ -13,12 +13,12 @@
         "pax": 441
       },
       "Malaysia": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Hong Kong": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Singapore": {
         "flights": 1,
@@ -31,12 +31,16 @@
       "Laos": {
         "flights": 1,
         "pax": 147
+      },
+      "Vietnam": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 21,
-    "pax": 3087,
+    "count": 23,
+    "pax": 3381,
     "countries": {
       "Japan": {
         "flights": 2,
@@ -55,8 +59,8 @@
         "pax": 588
       },
       "Thailand": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Hong Kong": {
         "flights": 1,
@@ -71,6 +75,10 @@
         "pax": 147
       },
       "Laos": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Kazakhstan": {
         "flights": 1,
         "pax": 147
       }
@@ -256,6 +264,36 @@
       "arr_time": "2026-05-03T14:20",
       "from": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "VN7940",
+      "airline": "Vietnam Airlines",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-03T15:20",
+      "from": "CXR",
+      "country": "Vietnam"
+    },
+    {
+      "fn": "HX548",
+      "airline": "Hong Kong Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-03T15:20",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "AK640",
+      "airline": "Air Asia",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-03T15:35",
+      "from": "KUL",
+      "country": "Malaysia"
     }
   ],
   "departures_list": [
@@ -498,6 +536,26 @@
       "arr_time": "",
       "to": "VTE",
       "country": "Laos"
+    },
+    {
+      "fn": "VN627",
+      "airline": "Vietnam Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-03T15:15",
+      "arr_time": "",
+      "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "VJ55",
+      "airline": "Vietjet Air",
+      "status": "last call",
+      "pax": 147,
+      "dep_time": "2026-05-03T15:35",
+      "arr_time": "",
+      "to": "NQZ",
+      "country": "Kazakhstan"
     }
   ]
 }
