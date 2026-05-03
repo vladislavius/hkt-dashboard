@@ -39,8 +39,8 @@
     }
   },
   "departures": {
-    "count": 25,
-    "pax": 3675,
+    "count": 26,
+    "pax": 3822,
     "countries": {
       "Singapore": {
         "flights": 3,
@@ -59,8 +59,8 @@
         "pax": 735
       },
       "China": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Malaysia": {
         "flights": 2,
@@ -120,7 +120,7 @@
     {
       "fn": "LJ 91",
       "airline": "Jin Air",
-      "status": "arrived on-time",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-05-03T20:54",
       "arr_time": "2026-05-03T21:00",
@@ -130,7 +130,7 @@
     {
       "fn": "7C 2315",
       "airline": "Jeju Air",
-      "status": "arrived on-time",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-05-03T21:06",
       "arr_time": "2026-05-03T21:25",
@@ -300,7 +300,7 @@
     {
       "fn": "TVJ 982",
       "airline": "Thai VietJet Air",
-      "status": "on-time",
+      "status": "arrived 18 minutes late",
       "pax": 147,
       "dep_time": "2026-05-03T15:55",
       "arr_time": "2026-05-03T15:55",
@@ -628,6 +628,16 @@
       "arr_time": "2026-05-03T20:00",
       "to": "TFU",
       "country": "Other(TFU)"
+    },
+    {
+      "fn": "MU 862",
+      "airline": "China Eastern Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-03T21:00",
+      "arr_time": "2026-05-03T21:00",
+      "to": "XIY",
+      "country": "China"
     }
   ]
 }
