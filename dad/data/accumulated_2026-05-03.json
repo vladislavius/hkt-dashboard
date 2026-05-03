@@ -1,16 +1,16 @@
 {
   "date": "2026-05-03",
   "arrivals": {
-    "count": 11,
-    "pax": 1617,
+    "count": 14,
+    "pax": 2058,
     "countries": {
       "South Korea": {
         "flights": 6,
         "pax": 882
       },
       "Thailand": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Malaysia": {
         "flights": 1,
@@ -23,12 +23,20 @@
       "Singapore": {
         "flights": 1,
         "pax": 147
+      },
+      "Japan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Laos": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 16,
-    "pax": 2352,
+    "count": 20,
+    "pax": 2940,
     "countries": {
       "Japan": {
         "flights": 2,
@@ -43,14 +51,22 @@
         "pax": 147
       },
       "Malaysia": {
-        "flights": 2,
-        "pax": 294
+        "flights": 4,
+        "pax": 588
       },
       "Thailand": {
         "flights": 1,
         "pax": 147
       },
       "Hong Kong": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Macau": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Taiwan": {
         "flights": 1,
         "pax": 147
       }
@@ -176,6 +192,36 @@
       "arr_time": "2026-05-03T11:30",
       "from": "DMK",
       "country": "Thailand"
+    },
+    {
+      "fn": "VN337",
+      "airline": "Vietnam Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-03T12:25",
+      "from": "KIX",
+      "country": "Japan"
+    },
+    {
+      "fn": "VZ960",
+      "airline": "Thai Vietjet",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-03T12:30",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "QV317",
+      "airline": "Lao Airlines",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-03T12:40",
+      "from": "VTE",
+      "country": "Laos"
     }
   ],
   "departures_list": [
@@ -368,6 +414,46 @@
       "arr_time": "",
       "to": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "VJ8890",
+      "airline": "Vietjet Air",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-03T12:15",
+      "arr_time": "",
+      "to": "MFM",
+      "country": "Macau"
+    },
+    {
+      "fn": "AK649",
+      "airline": "Air Asia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-03T12:20",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "OD503",
+      "airline": "Batik Air Malaysia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-03T12:50",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "BR384",
+      "airline": "Eva Air",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-03T12:55",
+      "arr_time": "",
+      "to": "TPE",
+      "country": "Taiwan"
     }
   ]
 }
