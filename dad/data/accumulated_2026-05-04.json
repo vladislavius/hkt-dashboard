@@ -1,18 +1,26 @@
 {
   "date": "2026-05-04",
   "arrivals": {
-    "count": 3,
-    "pax": 441,
+    "count": 6,
+    "pax": 882,
     "countries": {
       "South Korea": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
+      },
+      "Singapore": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Thailand": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 11,
-    "pax": 1617,
+    "count": 14,
+    "pax": 2058,
     "countries": {
       "Japan": {
         "flights": 2,
@@ -23,6 +31,18 @@
         "pax": 1176
       },
       "Vietnam": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Malaysia": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Thailand": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Hong Kong": {
         "flights": 1,
         "pax": 147
       }
@@ -68,6 +88,36 @@
       "arr_time": "2026-05-04T07:35",
       "from": "MNL",
       "country": "Other(MNL)"
+    },
+    {
+      "fn": "VJ879",
+      "airline": "Vietjet Air",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-04T09:40",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "TR510",
+      "airline": "Scoot",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-04T09:55",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "VZ964",
+      "airline": "Thai Vietjet",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-04T09:55",
+      "from": "BKK",
+      "country": "Thailand"
     }
   ],
   "departures_list": [
@@ -200,6 +250,36 @@
       "arr_time": "",
       "to": "CXR",
       "country": "Vietnam"
+    },
+    {
+      "fn": "VJ827",
+      "airline": "Vietjet Air",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-04T09:50",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "FD635",
+      "airline": "Thai Air Asia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-04T10:05",
+      "arr_time": "",
+      "to": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "UO553",
+      "airline": "Hong Kong Express Airways",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-04T10:05",
+      "arr_time": "",
+      "to": "HKG",
+      "country": "Hong Kong"
     }
   ]
 }
