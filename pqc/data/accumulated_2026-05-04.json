@@ -1,8 +1,8 @@
 {
   "date": "2026-05-04",
   "arrivals": {
-    "count": 26,
-    "pax": 3822,
+    "count": 27,
+    "pax": 3969,
     "countries": {
       "Vietnam": {
         "flights": 1,
@@ -33,8 +33,8 @@
         "pax": 294
       },
       "Thailand": {
-        "flights": 4,
-        "pax": 588
+        "flights": 5,
+        "pax": 735
       },
       "Singapore": {
         "flights": 1,
@@ -43,8 +43,8 @@
     }
   },
   "departures": {
-    "count": 23,
-    "pax": 3381,
+    "count": 25,
+    "pax": 3675,
     "countries": {
       "Hong Kong": {
         "flights": 3,
@@ -67,10 +67,14 @@
         "pax": 294
       },
       "Thailand": {
-        "flights": 4,
-        "pax": 588
+        "flights": 5,
+        "pax": 735
       },
       "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Singapore": {
         "flights": 1,
         "pax": 147
       }
@@ -280,7 +284,7 @@
     {
       "fn": "FD 660",
       "airline": "Thai AirAsia",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-05-04T13:19",
       "arr_time": "2026-05-04T13:20",
@@ -290,7 +294,7 @@
     {
       "fn": "AK 545",
       "airline": "AirAsia",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-05-04T13:32",
       "arr_time": "2026-05-04T13:35",
@@ -320,7 +324,7 @@
     {
       "fn": "J2X 705",
       "airline": "Starlux Airlines",
-      "status": "on-time",
+      "status": "24 minutes late",
       "pax": 147,
       "dep_time": "2026-05-04T16:50",
       "arr_time": "2026-05-04T16:50",
@@ -346,6 +350,16 @@
       "arr_time": "2026-05-04T17:40",
       "from": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "TVJ 984",
+      "airline": "Thai VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-04T19:00",
+      "arr_time": "2026-05-04T19:00",
+      "from": "BKK",
+      "country": "Thailand"
     }
   ],
   "departures_list": [
@@ -588,6 +602,26 @@
       "arr_time": "2026-05-04T17:50",
       "to": "TPE",
       "country": "Taiwan"
+    },
+    {
+      "fn": "TR 525",
+      "airline": "Scoot",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-04T18:20",
+      "arr_time": "2026-05-04T18:20",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "TVJ 985",
+      "airline": "Thai VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-04T19:55",
+      "arr_time": "2026-05-04T19:55",
+      "to": "BKK",
+      "country": "Thailand"
     }
   ]
 }
