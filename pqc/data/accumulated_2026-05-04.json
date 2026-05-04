@@ -43,8 +43,8 @@
     }
   },
   "departures": {
-    "count": 25,
-    "pax": 3675,
+    "count": 26,
+    "pax": 3822,
     "countries": {
       "Hong Kong": {
         "flights": 3,
@@ -55,8 +55,8 @@
         "pax": 1617
       },
       "China": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Uzbekistan": {
         "flights": 1,
@@ -94,7 +94,7 @@
     {
       "fn": "UO 596",
       "airline": "HK Express",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-05-04T18:39",
       "arr_time": "2026-05-04T18:05",
@@ -164,7 +164,7 @@
     {
       "fn": "KE 485",
       "airline": "Korean Air",
-      "status": "26 minutes late",
+      "status": "24 minutes late",
       "pax": 147,
       "dep_time": "2026-05-04T23:05",
       "arr_time": "2026-05-04T22:50",
@@ -174,7 +174,7 @@
     {
       "fn": "ZE 581",
       "airline": "Eastar Jet",
-      "status": "arrived 19 minutes late",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-05-04T23:39",
       "arr_time": "2026-05-04T23:20",
@@ -184,7 +184,7 @@
     {
       "fn": "LJ 119",
       "airline": "Jin Air",
-      "status": "arrived 32 minutes late",
+      "status": "25 minutes late",
       "pax": 147,
       "dep_time": "2026-05-04T23:58",
       "arr_time": "2026-05-04T23:25",
@@ -194,7 +194,7 @@
     {
       "fn": "TWB 55",
       "airline": "T'way Air",
-      "status": "arrived on-time",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-05-04T23:21",
       "arr_time": "2026-05-04T23:35",
@@ -214,7 +214,7 @@
     {
       "fn": "HGB 2517",
       "airline": "Greater Bay Airlines",
-      "status": "arrived 18 minutes late",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-05-04T23:55",
       "arr_time": "2026-05-04T23:55",
@@ -334,7 +334,7 @@
     {
       "fn": "FD 662",
       "airline": "Thai AirAsia",
-      "status": "39 minutes late",
+      "status": "arrived 32 minutes late",
       "pax": 147,
       "dep_time": "2026-05-04T16:54",
       "arr_time": "2026-05-04T17:00",
@@ -344,7 +344,7 @@
     {
       "fn": "TR 524",
       "airline": "Scoot",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-05-04T17:40",
       "arr_time": "2026-05-04T17:40",
@@ -632,6 +632,16 @@
       "arr_time": "2026-05-04T19:55",
       "to": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "DR 5046",
+      "airline": "Ruili Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-04T23:55",
+      "arr_time": "2026-05-04T23:55",
+      "to": "KMG",
+      "country": "China"
     }
   ]
 }
