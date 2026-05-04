@@ -1,12 +1,12 @@
 {
   "date": "2026-05-04",
   "arrivals": {
-    "count": 21,
-    "pax": 3087,
+    "count": 24,
+    "pax": 3528,
     "countries": {
       "South Korea": {
-        "flights": 5,
-        "pax": 735
+        "flights": 6,
+        "pax": 882
       },
       "Singapore": {
         "flights": 4,
@@ -33,14 +33,18 @@
         "pax": 294
       },
       "Macau": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Vietnam": {
         "flights": 1,
         "pax": 147
       }
     }
   },
   "departures": {
-    "count": 31,
-    "pax": 4557,
+    "count": 33,
+    "pax": 4851,
     "countries": {
       "Japan": {
         "flights": 2,
@@ -63,8 +67,8 @@
         "pax": 441
       },
       "Hong Kong": {
-        "flights": 4,
-        "pax": 588
+        "flights": 5,
+        "pax": 735
       },
       "Singapore": {
         "flights": 2,
@@ -73,6 +77,10 @@
       "Taiwan": {
         "flights": 2,
         "pax": 294
+      },
+      "Myanmar": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -316,6 +324,36 @@
       "arr_time": "2026-05-04T17:35",
       "from": "MFM",
       "country": "Macau"
+    },
+    {
+      "fn": "NX978",
+      "airline": "Air Macau",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-04T20:30",
+      "from": "MFM",
+      "country": "Macau"
+    },
+    {
+      "fn": "VN1940",
+      "airline": "Vietnam Airlines",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-04T20:55",
+      "from": "CXR",
+      "country": "Vietnam"
+    },
+    {
+      "fn": "KE459",
+      "airline": "Korean Airlines",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-04T21:05",
+      "from": "ICN",
+      "country": "South Korea"
     }
   ],
   "departures_list": [
@@ -668,6 +706,26 @@
       "arr_time": "",
       "to": "CXR",
       "country": "Vietnam"
+    },
+    {
+      "fn": "8M455",
+      "airline": "Myanmar Airways International",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-04T20:00",
+      "arr_time": "",
+      "to": "RGN",
+      "country": "Myanmar"
+    },
+    {
+      "fn": "HX547",
+      "airline": "Hong Kong Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-04T20:50",
+      "arr_time": "",
+      "to": "HKG",
+      "country": "Hong Kong"
     }
   ]
 }
