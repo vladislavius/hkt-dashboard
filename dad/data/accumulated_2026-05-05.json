@@ -1,38 +1,46 @@
 {
   "date": "2026-05-05",
   "arrivals": {
-    "count": 17,
-    "pax": 2499,
+    "count": 22,
+    "pax": 3234,
     "countries": {
       "Hong Kong": {
-        "flights": 4,
-        "pax": 588
+        "flights": 5,
+        "pax": 735
       },
       "South Korea": {
         "flights": 6,
         "pax": 882
       },
       "Thailand": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Malaysia": {
         "flights": 2,
         "pax": 294
       },
       "Singapore": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Japan": {
         "flights": 2,
         "pax": 294
+      },
+      "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Macau": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 24,
-    "pax": 3528,
+    "count": 26,
+    "pax": 3822,
     "countries": {
       "Japan": {
         "flights": 1,
@@ -59,10 +67,14 @@
         "pax": 294
       },
       "Taiwan": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Singapore": {
         "flights": 1,
         "pax": 147
       },
-      "Singapore": {
+      "Vietnam": {
         "flights": 1,
         "pax": 147
       }
@@ -268,6 +280,56 @@
       "arr_time": "2026-05-05T15:35",
       "from": "KUL",
       "country": "Malaysia"
+    },
+    {
+      "fn": "UO558",
+      "airline": "Hong Kong Express Airways",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-05T17:25",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "TR518",
+      "airline": "Scoot",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-05T17:30",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "VZ962",
+      "airline": "Thai Vietjet",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-05T17:30",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "JX703",
+      "airline": "Starlux Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-05T17:35",
+      "from": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "QH9589",
+      "airline": "Bamboo Airways",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-05T17:35",
+      "from": "MFM",
+      "country": "Macau"
     }
   ],
   "departures_list": [
@@ -550,6 +612,26 @@
       "arr_time": "",
       "to": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "CI790",
+      "airline": "China Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-05T17:30",
+      "arr_time": "",
+      "to": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "VN1941",
+      "airline": "Vietnam Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-05T18:00",
+      "arr_time": "",
+      "to": "CXR",
+      "country": "Vietnam"
     }
   ]
 }
