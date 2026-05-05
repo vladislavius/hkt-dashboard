@@ -1,38 +1,38 @@
 {
   "date": "2026-05-05",
   "arrivals": {
-    "count": 13,
-    "pax": 1911,
+    "count": 17,
+    "pax": 2499,
     "countries": {
       "Hong Kong": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "South Korea": {
-        "flights": 5,
-        "pax": 735
+        "flights": 6,
+        "pax": 882
       },
       "Thailand": {
         "flights": 2,
         "pax": 294
       },
       "Malaysia": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Singapore": {
         "flights": 1,
         "pax": 147
       },
       "Japan": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       }
     }
   },
   "departures": {
-    "count": 19,
-    "pax": 2793,
+    "count": 20,
+    "pax": 2940,
     "countries": {
       "Japan": {
         "flights": 1,
@@ -47,8 +47,8 @@
         "pax": 294
       },
       "Thailand": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Malaysia": {
         "flights": 4,
@@ -224,6 +224,46 @@
       "arr_time": "2026-05-05T12:40",
       "from": "NRT",
       "country": "Japan"
+    },
+    {
+      "fn": "ICE1208",
+      "airline": "",
+      "status": "delayed",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-05T14:15",
+      "from": "NGO",
+      "country": "Japan"
+    },
+    {
+      "fn": "KE457",
+      "airline": "Korean Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-05T14:20",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "HX548",
+      "airline": "Hong Kong Airlines",
+      "status": "delayed",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-05T15:20",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "AK640",
+      "airline": "Air Asia",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-05T15:35",
+      "from": "KUL",
+      "country": "Malaysia"
     }
   ],
   "departures_list": [
@@ -436,6 +476,26 @@
       "arr_time": "",
       "to": "TPE",
       "country": "Taiwan"
+    },
+    {
+      "fn": "PR586",
+      "airline": "Philippine Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-05T14:10",
+      "arr_time": "",
+      "to": "MNL",
+      "country": "Other(MNL)"
+    },
+    {
+      "fn": "VN627",
+      "airline": "Vietnam Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-05T15:15",
+      "arr_time": "",
+      "to": "BKK",
+      "country": "Thailand"
     }
   ]
 }
