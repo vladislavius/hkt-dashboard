@@ -1,8 +1,8 @@
 {
   "date": "2026-05-06",
   "arrivals": {
-    "count": 19,
-    "pax": 2793,
+    "count": 21,
+    "pax": 3087,
     "countries": {
       "South Korea": {
         "flights": 5,
@@ -21,50 +21,54 @@
         "pax": 588
       },
       "Malaysia": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Taiwan": {
         "flights": 1,
         "pax": 147
       },
       "Japan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Macau": {
         "flights": 1,
         "pax": 147
       }
     }
   },
   "departures": {
-    "count": 26,
-    "pax": 3822,
+    "count": 30,
+    "pax": 4410,
     "countries": {
       "Japan": {
         "flights": 2,
         "pax": 294
       },
       "South Korea": {
-        "flights": 10,
-        "pax": 1470
+        "flights": 11,
+        "pax": 1617
       },
       "Hong Kong": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Vietnam": {
         "flights": 1,
         "pax": 147
       },
       "Malaysia": {
-        "flights": 4,
-        "pax": 588
+        "flights": 5,
+        "pax": 735
       },
       "Taiwan": {
         "flights": 2,
         "pax": 294
       },
       "Singapore": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Macau": {
         "flights": 1,
@@ -310,12 +314,42 @@
     {
       "fn": "SQ174",
       "airline": "Singapore Airlines",
-      "status": "arrived",
+      "status": "bags delivered",
       "pax": 147,
       "dep_time": "",
       "arr_time": "2026-05-06T15:55",
       "from": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "K6840",
+      "airline": "Air Cambodia",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-06T16:00",
+      "from": "SAI",
+      "country": "Other(SAI)"
+    },
+    {
+      "fn": "VJ824",
+      "airline": "Vietjet Air",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-06T16:10",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "VJ8891",
+      "airline": "Vietjet Air",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-06T16:35",
+      "from": "MFM",
+      "country": "Macau"
     }
   ],
   "departures_list": [
@@ -598,6 +632,66 @@
       "arr_time": "",
       "to": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "KE458",
+      "airline": "Korean Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-06T15:55",
+      "arr_time": "",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "AK641",
+      "airline": "Air Asia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-06T16:05",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "HX549",
+      "airline": "Hong Kong Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-06T16:20",
+      "arr_time": "",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "PR586",
+      "airline": "Philippine Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-06T16:30",
+      "arr_time": "",
+      "to": "MNL",
+      "country": "Other(MNL)"
+    },
+    {
+      "fn": "K6841",
+      "airline": "Air Cambodia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-06T16:35",
+      "arr_time": "",
+      "to": "SAI",
+      "country": "Other(SAI)"
+    },
+    {
+      "fn": "SQ173",
+      "airline": "Singapore Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-06T16:45",
+      "arr_time": "",
+      "to": "SIN",
+      "country": "Singapore"
     }
   ]
 }
