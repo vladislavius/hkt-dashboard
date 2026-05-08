@@ -39,8 +39,8 @@
     }
   },
   "departures": {
-    "count": 20,
-    "pax": 2940,
+    "count": 21,
+    "pax": 3087,
     "countries": {
       "Hong Kong": {
         "flights": 2,
@@ -67,6 +67,10 @@
         "pax": 147
       },
       "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "China": {
         "flights": 1,
         "pax": 147
       }
@@ -216,7 +220,7 @@
     {
       "fn": "9G 451",
       "airline": "Sun PhuQuoc Airways",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-05-08T15:05",
       "arr_time": "2026-05-08T15:05",
@@ -226,7 +230,7 @@
     {
       "fn": "TVJ 982",
       "airline": "Thai VietJet Air",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-05-08T15:55",
       "arr_time": "2026-05-08T15:55",
@@ -236,7 +240,7 @@
     {
       "fn": "J2X 705",
       "airline": "Starlux Airlines",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-05-08T16:50",
       "arr_time": "2026-05-08T16:50",
@@ -246,7 +250,7 @@
     {
       "fn": "FD 662",
       "airline": "Thai AirAsia",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-05-08T16:56",
       "arr_time": "2026-05-08T17:00",
@@ -494,6 +498,16 @@
       "arr_time": "2026-05-08T18:20",
       "to": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "MU 862",
+      "airline": "China Eastern Airlines",
+      "status": "cancelled",
+      "pax": 147,
+      "dep_time": "2026-05-08T21:00",
+      "arr_time": "2026-05-08T21:00",
+      "to": "XIY",
+      "country": "China"
     }
   ]
 }
