@@ -1,16 +1,16 @@
 {
   "date": "2026-05-08",
   "arrivals": {
-    "count": 16,
-    "pax": 2352,
+    "count": 20,
+    "pax": 2940,
     "countries": {
       "Taiwan": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Thailand": {
-        "flights": 4,
-        "pax": 588
+        "flights": 5,
+        "pax": 735
       },
       "South Korea": {
         "flights": 7,
@@ -25,14 +25,18 @@
         "pax": 147
       },
       "Singapore": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Vietnam": {
         "flights": 1,
         "pax": 147
       }
     }
   },
   "departures": {
-    "count": 17,
-    "pax": 2499,
+    "count": 18,
+    "pax": 2646,
     "countries": {
       "Hong Kong": {
         "flights": 2,
@@ -43,8 +47,8 @@
         "pax": 1029
       },
       "Thailand": {
-        "flights": 4,
-        "pax": 588
+        "flights": 5,
+        "pax": 735
       },
       "Malaysia": {
         "flights": 2,
@@ -174,7 +178,7 @@
     {
       "fn": "TR 528",
       "airline": "Scoot",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-05-08T11:45",
       "arr_time": "2026-05-08T11:45",
@@ -220,6 +224,46 @@
       "arr_time": "2026-05-08T15:55",
       "from": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "J2X 705",
+      "airline": "Starlux Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-08T16:50",
+      "arr_time": "2026-05-08T16:50",
+      "from": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "FD 662",
+      "airline": "Thai AirAsia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-08T16:56",
+      "arr_time": "2026-05-08T17:00",
+      "from": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "TR 524",
+      "airline": "Scoot",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-08T17:40",
+      "arr_time": "2026-05-08T17:40",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "9G 2953",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-08T17:55",
+      "arr_time": "2026-05-08T17:55",
+      "from": "CXR",
+      "country": "Vietnam"
     }
   ],
   "departures_list": [
@@ -391,6 +435,16 @@
       "dep_time": "2026-05-08T16:45",
       "arr_time": "2026-05-08T16:45",
       "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "FD 663",
+      "airline": "Thai AirAsia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-08T17:30",
+      "arr_time": "2026-05-08T17:30",
+      "to": "DMK",
       "country": "Thailand"
     }
   ]
