@@ -1,8 +1,8 @@
 {
   "date": "2026-05-09",
   "arrivals": {
-    "count": 4,
-    "pax": 588,
+    "count": 6,
+    "pax": 882,
     "countries": {
       "China": {
         "flights": 1,
@@ -11,12 +11,20 @@
       "South Korea": {
         "flights": 3,
         "pax": 441
+      },
+      "Malaysia": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Hong Kong": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 8,
-    "pax": 1176,
+    "count": 10,
+    "pax": 1470,
     "countries": {
       "Singapore": {
         "flights": 1,
@@ -31,6 +39,14 @@
         "pax": 735
       },
       "China": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Malaysia": {
         "flights": 1,
         "pax": 147
       }
@@ -76,6 +92,36 @@
       "arr_time": "2026-05-09T07:30",
       "from": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "AK 543",
+      "airline": "AirAsia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-09T09:30",
+      "arr_time": "2026-05-09T09:30",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "J2X 333",
+      "airline": "Starlux Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-09T09:40",
+      "arr_time": "2026-05-09T09:40",
+      "from": "RMQ",
+      "country": "Other(RMQ)"
+    },
+    {
+      "fn": "UO 598",
+      "airline": "HK Express",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-09T09:40",
+      "arr_time": "2026-05-09T09:40",
+      "from": "HKG",
+      "country": "Hong Kong"
     }
   ],
   "departures_list": [
@@ -158,6 +204,26 @@
       "arr_time": "2026-05-09T00:25",
       "to": "PUS",
       "country": "South Korea"
+    },
+    {
+      "fn": "VJC 844",
+      "airline": "VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-09T08:20",
+      "arr_time": "2026-05-09T08:20",
+      "to": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "AK 544",
+      "airline": "AirAsia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-09T10:05",
+      "arr_time": "2026-05-09T10:05",
+      "to": "KUL",
+      "country": "Malaysia"
     }
   ]
 }
