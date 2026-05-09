@@ -35,8 +35,8 @@
     }
   },
   "departures": {
-    "count": 21,
-    "pax": 3087,
+    "count": 23,
+    "pax": 3381,
     "countries": {
       "Singapore": {
         "flights": 1,
@@ -47,12 +47,12 @@
         "pax": 441
       },
       "South Korea": {
-        "flights": 8,
-        "pax": 1176
+        "flights": 9,
+        "pax": 1323
       },
       "China": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Taiwan": {
         "flights": 2,
@@ -212,7 +212,7 @@
     {
       "fn": "VJC 845",
       "airline": "VietJet Air",
-      "status": "on-time",
+      "status": "arrived 110 minutes late",
       "pax": 147,
       "dep_time": "2026-05-09T16:50",
       "arr_time": "2026-05-09T16:50",
@@ -242,7 +242,7 @@
     {
       "fn": "UO 596",
       "airline": "HK Express",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-05-09T18:05",
       "arr_time": "2026-05-09T18:05",
@@ -252,7 +252,7 @@
     {
       "fn": "VJC 985",
       "airline": "VietJet Air",
-      "status": "on-time",
+      "status": "arrived 50 minutes late",
       "pax": 147,
       "dep_time": "2026-05-09T18:25",
       "arr_time": "2026-05-09T18:25",
@@ -262,7 +262,7 @@
     {
       "fn": "9G 511",
       "airline": "Sun PhuQuoc Airways",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-05-09T20:25",
       "arr_time": "2026-05-09T20:25",
@@ -550,6 +550,26 @@
       "arr_time": "2026-05-09T23:25",
       "to": "PUS",
       "country": "South Korea"
+    },
+    {
+      "fn": "FGW 208",
+      "airline": "Parata Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-09T01:00",
+      "arr_time": "2026-05-09T01:00",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "MU 6034",
+      "airline": "China Eastern Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-09T01:05",
+      "arr_time": "2026-05-09T01:05",
+      "to": "PVG",
+      "country": "China"
     }
   ]
 }
