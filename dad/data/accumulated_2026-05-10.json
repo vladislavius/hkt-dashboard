@@ -1,24 +1,24 @@
 {
   "date": "2026-05-10",
   "arrivals": {
-    "count": 19,
-    "pax": 2793,
+    "count": 23,
+    "pax": 3381,
     "countries": {
       "South Korea": {
         "flights": 6,
         "pax": 882
       },
       "Thailand": {
+        "flights": 4,
+        "pax": 588
+      },
+      "Singapore": {
         "flights": 3,
         "pax": 441
       },
-      "Singapore": {
-        "flights": 2,
-        "pax": 294
-      },
       "Hong Kong": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Taiwan": {
         "flights": 1,
@@ -36,12 +36,16 @@
         "flights": 1,
         "pax": 147,
         "country": "Russia"
+      },
+      "Macau": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 27,
-    "pax": 3969,
+    "count": 28,
+    "pax": 4116,
     "countries": {
       "Japan": {
         "flights": 2,
@@ -68,8 +72,8 @@
         "pax": 588
       },
       "Singapore": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Macau": {
         "flights": 1,
@@ -319,6 +323,46 @@
       "arr_time": "2026-05-10T16:00",
       "from": "SAI",
       "country": "Other(SAI)"
+    },
+    {
+      "fn": "VJ8891",
+      "airline": "Vietjet Air",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-10T16:35",
+      "from": "MFM",
+      "country": "Macau"
+    },
+    {
+      "fn": "UO558",
+      "airline": "Hong Kong Express Airways",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-10T17:25",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "VZ962",
+      "airline": "Thai Vietjet",
+      "status": "delayed",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-10T17:30",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "TR518",
+      "airline": "Scoot",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-10T17:30",
+      "from": "SIN",
+      "country": "Singapore"
     }
   ],
   "departures_list": [
@@ -631,6 +675,26 @@
       "arr_time": "",
       "to": "KUL",
       "country": "Malaysia"
+    },
+    {
+      "fn": "K6841",
+      "airline": "Air Cambodia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-10T16:35",
+      "arr_time": "",
+      "to": "SAI",
+      "country": "Other(SAI)"
+    },
+    {
+      "fn": "SQ173",
+      "airline": "Singapore Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-10T16:45",
+      "arr_time": "",
+      "to": "SIN",
+      "country": "Singapore"
     }
   ]
 }
