@@ -1,12 +1,12 @@
 {
   "date": "2026-05-10",
   "arrivals": {
-    "count": 12,
-    "pax": 1764,
+    "count": 16,
+    "pax": 2352,
     "countries": {
       "South Korea": {
-        "flights": 4,
-        "pax": 588
+        "flights": 6,
+        "pax": 882
       },
       "Thailand": {
         "flights": 3,
@@ -27,12 +27,21 @@
       "Japan": {
         "flights": 2,
         "pax": 294
+      },
+      "Malaysia": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Благовещенск": {
+        "flights": 1,
+        "pax": 147,
+        "country": "Russia"
       }
     }
   },
   "departures": {
-    "count": 22,
-    "pax": 3234,
+    "count": 23,
+    "pax": 3381,
     "countries": {
       "Japan": {
         "flights": 2,
@@ -67,6 +76,10 @@
         "pax": 147
       },
       "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Laos": {
         "flights": 1,
         "pax": 147
       }
@@ -222,6 +235,46 @@
       "arr_time": "2026-05-10T12:40",
       "from": "NRT",
       "country": "Japan"
+    },
+    {
+      "fn": "MH748",
+      "airline": "Malaysia Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-10T13:40",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "VN431",
+      "airline": "Vietnam Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-10T13:50",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "KE457",
+      "airline": "Korean Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-10T14:20",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "VJ7659",
+      "airline": "Vietjet Air",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-10T14:35",
+      "from": "BQS",
+      "country": "Russia"
     }
   ],
   "departures_list": [
@@ -474,6 +527,26 @@
       "arr_time": "",
       "to": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "QV318",
+      "airline": "Lao Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-10T13:50",
+      "arr_time": "",
+      "to": "VTE",
+      "country": "Laos"
+    },
+    {
+      "fn": "VJ2924",
+      "airline": "Vietjet Air",
+      "status": "gate closed",
+      "pax": 147,
+      "dep_time": "2026-05-10T13:55",
+      "arr_time": "",
+      "to": "BAX",
+      "country": "Other(BAX)"
     }
   ]
 }
