@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-11T04:33:51.467775+07:00",
+  "updated": "2026-05-11T06:35:03.252053+07:00",
   "available_dates": [
     "2026-04-21",
     "2026-04-22",
@@ -879,11 +879,16 @@
   },
   "today": {
     "arrivals": {
-      "count": 1,
-      "pax": 147,
+      "count": 2,
+      "pax": 294,
       "all": [
         {
           "name": "South Korea",
+          "flights": 1,
+          "pax": 147
+        },
+        {
+          "name": "Kazakhstan",
           "flights": 1,
           "pax": 147
         }
@@ -924,12 +929,32 @@
       {
         "fn": "VJ8021",
         "airline": "Vietjet Air",
-        "status": "on time",
+        "status": "bags delivered",
         "pax": 147,
         "dep_time": "",
         "arr_time": "2026-05-11T04:55",
         "from": "MNL",
         "country": "Other(MNL)"
+      },
+      {
+        "fn": "Z2822",
+        "airline": "Philippines Air Asia",
+        "status": "delayed",
+        "pax": 147,
+        "dep_time": "",
+        "arr_time": "2026-05-11T07:35",
+        "from": "MNL",
+        "country": "Other(MNL)"
+      },
+      {
+        "fn": "VJ56",
+        "airline": "Vietjet Air",
+        "status": "on time",
+        "pax": 147,
+        "dep_time": "",
+        "arr_time": "2026-05-11T08:15",
+        "from": "NQZ",
+        "country": "Kazakhstan"
       }
     ],
     "departures_list": [
@@ -1037,8 +1062,8 @@
   },
   "week": {
     "arrivals": {
-      "count": 178,
-      "pax": 26166,
+      "count": 179,
+      "pax": 26313,
       "all": [
         {
           "name": "South Korea",
@@ -1084,6 +1109,11 @@
           "name": "Vietnam",
           "flights": 4,
           "pax": 588
+        },
+        {
+          "name": "Kazakhstan",
+          "flights": 1,
+          "pax": 147
         },
         {
           "name": "Благовещенск",
@@ -1578,10 +1608,13 @@
       {
         "date": "2026-05-11",
         "label": "Пн 11.05",
-        "arrivals": 1,
+        "arrivals": 2,
         "departures": 9,
         "arrivals_by": {
           "South Korea": {
+            "n": 1
+          },
+          "Kazakhstan": {
             "n": 1
           }
         },
@@ -1601,8 +1634,8 @@
   },
   "month": {
     "arrivals": {
-      "count": 557,
-      "pax": 81879,
+      "count": 558,
+      "pax": 82026,
       "all": [
         {
           "name": "South Korea",
@@ -1655,6 +1688,11 @@
           "pax": 441
         },
         {
+          "name": "Kazakhstan",
+          "flights": 2,
+          "pax": 294
+        },
+        {
           "name": "Laos",
           "flights": 2,
           "pax": 294
@@ -1670,11 +1708,6 @@
           "flights": 1,
           "pax": 147,
           "country": "Russia"
-        },
-        {
-          "name": "Kazakhstan",
-          "flights": 1,
-          "pax": 147
         }
       ]
     },
@@ -2022,10 +2055,13 @@
       {
         "key": "2026-W20",
         "label": "Нед 20 (Май)",
-        "arrivals": 1,
+        "arrivals": 2,
         "departures": 9,
         "arrivals_by": {
           "South Korea": {
+            "n": 1
+          },
+          "Kazakhstan": {
             "n": 1
           }
         },
@@ -2045,8 +2081,8 @@
   },
   "quarter": {
     "arrivals": {
-      "count": 557,
-      "pax": 81879,
+      "count": 558,
+      "pax": 82026,
       "all": [
         {
           "name": "South Korea",
@@ -2099,6 +2135,11 @@
           "pax": 441
         },
         {
+          "name": "Kazakhstan",
+          "flights": 2,
+          "pax": 294
+        },
+        {
           "name": "Laos",
           "flights": 2,
           "pax": 294
@@ -2114,11 +2155,6 @@
           "flights": 1,
           "pax": 147,
           "country": "Russia"
-        },
-        {
-          "name": "Kazakhstan",
-          "flights": 1,
-          "pax": 147
         }
       ]
     },
@@ -2293,7 +2329,7 @@
       {
         "key": "2026-05",
         "label": "Май 2026",
-        "arrivals": 283,
+        "arrivals": 284,
         "departures": 321,
         "arrivals_by": {
           "South Korea": {
@@ -2336,6 +2372,9 @@
           "Благовещенск": {
             "n": 1,
             "country": "Russia"
+          },
+          "Kazakhstan": {
+            "n": 1
           }
         },
         "departures_by": {
@@ -2388,8 +2427,8 @@
   },
   "halfyear": {
     "arrivals": {
-      "count": 557,
-      "pax": 81879,
+      "count": 558,
+      "pax": 82026,
       "all": [
         {
           "name": "South Korea",
@@ -2442,6 +2481,11 @@
           "pax": 441
         },
         {
+          "name": "Kazakhstan",
+          "flights": 2,
+          "pax": 294
+        },
+        {
           "name": "Laos",
           "flights": 2,
           "pax": 294
@@ -2457,11 +2501,6 @@
           "flights": 1,
           "pax": 147,
           "country": "Russia"
-        },
-        {
-          "name": "Kazakhstan",
-          "flights": 1,
-          "pax": 147
         }
       ]
     },
@@ -2636,7 +2675,7 @@
       {
         "key": "2026-05",
         "label": "Май 2026",
-        "arrivals": 283,
+        "arrivals": 284,
         "departures": 321,
         "arrivals_by": {
           "South Korea": {
@@ -2679,6 +2718,9 @@
           "Благовещенск": {
             "n": 1,
             "country": "Russia"
+          },
+          "Kazakhstan": {
+            "n": 1
           }
         },
         "departures_by": {
@@ -2731,8 +2773,8 @@
   },
   "year": {
     "arrivals": {
-      "count": 557,
-      "pax": 81879,
+      "count": 558,
+      "pax": 82026,
       "all": [
         {
           "name": "South Korea",
@@ -2785,6 +2827,11 @@
           "pax": 441
         },
         {
+          "name": "Kazakhstan",
+          "flights": 2,
+          "pax": 294
+        },
+        {
           "name": "Laos",
           "flights": 2,
           "pax": 294
@@ -2800,11 +2847,6 @@
           "flights": 1,
           "pax": 147,
           "country": "Russia"
-        },
-        {
-          "name": "Kazakhstan",
-          "flights": 1,
-          "pax": 147
         }
       ]
     },
@@ -2979,7 +3021,7 @@
       {
         "key": "2026-05",
         "label": "Май 2026",
-        "arrivals": 283,
+        "arrivals": 284,
         "departures": 321,
         "arrivals_by": {
           "South Korea": {
@@ -3022,6 +3064,9 @@
           "Благовещенск": {
             "n": 1,
             "country": "Russia"
+          },
+          "Kazakhstan": {
+            "n": 1
           }
         },
         "departures_by": {
