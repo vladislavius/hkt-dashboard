@@ -1,8 +1,8 @@
 {
   "date": "2026-05-11",
   "arrivals": {
-    "count": 17,
-    "pax": 2499,
+    "count": 19,
+    "pax": 2793,
     "countries": {
       "South Korea": {
         "flights": 4,
@@ -13,8 +13,8 @@
         "pax": 147
       },
       "Thailand": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Singapore": {
         "flights": 2,
@@ -31,12 +31,16 @@
       "Japan": {
         "flights": 1,
         "pax": 147
+      },
+      "Hong Kong": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 23,
-    "pax": 3381,
+    "count": 25,
+    "pax": 3675,
     "countries": {
       "Japan": {
         "flights": 2,
@@ -47,8 +51,8 @@
         "pax": 1029
       },
       "Vietnam": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Malaysia": {
         "flights": 3,
@@ -67,8 +71,8 @@
         "pax": 294
       },
       "Taiwan": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Macau": {
         "flights": 1,
@@ -286,6 +290,26 @@
       "arr_time": "2026-05-11T16:10",
       "from": "KUL",
       "country": "Malaysia"
+    },
+    {
+      "fn": "UO558",
+      "airline": "Hong Kong Express Airways",
+      "status": "delayed",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-11T17:25",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "VZ962",
+      "airline": "Thai Vietjet",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-11T17:30",
+      "from": "BKK",
+      "country": "Thailand"
     }
   ],
   "departures_list": [
@@ -548,6 +572,26 @@
       "arr_time": "",
       "to": "SAI",
       "country": "Other(SAI)"
+    },
+    {
+      "fn": "CI790",
+      "airline": "China Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-11T17:30",
+      "arr_time": "",
+      "to": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "VN1941",
+      "airline": "Vietnam Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-11T18:00",
+      "arr_time": "",
+      "to": "CXR",
+      "country": "Vietnam"
     }
   ]
 }
