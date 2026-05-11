@@ -1,22 +1,26 @@
 {
   "date": "2026-05-12",
   "arrivals": {
-    "count": 2,
-    "pax": 294,
+    "count": 3,
+    "pax": 441,
     "countries": {
       "South Korea": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       }
     }
   },
   "departures": {
-    "count": 5,
-    "pax": 735,
+    "count": 6,
+    "pax": 882,
     "countries": {
       "South Korea": {
         "flights": 5,
         "pax": 735
+      },
+      "Taiwan": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -39,6 +43,16 @@
       "dep_time": "2026-05-12T23:23",
       "arr_time": "2026-05-12T23:25",
       "from": "PUS",
+      "country": "South Korea"
+    },
+    {
+      "fn": "VJC 979",
+      "airline": "VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-12T07:30",
+      "arr_time": "2026-05-12T07:30",
+      "from": "ICN",
       "country": "South Korea"
     }
   ],
@@ -92,6 +106,16 @@
       "arr_time": "2026-05-12T00:14",
       "to": "PUS",
       "country": "South Korea"
+    },
+    {
+      "fn": "VJC 844",
+      "airline": "VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-12T08:20",
+      "arr_time": "2026-05-12T08:20",
+      "to": "TPE",
+      "country": "Taiwan"
     }
   ]
 }
