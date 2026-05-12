@@ -1,8 +1,8 @@
 {
   "date": "2026-05-12",
   "arrivals": {
-    "count": 13,
-    "pax": 1911,
+    "count": 17,
+    "pax": 2499,
     "countries": {
       "South Korea": {
         "flights": 5,
@@ -13,22 +13,30 @@
         "pax": 294
       },
       "Hong Kong": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Thailand": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "Singapore": {
         "flights": 2,
         "pax": 294
+      },
+      "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Vietnam": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 17,
-    "pax": 2499,
+    "count": 18,
+    "pax": 2646,
     "countries": {
       "South Korea": {
         "flights": 5,
@@ -47,8 +55,8 @@
         "pax": 294
       },
       "Thailand": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "Singapore": {
         "flights": 2,
@@ -144,7 +152,7 @@
     {
       "fn": "TR 528",
       "airline": "Scoot",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-05-12T11:45",
       "arr_time": "2026-05-12T11:45",
@@ -210,6 +218,46 @@
       "arr_time": "2026-05-12T15:55",
       "from": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "VJC 845",
+      "airline": "VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-12T16:50",
+      "arr_time": "2026-05-12T16:50",
+      "from": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "FD 662",
+      "airline": "Thai AirAsia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-12T16:55",
+      "arr_time": "2026-05-12T17:00",
+      "from": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "9G 2953",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-12T17:55",
+      "arr_time": "2026-05-12T17:55",
+      "from": "CXR",
+      "country": "Vietnam"
+    },
+    {
+      "fn": "VJC 985",
+      "airline": "VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-12T18:25",
+      "arr_time": "2026-05-12T18:25",
+      "from": "HKG",
+      "country": "Hong Kong"
     }
   ],
   "departures_list": [
@@ -401,6 +449,16 @@
       "dep_time": "2026-05-12T16:45",
       "arr_time": "2026-05-12T16:45",
       "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "FD 663",
+      "airline": "Thai AirAsia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-05-12T17:30",
+      "arr_time": "2026-05-12T17:30",
+      "to": "DMK",
       "country": "Thailand"
     }
   ]
