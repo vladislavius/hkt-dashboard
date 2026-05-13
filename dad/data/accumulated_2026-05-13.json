@@ -1,36 +1,22 @@
 {
   "date": "2026-05-13",
   "arrivals": {
-    "count": 5,
-    "pax": 735,
+    "count": 10,
+    "pax": 1470,
     "countries": {
       "South Korea": {
         "flights": 3,
         "pax": 441
       },
       "Singapore": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Thailand": {
-        "flights": 1,
-        "pax": 147
-      }
-    }
-  },
-  "departures": {
-    "count": 10,
-    "pax": 1470,
-    "countries": {
-      "Japan": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
-      "South Korea": {
-        "flights": 5,
-        "pax": 735
-      },
-      "Malaysia": {
+      "Hong Kong": {
         "flights": 1,
         "pax": 147
       },
@@ -38,11 +24,41 @@
         "flights": 1,
         "pax": 147
       },
-      "Hong Kong": {
+      "Malaysia": {
+        "flights": 1,
+        "pax": 147
+      }
+    }
+  },
+  "departures": {
+    "count": 15,
+    "pax": 2205,
+    "countries": {
+      "Japan": {
         "flights": 1,
         "pax": 147
       },
+      "South Korea": {
+        "flights": 6,
+        "pax": 882
+      },
+      "Malaysia": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Hong Kong": {
+        "flights": 2,
+        "pax": 294
+      },
       "Thailand": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Singapore": {
         "flights": 1,
         "pax": 147
       }
@@ -118,6 +134,56 @@
       "arr_time": "2026-05-13T10:10",
       "from": "PUS",
       "country": "South Korea"
+    },
+    {
+      "fn": "UO566",
+      "airline": "Hong Kong Express Airways",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-13T11:05",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "SQ172",
+      "airline": "Singapore Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-13T11:05",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "FD636",
+      "airline": "Thai Air Asia",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-13T11:30",
+      "from": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "BR383",
+      "airline": "Eva Air",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-13T11:35",
+      "from": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "AK648",
+      "airline": "Air Asia",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-13T11:50",
+      "from": "KUL",
+      "country": "Malaysia"
     }
   ],
   "departures_list": [
@@ -217,6 +283,56 @@
       "status": "departed",
       "pax": 147,
       "dep_time": "2026-05-13T10:05",
+      "arr_time": "",
+      "to": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "AK643",
+      "airline": "Air Asia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-13T11:20",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "TW8",
+      "airline": "T'Way Air",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-13T11:45",
+      "arr_time": "",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "UO563",
+      "airline": "Hong Kong Express Airways",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-13T11:50",
+      "arr_time": "",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "SQ171",
+      "airline": "Singapore Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-13T11:55",
+      "arr_time": "",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "FD637",
+      "airline": "Thai Air Asia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-13T12:00",
       "arr_time": "",
       "to": "DMK",
       "country": "Thailand"
