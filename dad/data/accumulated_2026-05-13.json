@@ -1,12 +1,12 @@
 {
   "date": "2026-05-13",
   "arrivals": {
-    "count": 20,
-    "pax": 2940,
+    "count": 24,
+    "pax": 3528,
     "countries": {
       "South Korea": {
-        "flights": 3,
-        "pax": 441
+        "flights": 6,
+        "pax": 882
       },
       "Singapore": {
         "flights": 4,
@@ -29,8 +29,8 @@
         "pax": 441
       },
       "Vietnam": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Macau": {
         "flights": 2,
@@ -39,8 +39,8 @@
     }
   },
   "departures": {
-    "count": 30,
-    "pax": 4410,
+    "count": 32,
+    "pax": 4704,
     "countries": {
       "Japan": {
         "flights": 1,
@@ -59,8 +59,8 @@
         "pax": 294
       },
       "Hong Kong": {
-        "flights": 4,
-        "pax": 588
+        "flights": 5,
+        "pax": 735
       },
       "Thailand": {
         "flights": 6,
@@ -73,6 +73,10 @@
       "Vietnam": {
         "flights": 2,
         "pax": 294
+      },
+      "Macau": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -316,6 +320,46 @@
       "arr_time": "2026-05-13T17:40",
       "from": "DMK",
       "country": "Thailand"
+    },
+    {
+      "fn": "YP621",
+      "airline": "Air Premia",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-13T20:40",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "VN1940",
+      "airline": "Vietnam Airlines",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-13T20:55",
+      "from": "CXR",
+      "country": "Vietnam"
+    },
+    {
+      "fn": "KE459",
+      "airline": "Korean Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-13T21:05",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "WE201",
+      "airline": "Parata Air",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-13T21:10",
+      "from": "ICN",
+      "country": "South Korea"
     }
   ],
   "departures_list": [
@@ -638,6 +682,36 @@
       "arr_time": "",
       "to": "HKG",
       "country": "Hong Kong"
+    },
+    {
+      "fn": "HX547",
+      "airline": "Hong Kong Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-13T20:50",
+      "arr_time": "",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "NX977",
+      "airline": "Air Macau",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-13T21:30",
+      "arr_time": "",
+      "to": "MFM",
+      "country": "Macau"
+    },
+    {
+      "fn": "5J5757",
+      "airline": "Cebu Pacific",
+      "status": "gate closed",
+      "pax": 147,
+      "dep_time": "2026-05-13T22:30",
+      "arr_time": "",
+      "to": "MNL",
+      "country": "Other(MNL)"
     }
   ]
 }
