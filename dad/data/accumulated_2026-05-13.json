@@ -1,10 +1,60 @@
 {
   "date": "2026-05-13",
   "arrivals": {
-    "count": 10,
-    "pax": 1470,
+    "count": 12,
+    "pax": 1764,
     "countries": {
       "South Korea": {
+        "flights": 3,
+        "pax": 441
+      },
+      "Singapore": {
+        "flights": 3,
+        "pax": 441
+      },
+      "Thailand": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Hong Kong": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Malaysia": {
+        "flights": 2,
+        "pax": 294
+      }
+    }
+  },
+  "departures": {
+    "count": 21,
+    "pax": 3087,
+    "countries": {
+      "Japan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "South Korea": {
+        "flights": 7,
+        "pax": 1029
+      },
+      "Malaysia": {
+        "flights": 3,
+        "pax": 441
+      },
+      "Taiwan": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Hong Kong": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Thailand": {
         "flights": 3,
         "pax": 441
       },
@@ -12,53 +62,7 @@
         "flights": 2,
         "pax": 294
       },
-      "Thailand": {
-        "flights": 2,
-        "pax": 294
-      },
-      "Hong Kong": {
-        "flights": 1,
-        "pax": 147
-      },
-      "Taiwan": {
-        "flights": 1,
-        "pax": 147
-      },
-      "Malaysia": {
-        "flights": 1,
-        "pax": 147
-      }
-    }
-  },
-  "departures": {
-    "count": 15,
-    "pax": 2205,
-    "countries": {
-      "Japan": {
-        "flights": 1,
-        "pax": 147
-      },
-      "South Korea": {
-        "flights": 6,
-        "pax": 882
-      },
-      "Malaysia": {
-        "flights": 2,
-        "pax": 294
-      },
-      "Taiwan": {
-        "flights": 1,
-        "pax": 147
-      },
-      "Hong Kong": {
-        "flights": 2,
-        "pax": 294
-      },
-      "Thailand": {
-        "flights": 2,
-        "pax": 294
-      },
-      "Singapore": {
+      "Vietnam": {
         "flights": 1,
         "pax": 147
       }
@@ -182,6 +186,26 @@
       "pax": 147,
       "dep_time": "",
       "arr_time": "2026-05-13T11:50",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "VJ970",
+      "airline": "Vietjet Air",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-13T13:10",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "MH748",
+      "airline": "Malaysia Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-13T13:40",
       "from": "KUL",
       "country": "Malaysia"
     }
@@ -335,6 +359,66 @@
       "dep_time": "2026-05-13T12:00",
       "arr_time": "",
       "to": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "OD503",
+      "airline": "Batik Air Malaysia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-13T12:50",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "BR384",
+      "airline": "Eva Air",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-13T12:55",
+      "arr_time": "",
+      "to": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "VJ581",
+      "airline": "Vietjet Air",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-13T13:10",
+      "arr_time": "",
+      "to": "CXR",
+      "country": "Vietnam"
+    },
+    {
+      "fn": "7C2212",
+      "airline": "Jeju Air",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-13T13:10",
+      "arr_time": "",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "VJ973",
+      "airline": "Vietjet Air",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-13T13:10",
+      "arr_time": "",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "VZ961",
+      "airline": "Thai Vietjet",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-13T13:15",
+      "arr_time": "",
+      "to": "BKK",
       "country": "Thailand"
     }
   ]
