@@ -47,8 +47,8 @@
     }
   },
   "departures": {
-    "count": 42,
-    "pax": 6174,
+    "count": 43,
+    "pax": 6321,
     "countries": {
       "Japan": {
         "flights": 2,
@@ -83,6 +83,10 @@
         "pax": 294
       },
       "Laos": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Macau": {
         "flights": 1,
         "pax": 147
       }
@@ -342,7 +346,7 @@
     {
       "fn": "VN431",
       "airline": "Vietnam Airlines",
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-14T11:05",
       "arr_time": "2026-05-14T13:50",
@@ -362,7 +366,7 @@
     {
       "fn": "QH9589",
       "airline": "Bamboo Airways",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-14T16:40",
       "arr_time": "2026-05-14T17:35",
@@ -372,7 +376,7 @@
     {
       "fn": "IT585",
       "airline": "Tigerair Taiwan",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-14T16:30",
       "arr_time": "2026-05-14T18:10",
@@ -432,7 +436,7 @@
     {
       "fn": "AK638",
       "airline": "AirAsia",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-14T16:00",
       "arr_time": "2026-05-14T17:40",
@@ -442,7 +446,7 @@
     {
       "fn": "IT551",
       "airline": "Tigerair Taiwan",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-14T16:35",
       "arr_time": "2026-05-14T18:10",
@@ -452,7 +456,7 @@
     {
       "fn": "UO558",
       "airline": "HK express",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-14T16:30",
       "arr_time": "2026-05-14T17:25",
@@ -462,7 +466,7 @@
     {
       "fn": "CX5558",
       "airline": "Cathay Pacific",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-14T16:30",
       "arr_time": "2026-05-14T17:25",
@@ -1220,6 +1224,16 @@
       "arr_time": "2026-05-14T21:55",
       "to": "KTI",
       "country": ""
+    },
+    {
+      "fn": "NX977",
+      "airline": "Air Macau",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-14T21:30",
+      "arr_time": "2026-05-15T00:15",
+      "to": "MFM",
+      "country": "Macau"
     }
   ]
 }
