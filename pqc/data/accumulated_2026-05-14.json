@@ -1,38 +1,46 @@
 {
   "date": "2026-05-14",
   "arrivals": {
-    "count": 16,
-    "pax": 2352,
+    "count": 23,
+    "pax": 3381,
     "countries": {
       "Taiwan": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "South Korea": {
-        "flights": 8,
-        "pax": 1176
+        "flights": 9,
+        "pax": 1323
       },
       "Malaysia": {
         "flights": 2,
         "pax": 294
       },
       "Hong Kong": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Thailand": {
+        "flights": 4,
+        "pax": 588
+      },
+      "Singapore": {
+        "flights": 2,
+        "pax": 294
+      },
+      "China": {
         "flights": 1,
         "pax": 147
       },
-      "Thailand": {
-        "flights": 3,
-        "pax": 441
-      },
-      "Singapore": {
+      "Vietnam": {
         "flights": 1,
         "pax": 147
       }
     }
   },
   "departures": {
-    "count": 19,
-    "pax": 2793,
+    "count": 21,
+    "pax": 3087,
     "countries": {
       "South Korea": {
         "flights": 8,
@@ -51,16 +59,16 @@
         "pax": 294
       },
       "Thailand": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "Vietnam": {
         "flights": 1,
         "pax": 147
       },
       "Singapore": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       }
     }
   },
@@ -68,7 +76,7 @@
     {
       "fn": "9G 511",
       "airline": "Sun PhuQuoc Airways",
-      "status": "arrived on-time",
+      "status": "scheduled",
       "pax": 147,
       "dep_time": "2026-05-14T20:16",
       "arr_time": "2026-05-14T20:25",
@@ -88,7 +96,7 @@
     {
       "fn": "7C 2315",
       "airline": "Jeju Air",
-      "status": "arrived on-time",
+      "status": "scheduled",
       "pax": 147,
       "dep_time": "2026-05-14T20:53",
       "arr_time": "2026-05-14T21:25",
@@ -98,7 +106,7 @@
     {
       "fn": "ZE 981",
       "airline": "Eastar Jet",
-      "status": "arrived on-time",
+      "status": "scheduled",
       "pax": 147,
       "dep_time": "2026-05-14T22:15",
       "arr_time": "2026-05-14T22:25",
@@ -108,7 +116,7 @@
     {
       "fn": "KE 485",
       "airline": "Korean Air",
-      "status": "arrived on-time",
+      "status": "scheduled",
       "pax": 147,
       "dep_time": "2026-05-14T22:49",
       "arr_time": "2026-05-14T22:50",
@@ -138,7 +146,7 @@
     {
       "fn": "AK 543",
       "airline": "AirAsia",
-      "status": "arrived on-time",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-14T09:20",
       "arr_time": "2026-05-14T09:30",
@@ -148,7 +156,7 @@
     {
       "fn": "UO 598",
       "airline": "HK Express",
-      "status": "arrived on-time",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-14T09:40",
       "arr_time": "2026-05-14T09:40",
@@ -188,7 +196,7 @@
     {
       "fn": "AK 545",
       "airline": "AirAsia",
-      "status": "on-time",
+      "status": "scheduled",
       "pax": 147,
       "dep_time": "2026-05-14T13:31",
       "arr_time": "2026-05-14T13:35",
@@ -208,7 +216,7 @@
     {
       "fn": "9G 451",
       "airline": "Sun PhuQuoc Airways",
-      "status": "on-time",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-14T15:05",
       "arr_time": "2026-05-14T15:05",
@@ -224,6 +232,76 @@
       "arr_time": "2026-05-14T15:55",
       "from": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "MU6033",
+      "airline": "China Eastern Airlines",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-14T20:00",
+      "arr_time": "2026-05-15T00:05",
+      "from": "PVG",
+      "country": "China"
+    },
+    {
+      "fn": "LJ119",
+      "airline": "Jin Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-14T20:05",
+      "arr_time": "2026-05-14T23:25",
+      "from": "PUS",
+      "country": "South Korea"
+    },
+    {
+      "fn": "SQ8648",
+      "airline": "Singapore Airlines",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-14T16:40",
+      "arr_time": "2026-05-14T17:40",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "W24985",
+      "airline": "Flexflight",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-14T16:40",
+      "arr_time": "2026-05-14T18:25",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "9G2953",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-14T16:35",
+      "arr_time": "2026-05-14T17:55",
+      "from": "CXR",
+      "country": "Vietnam"
+    },
+    {
+      "fn": "AK662",
+      "airline": "AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-14T15:35",
+      "arr_time": "2026-05-14T17:00",
+      "from": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "VJ845",
+      "airline": "VietJet Air",
+      "status": "active",
+      "pax": 147,
+      "dep_time": "2026-05-14T14:10",
+      "arr_time": "2026-05-14T16:50",
+      "from": "TPE",
+      "country": "Taiwan"
     }
   ],
   "departures_list": [
@@ -415,6 +493,26 @@
       "dep_time": "2026-05-14T16:45",
       "arr_time": "2026-05-14T16:45",
       "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "TR525",
+      "airline": "Scoot",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-14T18:20",
+      "arr_time": "2026-05-14T21:15",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "AK663",
+      "airline": "AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-14T17:30",
+      "arr_time": "2026-05-14T18:55",
+      "to": "DMK",
       "country": "Thailand"
     }
   ]
