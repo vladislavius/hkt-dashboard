@@ -1,16 +1,16 @@
 {
   "date": "2026-05-15",
   "arrivals": {
-    "count": 16,
-    "pax": 2352,
+    "count": 17,
+    "pax": 2499,
     "countries": {
       "Hong Kong": {
         "flights": 2,
         "pax": 294
       },
       "South Korea": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "Malaysia": {
         "flights": 2,
@@ -39,8 +39,8 @@
     }
   },
   "departures": {
-    "count": 12,
-    "pax": 1764,
+    "count": 16,
+    "pax": 2352,
     "countries": {
       "China": {
         "flights": 1,
@@ -51,22 +51,26 @@
         "pax": 441
       },
       "Hong Kong": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Malaysia": {
         "flights": 2,
         "pax": 294
       },
       "Thailand": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "Vietnam": {
         "flights": 1,
         "pax": 147
       },
       "Singapore": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Taiwan": {
         "flights": 1,
         "pax": 147
       }
@@ -136,7 +140,7 @@
     {
       "fn": "AK545",
       "airline": "AirAsia",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-15T12:50",
       "arr_time": "2026-05-15T13:35",
@@ -146,7 +150,7 @@
     {
       "fn": "AK660",
       "airline": "AirAsia",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-15T12:00",
       "arr_time": "2026-05-15T13:20",
@@ -232,6 +236,16 @@
       "arr_time": "2026-05-15T16:50",
       "from": "TPE",
       "country": "Taiwan"
+    },
+    {
+      "fn": "LJ119",
+      "airline": "Jin Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-15T19:55",
+      "arr_time": "2026-05-15T23:25",
+      "from": "PUS",
+      "country": "South Korea"
     }
   ],
   "departures_list": [
@@ -354,6 +368,46 @@
       "arr_time": "2026-05-15T15:30",
       "to": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "UO597",
+      "airline": "HK express",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-15T19:05",
+      "arr_time": "2026-05-15T23:10",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "TR525",
+      "airline": "Scoot",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-15T18:20",
+      "arr_time": "2026-05-15T21:15",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "JX706",
+      "airline": "STARLUX",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-15T17:50",
+      "arr_time": "2026-05-15T22:45",
+      "to": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "AK663",
+      "airline": "AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-15T17:30",
+      "arr_time": "2026-05-15T18:55",
+      "to": "DMK",
+      "country": "Thailand"
     }
   ]
 }
