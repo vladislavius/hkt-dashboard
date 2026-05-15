@@ -1,8 +1,8 @@
 {
   "date": "2026-05-16",
   "arrivals": {
-    "count": 3,
-    "pax": 441,
+    "count": 4,
+    "pax": 588,
     "countries": {
       "Hong Kong": {
         "flights": 1,
@@ -11,16 +11,24 @@
       "South Korea": {
         "flights": 2,
         "pax": 294
+      },
+      "Malaysia": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 2,
-    "pax": 294,
+    "count": 3,
+    "pax": 441,
     "countries": {
       "South Korea": {
         "flights": 2,
         "pax": 294
+      },
+      "Taiwan": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -64,6 +72,16 @@
       "arr_time": "2026-05-16T07:30",
       "from": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "AK543",
+      "airline": "AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-16T08:40",
+      "arr_time": "2026-05-16T09:30",
+      "from": "KUL",
+      "country": "Malaysia"
     }
   ],
   "departures_list": [
@@ -86,6 +104,16 @@
       "arr_time": "2026-05-16T07:50",
       "to": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "VJ844",
+      "airline": "VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-16T08:20",
+      "arr_time": "2026-05-16T13:00",
+      "to": "TPE",
+      "country": "Taiwan"
     }
   ]
 }
