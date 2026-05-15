@@ -39,16 +39,16 @@
     }
   },
   "departures": {
-    "count": 16,
-    "pax": 2352,
+    "count": 18,
+    "pax": 2646,
     "countries": {
       "China": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "South Korea": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "Hong Kong": {
         "flights": 2,
@@ -140,7 +140,7 @@
     {
       "fn": "AK545",
       "airline": "AirAsia",
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-15T12:50",
       "arr_time": "2026-05-15T13:35",
@@ -150,7 +150,7 @@
     {
       "fn": "AK660",
       "airline": "AirAsia",
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-15T12:00",
       "arr_time": "2026-05-15T13:20",
@@ -230,7 +230,7 @@
     {
       "fn": "JX705",
       "airline": "STARLUX",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-15T14:00",
       "arr_time": "2026-05-15T16:50",
@@ -408,6 +408,26 @@
       "arr_time": "2026-05-15T18:55",
       "to": "DMK",
       "country": "Thailand"
+    },
+    {
+      "fn": "MU862",
+      "airline": "China Eastern Airlines",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-15T21:00",
+      "arr_time": "2026-05-16T01:55",
+      "to": "XIY",
+      "country": "China"
+    },
+    {
+      "fn": "VJ978",
+      "airline": "VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-15T19:35",
+      "arr_time": "2026-05-16T03:00",
+      "to": "ICN",
+      "country": "South Korea"
     }
   ]
 }
