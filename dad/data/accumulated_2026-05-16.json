@@ -1,32 +1,36 @@
 {
   "date": "2026-05-16",
   "arrivals": {
-    "count": 13,
-    "pax": 1911,
+    "count": 18,
+    "pax": 2646,
     "countries": {
       "Malaysia": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "South Korea": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "Hong Kong": {
         "flights": 2,
         "pax": 294
       },
       "Thailand": {
-        "flights": 1,
-        "pax": 147
-      },
-      "Taiwan": {
         "flights": 2,
         "pax": 294
+      },
+      "Taiwan": {
+        "flights": 3,
+        "pax": 441
       },
       "Japan": {
         "flights": 2,
         "pax": 294
+      },
+      "Singapore": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -188,12 +192,62 @@
     {
       "fn": "QH9345",
       "airline": "Bamboo Airways",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-16T03:05",
       "arr_time": "2026-05-16T04:35",
       "from": "MNL",
       "country": ""
+    },
+    {
+      "fn": "VZ964",
+      "airline": "Thai VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-16T08:10",
+      "arr_time": "2026-05-16T09:55",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "AK642",
+      "airline": "AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-16T09:15",
+      "arr_time": "2026-05-16T10:50",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "BR383",
+      "airline": "EVA Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-16T09:45",
+      "arr_time": "2026-05-16T11:35",
+      "from": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "SQ172",
+      "airline": "Singapore Airlines",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-16T09:15",
+      "arr_time": "2026-05-16T11:05",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "VN431",
+      "airline": "Vietnam Airlines",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-16T11:05",
+      "arr_time": "2026-05-16T13:50",
+      "from": "ICN",
+      "country": "South Korea"
     }
   ],
   "departures_list": [
@@ -286,6 +340,16 @@
       "arr_time": "2026-05-16T07:35",
       "to": "NRT",
       "country": "Japan"
+    },
+    {
+      "fn": "5J5759",
+      "airline": "Cebu Pacific",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-16T08:30",
+      "arr_time": "2026-05-16T12:25",
+      "to": "MNL",
+      "country": ""
     }
   ]
 }
