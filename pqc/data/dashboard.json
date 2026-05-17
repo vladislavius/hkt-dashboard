@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-17T06:04:14.946802+07:00",
+  "updated": "2026-05-17T11:18:09.046268+07:00",
   "available_dates": [
     "2026-04-21",
     "2026-04-22",
@@ -519,9 +519,60 @@
   },
   "today": {
     "arrivals": {
-      "count": 9,
-      "pax": 1323,
+      "count": 20,
+      "pax": 2940,
       "all": [
+        {
+          "name": "South Korea",
+          "flights": 7,
+          "pax": 1029
+        },
+        {
+          "name": "Thailand",
+          "flights": 4,
+          "pax": 588
+        },
+        {
+          "name": "Hong Kong",
+          "flights": 2,
+          "pax": 294
+        },
+        {
+          "name": "Malaysia",
+          "flights": 2,
+          "pax": 294
+        },
+        {
+          "name": "Singapore",
+          "flights": 2,
+          "pax": 294
+        },
+        {
+          "name": "Vietnam",
+          "flights": 1,
+          "pax": 147
+        },
+        {
+          "name": "Taiwan",
+          "flights": 1,
+          "pax": 147
+        },
+        {
+          "name": "China",
+          "flights": 1,
+          "pax": 147
+        }
+      ]
+    },
+    "departures": {
+      "count": 13,
+      "pax": 1911,
+      "all": [
+        {
+          "name": "Thailand",
+          "flights": 4,
+          "pax": 588
+        },
         {
           "name": "South Korea",
           "flights": 2,
@@ -538,43 +589,17 @@
           "pax": 294
         },
         {
-          "name": "Thailand",
-          "flights": 2,
-          "pax": 294
-        },
-        {
-          "name": "Hong Kong",
-          "flights": 1,
-          "pax": 147
-        }
-      ]
-    },
-    "departures": {
-      "count": 6,
-      "pax": 882,
-      "all": [
-        {
-          "name": "South Korea",
-          "flights": 2,
-          "pax": 294
-        },
-        {
-          "name": "Malaysia",
-          "flights": 1,
-          "pax": 147
-        },
-        {
-          "name": "Thailand",
-          "flights": 1,
-          "pax": 147
-        },
-        {
           "name": "Taiwan",
           "flights": 1,
           "pax": 147
         },
         {
           "name": "Hong Kong",
+          "flights": 1,
+          "pax": 147
+        },
+        {
+          "name": "Vietnam",
           "flights": 1,
           "pax": 147
         }
@@ -584,7 +609,7 @@
       {
         "fn": "UO598",
         "airline": "HK express",
-        "status": "scheduled",
+        "status": "landed",
         "pax": 147,
         "dep_time": "2026-05-17T07:45",
         "arr_time": "2026-05-17T09:40",
@@ -604,7 +629,7 @@
       {
         "fn": "AK543",
         "airline": "AirAsia",
-        "status": "scheduled",
+        "status": "landed",
         "pax": 147,
         "dep_time": "2026-05-17T08:40",
         "arr_time": "2026-05-17T09:30",
@@ -614,7 +639,7 @@
       {
         "fn": "TR528",
         "airline": "Scoot",
-        "status": "scheduled",
+        "status": "active",
         "pax": 147,
         "dep_time": "2026-05-17T10:45",
         "arr_time": "2026-05-17T11:45",
@@ -669,6 +694,116 @@
         "dep_time": "2026-05-17T12:00",
         "arr_time": "2026-05-17T13:20",
         "from": "DMK",
+        "country": "Thailand"
+      },
+      {
+        "fn": "WE207",
+        "airline": "Parata Air",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-05-17T19:50",
+        "arr_time": "2026-05-17T23:40",
+        "from": "ICN",
+        "country": "South Korea"
+      },
+      {
+        "fn": "LJ119",
+        "airline": "Jin Air",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-05-17T20:05",
+        "arr_time": "2026-05-17T23:25",
+        "from": "PUS",
+        "country": "South Korea"
+      },
+      {
+        "fn": "9G2953",
+        "airline": "Sun PhuQuoc Airways",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-05-17T16:35",
+        "arr_time": "2026-05-17T17:55",
+        "from": "CXR",
+        "country": "Vietnam"
+      },
+      {
+        "fn": "9G511",
+        "airline": "Sun PhuQuoc Airways",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-05-17T17:35",
+        "arr_time": "2026-05-17T20:25",
+        "from": "TPE",
+        "country": "Taiwan"
+      },
+      {
+        "fn": "ZE981",
+        "airline": "Eastar Jet",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-05-17T18:55",
+        "arr_time": "2026-05-17T22:25",
+        "from": "PUS",
+        "country": "South Korea"
+      },
+      {
+        "fn": "KE485",
+        "airline": "Korean Air",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-05-17T19:05",
+        "arr_time": "2026-05-17T22:50",
+        "from": "ICN",
+        "country": "South Korea"
+      },
+      {
+        "fn": "MU861",
+        "airline": "China Eastern Airlines",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-05-17T16:40",
+        "arr_time": "2026-05-17T20:00",
+        "from": "XIY",
+        "country": "China"
+      },
+      {
+        "fn": "7C2315",
+        "airline": "Jeju Air",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-05-17T17:20",
+        "arr_time": "2026-05-17T21:25",
+        "from": "ICN",
+        "country": "South Korea"
+      },
+      {
+        "fn": "UO596",
+        "airline": "HK express",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-05-17T16:10",
+        "arr_time": "2026-05-17T18:05",
+        "from": "HKG",
+        "country": "Hong Kong"
+      },
+      {
+        "fn": "AK662",
+        "airline": "AirAsia",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-05-17T15:35",
+        "arr_time": "2026-05-17T17:00",
+        "from": "DMK",
+        "country": "Thailand"
+      },
+      {
+        "fn": "VZ982",
+        "airline": "Thai VietJet Air",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-05-17T14:50",
+        "arr_time": "2026-05-17T16:10",
+        "from": "BKK",
         "country": "Thailand"
       }
     ],
@@ -732,23 +867,93 @@
         "arr_time": "2026-05-17T14:50",
         "to": "HKG",
         "country": "Hong Kong"
+      },
+      {
+        "fn": "AK663",
+        "airline": "AirAsia",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-05-17T17:30",
+        "arr_time": "2026-05-17T18:55",
+        "to": "DMK",
+        "country": "Thailand"
+      },
+      {
+        "fn": "VZ983",
+        "airline": "Thai VietJet Air",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-05-17T17:00",
+        "arr_time": "2026-05-17T18:20",
+        "to": "BKK",
+        "country": "Thailand"
+      },
+      {
+        "fn": "VJ983",
+        "airline": "VietJet Air",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-05-17T15:45",
+        "arr_time": "2026-05-17T18:30",
+        "to": "SIN",
+        "country": "Singapore"
+      },
+      {
+        "fn": "9G2952",
+        "airline": "Sun PhuQuoc Airways",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-05-17T14:20",
+        "arr_time": "2026-05-17T15:40",
+        "to": "CXR",
+        "country": "Vietnam"
+      },
+      {
+        "fn": "AK546",
+        "airline": "AirAsia",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-05-17T14:10",
+        "arr_time": "2026-05-17T17:00",
+        "to": "KUL",
+        "country": "Malaysia"
+      },
+      {
+        "fn": "AK661",
+        "airline": "AirAsia",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-05-17T13:50",
+        "arr_time": "2026-05-17T15:05",
+        "to": "DMK",
+        "country": "Thailand"
+      },
+      {
+        "fn": "TR529",
+        "airline": "Scoot",
+        "status": "scheduled",
+        "pax": 147,
+        "dep_time": "2026-05-17T12:25",
+        "arr_time": "2026-05-17T15:30",
+        "to": "SIN",
+        "country": "Singapore"
       }
     ]
   },
   "week": {
     "arrivals": {
-      "count": 126,
-      "pax": 18522,
+      "count": 137,
+      "pax": 20139,
       "all": [
         {
           "name": "South Korea",
-          "flights": 43,
-          "pax": 6321
+          "flights": 48,
+          "pax": 7056
         },
         {
           "name": "Thailand",
-          "flights": 26,
-          "pax": 3822
+          "flights": 28,
+          "pax": 4116
         },
         {
           "name": "Malaysia",
@@ -757,6 +962,11 @@
         },
         {
           "name": "Hong Kong",
+          "flights": 13,
+          "pax": 1911
+        },
+        {
+          "name": "Taiwan",
           "flights": 12,
           "pax": 1764
         },
@@ -766,19 +976,14 @@
           "pax": 1617
         },
         {
-          "name": "Taiwan",
-          "flights": 11,
-          "pax": 1617
-        },
-        {
           "name": "Vietnam",
-          "flights": 4,
-          "pax": 588
+          "flights": 5,
+          "pax": 735
         },
         {
           "name": "China",
-          "flights": 3,
-          "pax": 441
+          "flights": 4,
+          "pax": 588
         },
         {
           "name": "Uzbekistan",
@@ -793,8 +998,8 @@
       ]
     },
     "departures": {
-      "count": 122,
-      "pax": 17934,
+      "count": 129,
+      "pax": 18963,
       "all": [
         {
           "name": "South Korea",
@@ -803,13 +1008,13 @@
         },
         {
           "name": "Thailand",
-          "flights": 25,
-          "pax": 3675
+          "flights": 28,
+          "pax": 4116
         },
         {
           "name": "Malaysia",
-          "flights": 13,
-          "pax": 1911
+          "flights": 14,
+          "pax": 2058
         },
         {
           "name": "Hong Kong",
@@ -823,16 +1028,16 @@
         },
         {
           "name": "Singapore",
-          "flights": 9,
-          "pax": 1323
-        },
-        {
-          "name": "China",
-          "flights": 3,
-          "pax": 441
+          "flights": 11,
+          "pax": 1617
         },
         {
           "name": "Vietnam",
+          "flights": 4,
+          "pax": 588
+        },
+        {
+          "name": "China",
           "flights": 3,
           "pax": 441
         },
@@ -1176,14 +1381,14 @@
       {
         "date": "2026-05-17",
         "label": "Вс 17.05",
-        "arrivals": 9,
-        "departures": 6,
+        "arrivals": 20,
+        "departures": 13,
         "arrivals_by": {
           "Hong Kong": {
-            "n": 1
+            "n": 2
           },
           "South Korea": {
-            "n": 2
+            "n": 7
           },
           "Malaysia": {
             "n": 2
@@ -1192,7 +1397,16 @@
             "n": 2
           },
           "Thailand": {
-            "n": 2
+            "n": 4
+          },
+          "Vietnam": {
+            "n": 1
+          },
+          "Taiwan": {
+            "n": 1
+          },
+          "China": {
+            "n": 1
           }
         },
         "departures_by": {
@@ -1200,15 +1414,21 @@
             "n": 2
           },
           "Malaysia": {
-            "n": 1
+            "n": 2
           },
           "Thailand": {
-            "n": 1
+            "n": 4
           },
           "Taiwan": {
             "n": 1
           },
           "Hong Kong": {
+            "n": 1
+          },
+          "Singapore": {
+            "n": 2
+          },
+          "Vietnam": {
             "n": 1
           }
         }
@@ -1217,23 +1437,23 @@
   },
   "month": {
     "arrivals": {
-      "count": 625,
-      "pax": 91875,
+      "count": 636,
+      "pax": 93492,
       "all": [
         {
           "name": "South Korea",
-          "flights": 223,
-          "pax": 32781
+          "flights": 228,
+          "pax": 33516
         },
         {
           "name": "Thailand",
-          "flights": 113,
-          "pax": 16611
+          "flights": 115,
+          "pax": 16905
         },
         {
           "name": "Hong Kong",
-          "flights": 70,
-          "pax": 10290
+          "flights": 71,
+          "pax": 10437
         },
         {
           "name": "Malaysia",
@@ -1242,8 +1462,8 @@
         },
         {
           "name": "Taiwan",
-          "flights": 49,
-          "pax": 7203
+          "flights": 50,
+          "pax": 7350
         },
         {
           "name": "Singapore",
@@ -1252,13 +1472,13 @@
         },
         {
           "name": "China",
-          "flights": 39,
-          "pax": 5733
+          "flights": 40,
+          "pax": 5880
         },
         {
           "name": "Vietnam",
-          "flights": 17,
-          "pax": 2499
+          "flights": 18,
+          "pax": 2646
         },
         {
           "name": "Uzbekistan",
@@ -1296,8 +1516,8 @@
       ]
     },
     "departures": {
-      "count": 630,
-      "pax": 92610,
+      "count": 637,
+      "pax": 93639,
       "all": [
         {
           "name": "South Korea",
@@ -1306,8 +1526,8 @@
         },
         {
           "name": "Thailand",
-          "flights": 112,
-          "pax": 16464
+          "flights": 115,
+          "pax": 16905
         },
         {
           "name": "Hong Kong",
@@ -1316,13 +1536,13 @@
         },
         {
           "name": "Malaysia",
-          "flights": 53,
-          "pax": 7791
+          "flights": 54,
+          "pax": 7938
         },
         {
           "name": "Singapore",
-          "flights": 47,
-          "pax": 6909
+          "flights": 49,
+          "pax": 7203
         },
         {
           "name": "Taiwan",
@@ -1336,8 +1556,8 @@
         },
         {
           "name": "Vietnam",
-          "flights": 15,
-          "pax": 2205
+          "flights": 16,
+          "pax": 2352
         },
         {
           "name": "Uzbekistan",
@@ -1630,23 +1850,23 @@
       {
         "key": "2026-W20",
         "label": "Нед 20 (Май)",
-        "arrivals": 126,
-        "departures": 122,
+        "arrivals": 137,
+        "departures": 129,
         "arrivals_by": {
           "Vietnam": {
-            "n": 4
+            "n": 5
           },
           "Hong Kong": {
-            "n": 12
+            "n": 13
           },
           "China": {
-            "n": 3
+            "n": 4
           },
           "Taiwan": {
-            "n": 11
+            "n": 12
           },
           "South Korea": {
-            "n": 43
+            "n": 48
           },
           "Uzbekistan": {
             "n": 1
@@ -1655,7 +1875,7 @@
             "n": 14
           },
           "Thailand": {
-            "n": 26
+            "n": 28
           },
           "Belarus": {
             "n": 1
@@ -1678,22 +1898,22 @@
             "n": 1
           },
           "Malaysia": {
-            "n": 13
+            "n": 14
           },
           "Thailand": {
-            "n": 25
+            "n": 28
           },
           "Taiwan": {
             "n": 11
           },
           "Singapore": {
-            "n": 9
+            "n": 11
           },
           "Belarus": {
             "n": 1
           },
           "Vietnam": {
-            "n": 3
+            "n": 4
           }
         }
       }
@@ -1701,23 +1921,23 @@
   },
   "quarter": {
     "arrivals": {
-      "count": 625,
-      "pax": 91875,
+      "count": 636,
+      "pax": 93492,
       "all": [
         {
           "name": "South Korea",
-          "flights": 223,
-          "pax": 32781
+          "flights": 228,
+          "pax": 33516
         },
         {
           "name": "Thailand",
-          "flights": 113,
-          "pax": 16611
+          "flights": 115,
+          "pax": 16905
         },
         {
           "name": "Hong Kong",
-          "flights": 70,
-          "pax": 10290
+          "flights": 71,
+          "pax": 10437
         },
         {
           "name": "Malaysia",
@@ -1726,8 +1946,8 @@
         },
         {
           "name": "Taiwan",
-          "flights": 49,
-          "pax": 7203
+          "flights": 50,
+          "pax": 7350
         },
         {
           "name": "Singapore",
@@ -1736,13 +1956,13 @@
         },
         {
           "name": "China",
-          "flights": 39,
-          "pax": 5733
+          "flights": 40,
+          "pax": 5880
         },
         {
           "name": "Vietnam",
-          "flights": 17,
-          "pax": 2499
+          "flights": 18,
+          "pax": 2646
         },
         {
           "name": "Uzbekistan",
@@ -1780,8 +2000,8 @@
       ]
     },
     "departures": {
-      "count": 630,
-      "pax": 92610,
+      "count": 637,
+      "pax": 93639,
       "all": [
         {
           "name": "South Korea",
@@ -1790,8 +2010,8 @@
         },
         {
           "name": "Thailand",
-          "flights": 112,
-          "pax": 16464
+          "flights": 115,
+          "pax": 16905
         },
         {
           "name": "Hong Kong",
@@ -1800,13 +2020,13 @@
         },
         {
           "name": "Malaysia",
-          "flights": 53,
-          "pax": 7791
+          "flights": 54,
+          "pax": 7938
         },
         {
           "name": "Singapore",
-          "flights": 47,
-          "pax": 6909
+          "flights": 49,
+          "pax": 7203
         },
         {
           "name": "Taiwan",
@@ -1820,8 +2040,8 @@
         },
         {
           "name": "Vietnam",
-          "flights": 15,
-          "pax": 2205
+          "flights": 16,
+          "pax": 2352
         },
         {
           "name": "Uzbekistan",
@@ -1974,26 +2194,26 @@
       {
         "key": "2026-05",
         "label": "Май 2026",
-        "arrivals": 381,
-        "departures": 377,
+        "arrivals": 392,
+        "departures": 384,
         "arrivals_by": {
           "Vietnam": {
-            "n": 11
+            "n": 12
           },
           "Hong Kong": {
-            "n": 46
+            "n": 47
           },
           "Thailand": {
-            "n": 74
+            "n": 76
           },
           "Taiwan": {
-            "n": 30
+            "n": 31
           },
           "South Korea": {
-            "n": 134
+            "n": 139
           },
           "China": {
-            "n": 21
+            "n": 22
           },
           "Malaysia": {
             "n": 34
@@ -2010,13 +2230,13 @@
         },
         "departures_by": {
           "Singapore": {
-            "n": 27
+            "n": 29
           },
           "Hong Kong": {
             "n": 42
           },
           "Thailand": {
-            "n": 73
+            "n": 76
           },
           "South Korea": {
             "n": 142
@@ -2025,10 +2245,10 @@
             "n": 20
           },
           "Malaysia": {
-            "n": 33
+            "n": 34
           },
           "Vietnam": {
-            "n": 9
+            "n": 10
           },
           "Taiwan": {
             "n": 27
@@ -2045,23 +2265,23 @@
   },
   "halfyear": {
     "arrivals": {
-      "count": 625,
-      "pax": 91875,
+      "count": 636,
+      "pax": 93492,
       "all": [
         {
           "name": "South Korea",
-          "flights": 223,
-          "pax": 32781
+          "flights": 228,
+          "pax": 33516
         },
         {
           "name": "Thailand",
-          "flights": 113,
-          "pax": 16611
+          "flights": 115,
+          "pax": 16905
         },
         {
           "name": "Hong Kong",
-          "flights": 70,
-          "pax": 10290
+          "flights": 71,
+          "pax": 10437
         },
         {
           "name": "Malaysia",
@@ -2070,8 +2290,8 @@
         },
         {
           "name": "Taiwan",
-          "flights": 49,
-          "pax": 7203
+          "flights": 50,
+          "pax": 7350
         },
         {
           "name": "Singapore",
@@ -2080,13 +2300,13 @@
         },
         {
           "name": "China",
-          "flights": 39,
-          "pax": 5733
+          "flights": 40,
+          "pax": 5880
         },
         {
           "name": "Vietnam",
-          "flights": 17,
-          "pax": 2499
+          "flights": 18,
+          "pax": 2646
         },
         {
           "name": "Uzbekistan",
@@ -2124,8 +2344,8 @@
       ]
     },
     "departures": {
-      "count": 630,
-      "pax": 92610,
+      "count": 637,
+      "pax": 93639,
       "all": [
         {
           "name": "South Korea",
@@ -2134,8 +2354,8 @@
         },
         {
           "name": "Thailand",
-          "flights": 112,
-          "pax": 16464
+          "flights": 115,
+          "pax": 16905
         },
         {
           "name": "Hong Kong",
@@ -2144,13 +2364,13 @@
         },
         {
           "name": "Malaysia",
-          "flights": 53,
-          "pax": 7791
+          "flights": 54,
+          "pax": 7938
         },
         {
           "name": "Singapore",
-          "flights": 47,
-          "pax": 6909
+          "flights": 49,
+          "pax": 7203
         },
         {
           "name": "Taiwan",
@@ -2164,8 +2384,8 @@
         },
         {
           "name": "Vietnam",
-          "flights": 15,
-          "pax": 2205
+          "flights": 16,
+          "pax": 2352
         },
         {
           "name": "Uzbekistan",
@@ -2318,26 +2538,26 @@
       {
         "key": "2026-05",
         "label": "Май 2026",
-        "arrivals": 381,
-        "departures": 377,
+        "arrivals": 392,
+        "departures": 384,
         "arrivals_by": {
           "Vietnam": {
-            "n": 11
+            "n": 12
           },
           "Hong Kong": {
-            "n": 46
+            "n": 47
           },
           "Thailand": {
-            "n": 74
+            "n": 76
           },
           "Taiwan": {
-            "n": 30
+            "n": 31
           },
           "South Korea": {
-            "n": 134
+            "n": 139
           },
           "China": {
-            "n": 21
+            "n": 22
           },
           "Malaysia": {
             "n": 34
@@ -2354,13 +2574,13 @@
         },
         "departures_by": {
           "Singapore": {
-            "n": 27
+            "n": 29
           },
           "Hong Kong": {
             "n": 42
           },
           "Thailand": {
-            "n": 73
+            "n": 76
           },
           "South Korea": {
             "n": 142
@@ -2369,10 +2589,10 @@
             "n": 20
           },
           "Malaysia": {
-            "n": 33
+            "n": 34
           },
           "Vietnam": {
-            "n": 9
+            "n": 10
           },
           "Taiwan": {
             "n": 27
@@ -2389,23 +2609,23 @@
   },
   "year": {
     "arrivals": {
-      "count": 625,
-      "pax": 91875,
+      "count": 636,
+      "pax": 93492,
       "all": [
         {
           "name": "South Korea",
-          "flights": 223,
-          "pax": 32781
+          "flights": 228,
+          "pax": 33516
         },
         {
           "name": "Thailand",
-          "flights": 113,
-          "pax": 16611
+          "flights": 115,
+          "pax": 16905
         },
         {
           "name": "Hong Kong",
-          "flights": 70,
-          "pax": 10290
+          "flights": 71,
+          "pax": 10437
         },
         {
           "name": "Malaysia",
@@ -2414,8 +2634,8 @@
         },
         {
           "name": "Taiwan",
-          "flights": 49,
-          "pax": 7203
+          "flights": 50,
+          "pax": 7350
         },
         {
           "name": "Singapore",
@@ -2424,13 +2644,13 @@
         },
         {
           "name": "China",
-          "flights": 39,
-          "pax": 5733
+          "flights": 40,
+          "pax": 5880
         },
         {
           "name": "Vietnam",
-          "flights": 17,
-          "pax": 2499
+          "flights": 18,
+          "pax": 2646
         },
         {
           "name": "Uzbekistan",
@@ -2468,8 +2688,8 @@
       ]
     },
     "departures": {
-      "count": 630,
-      "pax": 92610,
+      "count": 637,
+      "pax": 93639,
       "all": [
         {
           "name": "South Korea",
@@ -2478,8 +2698,8 @@
         },
         {
           "name": "Thailand",
-          "flights": 112,
-          "pax": 16464
+          "flights": 115,
+          "pax": 16905
         },
         {
           "name": "Hong Kong",
@@ -2488,13 +2708,13 @@
         },
         {
           "name": "Malaysia",
-          "flights": 53,
-          "pax": 7791
+          "flights": 54,
+          "pax": 7938
         },
         {
           "name": "Singapore",
-          "flights": 47,
-          "pax": 6909
+          "flights": 49,
+          "pax": 7203
         },
         {
           "name": "Taiwan",
@@ -2508,8 +2728,8 @@
         },
         {
           "name": "Vietnam",
-          "flights": 15,
-          "pax": 2205
+          "flights": 16,
+          "pax": 2352
         },
         {
           "name": "Uzbekistan",
@@ -2662,26 +2882,26 @@
       {
         "key": "2026-05",
         "label": "Май 2026",
-        "arrivals": 381,
-        "departures": 377,
+        "arrivals": 392,
+        "departures": 384,
         "arrivals_by": {
           "Vietnam": {
-            "n": 11
+            "n": 12
           },
           "Hong Kong": {
-            "n": 46
+            "n": 47
           },
           "Thailand": {
-            "n": 74
+            "n": 76
           },
           "Taiwan": {
-            "n": 30
+            "n": 31
           },
           "South Korea": {
-            "n": 134
+            "n": 139
           },
           "China": {
-            "n": 21
+            "n": 22
           },
           "Malaysia": {
             "n": 34
@@ -2698,13 +2918,13 @@
         },
         "departures_by": {
           "Singapore": {
-            "n": 27
+            "n": 29
           },
           "Hong Kong": {
             "n": 42
           },
           "Thailand": {
-            "n": 73
+            "n": 76
           },
           "South Korea": {
             "n": 142
@@ -2713,10 +2933,10 @@
             "n": 20
           },
           "Malaysia": {
-            "n": 33
+            "n": 34
           },
           "Vietnam": {
-            "n": 9
+            "n": 10
           },
           "Taiwan": {
             "n": 27
