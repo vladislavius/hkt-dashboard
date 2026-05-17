@@ -1,30 +1,30 @@
 {
   "date": "2026-05-18",
   "arrivals": {
-    "count": 6,
-    "pax": 882,
+    "count": 8,
+    "pax": 1176,
     "countries": {
       "South Korea": {
         "flights": 3,
         "pax": 441
       },
       "Malaysia": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Hong Kong": {
         "flights": 1,
         "pax": 147
       },
       "Thailand": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       }
     }
   },
   "departures": {
-    "count": 5,
-    "pax": 735,
+    "count": 7,
+    "pax": 1029,
     "countries": {
       "South Korea": {
         "flights": 3,
@@ -37,6 +37,14 @@
       "Uzbekistan": {
         "flights": 1,
         "pax": 147
+      },
+      "Thailand": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Hong Kong": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -44,7 +52,7 @@
     {
       "fn": "VJ969",
       "airline": "VietJet Air",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-18T07:45",
       "arr_time": "2026-05-18T11:10",
@@ -74,7 +82,7 @@
     {
       "fn": "UO598",
       "airline": "HK express",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-18T07:45",
       "arr_time": "2026-05-18T09:40",
@@ -100,6 +108,26 @@
       "arr_time": "2026-05-18T15:05",
       "from": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "AK545",
+      "airline": "AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-18T12:50",
+      "arr_time": "2026-05-18T13:35",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "AK660",
+      "airline": "AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-18T12:00",
+      "arr_time": "2026-05-18T13:20",
+      "from": "DMK",
+      "country": "Thailand"
     }
   ],
   "departures_list": [
@@ -152,6 +180,26 @@
       "arr_time": "2026-05-18T15:00",
       "to": "TAS",
       "country": "Uzbekistan"
+    },
+    {
+      "fn": "VZ981",
+      "airline": "Thai VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-18T11:45",
+      "arr_time": "2026-05-18T13:05",
+      "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "UO599",
+      "airline": "HK express",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-18T10:40",
+      "arr_time": "2026-05-18T14:50",
+      "to": "HKG",
+      "country": "Hong Kong"
     }
   ]
 }
