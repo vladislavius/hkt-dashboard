@@ -1,16 +1,16 @@
 {
   "date": "2026-05-17",
   "arrivals": {
-    "count": 88,
-    "pax": 12936,
+    "count": 93,
+    "pax": 13671,
     "countries": {
       "Japan": {
         "flights": 4,
         "pax": 588
       },
       "South Korea": {
-        "flights": 21,
-        "pax": 3087
+        "flights": 25,
+        "pax": 3675
       },
       "Thailand": {
         "flights": 9,
@@ -41,14 +41,14 @@
         "pax": 147
       },
       "Macau": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       }
     }
   },
   "departures": {
-    "count": 69,
-    "pax": 10143,
+    "count": 77,
+    "pax": 11319,
     "countries": {
       "Vietnam": {
         "flights": 5,
@@ -63,28 +63,28 @@
         "pax": 588
       },
       "Thailand": {
+        "flights": 10,
+        "pax": 1470
+      },
+      "Hong Kong": {
         "flights": 8,
         "pax": 1176
       },
-      "Hong Kong": {
-        "flights": 6,
-        "pax": 882
-      },
       "Malaysia": {
-        "flights": 14,
-        "pax": 2058
+        "flights": 15,
+        "pax": 2205
       },
       "Taiwan": {
-        "flights": 4,
-        "pax": 588
+        "flights": 5,
+        "pax": 735
       },
       "Macau": {
         "flights": 1,
         "pax": 147
       },
       "Singapore": {
-        "flights": 12,
-        "pax": 1764
+        "flights": 14,
+        "pax": 2058
       },
       "Laos": {
         "flights": 1,
@@ -666,7 +666,7 @@
     {
       "fn": "VJ960",
       "airline": "VietJet Air",
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-17T10:45",
       "arr_time": "2026-05-17T12:30",
@@ -696,7 +696,7 @@
     {
       "fn": "H12183",
       "airline": null,
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-17T14:30",
       "arr_time": "2026-05-17T16:10",
@@ -706,7 +706,7 @@
     {
       "fn": "W24824",
       "airline": "Flexflight",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-17T14:30",
       "arr_time": "2026-05-17T16:10",
@@ -716,7 +716,7 @@
     {
       "fn": "A12824",
       "airline": null,
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-17T14:30",
       "arr_time": "2026-05-17T16:10",
@@ -946,7 +946,7 @@
     {
       "fn": "VJ824",
       "airline": "VietJet Air",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-17T14:30",
       "arr_time": "2026-05-17T16:10",
@@ -956,7 +956,7 @@
     {
       "fn": "HX548",
       "airline": "Hong Kong Airlines",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-17T14:30",
       "arr_time": "2026-05-17T15:20",
@@ -966,7 +966,7 @@
     {
       "fn": "EY6805",
       "airline": "Etihad Airways",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-17T14:30",
       "arr_time": "2026-05-17T15:20",
@@ -1032,6 +1032,76 @@
       "arr_time": "2026-05-17T13:10",
       "from": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "RF531",
+      "airline": "E-Cargo Airlines",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-17T20:55",
+      "arr_time": "2026-05-17T23:55",
+      "from": "CJJ",
+      "country": ""
+    },
+    {
+      "fn": "BX773",
+      "airline": "Air Busan",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-17T20:50",
+      "arr_time": "2026-05-17T23:50",
+      "from": "PUS",
+      "country": "South Korea"
+    },
+    {
+      "fn": "OZ9753",
+      "airline": "Asiana Airlines",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-17T20:50",
+      "arr_time": "2026-05-17T23:50",
+      "from": "PUS",
+      "country": "South Korea"
+    },
+    {
+      "fn": "5J5756",
+      "airline": "Cebu Pacific",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-17T19:50",
+      "arr_time": "2026-05-17T21:30",
+      "from": "MNL",
+      "country": ""
+    },
+    {
+      "fn": "NX978",
+      "airline": "Air Macau",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-17T19:40",
+      "arr_time": "2026-05-17T20:30",
+      "from": "MFM",
+      "country": "Macau"
+    },
+    {
+      "fn": "RS511",
+      "airline": "Air Seoul",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-17T20:55",
+      "arr_time": "2026-05-17T23:40",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "LJ81",
+      "airline": "Jin Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-17T20:30",
+      "arr_time": "2026-05-17T23:15",
+      "from": "ICN",
+      "country": "South Korea"
     }
   ],
   "departures_list": [
@@ -1794,6 +1864,96 @@
       "arr_time": "2026-05-17T15:00",
       "to": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "ID503",
+      "airline": "Batik Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-17T12:50",
+      "arr_time": "2026-05-17T16:40",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "JX704",
+      "airline": "STARLUX",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-17T18:45",
+      "arr_time": "2026-05-17T22:35",
+      "to": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "TR519",
+      "airline": "Scoot",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-17T18:30",
+      "arr_time": "2026-05-17T22:30",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "SQ8393",
+      "airline": "Singapore Airlines",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-17T18:30",
+      "arr_time": "2026-05-17T22:30",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "IT586",
+      "airline": "Tigerair Taiwan",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-17T18:25",
+      "arr_time": "2026-05-17T21:45",
+      "to": "KHH",
+      "country": ""
+    },
+    {
+      "fn": "VZ963",
+      "airline": "Thai VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-17T18:10",
+      "arr_time": "2026-05-17T19:55",
+      "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "AK639",
+      "airline": "AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-17T18:10",
+      "arr_time": "2026-05-17T19:55",
+      "to": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "UO559",
+      "airline": "HK express",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-17T18:10",
+      "arr_time": "2026-05-17T21:10",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "CX5559",
+      "airline": "Cathay Pacific",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-17T18:10",
+      "arr_time": "2026-05-17T21:10",
+      "to": "HKG",
+      "country": "Hong Kong"
     }
   ]
 }
