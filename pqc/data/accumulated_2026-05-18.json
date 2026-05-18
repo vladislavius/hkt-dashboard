@@ -31,12 +31,12 @@
     }
   },
   "departures": {
-    "count": 12,
-    "pax": 1764,
+    "count": 14,
+    "pax": 2058,
     "countries": {
       "South Korea": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "Malaysia": {
         "flights": 2,
@@ -57,6 +57,10 @@
       "Taiwan": {
         "flights": 1,
         "pax": 147
+      },
+      "Singapore": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -64,7 +68,7 @@
     {
       "fn": "VJ969",
       "airline": "VietJet Air",
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-18T07:45",
       "arr_time": "2026-05-18T11:10",
@@ -84,7 +88,7 @@
     {
       "fn": "AK543",
       "airline": "AirAsia",
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-18T08:40",
       "arr_time": "2026-05-18T09:30",
@@ -94,7 +98,7 @@
     {
       "fn": "UO598",
       "airline": "HK express",
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-18T07:45",
       "arr_time": "2026-05-18T09:40",
@@ -194,7 +198,7 @@
     {
       "fn": "JX705",
       "airline": "STARLUX",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-18T14:00",
       "arr_time": "2026-05-18T16:50",
@@ -322,6 +326,26 @@
       "arr_time": "2026-05-18T15:05",
       "to": "DMK",
       "country": "Thailand"
+    },
+    {
+      "fn": "VJ978",
+      "airline": "VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-18T19:35",
+      "arr_time": "2026-05-19T03:00",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "TR525",
+      "airline": "Scoot",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-18T18:20",
+      "arr_time": "2026-05-18T21:15",
+      "to": "SIN",
+      "country": "Singapore"
     }
   ]
 }
