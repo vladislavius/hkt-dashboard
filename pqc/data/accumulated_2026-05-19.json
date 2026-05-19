@@ -35,12 +35,12 @@
     }
   },
   "departures": {
-    "count": 16,
-    "pax": 2352,
+    "count": 17,
+    "pax": 2499,
     "countries": {
       "South Korea": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "Taiwan": {
         "flights": 2,
@@ -122,7 +122,7 @@
     {
       "fn": "TR528",
       "airline": "Scoot",
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-19T10:45",
       "arr_time": "2026-05-19T11:45",
@@ -172,7 +172,7 @@
     {
       "fn": "AK660",
       "airline": "AirAsia",
-      "status": "landed",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-19T12:00",
       "arr_time": "2026-05-19T13:20",
@@ -182,7 +182,7 @@
     {
       "fn": "KE485",
       "airline": "Korean Air",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-19T19:05",
       "arr_time": "2026-05-19T22:50",
@@ -202,7 +202,7 @@
     {
       "fn": "9G2953",
       "airline": "Sun PhuQuoc Airways",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-19T16:35",
       "arr_time": "2026-05-19T17:55",
@@ -438,6 +438,16 @@
       "pax": 147,
       "dep_time": "2026-05-19T19:35",
       "arr_time": "2026-05-20T03:00",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "9G452",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-19T23:10",
+      "arr_time": "2026-05-20T06:40",
       "to": "ICN",
       "country": "South Korea"
     }
