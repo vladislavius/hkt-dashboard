@@ -1,16 +1,16 @@
 {
   "date": "2026-05-19",
   "arrivals": {
-    "count": 10,
-    "pax": 1470,
+    "count": 17,
+    "pax": 2499,
     "countries": {
       "South Korea": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "Hong Kong": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Malaysia": {
         "flights": 2,
@@ -21,14 +21,22 @@
         "pax": 294
       },
       "Thailand": {
+        "flights": 4,
+        "pax": 588
+      },
+      "Taiwan": {
         "flights": 2,
         "pax": 294
+      },
+      "Vietnam": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 8,
-    "pax": 1176,
+    "count": 14,
+    "pax": 2058,
     "countries": {
       "South Korea": {
         "flights": 2,
@@ -43,10 +51,18 @@
         "pax": 294
       },
       "Malaysia": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Thailand": {
+        "flights": 3,
+        "pax": 441
+      },
+      "Singapore": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Vietnam": {
         "flights": 1,
         "pax": 147
       }
@@ -76,7 +92,7 @@
     {
       "fn": "H14150",
       "airline": null,
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-19T04:05",
       "arr_time": "2026-05-19T07:30",
@@ -96,7 +112,7 @@
     {
       "fn": "AK543",
       "airline": "AirAsia",
-      "status": "scheduled",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-19T08:40",
       "arr_time": "2026-05-19T09:30",
@@ -106,7 +122,7 @@
     {
       "fn": "TR528",
       "airline": "Scoot",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-19T10:45",
       "arr_time": "2026-05-19T11:45",
@@ -126,7 +142,7 @@
     {
       "fn": "VZ980",
       "airline": "Thai VietJet Air",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-19T09:15",
       "arr_time": "2026-05-19T10:40",
@@ -162,6 +178,86 @@
       "arr_time": "2026-05-19T13:20",
       "from": "DMK",
       "country": "Thailand"
+    },
+    {
+      "fn": "KE485",
+      "airline": "Korean Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-19T19:05",
+      "arr_time": "2026-05-19T22:50",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "9G511",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-19T17:35",
+      "arr_time": "2026-05-19T20:25",
+      "from": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "9G2953",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-19T16:35",
+      "arr_time": "2026-05-19T17:55",
+      "from": "CXR",
+      "country": "Vietnam"
+    },
+    {
+      "fn": "VJ985",
+      "airline": "VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-19T16:40",
+      "arr_time": "2026-05-19T18:25",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "AK662",
+      "airline": "AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-19T15:35",
+      "arr_time": "2026-05-19T17:00",
+      "from": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "VZ982",
+      "airline": "Thai VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-19T14:35",
+      "arr_time": "2026-05-19T15:55",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "K6830",
+      "airline": "Air Cambodia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-19T13:45",
+      "arr_time": "2026-05-19T14:55",
+      "from": "KTI",
+      "country": ""
+    },
+    {
+      "fn": "VJ845",
+      "airline": "VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-19T14:10",
+      "arr_time": "2026-05-19T16:50",
+      "from": "TPE",
+      "country": "Taiwan"
     }
   ],
   "departures_list": [
@@ -254,6 +350,76 @@
       "arr_time": "2026-05-19T16:10",
       "to": "TPE",
       "country": "Taiwan"
+    },
+    {
+      "fn": "VZ983",
+      "airline": "Thai VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-19T16:45",
+      "arr_time": "2026-05-19T18:05",
+      "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "VJ983",
+      "airline": "VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-19T15:45",
+      "arr_time": "2026-05-19T18:30",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "K6831",
+      "airline": "Air Cambodia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-19T15:25",
+      "arr_time": "2026-05-19T16:30",
+      "to": "KTI",
+      "country": ""
+    },
+    {
+      "fn": "9G2952",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-19T14:20",
+      "arr_time": "2026-05-19T15:40",
+      "to": "CXR",
+      "country": "Vietnam"
+    },
+    {
+      "fn": "AK546",
+      "airline": "AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-19T14:10",
+      "arr_time": "2026-05-19T17:00",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "AK661",
+      "airline": "AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-19T13:50",
+      "arr_time": "2026-05-19T15:05",
+      "to": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "TR529",
+      "airline": "Scoot",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-19T12:25",
+      "arr_time": "2026-05-19T15:30",
+      "to": "SIN",
+      "country": "Singapore"
     }
   ]
 }
