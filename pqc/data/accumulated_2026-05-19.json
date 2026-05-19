@@ -35,12 +35,12 @@
     }
   },
   "departures": {
-    "count": 15,
-    "pax": 2205,
+    "count": 16,
+    "pax": 2352,
     "countries": {
       "South Korea": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Taiwan": {
         "flights": 2,
@@ -82,7 +82,7 @@
     {
       "fn": "VJ969",
       "airline": "VietJet Air",
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-19T07:45",
       "arr_time": "2026-05-19T11:10",
@@ -162,7 +162,7 @@
     {
       "fn": "AK545",
       "airline": "AirAsia",
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-19T12:50",
       "arr_time": "2026-05-19T13:35",
@@ -172,7 +172,7 @@
     {
       "fn": "AK660",
       "airline": "AirAsia",
-      "status": "scheduled",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-19T12:00",
       "arr_time": "2026-05-19T13:20",
@@ -430,6 +430,16 @@
       "arr_time": "2026-05-19T18:55",
       "to": "DMK",
       "country": "Thailand"
+    },
+    {
+      "fn": "VJ978",
+      "airline": "VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-19T19:35",
+      "arr_time": "2026-05-20T03:00",
+      "to": "ICN",
+      "country": "South Korea"
     }
   ]
 }
