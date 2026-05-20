@@ -47,8 +47,8 @@
     }
   },
   "departures": {
-    "count": 95,
-    "pax": 13965,
+    "count": 96,
+    "pax": 14112,
     "countries": {
       "South Korea": {
         "flights": 28,
@@ -59,8 +59,8 @@
         "pax": 294
       },
       "Thailand": {
-        "flights": 13,
-        "pax": 1911
+        "flights": 14,
+        "pax": 2058
       },
       "Hong Kong": {
         "flights": 10,
@@ -636,7 +636,7 @@
     {
       "fn": "HX546",
       "airline": "Hong Kong Airlines",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-20T18:50",
       "arr_time": "2026-05-20T19:50",
@@ -646,7 +646,7 @@
     {
       "fn": "EY6825",
       "airline": "Etihad Airways",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-20T18:50",
       "arr_time": "2026-05-20T19:50",
@@ -656,7 +656,7 @@
     {
       "fn": "VN626",
       "airline": "Vietnam Airlines",
-      "status": "scheduled",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-20T18:05",
       "arr_time": "2026-05-20T19:45",
@@ -676,7 +676,7 @@
     {
       "fn": "H12183",
       "airline": null,
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-20T14:30",
       "arr_time": "2026-05-20T16:10",
@@ -686,7 +686,7 @@
     {
       "fn": "W24824",
       "airline": "Flexflight",
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-20T14:30",
       "arr_time": "2026-05-20T16:10",
@@ -696,7 +696,7 @@
     {
       "fn": "A12824",
       "airline": null,
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-20T14:30",
       "arr_time": "2026-05-20T16:10",
@@ -706,7 +706,7 @@
     {
       "fn": "8M454",
       "airline": "Myanmar Airways International",
-      "status": "active",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-20T16:30",
       "arr_time": "2026-05-20T19:00",
@@ -1056,7 +1056,7 @@
     {
       "fn": "LJ111",
       "airline": "Jin Air",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-20T21:15",
       "arr_time": "2026-05-20T23:55",
@@ -1066,7 +1066,7 @@
     {
       "fn": "KE5771",
       "airline": "Korean Air",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-20T21:15",
       "arr_time": "2026-05-20T23:55",
@@ -1076,7 +1076,7 @@
     {
       "fn": "TW13",
       "airline": "T'way Air",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-20T21:35",
       "arr_time": "2026-05-21T00:25",
@@ -1086,7 +1086,7 @@
     {
       "fn": "PG4289",
       "airline": "Bangkok Airways",
-      "status": "scheduled",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-20T18:05",
       "arr_time": "2026-05-20T19:45",
@@ -1096,7 +1096,7 @@
     {
       "fn": "EY7300",
       "airline": "Etihad Airways",
-      "status": "scheduled",
+      "status": "landed",
       "pax": 147,
       "dep_time": "2026-05-20T18:05",
       "arr_time": "2026-05-20T19:45",
@@ -1106,7 +1106,7 @@
     {
       "fn": "VN1940",
       "airline": "Vietnam Airlines",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-20T19:50",
       "arr_time": "2026-05-20T20:55",
@@ -1116,7 +1116,7 @@
     {
       "fn": "RF531",
       "airline": "E-Cargo Airlines",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-20T20:55",
       "arr_time": "2026-05-20T23:55",
@@ -2244,6 +2244,16 @@
       "arr_time": "2026-05-21T06:00",
       "to": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "VJ963",
+      "airline": "VietJet Air",
+      "status": "active",
+      "pax": 147,
+      "dep_time": "2026-05-20T18:10",
+      "arr_time": "2026-05-20T19:55",
+      "to": "BKK",
+      "country": "Thailand"
     }
   ]
 }
