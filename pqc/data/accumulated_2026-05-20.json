@@ -35,8 +35,8 @@
     }
   },
   "departures": {
-    "count": 10,
-    "pax": 1470,
+    "count": 11,
+    "pax": 1617,
     "countries": {
       "South Korea": {
         "flights": 1,
@@ -57,6 +57,10 @@
       "Taiwan": {
         "flights": 2,
         "pax": 294
+      },
+      "Singapore": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -114,7 +118,7 @@
     {
       "fn": "JX705",
       "airline": "STARLUX",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-20T14:00",
       "arr_time": "2026-05-20T16:50",
@@ -352,6 +356,16 @@
       "arr_time": "2026-05-20T15:05",
       "to": "DMK",
       "country": "Thailand"
+    },
+    {
+      "fn": "TR525",
+      "airline": "Scoot",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-20T18:20",
+      "arr_time": "2026-05-20T21:15",
+      "to": "SIN",
+      "country": "Singapore"
     }
   ]
 }
