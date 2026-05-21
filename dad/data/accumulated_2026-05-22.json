@@ -1,8 +1,8 @@
 {
   "date": "2026-05-22",
   "arrivals": {
-    "count": 37,
-    "pax": 5439,
+    "count": 46,
+    "pax": 6762,
     "countries": {
       "Japan": {
         "flights": 4,
@@ -17,20 +17,20 @@
         "pax": 588
       },
       "Thailand": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "Vietnam": {
         "flights": 4,
         "pax": 588
       },
       "Singapore": {
-        "flights": 3,
-        "pax": 441
+        "flights": 10,
+        "pax": 1470
       },
       "Malaysia": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "Taiwan": {
         "flights": 3,
@@ -39,8 +39,8 @@
     }
   },
   "departures": {
-    "count": 28,
-    "pax": 4116,
+    "count": 31,
+    "pax": 4557,
     "countries": {
       "South Korea": {
         "flights": 13,
@@ -55,8 +55,8 @@
         "pax": 588
       },
       "Thailand": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Hong Kong": {
         "flights": 2,
@@ -65,6 +65,10 @@
       "Malaysia": {
         "flights": 4,
         "pax": 588
+      },
+      "Singapore": {
+        "flights": 2,
+        "pax": 294
       }
     }
   },
@@ -102,7 +106,7 @@
     {
       "fn": "VJ989",
       "airline": "VietJet Air",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-22T07:45",
       "arr_time": "2026-05-22T10:10",
@@ -112,7 +116,7 @@
     {
       "fn": "W24989",
       "airline": "Flexflight",
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-22T07:45",
       "arr_time": "2026-05-22T10:10",
@@ -122,7 +126,7 @@
     {
       "fn": "A12989",
       "airline": null,
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-22T07:45",
       "arr_time": "2026-05-22T10:10",
@@ -132,7 +136,7 @@
     {
       "fn": "H14089",
       "airline": null,
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-22T07:45",
       "arr_time": "2026-05-22T10:10",
@@ -458,6 +462,96 @@
       "arr_time": "2026-05-22T11:05",
       "from": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "VZ960",
+      "airline": "Thai VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-22T10:45",
+      "arr_time": "2026-05-22T12:30",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "VJ970",
+      "airline": "VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-22T11:15",
+      "arr_time": "2026-05-22T13:10",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "MH748",
+      "airline": "Malaysia Airlines",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-22T12:00",
+      "arr_time": "2026-05-22T13:40",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "VN3092",
+      "airline": "Vietnam Airlines",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-22T09:15",
+      "arr_time": "2026-05-22T11:05",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "VA5486",
+      "airline": "Virgin Australia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-22T09:15",
+      "arr_time": "2026-05-22T11:05",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "NZ3468",
+      "airline": "Air New Zealand",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-22T09:15",
+      "arr_time": "2026-05-22T11:05",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "LX9094",
+      "airline": "Swiss",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-22T09:15",
+      "arr_time": "2026-05-22T11:05",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "LH7200",
+      "airline": "Lufthansa",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-22T09:15",
+      "arr_time": "2026-05-22T11:05",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "AI8138",
+      "airline": "Air India",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-22T09:15",
+      "arr_time": "2026-05-22T11:05",
+      "from": "SIN",
+      "country": "Singapore"
     }
   ],
   "departures_list": [
@@ -759,6 +853,46 @@
       "dep_time": "2026-05-22T08:55",
       "arr_time": "2026-05-22T12:25",
       "to": "MNL",
+      "country": ""
+    },
+    {
+      "fn": "TR511",
+      "airline": "Scoot",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-22T10:55",
+      "arr_time": "2026-05-22T14:45",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "SQ8437",
+      "airline": "Singapore Airlines",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-22T10:55",
+      "arr_time": "2026-05-22T14:45",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "VZ965",
+      "airline": "Thai VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-22T10:40",
+      "arr_time": "2026-05-22T12:25",
+      "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "JX328",
+      "airline": "STARLUX",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-22T10:15",
+      "arr_time": "2026-05-22T14:00",
+      "to": "RMQ",
       "country": ""
     }
   ]
