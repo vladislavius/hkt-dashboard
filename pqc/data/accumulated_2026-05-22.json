@@ -1,30 +1,46 @@
 {
   "date": "2026-05-22",
   "arrivals": {
-    "count": 4,
-    "pax": 588,
+    "count": 7,
+    "pax": 1029,
     "countries": {
       "Hong Kong": {
         "flights": 1,
         "pax": 147
       },
       "South Korea": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Malaysia": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Thailand": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Singapore": {
         "flights": 1,
         "pax": 147
       }
     }
   },
   "departures": {
-    "count": 3,
-    "pax": 441,
+    "count": 5,
+    "pax": 735,
     "countries": {
       "South Korea": {
         "flights": 3,
         "pax": 441
+      },
+      "Hong Kong": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Malaysia": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -52,7 +68,7 @@
     {
       "fn": "H14150",
       "airline": null,
-      "status": "scheduled",
+      "status": "active",
       "pax": 147,
       "dep_time": "2026-05-22T04:05",
       "arr_time": "2026-05-22T07:50",
@@ -68,6 +84,36 @@
       "arr_time": "2026-05-22T09:30",
       "from": "KUL",
       "country": "Malaysia"
+    },
+    {
+      "fn": "9G451",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-22T11:25",
+      "arr_time": "2026-05-22T15:05",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "VZ980",
+      "airline": "Thai VietJet Air",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-22T09:15",
+      "arr_time": "2026-05-22T10:40",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "TR528",
+      "airline": "Scoot",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-22T10:45",
+      "arr_time": "2026-05-22T11:45",
+      "from": "SIN",
+      "country": "Singapore"
     }
   ],
   "departures_list": [
@@ -100,6 +146,26 @@
       "arr_time": "2026-05-22T07:50",
       "to": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "UO599",
+      "airline": "HK express",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-22T10:40",
+      "arr_time": "2026-05-22T14:50",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "AK544",
+      "airline": "AirAsia",
+      "status": "scheduled",
+      "pax": 147,
+      "dep_time": "2026-05-22T10:05",
+      "arr_time": "2026-05-22T12:50",
+      "to": "KUL",
+      "country": "Malaysia"
     }
   ]
 }
