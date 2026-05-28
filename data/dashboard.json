@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28T09:01:09.448978+07:00",
+  "updated": "2026-05-28T13:13:44.003042+07:00",
   "available_dates": [
     "2025-09-01",
     "2025-09-02",
@@ -270,7 +270,8 @@
     "2026-05-25",
     "2026-05-26",
     "2026-05-27",
-    "2026-05-28"
+    "2026-05-28",
+    "2026-05-29"
   ],
   "yesterday": {
     "arrivals": {
@@ -2321,8 +2322,8 @@
   },
   "today": {
     "arrivals": {
-      "count": 68,
-      "pax": 12276,
+      "count": 70,
+      "pax": 12570,
       "all": [
         {
           "name": "India",
@@ -2336,8 +2337,8 @@
         },
         {
           "name": "UAE",
-          "flights": 9,
-          "pax": 2109
+          "flights": 10,
+          "pax": 2256
         },
         {
           "name": "China",
@@ -2406,12 +2407,18 @@
           "name": "Indonesia",
           "flights": 1,
           "pax": 147
+        },
+        {
+          "name": "Екатеринбург",
+          "flights": 1,
+          "pax": 147,
+          "country": "Russia"
         }
       ]
     },
     "departures": {
-      "count": 69,
-      "pax": 12513,
+      "count": 71,
+      "pax": 12840,
       "all": [
         {
           "name": "India",
@@ -2425,18 +2432,18 @@
         },
         {
           "name": "UAE",
+          "flights": 10,
+          "pax": 2379
+        },
+        {
+          "name": "China",
           "flights": 9,
-          "pax": 2199
+          "pax": 1330
         },
         {
           "name": "Singapore",
           "flights": 9,
           "pax": 1363
-        },
-        {
-          "name": "China",
-          "flights": 8,
-          "pax": 1183
         },
         {
           "name": "Qatar",
@@ -2505,9 +2512,9 @@
       ]
     },
     "russia_transit": {
-      "pax": 925,
-      "flights": 6,
-      "tat_pax": 674,
+      "pax": 778,
+      "flights": 5,
+      "tat_pax": 527,
       "bkk_pax": 251,
       "estimated": true
     },
@@ -2834,7 +2841,7 @@
       {
         "fn": "OD 540",
         "airline": "MALINDO AIRWAYS SDN BHD",
-        "status": "",
+        "status": "confirmed",
         "pax": 154,
         "aircraft": "738",
         "dep_time": "",
@@ -2878,7 +2885,7 @@
       {
         "fn": "TR 644",
         "airline": "SCOOT PTE LTD",
-        "status": "",
+        "status": "landed",
         "pax": 147,
         "aircraft": "",
         "dep_time": "",
@@ -2889,7 +2896,7 @@
       {
         "fn": "MH 794",
         "airline": "MALAYSIA AIRLINES",
-        "status": "",
+        "status": "landed",
         "pax": 147,
         "aircraft": "7M8",
         "dep_time": "2026-05-28T08:20",
@@ -2900,7 +2907,7 @@
       {
         "fn": "AK 824",
         "airline": "AIRASIA BERHAD",
-        "status": "",
+        "status": "landed",
         "pax": 147,
         "aircraft": "320",
         "dep_time": "",
@@ -2911,7 +2918,7 @@
       {
         "fn": "SQ 732",
         "airline": "SINGAPORE AIRLINES LIMITED",
-        "status": "",
+        "status": "confirmed",
         "pax": 147,
         "aircraft": "7M8",
         "dep_time": "",
@@ -3043,7 +3050,7 @@
       {
         "fn": "CA 821",
         "airline": "AIR CHINA",
-        "status": "",
+        "status": "confirmed",
         "pax": 147,
         "aircraft": "7M8",
         "dep_time": "",
@@ -3087,7 +3094,7 @@
       {
         "fn": "EY 412",
         "airline": "ETIHAD AIRWAYS",
-        "status": "",
+        "status": "confirmed",
         "pax": 270,
         "aircraft": "78J",
         "dep_time": "",
@@ -3200,7 +3207,7 @@
         "status": "",
         "pax": 205,
         "aircraft": "788",
-        "dep_time": "",
+        "dep_time": "2026-05-28T07:50",
         "arr_time": "2026-05-28T13:40",
         "from": "MEL",
         "country": "Australia"
@@ -3303,6 +3310,28 @@
         "arr_time": "2026-05-28T16:55",
         "from": "AUH",
         "country": "UAE"
+      },
+      {
+        "fn": "EY 410",
+        "airline": "ETIHAD AIRWAYS",
+        "status": "",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "",
+        "arr_time": "2026-05-28T23:40",
+        "from": "AUH",
+        "country": "UAE"
+      },
+      {
+        "fn": "ZF 2937",
+        "airline": "AZUR AIR",
+        "status": "",
+        "pax": 147,
+        "aircraft": "76W",
+        "dep_time": "",
+        "arr_time": "2026-05-28T23:50",
+        "from": "SVX",
+        "country": "Russia"
       }
     ],
     "departures_list": [
@@ -4108,13 +4137,35 @@
         "arr_time": "",
         "to": "MAA",
         "country": "India"
+      },
+      {
+        "fn": "FM 832",
+        "airline": "SHANGHAI AIRLINES",
+        "status": "cancelled",
+        "pax": 147,
+        "aircraft": "7M8",
+        "dep_time": "2026-05-28T17:05",
+        "arr_time": "2026-05-28T23:30",
+        "to": "PVG",
+        "country": "China"
+      },
+      {
+        "fn": "EY 415",
+        "airline": "ETIHAD AIRWAYS",
+        "status": "",
+        "pax": 180,
+        "aircraft": "321",
+        "dep_time": "2026-05-28T20:20",
+        "arr_time": "2026-05-28T23:45",
+        "to": "AUH",
+        "country": "UAE"
       }
     ]
   },
   "week": {
     "arrivals": {
-      "count": 531,
-      "pax": 94176,
+      "count": 533,
+      "pax": 94470,
       "all": [
         {
           "name": "India",
@@ -4128,8 +4179,8 @@
         },
         {
           "name": "UAE",
-          "flights": 67,
-          "pax": 15117
+          "flights": 68,
+          "pax": 15264
         },
         {
           "name": "Singapore",
@@ -4209,6 +4260,12 @@
           "country": "Russia"
         },
         {
+          "name": "Екатеринбург",
+          "flights": 3,
+          "pax": 671,
+          "country": "Russia"
+        },
+        {
           "name": "Красноярск",
           "flights": 3,
           "pax": 781,
@@ -4243,12 +4300,6 @@
           "pax": 494
         },
         {
-          "name": "Екатеринбург",
-          "flights": 2,
-          "pax": 524,
-          "country": "Russia"
-        },
-        {
           "name": "Владивосток",
           "flights": 2,
           "pax": 648,
@@ -4280,8 +4331,8 @@
       ]
     },
     "departures": {
-      "count": 532,
-      "pax": 94848,
+      "count": 534,
+      "pax": 95175,
       "all": [
         {
           "name": "India",
@@ -4295,8 +4346,8 @@
         },
         {
           "name": "UAE",
-          "flights": 68,
-          "pax": 15510
+          "flights": 69,
+          "pax": 15690
         },
         {
           "name": "Singapore",
@@ -4305,8 +4356,8 @@
         },
         {
           "name": "China",
-          "flights": 58,
-          "pax": 8547
+          "flights": 59,
+          "pax": 8694
         },
         {
           "name": "Hong Kong",
@@ -5285,8 +5336,8 @@
       {
         "date": "2026-05-28",
         "label": "Чт 28.05",
-        "arrivals": 68,
-        "departures": 69,
+        "arrivals": 70,
+        "departures": 71,
         "arrivals_by": {
           "Kazakhstan": {
             "n": 1
@@ -5298,7 +5349,7 @@
             "n": 3
           },
           "UAE": {
-            "n": 9
+            "n": 10
           },
           "China": {
             "n": 9
@@ -5338,6 +5389,10 @@
           },
           "South Korea": {
             "n": 2
+          },
+          "Екатеринбург": {
+            "n": 1,
+            "country": "Russia"
           }
         },
         "departures_by": {
@@ -5348,10 +5403,10 @@
             "n": 11
           },
           "UAE": {
-            "n": 9
+            "n": 10
           },
           "China": {
-            "n": 8
+            "n": 9
           },
           "Екатеринбург": {
             "n": 1,
@@ -5400,17 +5455,17 @@
       }
     ],
     "russia_transit": {
-      "pax": 5228,
-      "flights": 35,
-      "tat_pax": 3471,
+      "pax": 5081,
+      "flights": 34,
+      "tat_pax": 3324,
       "bkk_pax": 1757,
       "estimated": true
     }
   },
   "month": {
     "arrivals": {
-      "count": 2439,
-      "pax": 431277,
+      "count": 2441,
+      "pax": 431571,
       "all": [
         {
           "name": "India",
@@ -5424,8 +5479,8 @@
         },
         {
           "name": "UAE",
-          "flights": 310,
-          "pax": 66825
+          "flights": 311,
+          "pax": 66972
         },
         {
           "name": "China",
@@ -5510,15 +5565,15 @@
           "pax": 3438
         },
         {
+          "name": "Екатеринбург",
+          "flights": 13,
+          "pax": 3051,
+          "country": "Russia"
+        },
+        {
           "name": "Israel",
           "flights": 13,
           "pax": 3181
-        },
-        {
-          "name": "Екатеринбург",
-          "flights": 12,
-          "pax": 2904,
-          "country": "Russia"
         },
         {
           "name": "Санкт-Петербург",
@@ -5624,8 +5679,8 @@
       ]
     },
     "departures": {
-      "count": 2437,
-      "pax": 432783,
+      "count": 2439,
+      "pax": 433110,
       "all": [
         {
           "name": "India",
@@ -5639,13 +5694,13 @@
         },
         {
           "name": "UAE",
-          "flights": 308,
-          "pax": 67461
+          "flights": 309,
+          "pax": 67641
         },
         {
           "name": "China",
-          "flights": 291,
-          "pax": 42868
+          "flights": 292,
+          "pax": 43015
         },
         {
           "name": "Singapore",
@@ -6720,8 +6775,8 @@
       {
         "key": "2026-W22",
         "label": "Нед 22 (Май)",
-        "arrivals": 298,
-        "departures": 298,
+        "arrivals": 300,
+        "departures": 300,
         "arrivals_by": {
           "India": {
             "n": 49
@@ -6730,7 +6785,7 @@
             "n": 10
           },
           "UAE": {
-            "n": 37
+            "n": 38
           },
           "China": {
             "n": 34
@@ -6784,7 +6839,7 @@
             "n": 3
           },
           "Екатеринбург": {
-            "n": 1,
+            "n": 2,
             "country": "Russia"
           },
           "Israel": {
@@ -6822,10 +6877,10 @@
             "n": 49
           },
           "UAE": {
-            "n": 38
+            "n": 39
           },
           "China": {
-            "n": 33
+            "n": 34
           },
           "Oman": {
             "n": 3
@@ -6915,17 +6970,17 @@
       }
     ],
     "russia_transit": {
-      "pax": 18742,
-      "flights": 127,
-      "tat_pax": 11214,
+      "pax": 18595,
+      "flights": 126,
+      "tat_pax": 11067,
       "bkk_pax": 7528,
       "estimated": true
     }
   },
   "quarter": {
     "arrivals": {
-      "count": 8404,
-      "pax": 1523216,
+      "count": 8406,
+      "pax": 1523510,
       "all": [
         {
           "name": "India",
@@ -6944,8 +6999,8 @@
         },
         {
           "name": "UAE",
-          "flights": 886,
-          "pax": 190437
+          "flights": 887,
+          "pax": 190584
         },
         {
           "name": "Singapore",
@@ -7026,8 +7081,8 @@
         },
         {
           "name": "Екатеринбург",
-          "flights": 73,
-          "pax": 15381,
+          "flights": 74,
+          "pax": 15528,
           "country": "Russia"
         },
         {
@@ -7276,8 +7331,8 @@
       ]
     },
     "departures": {
-      "count": 8349,
-      "pax": 1516570,
+      "count": 8351,
+      "pax": 1516897,
       "all": [
         {
           "name": "India",
@@ -7291,13 +7346,13 @@
         },
         {
           "name": "China",
-          "flights": 1005,
-          "pax": 153412
+          "flights": 1006,
+          "pax": 153559
         },
         {
           "name": "UAE",
-          "flights": 883,
-          "pax": 190629
+          "flights": 884,
+          "pax": 190809
         },
         {
           "name": "Singapore",
@@ -8598,11 +8653,11 @@
       {
         "key": "2026-05",
         "label": "Май 2026",
-        "arrivals": 2255,
-        "departures": 2252,
+        "arrivals": 2257,
+        "departures": 2254,
         "arrivals_by": {
           "UAE": {
-            "n": 283
+            "n": 284
           },
           "India": {
             "n": 351
@@ -8636,7 +8691,7 @@
             "n": 340
           },
           "Екатеринбург": {
-            "n": 12,
+            "n": 13,
             "country": "Russia"
           },
           "Hong Kong": {
@@ -8735,10 +8790,10 @@
             "n": 352
           },
           "UAE": {
-            "n": 284
+            "n": 285
           },
           "China": {
-            "n": 265
+            "n": 266
           },
           "Other": {
             "n": 113
@@ -8869,8 +8924,8 @@
   },
   "halfyear": {
     "arrivals": {
-      "count": 18329,
-      "pax": 3343276,
+      "count": 18331,
+      "pax": 3343570,
       "all": [
         {
           "name": "China",
@@ -8894,8 +8949,8 @@
         },
         {
           "name": "UAE",
-          "flights": 1650,
-          "pax": 361935
+          "flights": 1651,
+          "pax": 362082
         },
         {
           "name": "Hong Kong",
@@ -8977,8 +9032,8 @@
         },
         {
           "name": "Екатеринбург",
-          "flights": 152,
-          "pax": 33055,
+          "flights": 153,
+          "pax": 33202,
           "country": "Russia"
         },
         {
@@ -9247,13 +9302,13 @@
       ]
     },
     "departures": {
-      "count": 18394,
-      "pax": 3358063,
+      "count": 18396,
+      "pax": 3358390,
       "all": [
         {
           "name": "China",
-          "flights": 2673,
-          "pax": 415456
+          "flights": 2674,
+          "pax": 415603
         },
         {
           "name": "India",
@@ -9272,8 +9327,8 @@
         },
         {
           "name": "UAE",
-          "flights": 1652,
-          "pax": 363108
+          "flights": 1653,
+          "pax": 363288
         },
         {
           "name": "Hong Kong",
@@ -11788,11 +11843,11 @@
       {
         "key": "2026-05",
         "label": "Май 2026",
-        "arrivals": 2255,
-        "departures": 2252,
+        "arrivals": 2257,
+        "departures": 2254,
         "arrivals_by": {
           "UAE": {
-            "n": 283
+            "n": 284
           },
           "India": {
             "n": 351
@@ -11826,7 +11881,7 @@
             "n": 340
           },
           "Екатеринбург": {
-            "n": 12,
+            "n": 13,
             "country": "Russia"
           },
           "Hong Kong": {
@@ -11925,10 +11980,10 @@
             "n": 352
           },
           "UAE": {
-            "n": 284
+            "n": 285
           },
           "China": {
-            "n": 265
+            "n": 266
           },
           "Other": {
             "n": 113
@@ -12059,8 +12114,8 @@
   },
   "year": {
     "arrivals": {
-      "count": 26236,
-      "pax": 4784906,
+      "count": 26238,
+      "pax": 4785200,
       "all": [
         {
           "name": "China",
@@ -12084,8 +12139,8 @@
         },
         {
           "name": "UAE",
-          "flights": 2265,
-          "pax": 520761
+          "flights": 2266,
+          "pax": 520908
         },
         {
           "name": "Hong Kong",
@@ -12167,8 +12222,8 @@
         },
         {
           "name": "Екатеринбург",
-          "flights": 205,
-          "pax": 46411,
+          "flights": 206,
+          "pax": 46558,
           "country": "Russia"
         },
         {
@@ -12442,13 +12497,13 @@
       ]
     },
     "departures": {
-      "count": 26478,
-      "pax": 4830937,
+      "count": 26480,
+      "pax": 4831264,
       "all": [
         {
           "name": "China",
-          "flights": 3867,
-          "pax": 597592
+          "flights": 3868,
+          "pax": 597739
         },
         {
           "name": "India",
@@ -12467,8 +12522,8 @@
         },
         {
           "name": "UAE",
-          "flights": 2274,
-          "pax": 523093
+          "flights": 2275,
+          "pax": 523273
         },
         {
           "name": "Hong Kong",
@@ -15668,11 +15723,11 @@
       {
         "key": "2026-05",
         "label": "Май 2026",
-        "arrivals": 2255,
-        "departures": 2252,
+        "arrivals": 2257,
+        "departures": 2254,
         "arrivals_by": {
           "UAE": {
-            "n": 283
+            "n": 284
           },
           "India": {
             "n": 351
@@ -15706,7 +15761,7 @@
             "n": 340
           },
           "Екатеринбург": {
-            "n": 12,
+            "n": 13,
             "country": "Russia"
           },
           "Hong Kong": {
@@ -15805,10 +15860,10 @@
             "n": 352
           },
           "UAE": {
-            "n": 284
+            "n": 285
           },
           "China": {
-            "n": 265
+            "n": 266
           },
           "Other": {
             "n": 113
