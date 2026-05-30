@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-31T00:36:06.749374+07:00",
+  "updated": "2026-05-31T02:48:28.690144+07:00",
   "available_dates": [
     "2025-09-01",
     "2025-09-02",
@@ -1184,11 +1184,21 @@
   },
   "today": {
     "arrivals": {
-      "count": 25,
-      "pax": 3675,
+      "count": 35,
+      "pax": 5145,
       "all": [
         {
           "name": "South Korea",
+          "flights": 12,
+          "pax": 1764
+        },
+        {
+          "name": "China",
+          "flights": 5,
+          "pax": 735
+        },
+        {
+          "name": "Kazakhstan",
           "flights": 5,
           "pax": 735
         },
@@ -1197,16 +1207,6 @@
           "flights": 4,
           "pax": 588,
           "country": "Russia"
-        },
-        {
-          "name": "Kazakhstan",
-          "flights": 4,
-          "pax": 588
-        },
-        {
-          "name": "China",
-          "flights": 3,
-          "pax": 441
         },
         {
           "name": "Uzbekistan",
@@ -1247,13 +1247,13 @@
       ]
     },
     "departures": {
-      "count": 26,
-      "pax": 3822,
+      "count": 34,
+      "pax": 4998,
       "all": [
         {
           "name": "South Korea",
-          "flights": 6,
-          "pax": 882
+          "flights": 13,
+          "pax": 1911
         },
         {
           "name": "Kazakhstan",
@@ -1307,6 +1307,12 @@
           "name": "Singapore",
           "flights": 1,
           "pax": 147
+        },
+        {
+          "name": "Владивосток",
+          "flights": 1,
+          "pax": 147,
+          "country": "Russia"
         }
       ]
     },
@@ -1325,7 +1331,7 @@
       {
         "fn": "TW041",
         "airline": "T'Way Air",
-        "status": "on time",
+        "status": "arrived",
         "pax": 147,
         "aircraft": "HL8300",
         "dep_time": "",
@@ -1336,7 +1342,7 @@
       {
         "fn": "7C2303",
         "airline": "Jeju Air",
-        "status": "on time",
+        "status": "arrived",
         "pax": 147,
         "aircraft": "HL8719",
         "dep_time": "",
@@ -1490,10 +1496,10 @@
       {
         "fn": "HH2231",
         "airline": "Qanot Sharq Airlines",
-        "status": "on time",
+        "status": "delay until",
         "pax": 147,
         "aircraft": "",
-        "dep_time": "",
+        "dep_time": "2026-05-31T12:05",
         "arr_time": "2026-05-31T11:00",
         "from": "TAS",
         "country": "Uzbekistan"
@@ -1596,6 +1602,127 @@
         "arr_time": "2026-05-31T19:55",
         "from": "TPE",
         "country": "Taiwan"
+      },
+      {
+        "fn": "BX787",
+        "airline": "Air Busan",
+        "status": "on time",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "",
+        "arr_time": "2026-05-31T20:40",
+        "from": "ICN",
+        "country": "South Korea"
+      },
+      {
+        "fn": "VJ5133",
+        "airline": "Vietjet Air",
+        "status": "cancelled",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "",
+        "arr_time": "2026-05-31T20:55",
+        "from": "ZHA",
+        "country": "Kazakhstan"
+      },
+      {
+        "fn": "WE205",
+        "airline": "Parata Air",
+        "status": "on time",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "",
+        "arr_time": "2026-05-31T22:15",
+        "from": "ICN",
+        "country": "South Korea"
+      },
+      {
+        "fn": "BX781",
+        "airline": "Air Busan",
+        "status": "on time",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "",
+        "arr_time": "2026-05-31T22:20",
+        "from": "PUS",
+        "country": "South Korea"
+      },
+      {
+        "fn": "TW033",
+        "airline": "T'Way Air",
+        "status": "on time",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "",
+        "arr_time": "2026-05-31T22:30",
+        "from": "ICN",
+        "country": "South Korea"
+      },
+      {
+        "fn": "RS527",
+        "airline": "Air Seoul",
+        "status": "on time",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "",
+        "arr_time": "2026-05-31T22:55",
+        "from": "ICN",
+        "country": "South Korea"
+      },
+      {
+        "fn": "KE467",
+        "airline": "Korean Air",
+        "status": "on time",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "",
+        "arr_time": "2026-05-31T23:05",
+        "from": "ICN",
+        "country": "South Korea"
+      },
+      {
+        "fn": "VJ5103",
+        "airline": "Vietjet Air",
+        "status": "on time",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "",
+        "arr_time": "2026-05-31T23:10",
+        "from": "CZX",
+        "country": "China"
+      },
+      {
+        "fn": "VJ5357",
+        "airline": "Vietjet Air",
+        "status": "cancelled",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "",
+        "arr_time": "2026-05-31T23:15",
+        "from": "CSX",
+        "country": "China"
+      },
+      {
+        "fn": "ZE561",
+        "airline": "Eastar Jet",
+        "status": "on time",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "",
+        "arr_time": "2026-05-31T23:55",
+        "from": "ICN",
+        "country": "South Korea"
+      },
+      {
+        "fn": "VJ5417",
+        "airline": "Vietjet Air",
+        "status": "cancelled",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "",
+        "arr_time": "2026-05-31T23:55",
+        "from": "NKG",
+        "country": "China"
       }
     ],
     "departures_list": [
@@ -1906,28 +2033,116 @@
         "arr_time": "",
         "to": "TFU",
         "country": "China"
+      },
+      {
+        "fn": "VN440",
+        "airline": "Vietnam Airlines",
+        "status": "on time",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "2026-05-31T21:35",
+        "arr_time": "",
+        "to": "ICN",
+        "country": "South Korea"
+      },
+      {
+        "fn": "BX788",
+        "airline": "Air Busan",
+        "status": "on time",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "2026-05-31T21:50",
+        "arr_time": "",
+        "to": "ICN",
+        "country": "South Korea"
+      },
+      {
+        "fn": "VJ2978",
+        "airline": "Vietjet Air",
+        "status": "on time",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "2026-05-31T22:30",
+        "arr_time": "",
+        "to": "VVO",
+        "country": "Russia"
+      },
+      {
+        "fn": "VJ834",
+        "airline": "Vietjet Air",
+        "status": "on time",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "2026-05-31T22:55",
+        "arr_time": "",
+        "to": "ICN",
+        "country": "South Korea"
+      },
+      {
+        "fn": "WE206",
+        "airline": "Parata Air",
+        "status": "on time",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "2026-05-31T23:15",
+        "arr_time": "",
+        "to": "ICN",
+        "country": "South Korea"
+      },
+      {
+        "fn": "BX782",
+        "airline": "Air Busan",
+        "status": "on time",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "2026-05-31T23:20",
+        "arr_time": "",
+        "to": "PUS",
+        "country": "South Korea"
+      },
+      {
+        "fn": "TW034",
+        "airline": "T'Way Air",
+        "status": "on time",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "2026-05-31T23:30",
+        "arr_time": "",
+        "to": "ICN",
+        "country": "South Korea"
+      },
+      {
+        "fn": "VN434",
+        "airline": "Vietnam Airlines",
+        "status": "on time",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "2026-05-31T23:40",
+        "arr_time": "",
+        "to": "PUS",
+        "country": "South Korea"
       }
     ]
   },
   "week": {
     "arrivals": {
-      "count": 222,
-      "pax": 32634,
+      "count": 232,
+      "pax": 34104,
       "all": [
         {
           "name": "South Korea",
-          "flights": 77,
-          "pax": 11319
+          "flights": 84,
+          "pax": 12348
         },
         {
           "name": "Kazakhstan",
-          "flights": 30,
-          "pax": 4410
+          "flights": 31,
+          "pax": 4557
         },
         {
           "name": "China",
-          "flights": 25,
-          "pax": 3675
+          "flights": 27,
+          "pax": 3969
         },
         {
           "name": "Москва",
@@ -2061,13 +2276,13 @@
       ]
     },
     "departures": {
-      "count": 213,
-      "pax": 31311,
+      "count": 221,
+      "pax": 32487,
       "all": [
         {
           "name": "South Korea",
-          "flights": 78,
-          "pax": 11466
+          "flights": 85,
+          "pax": 12495
         },
         {
           "name": "Kazakhstan",
@@ -2119,15 +2334,15 @@
           "pax": 735
         },
         {
+          "name": "Владивосток",
+          "flights": 4,
+          "pax": 588,
+          "country": "Russia"
+        },
+        {
           "name": "Malaysia",
           "flights": 4,
           "pax": 588
-        },
-        {
-          "name": "Владивосток",
-          "flights": 3,
-          "pax": 441,
-          "country": "Russia"
         },
         {
           "name": "Belarus",
@@ -2787,21 +3002,21 @@
       {
         "date": "2026-05-31",
         "label": "Вс 31.05",
-        "arrivals": 25,
-        "departures": 26,
+        "arrivals": 35,
+        "departures": 34,
         "arrivals_by": {
           "China": {
-            "n": 3
+            "n": 5
           },
           "South Korea": {
-            "n": 5
+            "n": 12
           },
           "Москва": {
             "n": 4,
             "country": "Russia"
           },
           "Kazakhstan": {
-            "n": 4
+            "n": 5
           },
           "Uzbekistan": {
             "n": 3
@@ -2828,7 +3043,7 @@
         },
         "departures_by": {
           "South Korea": {
-            "n": 6
+            "n": 13
           },
           "Uzbekistan": {
             "n": 3
@@ -2862,6 +3077,10 @@
           },
           "Singapore": {
             "n": 1
+          },
+          "Владивосток": {
+            "n": 1,
+            "country": "Russia"
           }
         }
       }
@@ -2869,23 +3088,23 @@
   },
   "month": {
     "arrivals": {
-      "count": 1004,
-      "pax": 147588,
+      "count": 1014,
+      "pax": 149058,
       "all": [
         {
           "name": "South Korea",
-          "flights": 355,
-          "pax": 52185
+          "flights": 362,
+          "pax": 53214
         },
         {
           "name": "China",
-          "flights": 125,
-          "pax": 18375
+          "flights": 127,
+          "pax": 18669
         },
         {
           "name": "Kazakhstan",
-          "flights": 119,
-          "pax": 17493
+          "flights": 120,
+          "pax": 17640
         },
         {
           "name": "Москва",
@@ -3030,13 +3249,13 @@
       ]
     },
     "departures": {
-      "count": 948,
-      "pax": 139356,
+      "count": 956,
+      "pax": 140532,
       "all": [
         {
           "name": "South Korea",
-          "flights": 355,
-          "pax": 52185
+          "flights": 362,
+          "pax": 53214
         },
         {
           "name": "Kazakhstan",
@@ -3089,8 +3308,8 @@
         },
         {
           "name": "Владивосток",
-          "flights": 17,
-          "pax": 2499,
+          "flights": 18,
+          "pax": 2646,
           "country": "Russia"
         },
         {
@@ -3893,18 +4112,18 @@
       {
         "key": "2026-W22",
         "label": "Нед 22 (Май)",
-        "arrivals": 222,
-        "departures": 213,
+        "arrivals": 232,
+        "departures": 221,
         "arrivals_by": {
           "South Korea": {
-            "n": 77
+            "n": 84
           },
           "Красноярск": {
             "n": 4,
             "country": "Russia"
           },
           "Kazakhstan": {
-            "n": 30
+            "n": 31
           },
           "Москва": {
             "n": 17,
@@ -3918,7 +4137,7 @@
             "n": 9
           },
           "China": {
-            "n": 25
+            "n": 27
           },
           "Благовещенск": {
             "n": 2,
@@ -3991,7 +4210,7 @@
         },
         "departures_by": {
           "South Korea": {
-            "n": 78
+            "n": 85
           },
           "Казань": {
             "n": 2,
@@ -4053,7 +4272,7 @@
             "country": "Russia"
           },
           "Владивосток": {
-            "n": 3,
+            "n": 4,
             "country": "Russia"
           },
           "Taiwan": {
@@ -4081,18 +4300,18 @@
   },
   "quarter": {
     "arrivals": {
-      "count": 3144,
-      "pax": 462168,
+      "count": 3154,
+      "pax": 463638,
       "all": [
         {
           "name": "South Korea",
-          "flights": 1225,
-          "pax": 180075
+          "flights": 1232,
+          "pax": 181104
         },
         {
           "name": "China",
-          "flights": 402,
-          "pax": 59094
+          "flights": 404,
+          "pax": 59388
         },
         {
           "name": "Москва",
@@ -4102,8 +4321,8 @@
         },
         {
           "name": "Kazakhstan",
-          "flights": 240,
-          "pax": 35280
+          "flights": 241,
+          "pax": 35427
         },
         {
           "name": "Thailand",
@@ -4292,13 +4511,13 @@
       ]
     },
     "departures": {
-      "count": 3023,
-      "pax": 444381,
+      "count": 3031,
+      "pax": 445557,
       "all": [
         {
           "name": "South Korea",
-          "flights": 1221,
-          "pax": 179487
+          "flights": 1228,
+          "pax": 180516
         },
         {
           "name": "China",
@@ -4355,13 +4574,13 @@
           "pax": 7938
         },
         {
-          "name": "Красноярск",
-          "flights": 50,
-          "pax": 7350,
+          "name": "Владивосток",
+          "flights": 51,
+          "pax": 7497,
           "country": "Russia"
         },
         {
-          "name": "Владивосток",
+          "name": "Красноярск",
           "flights": 50,
           "pax": 7350,
           "country": "Russia"
@@ -4907,21 +5126,21 @@
       {
         "key": "2026-05",
         "label": "Май 2026",
-        "arrivals": 1043,
-        "departures": 983,
+        "arrivals": 1053,
+        "departures": 991,
         "arrivals_by": {
           "South Korea": {
-            "n": 369
+            "n": 376
           },
           "China": {
-            "n": 132
+            "n": 134
           },
           "Красноярск": {
             "n": 18,
             "country": "Russia"
           },
           "Kazakhstan": {
-            "n": 124
+            "n": 125
           },
           "Москва": {
             "n": 92,
@@ -5012,7 +5231,7 @@
         },
         "departures_by": {
           "South Korea": {
-            "n": 369
+            "n": 376
           },
           "Казань": {
             "n": 12,
@@ -5053,7 +5272,7 @@
             "country": "Russia"
           },
           "Владивосток": {
-            "n": 18,
+            "n": 19,
             "country": "Russia"
           },
           "Malaysia": {
@@ -5112,18 +5331,18 @@
   },
   "halfyear": {
     "arrivals": {
-      "count": 6609,
-      "pax": 971523,
+      "count": 6619,
+      "pax": 972993,
       "all": [
         {
           "name": "South Korea",
-          "flights": 3138,
-          "pax": 461286
+          "flights": 3145,
+          "pax": 462315
         },
         {
           "name": "China",
-          "flights": 881,
-          "pax": 129507
+          "flights": 883,
+          "pax": 129801
         },
         {
           "name": "Москва",
@@ -5133,8 +5352,8 @@
         },
         {
           "name": "Kazakhstan",
-          "flights": 309,
-          "pax": 45423
+          "flights": 310,
+          "pax": 45570
         },
         {
           "name": "Thailand",
@@ -5333,13 +5552,13 @@
       ]
     },
     "departures": {
-      "count": 6480,
-      "pax": 952560,
+      "count": 6488,
+      "pax": 953736,
       "all": [
         {
           "name": "South Korea",
-          "flights": 3137,
-          "pax": 461139
+          "flights": 3144,
+          "pax": 462168
         },
         {
           "name": "China",
@@ -5396,13 +5615,13 @@
           "pax": 14994
         },
         {
-          "name": "Красноярск",
-          "flights": 93,
-          "pax": 13671,
+          "name": "Владивосток",
+          "flights": 94,
+          "pax": 13818,
           "country": "Russia"
         },
         {
-          "name": "Владивосток",
+          "name": "Красноярск",
           "flights": 93,
           "pax": 13671,
           "country": "Russia"
@@ -6539,21 +6758,21 @@
       {
         "key": "2026-05",
         "label": "Май 2026",
-        "arrivals": 1043,
-        "departures": 983,
+        "arrivals": 1053,
+        "departures": 991,
         "arrivals_by": {
           "South Korea": {
-            "n": 369
+            "n": 376
           },
           "China": {
-            "n": 132
+            "n": 134
           },
           "Красноярск": {
             "n": 18,
             "country": "Russia"
           },
           "Kazakhstan": {
-            "n": 124
+            "n": 125
           },
           "Москва": {
             "n": 92,
@@ -6644,7 +6863,7 @@
         },
         "departures_by": {
           "South Korea": {
-            "n": 369
+            "n": 376
           },
           "Казань": {
             "n": 12,
@@ -6685,7 +6904,7 @@
             "country": "Russia"
           },
           "Владивосток": {
-            "n": 18,
+            "n": 19,
             "country": "Russia"
           },
           "Malaysia": {
@@ -6744,18 +6963,18 @@
   },
   "year": {
     "arrivals": {
-      "count": 9640,
-      "pax": 1417080,
+      "count": 9650,
+      "pax": 1418550,
       "all": [
         {
           "name": "South Korea",
-          "flights": 4703,
-          "pax": 691341
+          "flights": 4710,
+          "pax": 692370
         },
         {
           "name": "China",
-          "flights": 1286,
-          "pax": 189042
+          "flights": 1288,
+          "pax": 189336
         },
         {
           "name": "Москва",
@@ -6765,8 +6984,8 @@
         },
         {
           "name": "Kazakhstan",
-          "flights": 432,
-          "pax": 63504
+          "flights": 433,
+          "pax": 63651
         },
         {
           "name": "Thailand",
@@ -6970,13 +7189,13 @@
       ]
     },
     "departures": {
-      "count": 9519,
-      "pax": 1399293,
+      "count": 9527,
+      "pax": 1400469,
       "all": [
         {
           "name": "South Korea",
-          "flights": 4703,
-          "pax": 691341
+          "flights": 4710,
+          "pax": 692370
         },
         {
           "name": "China",
@@ -7029,8 +7248,8 @@
         },
         {
           "name": "Владивосток",
-          "flights": 134,
-          "pax": 19698,
+          "flights": 135,
+          "pax": 19845,
           "country": "Russia"
         },
         {
@@ -8649,21 +8868,21 @@
       {
         "key": "2026-05",
         "label": "Май 2026",
-        "arrivals": 1043,
-        "departures": 983,
+        "arrivals": 1053,
+        "departures": 991,
         "arrivals_by": {
           "South Korea": {
-            "n": 369
+            "n": 376
           },
           "China": {
-            "n": 132
+            "n": 134
           },
           "Красноярск": {
             "n": 18,
             "country": "Russia"
           },
           "Kazakhstan": {
-            "n": 124
+            "n": 125
           },
           "Москва": {
             "n": 92,
@@ -8754,7 +8973,7 @@
         },
         "departures_by": {
           "South Korea": {
-            "n": 369
+            "n": 376
           },
           "Казань": {
             "n": 12,
@@ -8795,7 +9014,7 @@
             "country": "Russia"
           },
           "Владивосток": {
-            "n": 18,
+            "n": 19,
             "country": "Russia"
           },
           "Malaysia": {
