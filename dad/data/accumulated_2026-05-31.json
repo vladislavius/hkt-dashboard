@@ -1,8 +1,8 @@
 {
   "date": "2026-05-31",
   "arrivals": {
-    "count": 10,
-    "pax": 1470,
+    "count": 14,
+    "pax": 2058,
     "countries": {
       "Новосибирск": {
         "flights": 1,
@@ -23,8 +23,8 @@
         "pax": 294
       },
       "Singapore": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Macau": {
         "flights": 2,
@@ -33,12 +33,20 @@
       "Taiwan": {
         "flights": 1,
         "pax": 147
+      },
+      "Vietnam": {
+        "flights": 1,
+        "pax": 147
+      },
+      "South Korea": {
+        "flights": 2,
+        "pax": 294
       }
     }
   },
   "departures": {
-    "count": 6,
-    "pax": 882,
+    "count": 7,
+    "pax": 1029,
     "countries": {
       "Taiwan": {
         "flights": 1,
@@ -57,8 +65,8 @@
         "pax": 147
       },
       "Macau": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       }
     }
   },
@@ -184,6 +192,46 @@
       "arr_time": "2026-05-31T20:30",
       "from": "MFM",
       "country": "Macau"
+    },
+    {
+      "fn": "VN1940",
+      "airline": "Vietnam Airlines",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-31T20:55",
+      "from": "CXR",
+      "country": "Vietnam"
+    },
+    {
+      "fn": "KE459",
+      "airline": "Korean Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-31T21:05",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "VJ890",
+      "airline": "Vietjet Air",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-31T21:05",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "WE201",
+      "airline": "Parata Air",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-31T21:10",
+      "from": "ICN",
+      "country": "South Korea"
     }
   ],
   "departures_list": [
@@ -266,6 +314,16 @@
       "arr_time": "",
       "to": "KTI",
       "country": "Other(KTI)"
+    },
+    {
+      "fn": "NX977",
+      "airline": "Air Macau",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-31T21:30",
+      "arr_time": "",
+      "to": "MFM",
+      "country": "Macau"
     }
   ]
 }
