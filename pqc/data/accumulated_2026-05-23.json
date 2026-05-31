@@ -1,15 +1,578 @@
 {
   "date": "2026-05-23",
   "arrivals": {
-    "count": 0,
-    "pax": 0,
-    "countries": {}
+    "count": 24,
+    "pax": 3528,
+    "countries": {
+      "South Korea": {
+        "flights": 8,
+        "pax": 1176
+      },
+      "Hong Kong": {
+        "flights": 4,
+        "pax": 588
+      },
+      "Singapore": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Taiwan": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Thailand": {
+        "flights": 4,
+        "pax": 588
+      },
+      "Other(KTI)": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Malaysia": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Other(RMQ)": {
+        "flights": 1,
+        "pax": 147
+      }
+    }
   },
   "departures": {
-    "count": 0,
-    "pax": 0,
-    "countries": {}
+    "count": 21,
+    "pax": 3087,
+    "countries": {
+      "South Korea": {
+        "flights": 5,
+        "pax": 735
+      },
+      "Hong Kong": {
+        "flights": 4,
+        "pax": 588
+      },
+      "Singapore": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Thailand": {
+        "flights": 4,
+        "pax": 588
+      },
+      "Other(KTI)": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Malaysia": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Taiwan": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Other(RMQ)": {
+        "flights": 1,
+        "pax": 147
+      }
+    }
   },
-  "arrivals_list": [],
-  "departures_list": []
+  "arrivals_list": [
+    {
+      "fn": "VJ979",
+      "airline": "VJ",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A321",
+      "dep_time": "2026-05-23T02:05",
+      "arr_time": "2026-05-23T07:20",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "VJ977",
+      "airline": "VJ",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A320",
+      "dep_time": "2026-05-23T03:00",
+      "arr_time": "2026-05-23T08:15",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "UO598",
+      "airline": "UO",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A320",
+      "dep_time": "2026-05-23T06:45",
+      "arr_time": "2026-05-23T09:20",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "AK543",
+      "airline": "AK",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A20N",
+      "dep_time": "2026-05-23T07:40",
+      "arr_time": "2026-05-23T09:20",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "JX333",
+      "airline": "JX",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A21N",
+      "dep_time": "2026-05-23T06:05",
+      "arr_time": "2026-05-23T09:33",
+      "from": "RMQ",
+      "country": "Other(RMQ)"
+    },
+    {
+      "fn": "VZ980",
+      "airline": "VZ",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A320",
+      "dep_time": "2026-05-23T09:15",
+      "arr_time": "2026-05-23T10:30",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "VJ969",
+      "airline": "VJ",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A321",
+      "dep_time": "2026-05-23T05:45",
+      "arr_time": "2026-05-23T11:00",
+      "from": "PUS",
+      "country": "South Korea"
+    },
+    {
+      "fn": "FD660",
+      "airline": "FD",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A320",
+      "dep_time": "2026-05-23T12:00",
+      "arr_time": "2026-05-23T13:10",
+      "from": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "AK545",
+      "airline": "AK",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A320",
+      "dep_time": "2026-05-23T11:50",
+      "arr_time": "2026-05-23T13:20",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "VJ984",
+      "airline": "VJ",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A321",
+      "dep_time": "2026-05-23T12:05",
+      "arr_time": "2026-05-23T13:35",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "K6830",
+      "airline": "K6",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "AT72",
+      "dep_time": "2026-05-23T13:45",
+      "arr_time": "2026-05-23T14:45",
+      "from": "KTI",
+      "country": "Other(KTI)"
+    },
+    {
+      "fn": "9G451",
+      "airline": "9G",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A21N",
+      "dep_time": "2026-05-23T09:25",
+      "arr_time": "2026-05-23T14:55",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "VZ982",
+      "airline": "VZ",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A320",
+      "dep_time": "2026-05-23T15:25",
+      "arr_time": "2026-05-23T16:35",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "FD662",
+      "airline": "FD",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A320",
+      "dep_time": "2026-05-23T15:35",
+      "arr_time": "2026-05-23T16:50",
+      "from": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "VJ845",
+      "airline": "VJ",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A321",
+      "dep_time": "2026-05-23T13:10",
+      "arr_time": "2026-05-23T16:54",
+      "from": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "TR524",
+      "airline": "TR",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "E290",
+      "dep_time": "2026-05-23T15:40",
+      "arr_time": "2026-05-23T17:30",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "UO596",
+      "airline": "UO",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A321",
+      "dep_time": "2026-05-23T15:10",
+      "arr_time": "2026-05-23T17:51",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "VJ985",
+      "airline": "VJ",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A321",
+      "dep_time": "2026-05-23T15:40",
+      "arr_time": "2026-05-23T18:19",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "9G501",
+      "airline": "9G",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A21N",
+      "dep_time": "2026-05-23T15:45",
+      "arr_time": "2026-05-23T18:25",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "LJ91",
+      "airline": "LJ",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "B38M",
+      "dep_time": "2026-05-23T15:05",
+      "arr_time": "2026-05-23T20:10",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "9G511",
+      "airline": "9G",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A321",
+      "dep_time": "2026-05-23T16:35",
+      "arr_time": "2026-05-23T20:15",
+      "from": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "7C2315",
+      "airline": "7C",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "B38M",
+      "dep_time": "2026-05-23T15:20",
+      "arr_time": "2026-05-23T21:11",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "KE485",
+      "airline": "KE",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A21N",
+      "dep_time": "2026-05-23T17:05",
+      "arr_time": "2026-05-23T22:37",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "WE207",
+      "airline": "WE",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A332",
+      "dep_time": "2026-05-23T17:50",
+      "arr_time": "2026-05-23T23:30",
+      "from": "ICN",
+      "country": "South Korea"
+    }
+  ],
+  "departures_list": [
+    {
+      "fn": "KE486",
+      "airline": "KE",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "A21N",
+      "dep_time": "2026-05-23T00:10",
+      "arr_time": "2026-05-23T05:34",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "VJ844",
+      "airline": "VJ",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "A321",
+      "dep_time": "2026-05-23T08:20",
+      "arr_time": "2026-05-23T12:10",
+      "to": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "AK544",
+      "airline": "AK",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "A20N",
+      "dep_time": "2026-05-23T10:05",
+      "arr_time": "2026-05-23T11:52",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "JX334",
+      "airline": "JX",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "A21N",
+      "dep_time": "2026-05-23T10:40",
+      "arr_time": "2026-05-23T13:47",
+      "to": "RMQ",
+      "country": "Other(RMQ)"
+    },
+    {
+      "fn": "UO599",
+      "airline": "UO",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "A320",
+      "dep_time": "2026-05-23T10:40",
+      "arr_time": "2026-05-23T13:32",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "9G510",
+      "airline": "9G",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "A321",
+      "dep_time": "2026-05-23T11:30",
+      "arr_time": "2026-05-23T15:00",
+      "to": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "VZ981",
+      "airline": "VZ",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "A320",
+      "dep_time": "2026-05-23T11:45",
+      "arr_time": "2026-05-23T12:55",
+      "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "VJ986",
+      "airline": "VJ",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "A321",
+      "dep_time": "2026-05-23T11:55",
+      "arr_time": "2026-05-23T14:32",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "9G502",
+      "airline": "9G",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "A21N",
+      "dep_time": "2026-05-23T11:55",
+      "arr_time": "2026-05-23T14:35",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "FD661",
+      "airline": "FD",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "A320",
+      "dep_time": "2026-05-23T13:50",
+      "arr_time": "2026-05-23T14:55",
+      "to": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "AK546",
+      "airline": "AK",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "A320",
+      "dep_time": "2026-05-23T14:10",
+      "arr_time": "2026-05-23T15:55",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "K6831",
+      "airline": "K6",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "AT72",
+      "dep_time": "2026-05-23T15:25",
+      "arr_time": "2026-05-23T16:20",
+      "to": "KTI",
+      "country": "Other(KTI)"
+    },
+    {
+      "fn": "VJ983",
+      "airline": "VJ",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "A321",
+      "dep_time": "2026-05-23T15:45",
+      "arr_time": "2026-05-23T17:20",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "FD663",
+      "airline": "FD",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "A320",
+      "dep_time": "2026-05-23T17:30",
+      "arr_time": "2026-05-23T18:45",
+      "to": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "VZ983",
+      "airline": "VZ",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "A320",
+      "dep_time": "2026-05-23T17:35",
+      "arr_time": "2026-05-23T18:45",
+      "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "TR525",
+      "airline": "TR",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "E290",
+      "dep_time": "2026-05-23T18:20",
+      "arr_time": "2026-05-23T20:05",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "UO597",
+      "airline": "UO",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "A321",
+      "dep_time": "2026-05-23T19:05",
+      "arr_time": "2026-05-23T22:00",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "VJ978",
+      "airline": "VJ",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "A321",
+      "dep_time": "2026-05-23T19:35",
+      "arr_time": "2026-05-24T00:50",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "LJ92",
+      "airline": "LJ",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "B38M",
+      "dep_time": "2026-05-23T22:00",
+      "arr_time": "2026-05-24T02:55",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "7C2316",
+      "airline": "7C",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "B38M",
+      "dep_time": "2026-05-23T22:25",
+      "arr_time": "2026-05-24T03:55",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "9G452",
+      "airline": "9G",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "A21N",
+      "dep_time": "2026-05-23T23:10",
+      "arr_time": "2026-05-24T04:30",
+      "to": "ICN",
+      "country": "South Korea"
+    }
+  ]
 }

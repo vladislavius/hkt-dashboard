@@ -27,14 +27,26 @@
     }
   },
   "departures": {
-    "count": 2,
-    "pax": 294,
+    "count": 6,
+    "pax": 882,
     "countries": {
       "Taiwan": {
         "flights": 1,
         "pax": 147
       },
       "Vietnam": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Thailand": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Hong Kong": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Macau": {
         "flights": 1,
         "pax": 147
       }
@@ -122,6 +134,46 @@
       "arr_time": "",
       "to": "CXR",
       "country": "Vietnam"
+    },
+    {
+      "fn": "VZ963",
+      "airline": "Thai Vietjet",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-31T18:10",
+      "arr_time": "",
+      "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "FD639",
+      "airline": "Thai Air Asia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-31T18:10",
+      "arr_time": "",
+      "to": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "UO559",
+      "airline": "Hong Kong Express Airways",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-31T18:10",
+      "arr_time": "",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "VJ8892",
+      "airline": "Vietjet Air",
+      "status": "boarding",
+      "pax": 147,
+      "dep_time": "2026-05-31T18:15",
+      "arr_time": "",
+      "to": "MFM",
+      "country": "Macau"
     }
   ]
 }
