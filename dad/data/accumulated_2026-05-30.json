@@ -1,16 +1,21 @@
 {
   "date": "2026-05-30",
   "arrivals": {
-    "count": 59,
-    "pax": 8673,
+    "count": 57,
+    "pax": 8379,
     "countries": {
       "South Korea": {
-        "flights": 12,
-        "pax": 1764
+        "flights": 11,
+        "pax": 1617
       },
       "Other(MNL)": {
         "flights": 6,
         "pax": 882
+      },
+      "Москва": {
+        "flights": 1,
+        "pax": 147,
+        "country": "Russia"
       },
       "Taiwan": {
         "flights": 3,
@@ -63,16 +68,6 @@
       "Other(CJJ)": {
         "flights": 1,
         "pax": 147
-      },
-      "Новосибирск": {
-        "flights": 1,
-        "pax": 147,
-        "country": "Russia"
-      },
-      "Москва": {
-        "flights": 1,
-        "pax": 147,
-        "country": "Russia"
       }
     }
   },
@@ -153,17 +148,6 @@
   },
   "arrivals_list": [
     {
-      "fn": "TW13",
-      "airline": "TW",
-      "status": "landed",
-      "pax": 147,
-      "aircraft": "B738",
-      "dep_time": "2026-05-29T19:35",
-      "arr_time": "2026-05-29T23:43",
-      "from": "ICN",
-      "country": "South Korea"
-    },
-    {
       "fn": "BX7315",
       "airline": "BX",
       "status": "landed",
@@ -184,6 +168,17 @@
       "arr_time": "2026-05-30T04:25",
       "from": "MNL",
       "country": "Other(MNL)"
+    },
+    {
+      "fn": "VJ8924",
+      "airline": "VJ",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A333",
+      "dep_time": "2026-05-29T19:51",
+      "arr_time": "2026-05-30T04:55",
+      "from": "SVO",
+      "country": "Russia"
     },
     {
       "fn": "VJ8021",
@@ -778,28 +773,6 @@
       "arr_time": "2026-05-30T23:45",
       "from": "CJJ",
       "country": "Other(CJJ)"
-    },
-    {
-      "fn": "VJ8911",
-      "airline": "VJ",
-      "status": "landed",
-      "pax": 147,
-      "aircraft": "A333",
-      "dep_time": "2026-05-30T19:45",
-      "arr_time": "2026-05-31T02:08",
-      "from": "OVB",
-      "country": "Russia"
-    },
-    {
-      "fn": "VJ8932",
-      "airline": "VJ",
-      "status": "landed",
-      "pax": 147,
-      "aircraft": "A333",
-      "dep_time": "2026-05-30T20:29",
-      "arr_time": "2026-05-31T05:55",
-      "from": "SVO",
-      "country": "Russia"
     }
   ],
   "departures_list": [

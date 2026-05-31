@@ -1,8 +1,8 @@
 {
   "date": "2026-04-16",
   "arrivals": {
-    "count": 89,
-    "pax": 16469,
+    "count": 92,
+    "pax": 16943,
     "countries": {
       "India": {
         "flights": 13,
@@ -41,6 +41,10 @@
         "flights": 4,
         "pax": 1119,
         "country": "Russia"
+      },
+      "Other": {
+        "flights": 3,
+        "pax": 474
       },
       "Uzbekistan": {
         "flights": 1,
@@ -100,13 +104,9 @@
     }
   },
   "departures": {
-    "count": 90,
-    "pax": 16674,
+    "count": 93,
+    "pax": 17148,
     "countries": {
-      "China": {
-        "flights": 6,
-        "pax": 889
-      },
       "India": {
         "flights": 13,
         "pax": 1911
@@ -176,6 +176,10 @@
         "pax": 262,
         "country": "Russia"
       },
+      "Other": {
+        "flights": 3,
+        "pax": 474
+      },
       "Красноярск": {
         "flights": 1,
         "pax": 324,
@@ -192,6 +196,10 @@
       "Israel": {
         "flights": 1,
         "pax": 205
+      },
+      "China": {
+        "flights": 6,
+        "pax": 889
       },
       "Екатеринбург": {
         "flights": 1,
@@ -742,6 +750,26 @@
       "country": "India"
     },
     {
+      "fn": "AK197",
+      "airline": "AirAsia",
+      "from": "COK",
+      "country": "India",
+      "status": "landed",
+      "pax": 147,
+      "dep_time": "2026-04-16T02:45",
+      "arr_time": "2026-04-16T08:05"
+    },
+    {
+      "fn": "SQ8620",
+      "airline": "Singapore Airlines",
+      "from": "SIN",
+      "country": "Singapore",
+      "status": "landed",
+      "pax": 147,
+      "dep_time": "2026-04-16T07:30",
+      "arr_time": "2026-04-16T08:20"
+    },
+    {
       "fn": "AK 822",
       "airline": "AIRASIA BERHAD",
       "status": "landed",
@@ -751,6 +779,16 @@
       "arr_time": "2026-04-16T08:30",
       "from": "KUL",
       "country": "Malaysia"
+    },
+    {
+      "fn": "VA5730",
+      "airline": "Virgin Australia",
+      "from": "SIN",
+      "country": "Singapore",
+      "status": "landed",
+      "pax": 147,
+      "dep_time": "2026-04-16T07:50",
+      "arr_time": "2026-04-16T08:35"
     },
     {
       "fn": "CZ 6063",
@@ -784,6 +822,16 @@
       "arr_time": "2026-04-16T09:35",
       "from": "KUL",
       "country": "Malaysia"
+    },
+    {
+      "fn": "WY5601",
+      "airline": "Oman Air",
+      "from": "KUL",
+      "country": "Malaysia",
+      "status": "landed",
+      "pax": 147,
+      "dep_time": "2026-04-16T09:10",
+      "arr_time": "2026-04-16T09:45"
     },
     {
       "fn": "SQ 736",
@@ -839,6 +887,36 @@
       "arr_time": "2026-04-16T10:45",
       "from": "PEK",
       "country": "China"
+    },
+    {
+      "fn": "VA5732",
+      "airline": "Virgin Australia",
+      "from": "SIN",
+      "country": "Singapore",
+      "status": "landed",
+      "pax": 147,
+      "dep_time": "2026-04-16T09:45",
+      "arr_time": "2026-04-16T10:50"
+    },
+    {
+      "fn": "QR5817",
+      "airline": "Qatar Airways",
+      "from": "HKG",
+      "country": "Hong Kong",
+      "status": "landed",
+      "pax": 147,
+      "dep_time": "2026-04-16T08:05",
+      "arr_time": "2026-04-16T10:50"
+    },
+    {
+      "fn": "H14027",
+      "airline": null,
+      "from": "SGN",
+      "country": "Vietnam",
+      "status": "landed",
+      "pax": 147,
+      "dep_time": "2026-04-16T08:50",
+      "arr_time": "2026-04-16T10:55"
     },
     {
       "fn": "3U 3931",
@@ -973,6 +1051,16 @@
       "country": "Singapore"
     },
     {
+      "fn": "JQ71",
+      "airline": "Jetstar",
+      "from": "PER",
+      "country": "Australia",
+      "status": "landed",
+      "pax": 147,
+      "dep_time": "2026-04-16T07:30",
+      "arr_time": "2026-04-16T12:55"
+    },
+    {
       "fn": "EK 396",
       "airline": "EMIRATES",
       "status": "landed",
@@ -1061,6 +1149,16 @@
       "country": "China"
     },
     {
+      "fn": "IK3515",
+      "airline": "Pegas Fly",
+      "from": "OVB",
+      "country": "Russia",
+      "status": "landed",
+      "pax": 147,
+      "dep_time": "2026-04-16T07:40",
+      "arr_time": "2026-04-16T15:05"
+    },
+    {
       "fn": "HB 270",
       "airline": "GREATER BAY AIRLINES",
       "status": "cancelled",
@@ -1094,6 +1192,16 @@
       "country": "China"
     },
     {
+      "fn": "3U7045",
+      "airline": "Sichuan Airlines",
+      "from": "CAN",
+      "country": "China",
+      "status": "landed",
+      "pax": 147,
+      "dep_time": "2026-04-16T12:55",
+      "arr_time": "2026-04-16T15:40"
+    },
+    {
       "fn": "FM 831",
       "airline": "SHANGHAI AIRLINES",
       "status": "confirmed",
@@ -1105,46 +1213,6 @@
       "country": "China"
     },
     {
-      "fn": "3U7045",
-      "airline": "Sichuan Airlines",
-      "from": "CAN",
-      "country": "China",
-      "status": "landed",
-      "pax": 147,
-      "dep_time": "2026-04-16T12:55",
-      "arr_time": "2026-04-16T15:40"
-    },
-    {
-      "fn": "VA5732",
-      "airline": "Virgin Australia",
-      "from": "SIN",
-      "country": "Singapore",
-      "status": "landed",
-      "pax": 147,
-      "dep_time": "2026-04-16T09:45",
-      "arr_time": "2026-04-16T10:50"
-    },
-    {
-      "fn": "AK197",
-      "airline": "AirAsia",
-      "from": "COK",
-      "country": "India",
-      "status": "landed",
-      "pax": 147,
-      "dep_time": "2026-04-16T02:45",
-      "arr_time": "2026-04-16T08:05"
-    },
-    {
-      "fn": "WY5601",
-      "airline": "Oman Air",
-      "from": "KUL",
-      "country": "Malaysia",
-      "status": "landed",
-      "pax": 147,
-      "dep_time": "2026-04-16T09:10",
-      "arr_time": "2026-04-16T09:45"
-    },
-    {
       "fn": "JQ27",
       "airline": "Jetstar",
       "from": "SYD",
@@ -1153,80 +1221,9 @@
       "pax": 147,
       "dep_time": "2026-04-16T12:55",
       "arr_time": "2026-04-16T19:15"
-    },
-    {
-      "fn": "VA5730",
-      "airline": "Virgin Australia",
-      "from": "SIN",
-      "country": "Singapore",
-      "status": "landed",
-      "pax": 147,
-      "dep_time": "2026-04-16T07:50",
-      "arr_time": "2026-04-16T08:35"
-    },
-    {
-      "fn": "SQ8620",
-      "airline": "Singapore Airlines",
-      "from": "SIN",
-      "country": "Singapore",
-      "status": "landed",
-      "pax": 147,
-      "dep_time": "2026-04-16T07:30",
-      "arr_time": "2026-04-16T08:20"
-    },
-    {
-      "fn": "H14027",
-      "airline": null,
-      "from": "SGN",
-      "country": "Vietnam",
-      "status": "landed",
-      "pax": 147,
-      "dep_time": "2026-04-16T08:50",
-      "arr_time": "2026-04-16T10:55"
-    },
-    {
-      "fn": "IK3515",
-      "airline": "Pegas Fly",
-      "from": "OVB",
-      "country": "Russia",
-      "status": "landed",
-      "pax": 147,
-      "dep_time": "2026-04-16T07:40",
-      "arr_time": "2026-04-16T15:05"
-    },
-    {
-      "fn": "JQ71",
-      "airline": "Jetstar",
-      "from": "PER",
-      "country": "Australia",
-      "status": "landed",
-      "pax": 147,
-      "dep_time": "2026-04-16T07:30",
-      "arr_time": "2026-04-16T12:55"
-    },
-    {
-      "fn": "QR5817",
-      "airline": "Qatar Airways",
-      "from": "HKG",
-      "country": "Hong Kong",
-      "status": "landed",
-      "pax": 147,
-      "dep_time": "2026-04-16T08:05",
-      "arr_time": "2026-04-16T10:50"
     }
   ],
   "departures_list": [
-    {
-      "fn": "FM 832",
-      "airline": "SHANGHAI AIRLINES",
-      "status": "boarding",
-      "pax": 147,
-      "aircraft": "",
-      "dep_time": "2026-04-15T17:05",
-      "arr_time": "2026-04-15T22:55",
-      "to": "PVG",
-      "country": "China"
-    },
     {
       "fn": "AI 2379",
       "airline": "AIR INDIA LTD",
@@ -1701,6 +1698,16 @@
       "country": "Denmark"
     },
     {
+      "fn": "UX2738",
+      "airline": "Air Europa",
+      "to": "AUH",
+      "country": "UAE",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-16T08:55",
+      "arr_time": "2026-04-16T12:35"
+    },
+    {
       "fn": "AK 823",
       "airline": "AIRASIA BERHAD",
       "status": "",
@@ -1723,6 +1730,16 @@
       "country": "India"
     },
     {
+      "fn": "SQ8621",
+      "airline": "Singapore Airlines",
+      "to": "SIN",
+      "country": "Singapore",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-16T09:20",
+      "arr_time": "2026-04-16T12:45"
+    },
+    {
       "fn": "LY 088",
       "airline": "EL AL ISRAEL AIRLINES",
       "status": "cancelled",
@@ -1732,6 +1749,26 @@
       "arr_time": "",
       "to": "TLV",
       "country": "Israel"
+    },
+    {
+      "fn": "VA5729",
+      "airline": "Virgin Australia",
+      "to": "SIN",
+      "country": "Singapore",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-16T09:25",
+      "arr_time": "2026-04-16T13:00"
+    },
+    {
+      "fn": "UX2715",
+      "airline": "Air Europa",
+      "to": "AUH",
+      "country": "UAE",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-16T09:25",
+      "arr_time": "2026-04-16T12:45"
     },
     {
       "fn": "CZ 6064",
@@ -1789,6 +1826,16 @@
       "country": "India"
     },
     {
+      "fn": "WY5599",
+      "airline": "Oman Air",
+      "to": "KUL",
+      "country": "Malaysia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-16T10:30",
+      "arr_time": "2026-04-16T13:00"
+    },
+    {
       "fn": "SQ 735",
       "airline": "SINGAPORE AIRLINES LIMITED",
       "status": "",
@@ -1811,6 +1858,26 @@
       "country": "Malaysia"
     },
     {
+      "fn": "CX5725",
+      "airline": "Cathay Pacific",
+      "to": "HKG",
+      "country": "Hong Kong",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-16T11:15",
+      "arr_time": "2026-04-16T16:00"
+    },
+    {
+      "fn": "WK51",
+      "airline": "Edelweiss Air",
+      "to": "ZRH",
+      "country": "Switzerland",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-16T11:25",
+      "arr_time": "2026-04-16T18:55"
+    },
+    {
       "fn": "G9 715",
       "airline": "AIR ARABIA",
       "status": "cancelled",
@@ -1822,6 +1889,26 @@
       "country": "UAE"
     },
     {
+      "fn": "VA5731",
+      "airline": "Virgin Australia",
+      "to": "SIN",
+      "country": "Singapore",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-16T11:40",
+      "arr_time": "2026-04-16T14:55"
+    },
+    {
+      "fn": "QR5837",
+      "airline": "Qatar Airways",
+      "to": "HKG",
+      "country": "Hong Kong",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-16T11:50",
+      "arr_time": "2026-04-16T16:50"
+    },
+    {
       "fn": "MU 5094",
       "airline": "CHINA EASTERN AIRLINES",
       "status": "",
@@ -1831,6 +1918,16 @@
       "arr_time": "2026-04-16T17:15",
       "to": "KMG",
       "country": "China"
+    },
+    {
+      "fn": "H14026",
+      "airline": null,
+      "to": "SGN",
+      "country": "Vietnam",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-04-16T11:55",
+      "arr_time": "2026-04-16T13:50"
     },
     {
       "fn": "3U 3932",
@@ -2130,104 +2227,15 @@
       "country": "India"
     },
     {
-      "fn": "H14026",
-      "airline": null,
-      "to": "SGN",
-      "country": "Vietnam",
+      "fn": "FM 832",
+      "airline": "SHANGHAI AIRLINES",
       "status": "departed",
       "pax": 147,
-      "dep_time": "2026-04-16T11:55",
-      "arr_time": "2026-04-16T13:50"
-    },
-    {
-      "fn": "QR5837",
-      "airline": "Qatar Airways",
-      "to": "HKG",
-      "country": "Hong Kong",
-      "status": "departed",
-      "pax": 147,
-      "dep_time": "2026-04-16T11:50",
-      "arr_time": "2026-04-16T16:50"
-    },
-    {
-      "fn": "VA5731",
-      "airline": "Virgin Australia",
-      "to": "SIN",
-      "country": "Singapore",
-      "status": "departed",
-      "pax": 147,
-      "dep_time": "2026-04-16T11:40",
-      "arr_time": "2026-04-16T14:55"
-    },
-    {
-      "fn": "WK51",
-      "airline": "Edelweiss Air",
-      "to": "ZRH",
-      "country": "Switzerland",
-      "status": "departed",
-      "pax": 147,
-      "dep_time": "2026-04-16T11:25",
-      "arr_time": "2026-04-16T18:55"
-    },
-    {
-      "fn": "CX5725",
-      "airline": "Cathay Pacific",
-      "to": "HKG",
-      "country": "Hong Kong",
-      "status": "departed",
-      "pax": 147,
-      "dep_time": "2026-04-16T11:15",
-      "arr_time": "2026-04-16T16:00"
-    },
-    {
-      "fn": "WY5599",
-      "airline": "Oman Air",
-      "to": "KUL",
-      "country": "Malaysia",
-      "status": "departed",
-      "pax": 147,
-      "dep_time": "2026-04-16T10:30",
-      "arr_time": "2026-04-16T13:00"
-    },
-    {
-      "fn": "VA5729",
-      "airline": "Virgin Australia",
-      "to": "SIN",
-      "country": "Singapore",
-      "status": "departed",
-      "pax": 147,
-      "dep_time": "2026-04-16T09:25",
-      "arr_time": "2026-04-16T13:00"
-    },
-    {
-      "fn": "UX2715",
-      "airline": "Air Europa",
-      "to": "AUH",
-      "country": "UAE",
-      "status": "departed",
-      "pax": 147,
-      "dep_time": "2026-04-16T09:25",
-      "arr_time": "2026-04-16T12:45"
-    },
-    {
-      "fn": "SQ8621",
-      "airline": "Singapore Airlines",
-      "to": "SIN",
-      "country": "Singapore",
-      "status": "departed",
-      "pax": 147,
-      "dep_time": "2026-04-16T09:20",
-      "arr_time": "2026-04-16T12:45"
-    },
-    {
-      "fn": "UX2738",
-      "airline": "Air Europa",
-      "to": "AUH",
-      "country": "UAE",
-      "status": "departed",
-      "pax": 147,
-      "dep_time": "2026-04-16T08:55",
-      "arr_time": "2026-04-16T12:35"
+      "aircraft": "7M8",
+      "dep_time": "2026-04-16T17:05",
+      "arr_time": "2026-04-16T23:30",
+      "to": "PVG",
+      "country": "China"
     }
   ]
 }

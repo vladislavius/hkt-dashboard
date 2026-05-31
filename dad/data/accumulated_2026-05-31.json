@@ -1,24 +1,34 @@
 {
   "date": "2026-05-31",
   "arrivals": {
-    "count": 5,
-    "pax": 735,
+    "count": 10,
+    "pax": 1470,
     "countries": {
-      "Hong Kong": {
+      "Новосибирск": {
         "flights": 1,
-        "pax": 147
+        "pax": 147,
+        "country": "Russia"
+      },
+      "Москва": {
+        "flights": 1,
+        "pax": 147,
+        "country": "Russia"
+      },
+      "Hong Kong": {
+        "flights": 2,
+        "pax": 294
       },
       "Thailand": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Singapore": {
         "flights": 1,
         "pax": 147
       },
       "Macau": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Taiwan": {
         "flights": 1,
@@ -53,6 +63,28 @@
     }
   },
   "arrivals_list": [
+    {
+      "fn": "VJ8911",
+      "airline": "VJ",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A333",
+      "dep_time": "2026-05-30T19:45",
+      "arr_time": "2026-05-31T02:08",
+      "from": "OVB",
+      "country": "Russia"
+    },
+    {
+      "fn": "VJ8932",
+      "airline": "VJ",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A333",
+      "dep_time": "2026-05-30T20:29",
+      "arr_time": "2026-05-31T05:55",
+      "from": "SVO",
+      "country": "Russia"
+    },
     {
       "fn": "UO558",
       "airline": "Hong Kong Express Airways",
@@ -122,6 +154,36 @@
       "arr_time": "2026-05-31T19:30",
       "from": "KTI",
       "country": "Other(KTI)"
+    },
+    {
+      "fn": "VN626",
+      "airline": "Vietnam Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-31T19:45",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "HX546",
+      "airline": "Hong Kong Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-31T19:50",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "NX978",
+      "airline": "Air Macau",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-05-31T20:30",
+      "from": "MFM",
+      "country": "Macau"
     }
   ],
   "departures_list": [
@@ -194,6 +256,16 @@
       "arr_time": "",
       "to": "KHH",
       "country": "Other(KHH)"
+    },
+    {
+      "fn": "K6843",
+      "airline": "Air Cambodia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-05-31T20:00",
+      "arr_time": "",
+      "to": "KTI",
+      "country": "Other(KTI)"
     }
   ]
 }

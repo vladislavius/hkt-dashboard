@@ -1,25 +1,12 @@
 {
   "date": "2025-11-07",
   "arrivals": {
-    "count": 91,
-    "pax": 17917,
+    "count": 90,
+    "pax": 17593,
     "countries": {
-      "Хабаровск": {
-        "flights": 2,
-        "pax": 471,
-        "country": "Russia"
-      },
-      "Qatar": {
-        "flights": 4,
-        "pax": 1177
-      },
-      "UAE": {
-        "flights": 7,
-        "pax": 1926
-      },
       "India": {
-        "flights": 15,
-        "pax": 2205
+        "flights": 14,
+        "pax": 2058
       },
       "UK": {
         "flights": 1,
@@ -33,14 +20,23 @@
         "flights": 9,
         "pax": 1323
       },
-      "Other(TSE)": {
+      "Хабаровск": {
         "flights": 1,
-        "pax": 147
+        "pax": 147,
+        "country": "Russia"
+      },
+      "Other": {
+        "flights": 7,
+        "pax": 1153
       },
       "Москва": {
-        "flights": 4,
-        "pax": 1234,
+        "flights": 5,
+        "pax": 1381,
         "country": "Russia"
+      },
+      "UAE": {
+        "flights": 7,
+        "pax": 1926
       },
       "Germany": {
         "flights": 1,
@@ -71,9 +67,9 @@
         "flights": 1,
         "pax": 147
       },
-      "Other(TFU)": {
+      "Qatar": {
         "flights": 3,
-        "pax": 507
+        "pax": 972
       },
       "Новосибирск": {
         "flights": 2,
@@ -109,14 +105,6 @@
         "flights": 1,
         "pax": 147
       },
-      "Other(SAI)": {
-        "flights": 1,
-        "pax": 147
-      },
-      "Other(KKC)": {
-        "flights": 1,
-        "pax": 147
-      },
       "Australia": {
         "flights": 1,
         "pax": 205
@@ -134,28 +122,15 @@
   },
   "departures": {
     "count": 88,
-    "pax": 17366,
+    "pax": 17189,
     "countries": {
-      "Красноярск": {
-        "flights": 3,
-        "pax": 728,
-        "country": "Russia"
-      },
-      "China": {
-        "flights": 7,
-        "pax": 1165
-      },
       "Qatar": {
         "flights": 4,
         "pax": 1177
       },
-      "UAE": {
-        "flights": 7,
-        "pax": 1926
-      },
-      "Other(TFU)": {
-        "flights": 3,
-        "pax": 507
+      "Other": {
+        "flights": 5,
+        "pax": 801
       },
       "Singapore": {
         "flights": 9,
@@ -164,6 +139,10 @@
       "Oman": {
         "flights": 1,
         "pax": 147
+      },
+      "UAE": {
+        "flights": 7,
+        "pax": 1926
       },
       "India": {
         "flights": 14,
@@ -211,17 +190,18 @@
         "flights": 1,
         "pax": 180
       },
-      "Other(SAI)": {
-        "flights": 1,
-        "pax": 147
+      "China": {
+        "flights": 7,
+        "pax": 1165
       },
       "Saudi Arabia": {
         "flights": 2,
         "pax": 507
       },
-      "Other(KKC)": {
-        "flights": 1,
-        "pax": 147
+      "Красноярск": {
+        "flights": 2,
+        "pax": 404,
+        "country": "Russia"
       },
       "Indonesia": {
         "flights": 1,
@@ -241,8 +221,8 @@
         "pax": 761
       },
       "Turkey": {
-        "flights": 1,
-        "pax": 262
+        "flights": 2,
+        "pax": 409
       },
       "Иркутск": {
         "flights": 1,
@@ -252,61 +232,6 @@
     }
   },
   "arrivals_list": [
-    {
-      "fn": "SU 643",
-      "airline": "AEROFLOT RUSSIAN AIRLINES",
-      "status": "landed",
-      "pax": 324,
-      "aircraft": "77W",
-      "dep_time": "",
-      "arr_time": "2025-11-06T15:20",
-      "from": "KHV",
-      "country": "Russia"
-    },
-    {
-      "fn": "QR 850",
-      "airline": "QATAR AIRWAYS COMPANY",
-      "status": "landed",
-      "pax": 205,
-      "aircraft": "788",
-      "dep_time": "",
-      "arr_time": "2025-11-06T22:50",
-      "from": "DOH",
-      "country": "Qatar"
-    },
-    {
-      "fn": "EY 410",
-      "airline": "ETIHAD AIRWAYS",
-      "status": "landed",
-      "pax": 324,
-      "aircraft": "77W",
-      "dep_time": "",
-      "arr_time": "2025-11-06T23:15",
-      "from": "AUH",
-      "country": "UAE"
-    },
-    {
-      "fn": "FD 193",
-      "airline": "THAI AIR ASIA CO.LTD.",
-      "status": "landed",
-      "pax": 147,
-      "aircraft": "320",
-      "dep_time": "",
-      "arr_time": "2025-11-06T23:45",
-      "from": "MAA",
-      "country": "India"
-    },
-    {
-      "fn": "QR 842",
-      "airline": "QATAR AIRWAYS COMPANY",
-      "status": "landed",
-      "pax": 324,
-      "aircraft": "77W",
-      "dep_time": "",
-      "arr_time": "2025-11-06T23:50",
-      "from": "DOH",
-      "country": "Qatar"
-    },
     {
       "fn": "VZ 763",
       "airline": "THAI VIET JET AIR JOINTSTOCK",
@@ -1252,53 +1177,53 @@
       "arr_time": "2025-11-07T16:45",
       "from": "TFU",
       "country": ""
-    }
-  ],
-  "departures_list": [
+    },
     {
-      "fn": "SU 635",
-      "airline": "AEROFLOT RUSSIAN AIRLINES",
-      "status": "departed",
-      "pax": 324,
-      "aircraft": "77W",
-      "dep_time": "2025-11-06T16:55",
-      "arr_time": "",
-      "to": "KJA",
+      "fn": "ZF 2901",
+      "airline": "AZUR AIR",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "76W",
+      "dep_time": "",
+      "arr_time": "2025-11-07T19:00",
+      "from": "VKO",
       "country": "Russia"
     },
     {
-      "fn": "FM 832",
-      "airline": "SHANGHAI AIRLINES",
-      "status": "cancelled",
-      "pax": 147,
-      "aircraft": "7M8",
-      "dep_time": "2025-11-06T17:20",
-      "arr_time": "",
-      "to": "PVG",
-      "country": "China"
+      "fn": "LO 6545",
+      "airline": "LOT POLISH AIRLINES/POLSKIE LINIE LOTNICZE",
+      "status": "landed",
+      "pax": 205,
+      "aircraft": "788",
+      "dep_time": "",
+      "arr_time": "2025-11-07T22:10",
+      "from": "KTW",
+      "country": ""
     },
     {
-      "fn": "QR 841",
-      "airline": "QATAR AIRWAYS COMPANY",
-      "status": "departed",
+      "fn": "EY 410",
+      "airline": "ETIHAD AIRWAYS",
+      "status": "landed",
       "pax": 324,
       "aircraft": "77W",
-      "dep_time": "2025-11-06T17:50",
-      "arr_time": "",
-      "to": "DOH",
-      "country": "Qatar"
-    },
-    {
-      "fn": "EY 415",
-      "airline": "ETIHAD AIRWAYS",
-      "status": "departed",
-      "pax": 270,
-      "aircraft": "78J",
-      "dep_time": "2025-11-06T20:10",
-      "arr_time": "",
-      "to": "AUH",
+      "dep_time": "",
+      "arr_time": "2025-11-07T23:15",
+      "from": "AUH",
       "country": "UAE"
     },
+    {
+      "fn": "QR 842",
+      "airline": "QATAR AIRWAYS COMPANY",
+      "status": "landed",
+      "pax": 324,
+      "aircraft": "77W",
+      "dep_time": "",
+      "arr_time": "2025-11-07T23:50",
+      "from": "DOH",
+      "country": "Qatar"
+    }
+  ],
+  "departures_list": [
     {
       "fn": "QR 843",
       "airline": "QATAR AIRWAYS COMPANY",
@@ -2222,6 +2147,50 @@
       "arr_time": "",
       "to": "JED",
       "country": "Saudi Arabia"
+    },
+    {
+      "fn": "FM 832",
+      "airline": "SHANGHAI AIRLINES",
+      "status": "cancelled",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2025-11-07T17:20",
+      "arr_time": "",
+      "to": "PVG",
+      "country": "China"
+    },
+    {
+      "fn": "QR 841",
+      "airline": "QATAR AIRWAYS COMPANY",
+      "status": "departed",
+      "pax": 324,
+      "aircraft": "77W",
+      "dep_time": "2025-11-07T17:50",
+      "arr_time": "",
+      "to": "DOH",
+      "country": "Qatar"
+    },
+    {
+      "fn": "EY 415",
+      "airline": "ETIHAD AIRWAYS",
+      "status": "departed",
+      "pax": 270,
+      "aircraft": "78J",
+      "dep_time": "2025-11-07T20:10",
+      "arr_time": "",
+      "to": "AUH",
+      "country": "UAE"
+    },
+    {
+      "fn": "ZF 6650",
+      "airline": "AZUR AIR",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "76W",
+      "dep_time": "2025-11-07T20:50",
+      "arr_time": "",
+      "to": "AYT",
+      "country": "Turkey"
     }
   ],
   "russia_transit": {

@@ -1,14 +1,9 @@
 {
   "date": "2026-04-19",
   "arrivals": {
-    "count": 77,
-    "pax": 13976,
+    "count": 79,
+    "pax": 14303,
     "countries": {
-      "Екатеринбург": {
-        "flights": 1,
-        "pax": 147,
-        "country": "Russia"
-      },
       "UAE": {
         "flights": 10,
         "pax": 2190
@@ -68,6 +63,10 @@
         "pax": 147,
         "country": "Russia"
       },
+      "Other": {
+        "flights": 3,
+        "pax": 474
+      },
       "Australia": {
         "flights": 2,
         "pax": 352
@@ -101,22 +100,9 @@
     }
   },
   "departures": {
-    "count": 83,
-    "pax": 15297,
+    "count": 79,
+    "pax": 14303,
     "countries": {
-      "Israel": {
-        "flights": 1,
-        "pax": 237
-      },
-      "China": {
-        "flights": 5,
-        "pax": 735
-      },
-      "Казань": {
-        "flights": 1,
-        "pax": 147,
-        "country": "Russia"
-      },
       "India": {
         "flights": 13,
         "pax": 1911
@@ -138,8 +124,8 @@
         "pax": 648
       },
       "Singapore": {
-        "flights": 10,
-        "pax": 1477
+        "flights": 9,
+        "pax": 1330
       },
       "Uzbekistan": {
         "flights": 1,
@@ -154,8 +140,8 @@
         "pax": 147
       },
       "Москва": {
-        "flights": 4,
-        "pax": 942,
+        "flights": 3,
+        "pax": 795,
         "country": "Russia"
       },
       "Hong Kong": {
@@ -172,9 +158,13 @@
         "country": "Russia"
       },
       "Екатеринбург": {
-        "flights": 2,
-        "pax": 409,
+        "flights": 1,
+        "pax": 147,
         "country": "Russia"
+      },
+      "Other": {
+        "flights": 3,
+        "pax": 474
       },
       "Australia": {
         "flights": 2,
@@ -189,6 +179,10 @@
         "flights": 1,
         "pax": 237
       },
+      "China": {
+        "flights": 5,
+        "pax": 735
+      },
       "Indonesia": {
         "flights": 1,
         "pax": 147
@@ -196,30 +190,10 @@
       "South Korea": {
         "flights": 2,
         "pax": 499
-      },
-      "Switzerland": {
-        "flights": 1,
-        "pax": 266
-      },
-      "Красноярск": {
-        "flights": 1,
-        "pax": 262,
-        "country": "Russia"
       }
     }
   },
   "arrivals_list": [
-    {
-      "fn": "ZF 2939",
-      "airline": "AZUR AIR",
-      "status": "landed",
-      "pax": 147,
-      "aircraft": "76W",
-      "dep_time": "",
-      "arr_time": "2026-04-18T21:35",
-      "from": "SVX",
-      "country": "Russia"
-    },
     {
       "fn": "EY 410",
       "airline": "ETIHAD AIRWAYS",
@@ -1092,39 +1066,6 @@
   ],
   "departures_list": [
     {
-      "fn": "LY 090",
-      "airline": "EL AL ISRAEL AIRLINES",
-      "status": "departed",
-      "pax": 237,
-      "aircraft": "789",
-      "dep_time": "2026-04-18T16:50",
-      "arr_time": "2026-04-19T00:50",
-      "to": "TLV",
-      "country": "Israel"
-    },
-    {
-      "fn": "FM 832",
-      "airline": "SHANGHAI AIRLINES",
-      "status": "departed",
-      "pax": 147,
-      "aircraft": "7M8",
-      "dep_time": "2026-04-18T17:05",
-      "arr_time": "2026-04-18T23:30",
-      "to": "PVG",
-      "country": "China"
-    },
-    {
-      "fn": "ZF 2920",
-      "airline": "AZUR AIR",
-      "status": "",
-      "pax": 147,
-      "aircraft": "76W",
-      "dep_time": "2026-04-18T23:20",
-      "arr_time": "",
-      "to": "KZN",
-      "country": "Russia"
-    },
-    {
       "fn": "AI 2379",
       "airline": "AIR INDIA LTD",
       "status": "",
@@ -1983,70 +1924,15 @@
       "country": "UAE"
     },
     {
-      "fn": "ZF 2902",
-      "airline": "AZUR AIR",
-      "status": "",
+      "fn": "FM 832",
+      "airline": "SHANGHAI AIRLINES",
+      "status": "departed",
       "pax": 147,
-      "aircraft": "76W",
-      "dep_time": "2026-04-20T00:05",
-      "arr_time": "",
-      "to": "VKO",
-      "country": "Russia"
-    },
-    {
-      "fn": "WK 051",
-      "airline": "EDELWEISS AIR AG",
-      "status": "",
-      "pax": 266,
-      "aircraft": "359",
-      "dep_time": "2026-04-20T04:35",
-      "arr_time": "2026-04-20T10:40",
-      "to": "ZRH",
-      "country": "Switzerland"
-    },
-    {
-      "fn": "ZF 2964",
-      "airline": "AZUR AIR",
-      "status": "",
-      "pax": 147,
-      "aircraft": "76W",
-      "dep_time": "2026-04-20T04:50",
-      "arr_time": "",
-      "to": "PEE",
-      "country": ""
-    },
-    {
-      "fn": "SU 627",
-      "airline": "AEROFLOT RUSSIAN AIRLINES",
-      "status": "",
-      "pax": 262,
-      "aircraft": "333",
-      "dep_time": "2026-04-20T05:35",
-      "arr_time": "2026-04-20T12:45",
-      "to": "SVX",
-      "country": "Russia"
-    },
-    {
-      "fn": "TR 657",
-      "airline": "SCOOT PTE LTD",
-      "status": "",
-      "pax": 147,
-      "aircraft": "",
-      "dep_time": "2026-04-20T06:15",
-      "arr_time": "",
-      "to": "SIN",
-      "country": "Singapore"
-    },
-    {
-      "fn": "SU 635",
-      "airline": "AEROFLOT RUSSIAN AIRLINES",
-      "status": "",
-      "pax": 262,
-      "aircraft": "333",
-      "dep_time": "2026-04-20T06:25",
-      "arr_time": "",
-      "to": "KJA",
-      "country": "Russia"
+      "aircraft": "7M8",
+      "dep_time": "2026-04-19T17:05",
+      "arr_time": "2026-04-19T23:30",
+      "to": "PVG",
+      "country": "China"
     }
   ]
 }

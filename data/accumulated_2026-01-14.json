@@ -1,46 +1,69 @@
 {
   "date": "2026-01-14",
   "arrivals": {
-    "count": 0,
-    "pax": 0,
-    "countries": {}
-  },
-  "departures": {
-    "count": 109,
-    "pax": 19806,
+    "count": 10,
+    "pax": 2259,
     "countries": {
-      "South Korea": {
-        "flights": 3,
-        "pax": 671
+      "Poland": {
+        "flights": 1,
+        "pax": 237
       },
       "China": {
-        "flights": 17,
-        "pax": 2668
-      },
-      "Qatar": {
-        "flights": 4,
-        "pax": 1177
-      },
-      "UAE": {
-        "flights": 9,
-        "pax": 2097
+        "flights": 1,
+        "pax": 147
       },
       "Новосибирск": {
         "flights": 2,
         "pax": 471,
         "country": "Russia"
       },
-      "Poland": {
+      "Иркутск": {
         "flights": 1,
-        "pax": 237
+        "pax": 257,
+        "country": "Russia"
       },
-      "Other(TFU)": {
+      "Qatar": {
+        "flights": 2,
+        "pax": 529
+      },
+      "UAE": {
+        "flights": 1,
+        "pax": 324
+      },
+      "Other": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Красноярск": {
+        "flights": 1,
+        "pax": 147,
+        "country": "Russia"
+      }
+    }
+  },
+  "departures": {
+    "count": 111,
+    "pax": 20367,
+    "countries": {
+      "Qatar": {
         "flights": 4,
-        "pax": 654
+        "pax": 1177
+      },
+      "Poland": {
+        "flights": 2,
+        "pax": 474
+      },
+      "Other": {
+        "flights": 8,
+        "pax": 1242
       },
       "Singapore": {
         "flights": 9,
         "pax": 1323
+      },
+      "UAE": {
+        "flights": 9,
+        "pax": 2097
       },
       "India": {
         "flights": 14,
@@ -49,6 +72,11 @@
       "Иркутск": {
         "flights": 3,
         "pax": 551,
+        "country": "Russia"
+      },
+      "Новосибирск": {
+        "flights": 1,
+        "pax": 324,
         "country": "Russia"
       },
       "Uzbekistan": {
@@ -62,10 +90,6 @@
       "Germany": {
         "flights": 1,
         "pax": 287
-      },
-      "Other(PEE)": {
-        "flights": 1,
-        "pax": 147
       },
       "Malaysia": {
         "flights": 12,
@@ -101,9 +125,9 @@
         "flights": 1,
         "pax": 180
       },
-      "Other(SAI)": {
-        "flights": 1,
-        "pax": 147
+      "China": {
+        "flights": 17,
+        "pax": 2668
       },
       "Israel": {
         "flights": 1,
@@ -112,10 +136,6 @@
       "Saudi Arabia": {
         "flights": 2,
         "pax": 384
-      },
-      "Other(KKC)": {
-        "flights": 1,
-        "pax": 147
       },
       "Indonesia": {
         "flights": 1,
@@ -130,95 +150,139 @@
         "flights": 1,
         "pax": 205
       },
-      "Other(IKA)": {
-        "flights": 1,
-        "pax": 147
-      },
       "Turkey": {
         "flights": 1,
         "pax": 262
+      },
+      "South Korea": {
+        "flights": 3,
+        "pax": 671
+      },
+      "Хабаровск": {
+        "flights": 1,
+        "pax": 324,
+        "country": "Russia"
+      },
+      "Благовещенск": {
+        "flights": 1,
+        "pax": 147,
+        "country": "Russia"
       }
     }
   },
-  "arrivals_list": [],
-  "departures_list": [
+  "arrivals_list": [
     {
-      "fn": "LJ 006",
-      "airline": "JIN AIR",
-      "status": "departed",
-      "pax": 147,
-      "aircraft": "7M8",
-      "dep_time": "2026-01-13T16:30",
-      "arr_time": "",
-      "to": "ICN",
-      "country": "South Korea"
+      "fn": "NO 264",
+      "airline": "NEOS S.P.A.",
+      "status": "landed",
+      "pax": 237,
+      "aircraft": "789",
+      "dep_time": "",
+      "arr_time": "2026-01-14T17:15",
+      "from": "WAW",
+      "country": "Poland"
     },
     {
-      "fn": "FM 832",
-      "airline": "SHANGHAI AIRLINES",
-      "status": "departed",
-      "pax": 147,
-      "aircraft": "7M8",
-      "dep_time": "2026-01-13T17:05",
-      "arr_time": "",
-      "to": "PVG",
-      "country": "China"
-    },
-    {
-      "fn": "MU 2082",
-      "airline": "CHINA EASTERN AIRLINES",
-      "status": "departed",
-      "pax": 147,
-      "aircraft": "",
-      "dep_time": "2026-01-13T17:05",
-      "arr_time": "",
-      "to": "XIY",
-      "country": "China"
-    },
-    {
-      "fn": "3U 3706",
-      "airline": "SICHUAN AIRLINES",
+      "fn": "HO 1633",
+      "airline": "JUNEYAO AIRLINES CO.LTD.",
       "status": "cancelled",
-      "pax": 180,
-      "aircraft": "321",
-      "dep_time": "2026-01-13T17:30",
-      "arr_time": "",
-      "to": "CKG",
+      "pax": 147,
+      "aircraft": "320",
+      "dep_time": "",
+      "arr_time": "2026-01-14T19:10",
+      "from": "NKG",
       "country": "China"
     },
     {
-      "fn": "QR 841",
-      "airline": "QATAR AIRWAYS COMPANY",
-      "status": "departed",
+      "fn": "SU 636",
+      "airline": "AEROFLOT RUSSIAN AIRLINES",
+      "status": "landed",
       "pax": 324,
       "aircraft": "77W",
-      "dep_time": "2026-01-13T17:50",
-      "arr_time": "",
-      "to": "DOH",
+      "dep_time": "",
+      "arr_time": "2026-01-14T19:40",
+      "from": "OVB",
+      "country": "Russia"
+    },
+    {
+      "fn": "ZF 2947",
+      "airline": "AZUR AIR",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "75M",
+      "dep_time": "",
+      "arr_time": "2026-01-14T20:00",
+      "from": "OVB",
+      "country": "Russia"
+    },
+    {
+      "fn": "EO 3523",
+      "airline": "AIRCOMPANY IKAR",
+      "status": "landed",
+      "pax": 257,
+      "aircraft": "772",
+      "dep_time": "",
+      "arr_time": "2026-01-14T22:45",
+      "from": "IKT",
+      "country": "Russia"
+    },
+    {
+      "fn": "QR 850",
+      "airline": "QATAR AIRWAYS COMPANY",
+      "status": "landed",
+      "pax": 205,
+      "aircraft": "788",
+      "dep_time": "",
+      "arr_time": "2026-01-14T22:50",
+      "from": "DOH",
       "country": "Qatar"
     },
     {
-      "fn": "EY 415",
+      "fn": "EY 410",
       "airline": "ETIHAD AIRWAYS",
-      "status": "departed",
-      "pax": 147,
-      "aircraft": "",
-      "dep_time": "2026-01-13T20:10",
-      "arr_time": "",
-      "to": "AUH",
+      "status": "landed",
+      "pax": 324,
+      "aircraft": "77W",
+      "dep_time": "",
+      "arr_time": "2026-01-14T23:15",
+      "from": "AUH",
       "country": "UAE"
     },
     {
-      "fn": "ZF 2948",
+      "fn": "ZF 2963",
       "airline": "AZUR AIR",
-      "status": "departed",
+      "status": "",
+      "pax": 147,
+      "aircraft": "76W",
+      "dep_time": "",
+      "arr_time": "2026-01-14T23:40",
+      "from": "PEE",
+      "country": ""
+    },
+    {
+      "fn": "QR 842",
+      "airline": "QATAR AIRWAYS COMPANY",
+      "status": "landed",
+      "pax": 324,
+      "aircraft": "77W",
+      "dep_time": "",
+      "arr_time": "2026-01-14T23:50",
+      "from": "DOH",
+      "country": "Qatar"
+    },
+    {
+      "fn": "ZF 2971",
+      "airline": "AZUR AIR",
+      "status": "",
       "pax": 147,
       "aircraft": "75M",
-      "dep_time": "2026-01-13T22:00",
-      "arr_time": "",
-      "to": "OVB",
+      "dep_time": "",
+      "arr_time": "2026-01-14T23:55",
+      "from": "KJA",
       "country": "Russia"
-    },
+    }
+  ],
+  "departures_list": [
     {
       "fn": "QR 843",
       "airline": "QATAR AIRWAYS COMPANY",
@@ -1298,6 +1362,17 @@
       "country": "China"
     },
     {
+      "fn": "LJ 006",
+      "airline": "JIN AIR",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2026-01-14T16:30",
+      "arr_time": "",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
       "fn": "KE 678",
       "airline": "KOREAN AIRLINES CO.LTD.",
       "status": "departed",
@@ -1340,6 +1415,94 @@
       "arr_time": "",
       "to": "JED",
       "country": "Saudi Arabia"
+    },
+    {
+      "fn": "FM 832",
+      "airline": "SHANGHAI AIRLINES",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2026-01-14T17:05",
+      "arr_time": "",
+      "to": "PVG",
+      "country": "China"
+    },
+    {
+      "fn": "3U 3706",
+      "airline": "SICHUAN AIRLINES",
+      "status": "departed",
+      "pax": 180,
+      "aircraft": "321",
+      "dep_time": "2026-01-14T17:30",
+      "arr_time": "",
+      "to": "CKG",
+      "country": "China"
+    },
+    {
+      "fn": "QR 841",
+      "airline": "QATAR AIRWAYS COMPANY",
+      "status": "departed",
+      "pax": 324,
+      "aircraft": "77W",
+      "dep_time": "2026-01-14T17:50",
+      "arr_time": "",
+      "to": "DOH",
+      "country": "Qatar"
+    },
+    {
+      "fn": "NO 265",
+      "airline": "NEOS S.P.A.",
+      "status": "departed",
+      "pax": 237,
+      "aircraft": "789",
+      "dep_time": "2026-01-14T19:15",
+      "arr_time": "",
+      "to": "WAW",
+      "country": "Poland"
+    },
+    {
+      "fn": "EY 415",
+      "airline": "ETIHAD AIRWAYS",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "",
+      "dep_time": "2026-01-14T20:10",
+      "arr_time": "",
+      "to": "AUH",
+      "country": "UAE"
+    },
+    {
+      "fn": "HO 1634",
+      "airline": "JUNEYAO AIRLINES CO.LTD.",
+      "status": "cancelled",
+      "pax": 147,
+      "aircraft": "320",
+      "dep_time": "2026-01-14T20:10",
+      "arr_time": "",
+      "to": "NKG",
+      "country": "China"
+    },
+    {
+      "fn": "SU 642",
+      "airline": "AEROFLOT RUSSIAN AIRLINES",
+      "status": "departed",
+      "pax": 324,
+      "aircraft": "77W",
+      "dep_time": "2026-01-14T21:25",
+      "arr_time": "",
+      "to": "KHV",
+      "country": "Russia"
+    },
+    {
+      "fn": "ZF 2992",
+      "airline": "AZUR AIR",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "75M",
+      "dep_time": "2026-01-14T21:45",
+      "arr_time": "",
+      "to": "BQS",
+      "country": "Russia"
     }
   ],
   "russia_transit": {

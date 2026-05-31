@@ -1,9 +1,13 @@
 {
   "date": "2026-05-22",
   "arrivals": {
-    "count": 28,
-    "pax": 4116,
+    "count": 30,
+    "pax": 4410,
     "countries": {
+      "South Korea": {
+        "flights": 7,
+        "pax": 1029
+      },
       "Other": {
         "flights": 3,
         "pax": 441
@@ -19,10 +23,6 @@
       "Thailand": {
         "flights": 4,
         "pax": 588
-      },
-      "South Korea": {
-        "flights": 5,
-        "pax": 735
       },
       "Singapore": {
         "flights": 4,
@@ -89,6 +89,16 @@
     }
   },
   "arrivals_list": [
+    {
+      "fn": "TW13",
+      "airline": "T'way Air",
+      "status": "active",
+      "pax": 147,
+      "dep_time": "2026-05-21T21:35",
+      "arr_time": "2026-05-22T00:25",
+      "from": "ICN",
+      "country": "South Korea"
+    },
     {
       "fn": "Z2822",
       "airline": "Philippines AirAsia",
@@ -368,6 +378,17 @@
       "arr_time": "2026-05-22T15:55",
       "from": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "TW13",
+      "airline": "TW",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "B738",
+      "dep_time": "2026-05-22T19:35",
+      "arr_time": "2026-05-22T23:46",
+      "from": "ICN",
+      "country": "South Korea"
     }
   ],
   "departures_list": [

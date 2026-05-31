@@ -1070,6 +1070,11 @@ def run():
     seen_arr_fns = {_norm_fn(r["fn"]) for r in existing_arr if r.get("fn")}
     new_arr = []
     for r in a_cur.get("flight_list", []):
+        # Skip off-date arrivals — GTT 24h rolling window includes tomorrow's
+        # morning flights; they belong in tomorrow's accumulated file.
+        arr_t = r.get("arr_time") or ""
+        if arr_t and arr_t[:10] != today:
+            continue
         key = (r.get("from",""), r.get("arr_time",""))
         if _norm_fn(r.get("fn","")) in seen_arr_fns: continue
         if r.get("arr_time") and key in seen_arr: continue
@@ -1096,6 +1101,10 @@ def run():
     seen_dep_fns = {_norm_fn(r["fn"]) for r in acc.get("departures_list", []) if r.get("fn")}
     new_dep = []
     for r in d_cur.get("flight_list", []):
+        # Skip off-date departures (same reason as arrivals)
+        dep_t = r.get("dep_time") or ""
+        if dep_t and dep_t[:10] != today:
+            continue
         key = (r.get("to",""), r.get("dep_time",""))
         if _norm_fn(r.get("fn","")) in seen_dep_fns: continue
         if r.get("dep_time") and key in seen_dep: continue

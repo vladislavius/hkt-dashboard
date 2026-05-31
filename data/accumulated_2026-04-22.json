@@ -108,22 +108,9 @@
     }
   },
   "departures": {
-    "count": 79,
-    "pax": 14437,
+    "count": 77,
+    "pax": 14085,
     "countries": {
-      "Новосибирск": {
-        "flights": 1,
-        "pax": 147,
-        "country": "Russia"
-      },
-      "Australia": {
-        "flights": 3,
-        "pax": 557
-      },
-      "China": {
-        "flights": 5,
-        "pax": 735
-      },
       "India": {
         "flights": 12,
         "pax": 1764
@@ -195,6 +182,10 @@
         "flights": 1,
         "pax": 205
       },
+      "China": {
+        "flights": 5,
+        "pax": 735
+      },
       "Хабаровск": {
         "flights": 1,
         "pax": 324,
@@ -203,6 +194,10 @@
       "Indonesia": {
         "flights": 1,
         "pax": 147
+      },
+      "Australia": {
+        "flights": 2,
+        "pax": 352
       },
       "Turkey": {
         "flights": 1,
@@ -1087,39 +1082,6 @@
   ],
   "departures_list": [
     {
-      "fn": "ZF 2948",
-      "airline": "AZUR AIR",
-      "status": "departed",
-      "pax": 147,
-      "aircraft": "75M",
-      "dep_time": "2026-04-21T14:10",
-      "arr_time": "",
-      "to": "OVB",
-      "country": "Russia"
-    },
-    {
-      "fn": "JQ 018",
-      "airline": "JETSTAR AIRWAYS PTY LIMITED",
-      "status": "departed",
-      "pax": 205,
-      "aircraft": "788",
-      "dep_time": "2026-04-21T15:25",
-      "arr_time": "2026-04-22T02:45",
-      "to": "MEL",
-      "country": "Australia"
-    },
-    {
-      "fn": "FM 832",
-      "airline": "SHANGHAI AIRLINES",
-      "status": "departed",
-      "pax": 147,
-      "aircraft": "7M8",
-      "dep_time": "2026-04-21T17:05",
-      "arr_time": "2026-04-21T23:30",
-      "to": "PVG",
-      "country": "China"
-    },
-    {
       "fn": "AI 2379",
       "airline": "AIR INDIA LTD",
       "status": "departed",
@@ -1954,6 +1916,17 @@
       "arr_time": "2026-04-22T19:55",
       "to": "DXB",
       "country": "UAE"
+    },
+    {
+      "fn": "FM 832",
+      "airline": "SHANGHAI AIRLINES",
+      "status": "final call",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2026-04-22T17:05",
+      "arr_time": "2026-04-22T23:30",
+      "to": "PVG",
+      "country": "China"
     }
   ],
   "russia_transit": {

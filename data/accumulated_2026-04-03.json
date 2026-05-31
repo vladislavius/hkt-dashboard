@@ -2,23 +2,19 @@
   "date": "2026-04-03",
   "arrivals": {
     "count": 84,
-    "pax": 15763,
+    "pax": 15788,
     "countries": {
-      "Sweden": {
-        "flights": 1,
-        "pax": 237
-      },
       "UAE": {
-        "flights": 10,
-        "pax": 2100
+        "flights": 9,
+        "pax": 1953
       },
       "India": {
         "flights": 13,
         "pax": 1918
       },
-      "Other(TSE)": {
-        "flights": 1,
-        "pax": 147
+      "Other": {
+        "flights": 4,
+        "pax": 621
       },
       "Germany": {
         "flights": 1,
@@ -36,13 +32,9 @@
         "flights": 2,
         "pax": 294
       },
-      "Other(PEE)": {
-        "flights": 1,
-        "pax": 147
-      },
       "Новосибирск": {
-        "flights": 1,
-        "pax": 262,
+        "flights": 2,
+        "pax": 409,
         "country": "Russia"
       },
       "Singapore": {
@@ -79,10 +71,6 @@
         "flights": 1,
         "pax": 147
       },
-      "Other(TFU)": {
-        "flights": 2,
-        "pax": 327
-      },
       "Владивосток": {
         "flights": 1,
         "pax": 324,
@@ -117,17 +105,18 @@
       "South Korea": {
         "flights": 2,
         "pax": 499
+      },
+      "Казань": {
+        "flights": 1,
+        "pax": 262,
+        "country": "Russia"
       }
     }
   },
   "departures": {
-    "count": 85,
-    "pax": 16050,
+    "count": 86,
+    "pax": 16197,
     "countries": {
-      "China": {
-        "flights": 5,
-        "pax": 735
-      },
       "UAE": {
         "flights": 10,
         "pax": 2100
@@ -190,18 +179,18 @@
         "pax": 262,
         "country": "Russia"
       },
-      "Other(TFU)": {
-        "flights": 2,
-        "pax": 327
+      "Other": {
+        "flights": 3,
+        "pax": 474
       },
       "Владивосток": {
         "flights": 1,
         "pax": 324,
         "country": "Russia"
       },
-      "Other(JHB)": {
-        "flights": 1,
-        "pax": 147
+      "China": {
+        "flights": 5,
+        "pax": 735
       },
       "Новосибирск": {
         "flights": 2,
@@ -209,8 +198,8 @@
         "country": "Russia"
       },
       "Казань": {
-        "flights": 1,
-        "pax": 147,
+        "flights": 2,
+        "pax": 294,
         "country": "Russia"
       },
       "Indonesia": {
@@ -232,28 +221,6 @@
     }
   },
   "arrivals_list": [
-    {
-      "fn": "N0 195",
-      "airline": "NORSE ATLANTIC AIRWAYS AS",
-      "status": "landed",
-      "pax": 237,
-      "aircraft": "789",
-      "dep_time": "",
-      "arr_time": "2026-04-02T23:40",
-      "from": "ARN",
-      "country": "Sweden"
-    },
-    {
-      "fn": "EY 414",
-      "airline": "ETIHAD AIRWAYS",
-      "status": "landed",
-      "pax": 147,
-      "aircraft": "",
-      "dep_time": "",
-      "arr_time": "2026-04-02T23:55",
-      "from": "AUH",
-      "country": "UAE"
-    },
     {
       "fn": "EY 410",
       "airline": "ETIHAD AIRWAYS",
@@ -1155,20 +1122,31 @@
       "arr_time": "2026-04-03T15:45",
       "from": "PVG",
       "country": "China"
+    },
+    {
+      "fn": "ZF 2947",
+      "airline": "AZUR AIR",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "75M",
+      "dep_time": "",
+      "arr_time": "2026-04-03T23:35",
+      "from": "OVB",
+      "country": "Russia"
+    },
+    {
+      "fn": "N4 3487",
+      "airline": "NORDWIND AIRLINES",
+      "status": "delayed",
+      "pax": 262,
+      "aircraft": "333",
+      "dep_time": "",
+      "arr_time": "2026-04-03T23:45",
+      "from": "KZN",
+      "country": "Russia"
     }
   ],
   "departures_list": [
-    {
-      "fn": "FM 832",
-      "airline": "SHANGHAI AIRLINES",
-      "status": "departed",
-      "pax": 147,
-      "aircraft": "7M8",
-      "dep_time": "2026-04-02T17:05",
-      "arr_time": "2026-04-02T23:30",
-      "to": "PVG",
-      "country": "China"
-    },
     {
       "fn": "EY 415",
       "airline": "ETIHAD AIRWAYS",
@@ -2092,6 +2070,28 @@
       "arr_time": "2026-04-03T19:55",
       "to": "DXB",
       "country": "UAE"
+    },
+    {
+      "fn": "ZF 2920",
+      "airline": "AZUR AIR",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "76W",
+      "dep_time": "2026-04-03T16:50",
+      "arr_time": "",
+      "to": "KZN",
+      "country": "Russia"
+    },
+    {
+      "fn": "FM 832",
+      "airline": "SHANGHAI AIRLINES",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2026-04-03T17:05",
+      "arr_time": "2026-04-03T23:30",
+      "to": "PVG",
+      "country": "China"
     }
   ],
   "russia_transit": {

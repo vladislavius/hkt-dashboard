@@ -1,12 +1,12 @@
 {
   "date": "2026-04-01",
   "arrivals": {
-    "count": 82,
-    "pax": 15209,
+    "count": 85,
+    "pax": 15650,
     "countries": {
       "UAE": {
-        "flights": 10,
-        "pax": 2280
+        "flights": 12,
+        "pax": 2574
       },
       "Сочи": {
         "flights": 1,
@@ -38,9 +38,9 @@
         "pax": 795,
         "country": "Russia"
       },
-      "Other(IKA)": {
-        "flights": 1,
-        "pax": 147
+      "Other": {
+        "flights": 4,
+        "pax": 621
       },
       "Уфа": {
         "flights": 1,
@@ -59,10 +59,6 @@
       "Malaysia": {
         "flights": 12,
         "pax": 1969
-      },
-      "Other(OMS)": {
-        "flights": 1,
-        "pax": 147
       },
       "Uzbekistan": {
         "flights": 2,
@@ -90,10 +86,6 @@
         "pax": 257,
         "country": "Russia"
       },
-      "Other(TFU)": {
-        "flights": 2,
-        "pax": 327
-      },
       "Turkey": {
         "flights": 1,
         "pax": 262
@@ -118,24 +110,25 @@
       "South Korea": {
         "flights": 2,
         "pax": 499
+      },
+      "Екатеринбург": {
+        "flights": 1,
+        "pax": 147,
+        "country": "Russia"
       }
     }
   },
   "departures": {
-    "count": 82,
-    "pax": 15209,
+    "count": 80,
+    "pax": 14825,
     "countries": {
-      "China": {
-        "flights": 4,
-        "pax": 588
-      },
-      "UAE": {
-        "flights": 10,
-        "pax": 2280
-      },
       "India": {
         "flights": 12,
         "pax": 1771
+      },
+      "UAE": {
+        "flights": 9,
+        "pax": 2043
       },
       "Oman": {
         "flights": 2,
@@ -175,9 +168,9 @@
         "flights": 4,
         "pax": 825
       },
-      "Other(PEE)": {
-        "flights": 1,
-        "pax": 147
+      "Other": {
+        "flights": 5,
+        "pax": 768
       },
       "Vietnam": {
         "flights": 1,
@@ -197,10 +190,6 @@
         "pax": 147,
         "country": "Russia"
       },
-      "Other(TFU)": {
-        "flights": 2,
-        "pax": 327
-      },
       "UK": {
         "flights": 1,
         "pax": 205
@@ -215,14 +204,14 @@
         "pax": 257,
         "country": "Russia"
       },
-      "Other(JHB)": {
-        "flights": 1,
-        "pax": 147
-      },
       "Хабаровск": {
         "flights": 1,
         "pax": 324,
         "country": "Russia"
+      },
+      "China": {
+        "flights": 3,
+        "pax": 441
       },
       "Indonesia": {
         "flights": 1,
@@ -231,10 +220,6 @@
       "Australia": {
         "flights": 2,
         "pax": 352
-      },
-      "Other(IKA)": {
-        "flights": 1,
-        "pax": 147
       },
       "South Korea": {
         "flights": 2,
@@ -284,6 +269,17 @@
       "arr_time": "2026-04-01T00:25",
       "from": "DEL",
       "country": "India"
+    },
+    {
+      "fn": "EY 410",
+      "airline": "ETIHAD AIRWAYS",
+      "status": "",
+      "pax": 147,
+      "aircraft": "",
+      "dep_time": "2026-04-01T14:30",
+      "arr_time": "2026-04-01T00:35",
+      "from": "AUH",
+      "country": "UAE"
     },
     {
       "fn": "DE 2368",
@@ -1153,42 +1149,31 @@
       "arr_time": "2026-04-01T15:45",
       "from": "PVG",
       "country": "China"
+    },
+    {
+      "fn": "ZF 2937",
+      "airline": "AZUR AIR",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "76W",
+      "dep_time": "",
+      "arr_time": "2026-04-01T23:40",
+      "from": "SVX",
+      "country": "Russia"
+    },
+    {
+      "fn": "EY 414",
+      "airline": "ETIHAD AIRWAYS",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "",
+      "dep_time": "",
+      "arr_time": "2026-04-01T23:55",
+      "from": "AUH",
+      "country": "UAE"
     }
   ],
   "departures_list": [
-    {
-      "fn": "9C 8522",
-      "airline": "SPRING AIRLINES LIMITED CORPORATION",
-      "status": "departed",
-      "pax": 147,
-      "aircraft": "320",
-      "dep_time": "2026-03-31T16:35",
-      "arr_time": "2026-03-31T12:55",
-      "to": "PVG",
-      "country": "China"
-    },
-    {
-      "fn": "FM 832",
-      "airline": "SHANGHAI AIRLINES",
-      "status": "departed",
-      "pax": 147,
-      "aircraft": "7M8",
-      "dep_time": "2026-03-31T17:05",
-      "arr_time": "2026-03-31T23:30",
-      "to": "PVG",
-      "country": "China"
-    },
-    {
-      "fn": "EY 415",
-      "airline": "ETIHAD AIRWAYS",
-      "status": "cancelled",
-      "pax": 237,
-      "aircraft": "789",
-      "dep_time": "2026-03-31T20:10",
-      "arr_time": "2026-03-31T23:45",
-      "to": "AUH",
-      "country": "UAE"
-    },
     {
       "fn": "AI 2379",
       "airline": "AIR INDIA LTD",
@@ -2057,6 +2042,17 @@
       "arr_time": "2026-04-01T19:55",
       "to": "DXB",
       "country": "UAE"
+    },
+    {
+      "fn": "FM 832",
+      "airline": "SHANGHAI AIRLINES",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2026-04-01T17:05",
+      "arr_time": "2026-04-01T23:30",
+      "to": "PVG",
+      "country": "China"
     }
   ],
   "russia_transit": {

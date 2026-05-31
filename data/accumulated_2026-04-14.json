@@ -1,8 +1,8 @@
 {
   "date": "2026-04-14",
   "arrivals": {
-    "count": 75,
-    "pax": 14269,
+    "count": 78,
+    "pax": 14743,
     "countries": {
       "Germany": {
         "flights": 1,
@@ -45,6 +45,10 @@
         "flights": 3,
         "pax": 972,
         "country": "Russia"
+      },
+      "Other": {
+        "flights": 3,
+        "pax": 474
       },
       "Новосибирск": {
         "flights": 1,
@@ -109,21 +113,9 @@
     }
   },
   "departures": {
-    "count": 78,
-    "pax": 14850,
+    "count": 79,
+    "pax": 14972,
     "countries": {
-      "Australia": {
-        "flights": 3,
-        "pax": 557
-      },
-      "China": {
-        "flights": 5,
-        "pax": 742
-      },
-      "UAE": {
-        "flights": 10,
-        "pax": 2190
-      },
       "India": {
         "flights": 12,
         "pax": 1764
@@ -131,6 +123,10 @@
       "Malaysia": {
         "flights": 12,
         "pax": 1962
+      },
+      "UAE": {
+        "flights": 10,
+        "pax": 2190
       },
       "Qatar": {
         "flights": 3,
@@ -188,6 +184,14 @@
         "pax": 147,
         "country": "Russia"
       },
+      "Other": {
+        "flights": 2,
+        "pax": 327
+      },
+      "Australia": {
+        "flights": 2,
+        "pax": 352
+      },
       "Sweden": {
         "flights": 1,
         "pax": 287
@@ -200,6 +204,10 @@
       "Taiwan": {
         "flights": 1,
         "pax": 147
+      },
+      "China": {
+        "flights": 5,
+        "pax": 742
       },
       "Oman": {
         "flights": 1,
@@ -1077,39 +1085,6 @@
   ],
   "departures_list": [
     {
-      "fn": "JQ 028",
-      "airline": "JETSTAR AIRWAYS PTY LIMITED",
-      "status": "boarding",
-      "pax": 205,
-      "aircraft": "788",
-      "dep_time": "2026-04-13T14:05",
-      "arr_time": "2026-04-14T02:40",
-      "to": "SYD",
-      "country": "Australia"
-    },
-    {
-      "fn": "FM 832",
-      "airline": "SHANGHAI AIRLINES",
-      "status": "final call",
-      "pax": 147,
-      "aircraft": "7M8",
-      "dep_time": "2026-04-13T17:05",
-      "arr_time": "2026-04-13T22:55",
-      "to": "PVG",
-      "country": "China"
-    },
-    {
-      "fn": "EY 415",
-      "airline": "ETIHAD AIRWAYS",
-      "status": "cancelled",
-      "pax": 237,
-      "aircraft": "789",
-      "dep_time": "2026-04-13T20:20",
-      "arr_time": "2026-04-13T23:45",
-      "to": "AUH",
-      "country": "UAE"
-    },
-    {
       "fn": "AI 2379",
       "airline": "AIR INDIA LTD",
       "status": "",
@@ -1955,6 +1930,28 @@
       "arr_time": "",
       "to": "MAA",
       "country": "India"
+    },
+    {
+      "fn": "FM 832",
+      "airline": "SHANGHAI AIRLINES",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2026-04-14T17:05",
+      "arr_time": "2026-04-14T22:55",
+      "to": "PVG",
+      "country": "China"
+    },
+    {
+      "fn": "EY 415",
+      "airline": "ETIHAD AIRWAYS",
+      "status": "cancelled",
+      "pax": 237,
+      "aircraft": "789",
+      "dep_time": "2026-04-14T20:20",
+      "arr_time": "2026-04-14T23:45",
+      "to": "AUH",
+      "country": "UAE"
     }
   ]
 }

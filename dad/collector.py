@@ -606,14 +606,18 @@ def run():
             if not r.get("arr_time") and fresh.get("arr_time"): r["arr_time"] = fresh["arr_time"]
             r["status"] = fresh.get("status", r.get("status", ""))
     seen_arr_fns = {_norm_fn(r["fn"]) for r in existing_arr if r.get("fn")}
+    # Skip off-date arrivals — danangairport.vn HTML may include after-midnight
+    # next-day arrivals on today's page; they belong in tomorrow's file.
     new_arr = [r for r in a_cur.get("flight_list", [])
-               if _norm_fn(r.get("fn", "")) and _norm_fn(r.get("fn", "")) not in seen_arr_fns]
+               if _norm_fn(r.get("fn", "")) and _norm_fn(r.get("fn", "")) not in seen_arr_fns
+               and (not r.get("arr_time") or r["arr_time"][:10] == today)]
     acc["arrivals_list"] = existing_arr + new_arr
 
     # Departures merge
     seen_dep_fns = {_norm_fn(r["fn"]) for r in acc.get("departures_list", []) if r.get("fn")}
     new_dep = [r for r in d_cur.get("flight_list", [])
-               if _norm_fn(r.get("fn", "")) and _norm_fn(r.get("fn", "")) not in seen_dep_fns]
+               if _norm_fn(r.get("fn", "")) and _norm_fn(r.get("fn", "")) not in seen_dep_fns
+               and (not r.get("dep_time") or r["dep_time"][:10] == today)]
     acc["departures_list"] = acc.get("departures_list", []) + new_dep
 
     def _recompute_countries(flight_list, airport_field):

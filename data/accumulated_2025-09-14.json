@@ -1,13 +1,9 @@
 {
   "date": "2025-09-14",
   "arrivals": {
-    "count": 92,
-    "pax": 15882,
+    "count": 91,
+    "pax": 15735,
     "countries": {
-      "China": {
-        "flights": 16,
-        "pax": 2399
-      },
       "UAE": {
         "flights": 7,
         "pax": 1662
@@ -19,6 +15,10 @@
       "Qatar": {
         "flights": 2,
         "pax": 648
+      },
+      "China": {
+        "flights": 15,
+        "pax": 2252
       },
       "India": {
         "flights": 13,
@@ -63,9 +63,9 @@
         "flights": 1,
         "pax": 147
       },
-      "Other(TFU)": {
-        "flights": 4,
-        "pax": 654
+      "Other": {
+        "flights": 5,
+        "pax": 801
       },
       "Australia": {
         "flights": 2,
@@ -75,10 +75,6 @@
         "flights": 1,
         "pax": 262,
         "country": "Russia"
-      },
-      "Other(KNO)": {
-        "flights": 1,
-        "pax": 147
       },
       "Indonesia": {
         "flights": 1,
@@ -91,24 +87,20 @@
     }
   },
   "departures": {
-    "count": 94,
-    "pax": 16291,
+    "count": 93,
+    "pax": 16036,
     "countries": {
-      "South Korea": {
-        "flights": 4,
-        "pax": 818
-      },
-      "China": {
-        "flights": 16,
-        "pax": 2399
+      "Malaysia": {
+        "flights": 12,
+        "pax": 1891
       },
       "UAE": {
         "flights": 7,
         "pax": 1662
       },
-      "Malaysia": {
-        "flights": 12,
-        "pax": 1891
+      "China": {
+        "flights": 16,
+        "pax": 2406
       },
       "India": {
         "flights": 14,
@@ -162,17 +154,13 @@
         "flights": 1,
         "pax": 147
       },
-      "Other(TFU)": {
-        "flights": 4,
-        "pax": 654
+      "Other": {
+        "flights": 5,
+        "pax": 801
       },
       "Australia": {
         "flights": 2,
         "pax": 385
-      },
-      "Other(KNO)": {
-        "flights": 1,
-        "pax": 147
       },
       "Хабаровск": {
         "flights": 1,
@@ -182,21 +170,14 @@
       "Indonesia": {
         "flights": 1,
         "pax": 147
+      },
+      "South Korea": {
+        "flights": 3,
+        "pax": 556
       }
     }
   },
   "arrivals_list": [
-    {
-      "fn": "FM 831",
-      "airline": "SHANGHAI AIRLINES",
-      "status": "landed",
-      "pax": 147,
-      "aircraft": "7M8",
-      "dep_time": "",
-      "arr_time": "2025-09-13T15:45",
-      "from": "PVG",
-      "country": "China"
-    },
     {
       "fn": "EY 410",
       "airline": "ETIHAD AIRWAYS",
@@ -1201,61 +1182,6 @@
   ],
   "departures_list": [
     {
-      "fn": "OZ 748",
-      "airline": "ASIANA AIRLINES",
-      "status": "departed",
-      "pax": 262,
-      "aircraft": "333",
-      "dep_time": "2025-09-13T16:25",
-      "arr_time": "",
-      "to": "ICN",
-      "country": "South Korea"
-    },
-    {
-      "fn": "MU 2082",
-      "airline": "CHINA EASTERN AIRLINES",
-      "status": "cancelled",
-      "pax": 147,
-      "aircraft": "",
-      "dep_time": "2025-09-13T17:05",
-      "arr_time": "",
-      "to": "XIY",
-      "country": "China"
-    },
-    {
-      "fn": "MU 2814",
-      "airline": "CHINA EASTERN AIRLINES",
-      "status": "cancelled",
-      "pax": 147,
-      "aircraft": "",
-      "dep_time": "2025-09-13T17:05",
-      "arr_time": "",
-      "to": "NKG",
-      "country": "China"
-    },
-    {
-      "fn": "FM 832",
-      "airline": "SHANGHAI AIRLINES",
-      "status": "departed",
-      "pax": 147,
-      "aircraft": "7M8",
-      "dep_time": "2025-09-13T17:20",
-      "arr_time": "",
-      "to": "PVG",
-      "country": "China"
-    },
-    {
-      "fn": "EY 415",
-      "airline": "ETIHAD AIRWAYS",
-      "status": "departed",
-      "pax": 180,
-      "aircraft": "321",
-      "dep_time": "2025-09-13T17:55",
-      "arr_time": "",
-      "to": "AUH",
-      "country": "UAE"
-    },
-    {
       "fn": "AK 829",
       "airline": "AIRASIA BERHAD",
       "status": "departed",
@@ -2232,6 +2158,50 @@
       "dep_time": "2025-09-14T16:55",
       "arr_time": "",
       "to": "DXB",
+      "country": "UAE"
+    },
+    {
+      "fn": "MU 2082",
+      "airline": "CHINA EASTERN AIRLINES",
+      "status": "cancelled",
+      "pax": 147,
+      "aircraft": "",
+      "dep_time": "2025-09-14T17:05",
+      "arr_time": "",
+      "to": "XIY",
+      "country": "China"
+    },
+    {
+      "fn": "MU 2814",
+      "airline": "CHINA EASTERN AIRLINES",
+      "status": "cancelled",
+      "pax": 147,
+      "aircraft": "",
+      "dep_time": "2025-09-14T17:05",
+      "arr_time": "",
+      "to": "NKG",
+      "country": "China"
+    },
+    {
+      "fn": "FM 832",
+      "airline": "SHANGHAI AIRLINES",
+      "status": "departed",
+      "pax": 154,
+      "aircraft": "738",
+      "dep_time": "2025-09-14T17:20",
+      "arr_time": "",
+      "to": "PVG",
+      "country": "China"
+    },
+    {
+      "fn": "EY 415",
+      "airline": "ETIHAD AIRWAYS",
+      "status": "departed",
+      "pax": 180,
+      "aircraft": "321",
+      "dep_time": "2025-09-14T17:55",
+      "arr_time": "",
+      "to": "AUH",
       "country": "UAE"
     }
   ],

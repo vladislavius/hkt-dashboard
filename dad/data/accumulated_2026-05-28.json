@@ -1,16 +1,16 @@
 {
   "date": "2026-05-28",
   "arrivals": {
-    "count": 56,
-    "pax": 8232,
+    "count": 57,
+    "pax": 8379,
     "countries": {
-      "South Korea": {
-        "flights": 12,
-        "pax": 1764
-      },
       "Other(MNL)": {
         "flights": 5,
         "pax": 735
+      },
+      "Other()": {
+        "flights": 2,
+        "pax": 294
       },
       "Kazakhstan": {
         "flights": 3,
@@ -32,6 +32,10 @@
         "flights": 4,
         "pax": 588
       },
+      "South Korea": {
+        "flights": 12,
+        "pax": 1764
+      },
       "Malaysia": {
         "flights": 5,
         "pax": 735
@@ -45,10 +49,6 @@
         "pax": 147
       },
       "Other(SAI)": {
-        "flights": 1,
-        "pax": 147
-      },
-      "Other()": {
         "flights": 1,
         "pax": 147
       },
@@ -74,17 +74,13 @@
     "count": 57,
     "pax": 8379,
     "countries": {
-      "Myanmar": {
-        "flights": 1,
-        "pax": 147
-      },
       "Japan": {
         "flights": 2,
         "pax": 294
       },
       "South Korea": {
-        "flights": 13,
-        "pax": 1911
+        "flights": 14,
+        "pax": 2058
       },
       "Other(CJJ)": {
         "flights": 1,
@@ -146,17 +142,6 @@
   },
   "arrivals_list": [
     {
-      "fn": "TW13",
-      "airline": "TW",
-      "status": "landed",
-      "pax": 147,
-      "aircraft": "B738",
-      "dep_time": "2026-05-27T19:35",
-      "arr_time": "2026-05-27T23:45",
-      "from": "ICN",
-      "country": "South Korea"
-    },
-    {
       "fn": "VJ2855",
       "airline": "VJ",
       "status": "landed",
@@ -166,6 +151,17 @@
       "arr_time": "2026-05-28T03:44",
       "from": "MNL",
       "country": "Other(MNL)"
+    },
+    {
+      "fn": "VJ2832",
+      "airline": "VJ",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A333",
+      "dep_time": "2026-05-27T19:54",
+      "arr_time": "2026-05-28T04:46",
+      "from": "",
+      "country": "Other()"
     },
     {
       "fn": "5J5758",
@@ -760,20 +756,20 @@
       "arr_time": "2026-05-28T23:23",
       "from": "PUS",
       "country": "South Korea"
+    },
+    {
+      "fn": "TW13",
+      "airline": "TW",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "B738",
+      "dep_time": "2026-05-28T19:35",
+      "arr_time": "2026-05-28T23:43",
+      "from": "ICN",
+      "country": "South Korea"
     }
   ],
   "departures_list": [
-    {
-      "fn": "8M455",
-      "airline": "8M",
-      "status": "departed",
-      "pax": 147,
-      "aircraft": "A319",
-      "dep_time": "2026-05-27T20:00",
-      "arr_time": "2026-05-27T21:50",
-      "to": "RGN",
-      "country": "Myanmar"
-    },
     {
       "fn": "VN318",
       "airline": "VN",
@@ -1389,6 +1385,17 @@
       "arr_time": "2026-05-29T00:53",
       "to": "MFM",
       "country": "Macau"
+    },
+    {
+      "fn": "VJ878",
+      "airline": "VJ",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "A321",
+      "dep_time": "2026-05-28T23:45",
+      "arr_time": "2026-05-29T03:50",
+      "to": "ICN",
+      "country": "South Korea"
     }
   ]
 }

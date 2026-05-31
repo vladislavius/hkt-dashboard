@@ -1,41 +1,37 @@
 {
   "date": "2025-10-27",
   "arrivals": {
-    "count": 84,
-    "pax": 16790,
+    "count": 85,
+    "pax": 16688,
     "countries": {
-      "Москва": {
-        "flights": 5,
-        "pax": 1486,
-        "country": "Russia"
-      },
-      "UAE": {
-        "flights": 8,
-        "pax": 2250
-      },
-      "Qatar": {
-        "flights": 3,
-        "pax": 972
-      },
       "India": {
-        "flights": 14,
-        "pax": 2058
+        "flights": 15,
+        "pax": 2205
       },
       "Singapore": {
         "flights": 8,
         "pax": 1176
       },
-      "Other(TSE)": {
-        "flights": 1,
-        "pax": 147
+      "Other": {
+        "flights": 6,
+        "pax": 948
+      },
+      "UAE": {
+        "flights": 7,
+        "pax": 1926
       },
       "Germany": {
         "flights": 1,
         "pax": 287
       },
       "Новосибирск": {
-        "flights": 1,
-        "pax": 257,
+        "flights": 2,
+        "pax": 404,
+        "country": "Russia"
+      },
+      "Москва": {
+        "flights": 3,
+        "pax": 972,
         "country": "Russia"
       },
       "Красноярск": {
@@ -69,9 +65,9 @@
         "pax": 262,
         "country": "Russia"
       },
-      "Other(TFU)": {
-        "flights": 3,
-        "pax": 507
+      "Qatar": {
+        "flights": 4,
+        "pax": 1177
       },
       "Vietnam": {
         "flights": 1,
@@ -93,14 +89,6 @@
         "flights": 1,
         "pax": 147
       },
-      "Other(SAI)": {
-        "flights": 1,
-        "pax": 147
-      },
-      "Other(UTH)": {
-        "flights": 1,
-        "pax": 147
-      },
       "Australia": {
         "flights": 1,
         "pax": 205
@@ -117,45 +105,40 @@
       "Saudi Arabia": {
         "flights": 1,
         "pax": 270
+      },
+      "Italy": {
+        "flights": 1,
+        "pax": 237
       }
     }
   },
   "departures": {
-    "count": 81,
-    "pax": 16062,
+    "count": 80,
+    "pax": 15805,
     "countries": {
-      "Новосибирск": {
-        "flights": 2,
-        "pax": 514,
-        "country": "Russia"
-      },
-      "China": {
-        "flights": 7,
-        "pax": 1165
-      },
       "Qatar": {
         "flights": 3,
         "pax": 972
       },
-      "UAE": {
-        "flights": 7,
-        "pax": 1926
-      },
-      "Other(TFU)": {
-        "flights": 3,
-        "pax": 507
+      "Other": {
+        "flights": 5,
+        "pax": 801
       },
       "Singapore": {
         "flights": 8,
         "pax": 1176
+      },
+      "UAE": {
+        "flights": 7,
+        "pax": 1926
       },
       "India": {
         "flights": 13,
         "pax": 1911
       },
       "Москва": {
-        "flights": 4,
-        "pax": 1229,
+        "flights": 5,
+        "pax": 1486,
         "country": "Russia"
       },
       "Germany": {
@@ -197,13 +180,9 @@
         "flights": 1,
         "pax": 180
       },
-      "Other(SAI)": {
-        "flights": 1,
-        "pax": 147
-      },
-      "Other(UTH)": {
-        "flights": 1,
-        "pax": 147
+      "China": {
+        "flights": 7,
+        "pax": 1165
       },
       "Indonesia": {
         "flights": 1,
@@ -237,61 +216,6 @@
     }
   },
   "arrivals_list": [
-    {
-      "fn": "WZ 3097",
-      "airline": "AIRLINES 400 JSC (RED WINGS AIRLINES)",
-      "status": "cancelled",
-      "pax": 257,
-      "aircraft": "772",
-      "dep_time": "",
-      "arr_time": "2025-10-26T04:00",
-      "from": "DME",
-      "country": "Russia"
-    },
-    {
-      "fn": "WZ 3197",
-      "airline": "AIRLINES 400 JSC (RED WINGS AIRLINES)",
-      "status": "landed",
-      "pax": 257,
-      "aircraft": "772",
-      "dep_time": "",
-      "arr_time": "2025-10-26T20:40",
-      "from": "DME",
-      "country": "Russia"
-    },
-    {
-      "fn": "EY 410",
-      "airline": "ETIHAD AIRWAYS",
-      "status": "",
-      "pax": 324,
-      "aircraft": "77W",
-      "dep_time": "",
-      "arr_time": "2025-10-26T23:15",
-      "from": "AUH",
-      "country": "UAE"
-    },
-    {
-      "fn": "EY 418",
-      "airline": "ETIHAD AIRWAYS",
-      "status": "landed",
-      "pax": 324,
-      "aircraft": "77W",
-      "dep_time": "",
-      "arr_time": "2025-10-26T23:15",
-      "from": "AUH",
-      "country": "UAE"
-    },
-    {
-      "fn": "QR 842",
-      "airline": "QATAR AIRWAYS COMPANY",
-      "status": "landed",
-      "pax": 324,
-      "aircraft": "77W",
-      "dep_time": "",
-      "arr_time": "2025-10-26T23:50",
-      "from": "DOH",
-      "country": "Qatar"
-    },
     {
       "fn": "VZ 763",
       "airline": "THAI VIET JET AIR JOINTSTOCK",
@@ -1160,64 +1084,75 @@
       "arr_time": "2025-10-27T16:45",
       "from": "TFU",
       "country": ""
-    }
-  ],
-  "departures_list": [
+    },
     {
-      "fn": "WZ 3052",
-      "airline": "AIRLINES 400 JSC (RED WINGS AIRLINES)",
-      "status": "cancelled",
-      "pax": 257,
-      "aircraft": "772",
-      "dep_time": "2025-10-26T05:35",
-      "arr_time": "",
-      "to": "OVB",
+      "fn": "ZF 2947",
+      "airline": "AZUR AIR",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "75M",
+      "dep_time": "",
+      "arr_time": "2025-10-27T21:50",
+      "from": "OVB",
       "country": "Russia"
     },
     {
-      "fn": "FM 832",
-      "airline": "SHANGHAI AIRLINES",
-      "status": "departed",
-      "pax": 147,
-      "aircraft": "7M8",
-      "dep_time": "2025-10-26T17:20",
-      "arr_time": "",
-      "to": "PVG",
-      "country": "China"
-    },
-    {
-      "fn": "QR 841",
+      "fn": "QR 850",
       "airline": "QATAR AIRWAYS COMPANY",
-      "status": "departed",
-      "pax": 324,
-      "aircraft": "77W",
-      "dep_time": "2025-10-26T17:50",
-      "arr_time": "",
-      "to": "DOH",
+      "status": "landed",
+      "pax": 205,
+      "aircraft": "788",
+      "dep_time": "",
+      "arr_time": "2025-10-27T22:50",
+      "from": "DOH",
       "country": "Qatar"
     },
     {
-      "fn": "EY 415",
+      "fn": "EY 410",
       "airline": "ETIHAD AIRWAYS",
-      "status": "departed",
-      "pax": 270,
-      "aircraft": "78J",
-      "dep_time": "2025-10-26T20:10",
-      "arr_time": "",
-      "to": "AUH",
+      "status": "landed",
+      "pax": 324,
+      "aircraft": "77W",
+      "dep_time": "",
+      "arr_time": "2025-10-27T23:15",
+      "from": "AUH",
       "country": "UAE"
     },
     {
-      "fn": "WZ 3152",
-      "airline": "AIRLINES 400 JSC (RED WINGS AIRLINES)",
-      "status": "departed",
-      "pax": 257,
-      "aircraft": "772",
-      "dep_time": "2025-10-26T22:40",
-      "arr_time": "",
-      "to": "OVB",
-      "country": "Russia"
+      "fn": "FD 193",
+      "airline": "THAI AIR ASIA CO.LTD.",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "320",
+      "dep_time": "",
+      "arr_time": "2025-10-27T23:35",
+      "from": "MAA",
+      "country": "India"
     },
+    {
+      "fn": "NO 126",
+      "airline": "NEOS S.P.A.",
+      "status": "landed",
+      "pax": 237,
+      "aircraft": "789",
+      "dep_time": "",
+      "arr_time": "2025-10-27T23:35",
+      "from": "MXP",
+      "country": "Italy"
+    },
+    {
+      "fn": "QR 842",
+      "airline": "QATAR AIRWAYS COMPANY",
+      "status": "landed",
+      "pax": 324,
+      "aircraft": "77W",
+      "dep_time": "",
+      "arr_time": "2025-10-27T23:50",
+      "from": "DOH",
+      "country": "Qatar"
+    }
+  ],
+  "departures_list": [
     {
       "fn": "QR 843",
       "airline": "QATAR AIRWAYS COMPANY",
@@ -2053,6 +1988,50 @@
       "arr_time": "",
       "to": "JED",
       "country": "Saudi Arabia"
+    },
+    {
+      "fn": "WZ 3198",
+      "airline": "AIRLINES 400 JSC (RED WINGS AIRLINES)",
+      "status": "departed",
+      "pax": 257,
+      "aircraft": "772",
+      "dep_time": "2025-10-27T17:10",
+      "arr_time": "",
+      "to": "DME",
+      "country": "Russia"
+    },
+    {
+      "fn": "FM 832",
+      "airline": "SHANGHAI AIRLINES",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2025-10-27T17:20",
+      "arr_time": "",
+      "to": "PVG",
+      "country": "China"
+    },
+    {
+      "fn": "QR 841",
+      "airline": "QATAR AIRWAYS COMPANY",
+      "status": "departed",
+      "pax": 324,
+      "aircraft": "77W",
+      "dep_time": "2025-10-27T17:50",
+      "arr_time": "",
+      "to": "DOH",
+      "country": "Qatar"
+    },
+    {
+      "fn": "EY 415",
+      "airline": "ETIHAD AIRWAYS",
+      "status": "departed",
+      "pax": 270,
+      "aircraft": "78J",
+      "dep_time": "2025-10-27T20:10",
+      "arr_time": "",
+      "to": "AUH",
+      "country": "UAE"
     }
   ],
   "russia_transit": {

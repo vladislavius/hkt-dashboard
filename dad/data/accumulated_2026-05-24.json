@@ -1,8 +1,8 @@
 {
   "date": "2026-05-24",
   "arrivals": {
-    "count": 64,
-    "pax": 9408,
+    "count": 65,
+    "pax": 9555,
     "countries": {
       "South Korea": {
         "flights": 16,
@@ -11,6 +11,11 @@
       "Other(MNL)": {
         "flights": 5,
         "pax": 735
+      },
+      "Москва": {
+        "flights": 1,
+        "pax": 147,
+        "country": "Russia"
       },
       "Kazakhstan": {
         "flights": 1,
@@ -75,16 +80,16 @@
     }
   },
   "departures": {
-    "count": 65,
-    "pax": 9555,
+    "count": 64,
+    "pax": 9408,
     "countries": {
-      "South Korea": {
-        "flights": 16,
-        "pax": 2352
-      },
       "Japan": {
         "flights": 2,
         "pax": 294
+      },
+      "South Korea": {
+        "flights": 15,
+        "pax": 2205
       },
       "Other()": {
         "flights": 2,
@@ -154,17 +159,6 @@
   },
   "arrivals_list": [
     {
-      "fn": "TW13",
-      "airline": "TW",
-      "status": "landed",
-      "pax": 147,
-      "aircraft": "B738",
-      "dep_time": "2026-05-23T19:35",
-      "arr_time": "2026-05-23T23:46",
-      "from": "ICN",
-      "country": "South Korea"
-    },
-    {
       "fn": "BX7315",
       "airline": "BX",
       "status": "landed",
@@ -196,6 +190,17 @@
       "arr_time": "2026-05-24T04:52",
       "from": "MNL",
       "country": "Other(MNL)"
+    },
+    {
+      "fn": "VJ8932",
+      "airline": "VJ",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "A333",
+      "dep_time": "2026-05-23T21:33",
+      "arr_time": "2026-05-24T05:30",
+      "from": "SVO",
+      "country": "Russia"
     },
     {
       "fn": "Z2822",
@@ -856,20 +861,20 @@
       "arr_time": "2026-05-24T23:14",
       "from": "PUS",
       "country": "South Korea"
+    },
+    {
+      "fn": "TW13",
+      "airline": "TW",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "B738",
+      "dep_time": "2026-05-24T19:35",
+      "arr_time": "2026-05-24T23:49",
+      "from": "ICN",
+      "country": "South Korea"
     }
   ],
   "departures_list": [
-    {
-      "fn": "VJ878",
-      "airline": "VJ",
-      "status": "departed",
-      "pax": 147,
-      "aircraft": "A321",
-      "dep_time": "2026-05-23T23:45",
-      "arr_time": "2026-05-24T03:50",
-      "to": "ICN",
-      "country": "South Korea"
-    },
     {
       "fn": "VN318",
       "airline": "VN",

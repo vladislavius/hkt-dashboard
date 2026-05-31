@@ -1,28 +1,20 @@
 {
   "date": "2026-02-10",
   "arrivals": {
-    "count": 122,
-    "pax": 22339,
+    "count": 123,
+    "pax": 22576,
     "countries": {
-      "UAE": {
-        "flights": 9,
-        "pax": 2097
-      },
       "India": {
         "flights": 14,
         "pax": 2058
-      },
-      "Qatar": {
-        "flights": 4,
-        "pax": 1177
       },
       "China": {
         "flights": 26,
         "pax": 4019
       },
-      "Other(TSE)": {
-        "flights": 2,
-        "pax": 294
+      "Other": {
+        "flights": 10,
+        "pax": 1536
       },
       "Turkey": {
         "flights": 2,
@@ -53,6 +45,10 @@
         "flights": 1,
         "pax": 147,
         "country": "Russia"
+      },
+      "UAE": {
+        "flights": 9,
+        "pax": 2097
       },
       "Germany": {
         "flights": 1,
@@ -102,13 +98,9 @@
         "flights": 1,
         "pax": 257
       },
-      "Other(TFU)": {
+      "Qatar": {
         "flights": 4,
-        "pax": 654
-      },
-      "Other(OMS)": {
-        "flights": 1,
-        "pax": 147
+        "pax": 1177
       },
       "Vietnam": {
         "flights": 1,
@@ -122,10 +114,6 @@
         "flights": 1,
         "pax": 237
       },
-      "Other(UBN)": {
-        "flights": 1,
-        "pax": 147
-      },
       "Sweden": {
         "flights": 1,
         "pax": 287
@@ -138,15 +126,7 @@
         "flights": 1,
         "pax": 147
       },
-      "Other(SAI)": {
-        "flights": 1,
-        "pax": 147
-      },
       "Oman": {
-        "flights": 1,
-        "pax": 147
-      },
-      "Other(UTH)": {
         "flights": 1,
         "pax": 147
       },
@@ -158,40 +138,28 @@
         "flights": 1,
         "pax": 147,
         "country": "Russia"
+      },
+      "Poland": {
+        "flights": 1,
+        "pax": 237
       }
     }
   },
   "departures": {
-    "count": 119,
-    "pax": 21627,
+    "count": 118,
+    "pax": 21834,
     "countries": {
-      "UAE": {
-        "flights": 8,
-        "pax": 1863
-      },
-      "India": {
-        "flights": 14,
-        "pax": 2058
-      },
-      "China": {
-        "flights": 24,
-        "pax": 3718
-      },
-      "Saudi Arabia": {
-        "flights": 1,
-        "pax": 147
-      },
       "Malaysia": {
         "flights": 12,
         "pax": 1955
       },
       "Qatar": {
-        "flights": 3,
-        "pax": 853
-      },
-      "Other(TFU)": {
         "flights": 4,
-        "pax": 654
+        "pax": 1177
+      },
+      "Other": {
+        "flights": 7,
+        "pax": 1095
       },
       "Singapore": {
         "flights": 9,
@@ -200,6 +168,14 @@
       "Turkey": {
         "flights": 2,
         "pax": 499
+      },
+      "UAE": {
+        "flights": 8,
+        "pax": 2007
+      },
+      "India": {
+        "flights": 12,
+        "pax": 1764
       },
       "Владивосток": {
         "flights": 1,
@@ -257,9 +233,9 @@
         "flights": 1,
         "pax": 180
       },
-      "Other(SAI)": {
-        "flights": 1,
-        "pax": 147
+      "China": {
+        "flights": 25,
+        "pax": 3898
       },
       "Israel": {
         "flights": 1,
@@ -269,17 +245,9 @@
         "flights": 2,
         "pax": 352
       },
-      "Other(UTH)": {
-        "flights": 1,
-        "pax": 147
-      },
       "Norway": {
         "flights": 1,
         "pax": 237
-      },
-      "Other(UBN)": {
-        "flights": 1,
-        "pax": 147
       },
       "Indonesia": {
         "flights": 1,
@@ -309,50 +277,6 @@
     }
   },
   "arrivals_list": [
-    {
-      "fn": "EY 410",
-      "airline": "ETIHAD AIRWAYS",
-      "status": "landed",
-      "pax": 324,
-      "aircraft": "77W",
-      "dep_time": "",
-      "arr_time": "2026-02-09T23:30",
-      "from": "AUH",
-      "country": "UAE"
-    },
-    {
-      "fn": "FD 193",
-      "airline": "THAI AIR ASIA CO.LTD.",
-      "status": "landed",
-      "pax": 147,
-      "aircraft": "320",
-      "dep_time": "",
-      "arr_time": "2026-02-09T23:35",
-      "from": "MAA",
-      "country": "India"
-    },
-    {
-      "fn": "QR 850",
-      "airline": "QATAR AIRWAYS COMPANY",
-      "status": "landed",
-      "pax": 205,
-      "aircraft": "788",
-      "dep_time": "",
-      "arr_time": "2026-02-09T23:40",
-      "from": "DOH",
-      "country": "Qatar"
-    },
-    {
-      "fn": "QR 842",
-      "airline": "QATAR AIRWAYS COMPANY",
-      "status": "landed",
-      "pax": 324,
-      "aircraft": "77W",
-      "dep_time": "",
-      "arr_time": "2026-02-09T23:50",
-      "from": "DOH",
-      "country": "Qatar"
-    },
     {
       "fn": "FD 193  Z",
       "airline": "THAI AIR ASIA CO.LTD.",
@@ -1650,108 +1574,64 @@
       "arr_time": "2026-02-10T16:45",
       "from": "TFU",
       "country": ""
+    },
+    {
+      "fn": "EY 410",
+      "airline": "ETIHAD AIRWAYS",
+      "status": "landed",
+      "pax": 324,
+      "aircraft": "77W",
+      "dep_time": "",
+      "arr_time": "2026-02-10T23:30",
+      "from": "AUH",
+      "country": "UAE"
+    },
+    {
+      "fn": "QR 850",
+      "airline": "QATAR AIRWAYS COMPANY",
+      "status": "landed",
+      "pax": 205,
+      "aircraft": "788",
+      "dep_time": "",
+      "arr_time": "2026-02-10T23:40",
+      "from": "DOH",
+      "country": "Qatar"
+    },
+    {
+      "fn": "FD 193",
+      "airline": "THAI AIR ASIA CO.LTD.",
+      "status": "landed",
+      "pax": 147,
+      "aircraft": "320",
+      "dep_time": "",
+      "arr_time": "2026-02-10T23:45",
+      "from": "MAA",
+      "country": "India"
+    },
+    {
+      "fn": "QR 842",
+      "airline": "QATAR AIRWAYS COMPANY",
+      "status": "landed",
+      "pax": 324,
+      "aircraft": "77W",
+      "dep_time": "",
+      "arr_time": "2026-02-10T23:50",
+      "from": "DOH",
+      "country": "Qatar"
+    },
+    {
+      "fn": "LO 6511",
+      "airline": "LOT POLISH AIRLINES/POLSKIE LINIE LOTNICZE",
+      "status": "landed",
+      "pax": 237,
+      "aircraft": "789",
+      "dep_time": "",
+      "arr_time": "2026-02-10T23:55",
+      "from": "WAW",
+      "country": "Poland"
     }
   ],
   "departures_list": [
-    {
-      "fn": "G9 715",
-      "airline": "AIR ARABIA",
-      "status": "departed",
-      "pax": 180,
-      "aircraft": "321",
-      "dep_time": "2026-02-09T11:15",
-      "arr_time": "",
-      "to": "SHJ",
-      "country": "UAE"
-    },
-    {
-      "fn": "6E 1090",
-      "airline": "INTERGLOBE AVIATION LIMITED (INDIGO)",
-      "status": "departed",
-      "pax": 147,
-      "aircraft": "",
-      "dep_time": "2026-02-09T15:50",
-      "arr_time": "",
-      "to": "BOM",
-      "country": "India"
-    },
-    {
-      "fn": "FD 192",
-      "airline": "THAI AIR ASIA CO.LTD.",
-      "status": "departed",
-      "pax": 147,
-      "aircraft": "320",
-      "dep_time": "2026-02-09T16:40",
-      "arr_time": "",
-      "to": "MAA",
-      "country": "India"
-    },
-    {
-      "fn": "9C 8670",
-      "airline": "SPRING AIRLINES LIMITED CORPORATION",
-      "status": "departed",
-      "pax": 147,
-      "aircraft": "320",
-      "dep_time": "2026-02-09T16:55",
-      "arr_time": "",
-      "to": "PVG",
-      "country": "China"
-    },
-    {
-      "fn": "SV 853",
-      "airline": "SAUDI ARABIAN AIRLINES",
-      "status": "departed",
-      "pax": 147,
-      "aircraft": "",
-      "dep_time": "2026-02-09T16:55",
-      "arr_time": "",
-      "to": "JED",
-      "country": "Saudi Arabia"
-    },
-    {
-      "fn": "FM 832",
-      "airline": "SHANGHAI AIRLINES",
-      "status": "departed",
-      "pax": 147,
-      "aircraft": "7M8",
-      "dep_time": "2026-02-09T17:05",
-      "arr_time": "",
-      "to": "PVG",
-      "country": "China"
-    },
-    {
-      "fn": "MU 7068",
-      "airline": "CHINA EASTERN AIRLINES",
-      "status": "departed",
-      "pax": 147,
-      "aircraft": "",
-      "dep_time": "2026-02-09T17:10",
-      "arr_time": "",
-      "to": "NKG",
-      "country": "China"
-    },
-    {
-      "fn": "HO 1634",
-      "airline": "JUNEYAO AIRLINES CO.LTD.",
-      "status": "cancelled",
-      "pax": 147,
-      "aircraft": "320",
-      "dep_time": "2026-02-09T17:15",
-      "arr_time": "",
-      "to": "NKG",
-      "country": "China"
-    },
-    {
-      "fn": "EY 415",
-      "airline": "ETIHAD AIRWAYS",
-      "status": "departed",
-      "pax": 237,
-      "aircraft": "789",
-      "dep_time": "2026-02-09T17:25",
-      "arr_time": "",
-      "to": "AUH",
-      "country": "UAE"
-    },
     {
       "fn": "AK 819",
       "airline": "AIRASIA BERHAD",
@@ -2961,6 +2841,94 @@
       "arr_time": "",
       "to": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "EK 397",
+      "airline": "EMIRATES",
+      "status": "departed",
+      "pax": 324,
+      "aircraft": "77W",
+      "dep_time": "2026-02-10T16:50",
+      "arr_time": "",
+      "to": "DXB",
+      "country": "UAE"
+    },
+    {
+      "fn": "9C 8670",
+      "airline": "SPRING AIRLINES LIMITED CORPORATION",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "320",
+      "dep_time": "2026-02-10T16:55",
+      "arr_time": "",
+      "to": "PVG",
+      "country": "China"
+    },
+    {
+      "fn": "QR 1841",
+      "airline": "QATAR AIRWAYS COMPANY",
+      "status": "departed",
+      "pax": 324,
+      "aircraft": "77W",
+      "dep_time": "2026-02-10T16:55",
+      "arr_time": "",
+      "to": "DOH",
+      "country": "Qatar"
+    },
+    {
+      "fn": "FM 832",
+      "airline": "SHANGHAI AIRLINES",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2026-02-10T17:05",
+      "arr_time": "",
+      "to": "PVG",
+      "country": "China"
+    },
+    {
+      "fn": "MU 2082",
+      "airline": "CHINA EASTERN AIRLINES",
+      "status": "departed",
+      "pax": 180,
+      "aircraft": "321",
+      "dep_time": "2026-02-10T17:05",
+      "arr_time": "",
+      "to": "XIY",
+      "country": "China"
+    },
+    {
+      "fn": "MU 7068",
+      "airline": "CHINA EASTERN AIRLINES",
+      "status": "departed",
+      "pax": 147,
+      "aircraft": "320",
+      "dep_time": "2026-02-10T17:10",
+      "arr_time": "",
+      "to": "NKG",
+      "country": "China"
+    },
+    {
+      "fn": "HO 1634",
+      "airline": "JUNEYAO AIRLINES CO.LTD.",
+      "status": "cancelled",
+      "pax": 147,
+      "aircraft": "320",
+      "dep_time": "2026-02-10T17:15",
+      "arr_time": "",
+      "to": "NKG",
+      "country": "China"
+    },
+    {
+      "fn": "EY 415",
+      "airline": "ETIHAD AIRWAYS",
+      "status": "departed",
+      "pax": 237,
+      "aircraft": "789",
+      "dep_time": "2026-02-10T17:25",
+      "arr_time": "",
+      "to": "AUH",
+      "country": "UAE"
     }
   ],
   "russia_transit": {
