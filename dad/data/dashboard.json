@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-31T18:49:47.343178+07:00",
+  "updated": "2026-05-31T19:09:51.361445+07:00",
   "available_dates": [
     "2026-04-21",
     "2026-04-22",
@@ -64,7 +64,7 @@
           "pax": 882
         },
         {
-          "name": "Macau",
+          "name": "Malaysia",
           "flights": 5,
           "pax": 735
         },
@@ -74,7 +74,7 @@
           "pax": 735
         },
         {
-          "name": "Malaysia",
+          "name": "Macau",
           "flights": 5,
           "pax": 735
         },
@@ -84,12 +84,12 @@
           "pax": 588
         },
         {
-          "name": "Vietnam",
+          "name": "Taiwan",
           "flights": 3,
           "pax": 441
         },
         {
-          "name": "Taiwan",
+          "name": "Vietnam",
           "flights": 3,
           "pax": 441
         },
@@ -99,29 +99,7 @@
           "pax": 294
         },
         {
-          "name": "Other(CJJ)",
-          "flights": 1,
-          "pax": 147
-        },
-        {
-          "name": "Москва",
-          "flights": 1,
-          "pax": 147,
-          "country": "Russia"
-        },
-        {
-          "name": "Новосибирск",
-          "flights": 1,
-          "pax": 147,
-          "country": "Russia"
-        },
-        {
-          "name": "Myanmar",
-          "flights": 1,
-          "pax": 147
-        },
-        {
-          "name": "Other(SAI)",
+          "name": "Kazakhstan",
           "flights": 1,
           "pax": 147
         },
@@ -131,9 +109,31 @@
           "pax": 147
         },
         {
-          "name": "Kazakhstan",
+          "name": "Other(SAI)",
           "flights": 1,
           "pax": 147
+        },
+        {
+          "name": "Myanmar",
+          "flights": 1,
+          "pax": 147
+        },
+        {
+          "name": "Other(CJJ)",
+          "flights": 1,
+          "pax": 147
+        },
+        {
+          "name": "Новосибирск",
+          "flights": 1,
+          "pax": 147,
+          "country": "Russia"
+        },
+        {
+          "name": "Москва",
+          "flights": 1,
+          "pax": 147,
+          "country": "Russia"
         }
       ]
     },
@@ -157,12 +157,12 @@
           "pax": 735
         },
         {
-          "name": "Singapore",
+          "name": "Malaysia",
           "flights": 5,
           "pax": 735
         },
         {
-          "name": "Malaysia",
+          "name": "Singapore",
           "flights": 5,
           "pax": 735
         },
@@ -172,7 +172,7 @@
           "pax": 588
         },
         {
-          "name": "Macau",
+          "name": "Other()",
           "flights": 3,
           "pax": 441
         },
@@ -182,7 +182,7 @@
           "pax": 441
         },
         {
-          "name": "Other()",
+          "name": "Macau",
           "flights": 3,
           "pax": 441
         },
@@ -197,17 +197,12 @@
           "pax": 294
         },
         {
-          "name": "Myanmar",
+          "name": "Japan",
           "flights": 1,
           "pax": 147
         },
         {
-          "name": "Vietnam",
-          "flights": 1,
-          "pax": 147
-        },
-        {
-          "name": "Other(SAI)",
+          "name": "Other(CJJ)",
           "flights": 1,
           "pax": 147
         },
@@ -218,12 +213,17 @@
           "country": "Russia"
         },
         {
-          "name": "Other(CJJ)",
+          "name": "Other(SAI)",
           "flights": 1,
           "pax": 147
         },
         {
-          "name": "Japan",
+          "name": "Vietnam",
+          "flights": 1,
+          "pax": 147
+        },
+        {
+          "name": "Myanmar",
           "flights": 1,
           "pax": 147
         }
@@ -1644,6 +1644,16 @@
         "arr_time": "2026-05-31T17:35",
         "from": "TPE",
         "country": "Taiwan"
+      },
+      {
+        "fn": "K6842",
+        "airline": "Air Cambodia",
+        "status": "bags delivered",
+        "pax": 147,
+        "dep_time": "",
+        "arr_time": "2026-05-31T19:30",
+        "from": "KTI",
+        "country": "Other(KTI)"
       }
     ],
     "departures_list": [
@@ -1706,6 +1716,16 @@
         "arr_time": "",
         "to": "MFM",
         "country": "Macau"
+      },
+      {
+        "fn": "IT586",
+        "airline": "Tigerair Taiwan",
+        "status": "departed",
+        "pax": 147,
+        "dep_time": "2026-05-31T18:25",
+        "arr_time": "",
+        "to": "KHH",
+        "country": "Other(KHH)"
       }
     ]
   },
@@ -1811,15 +1831,15 @@
           "pax": 294
         },
         {
+          "name": "Myanmar",
+          "flights": 1,
+          "pax": 147
+        },
+        {
           "name": "Новосибирск",
           "flights": 1,
           "pax": 147,
           "country": "Russia"
-        },
-        {
-          "name": "Myanmar",
-          "flights": 1,
-          "pax": 147
         },
         {
           "name": "Laos",
@@ -1834,8 +1854,8 @@
       ]
     },
     "departures": {
-      "count": 349,
-      "pax": 51303,
+      "count": 348,
+      "pax": 51156,
       "all": [
         {
           "name": "South Korea",
@@ -1858,12 +1878,12 @@
           "pax": 4116
         },
         {
-          "name": "Macau",
-          "flights": 27,
-          "pax": 3969
+          "name": "Hong Kong",
+          "flights": 26,
+          "pax": 3822
         },
         {
-          "name": "Hong Kong",
+          "name": "Macau",
           "flights": 26,
           "pax": 3822
         },
@@ -1883,22 +1903,22 @@
           "pax": 1470
         },
         {
-          "name": "Other()",
-          "flights": 10,
-          "pax": 1470
-        },
-        {
           "name": "Japan",
           "flights": 10,
           "pax": 1470
         },
         {
-          "name": "Other(SAI)",
+          "name": "Other()",
+          "flights": 10,
+          "pax": 1470
+        },
+        {
+          "name": "Kazakhstan",
           "flights": 6,
           "pax": 882
         },
         {
-          "name": "Kazakhstan",
+          "name": "Other(SAI)",
           "flights": 6,
           "pax": 882
         },
@@ -1957,97 +1977,97 @@
         "arrivals": 61,
         "departures": 55,
         "arrivals_by": {
-          "Other(CJJ)": {
-            "n": 1
-          },
           "South Korea": {
             "n": 12
           },
-          "Macau": {
-            "n": 5
-          },
-          "Thailand": {
-            "n": 8
-          },
           "Other(MNL)": {
             "n": 4
-          },
-          "Vietnam": {
-            "n": 2
-          },
-          "Hong Kong": {
-            "n": 5
-          },
-          "Malaysia": {
-            "n": 6
-          },
-          "Taiwan": {
-            "n": 5
-          },
-          "Other(KTI)": {
-            "n": 1
-          },
-          "Singapore": {
-            "n": 4
-          },
-          "Other(SAI)": {
-            "n": 1
-          },
-          "Japan": {
-            "n": 2
-          },
-          "Other(XSP)": {
-            "n": 1
           },
           "Uzbekistan": {
             "n": 1
           },
           "Kazakhstan": {
             "n": 3
-          }
-        },
-        "departures_by": {
-          "South Korea": {
-            "n": 10
           },
-          "Thailand": {
-            "n": 8
-          },
-          "Other(MNL)": {
-            "n": 4
-          },
-          "Macau": {
-            "n": 4
+          "Vietnam": {
+            "n": 2
           },
           "Hong Kong": {
             "n": 5
           },
+          "Thailand": {
+            "n": 8
+          },
+          "Singapore": {
+            "n": 4
+          },
           "Malaysia": {
             "n": 6
           },
+          "Other(XSP)": {
+            "n": 1
+          },
           "Taiwan": {
+            "n": 5
+          },
+          "Japan": {
+            "n": 2
+          },
+          "Other(SAI)": {
+            "n": 1
+          },
+          "Macau": {
             "n": 5
           },
           "Other(KTI)": {
             "n": 1
           },
+          "Other(CJJ)": {
+            "n": 1
+          }
+        },
+        "departures_by": {
+          "Japan": {
+            "n": 2
+          },
+          "South Korea": {
+            "n": 10
+          },
           "Vietnam": {
             "n": 2
           },
-          "Singapore": {
+          "Other(MNL)": {
             "n": 4
-          },
-          "Other(SAI)": {
-            "n": 1
-          },
-          "Other(KBR)": {
-            "n": 1
           },
           "Other()": {
             "n": 2
           },
-          "Japan": {
-            "n": 2
+          "Malaysia": {
+            "n": 6
+          },
+          "Hong Kong": {
+            "n": 5
+          },
+          "Thailand": {
+            "n": 8
+          },
+          "Singapore": {
+            "n": 4
+          },
+          "Taiwan": {
+            "n": 5
+          },
+          "Macau": {
+            "n": 4
+          },
+          "Other(KBR)": {
+            "n": 1
+          },
+          "Other(SAI)": {
+            "n": 1
+          },
+          "Other(KTI)": {
+            "n": 1
           }
         }
       },
@@ -2060,11 +2080,41 @@
           "South Korea": {
             "n": 13
           },
+          "Other(MNL)": {
+            "n": 5
+          },
+          "Other(RMQ)": {
+            "n": 1
+          },
+          "Hong Kong": {
+            "n": 4
+          },
+          "Thailand": {
+            "n": 7
+          },
+          "Malaysia": {
+            "n": 5
+          },
+          "Singapore": {
+            "n": 4
+          },
+          "Kazakhstan": {
+            "n": 1
+          },
+          "Taiwan": {
+            "n": 4
+          },
+          "Japan": {
+            "n": 1
+          },
+          "Other(SAI)": {
+            "n": 1
+          },
           "Macau": {
             "n": 3
           },
-          "Other(MNL)": {
-            "n": 5
+          "Other(KHH)": {
+            "n": 1
           },
           "Other()": {
             "n": 2
@@ -2075,82 +2125,52 @@
           "Москва": {
             "n": 1,
             "country": "Russia"
-          },
-          "Thailand": {
-            "n": 7
-          },
-          "Taiwan": {
-            "n": 4
-          },
-          "Singapore": {
-            "n": 4
-          },
-          "Other(KHH)": {
-            "n": 1
-          },
-          "Hong Kong": {
-            "n": 4
-          },
-          "Malaysia": {
-            "n": 5
-          },
-          "Other(SAI)": {
-            "n": 1
-          },
-          "Japan": {
-            "n": 1
-          },
-          "Other(RMQ)": {
-            "n": 1
-          },
-          "Kazakhstan": {
-            "n": 1
           }
         },
         "departures_by": {
-          "Macau": {
-            "n": 6
-          },
           "South Korea": {
             "n": 12
           },
-          "Other(MNL)": {
-            "n": 5
+          "Macau": {
+            "n": 6
           },
-          "Taiwan": {
-            "n": 4
-          },
-          "Singapore": {
-            "n": 4
-          },
-          "Other(KHH)": {
-            "n": 1
-          },
-          "Hong Kong": {
-            "n": 4
-          },
-          "Vietnam": {
-            "n": 1
-          },
-          "Thailand": {
-            "n": 7
-          },
-          "Other(SAI)": {
-            "n": 1
-          },
-          "Malaysia": {
-            "n": 5
-          },
-          "Other(RMQ)": {
-            "n": 1
-          },
-          "Other()": {
+          "Japan": {
             "n": 1
           },
           "Other(CJJ)": {
             "n": 1
           },
-          "Japan": {
+          "Other()": {
+            "n": 1
+          },
+          "Other(MNL)": {
+            "n": 5
+          },
+          "Hong Kong": {
+            "n": 4
+          },
+          "Thailand": {
+            "n": 7
+          },
+          "Other(RMQ)": {
+            "n": 1
+          },
+          "Malaysia": {
+            "n": 5
+          },
+          "Singapore": {
+            "n": 4
+          },
+          "Taiwan": {
+            "n": 4
+          },
+          "Other(SAI)": {
+            "n": 1
+          },
+          "Vietnam": {
+            "n": 1
+          },
+          "Other(KHH)": {
             "n": 1
           }
         }
@@ -2161,52 +2181,52 @@
         "arrivals": 58,
         "departures": 60,
         "arrivals_by": {
+          "Other(MNL)": {
+            "n": 4
+          },
+          "Uzbekistan": {
+            "n": 1
+          },
+          "Taiwan": {
+            "n": 3
+          },
+          "Hong Kong": {
+            "n": 4
+          },
+          "Thailand": {
+            "n": 8
+          },
           "South Korea": {
             "n": 13
           },
-          "Other(CJJ)": {
-            "n": 1
+          "Singapore": {
+            "n": 4
           },
-          "Macau": {
-            "n": 5
+          "Malaysia": {
+            "n": 6
           },
-          "Other()": {
+          "Japan": {
             "n": 2
           },
           "Vietnam": {
             "n": 2
           },
-          "Thailand": {
-            "n": 8
-          },
-          "Other(MNL)": {
-            "n": 4
-          },
-          "Other(RMQ)": {
+          "Other(SAI)": {
             "n": 1
           },
-          "Hong Kong": {
-            "n": 4
+          "Macau": {
+            "n": 5
           },
           "Other(KHH)": {
             "n": 1
           },
-          "Malaysia": {
-            "n": 6
-          },
-          "Singapore": {
-            "n": 4
-          },
-          "Other(SAI)": {
+          "Other(RMQ)": {
             "n": 1
           },
-          "Japan": {
+          "Other()": {
             "n": 2
           },
-          "Taiwan": {
-            "n": 3
-          },
-          "Uzbekistan": {
+          "Other(CJJ)": {
             "n": 1
           }
         },
@@ -2214,49 +2234,49 @@
           "South Korea": {
             "n": 15
           },
-          "Macau": {
-            "n": 5
+          "Japan": {
+            "n": 2
           },
-          "Thailand": {
-            "n": 8
+          "Other()": {
+            "n": 1
           },
           "Other(MNL)": {
             "n": 4
           },
-          "Vietnam": {
-            "n": 1
-          },
-          "Hong Kong": {
-            "n": 4
-          },
-          "Other(KHH)": {
+          "Uzbekistan": {
             "n": 1
           },
           "Malaysia": {
             "n": 7
           },
+          "Taiwan": {
+            "n": 3
+          },
+          "Thailand": {
+            "n": 8
+          },
+          "Hong Kong": {
+            "n": 4
+          },
           "Singapore": {
             "n": 4
           },
-          "Other(SAI)": {
+          "Macau": {
+            "n": 5
+          },
+          "Other(RMQ)": {
             "n": 1
           },
           "Kazakhstan": {
             "n": 2
           },
-          "Other(RMQ)": {
+          "Other(SAI)": {
             "n": 1
           },
-          "Taiwan": {
-            "n": 3
-          },
-          "Japan": {
-            "n": 2
-          },
-          "Uzbekistan": {
+          "Vietnam": {
             "n": 1
           },
-          "Other()": {
+          "Other(KHH)": {
             "n": 1
           }
         }
@@ -2270,29 +2290,20 @@
           "South Korea": {
             "n": 12
           },
-          "Macau": {
-            "n": 4
-          },
           "Other(MNL)": {
             "n": 5
           },
-          "Vietnam": {
-            "n": 1
-          },
-          "Thailand": {
-            "n": 7
-          },
-          "Other(KTI)": {
-            "n": 1
+          "Kazakhstan": {
+            "n": 3
           },
           "Taiwan": {
             "n": 4
           },
-          "Other(KHH)": {
-            "n": 1
-          },
           "Hong Kong": {
             "n": 4
+          },
+          "Thailand": {
+            "n": 7
           },
           "Singapore": {
             "n": 4
@@ -2300,46 +2311,52 @@
           "Malaysia": {
             "n": 5
           },
+          "Japan": {
+            "n": 2
+          },
+          "Laos": {
+            "n": 1
+          },
           "Other(SAI)": {
             "n": 1
           },
           "Other()": {
             "n": 1
           },
-          "Laos": {
+          "Macau": {
+            "n": 4
+          },
+          "Other(KHH)": {
+            "n": 1
+          },
+          "Other(KTI)": {
+            "n": 1
+          },
+          "Vietnam": {
+            "n": 1
+          }
+        },
+        "departures_by": {
+          "Myanmar": {
             "n": 1
           },
           "Japan": {
             "n": 2
-          },
-          "Kazakhstan": {
-            "n": 3
-          }
-        },
-        "departures_by": {
-          "Macau": {
-            "n": 4
           },
           "South Korea": {
             "n": 13
           },
+          "Other(CJJ)": {
+            "n": 1
+          },
           "Other(MNL)": {
             "n": 5
-          },
-          "Other(KTI)": {
-            "n": 1
-          },
-          "Taiwan": {
-            "n": 4
-          },
-          "Other(KHH)": {
-            "n": 1
           },
           "Vietnam": {
             "n": 2
           },
-          "Other()": {
-            "n": 1
+          "Taiwan": {
+            "n": 4
           },
           "Thailand": {
             "n": 7
@@ -2353,19 +2370,22 @@
           "Malaysia": {
             "n": 5
           },
-          "Other(SAI)": {
-            "n": 1
+          "Macau": {
+            "n": 4
           },
           "Laos": {
             "n": 1
           },
-          "Japan": {
-            "n": 2
-          },
-          "Other(CJJ)": {
+          "Other(SAI)": {
             "n": 1
           },
-          "Myanmar": {
+          "Other()": {
+            "n": 1
+          },
+          "Other(KHH)": {
+            "n": 1
+          },
+          "Other(KTI)": {
             "n": 1
           }
         }
@@ -2374,100 +2394,100 @@
         "date": "2026-05-29",
         "label": "Пт 29.05",
         "arrivals": 61,
-        "departures": 59,
+        "departures": 58,
         "arrivals_by": {
           "South Korea": {
             "n": 13
           },
-          "Other(CJJ)": {
+          "Other(MNL)": {
+            "n": 4
+          },
+          "Vietnam": {
+            "n": 2
+          },
+          "Other(RMQ)": {
             "n": 1
           },
-          "Macau": {
+          "Hong Kong": {
             "n": 4
           },
           "Thailand": {
             "n": 8
           },
-          "Other(MNL)": {
-            "n": 4
-          },
           "Singapore": {
             "n": 5
           },
-          "Vietnam": {
-            "n": 2
-          },
-          "Москва": {
-            "n": 1,
-            "country": "Russia"
+          "Kazakhstan": {
+            "n": 1
           },
           "Taiwan": {
             "n": 5
-          },
-          "Hong Kong": {
-            "n": 4
-          },
-          "Malaysia": {
-            "n": 6
-          },
-          "Other(SAI)": {
-            "n": 1
           },
           "Other()": {
             "n": 3
           },
+          "Malaysia": {
+            "n": 6
+          },
           "Japan": {
             "n": 2
-          },
-          "Other(RMQ)": {
-            "n": 1
-          },
-          "Kazakhstan": {
-            "n": 1
-          }
-        },
-        "departures_by": {
-          "Macau": {
-            "n": 4
-          },
-          "Thailand": {
-            "n": 8
-          },
-          "South Korea": {
-            "n": 12
-          },
-          "Other(MNL)": {
-            "n": 5
-          },
-          "Taiwan": {
-            "n": 5
-          },
-          "Other()": {
-            "n": 2
-          },
-          "Hong Kong": {
-            "n": 4
-          },
-          "Vietnam": {
-            "n": 2
-          },
-          "Singapore": {
-            "n": 5
           },
           "Other(SAI)": {
             "n": 1
           },
+          "Macau": {
+            "n": 4
+          },
+          "Other(CJJ)": {
+            "n": 1
+          },
+          "Москва": {
+            "n": 1,
+            "country": "Russia"
+          }
+        },
+        "departures_by": {
+          "South Korea": {
+            "n": 12
+          },
+          "Japan": {
+            "n": 2
+          },
+          "Vietnam": {
+            "n": 2
+          },
+          "Other()": {
+            "n": 2
+          },
+          "Other(MNL)": {
+            "n": 5
+          },
           "Malaysia": {
             "n": 6
           },
-          "Kazakhstan": {
-            "n": 2
+          "Thailand": {
+            "n": 8
+          },
+          "Hong Kong": {
+            "n": 4
           },
           "Other(RMQ)": {
             "n": 1
           },
-          "Japan": {
+          "Singapore": {
+            "n": 5
+          },
+          "Kazakhstan": {
             "n": 2
+          },
+          "Taiwan": {
+            "n": 5
+          },
+          "Macau": {
+            "n": 3
+          },
+          "Other(SAI)": {
+            "n": 1
           }
         }
       },
@@ -2480,108 +2500,108 @@
           "South Korea": {
             "n": 12
           },
-          "Other(CJJ)": {
+          "Other(MNL)": {
+            "n": 6
+          },
+          "Taiwan": {
+            "n": 3
+          },
+          "Hong Kong": {
+            "n": 4
+          },
+          "Thailand": {
+            "n": 7
+          },
+          "Vietnam": {
+            "n": 3
+          },
+          "Malaysia": {
+            "n": 5
+          },
+          "Kazakhstan": {
+            "n": 1
+          },
+          "Singapore": {
+            "n": 5
+          },
+          "Japan": {
+            "n": 1
+          },
+          "Other(SAI)": {
             "n": 1
           },
           "Macau": {
             "n": 5
           },
-          "Other(MNL)": {
-            "n": 6
+          "Other(KHH)": {
+            "n": 2
           },
-          "Vietnam": {
-            "n": 3
+          "Myanmar": {
+            "n": 1
           },
-          "Singapore": {
-            "n": 5
+          "Other(CJJ)": {
+            "n": 1
+          },
+          "Новосибирск": {
+            "n": 1,
+            "country": "Russia"
           },
           "Москва": {
             "n": 1,
             "country": "Russia"
-          },
-          "Новосибирск": {
-            "n": 1,
-            "country": "Russia"
-          },
-          "Thailand": {
-            "n": 7
-          },
-          "Hong Kong": {
-            "n": 4
-          },
-          "Myanmar": {
-            "n": 1
-          },
-          "Taiwan": {
-            "n": 3
-          },
-          "Other(KHH)": {
-            "n": 2
-          },
-          "Other(SAI)": {
-            "n": 1
-          },
-          "Malaysia": {
-            "n": 5
-          },
-          "Japan": {
-            "n": 1
-          },
-          "Kazakhstan": {
-            "n": 1
           }
         },
         "departures_by": {
-          "Macau": {
-            "n": 3
+          "Japan": {
+            "n": 1
           },
           "South Korea": {
             "n": 13
           },
-          "Other(MNL)": {
-            "n": 5
-          },
-          "Myanmar": {
+          "Other(CJJ)": {
             "n": 1
-          },
-          "Hong Kong": {
-            "n": 4
-          },
-          "Other(KHH)": {
-            "n": 2
-          },
-          "Taiwan": {
-            "n": 3
-          },
-          "Singapore": {
-            "n": 5
-          },
-          "Thailand": {
-            "n": 7
           },
           "Other()": {
             "n": 3
           },
-          "Vietnam": {
-            "n": 1
-          },
-          "Other(SAI)": {
-            "n": 1
-          },
-          "Malaysia": {
+          "Other(MNL)": {
             "n": 5
           },
-          "Kazakhstan": {
-            "n": 2
+          "Taiwan": {
+            "n": 3
+          },
+          "Hong Kong": {
+            "n": 4
+          },
+          "Thailand": {
+            "n": 7
           },
           "Новосибирск": {
             "n": 1,
             "country": "Russia"
           },
-          "Other(CJJ)": {
+          "Malaysia": {
+            "n": 5
+          },
+          "Singapore": {
+            "n": 5
+          },
+          "Other(KHH)": {
+            "n": 2
+          },
+          "Macau": {
+            "n": 3
+          },
+          "Kazakhstan": {
+            "n": 2
+          },
+          "Other(SAI)": {
             "n": 1
           },
-          "Japan": {
+          "Vietnam": {
+            "n": 1
+          },
+          "Myanmar": {
             "n": 1
           }
         }
@@ -2630,38 +2650,33 @@
   },
   "month": {
     "arrivals": {
-      "count": 1606,
-      "pax": 236082,
+      "count": 1308,
+      "pax": 192276,
       "all": [
         {
           "name": "South Korea",
-          "flights": 436,
-          "pax": 64092
+          "flights": 301,
+          "pax": 44247
         },
         {
           "name": "Thailand",
-          "flights": 219,
-          "pax": 32193
-        },
-        {
-          "name": "Singapore",
-          "flights": 215,
-          "pax": 31605
+          "flights": 176,
+          "pax": 25872
         },
         {
           "name": "Malaysia",
-          "flights": 183,
-          "pax": 26901
+          "flights": 130,
+          "pax": 19110
         },
         {
           "name": "Hong Kong",
-          "flights": 156,
-          "pax": 22932
+          "flights": 119,
+          "pax": 17493
         },
         {
-          "name": "Taiwan",
-          "flights": 92,
-          "pax": 13524
+          "name": "Singapore",
+          "flights": 104,
+          "pax": 15288
         },
         {
           "name": "Macau",
@@ -2669,19 +2684,34 @@
           "pax": 12789
         },
         {
+          "name": "Other(MNL)",
+          "flights": 80,
+          "pax": 11760
+        },
+        {
+          "name": "Taiwan",
+          "flights": 77,
+          "pax": 11319
+        },
+        {
+          "name": "Other",
+          "flights": 60,
+          "pax": 8820
+        },
+        {
           "name": "Vietnam",
-          "flights": 54,
-          "pax": 7938
+          "flights": 40,
+          "pax": 5880
         },
         {
           "name": "Japan",
-          "flights": 49,
-          "pax": 7203
+          "flights": 36,
+          "pax": 5292
         },
         {
-          "name": "Other(MNL)",
-          "flights": 38,
-          "pax": 5586
+          "name": "Other(SAI)",
+          "flights": 17,
+          "pax": 2499
         },
         {
           "name": "Kazakhstan",
@@ -2689,12 +2719,17 @@
           "pax": 2352
         },
         {
+          "name": "Other(KHH)",
+          "flights": 10,
+          "pax": 1470
+        },
+        {
           "name": "Other()",
           "flights": 9,
           "pax": 1323
         },
         {
-          "name": "Other(SAI)",
+          "name": "Other(RMQ)",
           "flights": 8,
           "pax": 1176
         },
@@ -2704,12 +2739,12 @@
           "pax": 1176
         },
         {
-          "name": "Other(KHH)",
-          "flights": 7,
-          "pax": 1029
+          "name": "Myanmar",
+          "flights": 6,
+          "pax": 882
         },
         {
-          "name": "Myanmar",
+          "name": "Other(KTI)",
           "flights": 6,
           "pax": 882
         },
@@ -2723,16 +2758,6 @@
           "flights": 4,
           "pax": 588,
           "country": "Russia"
-        },
-        {
-          "name": "Other(RMQ)",
-          "flights": 4,
-          "pax": 588
-        },
-        {
-          "name": "Other(KTI)",
-          "flights": 3,
-          "pax": 441
         },
         {
           "name": "Uzbekistan",
@@ -2756,6 +2781,11 @@
           "pax": 147
         },
         {
+          "name": "Other(BAX)",
+          "flights": 1,
+          "pax": 147
+        },
+        {
           "name": "Благовещенск",
           "flights": 1,
           "pax": 147,
@@ -2766,62 +2796,82 @@
           "flights": 1,
           "pax": 147,
           "country": "Russia"
+        },
+        {
+          "name": "Other(NOZ)",
+          "flights": 1,
+          "pax": 147
         }
       ]
     },
     "departures": {
-      "count": 1625,
-      "pax": 238875,
+      "count": 1334,
+      "pax": 196098,
       "all": [
         {
           "name": "South Korea",
-          "flights": 456,
-          "pax": 67032
+          "flights": 330,
+          "pax": 48510
         },
         {
           "name": "Thailand",
-          "flights": 212,
-          "pax": 31164
-        },
-        {
-          "name": "Singapore",
-          "flights": 196,
-          "pax": 28812
+          "flights": 169,
+          "pax": 24843
         },
         {
           "name": "Malaysia",
-          "flights": 193,
-          "pax": 28371
+          "flights": 137,
+          "pax": 20139
         },
         {
           "name": "Hong Kong",
-          "flights": 153,
-          "pax": 22491
+          "flights": 116,
+          "pax": 17052
+        },
+        {
+          "name": "Singapore",
+          "flights": 90,
+          "pax": 13230
         },
         {
           "name": "Taiwan",
-          "flights": 103,
-          "pax": 15141
+          "flights": 88,
+          "pax": 12936
         },
         {
           "name": "Macau",
-          "flights": 82,
-          "pax": 12054
+          "flights": 81,
+          "pax": 11907
         },
         {
-          "name": "Japan",
+          "name": "Other(MNL)",
           "flights": 60,
           "pax": 8820
         },
         {
-          "name": "Vietnam",
-          "flights": 57,
-          "pax": 8379
+          "name": "Other",
+          "flights": 60,
+          "pax": 8820
         },
         {
-          "name": "Other(MNL)",
-          "flights": 38,
-          "pax": 5586
+          "name": "Japan",
+          "flights": 47,
+          "pax": 6909
+        },
+        {
+          "name": "Vietnam",
+          "flights": 42,
+          "pax": 6174
+        },
+        {
+          "name": "Other(SAI)",
+          "flights": 19,
+          "pax": 2793
+        },
+        {
+          "name": "Other(CJJ)",
+          "flights": 14,
+          "pax": 2058
         },
         {
           "name": "Kazakhstan",
@@ -2834,17 +2884,22 @@
           "pax": 1764
         },
         {
+          "name": "Other(TAE)",
+          "flights": 10,
+          "pax": 1470
+        },
+        {
+          "name": "Other(KHH)",
+          "flights": 8,
+          "pax": 1176
+        },
+        {
           "name": "Myanmar",
           "flights": 8,
           "pax": 1176
         },
         {
-          "name": "Other(SAI)",
-          "flights": 8,
-          "pax": 1176
-        },
-        {
-          "name": "Other(KHH)",
+          "name": "Other(RMQ)",
           "flights": 7,
           "pax": 1029
         },
@@ -2854,19 +2909,9 @@
           "pax": 1029
         },
         {
-          "name": "Other(CJJ)",
-          "flights": 5,
-          "pax": 735
-        },
-        {
-          "name": "Other(RMQ)",
-          "flights": 4,
-          "pax": 588
-        },
-        {
           "name": "Other(KTI)",
-          "flights": 3,
-          "pax": 441
+          "flights": 6,
+          "pax": 882
         },
         {
           "name": "Новосибирск",
@@ -2896,10 +2941,20 @@
           "country": "Russia"
         },
         {
+          "name": "Other(BAX)",
+          "flights": 1,
+          "pax": 147
+        },
+        {
           "name": "Благовещенск",
           "flights": 1,
           "pax": 147,
           "country": "Russia"
+        },
+        {
+          "name": "Other(NOZ)",
+          "flights": 1,
+          "pax": 147
         },
         {
           "name": "Indonesia",
@@ -2912,14 +2967,17 @@
       {
         "key": "2026-W18",
         "label": "Нед 18 (Май)",
-        "arrivals": 52,
-        "departures": 52,
+        "arrivals": 60,
+        "departures": 60,
         "arrivals_by": {
           "South Korea": {
             "n": 17
           },
           "Hong Kong": {
             "n": 10
+          },
+          "Other(MNL)": {
+            "n": 5
           },
           "Thailand": {
             "n": 7
@@ -2932,6 +2990,9 @@
           },
           "Singapore": {
             "n": 3
+          },
+          "Other(SAI)": {
+            "n": 1
           },
           "Macau": {
             "n": 2
@@ -2946,6 +3007,12 @@
             "n": 1
           },
           "Laos": {
+            "n": 1
+          },
+          "Other(KTI)": {
+            "n": 1
+          },
+          "Other(RMQ)": {
             "n": 1
           }
         },
@@ -2956,6 +3023,12 @@
           "South Korea": {
             "n": 18
           },
+          "Other(CJJ)": {
+            "n": 2
+          },
+          "Other(TAE)": {
+            "n": 2
+          },
           "Hong Kong": {
             "n": 6
           },
@@ -2974,10 +3047,16 @@
           "Macau": {
             "n": 2
           },
+          "Other(KHH)": {
+            "n": 1
+          },
           "Myanmar": {
             "n": 1
           },
           "Vietnam": {
+            "n": 1
+          },
+          "Other(RMQ)": {
             "n": 1
           },
           "Laos": {
@@ -2986,7 +3065,13 @@
           "Kazakhstan": {
             "n": 1
           },
+          "Other(SAI)": {
+            "n": 1
+          },
           "Indonesia": {
+            "n": 1
+          },
+          "Other(KTI)": {
             "n": 1
           }
         }
@@ -2994,11 +3079,14 @@
       {
         "key": "2026-W19",
         "label": "Нед 19 (Май)",
-        "arrivals": 203,
-        "departures": 224,
+        "arrivals": 241,
+        "departures": 261,
         "arrivals_by": {
           "South Korea": {
             "n": 56
+          },
+          "Other(MNL)": {
+            "n": 26
           },
           "Singapore": {
             "n": 21
@@ -3018,11 +3106,23 @@
           "Malaysia": {
             "n": 22
           },
+          "Other(SAI)": {
+            "n": 6
+          },
           "Macau": {
             "n": 18
           },
           "Vietnam": {
             "n": 5
+          },
+          "Other(RMQ)": {
+            "n": 3
+          },
+          "Other(KHH)": {
+            "n": 1
+          },
+          "Other(NOZ)": {
+            "n": 1
           },
           "Laos": {
             "n": 1
@@ -3037,6 +3137,9 @@
           "Благовещенск": {
             "n": 1,
             "country": "Russia"
+          },
+          "Other(KTI)": {
+            "n": 1
           }
         },
         "departures_by": {
@@ -3045,6 +3148,12 @@
           },
           "South Korea": {
             "n": 76
+          },
+          "Other(CJJ)": {
+            "n": 5
+          },
+          "Other(TAE)": {
+            "n": 6
           },
           "Vietnam": {
             "n": 9
@@ -3064,20 +3173,38 @@
           "Taiwan": {
             "n": 14
           },
+          "Other(MNL)": {
+            "n": 15
+          },
+          "Other(SAI)": {
+            "n": 7
+          },
           "Myanmar": {
             "n": 2
           },
           "Macau": {
             "n": 14
           },
+          "Other(NOZ)": {
+            "n": 1
+          },
           "Благовещенск": {
             "n": 1,
             "country": "Russia"
           },
+          "Other(RMQ)": {
+            "n": 1
+          },
           "Laos": {
             "n": 1
           },
+          "Other(BAX)": {
+            "n": 1
+          },
           "Kazakhstan": {
+            "n": 1
+          },
+          "Other(KTI)": {
             "n": 1
           }
         }
@@ -3085,41 +3212,59 @@
       {
         "key": "2026-W20",
         "label": "Нед 20 (Май)",
-        "arrivals": 439,
-        "departures": 451,
+        "arrivals": 298,
+        "departures": 311,
         "arrivals_by": {
           "South Korea": {
-            "n": 129
+            "n": 68
+          },
+          "Other(MNL)": {
+            "n": 11
           },
           "Kazakhstan": {
             "n": 5
           },
           "Thailand": {
-            "n": 61
+            "n": 40
           },
           "Singapore": {
-            "n": 73
+            "n": 25
+          },
+          "Other(BAX)": {
+            "n": 1
           },
           "Malaysia": {
-            "n": 55
+            "n": 32
           },
           "Taiwan": {
-            "n": 24
+            "n": 18
           },
           "Japan": {
-            "n": 12
+            "n": 7
+          },
+          "Other(SAI)": {
+            "n": 2
           },
           "Hong Kong": {
-            "n": 42
+            "n": 25
+          },
+          "Other(KTI)": {
+            "n": 1
           },
           "Vietnam": {
-            "n": 17
+            "n": 11
           },
           "Macau": {
             "n": 18
           },
+          "Other(KHH)": {
+            "n": 2
+          },
           "Laos": {
             "n": 2
+          },
+          "Other": {
+            "n": 29
           },
           "Myanmar": {
             "n": 1
@@ -3127,37 +3272,58 @@
         },
         "departures_by": {
           "Japan": {
-            "n": 16
+            "n": 11
           },
           "South Korea": {
-            "n": 137
+            "n": 76
+          },
+          "Other(TAE)": {
+            "n": 2
           },
           "Vietnam": {
-            "n": 17
+            "n": 11
           },
           "Malaysia": {
-            "n": 53
+            "n": 30
           },
           "Hong Kong": {
-            "n": 48
+            "n": 31
           },
           "Thailand": {
-            "n": 65
+            "n": 44
           },
           "Singapore": {
-            "n": 65
+            "n": 20
           },
           "Taiwan": {
-            "n": 28
+            "n": 22
           },
           "Macau": {
             "n": 16
+          },
+          "Other(MNL)": {
+            "n": 7
+          },
+          "Other(SAI)": {
+            "n": 3
+          },
+          "Other(KTI)": {
+            "n": 1
+          },
+          "Other(CJJ)": {
+            "n": 2
+          },
+          "Other(RMQ)": {
+            "n": 1
           },
           "Kazakhstan": {
             "n": 3
           },
           "Laos": {
             "n": 2
+          },
+          "Other": {
+            "n": 28
           },
           "Myanmar": {
             "n": 1
@@ -3167,32 +3333,35 @@
       {
         "key": "2026-W21",
         "label": "Нед 21 (Май)",
-        "arrivals": 558,
-        "departures": 549,
+        "arrivals": 355,
+        "departures": 354,
         "arrivals_by": {
-          "Japan": {
-            "n": 19
-          },
-          "South Korea": {
-            "n": 159
-          },
-          "Taiwan": {
-            "n": 33
-          },
-          "Singapore": {
-            "n": 91
-          },
-          "Malaysia": {
-            "n": 67
-          },
-          "Thailand": {
-            "n": 72
-          },
-          "Hong Kong": {
-            "n": 49
+          "Other": {
+            "n": 31
           },
           "Vietnam": {
-            "n": 19
+            "n": 11
+          },
+          "Hong Kong": {
+            "n": 29
+          },
+          "Thailand": {
+            "n": 50
+          },
+          "South Korea": {
+            "n": 85
+          },
+          "Singapore": {
+            "n": 28
+          },
+          "Malaysia": {
+            "n": 37
+          },
+          "Taiwan": {
+            "n": 24
+          },
+          "Japan": {
+            "n": 11
           },
           "Macau": {
             "n": 22
@@ -3203,6 +3372,21 @@
           "Laos": {
             "n": 3
           },
+          "Other(MNL)": {
+            "n": 10
+          },
+          "Kazakhstan": {
+            "n": 2
+          },
+          "Other(SAI)": {
+            "n": 2
+          },
+          "Other(KHH)": {
+            "n": 2
+          },
+          "Other(ZNZ)": {
+            "n": 1
+          },
           "Other(CJJ)": {
             "n": 1
           },
@@ -3210,61 +3394,49 @@
             "n": 1,
             "country": "Russia"
           },
-          "Other(MNL)": {
-            "n": 10
-          },
-          "Other(ZNZ)": {
-            "n": 1
-          },
-          "Other(KHH)": {
-            "n": 2
-          },
-          "Other(SAI)": {
-            "n": 2
-          },
-          "Kazakhstan": {
-            "n": 2
-          },
-          "Other(KTI)": {
+          "Other(RMQ)": {
             "n": 1
           },
           "Other()": {
             "n": 1
           },
-          "Other(RMQ)": {
+          "Other(KTI)": {
             "n": 1
           }
         },
         "departures_by": {
-          "Vietnam": {
-            "n": 20
+          "Japan": {
+            "n": 11
           },
           "South Korea": {
-            "n": 150
+            "n": 85
           },
-          "Japan": {
-            "n": 19
+          "Other": {
+            "n": 32
           },
-          "Singapore": {
-            "n": 87
-          },
-          "Thailand": {
-            "n": 70
-          },
-          "Hong Kong": {
-            "n": 49
+          "Vietnam": {
+            "n": 11
           },
           "Malaysia": {
-            "n": 69
+            "n": 36
           },
-          "Taiwan": {
-            "n": 33
+          "Hong Kong": {
+            "n": 29
           },
-          "Macau": {
-            "n": 23
+          "Thailand": {
+            "n": 48
+          },
+          "Singapore": {
+            "n": 26
           },
           "Kazakhstan": {
             "n": 3
+          },
+          "Taiwan": {
+            "n": 24
+          },
+          "Macau": {
+            "n": 23
           },
           "Myanmar": {
             "n": 2
@@ -3272,32 +3444,32 @@
           "Laos": {
             "n": 2
           },
+          "Other(CJJ)": {
+            "n": 2
+          },
           "Other(MNL)": {
             "n": 10
-          },
-          "Other(KHH)": {
-            "n": 2
-          },
-          "Other(SAI)": {
-            "n": 2
           },
           "Москва": {
             "n": 1,
             "country": "Russia"
           },
-          "Other(CJJ)": {
+          "Other(SAI)": {
             "n": 2
           },
-          "Other(KTI)": {
-            "n": 1
-          },
-          "Other(UTH)": {
-            "n": 1
+          "Other(KHH)": {
+            "n": 2
           },
           "Other()": {
             "n": 2
           },
           "Other(RMQ)": {
+            "n": 1
+          },
+          "Other(UTH)": {
+            "n": 1
+          },
+          "Other(KTI)": {
             "n": 1
           }
         }
@@ -3306,22 +3478,19 @@
         "key": "2026-W22",
         "label": "Нед 22 (Май)",
         "arrivals": 354,
-        "departures": 349,
+        "departures": 348,
         "arrivals_by": {
-          "Other(CJJ)": {
-            "n": 4
-          },
           "South Korea": {
             "n": 75
           },
-          "Macau": {
-            "n": 27
-          },
-          "Thailand": {
-            "n": 46
-          },
           "Other(MNL)": {
             "n": 28
+          },
+          "Uzbekistan": {
+            "n": 2
+          },
+          "Kazakhstan": {
+            "n": 9
           },
           "Vietnam": {
             "n": 11
@@ -3329,32 +3498,41 @@
           "Hong Kong": {
             "n": 26
           },
-          "Malaysia": {
-            "n": 33
-          },
-          "Taiwan": {
-            "n": 25
-          },
-          "Other(KTI)": {
-            "n": 2
+          "Thailand": {
+            "n": 46
           },
           "Singapore": {
             "n": 27
           },
-          "Other(SAI)": {
-            "n": 6
-          },
-          "Japan": {
-            "n": 10
+          "Malaysia": {
+            "n": 33
           },
           "Other(XSP)": {
             "n": 1
           },
-          "Uzbekistan": {
+          "Taiwan": {
+            "n": 25
+          },
+          "Japan": {
+            "n": 10
+          },
+          "Other(SAI)": {
+            "n": 6
+          },
+          "Macau": {
+            "n": 27
+          },
+          "Other(KTI)": {
             "n": 2
           },
-          "Kazakhstan": {
-            "n": 9
+          "Other(CJJ)": {
+            "n": 4
+          },
+          "Other(RMQ)": {
+            "n": 3
+          },
+          "Other(KHH)": {
+            "n": 5
           },
           "Other()": {
             "n": 8
@@ -3363,86 +3541,80 @@
             "n": 3,
             "country": "Russia"
           },
-          "Other(KHH)": {
-            "n": 5
-          },
-          "Other(RMQ)": {
-            "n": 3
-          },
           "Laos": {
+            "n": 1
+          },
+          "Myanmar": {
             "n": 1
           },
           "Новосибирск": {
             "n": 1,
             "country": "Russia"
-          },
-          "Myanmar": {
-            "n": 1
           }
         },
         "departures_by": {
+          "Japan": {
+            "n": 10
+          },
           "South Korea": {
             "n": 75
-          },
-          "Thailand": {
-            "n": 47
-          },
-          "Other(MNL)": {
-            "n": 28
-          },
-          "Macau": {
-            "n": 27
-          },
-          "Hong Kong": {
-            "n": 26
-          },
-          "Malaysia": {
-            "n": 34
-          },
-          "Taiwan": {
-            "n": 25
-          },
-          "Other(KTI)": {
-            "n": 2
           },
           "Vietnam": {
             "n": 10
           },
-          "Singapore": {
-            "n": 26
-          },
-          "Other(SAI)": {
-            "n": 6
-          },
-          "Other(KBR)": {
-            "n": 1
+          "Other(MNL)": {
+            "n": 28
           },
           "Other()": {
             "n": 10
           },
-          "Japan": {
-            "n": 10
+          "Malaysia": {
+            "n": 34
           },
-          "Other(KHH)": {
-            "n": 5
+          "Hong Kong": {
+            "n": 26
           },
-          "Other(RMQ)": {
-            "n": 3
+          "Thailand": {
+            "n": 47
+          },
+          "Singapore": {
+            "n": 26
+          },
+          "Taiwan": {
+            "n": 25
+          },
+          "Macau": {
+            "n": 26
+          },
+          "Other(KBR)": {
+            "n": 1
+          },
+          "Other(SAI)": {
+            "n": 6
+          },
+          "Other(KTI)": {
+            "n": 2
           },
           "Other(CJJ)": {
             "n": 3
           },
-          "Kazakhstan": {
-            "n": 6
+          "Other(RMQ)": {
+            "n": 3
+          },
+          "Other(KHH)": {
+            "n": 5
           },
           "Uzbekistan": {
             "n": 1
           },
-          "Laos": {
-            "n": 1
+          "Kazakhstan": {
+            "n": 6
           },
           "Myanmar": {
             "n": 2
+          },
+          "Laos": {
+            "n": 1
           },
           "Новосибирск": {
             "n": 1,
@@ -3454,38 +3626,38 @@
   },
   "quarter": {
     "arrivals": {
-      "count": 1907,
-      "pax": 280329,
+      "count": 1663,
+      "pax": 244461,
       "all": [
         {
           "name": "South Korea",
-          "flights": 518,
-          "pax": 76146
+          "flights": 383,
+          "pax": 56301
         },
         {
           "name": "Thailand",
-          "flights": 266,
-          "pax": 39102
-        },
-        {
-          "name": "Singapore",
-          "flights": 243,
-          "pax": 35721
+          "flights": 223,
+          "pax": 32781
         },
         {
           "name": "Malaysia",
-          "flights": 227,
-          "pax": 33369
+          "flights": 174,
+          "pax": 25578
         },
         {
           "name": "Hong Kong",
-          "flights": 197,
-          "pax": 28959
+          "flights": 160,
+          "pax": 23520
         },
         {
-          "name": "Taiwan",
-          "flights": 111,
-          "pax": 16317
+          "name": "Singapore",
+          "flights": 132,
+          "pax": 19404
+        },
+        {
+          "name": "Other(MNL)",
+          "flights": 120,
+          "pax": 17640
         },
         {
           "name": "Macau",
@@ -3493,19 +3665,29 @@
           "pax": 15435
         },
         {
+          "name": "Taiwan",
+          "flights": 96,
+          "pax": 14112
+        },
+        {
+          "name": "Other",
+          "flights": 60,
+          "pax": 8820
+        },
+        {
           "name": "Vietnam",
-          "flights": 65,
-          "pax": 9555
+          "flights": 51,
+          "pax": 7497
         },
         {
           "name": "Japan",
-          "flights": 58,
-          "pax": 8526
+          "flights": 45,
+          "pax": 6615
         },
         {
-          "name": "Other(MNL)",
-          "flights": 38,
-          "pax": 5586
+          "name": "Other(SAI)",
+          "flights": 24,
+          "pax": 3528
         },
         {
           "name": "Kazakhstan",
@@ -3513,14 +3695,19 @@
           "pax": 2499
         },
         {
+          "name": "Other(RMQ)",
+          "flights": 13,
+          "pax": 1911
+        },
+        {
+          "name": "Other(KHH)",
+          "flights": 11,
+          "pax": 1617
+        },
+        {
           "name": "Other()",
           "flights": 9,
           "pax": 1323
-        },
-        {
-          "name": "Other(SAI)",
-          "flights": 8,
-          "pax": 1176
         },
         {
           "name": "Laos",
@@ -3533,7 +3720,7 @@
           "pax": 1029
         },
         {
-          "name": "Other(KHH)",
+          "name": "Other(KTI)",
           "flights": 7,
           "pax": 1029
         },
@@ -3547,16 +3734,6 @@
           "flights": 4,
           "pax": 588,
           "country": "Russia"
-        },
-        {
-          "name": "Other(RMQ)",
-          "flights": 4,
-          "pax": 588
-        },
-        {
-          "name": "Other(KTI)",
-          "flights": 3,
-          "pax": 441
         },
         {
           "name": "Uzbekistan",
@@ -3580,6 +3757,11 @@
           "pax": 147
         },
         {
+          "name": "Other(BAX)",
+          "flights": 1,
+          "pax": 147
+        },
+        {
           "name": "Благовещенск",
           "flights": 1,
           "pax": 147,
@@ -3590,62 +3772,87 @@
           "flights": 1,
           "pax": 147,
           "country": "Russia"
+        },
+        {
+          "name": "Other(NOZ)",
+          "flights": 1,
+          "pax": 147
         }
       ]
     },
     "departures": {
-      "count": 1959,
-      "pax": 287973,
+      "count": 1712,
+      "pax": 251664,
       "all": [
         {
           "name": "South Korea",
-          "flights": 570,
-          "pax": 83790
+          "flights": 444,
+          "pax": 65268
         },
         {
           "name": "Thailand",
-          "flights": 246,
-          "pax": 36162
+          "flights": 203,
+          "pax": 29841
         },
         {
           "name": "Malaysia",
-          "flights": 239,
-          "pax": 35133
-        },
-        {
-          "name": "Singapore",
-          "flights": 221,
-          "pax": 32487
+          "flights": 183,
+          "pax": 26901
         },
         {
           "name": "Hong Kong",
-          "flights": 187,
-          "pax": 27489
+          "flights": 150,
+          "pax": 22050
+        },
+        {
+          "name": "Singapore",
+          "flights": 115,
+          "pax": 16905
         },
         {
           "name": "Taiwan",
-          "flights": 123,
-          "pax": 18081
+          "flights": 108,
+          "pax": 15876
         },
         {
           "name": "Macau",
-          "flights": 103,
-          "pax": 15141
-        },
-        {
-          "name": "Japan",
-          "flights": 76,
-          "pax": 11172
-        },
-        {
-          "name": "Vietnam",
-          "flights": 72,
-          "pax": 10584
+          "flights": 102,
+          "pax": 14994
         },
         {
           "name": "Other(MNL)",
-          "flights": 38,
-          "pax": 5586
+          "flights": 78,
+          "pax": 11466
+        },
+        {
+          "name": "Japan",
+          "flights": 63,
+          "pax": 9261
+        },
+        {
+          "name": "Other",
+          "flights": 60,
+          "pax": 8820
+        },
+        {
+          "name": "Vietnam",
+          "flights": 57,
+          "pax": 8379
+        },
+        {
+          "name": "Other(SAI)",
+          "flights": 24,
+          "pax": 3528
+        },
+        {
+          "name": "Other(CJJ)",
+          "flights": 23,
+          "pax": 3381
+        },
+        {
+          "name": "Other(TAE)",
+          "flights": 16,
+          "pax": 2352
         },
         {
           "name": "Kazakhstan",
@@ -3653,19 +3860,24 @@
           "pax": 2205
         },
         {
-          "name": "Myanmar",
-          "flights": 12,
-          "pax": 1764
-        },
-        {
           "name": "Other()",
           "flights": 12,
           "pax": 1764
         },
         {
-          "name": "Other(SAI)",
-          "flights": 8,
-          "pax": 1176
+          "name": "Myanmar",
+          "flights": 12,
+          "pax": 1764
+        },
+        {
+          "name": "Other(RMQ)",
+          "flights": 10,
+          "pax": 1470
+        },
+        {
+          "name": "Other(KHH)",
+          "flights": 9,
+          "pax": 1323
         },
         {
           "name": "Laos",
@@ -3673,24 +3885,9 @@
           "pax": 1176
         },
         {
-          "name": "Other(KHH)",
-          "flights": 7,
-          "pax": 1029
-        },
-        {
-          "name": "Other(CJJ)",
-          "flights": 5,
-          "pax": 735
-        },
-        {
-          "name": "Other(RMQ)",
-          "flights": 4,
-          "pax": 588
-        },
-        {
           "name": "Other(KTI)",
-          "flights": 3,
-          "pax": 441
+          "flights": 8,
+          "pax": 1176
         },
         {
           "name": "Indonesia",
@@ -3725,10 +3922,20 @@
           "country": "Russia"
         },
         {
+          "name": "Other(BAX)",
+          "flights": 1,
+          "pax": 147
+        },
+        {
           "name": "Благовещенск",
           "flights": 1,
           "pax": 147,
           "country": "Russia"
+        },
+        {
+          "name": "Other(NOZ)",
+          "flights": 1,
+          "pax": 147
         },
         {
           "name": "Maldives",
@@ -3741,11 +3948,17 @@
       {
         "key": "2026-04",
         "label": "Апр 2026",
-        "arrivals": 274,
-        "departures": 298,
+        "arrivals": 323,
+        "departures": 339,
         "arrivals_by": {
           "South Korea": {
             "n": 73
+          },
+          "Other(MNL)": {
+            "n": 36
+          },
+          "Other(RMQ)": {
+            "n": 5
           },
           "Hong Kong": {
             "n": 37
@@ -3762,6 +3975,9 @@
           "Singapore": {
             "n": 25
           },
+          "Other(SAI)": {
+            "n": 6
+          },
           "Macau": {
             "n": 17
           },
@@ -3774,7 +3990,13 @@
           "Myanmar": {
             "n": 1
           },
+          "Other(KTI)": {
+            "n": 1
+          },
           "Kazakhstan": {
+            "n": 1
+          },
+          "Other(KHH)": {
             "n": 1
           }
         },
@@ -3784,6 +4006,9 @@
           },
           "Japan": {
             "n": 14
+          },
+          "Other(CJJ)": {
+            "n": 8
           },
           "Hong Kong": {
             "n": 29
@@ -3803,6 +4028,9 @@
           "Macau": {
             "n": 19
           },
+          "Other(MNL)": {
+            "n": 18
+          },
           "Taiwan": {
             "n": 17
           },
@@ -3812,11 +4040,26 @@
           "Myanmar": {
             "n": 4
           },
+          "Other(TAE)": {
+            "n": 5
+          },
           "Laos": {
             "n": 1
           },
+          "Other(KTI)": {
+            "n": 2
+          },
+          "Other(RMQ)": {
+            "n": 2
+          },
           "Indonesia": {
             "n": 2
+          },
+          "Other(SAI)": {
+            "n": 5
+          },
+          "Other(KHH)": {
+            "n": 1
           },
           "Kazakhstan": {
             "n": 1
@@ -3826,41 +4069,59 @@
       {
         "key": "2026-05",
         "label": "Май 2026",
-        "arrivals": 1633,
-        "departures": 1661,
+        "arrivals": 1340,
+        "departures": 1373,
         "arrivals_by": {
           "South Korea": {
-            "n": 445
+            "n": 310
+          },
+          "Other(MNL)": {
+            "n": 84
           },
           "Thailand": {
-            "n": 223
+            "n": 180
           },
           "Singapore": {
-            "n": 218
+            "n": 107
           },
           "Taiwan": {
-            "n": 93
+            "n": 78
           },
           "Hong Kong": {
-            "n": 160
+            "n": 123
           },
           "Japan": {
-            "n": 51
+            "n": 38
           },
           "Malaysia": {
-            "n": 185
+            "n": 132
+          },
+          "Other(SAI)": {
+            "n": 18
           },
           "Macau": {
             "n": 88
           },
           "Vietnam": {
-            "n": 55
+            "n": 41
           },
           "Myanmar": {
             "n": 6
           },
           "Laos": {
             "n": 8
+          },
+          "Other(KTI)": {
+            "n": 6
+          },
+          "Other(RMQ)": {
+            "n": 8
+          },
+          "Other(KHH)": {
+            "n": 10
+          },
+          "Other(NOZ)": {
+            "n": 1
           },
           "Владивосток": {
             "n": 1,
@@ -3873,6 +4134,15 @@
           "Kazakhstan": {
             "n": 16
           },
+          "Other(BAX)": {
+            "n": 1
+          },
+          "Other": {
+            "n": 60
+          },
+          "Other(ZNZ)": {
+            "n": 1
+          },
           "Other(CJJ)": {
             "n": 5
           },
@@ -3880,32 +4150,14 @@
             "n": 4,
             "country": "Russia"
           },
-          "Other(MNL)": {
-            "n": 38
-          },
-          "Other(ZNZ)": {
-            "n": 1
-          },
-          "Other(KHH)": {
-            "n": 7
-          },
-          "Other(SAI)": {
-            "n": 8
-          },
-          "Other(KTI)": {
-            "n": 3
-          },
           "Other()": {
             "n": 9
           },
-          "Other(RMQ)": {
-            "n": 4
+          "Uzbekistan": {
+            "n": 2
           },
           "Other(XSP)": {
             "n": 1
-          },
-          "Uzbekistan": {
-            "n": 2
           },
           "Новосибирск": {
             "n": 1,
@@ -3914,31 +4166,43 @@
         },
         "departures_by": {
           "Japan": {
-            "n": 62
+            "n": 49
           },
           "South Korea": {
-            "n": 468
+            "n": 342
+          },
+          "Other(CJJ)": {
+            "n": 15
+          },
+          "Other(TAE)": {
+            "n": 11
           },
           "Hong Kong": {
-            "n": 158
+            "n": 121
           },
           "Thailand": {
-            "n": 215
+            "n": 172
           },
           "Malaysia": {
-            "n": 199
+            "n": 143
+          },
+          "Other(RMQ)": {
+            "n": 8
           },
           "Singapore": {
-            "n": 198
+            "n": 92
           },
           "Macau": {
-            "n": 84
+            "n": 83
           },
           "Taiwan": {
-            "n": 106
+            "n": 91
           },
           "Vietnam": {
-            "n": 58
+            "n": 43
+          },
+          "Other(KHH)": {
+            "n": 8
           },
           "Myanmar": {
             "n": 8
@@ -3949,40 +4213,40 @@
           "Kazakhstan": {
             "n": 14
           },
+          "Other(SAI)": {
+            "n": 19
+          },
           "Indonesia": {
+            "n": 1
+          },
+          "Other(KTI)": {
+            "n": 6
+          },
+          "Other(MNL)": {
+            "n": 60
+          },
+          "Other(NOZ)": {
             "n": 1
           },
           "Благовещенск": {
             "n": 1,
             "country": "Russia"
           },
-          "Other(MNL)": {
-            "n": 38
+          "Other(BAX)": {
+            "n": 1
           },
-          "Other(KHH)": {
-            "n": 7
-          },
-          "Other(SAI)": {
-            "n": 8
+          "Other": {
+            "n": 60
           },
           "Москва": {
             "n": 1,
             "country": "Russia"
           },
-          "Other(CJJ)": {
-            "n": 5
-          },
-          "Other(KTI)": {
-            "n": 3
-          },
-          "Other(UTH)": {
-            "n": 1
-          },
           "Other()": {
             "n": 12
           },
-          "Other(RMQ)": {
-            "n": 4
+          "Other(UTH)": {
+            "n": 1
           },
           "Other(KBR)": {
             "n": 1
@@ -4000,38 +4264,38 @@
   },
   "halfyear": {
     "arrivals": {
-      "count": 1907,
-      "pax": 280329,
+      "count": 1663,
+      "pax": 244461,
       "all": [
         {
           "name": "South Korea",
-          "flights": 518,
-          "pax": 76146
+          "flights": 383,
+          "pax": 56301
         },
         {
           "name": "Thailand",
-          "flights": 266,
-          "pax": 39102
-        },
-        {
-          "name": "Singapore",
-          "flights": 243,
-          "pax": 35721
+          "flights": 223,
+          "pax": 32781
         },
         {
           "name": "Malaysia",
-          "flights": 227,
-          "pax": 33369
+          "flights": 174,
+          "pax": 25578
         },
         {
           "name": "Hong Kong",
-          "flights": 197,
-          "pax": 28959
+          "flights": 160,
+          "pax": 23520
         },
         {
-          "name": "Taiwan",
-          "flights": 111,
-          "pax": 16317
+          "name": "Singapore",
+          "flights": 132,
+          "pax": 19404
+        },
+        {
+          "name": "Other(MNL)",
+          "flights": 120,
+          "pax": 17640
         },
         {
           "name": "Macau",
@@ -4039,19 +4303,29 @@
           "pax": 15435
         },
         {
+          "name": "Taiwan",
+          "flights": 96,
+          "pax": 14112
+        },
+        {
+          "name": "Other",
+          "flights": 60,
+          "pax": 8820
+        },
+        {
           "name": "Vietnam",
-          "flights": 65,
-          "pax": 9555
+          "flights": 51,
+          "pax": 7497
         },
         {
           "name": "Japan",
-          "flights": 58,
-          "pax": 8526
+          "flights": 45,
+          "pax": 6615
         },
         {
-          "name": "Other(MNL)",
-          "flights": 38,
-          "pax": 5586
+          "name": "Other(SAI)",
+          "flights": 24,
+          "pax": 3528
         },
         {
           "name": "Kazakhstan",
@@ -4059,14 +4333,19 @@
           "pax": 2499
         },
         {
+          "name": "Other(RMQ)",
+          "flights": 13,
+          "pax": 1911
+        },
+        {
+          "name": "Other(KHH)",
+          "flights": 11,
+          "pax": 1617
+        },
+        {
           "name": "Other()",
           "flights": 9,
           "pax": 1323
-        },
-        {
-          "name": "Other(SAI)",
-          "flights": 8,
-          "pax": 1176
         },
         {
           "name": "Laos",
@@ -4079,7 +4358,7 @@
           "pax": 1029
         },
         {
-          "name": "Other(KHH)",
+          "name": "Other(KTI)",
           "flights": 7,
           "pax": 1029
         },
@@ -4093,16 +4372,6 @@
           "flights": 4,
           "pax": 588,
           "country": "Russia"
-        },
-        {
-          "name": "Other(RMQ)",
-          "flights": 4,
-          "pax": 588
-        },
-        {
-          "name": "Other(KTI)",
-          "flights": 3,
-          "pax": 441
         },
         {
           "name": "Uzbekistan",
@@ -4126,6 +4395,11 @@
           "pax": 147
         },
         {
+          "name": "Other(BAX)",
+          "flights": 1,
+          "pax": 147
+        },
+        {
           "name": "Благовещенск",
           "flights": 1,
           "pax": 147,
@@ -4136,62 +4410,87 @@
           "flights": 1,
           "pax": 147,
           "country": "Russia"
+        },
+        {
+          "name": "Other(NOZ)",
+          "flights": 1,
+          "pax": 147
         }
       ]
     },
     "departures": {
-      "count": 1959,
-      "pax": 287973,
+      "count": 1712,
+      "pax": 251664,
       "all": [
         {
           "name": "South Korea",
-          "flights": 570,
-          "pax": 83790
+          "flights": 444,
+          "pax": 65268
         },
         {
           "name": "Thailand",
-          "flights": 246,
-          "pax": 36162
+          "flights": 203,
+          "pax": 29841
         },
         {
           "name": "Malaysia",
-          "flights": 239,
-          "pax": 35133
-        },
-        {
-          "name": "Singapore",
-          "flights": 221,
-          "pax": 32487
+          "flights": 183,
+          "pax": 26901
         },
         {
           "name": "Hong Kong",
-          "flights": 187,
-          "pax": 27489
+          "flights": 150,
+          "pax": 22050
+        },
+        {
+          "name": "Singapore",
+          "flights": 115,
+          "pax": 16905
         },
         {
           "name": "Taiwan",
-          "flights": 123,
-          "pax": 18081
+          "flights": 108,
+          "pax": 15876
         },
         {
           "name": "Macau",
-          "flights": 103,
-          "pax": 15141
-        },
-        {
-          "name": "Japan",
-          "flights": 76,
-          "pax": 11172
-        },
-        {
-          "name": "Vietnam",
-          "flights": 72,
-          "pax": 10584
+          "flights": 102,
+          "pax": 14994
         },
         {
           "name": "Other(MNL)",
-          "flights": 38,
-          "pax": 5586
+          "flights": 78,
+          "pax": 11466
+        },
+        {
+          "name": "Japan",
+          "flights": 63,
+          "pax": 9261
+        },
+        {
+          "name": "Other",
+          "flights": 60,
+          "pax": 8820
+        },
+        {
+          "name": "Vietnam",
+          "flights": 57,
+          "pax": 8379
+        },
+        {
+          "name": "Other(SAI)",
+          "flights": 24,
+          "pax": 3528
+        },
+        {
+          "name": "Other(CJJ)",
+          "flights": 23,
+          "pax": 3381
+        },
+        {
+          "name": "Other(TAE)",
+          "flights": 16,
+          "pax": 2352
         },
         {
           "name": "Kazakhstan",
@@ -4199,19 +4498,24 @@
           "pax": 2205
         },
         {
-          "name": "Myanmar",
-          "flights": 12,
-          "pax": 1764
-        },
-        {
           "name": "Other()",
           "flights": 12,
           "pax": 1764
         },
         {
-          "name": "Other(SAI)",
-          "flights": 8,
-          "pax": 1176
+          "name": "Myanmar",
+          "flights": 12,
+          "pax": 1764
+        },
+        {
+          "name": "Other(RMQ)",
+          "flights": 10,
+          "pax": 1470
+        },
+        {
+          "name": "Other(KHH)",
+          "flights": 9,
+          "pax": 1323
         },
         {
           "name": "Laos",
@@ -4219,24 +4523,9 @@
           "pax": 1176
         },
         {
-          "name": "Other(KHH)",
-          "flights": 7,
-          "pax": 1029
-        },
-        {
-          "name": "Other(CJJ)",
-          "flights": 5,
-          "pax": 735
-        },
-        {
-          "name": "Other(RMQ)",
-          "flights": 4,
-          "pax": 588
-        },
-        {
           "name": "Other(KTI)",
-          "flights": 3,
-          "pax": 441
+          "flights": 8,
+          "pax": 1176
         },
         {
           "name": "Indonesia",
@@ -4271,10 +4560,20 @@
           "country": "Russia"
         },
         {
+          "name": "Other(BAX)",
+          "flights": 1,
+          "pax": 147
+        },
+        {
           "name": "Благовещенск",
           "flights": 1,
           "pax": 147,
           "country": "Russia"
+        },
+        {
+          "name": "Other(NOZ)",
+          "flights": 1,
+          "pax": 147
         },
         {
           "name": "Maldives",
@@ -4287,11 +4586,17 @@
       {
         "key": "2026-04",
         "label": "Апр 2026",
-        "arrivals": 274,
-        "departures": 298,
+        "arrivals": 323,
+        "departures": 339,
         "arrivals_by": {
           "South Korea": {
             "n": 73
+          },
+          "Other(MNL)": {
+            "n": 36
+          },
+          "Other(RMQ)": {
+            "n": 5
           },
           "Hong Kong": {
             "n": 37
@@ -4308,6 +4613,9 @@
           "Singapore": {
             "n": 25
           },
+          "Other(SAI)": {
+            "n": 6
+          },
           "Macau": {
             "n": 17
           },
@@ -4320,7 +4628,13 @@
           "Myanmar": {
             "n": 1
           },
+          "Other(KTI)": {
+            "n": 1
+          },
           "Kazakhstan": {
+            "n": 1
+          },
+          "Other(KHH)": {
             "n": 1
           }
         },
@@ -4330,6 +4644,9 @@
           },
           "Japan": {
             "n": 14
+          },
+          "Other(CJJ)": {
+            "n": 8
           },
           "Hong Kong": {
             "n": 29
@@ -4349,6 +4666,9 @@
           "Macau": {
             "n": 19
           },
+          "Other(MNL)": {
+            "n": 18
+          },
           "Taiwan": {
             "n": 17
           },
@@ -4358,11 +4678,26 @@
           "Myanmar": {
             "n": 4
           },
+          "Other(TAE)": {
+            "n": 5
+          },
           "Laos": {
             "n": 1
           },
+          "Other(KTI)": {
+            "n": 2
+          },
+          "Other(RMQ)": {
+            "n": 2
+          },
           "Indonesia": {
             "n": 2
+          },
+          "Other(SAI)": {
+            "n": 5
+          },
+          "Other(KHH)": {
+            "n": 1
           },
           "Kazakhstan": {
             "n": 1
@@ -4372,41 +4707,59 @@
       {
         "key": "2026-05",
         "label": "Май 2026",
-        "arrivals": 1633,
-        "departures": 1661,
+        "arrivals": 1340,
+        "departures": 1373,
         "arrivals_by": {
           "South Korea": {
-            "n": 445
+            "n": 310
+          },
+          "Other(MNL)": {
+            "n": 84
           },
           "Thailand": {
-            "n": 223
+            "n": 180
           },
           "Singapore": {
-            "n": 218
+            "n": 107
           },
           "Taiwan": {
-            "n": 93
+            "n": 78
           },
           "Hong Kong": {
-            "n": 160
+            "n": 123
           },
           "Japan": {
-            "n": 51
+            "n": 38
           },
           "Malaysia": {
-            "n": 185
+            "n": 132
+          },
+          "Other(SAI)": {
+            "n": 18
           },
           "Macau": {
             "n": 88
           },
           "Vietnam": {
-            "n": 55
+            "n": 41
           },
           "Myanmar": {
             "n": 6
           },
           "Laos": {
             "n": 8
+          },
+          "Other(KTI)": {
+            "n": 6
+          },
+          "Other(RMQ)": {
+            "n": 8
+          },
+          "Other(KHH)": {
+            "n": 10
+          },
+          "Other(NOZ)": {
+            "n": 1
           },
           "Владивосток": {
             "n": 1,
@@ -4419,6 +4772,15 @@
           "Kazakhstan": {
             "n": 16
           },
+          "Other(BAX)": {
+            "n": 1
+          },
+          "Other": {
+            "n": 60
+          },
+          "Other(ZNZ)": {
+            "n": 1
+          },
           "Other(CJJ)": {
             "n": 5
           },
@@ -4426,32 +4788,14 @@
             "n": 4,
             "country": "Russia"
           },
-          "Other(MNL)": {
-            "n": 38
-          },
-          "Other(ZNZ)": {
-            "n": 1
-          },
-          "Other(KHH)": {
-            "n": 7
-          },
-          "Other(SAI)": {
-            "n": 8
-          },
-          "Other(KTI)": {
-            "n": 3
-          },
           "Other()": {
             "n": 9
           },
-          "Other(RMQ)": {
-            "n": 4
+          "Uzbekistan": {
+            "n": 2
           },
           "Other(XSP)": {
             "n": 1
-          },
-          "Uzbekistan": {
-            "n": 2
           },
           "Новосибирск": {
             "n": 1,
@@ -4460,31 +4804,43 @@
         },
         "departures_by": {
           "Japan": {
-            "n": 62
+            "n": 49
           },
           "South Korea": {
-            "n": 468
+            "n": 342
+          },
+          "Other(CJJ)": {
+            "n": 15
+          },
+          "Other(TAE)": {
+            "n": 11
           },
           "Hong Kong": {
-            "n": 158
+            "n": 121
           },
           "Thailand": {
-            "n": 215
+            "n": 172
           },
           "Malaysia": {
-            "n": 199
+            "n": 143
+          },
+          "Other(RMQ)": {
+            "n": 8
           },
           "Singapore": {
-            "n": 198
+            "n": 92
           },
           "Macau": {
-            "n": 84
+            "n": 83
           },
           "Taiwan": {
-            "n": 106
+            "n": 91
           },
           "Vietnam": {
-            "n": 58
+            "n": 43
+          },
+          "Other(KHH)": {
+            "n": 8
           },
           "Myanmar": {
             "n": 8
@@ -4495,40 +4851,40 @@
           "Kazakhstan": {
             "n": 14
           },
+          "Other(SAI)": {
+            "n": 19
+          },
           "Indonesia": {
+            "n": 1
+          },
+          "Other(KTI)": {
+            "n": 6
+          },
+          "Other(MNL)": {
+            "n": 60
+          },
+          "Other(NOZ)": {
             "n": 1
           },
           "Благовещенск": {
             "n": 1,
             "country": "Russia"
           },
-          "Other(MNL)": {
-            "n": 38
+          "Other(BAX)": {
+            "n": 1
           },
-          "Other(KHH)": {
-            "n": 7
-          },
-          "Other(SAI)": {
-            "n": 8
+          "Other": {
+            "n": 60
           },
           "Москва": {
             "n": 1,
             "country": "Russia"
           },
-          "Other(CJJ)": {
-            "n": 5
-          },
-          "Other(KTI)": {
-            "n": 3
-          },
-          "Other(UTH)": {
-            "n": 1
-          },
           "Other()": {
             "n": 12
           },
-          "Other(RMQ)": {
-            "n": 4
+          "Other(UTH)": {
+            "n": 1
           },
           "Other(KBR)": {
             "n": 1
@@ -4546,38 +4902,38 @@
   },
   "year": {
     "arrivals": {
-      "count": 1907,
-      "pax": 280329,
+      "count": 1663,
+      "pax": 244461,
       "all": [
         {
           "name": "South Korea",
-          "flights": 518,
-          "pax": 76146
+          "flights": 383,
+          "pax": 56301
         },
         {
           "name": "Thailand",
-          "flights": 266,
-          "pax": 39102
-        },
-        {
-          "name": "Singapore",
-          "flights": 243,
-          "pax": 35721
+          "flights": 223,
+          "pax": 32781
         },
         {
           "name": "Malaysia",
-          "flights": 227,
-          "pax": 33369
+          "flights": 174,
+          "pax": 25578
         },
         {
           "name": "Hong Kong",
-          "flights": 197,
-          "pax": 28959
+          "flights": 160,
+          "pax": 23520
         },
         {
-          "name": "Taiwan",
-          "flights": 111,
-          "pax": 16317
+          "name": "Singapore",
+          "flights": 132,
+          "pax": 19404
+        },
+        {
+          "name": "Other(MNL)",
+          "flights": 120,
+          "pax": 17640
         },
         {
           "name": "Macau",
@@ -4585,19 +4941,29 @@
           "pax": 15435
         },
         {
+          "name": "Taiwan",
+          "flights": 96,
+          "pax": 14112
+        },
+        {
+          "name": "Other",
+          "flights": 60,
+          "pax": 8820
+        },
+        {
           "name": "Vietnam",
-          "flights": 65,
-          "pax": 9555
+          "flights": 51,
+          "pax": 7497
         },
         {
           "name": "Japan",
-          "flights": 58,
-          "pax": 8526
+          "flights": 45,
+          "pax": 6615
         },
         {
-          "name": "Other(MNL)",
-          "flights": 38,
-          "pax": 5586
+          "name": "Other(SAI)",
+          "flights": 24,
+          "pax": 3528
         },
         {
           "name": "Kazakhstan",
@@ -4605,14 +4971,19 @@
           "pax": 2499
         },
         {
+          "name": "Other(RMQ)",
+          "flights": 13,
+          "pax": 1911
+        },
+        {
+          "name": "Other(KHH)",
+          "flights": 11,
+          "pax": 1617
+        },
+        {
           "name": "Other()",
           "flights": 9,
           "pax": 1323
-        },
-        {
-          "name": "Other(SAI)",
-          "flights": 8,
-          "pax": 1176
         },
         {
           "name": "Laos",
@@ -4625,7 +4996,7 @@
           "pax": 1029
         },
         {
-          "name": "Other(KHH)",
+          "name": "Other(KTI)",
           "flights": 7,
           "pax": 1029
         },
@@ -4639,16 +5010,6 @@
           "flights": 4,
           "pax": 588,
           "country": "Russia"
-        },
-        {
-          "name": "Other(RMQ)",
-          "flights": 4,
-          "pax": 588
-        },
-        {
-          "name": "Other(KTI)",
-          "flights": 3,
-          "pax": 441
         },
         {
           "name": "Uzbekistan",
@@ -4672,6 +5033,11 @@
           "pax": 147
         },
         {
+          "name": "Other(BAX)",
+          "flights": 1,
+          "pax": 147
+        },
+        {
           "name": "Благовещенск",
           "flights": 1,
           "pax": 147,
@@ -4682,62 +5048,87 @@
           "flights": 1,
           "pax": 147,
           "country": "Russia"
+        },
+        {
+          "name": "Other(NOZ)",
+          "flights": 1,
+          "pax": 147
         }
       ]
     },
     "departures": {
-      "count": 1959,
-      "pax": 287973,
+      "count": 1712,
+      "pax": 251664,
       "all": [
         {
           "name": "South Korea",
-          "flights": 570,
-          "pax": 83790
+          "flights": 444,
+          "pax": 65268
         },
         {
           "name": "Thailand",
-          "flights": 246,
-          "pax": 36162
+          "flights": 203,
+          "pax": 29841
         },
         {
           "name": "Malaysia",
-          "flights": 239,
-          "pax": 35133
-        },
-        {
-          "name": "Singapore",
-          "flights": 221,
-          "pax": 32487
+          "flights": 183,
+          "pax": 26901
         },
         {
           "name": "Hong Kong",
-          "flights": 187,
-          "pax": 27489
+          "flights": 150,
+          "pax": 22050
+        },
+        {
+          "name": "Singapore",
+          "flights": 115,
+          "pax": 16905
         },
         {
           "name": "Taiwan",
-          "flights": 123,
-          "pax": 18081
+          "flights": 108,
+          "pax": 15876
         },
         {
           "name": "Macau",
-          "flights": 103,
-          "pax": 15141
-        },
-        {
-          "name": "Japan",
-          "flights": 76,
-          "pax": 11172
-        },
-        {
-          "name": "Vietnam",
-          "flights": 72,
-          "pax": 10584
+          "flights": 102,
+          "pax": 14994
         },
         {
           "name": "Other(MNL)",
-          "flights": 38,
-          "pax": 5586
+          "flights": 78,
+          "pax": 11466
+        },
+        {
+          "name": "Japan",
+          "flights": 63,
+          "pax": 9261
+        },
+        {
+          "name": "Other",
+          "flights": 60,
+          "pax": 8820
+        },
+        {
+          "name": "Vietnam",
+          "flights": 57,
+          "pax": 8379
+        },
+        {
+          "name": "Other(SAI)",
+          "flights": 24,
+          "pax": 3528
+        },
+        {
+          "name": "Other(CJJ)",
+          "flights": 23,
+          "pax": 3381
+        },
+        {
+          "name": "Other(TAE)",
+          "flights": 16,
+          "pax": 2352
         },
         {
           "name": "Kazakhstan",
@@ -4745,19 +5136,24 @@
           "pax": 2205
         },
         {
-          "name": "Myanmar",
-          "flights": 12,
-          "pax": 1764
-        },
-        {
           "name": "Other()",
           "flights": 12,
           "pax": 1764
         },
         {
-          "name": "Other(SAI)",
-          "flights": 8,
-          "pax": 1176
+          "name": "Myanmar",
+          "flights": 12,
+          "pax": 1764
+        },
+        {
+          "name": "Other(RMQ)",
+          "flights": 10,
+          "pax": 1470
+        },
+        {
+          "name": "Other(KHH)",
+          "flights": 9,
+          "pax": 1323
         },
         {
           "name": "Laos",
@@ -4765,24 +5161,9 @@
           "pax": 1176
         },
         {
-          "name": "Other(KHH)",
-          "flights": 7,
-          "pax": 1029
-        },
-        {
-          "name": "Other(CJJ)",
-          "flights": 5,
-          "pax": 735
-        },
-        {
-          "name": "Other(RMQ)",
-          "flights": 4,
-          "pax": 588
-        },
-        {
           "name": "Other(KTI)",
-          "flights": 3,
-          "pax": 441
+          "flights": 8,
+          "pax": 1176
         },
         {
           "name": "Indonesia",
@@ -4817,10 +5198,20 @@
           "country": "Russia"
         },
         {
+          "name": "Other(BAX)",
+          "flights": 1,
+          "pax": 147
+        },
+        {
           "name": "Благовещенск",
           "flights": 1,
           "pax": 147,
           "country": "Russia"
+        },
+        {
+          "name": "Other(NOZ)",
+          "flights": 1,
+          "pax": 147
         },
         {
           "name": "Maldives",
@@ -4833,11 +5224,17 @@
       {
         "key": "2026-04",
         "label": "Апр 2026",
-        "arrivals": 274,
-        "departures": 298,
+        "arrivals": 323,
+        "departures": 339,
         "arrivals_by": {
           "South Korea": {
             "n": 73
+          },
+          "Other(MNL)": {
+            "n": 36
+          },
+          "Other(RMQ)": {
+            "n": 5
           },
           "Hong Kong": {
             "n": 37
@@ -4854,6 +5251,9 @@
           "Singapore": {
             "n": 25
           },
+          "Other(SAI)": {
+            "n": 6
+          },
           "Macau": {
             "n": 17
           },
@@ -4866,7 +5266,13 @@
           "Myanmar": {
             "n": 1
           },
+          "Other(KTI)": {
+            "n": 1
+          },
           "Kazakhstan": {
+            "n": 1
+          },
+          "Other(KHH)": {
             "n": 1
           }
         },
@@ -4876,6 +5282,9 @@
           },
           "Japan": {
             "n": 14
+          },
+          "Other(CJJ)": {
+            "n": 8
           },
           "Hong Kong": {
             "n": 29
@@ -4895,6 +5304,9 @@
           "Macau": {
             "n": 19
           },
+          "Other(MNL)": {
+            "n": 18
+          },
           "Taiwan": {
             "n": 17
           },
@@ -4904,11 +5316,26 @@
           "Myanmar": {
             "n": 4
           },
+          "Other(TAE)": {
+            "n": 5
+          },
           "Laos": {
             "n": 1
           },
+          "Other(KTI)": {
+            "n": 2
+          },
+          "Other(RMQ)": {
+            "n": 2
+          },
           "Indonesia": {
             "n": 2
+          },
+          "Other(SAI)": {
+            "n": 5
+          },
+          "Other(KHH)": {
+            "n": 1
           },
           "Kazakhstan": {
             "n": 1
@@ -4918,41 +5345,59 @@
       {
         "key": "2026-05",
         "label": "Май 2026",
-        "arrivals": 1633,
-        "departures": 1661,
+        "arrivals": 1340,
+        "departures": 1373,
         "arrivals_by": {
           "South Korea": {
-            "n": 445
+            "n": 310
+          },
+          "Other(MNL)": {
+            "n": 84
           },
           "Thailand": {
-            "n": 223
+            "n": 180
           },
           "Singapore": {
-            "n": 218
+            "n": 107
           },
           "Taiwan": {
-            "n": 93
+            "n": 78
           },
           "Hong Kong": {
-            "n": 160
+            "n": 123
           },
           "Japan": {
-            "n": 51
+            "n": 38
           },
           "Malaysia": {
-            "n": 185
+            "n": 132
+          },
+          "Other(SAI)": {
+            "n": 18
           },
           "Macau": {
             "n": 88
           },
           "Vietnam": {
-            "n": 55
+            "n": 41
           },
           "Myanmar": {
             "n": 6
           },
           "Laos": {
             "n": 8
+          },
+          "Other(KTI)": {
+            "n": 6
+          },
+          "Other(RMQ)": {
+            "n": 8
+          },
+          "Other(KHH)": {
+            "n": 10
+          },
+          "Other(NOZ)": {
+            "n": 1
           },
           "Владивосток": {
             "n": 1,
@@ -4965,6 +5410,15 @@
           "Kazakhstan": {
             "n": 16
           },
+          "Other(BAX)": {
+            "n": 1
+          },
+          "Other": {
+            "n": 60
+          },
+          "Other(ZNZ)": {
+            "n": 1
+          },
           "Other(CJJ)": {
             "n": 5
           },
@@ -4972,32 +5426,14 @@
             "n": 4,
             "country": "Russia"
           },
-          "Other(MNL)": {
-            "n": 38
-          },
-          "Other(ZNZ)": {
-            "n": 1
-          },
-          "Other(KHH)": {
-            "n": 7
-          },
-          "Other(SAI)": {
-            "n": 8
-          },
-          "Other(KTI)": {
-            "n": 3
-          },
           "Other()": {
             "n": 9
           },
-          "Other(RMQ)": {
-            "n": 4
+          "Uzbekistan": {
+            "n": 2
           },
           "Other(XSP)": {
             "n": 1
-          },
-          "Uzbekistan": {
-            "n": 2
           },
           "Новосибирск": {
             "n": 1,
@@ -5006,31 +5442,43 @@
         },
         "departures_by": {
           "Japan": {
-            "n": 62
+            "n": 49
           },
           "South Korea": {
-            "n": 468
+            "n": 342
+          },
+          "Other(CJJ)": {
+            "n": 15
+          },
+          "Other(TAE)": {
+            "n": 11
           },
           "Hong Kong": {
-            "n": 158
+            "n": 121
           },
           "Thailand": {
-            "n": 215
+            "n": 172
           },
           "Malaysia": {
-            "n": 199
+            "n": 143
+          },
+          "Other(RMQ)": {
+            "n": 8
           },
           "Singapore": {
-            "n": 198
+            "n": 92
           },
           "Macau": {
-            "n": 84
+            "n": 83
           },
           "Taiwan": {
-            "n": 106
+            "n": 91
           },
           "Vietnam": {
-            "n": 58
+            "n": 43
+          },
+          "Other(KHH)": {
+            "n": 8
           },
           "Myanmar": {
             "n": 8
@@ -5041,40 +5489,40 @@
           "Kazakhstan": {
             "n": 14
           },
+          "Other(SAI)": {
+            "n": 19
+          },
           "Indonesia": {
+            "n": 1
+          },
+          "Other(KTI)": {
+            "n": 6
+          },
+          "Other(MNL)": {
+            "n": 60
+          },
+          "Other(NOZ)": {
             "n": 1
           },
           "Благовещенск": {
             "n": 1,
             "country": "Russia"
           },
-          "Other(MNL)": {
-            "n": 38
+          "Other(BAX)": {
+            "n": 1
           },
-          "Other(KHH)": {
-            "n": 7
-          },
-          "Other(SAI)": {
-            "n": 8
+          "Other": {
+            "n": 60
           },
           "Москва": {
             "n": 1,
             "country": "Russia"
           },
-          "Other(CJJ)": {
-            "n": 5
-          },
-          "Other(KTI)": {
-            "n": 3
-          },
-          "Other(UTH)": {
-            "n": 1
-          },
           "Other()": {
             "n": 12
           },
-          "Other(RMQ)": {
-            "n": 4
+          "Other(UTH)": {
+            "n": 1
           },
           "Other(KBR)": {
             "n": 1

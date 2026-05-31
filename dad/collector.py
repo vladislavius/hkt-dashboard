@@ -269,8 +269,11 @@ def analyze_danang(flights, direction, date_str):
         iata = f.get("iata", "")
         if not iata or iata in DOMESTIC:
             continue
-        fn_norm = (f.get("fn") or "").replace(" ", "").upper()
-        key = (fn_norm, iata)
+        # Dedup by (scheduled_time, iata): danangairport.vn shows each codeshare
+        # as a separate row (since ~2026-05-14). One physical plane = N rows
+        # under different marketing flight numbers. Keep first per group.
+        sched = (f.get("scheduled") or "").strip()
+        key = (sched, iata)
         if key in seen:
             continue
         seen.add(key)
