@@ -1,24 +1,36 @@
 {
   "date": "2026-06-02",
   "arrivals": {
-    "count": 5,
-    "pax": 735,
+    "count": 7,
+    "pax": 1029,
     "countries": {
       "South Korea": {
         "flights": 5,
         "pax": 735
+      },
+      "Malaysia": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Hong Kong": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 8,
-    "pax": 1176,
+    "count": 9,
+    "pax": 1323,
     "countries": {
       "South Korea": {
         "flights": 7,
         "pax": 1029
       },
       "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Malaysia": {
         "flights": 1,
         "pax": 147
       }
@@ -74,6 +86,36 @@
       "arr_time": "2026-06-02T07:30",
       "from": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "AK 543",
+      "airline": "AirAsia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-02T09:18",
+      "arr_time": "2026-06-02T09:30",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "J2X 333",
+      "airline": "Starlux Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-02T09:40",
+      "arr_time": "2026-06-02T09:40",
+      "from": "RMQ",
+      "country": "Other(RMQ)"
+    },
+    {
+      "fn": "UO 598",
+      "airline": "HK Express",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-02T09:40",
+      "arr_time": "2026-06-02T09:40",
+      "from": "HKG",
+      "country": "Hong Kong"
     }
   ],
   "departures_list": [
@@ -156,6 +198,16 @@
       "arr_time": "2026-06-02T08:20",
       "to": "TPE",
       "country": "Taiwan"
+    },
+    {
+      "fn": "AK 544",
+      "airline": "AirAsia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-02T10:05",
+      "arr_time": "2026-06-02T10:05",
+      "to": "KUL",
+      "country": "Malaysia"
     }
   ]
 }
