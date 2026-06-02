@@ -1,8 +1,8 @@
 {
   "date": "2026-06-02",
   "arrivals": {
-    "count": 9,
-    "pax": 1323,
+    "count": 11,
+    "pax": 1617,
     "countries": {
       "South Korea": {
         "flights": 2,
@@ -27,12 +27,20 @@
       "Japan": {
         "flights": 1,
         "pax": 147
+      },
+      "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Macau": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 17,
-    "pax": 2499,
+    "count": 19,
+    "pax": 2793,
     "countries": {
       "Japan": {
         "flights": 1,
@@ -68,6 +76,14 @@
         "pax": 147
       },
       "Kazakhstan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Hong Kong": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Singapore": {
         "flights": 1,
         "pax": 147
       }
@@ -183,6 +199,26 @@
       "arr_time": "2026-06-02T15:20",
       "from": "HKG",
       "country": "Hong Kong"
+    },
+    {
+      "fn": "CI789",
+      "airline": "China Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-02T16:30",
+      "from": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "VJ8891",
+      "airline": "Vietjet Air",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-02T16:35",
+      "from": "MFM",
+      "country": "Macau"
     }
   ],
   "departures_list": [
@@ -375,6 +411,36 @@
       "arr_time": "",
       "to": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "HX549",
+      "airline": "Hong Kong Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-02T16:20",
+      "arr_time": "",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "K6841",
+      "airline": "Air Cambodia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-02T16:35",
+      "arr_time": "",
+      "to": "SAI",
+      "country": "Other(SAI)"
+    },
+    {
+      "fn": "SQ173",
+      "airline": "Singapore Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-02T16:45",
+      "arr_time": "",
+      "to": "SIN",
+      "country": "Singapore"
     }
   ]
 }
