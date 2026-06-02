@@ -1,18 +1,23 @@
 {
   "date": "2026-06-03",
   "arrivals": {
-    "count": 1,
-    "pax": 147,
+    "count": 2,
+    "pax": 294,
     "countries": {
       "South Korea": {
         "flights": 1,
         "pax": 147
+      },
+      "Москва": {
+        "flights": 1,
+        "pax": 147,
+        "country": "Russia"
       }
     }
   },
   "departures": {
-    "count": 8,
-    "pax": 1176,
+    "count": 9,
+    "pax": 1323,
     "countries": {
       "Japan": {
         "flights": 1,
@@ -21,6 +26,10 @@
       "South Korea": {
         "flights": 7,
         "pax": 1029
+      },
+      "Vietnam": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -44,6 +53,16 @@
       "arr_time": "2026-06-03T04:55",
       "from": "MNL",
       "country": "Other(MNL)"
+    },
+    {
+      "fn": "VJ8924",
+      "airline": "Vietjet Air",
+      "status": "on time",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-03T05:00",
+      "from": "SVO",
+      "country": "Russia"
     }
   ],
   "departures_list": [
@@ -126,6 +145,16 @@
       "arr_time": "",
       "to": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "VJ581",
+      "airline": "Vietjet Air",
+      "status": "on time",
+      "pax": 147,
+      "dep_time": "2026-06-03T06:20",
+      "arr_time": "",
+      "to": "CXR",
+      "country": "Vietnam"
     }
   ]
 }
