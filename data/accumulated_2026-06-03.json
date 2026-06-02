@@ -95,16 +95,16 @@
     }
   },
   "departures": {
-    "count": 72,
-    "pax": 12607,
+    "count": 76,
+    "pax": 13375,
     "countries": {
       "India": {
         "flights": 14,
         "pax": 2058
       },
       "China": {
-        "flights": 7,
-        "pax": 1029
+        "flights": 8,
+        "pax": 1176
       },
       "Oman": {
         "flights": 1,
@@ -115,8 +115,8 @@
         "pax": 1176
       },
       "UAE": {
-        "flights": 9,
-        "pax": 2199
+        "flights": 10,
+        "pax": 2346
       },
       "Москва": {
         "flights": 2,
@@ -158,8 +158,8 @@
         "country": "Russia"
       },
       "Saudi Arabia": {
-        "flights": 1,
-        "pax": 237
+        "flights": 2,
+        "pax": 474
       },
       "Хабаровск": {
         "flights": 1,
@@ -183,8 +183,8 @@
         "pax": 262
       },
       "South Korea": {
-        "flights": 1,
-        "pax": 262
+        "flights": 2,
+        "pax": 499
       }
     }
   },
@@ -192,7 +192,7 @@
     {
       "fn": "AI 2378",
       "airline": "AIR INDIA LTD",
-      "status": "",
+      "status": "confirmed",
       "pax": 147,
       "aircraft": "",
       "dep_time": "2026-06-02T18:25",
@@ -423,7 +423,7 @@
     {
       "fn": "SU 660",
       "airline": "AEROFLOT RUSSIAN AIRLINES",
-      "status": "",
+      "status": "confirmed",
       "pax": 147,
       "aircraft": "",
       "dep_time": "",
@@ -1928,6 +1928,50 @@
       "arr_time": "2026-06-03T20:25",
       "to": "DXB",
       "country": "UAE"
+    },
+    {
+      "fn": "KE 678",
+      "airline": "KOREAN AIRLINES CO.LTD.",
+      "status": "cancelled",
+      "pax": 237,
+      "aircraft": "789",
+      "dep_time": "2026-06-03T16:25",
+      "arr_time": "",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "SV 853",
+      "airline": "SAUDI ARABIAN AIRLINES",
+      "status": "cancelled",
+      "pax": 237,
+      "aircraft": "789",
+      "dep_time": "2026-06-03T17:00",
+      "arr_time": "2026-06-03T21:55",
+      "to": "JED",
+      "country": "Saudi Arabia"
+    },
+    {
+      "fn": "EY 415",
+      "airline": "ETIHAD AIRWAYS",
+      "status": "cancelled",
+      "pax": 147,
+      "aircraft": "",
+      "dep_time": "2026-06-03T17:05",
+      "arr_time": "2026-06-03T05:30",
+      "to": "AUH",
+      "country": "UAE"
+    },
+    {
+      "fn": "FM 832",
+      "airline": "SHANGHAI AIRLINES",
+      "status": "cancelled",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2026-06-03T17:05",
+      "arr_time": "2026-06-03T23:30",
+      "to": "PVG",
+      "country": "China"
     }
   ]
 }
