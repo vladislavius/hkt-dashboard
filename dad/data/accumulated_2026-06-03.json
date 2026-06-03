@@ -1,12 +1,12 @@
 {
   "date": "2026-06-03",
   "arrivals": {
-    "count": 11,
-    "pax": 1617,
+    "count": 13,
+    "pax": 1911,
     "countries": {
       "South Korea": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Москва": {
         "flights": 1,
@@ -22,8 +22,8 @@
         "pax": 147
       },
       "Hong Kong": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Singapore": {
         "flights": 2,
@@ -44,8 +44,8 @@
     }
   },
   "departures": {
-    "count": 18,
-    "pax": 2646,
+    "count": 21,
+    "pax": 3087,
     "countries": {
       "Japan": {
         "flights": 1,
@@ -60,20 +60,20 @@
         "pax": 147
       },
       "Thailand": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Singapore": {
         "flights": 2,
         "pax": 294
       },
       "Kazakhstan": {
-        "flights": 1,
-        "pax": 147
-      },
-      "Malaysia": {
         "flights": 2,
         "pax": 294
+      },
+      "Malaysia": {
+        "flights": 3,
+        "pax": 441
       },
       "Macau": {
         "flights": 1,
@@ -215,6 +215,36 @@
       "arr_time": "2026-06-03T13:10",
       "from": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "KE457",
+      "airline": "Korean Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-03T14:20",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "HX548",
+      "airline": "Hong Kong Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-03T15:20",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "PR585",
+      "airline": "Philippine Airlines",
+      "status": "cancelled",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-03T15:20",
+      "from": "MNL",
+      "country": "Other(MNL)"
     }
   ],
   "departures_list": [
@@ -397,6 +427,36 @@
       "arr_time": "",
       "to": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "MH749",
+      "airline": "Malaysia Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-03T14:35",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "VN627",
+      "airline": "Vietnam Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-03T15:15",
+      "arr_time": "",
+      "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "VJ55",
+      "airline": "Vietjet Air",
+      "status": "last call",
+      "pax": 147,
+      "dep_time": "2026-06-03T15:20",
+      "arr_time": "",
+      "to": "NQZ",
+      "country": "Kazakhstan"
     }
   ]
 }
