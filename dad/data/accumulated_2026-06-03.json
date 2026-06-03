@@ -1,8 +1,8 @@
 {
   "date": "2026-06-03",
   "arrivals": {
-    "count": 16,
-    "pax": 2352,
+    "count": 18,
+    "pax": 2646,
     "countries": {
       "South Korea": {
         "flights": 3,
@@ -38,18 +38,22 @@
         "pax": 147
       },
       "Thailand": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Macau": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Myanmar": {
         "flights": 1,
         "pax": 147
       }
     }
   },
   "departures": {
-    "count": 22,
-    "pax": 3234,
+    "count": 26,
+    "pax": 3822,
     "countries": {
       "Japan": {
         "flights": 1,
@@ -64,8 +68,8 @@
         "pax": 147
       },
       "Thailand": {
-        "flights": 2,
-        "pax": 294
+        "flights": 4,
+        "pax": 588
       },
       "Singapore": {
         "flights": 3,
@@ -80,10 +84,14 @@
         "pax": 441
       },
       "Macau": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Taiwan": {
         "flights": 1,
         "pax": 147
       },
-      "Taiwan": {
+      "Hong Kong": {
         "flights": 1,
         "pax": 147
       }
@@ -277,6 +285,26 @@
       "pax": 147,
       "dep_time": "",
       "arr_time": "2026-06-03T17:30",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "8M454",
+      "airline": "Myanmar Airways International",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-03T19:00",
+      "from": "RGN",
+      "country": "Myanmar"
+    },
+    {
+      "fn": "VN626",
+      "airline": "Vietnam Airlines",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-03T19:45",
       "from": "BKK",
       "country": "Thailand"
     }
@@ -511,6 +539,56 @@
       "arr_time": "",
       "to": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "UO559",
+      "airline": "Hong Kong Express Airways",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-03T18:10",
+      "arr_time": "",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "FD639",
+      "airline": "Thai Air Asia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-03T18:10",
+      "arr_time": "",
+      "to": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "VZ963",
+      "airline": "Thai Vietjet",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-03T18:10",
+      "arr_time": "",
+      "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "VJ8892",
+      "airline": "Vietjet Air",
+      "status": "last call",
+      "pax": 147,
+      "dep_time": "2026-06-03T18:15",
+      "arr_time": "",
+      "to": "MFM",
+      "country": "Macau"
+    },
+    {
+      "fn": "IT586",
+      "airline": "Tigerair Taiwan",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-03T18:25",
+      "arr_time": "",
+      "to": "KHH",
+      "country": "Other(KHH)"
     }
   ]
 }
