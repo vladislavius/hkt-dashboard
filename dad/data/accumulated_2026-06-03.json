@@ -1,12 +1,12 @@
 {
   "date": "2026-06-03",
   "arrivals": {
-    "count": 18,
-    "pax": 2646,
+    "count": 22,
+    "pax": 3234,
     "countries": {
       "South Korea": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "Москва": {
         "flights": 1,
@@ -26,12 +26,12 @@
         "pax": 441
       },
       "Singapore": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Vietnam": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Japan": {
         "flights": 1,
@@ -42,8 +42,8 @@
         "pax": 441
       },
       "Macau": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Myanmar": {
         "flights": 1,
@@ -52,8 +52,8 @@
     }
   },
   "departures": {
-    "count": 26,
-    "pax": 3822,
+    "count": 27,
+    "pax": 3969,
     "countries": {
       "Japan": {
         "flights": 1,
@@ -92,8 +92,8 @@
         "pax": 147
       },
       "Hong Kong": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       }
     }
   },
@@ -307,6 +307,46 @@
       "arr_time": "2026-06-03T19:45",
       "from": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "NX978",
+      "airline": "Air Macau",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-03T20:30",
+      "from": "MFM",
+      "country": "Macau"
+    },
+    {
+      "fn": "YP621",
+      "airline": "Air Premia",
+      "status": "cancelled",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-03T20:40",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "VN1940",
+      "airline": "Vietnam Airlines",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-03T20:55",
+      "from": "CXR",
+      "country": "Vietnam"
+    },
+    {
+      "fn": "VJ890",
+      "airline": "Vietjet Air",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-03T21:05",
+      "from": "SIN",
+      "country": "Singapore"
     }
   ],
   "departures_list": [
@@ -589,6 +629,16 @@
       "arr_time": "",
       "to": "KHH",
       "country": "Other(KHH)"
+    },
+    {
+      "fn": "HX547",
+      "airline": "Hong Kong Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-03T20:50",
+      "arr_time": "",
+      "to": "HKG",
+      "country": "Hong Kong"
     }
   ]
 }
