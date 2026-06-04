@@ -1,8 +1,8 @@
 {
   "date": "2026-06-04",
   "arrivals": {
-    "count": 13,
-    "pax": 1911,
+    "count": 14,
+    "pax": 2058,
     "countries": {
       "South Korea": {
         "flights": 3,
@@ -13,8 +13,8 @@
         "pax": 294
       },
       "Hong Kong": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Thailand": {
         "flights": 3,
@@ -35,8 +35,8 @@
     }
   },
   "departures": {
-    "count": 11,
-    "pax": 1617,
+    "count": 13,
+    "pax": 1911,
     "countries": {
       "Taiwan": {
         "flights": 2,
@@ -59,6 +59,10 @@
         "pax": 147
       },
       "Singapore": {
+        "flights": 2,
+        "pax": 294
+      },
+      "South Korea": {
         "flights": 1,
         "pax": 147
       }
@@ -118,7 +122,7 @@
     {
       "fn": "FD 660",
       "airline": "Thai AirAsia",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-06-04T13:19",
       "arr_time": "2026-06-04T13:20",
@@ -128,7 +132,7 @@
     {
       "fn": "AK 545",
       "airline": "AirAsia",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-06-04T13:31",
       "arr_time": "2026-06-04T13:35",
@@ -194,6 +198,16 @@
       "arr_time": "2026-06-04T17:40",
       "from": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "VJC 985",
+      "airline": "VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-04T18:25",
+      "arr_time": "2026-06-04T18:25",
+      "from": "HKG",
+      "country": "Hong Kong"
     }
   ],
   "departures_list": [
@@ -306,6 +320,26 @@
       "arr_time": "2026-06-04T16:45",
       "to": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "TR 525",
+      "airline": "Scoot",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-04T18:20",
+      "arr_time": "2026-06-04T18:20",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "VJC 978",
+      "airline": "VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-04T19:35",
+      "arr_time": "2026-06-04T19:35",
+      "to": "ICN",
+      "country": "South Korea"
     }
   ]
 }
