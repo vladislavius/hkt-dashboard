@@ -82,9 +82,82 @@
     }
   },
   "departures": {
-    "count": 0,
-    "pax": 0,
-    "countries": {}
+    "count": 55,
+    "pax": 9740,
+    "countries": {
+      "India": {
+        "flights": 11,
+        "pax": 1697
+      },
+      "China": {
+        "flights": 4,
+        "pax": 588
+      },
+      "Oman": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Singapore": {
+        "flights": 6,
+        "pax": 948
+      },
+      "UAE": {
+        "flights": 6,
+        "pax": 1314
+      },
+      "Uzbekistan": {
+        "flights": 1,
+        "pax": 180
+      },
+      "Kazakhstan": {
+        "flights": 1,
+        "pax": 180
+      },
+      "Malaysia": {
+        "flights": 11,
+        "pax": 1822
+      },
+      "Москва": {
+        "flights": 1,
+        "pax": 324,
+        "country": "Russia"
+      },
+      "Hong Kong": {
+        "flights": 3,
+        "pax": 507
+      },
+      "Екатеринбург": {
+        "flights": 1,
+        "pax": 262,
+        "country": "Russia"
+      },
+      "Vietnam": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Other": {
+        "flights": 4,
+        "pax": 654
+      },
+      "Saudi Arabia": {
+        "flights": 1,
+        "pax": 237
+      },
+      "Владивосток": {
+        "flights": 1,
+        "pax": 324,
+        "country": "Russia"
+      },
+      "Новосибирск": {
+        "flights": 1,
+        "pax": 262,
+        "country": "Russia"
+      },
+      "Indonesia": {
+        "flights": 1,
+        "pax": 147
+      }
+    }
   },
   "arrivals_list": [
     {
@@ -572,5 +645,611 @@
       "country": "Turkey"
     }
   ],
-  "departures_list": []
+  "departures_list": [
+    {
+      "fn": "AI 2379",
+      "airline": "AIR INDIA LTD",
+      "status": "",
+      "pax": 147,
+      "aircraft": "",
+      "dep_time": "2026-06-05T01:30",
+      "arr_time": "",
+      "to": "DEL",
+      "country": "India"
+    },
+    {
+      "fn": "9C 8668",
+      "airline": "SPRING AIRLINES LIMITED CORPORATION",
+      "status": "cancelled",
+      "pax": 147,
+      "aircraft": "320",
+      "dep_time": "2026-06-05T01:55",
+      "arr_time": "",
+      "to": "PVG",
+      "country": "China"
+    },
+    {
+      "fn": "WY 834",
+      "airline": "OMAN AIR",
+      "status": "",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2026-06-05T02:10",
+      "arr_time": "2026-06-05T05:10",
+      "to": "MCT",
+      "country": "Oman"
+    },
+    {
+      "fn": "TR 659",
+      "airline": "SCOOT PTE LTD",
+      "status": "",
+      "pax": 180,
+      "aircraft": "321",
+      "dep_time": "2026-06-05T02:20",
+      "arr_time": "",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "EY 411",
+      "airline": "ETIHAD AIRWAYS",
+      "status": "",
+      "pax": 270,
+      "aircraft": "78J",
+      "dep_time": "2026-06-05T02:25",
+      "arr_time": "",
+      "to": "AUH",
+      "country": "UAE"
+    },
+    {
+      "fn": "SQ 725",
+      "airline": "SINGAPORE AIRLINES LIMITED",
+      "status": "",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2026-06-05T02:25",
+      "arr_time": "",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "C6 530",
+      "airline": "MY FREIGHTER (CENTRUM AIR)",
+      "status": "",
+      "pax": 180,
+      "aircraft": "321",
+      "dep_time": "2026-06-05T02:50",
+      "arr_time": "2026-06-05T09:40",
+      "to": "TAS",
+      "country": "Uzbekistan"
+    },
+    {
+      "fn": "EK 391",
+      "airline": "EMIRATES",
+      "status": "cancelled",
+      "pax": 324,
+      "aircraft": "77W",
+      "dep_time": "2026-06-05T03:00",
+      "arr_time": "",
+      "to": "DXB",
+      "country": "UAE"
+    },
+    {
+      "fn": "G9 688",
+      "airline": "AIR ARABIA",
+      "status": "",
+      "pax": 180,
+      "aircraft": "321",
+      "dep_time": "2026-06-05T03:10",
+      "arr_time": "",
+      "to": "SHJ",
+      "country": "UAE"
+    },
+    {
+      "fn": "KC 564",
+      "airline": "AIR ASTANA",
+      "status": "",
+      "pax": 180,
+      "aircraft": "321",
+      "dep_time": "2026-06-05T03:30",
+      "arr_time": "",
+      "to": "ALA",
+      "country": "Kazakhstan"
+    },
+    {
+      "fn": "MH 787",
+      "airline": "MALAYSIA AIRLINES",
+      "status": "",
+      "pax": 154,
+      "aircraft": "738",
+      "dep_time": "2026-06-05T03:30",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "SU 285",
+      "airline": "AEROFLOT RUSSIAN AIRLINES",
+      "status": "",
+      "pax": 324,
+      "aircraft": "77W",
+      "dep_time": "2026-06-05T03:35",
+      "arr_time": "",
+      "to": "SVO",
+      "country": "Russia"
+    },
+    {
+      "fn": "6E 1074",
+      "airline": "INTERGLOBE AVIATION LIMITED (INDIGO)",
+      "status": "",
+      "pax": 180,
+      "aircraft": "321",
+      "dep_time": "2026-06-05T04:05",
+      "arr_time": "2026-06-05T08:45",
+      "to": "DEL",
+      "country": "India"
+    },
+    {
+      "fn": "AK 833",
+      "airline": "AIRASIA BERHAD",
+      "status": "",
+      "pax": 147,
+      "aircraft": "320",
+      "dep_time": "2026-06-05T04:10",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "UO 725",
+      "airline": "HONG KONG EXPRESS AIRWAYS",
+      "status": "",
+      "pax": 147,
+      "aircraft": "",
+      "dep_time": "2026-06-05T04:15",
+      "arr_time": "",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "SG 082",
+      "airline": "SPICEJET LTD.",
+      "status": "",
+      "pax": 154,
+      "aircraft": "738",
+      "dep_time": "2026-06-05T04:30",
+      "arr_time": "",
+      "to": "BOM",
+      "country": "India"
+    },
+    {
+      "fn": "SQ 727",
+      "airline": "SINGAPORE AIRLINES LIMITED",
+      "status": "",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2026-06-05T04:40",
+      "arr_time": "",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "G9 700",
+      "airline": "AIR ARABIA",
+      "status": "",
+      "pax": 180,
+      "aircraft": "321",
+      "dep_time": "2026-06-05T04:45",
+      "arr_time": "",
+      "to": "SHJ",
+      "country": "UAE"
+    },
+    {
+      "fn": "CX 770",
+      "airline": "CATHAY PACIFIC AIRWAYS",
+      "status": "",
+      "pax": 180,
+      "aircraft": "321",
+      "dep_time": "2026-06-05T04:50",
+      "arr_time": "",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "SU 627",
+      "airline": "AEROFLOT RUSSIAN AIRLINES",
+      "status": "",
+      "pax": 262,
+      "aircraft": "333",
+      "dep_time": "2026-06-05T04:55",
+      "arr_time": "2026-06-05T12:10",
+      "to": "SVX",
+      "country": "Russia"
+    },
+    {
+      "fn": "VJ 808",
+      "airline": "VIETJET AIR",
+      "status": "",
+      "pax": 147,
+      "aircraft": "320",
+      "dep_time": "2026-06-05T04:55",
+      "arr_time": "",
+      "to": "SGN",
+      "country": "Vietnam"
+    },
+    {
+      "fn": "6E 1072",
+      "airline": "INTERGLOBE AVIATION LIMITED (INDIGO)",
+      "status": "",
+      "pax": 180,
+      "aircraft": "321",
+      "dep_time": "2026-06-05T05:20",
+      "arr_time": "2026-06-05T08:10",
+      "to": "BOM",
+      "country": "India"
+    },
+    {
+      "fn": "6E 1088",
+      "airline": "INTERGLOBE AVIATION LIMITED (INDIGO)",
+      "status": "",
+      "pax": 147,
+      "aircraft": "",
+      "dep_time": "2026-06-05T05:25",
+      "arr_time": "2026-06-05T06:55",
+      "to": "CCU",
+      "country": "India"
+    },
+    {
+      "fn": "6E 1076",
+      "airline": "INTERGLOBE AVIATION LIMITED (INDIGO)",
+      "status": "",
+      "pax": 147,
+      "aircraft": "",
+      "dep_time": "2026-06-05T05:45",
+      "arr_time": "2026-06-05T07:40",
+      "to": "BLR",
+      "country": "India"
+    },
+    {
+      "fn": "OD 541",
+      "airline": "MALINDO AIRWAYS SDN BHD",
+      "status": "",
+      "pax": 154,
+      "aircraft": "738",
+      "dep_time": "2026-06-05T06:30",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "AK 825",
+      "airline": "AIRASIA BERHAD",
+      "status": "",
+      "pax": 147,
+      "aircraft": "320",
+      "dep_time": "2026-06-05T06:35",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "9C 8670",
+      "airline": "SPRING AIRLINES LIMITED CORPORATION",
+      "status": "cancelled",
+      "pax": 147,
+      "aircraft": "320",
+      "dep_time": "2026-06-05T06:40",
+      "arr_time": "",
+      "to": "PVG",
+      "country": "China"
+    },
+    {
+      "fn": "QP 619",
+      "airline": "AKASA AIR",
+      "status": "",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2026-06-05T06:50",
+      "arr_time": "",
+      "to": "BOM",
+      "country": "India"
+    },
+    {
+      "fn": "CA 414",
+      "airline": "AIR CHINA",
+      "status": "",
+      "pax": 180,
+      "aircraft": "321",
+      "dep_time": "2026-06-05T07:00",
+      "arr_time": "",
+      "to": "TFU",
+      "country": ""
+    },
+    {
+      "fn": "MH 795",
+      "airline": "MALAYSIA AIRLINES",
+      "status": "",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2026-06-05T07:05",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "TR 645",
+      "airline": "SCOOT PTE LTD",
+      "status": "",
+      "pax": 180,
+      "aircraft": "321",
+      "dep_time": "2026-06-05T07:15",
+      "arr_time": "",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "FY 3601",
+      "airline": "FLYFIREFLY SDN BHD",
+      "status": "",
+      "pax": 154,
+      "aircraft": "738",
+      "dep_time": "2026-06-05T07:35",
+      "arr_time": "",
+      "to": "PEN",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "AK 1821",
+      "airline": "AIRASIA BERHAD",
+      "status": "",
+      "pax": 147,
+      "aircraft": "320",
+      "dep_time": "2026-06-05T07:55",
+      "arr_time": "",
+      "to": "PEN",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "SQ 731",
+      "airline": "SINGAPORE AIRLINES LIMITED",
+      "status": "",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2026-06-05T08:00",
+      "arr_time": "",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "9C 8758",
+      "airline": "SPRING AIRLINES LIMITED CORPORATION",
+      "status": "cancelled",
+      "pax": 147,
+      "aircraft": "320",
+      "dep_time": "2026-06-05T08:35",
+      "arr_time": "",
+      "to": "TFU",
+      "country": ""
+    },
+    {
+      "fn": "QR 840",
+      "airline": "QATAR AIRWAYS COMPANY",
+      "status": "cancelled",
+      "pax": 324,
+      "aircraft": "77W",
+      "dep_time": "2026-06-05T08:35",
+      "arr_time": "",
+      "to": "PEN",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "SV 851",
+      "airline": "SAUDI ARABIAN AIRLINES",
+      "status": "cancelled",
+      "pax": 237,
+      "aircraft": "789",
+      "dep_time": "2026-06-05T08:50",
+      "arr_time": "2026-06-05T12:35",
+      "to": "RUH",
+      "country": "Saudi Arabia"
+    },
+    {
+      "fn": "EY 417",
+      "airline": "ETIHAD AIRWAYS",
+      "status": "",
+      "pax": 180,
+      "aircraft": "321",
+      "dep_time": "2026-06-05T08:50",
+      "arr_time": "",
+      "to": "AUH",
+      "country": "UAE"
+    },
+    {
+      "fn": "AK 823",
+      "airline": "AIRASIA BERHAD",
+      "status": "",
+      "pax": 147,
+      "aircraft": "320",
+      "dep_time": "2026-06-05T09:00",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "QP 624",
+      "airline": "AKASA AIR",
+      "status": "",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2026-06-05T09:10",
+      "arr_time": "",
+      "to": "BLR",
+      "country": "India"
+    },
+    {
+      "fn": "SU 639",
+      "airline": "AEROFLOT RUSSIAN AIRLINES",
+      "status": "",
+      "pax": 324,
+      "aircraft": "77W",
+      "dep_time": "2026-06-05T09:35",
+      "arr_time": "",
+      "to": "VVO",
+      "country": "Russia"
+    },
+    {
+      "fn": "CZ 6064",
+      "airline": "CHINA SOUTHERN AIRLINES",
+      "status": "",
+      "pax": 147,
+      "aircraft": "",
+      "dep_time": "2026-06-05T09:40",
+      "arr_time": "",
+      "to": "CAN",
+      "country": "China"
+    },
+    {
+      "fn": "AK 821",
+      "airline": "AIRASIA BERHAD",
+      "status": "",
+      "pax": 147,
+      "aircraft": "320",
+      "dep_time": "2026-06-05T10:05",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "AK 1317",
+      "airline": "AIRASIA BERHAD",
+      "status": "cancelled",
+      "pax": 147,
+      "aircraft": "320",
+      "dep_time": "2026-06-05T10:15",
+      "arr_time": "",
+      "to": "JHB",
+      "country": ""
+    },
+    {
+      "fn": "IX 903",
+      "airline": "AIR INDIA EXPRESS",
+      "status": "",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2026-06-05T10:40",
+      "arr_time": "",
+      "to": "BLR",
+      "country": "India"
+    },
+    {
+      "fn": "IX 937",
+      "airline": "AIR INDIA EXPRESS",
+      "status": "cancelled",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2026-06-05T10:40",
+      "arr_time": "",
+      "to": "HYD",
+      "country": "India"
+    },
+    {
+      "fn": "SQ 735",
+      "airline": "SINGAPORE AIRLINES LIMITED",
+      "status": "",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2026-06-05T11:00",
+      "arr_time": "",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "CX 778",
+      "airline": "CATHAY PACIFIC AIRWAYS",
+      "status": "",
+      "pax": 180,
+      "aircraft": "321",
+      "dep_time": "2026-06-05T11:20",
+      "arr_time": "",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "SG 094",
+      "airline": "SPICEJET LTD.",
+      "status": "",
+      "pax": 154,
+      "aircraft": "738",
+      "dep_time": "2026-06-05T11:30",
+      "arr_time": "",
+      "to": "DEL",
+      "country": "India"
+    },
+    {
+      "fn": "G9 715",
+      "airline": "AIR ARABIA",
+      "status": "",
+      "pax": 180,
+      "aircraft": "321",
+      "dep_time": "2026-06-05T11:35",
+      "arr_time": "",
+      "to": "SHJ",
+      "country": "UAE"
+    },
+    {
+      "fn": "SU 637",
+      "airline": "AEROFLOT RUSSIAN AIRLINES",
+      "status": "",
+      "pax": 262,
+      "aircraft": "333",
+      "dep_time": "2026-06-05T11:45",
+      "arr_time": "",
+      "to": "OVB",
+      "country": "Russia"
+    },
+    {
+      "fn": "3U 3932",
+      "airline": "SICHUAN AIRLINES",
+      "status": "cancelled",
+      "pax": 180,
+      "aircraft": "321",
+      "dep_time": "2026-06-05T12:05",
+      "arr_time": "",
+      "to": "TFU",
+      "country": ""
+    },
+    {
+      "fn": "CA 822",
+      "airline": "AIR CHINA",
+      "status": "",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2026-06-05T12:25",
+      "arr_time": "",
+      "to": "PEK",
+      "country": "China"
+    },
+    {
+      "fn": "MH 791",
+      "airline": "MALAYSIA AIRLINES",
+      "status": "",
+      "pax": 154,
+      "aircraft": "738",
+      "dep_time": "2026-06-05T12:40",
+      "arr_time": "2026-06-05T15:20",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "QZ 247",
+      "airline": "INDONESIA AIRASIA PT.",
+      "status": "",
+      "pax": 147,
+      "aircraft": "320",
+      "dep_time": "2026-06-05T12:40",
+      "arr_time": "",
+      "to": "DPS",
+      "country": "Indonesia"
+    }
+  ]
 }
