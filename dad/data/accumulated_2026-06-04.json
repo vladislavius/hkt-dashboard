@@ -1,12 +1,12 @@
 {
   "date": "2026-06-04",
   "arrivals": {
-    "count": 8,
-    "pax": 1176,
+    "count": 11,
+    "pax": 1617,
     "countries": {
       "South Korea": {
-        "flights": 1,
-        "pax": 147
+        "flights": 3,
+        "pax": 441
       },
       "Malaysia": {
         "flights": 1,
@@ -17,8 +17,8 @@
         "pax": 147
       },
       "Hong Kong": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Japan": {
         "flights": 2,
@@ -35,8 +35,8 @@
     }
   },
   "departures": {
-    "count": 9,
-    "pax": 1323,
+    "count": 10,
+    "pax": 1470,
     "countries": {
       "Thailand": {
         "flights": 1,
@@ -55,6 +55,10 @@
         "pax": 294
       },
       "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Laos": {
         "flights": 1,
         "pax": 147
       }
@@ -140,6 +144,36 @@
       "arr_time": "2026-06-04T12:40",
       "from": "NRT",
       "country": "Japan"
+    },
+    {
+      "fn": "VN431",
+      "airline": "Vietnam Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-04T13:50",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "KE457",
+      "airline": "Korean Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-04T14:20",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "HX548",
+      "airline": "Hong Kong Airlines",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-04T15:20",
+      "from": "HKG",
+      "country": "Hong Kong"
     }
   ],
   "departures_list": [
@@ -242,6 +276,16 @@
       "arr_time": "",
       "to": "TPE",
       "country": "Taiwan"
+    },
+    {
+      "fn": "QV318",
+      "airline": "Lao Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-04T13:50",
+      "arr_time": "",
+      "to": "VTE",
+      "country": "Laos"
     }
   ]
 }
