@@ -1,8 +1,8 @@
 {
   "date": "2026-06-05",
   "arrivals": {
-    "count": 12,
-    "pax": 1764,
+    "count": 13,
+    "pax": 1911,
     "countries": {
       "Taiwan": {
         "flights": 2,
@@ -23,12 +23,16 @@
       "Thailand": {
         "flights": 1,
         "pax": 147
+      },
+      "Singapore": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 10,
-    "pax": 1470,
+    "count": 13,
+    "pax": 1911,
     "countries": {
       "Singapore": {
         "flights": 1,
@@ -43,6 +47,14 @@
         "pax": 147
       },
       "Hong Kong": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Thailand": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Vietnam": {
         "flights": 1,
         "pax": 147
       }
@@ -168,6 +180,16 @@
       "arr_time": "2026-06-05T10:40",
       "from": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "TR 528",
+      "airline": "Scoot",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-05T11:45",
+      "arr_time": "2026-06-05T11:45",
+      "from": "SIN",
+      "country": "Singapore"
     }
   ],
   "departures_list": [
@@ -270,6 +292,36 @@
       "arr_time": "2026-06-05T10:40",
       "to": "HKG",
       "country": "Hong Kong"
+    },
+    {
+      "fn": "TVJ 981",
+      "airline": "Thai VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-05T11:45",
+      "arr_time": "2026-06-05T11:45",
+      "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "9G 502",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-05T11:55",
+      "arr_time": "2026-06-05T11:55",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "9G 2952",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-05T12:15",
+      "arr_time": "2026-06-05T12:15",
+      "to": "CXR",
+      "country": "Vietnam"
     }
   ]
 }
