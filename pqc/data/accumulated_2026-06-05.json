@@ -35,16 +35,16 @@
     }
   },
   "departures": {
-    "count": 21,
-    "pax": 3087,
+    "count": 22,
+    "pax": 3234,
     "countries": {
       "Singapore": {
         "flights": 3,
         "pax": 441
       },
       "South Korea": {
-        "flights": 8,
-        "pax": 1176
+        "flights": 9,
+        "pax": 1323
       },
       "Malaysia": {
         "flights": 2,
@@ -292,7 +292,7 @@
     {
       "fn": "9G 501",
       "airline": "Sun PhuQuoc Airways",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-06-05T18:35",
       "arr_time": "2026-06-05T18:35",
@@ -302,7 +302,7 @@
     {
       "fn": "LJ 119",
       "airline": "Jin Air",
-      "status": "on-time",
+      "status": "28 minutes late",
       "pax": 147,
       "dep_time": "2026-06-05T23:32",
       "arr_time": "2026-06-05T23:25",
@@ -518,6 +518,16 @@
       "pax": 147,
       "dep_time": "2026-06-05T23:10",
       "arr_time": "2026-06-05T23:10",
+      "to": "PUS",
+      "country": "South Korea"
+    },
+    {
+      "fn": "LJ 120",
+      "airline": "Jin Air",
+      "status": "delayed 20 minutes",
+      "pax": 147,
+      "dep_time": "2026-06-05T00:25",
+      "arr_time": "2026-06-05T00:45",
       "to": "PUS",
       "country": "South Korea"
     }
