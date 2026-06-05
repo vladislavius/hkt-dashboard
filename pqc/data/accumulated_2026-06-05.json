@@ -1,16 +1,16 @@
 {
   "date": "2026-06-05",
   "arrivals": {
-    "count": 19,
-    "pax": 2793,
+    "count": 23,
+    "pax": 3381,
     "countries": {
       "Taiwan": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Hong Kong": {
-        "flights": 2,
-        "pax": 294
+        "flights": 4,
+        "pax": 588
       },
       "South Korea": {
         "flights": 7,
@@ -25,8 +25,8 @@
         "pax": 441
       },
       "Singapore": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Vietnam": {
         "flights": 1,
@@ -35,8 +35,8 @@
     }
   },
   "departures": {
-    "count": 18,
-    "pax": 2646,
+    "count": 20,
+    "pax": 2940,
     "countries": {
       "Singapore": {
         "flights": 3,
@@ -51,14 +51,18 @@
         "pax": 294
       },
       "Hong Kong": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Thailand": {
         "flights": 3,
         "pax": 441
       },
       "Vietnam": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Taiwan": {
         "flights": 1,
         "pax": 147
       }
@@ -188,7 +192,7 @@
     {
       "fn": "TR 528",
       "airline": "Scoot",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-06-05T11:45",
       "arr_time": "2026-06-05T11:45",
@@ -208,7 +212,7 @@
     {
       "fn": "AK 545",
       "airline": "AirAsia",
-      "status": "50 minutes late",
+      "status": "39 minutes late",
       "pax": 147,
       "dep_time": "2026-06-05T14:25",
       "arr_time": "2026-06-05T13:35",
@@ -254,6 +258,46 @@
       "arr_time": "2026-06-05T15:55",
       "from": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "J2X 705",
+      "airline": "Starlux Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-05T17:35",
+      "arr_time": "2026-06-05T17:35",
+      "from": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "TR 524",
+      "airline": "Scoot",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-05T17:40",
+      "arr_time": "2026-06-05T17:40",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "UO 596",
+      "airline": "HK Express",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-05T18:05",
+      "arr_time": "2026-06-05T18:05",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "9G 501",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-05T18:35",
+      "arr_time": "2026-06-05T18:35",
+      "from": "HKG",
+      "country": "Hong Kong"
     }
   ],
   "departures_list": [
@@ -436,6 +480,26 @@
       "arr_time": "2026-06-05T16:45",
       "to": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "J2X 706",
+      "airline": "Starlux Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-05T18:35",
+      "arr_time": "2026-06-05T18:35",
+      "to": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "UO 597",
+      "airline": "HK Express",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-05T19:05",
+      "arr_time": "2026-06-05T19:05",
+      "to": "HKG",
+      "country": "Hong Kong"
     }
   ]
 }
