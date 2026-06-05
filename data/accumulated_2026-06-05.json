@@ -95,16 +95,16 @@
     }
   },
   "departures": {
-    "count": 72,
-    "pax": 13101,
+    "count": 75,
+    "pax": 13632,
     "countries": {
       "India": {
         "flights": 14,
         "pax": 2171
       },
       "China": {
-        "flights": 7,
-        "pax": 1029
+        "flights": 8,
+        "pax": 1176
       },
       "Oman": {
         "flights": 2,
@@ -115,8 +115,8 @@
         "pax": 1275
       },
       "UAE": {
-        "flights": 9,
-        "pax": 2109
+        "flights": 10,
+        "pax": 2256
       },
       "Uzbekistan": {
         "flights": 1,
@@ -149,8 +149,8 @@
         "pax": 147
       },
       "Saudi Arabia": {
-        "flights": 1,
-        "pax": 237
+        "flights": 2,
+        "pax": 474
       },
       "Владивосток": {
         "flights": 1,
@@ -826,7 +826,7 @@
     {
       "fn": "MH 790",
       "airline": "MALAYSIA AIRLINES",
-      "status": "confirmed",
+      "status": "landed",
       "pax": 154,
       "aircraft": "738",
       "dep_time": "",
@@ -848,7 +848,7 @@
     {
       "fn": "QZ 246",
       "airline": "INDONESIA AIRASIA PT.",
-      "status": "confirmed",
+      "status": "landed",
       "pax": 147,
       "aircraft": "320",
       "dep_time": "",
@@ -859,7 +859,7 @@
     {
       "fn": "SQ 740",
       "airline": "SINGAPORE AIRLINES LIMITED",
-      "status": "confirmed",
+      "status": "landed",
       "pax": 147,
       "aircraft": "7M8",
       "dep_time": "",
@@ -892,7 +892,7 @@
     {
       "fn": "AI 2376",
       "airline": "AIR INDIA LTD",
-      "status": "confirmed",
+      "status": "landed",
       "pax": 147,
       "aircraft": "320",
       "dep_time": "",
@@ -903,7 +903,7 @@
     {
       "fn": "TR 652",
       "airline": "SCOOT PTE LTD",
-      "status": "confirmed",
+      "status": "landed",
       "pax": 180,
       "aircraft": "321",
       "dep_time": "",
@@ -925,7 +925,7 @@
     {
       "fn": "EK 396",
       "airline": "EMIRATES",
-      "status": "confirmed",
+      "status": "landed",
       "pax": 324,
       "aircraft": "77W",
       "dep_time": "",
@@ -947,7 +947,7 @@
     {
       "fn": "JQ 017",
       "airline": "JETSTAR AIRWAYS PTY LIMITED",
-      "status": "confirmed",
+      "status": "landed",
       "pax": 205,
       "aircraft": "788",
       "dep_time": "2026-06-05T07:50",
@@ -980,7 +980,7 @@
     {
       "fn": "6E 1089",
       "airline": "INTERGLOBE AVIATION LIMITED (INDIGO)",
-      "status": "confirmed",
+      "status": "landed",
       "pax": 180,
       "aircraft": "321",
       "dep_time": "2026-06-05T08:50",
@@ -1035,7 +1035,7 @@
     {
       "fn": "9C 8521",
       "airline": "SPRING AIRLINES LIMITED CORPORATION",
-      "status": "confirmed",
+      "status": "landed",
       "pax": 147,
       "aircraft": "320",
       "dep_time": "",
@@ -1923,6 +1923,39 @@
       "dep_time": "2026-06-05T16:55",
       "arr_time": "",
       "to": "DXB",
+      "country": "UAE"
+    },
+    {
+      "fn": "SV 853",
+      "airline": "SAUDI ARABIAN AIRLINES",
+      "status": "cancelled",
+      "pax": 237,
+      "aircraft": "789",
+      "dep_time": "2026-06-05T17:00",
+      "arr_time": "2026-06-05T21:55",
+      "to": "JED",
+      "country": "Saudi Arabia"
+    },
+    {
+      "fn": "FM 832",
+      "airline": "SHANGHAI AIRLINES",
+      "status": "cancelled",
+      "pax": 147,
+      "aircraft": "7M8",
+      "dep_time": "2026-06-05T17:05",
+      "arr_time": "2026-06-05T23:30",
+      "to": "PVG",
+      "country": "China"
+    },
+    {
+      "fn": "EY 415",
+      "airline": "ETIHAD AIRWAYS",
+      "status": "cancelled",
+      "pax": 147,
+      "aircraft": "",
+      "dep_time": "2026-06-05T17:05",
+      "arr_time": "2026-06-05T23:45",
+      "to": "AUH",
       "country": "UAE"
     }
   ]

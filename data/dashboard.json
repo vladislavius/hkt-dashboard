@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-05T21:54:57.226171+07:00",
+  "updated": "2026-06-05T23:30:05.661776+07:00",
   "available_dates": [
     "2025-08-31",
     "2025-09-01",
@@ -2283,8 +2283,8 @@
       ]
     },
     "departures": {
-      "count": 72,
-      "pax": 13101,
+      "count": 75,
+      "pax": 13632,
       "all": [
         {
           "name": "India",
@@ -2298,18 +2298,18 @@
         },
         {
           "name": "UAE",
-          "flights": 9,
-          "pax": 2109
+          "flights": 10,
+          "pax": 2256
+        },
+        {
+          "name": "China",
+          "flights": 8,
+          "pax": 1176
         },
         {
           "name": "Singapore",
           "flights": 8,
           "pax": 1275
-        },
-        {
-          "name": "China",
-          "flights": 7,
-          "pax": 1029
         },
         {
           "name": "Hong Kong",
@@ -2320,6 +2320,11 @@
           "name": "Oman",
           "flights": 2,
           "pax": 294
+        },
+        {
+          "name": "Saudi Arabia",
+          "flights": 2,
+          "pax": 474
         },
         {
           "name": "Australia",
@@ -2357,11 +2362,6 @@
           "name": "Vietnam",
           "flights": 1,
           "pax": 147
-        },
-        {
-          "name": "Saudi Arabia",
-          "flights": 1,
-          "pax": 237
         },
         {
           "name": "Владивосток",
@@ -3041,7 +3041,7 @@
       {
         "fn": "MH 790",
         "airline": "MALAYSIA AIRLINES",
-        "status": "confirmed",
+        "status": "landed",
         "pax": 154,
         "aircraft": "738",
         "dep_time": "",
@@ -3063,7 +3063,7 @@
       {
         "fn": "QZ 246",
         "airline": "INDONESIA AIRASIA PT.",
-        "status": "confirmed",
+        "status": "landed",
         "pax": 147,
         "aircraft": "320",
         "dep_time": "",
@@ -3074,7 +3074,7 @@
       {
         "fn": "SQ 740",
         "airline": "SINGAPORE AIRLINES LIMITED",
-        "status": "confirmed",
+        "status": "landed",
         "pax": 147,
         "aircraft": "7M8",
         "dep_time": "",
@@ -3107,7 +3107,7 @@
       {
         "fn": "AI 2376",
         "airline": "AIR INDIA LTD",
-        "status": "confirmed",
+        "status": "landed",
         "pax": 147,
         "aircraft": "320",
         "dep_time": "",
@@ -3118,7 +3118,7 @@
       {
         "fn": "TR 652",
         "airline": "SCOOT PTE LTD",
-        "status": "confirmed",
+        "status": "landed",
         "pax": 180,
         "aircraft": "321",
         "dep_time": "",
@@ -3140,7 +3140,7 @@
       {
         "fn": "EK 396",
         "airline": "EMIRATES",
-        "status": "confirmed",
+        "status": "landed",
         "pax": 324,
         "aircraft": "77W",
         "dep_time": "",
@@ -3162,7 +3162,7 @@
       {
         "fn": "JQ 017",
         "airline": "JETSTAR AIRWAYS PTY LIMITED",
-        "status": "confirmed",
+        "status": "landed",
         "pax": 205,
         "aircraft": "788",
         "dep_time": "2026-06-05T07:50",
@@ -3195,7 +3195,7 @@
       {
         "fn": "6E 1089",
         "airline": "INTERGLOBE AVIATION LIMITED (INDIGO)",
-        "status": "confirmed",
+        "status": "landed",
         "pax": 180,
         "aircraft": "321",
         "dep_time": "2026-06-05T08:50",
@@ -3250,7 +3250,7 @@
       {
         "fn": "9C 8521",
         "airline": "SPRING AIRLINES LIMITED CORPORATION",
-        "status": "confirmed",
+        "status": "landed",
         "pax": 147,
         "aircraft": "320",
         "dep_time": "",
@@ -4139,6 +4139,39 @@
         "arr_time": "",
         "to": "DXB",
         "country": "UAE"
+      },
+      {
+        "fn": "SV 853",
+        "airline": "SAUDI ARABIAN AIRLINES",
+        "status": "cancelled",
+        "pax": 237,
+        "aircraft": "789",
+        "dep_time": "2026-06-05T17:00",
+        "arr_time": "2026-06-05T21:55",
+        "to": "JED",
+        "country": "Saudi Arabia"
+      },
+      {
+        "fn": "FM 832",
+        "airline": "SHANGHAI AIRLINES",
+        "status": "cancelled",
+        "pax": 147,
+        "aircraft": "7M8",
+        "dep_time": "2026-06-05T17:05",
+        "arr_time": "2026-06-05T23:30",
+        "to": "PVG",
+        "country": "China"
+      },
+      {
+        "fn": "EY 415",
+        "airline": "ETIHAD AIRWAYS",
+        "status": "cancelled",
+        "pax": 147,
+        "aircraft": "",
+        "dep_time": "2026-06-05T17:05",
+        "arr_time": "2026-06-05T23:45",
+        "to": "AUH",
+        "country": "UAE"
       }
     ]
   },
@@ -4305,8 +4338,8 @@
       ]
     },
     "departures": {
-      "count": 541,
-      "pax": 95569,
+      "count": 544,
+      "pax": 96100,
       "all": [
         {
           "name": "India",
@@ -4320,8 +4353,8 @@
         },
         {
           "name": "UAE",
-          "flights": 69,
-          "pax": 15744
+          "flights": 70,
+          "pax": 15891
         },
         {
           "name": "Singapore",
@@ -4330,8 +4363,8 @@
         },
         {
           "name": "China",
-          "flights": 57,
-          "pax": 8400
+          "flights": 58,
+          "pax": 8547
         },
         {
           "name": "Hong Kong",
@@ -4391,8 +4424,8 @@
         },
         {
           "name": "Saudi Arabia",
-          "flights": 5,
-          "pax": 1185
+          "flights": 6,
+          "pax": 1422
         },
         {
           "name": "Новосибирск",
@@ -5293,7 +5326,7 @@
         "date": "2026-06-05",
         "label": "Пт 05.06",
         "arrivals": 78,
-        "departures": 72,
+        "departures": 75,
         "arrivals_by": {
           "India": {
             "n": 16
@@ -5368,7 +5401,7 @@
             "n": 14
           },
           "China": {
-            "n": 7
+            "n": 8
           },
           "Oman": {
             "n": 2
@@ -5377,7 +5410,7 @@
             "n": 8
           },
           "UAE": {
-            "n": 9
+            "n": 10
           },
           "Uzbekistan": {
             "n": 1
@@ -5403,7 +5436,7 @@
             "n": 1
           },
           "Saudi Arabia": {
-            "n": 1
+            "n": 2
           },
           "Владивосток": {
             "n": 1,
@@ -5641,8 +5674,8 @@
       ]
     },
     "departures": {
-      "count": 2356,
-      "pax": 417736,
+      "count": 2359,
+      "pax": 418267,
       "all": [
         {
           "name": "India",
@@ -5656,18 +5689,18 @@
         },
         {
           "name": "UAE",
-          "flights": 302,
-          "pax": 67017
+          "flights": 303,
+          "pax": 67164
+        },
+        {
+          "name": "China",
+          "flights": 262,
+          "pax": 38605
         },
         {
           "name": "Singapore",
           "flights": 262,
           "pax": 39326
-        },
-        {
-          "name": "China",
-          "flights": 261,
-          "pax": 38458
         },
         {
           "name": "Other",
@@ -5727,8 +5760,8 @@
         },
         {
           "name": "Saudi Arabia",
-          "flights": 25,
-          "pax": 5925
+          "flights": 26,
+          "pax": 6162
         },
         {
           "name": "Новосибирск",
@@ -6693,7 +6726,7 @@
         "key": "2026-W23",
         "label": "Нед 23 (Июн)",
         "arrivals": 390,
-        "departures": 385,
+        "departures": 388,
         "arrivals_by": {
           "India": {
             "n": 74
@@ -6794,7 +6827,7 @@
             "n": 72
           },
           "China": {
-            "n": 40
+            "n": 41
           },
           "Oman": {
             "n": 6
@@ -6803,7 +6836,7 @@
             "n": 42
           },
           "UAE": {
-            "n": 49
+            "n": 50
           },
           "Москва": {
             "n": 7,
@@ -6848,7 +6881,7 @@
             "n": 10
           },
           "Saudi Arabia": {
-            "n": 4
+            "n": 5
           },
           "Иркутск": {
             "n": 2,
@@ -7173,8 +7206,8 @@
       ]
     },
     "departures": {
-      "count": 7919,
-      "pax": 1433398,
+      "count": 7922,
+      "pax": 1433929,
       "all": [
         {
           "name": "India",
@@ -7188,13 +7221,13 @@
         },
         {
           "name": "UAE",
-          "flights": 888,
-          "pax": 192699
+          "flights": 889,
+          "pax": 192846
         },
         {
           "name": "China",
-          "flights": 874,
-          "pax": 132284
+          "flights": 875,
+          "pax": 132431
         },
         {
           "name": "Singapore",
@@ -7287,8 +7320,8 @@
         },
         {
           "name": "Saudi Arabia",
-          "flights": 49,
-          "pax": 9993
+          "flights": 50,
+          "pax": 10230
         },
         {
           "name": "Красноярск",
@@ -8342,7 +8375,7 @@
         "key": "2026-06",
         "label": "Июн 2026",
         "arrivals": 390,
-        "departures": 385,
+        "departures": 388,
         "arrivals_by": {
           "India": {
             "n": 74
@@ -8443,7 +8476,7 @@
             "n": 72
           },
           "China": {
-            "n": 40
+            "n": 41
           },
           "Oman": {
             "n": 6
@@ -8452,7 +8485,7 @@
             "n": 42
           },
           "UAE": {
-            "n": 49
+            "n": 50
           },
           "Москва": {
             "n": 7,
@@ -8497,7 +8530,7 @@
             "n": 10
           },
           "Saudi Arabia": {
-            "n": 4
+            "n": 5
           },
           "Иркутск": {
             "n": 2,
@@ -8833,13 +8866,13 @@
       ]
     },
     "departures": {
-      "count": 17945,
-      "pax": 3261948,
+      "count": 17948,
+      "pax": 3262479,
       "all": [
         {
           "name": "China",
-          "flights": 2610,
-          "pax": 404757
+          "flights": 2611,
+          "pax": 404904
         },
         {
           "name": "India",
@@ -8853,8 +8886,8 @@
         },
         {
           "name": "UAE",
-          "flights": 1663,
-          "pax": 362760
+          "flights": 1664,
+          "pax": 362907
         },
         {
           "name": "Singapore",
@@ -8957,8 +8990,8 @@
         },
         {
           "name": "Saudi Arabia",
-          "flights": 124,
-          "pax": 23538
+          "flights": 125,
+          "pax": 23775
         },
         {
           "name": "Красноярск",
@@ -10983,7 +11016,7 @@
         "key": "2026-06",
         "label": "Июн 2026",
         "arrivals": 390,
-        "departures": 385,
+        "departures": 388,
         "arrivals_by": {
           "India": {
             "n": 74
@@ -11084,7 +11117,7 @@
             "n": 72
           },
           "China": {
-            "n": 40
+            "n": 41
           },
           "Oman": {
             "n": 6
@@ -11093,7 +11126,7 @@
             "n": 42
           },
           "UAE": {
-            "n": 49
+            "n": 50
           },
           "Москва": {
             "n": 7,
@@ -11138,7 +11171,7 @@
             "n": 10
           },
           "Saudi Arabia": {
-            "n": 4
+            "n": 5
           },
           "Иркутск": {
             "n": 2,
@@ -11474,13 +11507,13 @@
       ]
     },
     "departures": {
-      "count": 26723,
-      "pax": 4862729,
+      "count": 26726,
+      "pax": 4863260,
       "all": [
         {
           "name": "China",
-          "flights": 3879,
-          "pax": 599048
+          "flights": 3880,
+          "pax": 599195
         },
         {
           "name": "India",
@@ -11499,8 +11532,8 @@
         },
         {
           "name": "UAE",
-          "flights": 2329,
-          "pax": 533335
+          "flights": 2330,
+          "pax": 533482
         },
         {
           "name": "Other",
@@ -11587,15 +11620,15 @@
           "country": "Russia"
         },
         {
+          "name": "Saudi Arabia",
+          "flights": 162,
+          "pax": 32745
+        },
+        {
           "name": "Красноярск",
           "flights": 162,
           "pax": 40534,
           "country": "Russia"
-        },
-        {
-          "name": "Saudi Arabia",
-          "flights": 161,
-          "pax": 32508
         },
         {
           "name": "Finland",
@@ -14402,7 +14435,7 @@
         "key": "2026-06",
         "label": "Июн 2026",
         "arrivals": 390,
-        "departures": 385,
+        "departures": 388,
         "arrivals_by": {
           "India": {
             "n": 74
@@ -14503,7 +14536,7 @@
             "n": 72
           },
           "China": {
-            "n": 40
+            "n": 41
           },
           "Oman": {
             "n": 6
@@ -14512,7 +14545,7 @@
             "n": 42
           },
           "UAE": {
-            "n": 49
+            "n": 50
           },
           "Москва": {
             "n": 7,
@@ -14557,7 +14590,7 @@
             "n": 10
           },
           "Saudi Arabia": {
-            "n": 4
+            "n": 5
           },
           "Иркутск": {
             "n": 2,
