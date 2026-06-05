@@ -1,18 +1,30 @@
 {
   "date": "2026-06-05",
   "arrivals": {
-    "count": 1,
-    "pax": 147,
+    "count": 5,
+    "pax": 735,
     "countries": {
       "South Korea": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Malaysia": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Hong Kong": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Singapore": {
         "flights": 1,
         "pax": 147
       }
     }
   },
   "departures": {
-    "count": 8,
-    "pax": 1176,
+    "count": 14,
+    "pax": 2058,
     "countries": {
       "Japan": {
         "flights": 2,
@@ -26,6 +38,26 @@
         "flights": 1,
         "pax": 147,
         "country": "Russia"
+      },
+      "Thailand": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Hong Kong": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Singapore": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Kazakhstan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Malaysia": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -59,6 +91,46 @@
       "arr_time": "2026-06-05T07:35",
       "from": "MNL",
       "country": "Other(MNL)"
+    },
+    {
+      "fn": "VJ989",
+      "airline": "Vietjet Air",
+      "status": "delayed",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-05T10:10",
+      "from": "PUS",
+      "country": "South Korea"
+    },
+    {
+      "fn": "AK642",
+      "airline": "Air Asia",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-05T10:50",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "UO566",
+      "airline": "Hong Kong Express Airways",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-05T11:05",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "SQ172",
+      "airline": "Singapore Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-05T11:05",
+      "from": "SIN",
+      "country": "Singapore"
     }
   ],
   "departures_list": [
@@ -141,6 +213,66 @@
       "arr_time": "",
       "to": "SVO",
       "country": "Russia"
+    },
+    {
+      "fn": "FD635",
+      "airline": "Thai Air Asia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-05T10:05",
+      "arr_time": "",
+      "to": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "UO553",
+      "airline": "Hong Kong Express Airways",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-05T10:05",
+      "arr_time": "",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "VZ965",
+      "airline": "Thai Vietjet",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-05T10:40",
+      "arr_time": "",
+      "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "TR511",
+      "airline": "Scoot",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-05T10:55",
+      "arr_time": "",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "KC600",
+      "airline": "Air Astana",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-05T11:10",
+      "arr_time": "",
+      "to": "ALA",
+      "country": "Kazakhstan"
+    },
+    {
+      "fn": "AK643",
+      "airline": "Air Asia",
+      "status": "gate closed",
+      "pax": 147,
+      "dep_time": "2026-06-05T11:20",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
     }
   ]
 }
