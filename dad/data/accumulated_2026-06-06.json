@@ -1,8 +1,8 @@
 {
   "date": "2026-06-06",
   "arrivals": {
-    "count": 6,
-    "pax": 882,
+    "count": 11,
+    "pax": 1617,
     "countries": {
       "South Korea": {
         "flights": 2,
@@ -18,26 +18,34 @@
         "pax": 147
       },
       "Thailand": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Malaysia": {
+        "flights": 3,
+        "pax": 441
+      },
+      "Kazakhstan": {
         "flights": 1,
         "pax": 147
       },
-      "Malaysia": {
+      "Taiwan": {
         "flights": 1,
         "pax": 147
       }
     }
   },
   "departures": {
-    "count": 13,
-    "pax": 1911,
+    "count": 19,
+    "pax": 2793,
     "countries": {
       "Japan": {
         "flights": 1,
         "pax": 147
       },
       "South Korea": {
-        "flights": 6,
-        "pax": 882
+        "flights": 7,
+        "pax": 1029
       },
       "Vietnam": {
         "flights": 1,
@@ -56,6 +64,19 @@
         "pax": 294
       },
       "Hong Kong": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Malaysia": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Казань": {
+        "flights": 1,
+        "pax": 147,
+        "country": "Russia"
+      },
+      "Singapore": {
         "flights": 1,
         "pax": 147
       }
@@ -141,6 +162,56 @@
       "arr_time": "2026-06-06T10:45",
       "from": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "FD636",
+      "airline": "Thai Air Asia",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-06T11:30",
+      "from": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "DV5340",
+      "airline": "Scat Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-06T11:30",
+      "from": "ALA",
+      "country": "Kazakhstan"
+    },
+    {
+      "fn": "BR383",
+      "airline": "Eva Air",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-06T11:35",
+      "from": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "AK648",
+      "airline": "Air Asia",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-06T11:50",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "OD502",
+      "airline": "Batik Air Malaysia",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-06T12:05",
+      "from": "KUL",
+      "country": "Malaysia"
     }
   ],
   "departures_list": [
@@ -273,6 +344,66 @@
       "arr_time": "",
       "to": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "AK643",
+      "airline": "Air Asia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-06T11:20",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "VJ2831",
+      "airline": "Vietjet Air",
+      "status": "last call",
+      "pax": 147,
+      "dep_time": "2026-06-06T11:20",
+      "arr_time": "",
+      "to": "KZN",
+      "country": "Russia"
+    },
+    {
+      "fn": "MH747",
+      "airline": "Malaysia Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-06T11:25",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "TW8",
+      "airline": "T'Way Air",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-06T11:45",
+      "arr_time": "",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "UO563",
+      "airline": "Hong Kong Express Airways",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-06T11:50",
+      "arr_time": "",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "SQ171",
+      "airline": "Singapore Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-06T11:55",
+      "arr_time": "",
+      "to": "SIN",
+      "country": "Singapore"
     }
   ]
 }
