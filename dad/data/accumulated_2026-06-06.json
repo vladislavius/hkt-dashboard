@@ -1,23 +1,35 @@
 {
   "date": "2026-06-06",
   "arrivals": {
-    "count": 2,
-    "pax": 294,
+    "count": 6,
+    "pax": 882,
     "countries": {
       "South Korea": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Москва": {
         "flights": 1,
         "pax": 147,
         "country": "Russia"
+      },
+      "Vietnam": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Thailand": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Malaysia": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 8,
-    "pax": 1176,
+    "count": 13,
+    "pax": 1911,
     "countries": {
       "Japan": {
         "flights": 1,
@@ -28,6 +40,22 @@
         "pax": 882
       },
       "Vietnam": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Kazakhstan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Thailand": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Hong Kong": {
         "flights": 1,
         "pax": 147
       }
@@ -73,6 +101,46 @@
       "arr_time": "2026-06-06T07:30",
       "from": "MNL",
       "country": "Other(MNL)"
+    },
+    {
+      "fn": "VJ1582",
+      "airline": "Vietjet Air",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-06T09:50",
+      "from": "CXR",
+      "country": "Vietnam"
+    },
+    {
+      "fn": "VZ964",
+      "airline": "Thai Vietjet",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-06T09:55",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "MH746",
+      "airline": "Malaysia Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-06T10:25",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "TW7",
+      "airline": "T'Way Air",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-06T10:45",
+      "from": "ICN",
+      "country": "South Korea"
     }
   ],
   "departures_list": [
@@ -155,6 +223,56 @@
       "arr_time": "",
       "to": "CXR",
       "country": "Vietnam"
+    },
+    {
+      "fn": "KC260",
+      "airline": "Air Astana",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-06T09:45",
+      "arr_time": "",
+      "to": "NQZ",
+      "country": "Kazakhstan"
+    },
+    {
+      "fn": "CI788",
+      "airline": "China Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-06T10:00",
+      "arr_time": "",
+      "to": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "FD635",
+      "airline": "Thai Air Asia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-06T10:05",
+      "arr_time": "",
+      "to": "DMK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "UO553",
+      "airline": "Hong Kong Express Airways",
+      "status": "delayed",
+      "pax": 147,
+      "dep_time": "2026-06-06T10:05",
+      "arr_time": "",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "VZ965",
+      "airline": "Thai Vietjet",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-06T10:40",
+      "arr_time": "",
+      "to": "BKK",
+      "country": "Thailand"
     }
   ]
 }
