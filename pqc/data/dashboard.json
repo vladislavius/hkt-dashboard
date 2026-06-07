@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-07T13:42:12.926778+07:00",
+  "updated": "2026-06-07T15:01:02.823681+07:00",
   "available_dates": [
     "2026-04-21",
     "2026-04-22",
@@ -640,8 +640,8 @@
   },
   "today": {
     "arrivals": {
-      "count": 20,
-      "pax": 2940,
+      "count": 21,
+      "pax": 3087,
       "all": [
         {
           "name": "South Korea",
@@ -675,6 +675,11 @@
         },
         {
           "name": "Vietnam",
+          "flights": 1,
+          "pax": 147
+        },
+        {
+          "name": "China",
           "flights": 1,
           "pax": 147
         }
@@ -860,7 +865,7 @@
       {
         "fn": "AK 545",
         "airline": "AirAsia",
-        "status": "on-time",
+        "status": "arrived on-time",
         "pax": 147,
         "dep_time": "2026-06-07T13:31",
         "arr_time": "2026-06-07T13:35",
@@ -870,7 +875,7 @@
       {
         "fn": "VJC 984",
         "airline": "VietJet Air",
-        "status": "on-time",
+        "status": "arrived 18 minutes late",
         "pax": 147,
         "dep_time": "2026-06-07T13:45",
         "arr_time": "2026-06-07T13:45",
@@ -880,7 +885,7 @@
       {
         "fn": "K6 830",
         "airline": "Air Cambodia",
-        "status": "on-time",
+        "status": "arrived on-time",
         "pax": 147,
         "dep_time": "2026-06-07T14:55",
         "arr_time": "2026-06-07T14:55",
@@ -926,6 +931,16 @@
         "arr_time": "2026-06-07T18:05",
         "from": "HKG",
         "country": "Hong Kong"
+      },
+      {
+        "fn": "MU 861",
+        "airline": "China Eastern Airlines",
+        "status": "on-time",
+        "pax": 147,
+        "dep_time": "2026-06-07T19:45",
+        "arr_time": "2026-06-07T20:00",
+        "from": "XIY",
+        "country": "China"
       }
     ],
     "departures_list": [
@@ -1143,8 +1158,8 @@
   },
   "week": {
     "arrivals": {
-      "count": 156,
-      "pax": 22932,
+      "count": 157,
+      "pax": 23079,
       "all": [
         {
           "name": "South Korea",
@@ -1180,6 +1195,11 @@
           "name": "Vietnam",
           "flights": 7,
           "pax": 1029
+        },
+        {
+          "name": "China",
+          "flights": 1,
+          "pax": 147
         }
       ]
     },
@@ -1540,7 +1560,7 @@
       {
         "date": "2026-06-07",
         "label": "Вс 07.06",
-        "arrivals": 20,
+        "arrivals": 21,
         "departures": 20,
         "arrivals_by": {
           "Hong Kong": {
@@ -1562,6 +1582,9 @@
             "n": 2
           },
           "Vietnam": {
+            "n": 1
+          },
+          "China": {
             "n": 1
           }
         },
@@ -1590,8 +1613,8 @@
   },
   "month": {
     "arrivals": {
-      "count": 613,
-      "pax": 90111,
+      "count": 614,
+      "pax": 90258,
       "all": [
         {
           "name": "South Korea",
@@ -1630,8 +1653,8 @@
         },
         {
           "name": "China",
-          "flights": 10,
-          "pax": 1470
+          "flights": 11,
+          "pax": 1617
         },
         {
           "name": "Other(KTI)",
@@ -1996,7 +2019,7 @@
       {
         "key": "2026-W23",
         "label": "Нед 23 (Июн)",
-        "arrivals": 156,
+        "arrivals": 157,
         "departures": 152,
         "arrivals_by": {
           "Hong Kong": {
@@ -2019,6 +2042,9 @@
           },
           "Vietnam": {
             "n": 7
+          },
+          "China": {
+            "n": 1
           }
         },
         "departures_by": {
@@ -2049,8 +2075,8 @@
   },
   "quarter": {
     "arrivals": {
-      "count": 1067,
-      "pax": 156849,
+      "count": 1068,
+      "pax": 156996,
       "all": [
         {
           "name": "South Korea",
@@ -2084,8 +2110,8 @@
         },
         {
           "name": "China",
-          "flights": 42,
-          "pax": 6174
+          "flights": 43,
+          "pax": 6321
         },
         {
           "name": "Vietnam",
@@ -2448,7 +2474,7 @@
       {
         "key": "2026-06",
         "label": "Июн 2026",
-        "arrivals": 156,
+        "arrivals": 157,
         "departures": 152,
         "arrivals_by": {
           "Hong Kong": {
@@ -2471,6 +2497,9 @@
           },
           "Vietnam": {
             "n": 7
+          },
+          "China": {
+            "n": 1
           }
         },
         "departures_by": {
@@ -2501,8 +2530,8 @@
   },
   "halfyear": {
     "arrivals": {
-      "count": 1067,
-      "pax": 156849,
+      "count": 1068,
+      "pax": 156996,
       "all": [
         {
           "name": "South Korea",
@@ -2536,8 +2565,8 @@
         },
         {
           "name": "China",
-          "flights": 42,
-          "pax": 6174
+          "flights": 43,
+          "pax": 6321
         },
         {
           "name": "Vietnam",
@@ -2900,7 +2929,7 @@
       {
         "key": "2026-06",
         "label": "Июн 2026",
-        "arrivals": 156,
+        "arrivals": 157,
         "departures": 152,
         "arrivals_by": {
           "Hong Kong": {
@@ -2923,6 +2952,9 @@
           },
           "Vietnam": {
             "n": 7
+          },
+          "China": {
+            "n": 1
           }
         },
         "departures_by": {
@@ -2953,8 +2985,8 @@
   },
   "year": {
     "arrivals": {
-      "count": 1067,
-      "pax": 156849,
+      "count": 1068,
+      "pax": 156996,
       "all": [
         {
           "name": "South Korea",
@@ -2988,8 +3020,8 @@
         },
         {
           "name": "China",
-          "flights": 42,
-          "pax": 6174
+          "flights": 43,
+          "pax": 6321
         },
         {
           "name": "Vietnam",
@@ -3352,7 +3384,7 @@
       {
         "key": "2026-06",
         "label": "Июн 2026",
-        "arrivals": 156,
+        "arrivals": 157,
         "departures": 152,
         "arrivals_by": {
           "Hong Kong": {
@@ -3375,6 +3407,9 @@
           },
           "Vietnam": {
             "n": 7
+          },
+          "China": {
+            "n": 1
           }
         },
         "departures_by": {

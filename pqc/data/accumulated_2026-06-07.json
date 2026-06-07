@@ -1,8 +1,8 @@
 {
   "date": "2026-06-07",
   "arrivals": {
-    "count": 20,
-    "pax": 2940,
+    "count": 21,
+    "pax": 3087,
     "countries": {
       "Hong Kong": {
         "flights": 3,
@@ -29,6 +29,10 @@
         "pax": 294
       },
       "Vietnam": {
+        "flights": 1,
+        "pax": 147
+      },
+      "China": {
         "flights": 1,
         "pax": 147
       }
@@ -208,7 +212,7 @@
     {
       "fn": "AK 545",
       "airline": "AirAsia",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-06-07T13:31",
       "arr_time": "2026-06-07T13:35",
@@ -218,7 +222,7 @@
     {
       "fn": "VJC 984",
       "airline": "VietJet Air",
-      "status": "on-time",
+      "status": "arrived 18 minutes late",
       "pax": 147,
       "dep_time": "2026-06-07T13:45",
       "arr_time": "2026-06-07T13:45",
@@ -228,7 +232,7 @@
     {
       "fn": "K6 830",
       "airline": "Air Cambodia",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-06-07T14:55",
       "arr_time": "2026-06-07T14:55",
@@ -274,6 +278,16 @@
       "arr_time": "2026-06-07T18:05",
       "from": "HKG",
       "country": "Hong Kong"
+    },
+    {
+      "fn": "MU 861",
+      "airline": "China Eastern Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-07T19:45",
+      "arr_time": "2026-06-07T20:00",
+      "from": "XIY",
+      "country": "China"
     }
   ],
   "departures_list": [
