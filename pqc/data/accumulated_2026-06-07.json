@@ -39,8 +39,8 @@
     }
   },
   "departures": {
-    "count": 20,
-    "pax": 2940,
+    "count": 21,
+    "pax": 3087,
     "countries": {
       "Singapore": {
         "flights": 3,
@@ -63,6 +63,10 @@
         "pax": 441
       },
       "Vietnam": {
+        "flights": 1,
+        "pax": 147
+      },
+      "China": {
         "flights": 1,
         "pax": 147
       }
@@ -92,7 +96,7 @@
     {
       "fn": "LJ 91",
       "airline": "Jin Air",
-      "status": "arrived on-time",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-06-07T21:09",
       "arr_time": "2026-06-07T21:00",
@@ -102,7 +106,7 @@
     {
       "fn": "7C 2315",
       "airline": "Jeju Air",
-      "status": "arrived 26 minutes late",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-06-07T21:51",
       "arr_time": "2026-06-07T21:25",
@@ -242,7 +246,7 @@
     {
       "fn": "9G 451",
       "airline": "Sun PhuQuoc Airways",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-06-07T15:05",
       "arr_time": "2026-06-07T15:05",
@@ -252,7 +256,7 @@
     {
       "fn": "9G 2953",
       "airline": "Sun PhuQuoc Airways",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-06-07T15:50",
       "arr_time": "2026-06-07T15:50",
@@ -262,7 +266,7 @@
     {
       "fn": "TVJ 982",
       "airline": "Thai VietJet Air",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-06-07T15:55",
       "arr_time": "2026-06-07T15:55",
@@ -500,6 +504,16 @@
       "arr_time": "2026-06-07T19:05",
       "to": "HKG",
       "country": "Hong Kong"
+    },
+    {
+      "fn": "MU 862",
+      "airline": "China Eastern Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-07T21:00",
+      "arr_time": "2026-06-07T21:00",
+      "to": "XIY",
+      "country": "China"
     }
   ]
 }
