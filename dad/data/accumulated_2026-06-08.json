@@ -1,18 +1,30 @@
 {
   "date": "2026-06-08",
   "arrivals": {
-    "count": 1,
-    "pax": 147,
+    "count": 4,
+    "pax": 588,
     "countries": {
       "South Korea": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Malaysia": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Singapore": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Hong Kong": {
         "flights": 1,
         "pax": 147
       }
     }
   },
   "departures": {
-    "count": 7,
-    "pax": 1029,
+    "count": 9,
+    "pax": 1323,
     "countries": {
       "Japan": {
         "flights": 2,
@@ -23,6 +35,14 @@
         "pax": 588
       },
       "Vietnam": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Thailand": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Singapore": {
         "flights": 1,
         "pax": 147
       }
@@ -48,6 +68,36 @@
       "arr_time": "2026-06-08T07:35",
       "from": "MNL",
       "country": "Other(MNL)"
+    },
+    {
+      "fn": "AK642",
+      "airline": "Air Asia",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-08T10:50",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "SQ172",
+      "airline": "Singapore Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-08T11:05",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "UO566",
+      "airline": "Hong Kong Express Airways",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-08T11:05",
+      "from": "HKG",
+      "country": "Hong Kong"
     }
   ],
   "departures_list": [
@@ -120,6 +170,26 @@
       "arr_time": "",
       "to": "CXR",
       "country": "Vietnam"
+    },
+    {
+      "fn": "VZ965",
+      "airline": "Thai Vietjet",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-08T10:40",
+      "arr_time": "",
+      "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "TR511",
+      "airline": "Scoot",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-08T10:55",
+      "arr_time": "",
+      "to": "SIN",
+      "country": "Singapore"
     }
   ]
 }
