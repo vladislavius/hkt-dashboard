@@ -1,12 +1,12 @@
 {
   "date": "2026-06-08",
   "arrivals": {
-    "count": 8,
-    "pax": 1176,
+    "count": 11,
+    "pax": 1617,
     "countries": {
       "South Korea": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Malaysia": {
         "flights": 1,
@@ -27,12 +27,21 @@
       "Thailand": {
         "flights": 1,
         "pax": 147
+      },
+      "Владивосток": {
+        "flights": 1,
+        "pax": 147,
+        "country": "Russia"
+      },
+      "Vietnam": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 14,
-    "pax": 2058,
+    "count": 17,
+    "pax": 2499,
     "countries": {
       "Japan": {
         "flights": 2,
@@ -47,12 +56,12 @@
         "pax": 147
       },
       "Thailand": {
-        "flights": 1,
-        "pax": 147
-      },
-      "Singapore": {
         "flights": 2,
         "pax": 294
+      },
+      "Singapore": {
+        "flights": 3,
+        "pax": 441
       },
       "Kazakhstan": {
         "flights": 1,
@@ -63,8 +72,8 @@
         "pax": 147
       },
       "Malaysia": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Taiwan": {
         "flights": 1,
@@ -162,6 +171,46 @@
       "arr_time": "2026-06-08T13:10",
       "from": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "VJ7989",
+      "airline": "Vietjet Air",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-08T14:15",
+      "from": "VVO",
+      "country": "Russia"
+    },
+    {
+      "fn": "KE457",
+      "airline": "Korean Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-08T14:20",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "VN7940",
+      "airline": "Vietnam Airlines",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-08T15:20",
+      "from": "CXR",
+      "country": "Vietnam"
+    },
+    {
+      "fn": "PR585",
+      "airline": "Philippine Airlines",
+      "status": "cancelled",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-08T15:20",
+      "from": "MNL",
+      "country": "Other(MNL)"
     }
   ],
   "departures_list": [
@@ -304,6 +353,36 @@
       "arr_time": "",
       "to": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "VJ889",
+      "airline": "Vietjet Air",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-08T14:15",
+      "arr_time": "",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "MH749",
+      "airline": "Malaysia Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-08T14:35",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "VN627",
+      "airline": "Vietnam Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-08T15:15",
+      "arr_time": "",
+      "to": "BKK",
+      "country": "Thailand"
     }
   ]
 }
