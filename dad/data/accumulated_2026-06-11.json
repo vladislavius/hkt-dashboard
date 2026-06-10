@@ -1,8 +1,8 @@
 {
   "date": "2026-06-11",
   "arrivals": {
-    "count": 2,
-    "pax": 294,
+    "count": 3,
+    "pax": 441,
     "countries": {
       "South Korea": {
         "flights": 1,
@@ -12,12 +12,16 @@
         "flights": 1,
         "pax": 147,
         "country": "Russia"
+      },
+      "Kazakhstan": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 8,
-    "pax": 1176,
+    "count": 9,
+    "pax": 1323,
     "countries": {
       "Japan": {
         "flights": 2,
@@ -26,6 +30,10 @@
       "South Korea": {
         "flights": 6,
         "pax": 882
+      },
+      "Vietnam": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -49,6 +57,26 @@
       "arr_time": "2026-06-11T01:35",
       "from": "OVB",
       "country": "Russia"
+    },
+    {
+      "fn": "VJ52",
+      "airline": "Vietjet Air",
+      "status": "on time",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-11T07:25",
+      "from": "ALA",
+      "country": "Kazakhstan"
+    },
+    {
+      "fn": "5J5758",
+      "airline": "Cebu Pacific",
+      "status": "on time",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-11T07:30",
+      "from": "MNL",
+      "country": "Other(MNL)"
     }
   ],
   "departures_list": [
@@ -141,6 +169,16 @@
       "arr_time": "",
       "to": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "VJ581",
+      "airline": "Vietjet Air",
+      "status": "on time",
+      "pax": 147,
+      "dep_time": "2026-06-11T06:20",
+      "arr_time": "",
+      "to": "CXR",
+      "country": "Vietnam"
     }
   ]
 }
