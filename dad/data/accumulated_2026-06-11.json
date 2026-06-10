@@ -16,16 +16,16 @@
     }
   },
   "departures": {
-    "count": 7,
-    "pax": 1029,
+    "count": 8,
+    "pax": 1176,
     "countries": {
       "Japan": {
         "flights": 2,
         "pax": 294
       },
       "South Korea": {
-        "flights": 5,
-        "pax": 735
+        "flights": 6,
+        "pax": 882
       }
     }
   },
@@ -33,7 +33,7 @@
     {
       "fn": "TW13",
       "airline": "T'Way Air",
-      "status": "arrived",
+      "status": "bags delivered",
       "pax": 147,
       "dep_time": "",
       "arr_time": "2026-06-11T00:25",
@@ -43,7 +43,7 @@
     {
       "fn": "VJ8911",
       "airline": "Vietjet Air",
-      "status": "on time",
+      "status": "arrived",
       "pax": 147,
       "dep_time": "",
       "arr_time": "2026-06-11T01:35",
@@ -131,6 +131,16 @@
       "arr_time": "",
       "to": "KIX",
       "country": "Japan"
+    },
+    {
+      "fn": "TW14",
+      "airline": "T'Way Air",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-11T01:25",
+      "arr_time": "",
+      "to": "ICN",
+      "country": "South Korea"
     }
   ]
 }
