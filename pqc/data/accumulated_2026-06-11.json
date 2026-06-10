@@ -1,22 +1,30 @@
 {
   "date": "2026-06-11",
   "arrivals": {
-    "count": 8,
-    "pax": 1176,
+    "count": 12,
+    "pax": 1764,
     "countries": {
       "Hong Kong": {
+        "flights": 2,
+        "pax": 294
+      },
+      "South Korea": {
+        "flights": 8,
+        "pax": 1176
+      },
+      "Malaysia": {
         "flights": 1,
         "pax": 147
       },
-      "South Korea": {
-        "flights": 7,
-        "pax": 1029
+      "Thailand": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 12,
-    "pax": 1764,
+    "count": 14,
+    "pax": 2058,
     "countries": {
       "Singapore": {
         "flights": 1,
@@ -29,6 +37,14 @@
       "South Korea": {
         "flights": 9,
         "pax": 1323
+      },
+      "Malaysia": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Hong Kong": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
@@ -111,6 +127,46 @@
       "dep_time": "2026-06-11T07:30",
       "arr_time": "2026-06-11T07:30",
       "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "AK 543",
+      "airline": "AirAsia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-11T09:21",
+      "arr_time": "2026-06-11T09:30",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "UO 598",
+      "airline": "HK Express",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-11T09:40",
+      "arr_time": "2026-06-11T09:40",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "TVJ 980",
+      "airline": "Thai VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-11T10:40",
+      "arr_time": "2026-06-11T10:40",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "VJC 969",
+      "airline": "VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-11T11:10",
+      "arr_time": "2026-06-11T11:10",
+      "from": "PUS",
       "country": "South Korea"
     }
   ],
@@ -234,6 +290,26 @@
       "arr_time": "2026-06-11T08:20",
       "to": "TPE",
       "country": "Taiwan"
+    },
+    {
+      "fn": "AK 544",
+      "airline": "AirAsia",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-11T10:05",
+      "arr_time": "2026-06-11T10:05",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "UO 599",
+      "airline": "HK Express",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-11T10:40",
+      "arr_time": "2026-06-11T10:40",
+      "to": "HKG",
+      "country": "Hong Kong"
     }
   ]
 }
