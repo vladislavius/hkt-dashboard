@@ -1,8 +1,8 @@
 {
   "date": "2026-06-11",
   "arrivals": {
-    "count": 23,
-    "pax": 3381,
+    "count": 24,
+    "pax": 3528,
     "countries": {
       "Hong Kong": {
         "flights": 3,
@@ -17,8 +17,8 @@
         "pax": 294
       },
       "Thailand": {
-        "flights": 3,
-        "pax": 441
+        "flights": 4,
+        "pax": 588
       },
       "Singapore": {
         "flights": 2,
@@ -35,8 +35,8 @@
     }
   },
   "departures": {
-    "count": 22,
-    "pax": 3234,
+    "count": 23,
+    "pax": 3381,
     "countries": {
       "Singapore": {
         "flights": 2,
@@ -47,8 +47,8 @@
         "pax": 441
       },
       "South Korea": {
-        "flights": 9,
-        "pax": 1323
+        "flights": 10,
+        "pax": 1470
       },
       "Malaysia": {
         "flights": 2,
@@ -272,7 +272,7 @@
     {
       "fn": "VJC 985",
       "airline": "VietJet Air",
-      "status": "on-time",
+      "status": "arrived 42 minutes late",
       "pax": 147,
       "dep_time": "2026-06-11T18:25",
       "arr_time": "2026-06-11T18:25",
@@ -292,12 +292,22 @@
     {
       "fn": "LJ 119",
       "airline": "Jin Air",
-      "status": "on-time",
+      "status": "20 minutes late",
       "pax": 147,
       "dep_time": "2026-06-11T23:25",
       "arr_time": "2026-06-11T23:25",
       "from": "PUS",
       "country": "South Korea"
+    },
+    {
+      "fn": "VJC 800",
+      "airline": "VietJet Air",
+      "status": "diverted",
+      "pax": 147,
+      "dep_time": "2026-06-11T18:48",
+      "arr_time": "2026-06-11T17:15",
+      "from": "BKK",
+      "country": "Thailand"
     }
   ],
   "departures_list": [
@@ -520,6 +530,16 @@
       "arr_time": "2026-06-11T17:20",
       "to": "BKK",
       "country": "Thailand"
+    },
+    {
+      "fn": "LJ 120",
+      "airline": "Jin Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-11T00:25",
+      "arr_time": "2026-06-11T00:25",
+      "to": "PUS",
+      "country": "South Korea"
     }
   ]
 }
