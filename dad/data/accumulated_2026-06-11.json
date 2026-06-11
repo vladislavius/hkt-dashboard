@@ -1,12 +1,12 @@
 {
   "date": "2026-06-11",
   "arrivals": {
-    "count": 13,
-    "pax": 1911,
+    "count": 18,
+    "pax": 2646,
     "countries": {
       "South Korea": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Новосибирск": {
         "flights": 1,
@@ -18,16 +18,16 @@
         "pax": 147
       },
       "Malaysia": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Hong Kong": {
-        "flights": 1,
-        "pax": 147
-      },
-      "Singapore": {
         "flights": 2,
         "pax": 294
+      },
+      "Singapore": {
+        "flights": 3,
+        "pax": 441
       },
       "Japan": {
         "flights": 2,
@@ -40,42 +40,50 @@
       "Laos": {
         "flights": 1,
         "pax": 147
+      },
+      "Vietnam": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 19,
-    "pax": 2793,
+    "count": 25,
+    "pax": 3675,
     "countries": {
       "Japan": {
         "flights": 2,
         "pax": 294
       },
       "South Korea": {
-        "flights": 7,
-        "pax": 1029
+        "flights": 8,
+        "pax": 1176
       },
       "Vietnam": {
-        "flights": 1,
-        "pax": 147
-      },
-      "Thailand": {
-        "flights": 1,
-        "pax": 147
-      },
-      "Singapore": {
         "flights": 2,
         "pax": 294
       },
+      "Thailand": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Singapore": {
+        "flights": 3,
+        "pax": 441
+      },
       "Malaysia": {
-        "flights": 4,
-        "pax": 588
+        "flights": 5,
+        "pax": 735
       },
       "Macau": {
         "flights": 1,
         "pax": 147
       },
       "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Kazakhstan": {
         "flights": 1,
         "pax": 147
       }
@@ -221,6 +229,66 @@
       "arr_time": "2026-06-11T13:10",
       "from": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "KE457",
+      "airline": "Korean Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-11T14:20",
+      "from": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "VN7940",
+      "airline": "Vietnam Airlines",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-11T15:20",
+      "from": "CXR",
+      "country": "Vietnam"
+    },
+    {
+      "fn": "HX548",
+      "airline": "Hong Kong Airlines",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-11T15:20",
+      "from": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "AK640",
+      "airline": "Air Asia",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-11T15:35",
+      "from": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "SQ174",
+      "airline": "Singapore Airlines",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-11T15:55",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "K6840",
+      "airline": "Air Cambodia",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-11T16:00",
+      "from": "SAI",
+      "country": "Other(SAI)"
     }
   ],
   "departures_list": [
@@ -433,6 +501,76 @@
       "arr_time": "",
       "to": "SIN",
       "country": "Singapore"
+    },
+    {
+      "fn": "PR586",
+      "airline": "Philippine Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-11T14:10",
+      "arr_time": "",
+      "to": "MNL",
+      "country": "Other(MNL)"
+    },
+    {
+      "fn": "VJ889",
+      "airline": "Vietjet Air",
+      "status": "cancelled",
+      "pax": 147,
+      "dep_time": "2026-06-11T14:15",
+      "arr_time": "",
+      "to": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "DV5341",
+      "airline": "Scat Airlines",
+      "status": "last call",
+      "pax": 147,
+      "dep_time": "2026-06-11T14:30",
+      "arr_time": "",
+      "to": "ALA",
+      "country": "Kazakhstan"
+    },
+    {
+      "fn": "VN627",
+      "airline": "Vietnam Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-11T15:15",
+      "arr_time": "",
+      "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "KE458",
+      "airline": "Korean Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-11T15:55",
+      "arr_time": "",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "AK641",
+      "airline": "Air Asia",
+      "status": "delayed",
+      "pax": 147,
+      "dep_time": "2026-06-11T16:05",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "VN7941",
+      "airline": "Vietnam Airlines",
+      "status": "on time",
+      "pax": 147,
+      "dep_time": "2026-06-11T16:10",
+      "arr_time": "",
+      "to": "CXR",
+      "country": "Vietnam"
     }
   ]
 }
