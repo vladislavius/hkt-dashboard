@@ -43,8 +43,8 @@
     }
   },
   "departures": {
-    "count": 19,
-    "pax": 2793,
+    "count": 20,
+    "pax": 2940,
     "countries": {
       "South Korea": {
         "flights": 7,
@@ -71,6 +71,10 @@
         "pax": 441
       },
       "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "China": {
         "flights": 1,
         "pax": 147
       }
@@ -250,7 +254,7 @@
     {
       "fn": "VJC 984",
       "airline": "VietJet Air",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-06-12T13:45",
       "arr_time": "2026-06-12T13:45",
@@ -260,7 +264,7 @@
     {
       "fn": "9G 451",
       "airline": "Sun PhuQuoc Airways",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-06-12T15:05",
       "arr_time": "2026-06-12T15:05",
@@ -518,6 +522,16 @@
       "arr_time": "2026-06-12T18:35",
       "to": "TPE",
       "country": "Taiwan"
+    },
+    {
+      "fn": "MU 862",
+      "airline": "China Eastern Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-12T21:00",
+      "arr_time": "2026-06-12T21:00",
+      "to": "XIY",
+      "country": "China"
     }
   ]
 }
