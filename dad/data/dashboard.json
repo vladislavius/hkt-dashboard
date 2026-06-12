@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-13T03:55:08.531797+07:00",
+  "updated": "2026-06-13T05:14:56.928096+07:00",
   "available_dates": [
     "2026-04-21",
     "2026-04-22",
@@ -721,8 +721,8 @@
   },
   "today": {
     "arrivals": {
-      "count": 2,
-      "pax": 294,
+      "count": 3,
+      "pax": 441,
       "all": [
         {
           "name": "South Korea",
@@ -733,12 +733,18 @@
           "name": "Kazakhstan",
           "flights": 1,
           "pax": 147
+        },
+        {
+          "name": "Москва",
+          "flights": 1,
+          "pax": 147,
+          "country": "Russia"
         }
       ]
     },
     "departures": {
-      "count": 7,
-      "pax": 1029,
+      "count": 8,
+      "pax": 1176,
       "all": [
         {
           "name": "South Korea",
@@ -749,6 +755,11 @@
           "name": "Japan",
           "flights": 2,
           "pax": 294
+        },
+        {
+          "name": "Vietnam",
+          "flights": 1,
+          "pax": 147
         }
       ]
     },
@@ -766,7 +777,7 @@
       {
         "fn": "QH9345",
         "airline": "Bamboo Airways",
-        "status": "delayed",
+        "status": "arrived",
         "pax": 147,
         "dep_time": "",
         "arr_time": "2026-06-13T04:55",
@@ -782,6 +793,16 @@
         "arr_time": "2026-06-13T05:30",
         "from": "ALA",
         "country": "Kazakhstan"
+      },
+      {
+        "fn": "VJ8924",
+        "airline": "Vietjet Air",
+        "status": "on time",
+        "pax": 147,
+        "dep_time": "",
+        "arr_time": "2026-06-13T07:00",
+        "from": "SVO",
+        "country": "Russia"
       }
     ],
     "departures_list": [
@@ -854,13 +875,23 @@
         "arr_time": "",
         "to": "FUK",
         "country": "Japan"
+      },
+      {
+        "fn": "VJ581",
+        "airline": "Vietjet Air",
+        "status": "on time",
+        "pax": 147,
+        "dep_time": "2026-06-13T06:20",
+        "arr_time": "",
+        "to": "CXR",
+        "country": "Vietnam"
       }
     ]
   },
   "week": {
     "arrivals": {
-      "count": 140,
-      "pax": 20580,
+      "count": 141,
+      "pax": 20727,
       "all": [
         {
           "name": "South Korea",
@@ -908,15 +939,15 @@
           "pax": 882
         },
         {
+          "name": "Москва",
+          "flights": 3,
+          "pax": 441,
+          "country": "Russia"
+        },
+        {
           "name": "Kazakhstan",
           "flights": 2,
           "pax": 294
-        },
-        {
-          "name": "Москва",
-          "flights": 2,
-          "pax": 294,
-          "country": "Russia"
         },
         {
           "name": "Новосибирск",
@@ -938,8 +969,8 @@
       ]
     },
     "departures": {
-      "count": 171,
-      "pax": 25137,
+      "count": 172,
+      "pax": 25284,
       "all": [
         {
           "name": "South Korea",
@@ -978,8 +1009,8 @@
         },
         {
           "name": "Vietnam",
-          "flights": 11,
-          "pax": 1617
+          "flights": 12,
+          "pax": 1764
         },
         {
           "name": "Taiwan",
@@ -1442,14 +1473,18 @@
       {
         "date": "2026-06-13",
         "label": "Сб 13.06",
-        "arrivals": 2,
-        "departures": 7,
+        "arrivals": 3,
+        "departures": 8,
         "arrivals_by": {
           "South Korea": {
             "n": 1
           },
           "Kazakhstan": {
             "n": 1
+          },
+          "Москва": {
+            "n": 1,
+            "country": "Russia"
           }
         },
         "departures_by": {
@@ -1458,6 +1493,9 @@
           },
           "South Korea": {
             "n": 5
+          },
+          "Vietnam": {
+            "n": 1
           }
         }
       }
@@ -1465,8 +1503,8 @@
   },
   "month": {
     "arrivals": {
-      "count": 1149,
-      "pax": 168903,
+      "count": 1150,
+      "pax": 169050,
       "all": [
         {
           "name": "South Korea",
@@ -1529,15 +1567,15 @@
           "pax": 2058
         },
         {
+          "name": "Москва",
+          "flights": 9,
+          "pax": 1323,
+          "country": "Russia"
+        },
+        {
           "name": "Other()",
           "flights": 9,
           "pax": 1323
-        },
-        {
-          "name": "Москва",
-          "flights": 8,
-          "pax": 1176,
-          "country": "Russia"
         },
         {
           "name": "Other(SAI)",
@@ -1610,8 +1648,8 @@
       ]
     },
     "departures": {
-      "count": 1198,
-      "pax": 176106,
+      "count": 1199,
+      "pax": 176253,
       "all": [
         {
           "name": "South Korea",
@@ -1654,12 +1692,12 @@
           "pax": 8085
         },
         {
-          "name": "Japan",
-          "flights": 45,
-          "pax": 6615
+          "name": "Vietnam",
+          "flights": 46,
+          "pax": 6762
         },
         {
-          "name": "Vietnam",
+          "name": "Japan",
           "flights": 45,
           "pax": 6615
         },
@@ -2236,8 +2274,8 @@
       {
         "key": "2026-W24",
         "label": "Нед 24 (Июн)",
-        "arrivals": 114,
-        "departures": 145,
+        "arrivals": 115,
+        "departures": 146,
         "arrivals_by": {
           "South Korea": {
             "n": 26
@@ -2271,7 +2309,7 @@
             "n": 11
           },
           "Москва": {
-            "n": 1,
+            "n": 2,
             "country": "Russia"
           },
           "Новосибирск": {
@@ -2293,7 +2331,7 @@
             "n": 40
           },
           "Vietnam": {
-            "n": 9
+            "n": 10
           },
           "Thailand": {
             "n": 15
@@ -2333,8 +2371,8 @@
   },
   "quarter": {
     "arrivals": {
-      "count": 1943,
-      "pax": 285621,
+      "count": 1944,
+      "pax": 285768,
       "all": [
         {
           "name": "South Korea",
@@ -2417,15 +2455,15 @@
           "pax": 1470
         },
         {
+          "name": "Москва",
+          "flights": 9,
+          "pax": 1323,
+          "country": "Russia"
+        },
+        {
           "name": "Other()",
           "flights": 9,
           "pax": 1323
-        },
-        {
-          "name": "Москва",
-          "flights": 8,
-          "pax": 1176,
-          "country": "Russia"
         },
         {
           "name": "Myanmar",
@@ -2494,8 +2532,8 @@
       ]
     },
     "departures": {
-      "count": 2048,
-      "pax": 301056,
+      "count": 2049,
+      "pax": 301203,
       "all": [
         {
           "name": "South Korea",
@@ -2544,8 +2582,8 @@
         },
         {
           "name": "Vietnam",
-          "flights": 76,
-          "pax": 11172
+          "flights": 77,
+          "pax": 11319
         },
         {
           "name": "Other",
@@ -2982,8 +3020,8 @@
       {
         "key": "2026-06",
         "label": "Июн 2026",
-        "arrivals": 273,
-        "departures": 335,
+        "arrivals": 274,
+        "departures": 336,
         "arrivals_by": {
           "South Korea": {
             "n": 60
@@ -3010,7 +3048,7 @@
             "n": 15
           },
           "Москва": {
-            "n": 4,
+            "n": 5,
             "country": "Russia"
           },
           "Uzbekistan": {
@@ -3049,7 +3087,7 @@
             "n": 82
           },
           "Vietnam": {
-            "n": 19
+            "n": 20
           },
           "Thailand": {
             "n": 38
@@ -3096,8 +3134,8 @@
   },
   "halfyear": {
     "arrivals": {
-      "count": 1943,
-      "pax": 285621,
+      "count": 1944,
+      "pax": 285768,
       "all": [
         {
           "name": "South Korea",
@@ -3180,15 +3218,15 @@
           "pax": 1470
         },
         {
+          "name": "Москва",
+          "flights": 9,
+          "pax": 1323,
+          "country": "Russia"
+        },
+        {
           "name": "Other()",
           "flights": 9,
           "pax": 1323
-        },
-        {
-          "name": "Москва",
-          "flights": 8,
-          "pax": 1176,
-          "country": "Russia"
         },
         {
           "name": "Myanmar",
@@ -3257,8 +3295,8 @@
       ]
     },
     "departures": {
-      "count": 2048,
-      "pax": 301056,
+      "count": 2049,
+      "pax": 301203,
       "all": [
         {
           "name": "South Korea",
@@ -3307,8 +3345,8 @@
         },
         {
           "name": "Vietnam",
-          "flights": 76,
-          "pax": 11172
+          "flights": 77,
+          "pax": 11319
         },
         {
           "name": "Other",
@@ -3745,8 +3783,8 @@
       {
         "key": "2026-06",
         "label": "Июн 2026",
-        "arrivals": 273,
-        "departures": 335,
+        "arrivals": 274,
+        "departures": 336,
         "arrivals_by": {
           "South Korea": {
             "n": 60
@@ -3773,7 +3811,7 @@
             "n": 15
           },
           "Москва": {
-            "n": 4,
+            "n": 5,
             "country": "Russia"
           },
           "Uzbekistan": {
@@ -3812,7 +3850,7 @@
             "n": 82
           },
           "Vietnam": {
-            "n": 19
+            "n": 20
           },
           "Thailand": {
             "n": 38
@@ -3859,8 +3897,8 @@
   },
   "year": {
     "arrivals": {
-      "count": 1943,
-      "pax": 285621,
+      "count": 1944,
+      "pax": 285768,
       "all": [
         {
           "name": "South Korea",
@@ -3943,15 +3981,15 @@
           "pax": 1470
         },
         {
+          "name": "Москва",
+          "flights": 9,
+          "pax": 1323,
+          "country": "Russia"
+        },
+        {
           "name": "Other()",
           "flights": 9,
           "pax": 1323
-        },
-        {
-          "name": "Москва",
-          "flights": 8,
-          "pax": 1176,
-          "country": "Russia"
         },
         {
           "name": "Myanmar",
@@ -4020,8 +4058,8 @@
       ]
     },
     "departures": {
-      "count": 2048,
-      "pax": 301056,
+      "count": 2049,
+      "pax": 301203,
       "all": [
         {
           "name": "South Korea",
@@ -4070,8 +4108,8 @@
         },
         {
           "name": "Vietnam",
-          "flights": 76,
-          "pax": 11172
+          "flights": 77,
+          "pax": 11319
         },
         {
           "name": "Other",
@@ -4508,8 +4546,8 @@
       {
         "key": "2026-06",
         "label": "Июн 2026",
-        "arrivals": 273,
-        "departures": 335,
+        "arrivals": 274,
+        "departures": 336,
         "arrivals_by": {
           "South Korea": {
             "n": 60
@@ -4536,7 +4574,7 @@
             "n": 15
           },
           "Москва": {
-            "n": 4,
+            "n": 5,
             "country": "Russia"
           },
           "Uzbekistan": {
@@ -4575,7 +4613,7 @@
             "n": 82
           },
           "Vietnam": {
-            "n": 19
+            "n": 20
           },
           "Thailand": {
             "n": 38
