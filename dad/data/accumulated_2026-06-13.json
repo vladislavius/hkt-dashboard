@@ -1,22 +1,26 @@
 {
   "date": "2026-06-13",
   "arrivals": {
-    "count": 1,
-    "pax": 147,
+    "count": 2,
+    "pax": 294,
     "countries": {
       "South Korea": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Kazakhstan": {
         "flights": 1,
         "pax": 147
       }
     }
   },
   "departures": {
-    "count": 6,
-    "pax": 882,
+    "count": 7,
+    "pax": 1029,
     "countries": {
       "Japan": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "South Korea": {
         "flights": 5,
@@ -34,6 +38,26 @@
       "arr_time": "2026-06-13T00:25",
       "from": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "QH9345",
+      "airline": "Bamboo Airways",
+      "status": "delayed",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-13T04:55",
+      "from": "MNL",
+      "country": "Other(MNL)"
+    },
+    {
+      "fn": "DV5328",
+      "airline": "Scat Airlines",
+      "status": "on time",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-13T05:30",
+      "from": "ALA",
+      "country": "Kazakhstan"
     }
   ],
   "departures_list": [
@@ -96,6 +120,16 @@
       "arr_time": "",
       "to": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "VJ2810",
+      "airline": "Vietjet Air",
+      "status": "on time",
+      "pax": 147,
+      "dep_time": "2026-06-13T04:35",
+      "arr_time": "",
+      "to": "FUK",
+      "country": "Japan"
     }
   ]
 }

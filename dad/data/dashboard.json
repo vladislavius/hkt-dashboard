@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-13T01:30:33.615949+07:00",
+  "updated": "2026-06-13T03:55:08.531797+07:00",
   "available_dates": [
     "2026-04-21",
     "2026-04-22",
@@ -721,19 +721,24 @@
   },
   "today": {
     "arrivals": {
-      "count": 1,
-      "pax": 147,
+      "count": 2,
+      "pax": 294,
       "all": [
         {
           "name": "South Korea",
+          "flights": 1,
+          "pax": 147
+        },
+        {
+          "name": "Kazakhstan",
           "flights": 1,
           "pax": 147
         }
       ]
     },
     "departures": {
-      "count": 6,
-      "pax": 882,
+      "count": 7,
+      "pax": 1029,
       "all": [
         {
           "name": "South Korea",
@@ -742,8 +747,8 @@
         },
         {
           "name": "Japan",
-          "flights": 1,
-          "pax": 147
+          "flights": 2,
+          "pax": 294
         }
       ]
     },
@@ -757,6 +762,26 @@
         "arr_time": "2026-06-13T00:25",
         "from": "ICN",
         "country": "South Korea"
+      },
+      {
+        "fn": "QH9345",
+        "airline": "Bamboo Airways",
+        "status": "delayed",
+        "pax": 147,
+        "dep_time": "",
+        "arr_time": "2026-06-13T04:55",
+        "from": "MNL",
+        "country": "Other(MNL)"
+      },
+      {
+        "fn": "DV5328",
+        "airline": "Scat Airlines",
+        "status": "on time",
+        "pax": 147,
+        "dep_time": "",
+        "arr_time": "2026-06-13T05:30",
+        "from": "ALA",
+        "country": "Kazakhstan"
       }
     ],
     "departures_list": [
@@ -819,13 +844,23 @@
         "arr_time": "",
         "to": "ICN",
         "country": "South Korea"
+      },
+      {
+        "fn": "VJ2810",
+        "airline": "Vietjet Air",
+        "status": "on time",
+        "pax": 147,
+        "dep_time": "2026-06-13T04:35",
+        "arr_time": "",
+        "to": "FUK",
+        "country": "Japan"
       }
     ]
   },
   "week": {
     "arrivals": {
-      "count": 139,
-      "pax": 20433,
+      "count": 140,
+      "pax": 20580,
       "all": [
         {
           "name": "South Korea",
@@ -873,6 +908,11 @@
           "pax": 882
         },
         {
+          "name": "Kazakhstan",
+          "flights": 2,
+          "pax": 294
+        },
+        {
           "name": "Москва",
           "flights": 2,
           "pax": 294,
@@ -883,11 +923,6 @@
           "flights": 1,
           "pax": 147,
           "country": "Russia"
-        },
-        {
-          "name": "Kazakhstan",
-          "flights": 1,
-          "pax": 147
         },
         {
           "name": "Laos",
@@ -903,8 +938,8 @@
       ]
     },
     "departures": {
-      "count": 170,
-      "pax": 24990,
+      "count": 171,
+      "pax": 25137,
       "all": [
         {
           "name": "South Korea",
@@ -938,8 +973,8 @@
         },
         {
           "name": "Japan",
-          "flights": 11,
-          "pax": 1617
+          "flights": 12,
+          "pax": 1764
         },
         {
           "name": "Vietnam",
@@ -1407,16 +1442,19 @@
       {
         "date": "2026-06-13",
         "label": "Сб 13.06",
-        "arrivals": 1,
-        "departures": 6,
+        "arrivals": 2,
+        "departures": 7,
         "arrivals_by": {
           "South Korea": {
+            "n": 1
+          },
+          "Kazakhstan": {
             "n": 1
           }
         },
         "departures_by": {
           "Japan": {
-            "n": 1
+            "n": 2
           },
           "South Korea": {
             "n": 5
@@ -1427,8 +1465,8 @@
   },
   "month": {
     "arrivals": {
-      "count": 1148,
-      "pax": 168756,
+      "count": 1149,
+      "pax": 168903,
       "all": [
         {
           "name": "South Korea",
@@ -1487,8 +1525,8 @@
         },
         {
           "name": "Kazakhstan",
-          "flights": 13,
-          "pax": 1911
+          "flights": 14,
+          "pax": 2058
         },
         {
           "name": "Other()",
@@ -1572,8 +1610,8 @@
       ]
     },
     "departures": {
-      "count": 1197,
-      "pax": 175959,
+      "count": 1198,
+      "pax": 176106,
       "all": [
         {
           "name": "South Korea",
@@ -1616,14 +1654,14 @@
           "pax": 8085
         },
         {
-          "name": "Vietnam",
+          "name": "Japan",
           "flights": 45,
           "pax": 6615
         },
         {
-          "name": "Japan",
-          "flights": 44,
-          "pax": 6468
+          "name": "Vietnam",
+          "flights": 45,
+          "pax": 6615
         },
         {
           "name": "Other(MNL)",
@@ -2198,8 +2236,8 @@
       {
         "key": "2026-W24",
         "label": "Нед 24 (Июн)",
-        "arrivals": 113,
-        "departures": 144,
+        "arrivals": 114,
+        "departures": 145,
         "arrivals_by": {
           "South Korea": {
             "n": 26
@@ -2241,7 +2279,7 @@
             "country": "Russia"
           },
           "Kazakhstan": {
-            "n": 1
+            "n": 2
           },
           "Laos": {
             "n": 1
@@ -2249,7 +2287,7 @@
         },
         "departures_by": {
           "Japan": {
-            "n": 9
+            "n": 10
           },
           "South Korea": {
             "n": 40
@@ -2295,8 +2333,8 @@
   },
   "quarter": {
     "arrivals": {
-      "count": 1942,
-      "pax": 285474,
+      "count": 1943,
+      "pax": 285621,
       "all": [
         {
           "name": "South Korea",
@@ -2360,8 +2398,8 @@
         },
         {
           "name": "Kazakhstan",
-          "flights": 19,
-          "pax": 2793
+          "flights": 20,
+          "pax": 2940
         },
         {
           "name": "Other(RMQ)",
@@ -2456,8 +2494,8 @@
       ]
     },
     "departures": {
-      "count": 2047,
-      "pax": 300909,
+      "count": 2048,
+      "pax": 301056,
       "all": [
         {
           "name": "South Korea",
@@ -2496,8 +2534,8 @@
         },
         {
           "name": "Japan",
-          "flights": 81,
-          "pax": 11907
+          "flights": 82,
+          "pax": 12054
         },
         {
           "name": "Other(MNL)",
@@ -2944,8 +2982,8 @@
       {
         "key": "2026-06",
         "label": "Июн 2026",
-        "arrivals": 272,
-        "departures": 334,
+        "arrivals": 273,
+        "departures": 335,
         "arrivals_by": {
           "South Korea": {
             "n": 60
@@ -2992,7 +3030,7 @@
             "country": "Russia"
           },
           "Kazakhstan": {
-            "n": 2
+            "n": 3
           },
           "Владивосток": {
             "n": 1,
@@ -3005,7 +3043,7 @@
         },
         "departures_by": {
           "Japan": {
-            "n": 18
+            "n": 19
           },
           "South Korea": {
             "n": 82
@@ -3058,8 +3096,8 @@
   },
   "halfyear": {
     "arrivals": {
-      "count": 1942,
-      "pax": 285474,
+      "count": 1943,
+      "pax": 285621,
       "all": [
         {
           "name": "South Korea",
@@ -3123,8 +3161,8 @@
         },
         {
           "name": "Kazakhstan",
-          "flights": 19,
-          "pax": 2793
+          "flights": 20,
+          "pax": 2940
         },
         {
           "name": "Other(RMQ)",
@@ -3219,8 +3257,8 @@
       ]
     },
     "departures": {
-      "count": 2047,
-      "pax": 300909,
+      "count": 2048,
+      "pax": 301056,
       "all": [
         {
           "name": "South Korea",
@@ -3259,8 +3297,8 @@
         },
         {
           "name": "Japan",
-          "flights": 81,
-          "pax": 11907
+          "flights": 82,
+          "pax": 12054
         },
         {
           "name": "Other(MNL)",
@@ -3707,8 +3745,8 @@
       {
         "key": "2026-06",
         "label": "Июн 2026",
-        "arrivals": 272,
-        "departures": 334,
+        "arrivals": 273,
+        "departures": 335,
         "arrivals_by": {
           "South Korea": {
             "n": 60
@@ -3755,7 +3793,7 @@
             "country": "Russia"
           },
           "Kazakhstan": {
-            "n": 2
+            "n": 3
           },
           "Владивосток": {
             "n": 1,
@@ -3768,7 +3806,7 @@
         },
         "departures_by": {
           "Japan": {
-            "n": 18
+            "n": 19
           },
           "South Korea": {
             "n": 82
@@ -3821,8 +3859,8 @@
   },
   "year": {
     "arrivals": {
-      "count": 1942,
-      "pax": 285474,
+      "count": 1943,
+      "pax": 285621,
       "all": [
         {
           "name": "South Korea",
@@ -3886,8 +3924,8 @@
         },
         {
           "name": "Kazakhstan",
-          "flights": 19,
-          "pax": 2793
+          "flights": 20,
+          "pax": 2940
         },
         {
           "name": "Other(RMQ)",
@@ -3982,8 +4020,8 @@
       ]
     },
     "departures": {
-      "count": 2047,
-      "pax": 300909,
+      "count": 2048,
+      "pax": 301056,
       "all": [
         {
           "name": "South Korea",
@@ -4022,8 +4060,8 @@
         },
         {
           "name": "Japan",
-          "flights": 81,
-          "pax": 11907
+          "flights": 82,
+          "pax": 12054
         },
         {
           "name": "Other(MNL)",
@@ -4470,8 +4508,8 @@
       {
         "key": "2026-06",
         "label": "Июн 2026",
-        "arrivals": 272,
-        "departures": 334,
+        "arrivals": 273,
+        "departures": 335,
         "arrivals_by": {
           "South Korea": {
             "n": 60
@@ -4518,7 +4556,7 @@
             "country": "Russia"
           },
           "Kazakhstan": {
-            "n": 2
+            "n": 3
           },
           "Владивосток": {
             "n": 1,
@@ -4531,7 +4569,7 @@
         },
         "departures_by": {
           "Japan": {
-            "n": 18
+            "n": 19
           },
           "South Korea": {
             "n": 82
