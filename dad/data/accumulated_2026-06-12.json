@@ -1,8 +1,8 @@
 {
   "date": "2026-06-12",
   "arrivals": {
-    "count": 10,
-    "pax": 1470,
+    "count": 13,
+    "pax": 1911,
     "countries": {
       "South Korea": {
         "flights": 4,
@@ -13,8 +13,8 @@
         "pax": 147
       },
       "Singapore": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Hong Kong": {
         "flights": 1,
@@ -27,24 +27,32 @@
       "Thailand": {
         "flights": 1,
         "pax": 147
+      },
+      "Vietnam": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Taiwan": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 20,
-    "pax": 2940,
+    "count": 24,
+    "pax": 3528,
     "countries": {
       "Japan": {
         "flights": 2,
         "pax": 294
       },
       "South Korea": {
-        "flights": 6,
-        "pax": 882
+        "flights": 7,
+        "pax": 1029
       },
       "Vietnam": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Thailand": {
         "flights": 1,
@@ -59,14 +67,18 @@
         "pax": 147
       },
       "Malaysia": {
-        "flights": 4,
-        "pax": 588
+        "flights": 5,
+        "pax": 735
       },
       "Macau": {
         "flights": 2,
         "pax": 294
       },
       "Taiwan": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Hong Kong": {
         "flights": 1,
         "pax": 147
       }
@@ -202,6 +214,46 @@
       "arr_time": "2026-06-12T14:20",
       "from": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "SQ174",
+      "airline": "Singapore Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-12T15:55",
+      "from": "SIN",
+      "country": "Singapore"
+    },
+    {
+      "fn": "K6840",
+      "airline": "Air Cambodia",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-12T16:00",
+      "from": "SAI",
+      "country": "Other(SAI)"
+    },
+    {
+      "fn": "VJ1580",
+      "airline": "Vietjet Air",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-12T16:10",
+      "from": "CXR",
+      "country": "Vietnam"
+    },
+    {
+      "fn": "CI789",
+      "airline": "China Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-12T16:30",
+      "from": "TPE",
+      "country": "Taiwan"
     }
   ],
   "departures_list": [
@@ -404,6 +456,66 @@
       "arr_time": "",
       "to": "KUL",
       "country": "Malaysia"
+    },
+    {
+      "fn": "KE458",
+      "airline": "Korean Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-12T15:55",
+      "arr_time": "",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "AK641",
+      "airline": "Air Asia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-12T16:05",
+      "arr_time": "",
+      "to": "KUL",
+      "country": "Malaysia"
+    },
+    {
+      "fn": "VN7941",
+      "airline": "Vietnam Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-12T16:10",
+      "arr_time": "",
+      "to": "CXR",
+      "country": "Vietnam"
+    },
+    {
+      "fn": "HX549",
+      "airline": "Hong Kong Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-12T16:20",
+      "arr_time": "",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "PR586",
+      "airline": "Philippine Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-12T16:30",
+      "arr_time": "",
+      "to": "MNL",
+      "country": "Other(MNL)"
+    },
+    {
+      "fn": "K6841",
+      "airline": "Air Cambodia",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-12T16:35",
+      "arr_time": "",
+      "to": "SAI",
+      "country": "Other(SAI)"
     }
   ]
 }
