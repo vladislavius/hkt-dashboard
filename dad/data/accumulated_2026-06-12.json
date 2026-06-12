@@ -1,8 +1,8 @@
 {
   "date": "2026-06-12",
   "arrivals": {
-    "count": 16,
-    "pax": 2352,
+    "count": 19,
+    "pax": 2793,
     "countries": {
       "South Korea": {
         "flights": 4,
@@ -25,22 +25,26 @@
         "pax": 294
       },
       "Thailand": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Vietnam": {
         "flights": 1,
         "pax": 147
       },
       "Taiwan": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
+      },
+      "Macau": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 24,
-    "pax": 3528,
+    "count": 26,
+    "pax": 3822,
     "countries": {
       "Japan": {
         "flights": 2,
@@ -51,8 +55,8 @@
         "pax": 1029
       },
       "Vietnam": {
-        "flights": 2,
-        "pax": 294
+        "flights": 3,
+        "pax": 441
       },
       "Thailand": {
         "flights": 1,
@@ -75,8 +79,8 @@
         "pax": 294
       },
       "Taiwan": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Hong Kong": {
         "flights": 1,
@@ -284,6 +288,36 @@
       "arr_time": "2026-06-12T17:35",
       "from": "TPE",
       "country": "Taiwan"
+    },
+    {
+      "fn": "IT551",
+      "airline": "Tigerair Taiwan",
+      "status": "arrived",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-12T18:55",
+      "from": "TPE",
+      "country": "Taiwan"
+    },
+    {
+      "fn": "VN626",
+      "airline": "Vietnam Airlines",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-12T19:45",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "NX978",
+      "airline": "Air Macau",
+      "status": "bags delivered",
+      "pax": 147,
+      "dep_time": "",
+      "arr_time": "2026-06-12T20:30",
+      "from": "MFM",
+      "country": "Macau"
     }
   ],
   "departures_list": [
@@ -546,6 +580,26 @@
       "arr_time": "",
       "to": "SAI",
       "country": "Other(SAI)"
+    },
+    {
+      "fn": "VN1941",
+      "airline": "Vietnam Airlines",
+      "status": "departed",
+      "pax": 147,
+      "dep_time": "2026-06-12T19:15",
+      "arr_time": "",
+      "to": "CXR",
+      "country": "Vietnam"
+    },
+    {
+      "fn": "IT552",
+      "airline": "Tigerair Taiwan",
+      "status": "delayed",
+      "pax": 147,
+      "dep_time": "2026-06-12T19:45",
+      "arr_time": "",
+      "to": "TPE",
+      "country": "Taiwan"
     }
   ]
 }
