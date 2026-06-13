@@ -1,8 +1,8 @@
 {
   "date": "2026-06-14",
   "arrivals": {
-    "count": 13,
-    "pax": 1911,
+    "count": 15,
+    "pax": 2205,
     "countries": {
       "Hong Kong": {
         "flights": 3,
@@ -23,12 +23,20 @@
       "Malaysia": {
         "flights": 1,
         "pax": 147
+      },
+      "Thailand": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Singapore": {
+        "flights": 1,
+        "pax": 147
       }
     }
   },
   "departures": {
-    "count": 11,
-    "pax": 1617,
+    "count": 15,
+    "pax": 2205,
     "countries": {
       "Singapore": {
         "flights": 1,
@@ -43,6 +51,18 @@
         "pax": 147
       },
       "Malaysia": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Hong Kong": {
+        "flights": 2,
+        "pax": 294
+      },
+      "Thailand": {
+        "flights": 1,
+        "pax": 147
+      },
+      "Vietnam": {
         "flights": 1,
         "pax": 147
       }
@@ -178,6 +198,26 @@
       "arr_time": "2026-06-14T09:40",
       "from": "HKG",
       "country": "Hong Kong"
+    },
+    {
+      "fn": "TVJ 980",
+      "airline": "Thai VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-14T10:40",
+      "arr_time": "2026-06-14T10:40",
+      "from": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "TR 528",
+      "airline": "Scoot",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-14T11:45",
+      "arr_time": "2026-06-14T11:45",
+      "from": "SIN",
+      "country": "Singapore"
     }
   ],
   "departures_list": [
@@ -290,6 +330,46 @@
       "arr_time": "2026-06-14T10:05",
       "to": "KUL",
       "country": "Malaysia"
+    },
+    {
+      "fn": "UO 599",
+      "airline": "HK Express",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-14T10:40",
+      "arr_time": "2026-06-14T10:40",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "TVJ 981",
+      "airline": "Thai VietJet Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-14T11:45",
+      "arr_time": "2026-06-14T11:45",
+      "to": "BKK",
+      "country": "Thailand"
+    },
+    {
+      "fn": "9G 502",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-14T11:55",
+      "arr_time": "2026-06-14T11:55",
+      "to": "HKG",
+      "country": "Hong Kong"
+    },
+    {
+      "fn": "9G 2952",
+      "airline": "Sun PhuQuoc Airways",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-14T12:15",
+      "arr_time": "2026-06-14T12:15",
+      "to": "CXR",
+      "country": "Vietnam"
     }
   ]
 }
