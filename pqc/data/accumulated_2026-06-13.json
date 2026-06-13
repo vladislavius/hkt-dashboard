@@ -1,20 +1,20 @@
 {
   "date": "2026-06-13",
   "arrivals": {
-    "count": 21,
-    "pax": 3087,
+    "count": 23,
+    "pax": 3381,
     "countries": {
       "Hong Kong": {
         "flights": 3,
         "pax": 441
       },
       "China": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "South Korea": {
-        "flights": 7,
-        "pax": 1029
+        "flights": 8,
+        "pax": 1176
       },
       "Malaysia": {
         "flights": 2,
@@ -39,8 +39,8 @@
     }
   },
   "departures": {
-    "count": 20,
-    "pax": 2940,
+    "count": 21,
+    "pax": 3087,
     "countries": {
       "Singapore": {
         "flights": 2,
@@ -51,8 +51,8 @@
         "pax": 441
       },
       "South Korea": {
-        "flights": 6,
-        "pax": 882
+        "flights": 7,
+        "pax": 1029
       },
       "China": {
         "flights": 1,
@@ -100,7 +100,7 @@
     {
       "fn": "KE 485",
       "airline": "Korean Air",
-      "status": "arrived on-time",
+      "status": "on-time",
       "pax": 147,
       "dep_time": "2026-06-13T22:40",
       "arr_time": "2026-06-13T22:50",
@@ -240,7 +240,7 @@
     {
       "fn": "TVJ 982",
       "airline": "Thai VietJet Air",
-      "status": "arrived on-time",
+      "status": "arrived 20 minutes late",
       "pax": 147,
       "dep_time": "2026-06-13T15:55",
       "arr_time": "2026-06-13T15:55",
@@ -250,7 +250,7 @@
     {
       "fn": "VJC 845",
       "airline": "VietJet Air",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-06-13T16:50",
       "arr_time": "2026-06-13T16:50",
@@ -306,6 +306,26 @@
       "arr_time": "2026-06-13T21:25",
       "from": "ICN",
       "country": "South Korea"
+    },
+    {
+      "fn": "ZE 981",
+      "airline": "Eastar Jet",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-13T22:25",
+      "arr_time": "2026-06-13T22:25",
+      "from": "PUS",
+      "country": "South Korea"
+    },
+    {
+      "fn": "MU 6033",
+      "airline": "China Eastern Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-13T23:05",
+      "arr_time": "2026-06-13T00:05",
+      "from": "PVG",
+      "country": "China"
     }
   ],
   "departures_list": [
@@ -526,6 +546,16 @@
       "pax": 147,
       "dep_time": "2026-06-13T22:00",
       "arr_time": "2026-06-13T22:00",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "7C 2316",
+      "airline": "Jeju Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-13T22:25",
+      "arr_time": "2026-06-13T22:25",
       "to": "ICN",
       "country": "South Korea"
     }
