@@ -39,8 +39,8 @@
     }
   },
   "departures": {
-    "count": 22,
-    "pax": 3234,
+    "count": 24,
+    "pax": 3528,
     "countries": {
       "Singapore": {
         "flights": 2,
@@ -51,12 +51,12 @@
         "pax": 441
       },
       "South Korea": {
-        "flights": 8,
-        "pax": 1176
+        "flights": 9,
+        "pax": 1323
       },
       "China": {
-        "flights": 1,
-        "pax": 147
+        "flights": 2,
+        "pax": 294
       },
       "Malaysia": {
         "flights": 2,
@@ -270,7 +270,7 @@
     {
       "fn": "VJC 985",
       "airline": "VietJet Air",
-      "status": "on-time",
+      "status": "arrived 80 minutes late",
       "pax": 147,
       "dep_time": "2026-06-13T18:25",
       "arr_time": "2026-06-13T18:25",
@@ -280,7 +280,7 @@
     {
       "fn": "9G 511",
       "airline": "Sun PhuQuoc Airways",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-06-13T20:25",
       "arr_time": "2026-06-13T20:25",
@@ -290,7 +290,7 @@
     {
       "fn": "LJ 91",
       "airline": "Jin Air",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-06-13T21:38",
       "arr_time": "2026-06-13T21:00",
@@ -300,7 +300,7 @@
     {
       "fn": "7C 2315",
       "airline": "Jeju Air",
-      "status": "on-time",
+      "status": "arrived on-time",
       "pax": 147,
       "dep_time": "2026-06-13T21:25",
       "arr_time": "2026-06-13T21:25",
@@ -578,6 +578,26 @@
       "arr_time": "2026-06-13T23:25",
       "to": "PUS",
       "country": "South Korea"
+    },
+    {
+      "fn": "FGW 208",
+      "airline": "Parata Air",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-13T01:00",
+      "arr_time": "2026-06-13T01:00",
+      "to": "ICN",
+      "country": "South Korea"
+    },
+    {
+      "fn": "MU 6034",
+      "airline": "China Eastern Airlines",
+      "status": "on-time",
+      "pax": 147,
+      "dep_time": "2026-06-13T01:05",
+      "arr_time": "2026-06-13T01:05",
+      "to": "PVG",
+      "country": "China"
     }
   ]
 }
