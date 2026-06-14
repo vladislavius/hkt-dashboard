@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-14T14:09:14.595273+07:00",
+  "updated": "2026-06-14T15:34:49.354307+07:00",
   "available_dates": [
     "2026-04-21",
     "2026-04-22",
@@ -794,13 +794,18 @@
   },
   "today": {
     "arrivals": {
-      "count": 12,
-      "pax": 1764,
+      "count": 15,
+      "pax": 2205,
       "all": [
         {
           "name": "South Korea",
-          "flights": 4,
-          "pax": 588
+          "flights": 6,
+          "pax": 882
+        },
+        {
+          "name": "Malaysia",
+          "flights": 2,
+          "pax": 294
         },
         {
           "name": "Красноярск",
@@ -813,11 +818,6 @@
           "flights": 1,
           "pax": 147,
           "country": "Russia"
-        },
-        {
-          "name": "Malaysia",
-          "flights": 1,
-          "pax": 147
         },
         {
           "name": "Hong Kong",
@@ -847,8 +847,8 @@
       ]
     },
     "departures": {
-      "count": 16,
-      "pax": 2352,
+      "count": 17,
+      "pax": 2499,
       "all": [
         {
           "name": "South Korea",
@@ -877,6 +877,11 @@
         },
         {
           "name": "Taiwan",
+          "flights": 1,
+          "pax": 147
+        },
+        {
+          "name": "Laos",
           "flights": 1,
           "pax": 147
         }
@@ -1012,6 +1017,36 @@
         "arr_time": "2026-06-14T12:40",
         "from": "VTE",
         "country": "Laos"
+      },
+      {
+        "fn": "MH748",
+        "airline": "Malaysia Airlines",
+        "status": "bags delivered",
+        "pax": 147,
+        "dep_time": "",
+        "arr_time": "2026-06-14T13:40",
+        "from": "KUL",
+        "country": "Malaysia"
+      },
+      {
+        "fn": "VN431",
+        "airline": "Vietnam Airlines",
+        "status": "bags delivered",
+        "pax": 147,
+        "dep_time": "",
+        "arr_time": "2026-06-14T13:50",
+        "from": "ICN",
+        "country": "South Korea"
+      },
+      {
+        "fn": "KE457",
+        "airline": "Korean Airlines",
+        "status": "bags delivered",
+        "pax": 147,
+        "dep_time": "",
+        "arr_time": "2026-06-14T14:20",
+        "from": "ICN",
+        "country": "South Korea"
       }
     ],
     "departures_list": [
@@ -1184,28 +1219,48 @@
         "arr_time": "",
         "to": "TPE",
         "country": "Taiwan"
+      },
+      {
+        "fn": "QV318",
+        "airline": "Lao Airlines",
+        "status": "departed",
+        "pax": 147,
+        "dep_time": "2026-06-14T13:50",
+        "arr_time": "",
+        "to": "VTE",
+        "country": "Laos"
+      },
+      {
+        "fn": "PR586",
+        "airline": "Philippine Airlines",
+        "status": "departed",
+        "pax": 147,
+        "dep_time": "2026-06-14T14:10",
+        "arr_time": "",
+        "to": "MNL",
+        "country": "Other(MNL)"
       }
     ]
   },
   "week": {
     "arrivals": {
-      "count": 150,
-      "pax": 22050,
+      "count": 153,
+      "pax": 22491,
       "all": [
         {
           "name": "South Korea",
-          "flights": 34,
-          "pax": 4998
+          "flights": 36,
+          "pax": 5292
+        },
+        {
+          "name": "Malaysia",
+          "flights": 20,
+          "pax": 2940
         },
         {
           "name": "Thailand",
           "flights": 20,
           "pax": 2940
-        },
-        {
-          "name": "Malaysia",
-          "flights": 19,
-          "pax": 2793
         },
         {
           "name": "Singapore",
@@ -1279,8 +1334,8 @@
       ]
     },
     "departures": {
-      "count": 183,
-      "pax": 26901,
+      "count": 184,
+      "pax": 27048,
       "all": [
         {
           "name": "South Korea",
@@ -1336,6 +1391,11 @@
           "name": "Myanmar",
           "flights": 2,
           "pax": 294
+        },
+        {
+          "name": "Laos",
+          "flights": 1,
+          "pax": 147
         },
         {
           "name": "Красноярск",
@@ -1785,11 +1845,11 @@
       {
         "date": "2026-06-14",
         "label": "Вс 14.06",
-        "arrivals": 12,
-        "departures": 16,
+        "arrivals": 15,
+        "departures": 17,
         "arrivals_by": {
           "South Korea": {
-            "n": 4
+            "n": 6
           },
           "Красноярск": {
             "n": 1,
@@ -1800,7 +1860,7 @@
             "country": "Russia"
           },
           "Malaysia": {
-            "n": 1
+            "n": 2
           },
           "Hong Kong": {
             "n": 1
@@ -1836,6 +1896,9 @@
           },
           "Taiwan": {
             "n": 1
+          },
+          "Laos": {
+            "n": 1
           }
         }
       }
@@ -1843,13 +1906,13 @@
   },
   "month": {
     "arrivals": {
-      "count": 1133,
-      "pax": 166551,
+      "count": 1136,
+      "pax": 166992,
       "all": [
         {
           "name": "South Korea",
-          "flights": 258,
-          "pax": 37926
+          "flights": 260,
+          "pax": 38220
         },
         {
           "name": "Thailand",
@@ -1858,8 +1921,8 @@
         },
         {
           "name": "Malaysia",
-          "flights": 117,
-          "pax": 17199
+          "flights": 118,
+          "pax": 17346
         },
         {
           "name": "Singapore",
@@ -1994,8 +2057,8 @@
       ]
     },
     "departures": {
-      "count": 1179,
-      "pax": 173313,
+      "count": 1180,
+      "pax": 173460,
       "all": [
         {
           "name": "South Korea",
@@ -2073,14 +2136,14 @@
           "pax": 1176
         },
         {
-          "name": "Other(KHH)",
+          "name": "Laos",
           "flights": 7,
           "pax": 1029
         },
         {
-          "name": "Laos",
-          "flights": 6,
-          "pax": 882
+          "name": "Other(KHH)",
+          "flights": 7,
+          "pax": 1029
         },
         {
           "name": "Other(CJJ)",
@@ -2623,14 +2686,14 @@
       {
         "key": "2026-W24",
         "label": "Нед 24 (Июн)",
-        "arrivals": 150,
-        "departures": 183,
+        "arrivals": 153,
+        "departures": 184,
         "arrivals_by": {
           "South Korea": {
-            "n": 34
+            "n": 36
           },
           "Malaysia": {
-            "n": 19
+            "n": 20
           },
           "Singapore": {
             "n": 19
@@ -2724,6 +2787,9 @@
           "Красноярск": {
             "n": 1,
             "country": "Russia"
+          },
+          "Laos": {
+            "n": 1
           }
         }
       }
@@ -2731,13 +2797,13 @@
   },
   "quarter": {
     "arrivals": {
-      "count": 1979,
-      "pax": 290913,
+      "count": 1982,
+      "pax": 291354,
       "all": [
         {
           "name": "South Korea",
-          "flights": 453,
-          "pax": 66591
+          "flights": 455,
+          "pax": 66885
         },
         {
           "name": "Thailand",
@@ -2746,8 +2812,8 @@
         },
         {
           "name": "Malaysia",
-          "flights": 210,
-          "pax": 30870
+          "flights": 211,
+          "pax": 31017
         },
         {
           "name": "Hong Kong",
@@ -2898,8 +2964,8 @@
       ]
     },
     "departures": {
-      "count": 2086,
-      "pax": 306642,
+      "count": 2087,
+      "pax": 306789,
       "all": [
         {
           "name": "South Korea",
@@ -2988,8 +3054,8 @@
         },
         {
           "name": "Laos",
-          "flights": 10,
-          "pax": 1470
+          "flights": 11,
+          "pax": 1617
         },
         {
           "name": "Other(RMQ)",
@@ -3392,14 +3458,14 @@
       {
         "key": "2026-06",
         "label": "Июн 2026",
-        "arrivals": 309,
-        "departures": 373,
+        "arrivals": 312,
+        "departures": 374,
         "arrivals_by": {
           "South Korea": {
-            "n": 68
+            "n": 70
           },
           "Malaysia": {
-            "n": 36
+            "n": 37
           },
           "Singapore": {
             "n": 39
@@ -3491,7 +3557,7 @@
             "n": 15
           },
           "Laos": {
-            "n": 2
+            "n": 3
           },
           "Казань": {
             "n": 1,
@@ -3514,13 +3580,13 @@
   },
   "halfyear": {
     "arrivals": {
-      "count": 1979,
-      "pax": 290913,
+      "count": 1982,
+      "pax": 291354,
       "all": [
         {
           "name": "South Korea",
-          "flights": 453,
-          "pax": 66591
+          "flights": 455,
+          "pax": 66885
         },
         {
           "name": "Thailand",
@@ -3529,8 +3595,8 @@
         },
         {
           "name": "Malaysia",
-          "flights": 210,
-          "pax": 30870
+          "flights": 211,
+          "pax": 31017
         },
         {
           "name": "Hong Kong",
@@ -3681,8 +3747,8 @@
       ]
     },
     "departures": {
-      "count": 2086,
-      "pax": 306642,
+      "count": 2087,
+      "pax": 306789,
       "all": [
         {
           "name": "South Korea",
@@ -3771,8 +3837,8 @@
         },
         {
           "name": "Laos",
-          "flights": 10,
-          "pax": 1470
+          "flights": 11,
+          "pax": 1617
         },
         {
           "name": "Other(RMQ)",
@@ -4175,14 +4241,14 @@
       {
         "key": "2026-06",
         "label": "Июн 2026",
-        "arrivals": 309,
-        "departures": 373,
+        "arrivals": 312,
+        "departures": 374,
         "arrivals_by": {
           "South Korea": {
-            "n": 68
+            "n": 70
           },
           "Malaysia": {
-            "n": 36
+            "n": 37
           },
           "Singapore": {
             "n": 39
@@ -4274,7 +4340,7 @@
             "n": 15
           },
           "Laos": {
-            "n": 2
+            "n": 3
           },
           "Казань": {
             "n": 1,
@@ -4297,13 +4363,13 @@
   },
   "year": {
     "arrivals": {
-      "count": 1979,
-      "pax": 290913,
+      "count": 1982,
+      "pax": 291354,
       "all": [
         {
           "name": "South Korea",
-          "flights": 453,
-          "pax": 66591
+          "flights": 455,
+          "pax": 66885
         },
         {
           "name": "Thailand",
@@ -4312,8 +4378,8 @@
         },
         {
           "name": "Malaysia",
-          "flights": 210,
-          "pax": 30870
+          "flights": 211,
+          "pax": 31017
         },
         {
           "name": "Hong Kong",
@@ -4464,8 +4530,8 @@
       ]
     },
     "departures": {
-      "count": 2086,
-      "pax": 306642,
+      "count": 2087,
+      "pax": 306789,
       "all": [
         {
           "name": "South Korea",
@@ -4554,8 +4620,8 @@
         },
         {
           "name": "Laos",
-          "flights": 10,
-          "pax": 1470
+          "flights": 11,
+          "pax": 1617
         },
         {
           "name": "Other(RMQ)",
@@ -4958,14 +5024,14 @@
       {
         "key": "2026-06",
         "label": "Июн 2026",
-        "arrivals": 309,
-        "departures": 373,
+        "arrivals": 312,
+        "departures": 374,
         "arrivals_by": {
           "South Korea": {
-            "n": 68
+            "n": 70
           },
           "Malaysia": {
-            "n": 36
+            "n": 37
           },
           "Singapore": {
             "n": 39
@@ -5057,7 +5123,7 @@
             "n": 15
           },
           "Laos": {
-            "n": 2
+            "n": 3
           },
           "Казань": {
             "n": 1,
